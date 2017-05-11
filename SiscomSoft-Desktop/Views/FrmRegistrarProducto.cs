@@ -92,7 +92,7 @@ namespace SiscomSoft_Desktop.Views
                 nProducto.sDescripcion = txtDescripcion.Text;
                 nProducto.sCategoria = txtCategoria.Text;
                 nProducto.sMarca = txtMarca.Text;
-                nProducto.sUnidadMed = txtUnidadMedida;
+                nProducto.sUnidadMed = txtUnidadMedida.Text;
                 nProducto.dPrecio = Convert.ToDecimal(txtPrecio.Text);
                 nProducto.dCosto = Convert.ToDecimal(txtCosto.Text);
                 int fkImpuesto = Convert.ToInt32(cbxImpuesto.SelectedValue.ToString());
@@ -101,7 +101,7 @@ namespace SiscomSoft_Desktop.Views
 
                 ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto);
 
-                MessageBox.Show("¡Usuario Registrado!");
+                MessageBox.Show("¡Producto Registrado!");
                 txtDescripcion.Clear();
                 txtCategoria.Clear();
                 txtUnidadMedida.Clear();

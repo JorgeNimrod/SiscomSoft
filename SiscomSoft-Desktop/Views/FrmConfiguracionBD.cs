@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class FrmActualizarSucursal : Form
+    public partial class FrmConfiguracionBD : Form
     {
-        public FrmActualizarSucursal()
+        public FrmConfiguracionBD()
         {
             InitializeComponent();
         }
 
-        private void FrmActualizarSucursal_Load(object sender, EventArgs e)
+        private void FrmConfiguracionBD_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }

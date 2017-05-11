@@ -73,11 +73,11 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtNombre, "Campo necesario");
                 this.txtNombre.Focus();
             }
-            else if (this.txtPais.Text == "")
+            else if (this.cbxPais.Text == "Seleccione Una Opcion")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtPais, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtPais, "Campo necesario");
-                this.txtPais.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxPais, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxPais, "Favor de Seleccionar una opcion");
+                this.cbxPais.Focus();
             }
             else if (this.txtCodigoPostal.Text == "")
             {
@@ -145,11 +145,11 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtCorreo, "Campo necesario");
                 this.txtCorreo.Focus();
             }
-            else if (this.txtEstadoCliente.Text == "")
+            else if (this.cbxEstadoCli.Text == "Seleccione Una Opcion")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtEstadoCliente, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtEstadoCliente, "Campo necesario");
-                this.txtEstadoCliente.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxEstadoCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxEstadoCli, "Favor de Seleccionar una Opcion");
+                this.cbxEstadoCli.Focus();
             }
             else if (this.txtReferencia.Text == "")
             {
@@ -193,7 +193,7 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.iPersona = Convert.ToInt32(txtPersona.Text);
                 nCliente.sCurp = txtCurp.Text;
                 nCliente.sNombre = txtNombre.Text;
-                nCliente.sPais = txtPais.Text;
+                nCliente.sPais = cbxPais.Text;
                 nCliente.iCodPostal = Convert.ToInt32(txtCodigoPostal.Text);
                 nCliente.sEstado = txtEstado.Text;
                 nCliente.sMunicipio = txtMunicipio.Text;
@@ -205,7 +205,7 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.sTelFijo = txtTelFijo.Text;
                 nCliente.sTelMovil = txtTelMvil.Text;
                 nCliente.sCorreo = txtCorreo.Text;
-                nCliente.sEstCliente = txtEstadoCliente.Text;
+                nCliente.sEstCliente = cbxEstadoCli.Text;
                 nCliente.sReferencia = txtReferencia.Text;
                 nCliente.sTipoPAgo = cbxMetodoPago.Text;
                 nCliente.iNumCuenta = Convert.ToInt32(txtNumCuenta.Text);
@@ -225,7 +225,7 @@ namespace SiscomSoft_Desktop.Views
                 txtPersona.Clear();
                 txtCurp.Clear();
                 txtNombre.Clear();
-                txtPais.Clear();
+                
                 txtCodigoPostal.Clear();
                 txtEstado.Clear();
                 txtMunicipio.Clear();
@@ -237,7 +237,7 @@ namespace SiscomSoft_Desktop.Views
                 txtTelFijo.Clear();
                 txtTelMvil.Clear();
                 txtCorreo.Clear();
-                txtEstadoCliente.Clear();
+              
                 txtReferencia.Clear();
                 txtNumCuenta.Clear();
                 txtCondicionesPago.Clear();
@@ -504,6 +504,30 @@ namespace SiscomSoft_Desktop.Views
         private void txtCorreo_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
+        }
+
+        private void txtCurp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -73,6 +73,16 @@ namespace SiscomSoft_Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap All_reports {
+            get {
+                object obj = ResourceManager.GetObject("All_reports", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Catal {
             get {
                 object obj = ResourceManager.GetObject("Catal", resourceCulture);

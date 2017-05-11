@@ -37,7 +37,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtPersona = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtPais = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,7 +62,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtReferencia = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtEstadoCliente = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtNumCuenta = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -75,14 +73,16 @@
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.pcbLogo = new System.Windows.Forms.PictureBox();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.cbxTipoCliente = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
+            this.cbxPais = new System.Windows.Forms.ComboBox();
+            this.pcbLogo = new System.Windows.Forms.PictureBox();
+            this.cbxEstadoCli = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -128,6 +128,7 @@
             this.txtCurp.Size = new System.Drawing.Size(282, 24);
             this.txtCurp.TabIndex = 7;
             this.txtCurp.TextChanged += new System.EventHandler(this.txtCurp_TextChanged);
+            this.txtCurp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCurp_KeyPress);
             // 
             // label3
             // 
@@ -156,14 +157,6 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Persona :";
             this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // txtPais
-            // 
-            this.txtPais.Location = new System.Drawing.Point(469, 95);
-            this.txtPais.Name = "txtPais";
-            this.txtPais.Size = new System.Drawing.Size(282, 24);
-            this.txtPais.TabIndex = 11;
-            this.txtPais.TextChanged += new System.EventHandler(this.txtPais_TextChanged);
             // 
             // label5
             // 
@@ -391,14 +384,6 @@
             this.label17.Text = "Referencia :";
             this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
-            // txtEstadoCliente
-            // 
-            this.txtEstadoCliente.Location = new System.Drawing.Point(130, 355);
-            this.txtEstadoCliente.Name = "txtEstadoCliente";
-            this.txtEstadoCliente.Size = new System.Drawing.Size(184, 24);
-            this.txtEstadoCliente.TabIndex = 33;
-            this.txtEstadoCliente.TextChanged += new System.EventHandler(this.txtEstadoCliente_TextChanged);
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -520,17 +505,6 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // pcbLogo
-            // 
-            this.pcbLogo.Location = new System.Drawing.Point(15, 467);
-            this.pcbLogo.Name = "pcbLogo";
-            this.pcbLogo.Size = new System.Drawing.Size(167, 113);
-            this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbLogo.TabIndex = 46;
-            this.pcbLogo.TabStop = false;
-            this.pcbLogo.Tag = "2";
-            this.pcbLogo.Click += new System.EventHandler(this.pcbLogo_Click);
-            // 
             // ErrorProvider
             // 
             this.ErrorProvider.ContainerControl = this;
@@ -574,11 +548,241 @@
             this.cbxTipoCliente.Text = "Seleccione Una Opcion";
             this.cbxTipoCliente.SelectedIndexChanged += new System.EventHandler(this.cbxTipoCliente_SelectedIndexChanged);
             // 
+            // cbxPais
+            // 
+            this.cbxPais.FormattingEnabled = true;
+            this.cbxPais.Items.AddRange(new object[] {
+            "Afganistán",
+            "Albania",
+            "Alemania",
+            "Andorra",
+            "Angola",
+            "Antigua y Barbuda",
+            "Arabia Saudita",
+            "Argelia",
+            "Argentina",
+            "Armenia",
+            "Australia",
+            "Austria",
+            "Azerbaiyán",
+            "Bahamas",
+            "Bangladés",
+            "Barbados",
+            "Baréin",
+            "Bélgica",
+            "Belice",
+            "Benín",
+            "Bielorrusia",
+            "Birmania",
+            "Bolivia",
+            "Bosnia y Herzegovina",
+            "Botsuana",
+            "Brasil",
+            "Brunéi",
+            "Bulgaria",
+            "Burkina Faso",
+            "Burundi",
+            "Bután",
+            "Cabo Verde",
+            "Camboya",
+            "Camerún",
+            "Canadá",
+            "Catar",
+            "Chad",
+            "Chile",
+            "China",
+            "Chipre",
+            "Ciudad del Vaticano",
+            "Colombia",
+            "Comoras",
+            "Corea del Norte",
+            "Corea del Sur",
+            "Costa de Marfil",
+            "Costa Rica",
+            "Croacia",
+            "Cuba",
+            "Dinamarca",
+            "Dominica",
+            "Ecuador",
+            "Egipto",
+            "El Salvador",
+            "Emiratos Árabes Unidos",
+            "Eritrea",
+            "Eslovaquia",
+            "Eslovenia",
+            "España",
+            "Estados Unidos",
+            "Estonia",
+            "Etiopía",
+            "Filipinas",
+            "Finlandia",
+            "Fiyi",
+            "Francia",
+            "Gabón",
+            "Gambia",
+            "Georgia",
+            "Ghana",
+            "Granada",
+            "Grecia",
+            "Guatemala",
+            "Guyana",
+            "Guinea",
+            "Guinea ecuatorial",
+            "Guinea-Bisáu",
+            "Haití",
+            "Honduras",
+            "Hungría",
+            "India",
+            "Indonesia",
+            "Irak",
+            "Irán",
+            "Irlanda",
+            "Islandia",
+            "Islas Marshall",
+            "Islas Salomón",
+            "Israel",
+            "Italia",
+            "Jamaica",
+            "Japón",
+            "Jordania",
+            "Kazajistán",
+            "Kenia",
+            "Kirguistán",
+            "Kiribati",
+            "Kuwait",
+            "Laos",
+            "Lesoto",
+            "Letonia",
+            "Líbano",
+            "Liberia",
+            "Libia",
+            "Liechtenstein",
+            "Lituania",
+            "Luxemburgo",
+            "Madagascar",
+            "Malasia",
+            "Malaui",
+            "Maldivas",
+            "Malí",
+            "Malta",
+            "Marruecos",
+            "Mauricio",
+            "Mauritania",
+            "México",
+            "Micronesia",
+            "Moldavia",
+            "Mónaco",
+            "Mongolia",
+            "Montenegro",
+            "Mozambique",
+            "Namibia",
+            "Nauru",
+            "Nepal",
+            "Nicaragua",
+            "Níger",
+            "Nigeria",
+            "Noruega",
+            "Nueva Zelanda",
+            "Omán",
+            "Países Bajos",
+            "Pakistán",
+            "Palaos",
+            "Panamá",
+            "Papúa Nueva Guinea",
+            "Paraguay",
+            "Perú",
+            "Polonia",
+            "Portugal",
+            "Reino Unido",
+            "República Centroafricana",
+            "República Checa",
+            "República de Macedonia",
+            "República del Congo",
+            "República Democrática del Congo",
+            "República Dominicana",
+            "República Sudafricana",
+            "Ruanda",
+            "Rumanía",
+            "Rusia",
+            "Samoa",
+            "San Cristóbal y Nieves",
+            "San Marino",
+            "San Vicente y las Granadinas",
+            "Santa Lucía",
+            "Santo Tomé y Príncipe",
+            "Senegal",
+            "Serbia",
+            "Seychelles",
+            "Sierra Leona",
+            "Singapur",
+            "Siria",
+            "Somalia",
+            "Sri Lanka",
+            "Suazilandia",
+            "Sudán",
+            "Sudán del Sur",
+            "Suecia",
+            "Suiza",
+            "Surinam",
+            "Tailandia",
+            "Tanzania",
+            "Tayikistán",
+            "Timor Oriental",
+            "Togo",
+            "Tonga",
+            "Trinidad y Tobago",
+            "Túnez",
+            "Turkmenistán",
+            "Turquía",
+            "Tuvalu",
+            "Ucrania",
+            "Uganda",
+            "Uruguay",
+            "Uzbekistán",
+            "Vanuatu",
+            "Venezuela",
+            "Vietnam",
+            "Yemen",
+            "Yibuti",
+            "Zambia",
+            "Zimbabue"});
+            this.cbxPais.Location = new System.Drawing.Point(469, 101);
+            this.cbxPais.Name = "cbxPais";
+            this.cbxPais.Size = new System.Drawing.Size(282, 26);
+            this.cbxPais.TabIndex = 56;
+            // 
+            // pcbLogo
+            // 
+            this.pcbLogo.Location = new System.Drawing.Point(15, 467);
+            this.pcbLogo.Name = "pcbLogo";
+            this.pcbLogo.Size = new System.Drawing.Size(167, 113);
+            this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbLogo.TabIndex = 46;
+            this.pcbLogo.TabStop = false;
+            this.pcbLogo.Tag = "2";
+            this.pcbLogo.Click += new System.EventHandler(this.pcbLogo_Click);
+            // 
+            // cbxEstadoCli
+            // 
+            this.cbxEstadoCli.FormattingEnabled = true;
+            this.cbxEstadoCli.Items.AddRange(new object[] {
+            "Activo",
+            "Baja",
+            "Suspendido",
+            "Otro(a)"});
+            this.cbxEstadoCli.Location = new System.Drawing.Point(131, 355);
+            this.cbxEstadoCli.Name = "cbxEstadoCli";
+            this.cbxEstadoCli.Size = new System.Drawing.Size(183, 26);
+            this.cbxEstadoCli.TabIndex = 57;
+            this.cbxEstadoCli.Text = "Seleccione Una Opcion";
+            // 
             // FrmRegistrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 635);
+            this.Controls.Add(this.cbxEstadoCli);
+            this.Controls.Add(this.cbxPais);
             this.Controls.Add(this.cbxTipoCliente);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.txtCorreo);
@@ -596,7 +800,6 @@
             this.Controls.Add(this.label20);
             this.Controls.Add(this.txtReferencia);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.txtEstadoCliente);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.txtTelMvil);
             this.Controls.Add(this.label15);
@@ -618,7 +821,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtCodigoPostal);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtPais);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label6);
@@ -637,8 +839,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Cliente";
             this.Load += new System.EventHandler(this.FrmRegistrarCliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -654,7 +856,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtPersona;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtPais;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label6;
@@ -680,7 +881,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtReferencia;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox txtEstadoCliente;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtNumCuenta;
         private System.Windows.Forms.Label label19;
@@ -698,5 +898,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox cbxTipoCliente;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox cbxPais;
+        private System.Windows.Forms.ComboBox cbxEstadoCli;
     }
 }

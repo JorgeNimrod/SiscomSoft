@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.cbxImpuesto = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtEstatus = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtCosto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -46,6 +45,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -56,6 +57,7 @@
             this.btnCancelar.TabIndex = 72;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnActualizar
             // 
@@ -83,22 +85,6 @@
             this.label8.Size = new System.Drawing.Size(77, 18);
             this.label8.TabIndex = 69;
             this.label8.Text = "Impuesto :";
-            // 
-            // txtEstatus
-            // 
-            this.txtEstatus.Location = new System.Drawing.Point(454, 108);
-            this.txtEstatus.Name = "txtEstatus";
-            this.txtEstatus.Size = new System.Drawing.Size(211, 24);
-            this.txtEstatus.TabIndex = 68;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(359, 114);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 18);
-            this.label7.TabIndex = 67;
-            this.label7.Text = "Estatus :";
             // 
             // txtCosto
             // 
@@ -182,20 +168,24 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(454, 155);
+            this.txtDescripcion.Location = new System.Drawing.Point(442, 105);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(211, 65);
+            this.txtDescripcion.Size = new System.Drawing.Size(223, 65);
             this.txtDescripcion.TabIndex = 56;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(341, 161);
+            this.label1.Location = new System.Drawing.Point(340, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 18);
             this.label1.TabIndex = 55;
             this.label1.Text = "Descripcion :";
+            // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
             // 
             // FrmActualizarProducto
             // 
@@ -206,8 +196,6 @@
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.cbxImpuesto);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtEstatus);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtCosto);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPrecio);
@@ -227,6 +215,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Actualizar Producto";
             this.Load += new System.EventHandler(this.FrmActualizarProducto_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,8 +227,6 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.ComboBox cbxImpuesto;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtEstatus;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCosto;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrecio;
@@ -252,5 +239,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SiscomSoft.Models;
 using SiscomSoft_Desktop.Controller;
 using SiscomSoft_Desktop.Comun;
+using System.Text.RegularExpressions;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -45,6 +46,26 @@ namespace SiscomSoft_Desktop.Views
 
             cbxRol.SelectedIndex = indexrol;
         }
+        public static bool ValidarEmail(string email)
+        {
+            string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -68,12 +89,7 @@ namespace SiscomSoft_Desktop.Views
                     this.ErrorProvider.SetError(this.txtNombre, "Campo necesario");
                     this.txtNombre.Focus();
                 }
-                else if (this.txtPerfil.Text == "")
-                {
-                    this.ErrorProvider.SetIconAlignment(this.txtPerfil, ErrorIconAlignment.MiddleRight);
-                    this.ErrorProvider.SetError(this.txtPerfil, "Campo necesario");
-                    this.txtPerfil.Focus();
-                }
+            
                 else if (this.txtContraseña.Text == "")
                 {
                     this.ErrorProvider.SetIconAlignment(this.txtContraseña, ErrorIconAlignment.MiddleRight);
@@ -117,7 +133,7 @@ namespace SiscomSoft_Desktop.Views
                     nUsuario.sRfc = txtRFC.Text;
                     nUsuario.sUsuario = txtUsuario.Text;
                     nUsuario.sNombre = txtNombre.Text;
-                    nUsuario.sPerfil = txtPerfil.Text;
+                  
                    
                     nUsuario.sContrasena = LoginTool.GetMD5(txtContraseña.Text);
                     nUsuario.sNumero = txtTelefono.Text;
@@ -133,7 +149,7 @@ namespace SiscomSoft_Desktop.Views
                     txtRFC.Clear();
                     txtUsuario.Clear();
                     txtNombre.Clear();
-                    txtPerfil.Clear();
+                  
                     txtContraseña.Clear();
                     txtTelefono.Clear();
                     txtCorreo.Clear();
@@ -190,6 +206,16 @@ namespace SiscomSoft_Desktop.Views
         private void txtComentario_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
+        }
+
+        private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
         }
     }
 }
