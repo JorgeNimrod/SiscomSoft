@@ -85,5 +85,11 @@ namespace SiscomSoft_Desktop.Views
             FrmRegistrarProducto Producto = new FrmRegistrarProducto();
             Producto.Show();
         }
+
+        private void conexionABaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConfiguracionBD Config = new FrmConfiguracionBD();
+            Config.Show();
+        }
     }
 }

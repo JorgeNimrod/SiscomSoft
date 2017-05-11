@@ -40,7 +40,7 @@
             this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iUnidadMed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sUnidadMed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fkImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +60,7 @@
             // lblRegistros
             // 
             this.lblRegistros.AutoSize = true;
-            this.lblRegistros.Location = new System.Drawing.Point(538, 351);
+            this.lblRegistros.Location = new System.Drawing.Point(746, 351);
             this.lblRegistros.Name = "lblRegistros";
             this.lblRegistros.Size = new System.Drawing.Size(68, 18);
             this.lblRegistros.TabIndex = 29;
@@ -77,6 +77,7 @@
             this.ckbStatus.TabIndex = 28;
             this.ckbStatus.Text = "Status";
             this.ckbStatus.UseVisualStyleBackColor = true;
+            this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
             // 
             // txtBuscarProducto
             // 
@@ -84,6 +85,7 @@
             this.txtBuscarProducto.Name = "txtBuscarProducto";
             this.txtBuscarProducto.Size = new System.Drawing.Size(583, 24);
             this.txtBuscarProducto.TabIndex = 26;
+            this.txtBuscarProducto.TextChanged += new System.EventHandler(this.txtBuscarProducto_TextChanged);
             // 
             // label1
             // 
@@ -112,6 +114,7 @@
             this.btnActualizar.TabIndex = 34;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
             // 
             // dgvDatosProducto
             // 
@@ -121,7 +124,7 @@
             this.sDescripcion,
             this.sCategoria,
             this.sMarca,
-            this.iUnidadMed,
+            this.sUnidadMed,
             this.dPrecio,
             this.dCosto,
             this.fkImpuesto});
@@ -155,11 +158,11 @@
             this.sMarca.HeaderText = "Marca";
             this.sMarca.Name = "sMarca";
             // 
-            // iUnidadMed
+            // sUnidadMed
             // 
-            this.iUnidadMed.DataPropertyName = "iUnidadMed";
-            this.iUnidadMed.HeaderText = "Unidad de medida";
-            this.iUnidadMed.Name = "iUnidadMed";
+            this.sUnidadMed.DataPropertyName = "sUnidadMed";
+            this.sUnidadMed.HeaderText = "Unidad de medida";
+            this.sUnidadMed.Name = "sUnidadMed";
             // 
             // dPrecio
             // 
@@ -175,7 +178,7 @@
             // 
             // fkImpuesto
             // 
-            this.fkImpuesto.DataPropertyName = "fkImpuesto";
+            this.fkImpuesto.DataPropertyName = "fkImpuesto_pkImpuesto";
             this.fkImpuesto.HeaderText = "Impuesto";
             this.fkImpuesto.Name = "fkImpuesto";
             // 
@@ -219,7 +222,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn sCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iUnidadMed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sUnidadMed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
         private System.Windows.Forms.DataGridViewTextBoxColumn fkImpuesto;

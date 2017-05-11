@@ -32,7 +32,7 @@ namespace SiscomSoft_Desktop.Views
         }
         public void cargarProductos()
         {
-            this.dgvDatosProducto.DataSource = ManejoPermiso.Buscar(txtBuscarProducto.Text, ckbStatus.Checked);
+            this.dgvDatosProducto.DataSource = ManejoProducto.Buscar(txtBuscarProducto.Text, ckbStatus.Checked);
         }
 
         private void FrmBuscarProducto_Load(object sender, EventArgs e)
@@ -52,6 +52,26 @@ namespace SiscomSoft_Desktop.Views
                     this.cargarProductos();
                 }
             }
+        }
+
+        private void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+            if (this.dgvDatosProducto.RowCount >= 1)
+            {
+                PKPRODUCTO = Convert.ToInt32(this.dgvDatosProducto.CurrentRow.Cells[0].Value);
+                FrmActualizarProducto v = new FrmActualizarProducto(this);
+                v.ShowDialog();
+            }
+        }
+
+        private void txtBuscarProducto_TextChanged(object sender, EventArgs e)
+        {
+            this.cargarProductos();
+        }
+
+        private void ckbStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            this.cargarProductos();
         }
     }
 }

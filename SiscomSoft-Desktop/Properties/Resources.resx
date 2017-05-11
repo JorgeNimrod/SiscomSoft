@@ -121,13 +121,16 @@
   <data name="config" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\config.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Catalogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Catalogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="12417932_928536453867230_3155055822074292918_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\12417932_928536453867230_3155055822074292918_n.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Catal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Catal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Catalogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Catalogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="All_reports" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\All_reports.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
