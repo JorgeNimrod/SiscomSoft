@@ -58,14 +58,17 @@ namespace SiscomSoft.Models
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public int iCodPostal { get; set; }
 
+        public Boolean bStatus { get; set; }
+
         // llave foranea de certificados
-        public Certificado fkCertificado { get; set; }
+        public virtual Certificado fkCertificado { get; set; }
 
         // llave foranea de sucursales
-        public Sucursal fkSucursal { get; set; }
+        public virtual Sucursal fkSucursal { get; set; }
 
-
-
-
+        public Empresa()
+        {
+            this.bStatus = true;
+        }
     }
 }

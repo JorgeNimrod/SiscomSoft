@@ -9,24 +9,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SiscomSoft.Models
 {
-    [Table("Impuestos")]
-    public class Impuesto
+    [Table("Precios")]
+    public class Precio
     {
         [Key]
-        public int pkImpuesto { get; set; }
+        public int pkPrecios { get; set; }
 
-        public string sTipoImpuesto { get; set; }
-
-        public string sImpuesto { get; set; }
-
-        public double dTasaImpuesto { get; set; }
+        public int iPrePorcen { get; set; }
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<Producto> Productos { get; set; }
-
-        public Impuesto()
+        public Precio()
         {
+            this.iPrePorcen = 0;
             this.bStatus = true;
         }
     }

@@ -45,6 +45,14 @@ namespace SiscomSoft.Models
 
         public DbSet<Cliente> Clientes { get; set; }
 
+        public DbSet<Categoria> Categorias { get; set; }
+
+        public DbSet<Precio> Precios { get; set; }
+
+        public DbSet<InventarioEntrada> InventariosEntradas { get; set; }
+
+        public DbSet<CatSat> CatalogosSAT { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

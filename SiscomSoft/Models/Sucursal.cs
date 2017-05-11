@@ -39,10 +39,17 @@ namespace SiscomSoft.Models
 
         public int iCodPostal { get; set; }
 
+        public Boolean bStatus { get; set; }
+
         // llave foranea de preferencias
-        public Preferencia fkPreferencia { get; set; }
+        public virtual Preferencia fkPreferencia { get; set; }
 
         public ICollection<Empresa> Empresas { get; set; }
+
+        public Sucursal()
+        {
+            this.bStatus = true;
+        }
     
     }
 }

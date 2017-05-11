@@ -17,25 +17,38 @@ namespace SiscomSoft.Models
 
         public string sDescripcion { get; set; }
 
-        public string sCategoria { get; set; }
+        public virtual Categoria fkCategoria { get; set; }
 
         public string sMarca { get; set; }
 
-        public string sUnidadMed { get; set; }
+        // llave foranea de CatSat
+        public virtual CatSat fkCatalogoSAT { get; set; }
 
         // llave foranea de impuestos 
-        public Impuesto fkImpuesto { get; set; }
+        public virtual Impuesto fkImpuesto { get; set; }
 
         public decimal dPrecio { get; set; }
 
         public decimal dCosto { get; set; }
+
+        public virtual Precio fkPrecio { get; set; }
+
+        public int iDescuento { get; set; }
+
+        public string sFoto { get; set; }
+
+        public DateTime dtCaducidad { get; set; }
+
+        public int iLote { get; set; }
+
+        // llave foranea de InventarioEntrada
+        public virtual InventarioEntrada fkInventarioEntrada { get; set; }
 
         public Boolean bStatus { get; set; }
 
         public Producto()
         {
             this.bStatus = true;
-
         }
     }
 }

@@ -17,11 +17,11 @@ namespace SiscomSoft.Models
 
         // llave foranea de roles
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        public Rol fkRol { get; set; }
+        public virtual Rol fkRol { get; set; }
 
         // llave foranea de permisos
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        public Permiso fkPermiso { get; set; }
+        public virtual Permiso fkPermiso { get; set; }
 
         public Boolean bStatus { get; set; }
 

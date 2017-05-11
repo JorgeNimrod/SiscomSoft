@@ -39,14 +39,13 @@ namespace SiscomSoft.Models
         [Required(ErrorMessage = "Este campo es necesario")]
         public string sComentario { get; set; }
 
-        public Rol fkRol { get; set; }
+        public virtual Rol fkRol { get; set; }
 
         public Boolean bStatus { get; set; }
 
         public Usuario()
         {
             this.bStatus = true;
-
         }
     }
 }

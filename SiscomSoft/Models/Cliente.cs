@@ -12,6 +12,16 @@ namespace SiscomSoft.Models
     [Table("Clientes")]
     public class Cliente
     {
+        public Cliente()
+        {
+            this.bStatus = true;
+            this.iCodPostal = 0;
+            this.iNumCuenta = 0;
+            this.iNumExterior = 0;
+            this.iNumInterior = 0;
+            this.iPersona = 0;
+        }
+
         [Key]
         public int pkCliente { get; set; }
 
@@ -69,10 +79,6 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public Cliente()
-        {
-            this.bStatus = true;
-
-        }
+        public ICollection<InventarioEntrada> InventariosEntradas { get; set; }
     }
 }

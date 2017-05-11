@@ -22,13 +22,13 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
+        public ICollection<Usuario> Usuarios { get; set; }
+
+        public ICollection<PermisoNegadoRol> PermisosNegadosRol { get; set; }
+
         public Rol()
         {
             this.bStatus = true;
-
         }
-
-        public ICollection<Usuario> Usuarios { get; set; }
-        public ICollection<PermisoNegadoRol> PermisosNegadosRol { get; set; }
     }
 }

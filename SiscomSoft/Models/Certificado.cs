@@ -28,8 +28,6 @@ namespace SiscomSoft.Models
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string sContraseña { get; set; }
 
-
         public ICollection<Empresa> Empresas { get; set; }
-
     }
 }

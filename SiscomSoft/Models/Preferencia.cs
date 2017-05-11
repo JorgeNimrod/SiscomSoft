@@ -23,6 +23,13 @@ namespace SiscomSoft.Models
 
         public string sEnvFactura { get; set; }
 
+        public Boolean bStatus { get; set; }
+
         public ICollection<Sucursal> Sucursales { get; set; }
+
+        public Preferencia()
+        {
+            this.bStatus = true;
+        }
     }
 }
