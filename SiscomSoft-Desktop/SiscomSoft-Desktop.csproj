@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ECC71744-613A-49BF-9698-3CFFE82AC55B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SiscomSoft_Desktop</RootNamespace>
+    <AssemblyName>SiscomSoft-Desktop</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comun\LoginTool.cs" />
+    <Compile Include="Comun\ToolImagen.cs" />
+    <Compile Include="Controller\ManejoEmpresa.cs" />
+    <Compile Include="Controller\Helpers\UsuarioHelper.cs" />
+    <Compile Include="Controller\ManejoCliente.cs" />
+    <Compile Include="Controller\ManejoImpuesto.cs" />
+    <Compile Include="Controller\ManejoPermiso.cs" />
+    <Compile Include="Controller\ManejoProducto.cs" />
+    <Compile Include="Controller\ManejoRol.cs" />
+    <Compile Include="Controller\ManejoSucursal.cs" />
+    <Compile Include="Controller\ManejoUsuario.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\FrmActualizarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarCliente.Designer.cs">
+      <DependentUpon>FrmActualizarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmActualizarEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarEmpresa.Designer.cs">
+      <DependentUpon>FrmActualizarEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmActualizarImpuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarImpuesto.Designer.cs">
+      <DependentUpon>FrmActualizarImpuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmActualizarPermiso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarPermiso.Designer.cs">
+      <DependentUpon>FrmActualizarPermiso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmActualizarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarProducto.Designer.cs">
+      <DependentUpon>FrmActualizarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmActualizarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarRol.Designer.cs">
+      <DependentUpon>FrmActualizarRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmActualizarSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarSucursal.Designer.cs">
+      <DependentUpon>FrmActualizarSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmActualizarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarUsuario.Designer.cs">
+      <DependentUpon>FrmActualizarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarCliente.Designer.cs">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBuscarEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarEmpresa.Designer.cs">
+      <DependentUpon>FrmBuscarEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBuscarImpuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarImpuesto.Designer.cs">
+      <DependentUpon>FrmBuscarImpuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBuscarPermiso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarPermiso.Designer.cs">
+      <DependentUpon>FrmBuscarPermiso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBuscarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarProducto.Designer.cs">
+      <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBuscarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarRol.Designer.cs">
+      <DependentUpon>FrmBuscarRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBuscarSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarSucursal.Designer.cs">
+      <DependentUpon>FrmBuscarSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBuscarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarUsuario.Designer.cs">
+      <DependentUpon>FrmBuscarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarCertificados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarCertificados.Designer.cs">
+      <DependentUpon>FrmRegistrarCertificados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarCliente.Designer.cs">
+      <DependentUpon>FrmRegistrarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarEmpresa.Designer.cs">
+      <DependentUpon>FrmRegistrarEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarImpuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarImpuesto.Designer.cs">
+      <DependentUpon>FrmRegistrarImpuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarPermiso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarPermiso.Designer.cs">
+      <DependentUpon>FrmRegistrarPermiso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarProducto.Designer.cs">
+      <DependentUpon>FrmRegistrarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarRol.Designer.cs">
+      <DependentUpon>FrmRegistrarRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarSucursal.Designer.cs">
+      <DependentUpon>FrmRegistrarSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarUsuario.Designer.cs">
+      <DependentUpon>FrmRegistrarUsuario.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\FrmActualizarCliente.resx">
+      <DependentUpon>FrmActualizarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizarEmpresa.resx">
+      <DependentUpon>FrmActualizarEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizarImpuesto.resx">
+      <DependentUpon>FrmActualizarImpuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizarPermiso.resx">
+      <DependentUpon>FrmActualizarPermiso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizarProducto.resx">
+      <DependentUpon>FrmActualizarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizarRol.resx">
+      <DependentUpon>FrmActualizarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizarSucursal.resx">
+      <DependentUpon>FrmActualizarSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizarUsuario.resx">
+      <DependentUpon>FrmActualizarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarCliente.resx">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarEmpresa.resx">
+      <DependentUpon>FrmBuscarEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarImpuesto.resx">
+      <DependentUpon>FrmBuscarImpuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarPermiso.resx">
+      <DependentUpon>FrmBuscarPermiso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarProducto.resx">
+      <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarRol.resx">
+      <DependentUpon>FrmBuscarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarSucursal.resx">
+      <DependentUpon>FrmBuscarSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarUsuario.resx">
+      <DependentUpon>FrmBuscarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistrarCertificados.resx">
+      <DependentUpon>FrmRegistrarCertificados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistrarCliente.resx">
+      <DependentUpon>FrmRegistrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistrarEmpresa.resx">
+      <DependentUpon>FrmRegistrarEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistrarImpuesto.resx">
+      <DependentUpon>FrmRegistrarImpuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistrarPermiso.resx">
+      <DependentUpon>FrmRegistrarPermiso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistrarProducto.resx">
+      <DependentUpon>FrmRegistrarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistrarRol.resx">
+      <DependentUpon>FrmRegistrarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistrarSucursal.resx">
+      <DependentUpon>FrmRegistrarSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistrarUsuario.resx">
+      <DependentUpon>FrmRegistrarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SiscomSoft\SiscomSoft.csproj">
+      <Project>{c2f363c5-084e-4d26-a326-f906eadce37a}</Project>
+      <Name>SiscomSoft</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12417932_928536453867230_3155055822074292918_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Catal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Catalogo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
