@@ -6,14 +6,14 @@ namespace SiscomSoft.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class String : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class INICIAL : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(String));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(INICIAL));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705111653074_String"; }
+            get { return "201705121806053_INICIAL"; }
         }
         
         string IMigrationMetadata.Source

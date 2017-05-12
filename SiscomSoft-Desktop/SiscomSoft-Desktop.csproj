@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Comun\LoginTool.cs" />
     <Compile Include="Comun\ToolImagen.cs" />
+    <Compile Include="Controller\ManejoCategoria.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
     <Compile Include="Controller\Helpers\UsuarioHelper.cs" />
     <Compile Include="Controller\ManejoCliente.cs" />
@@ -97,6 +98,12 @@
     <Compile Include="Controller\ManejoUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\FrmActualizarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarCategoria.Designer.cs">
+      <DependentUpon>FrmActualizarCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmActualizarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +151,12 @@
     </Compile>
     <Compile Include="Views\FrmActualizarUsuario.Designer.cs">
       <DependentUpon>FrmActualizarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBuscarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarCategoria.Designer.cs">
+      <DependentUpon>FrmBuscarCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmBuscarCliente.cs">
       <SubType>Form</SubType>
@@ -211,6 +224,12 @@
     <Compile Include="Views\FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmRegistrarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarCategoria.Designer.cs">
+      <DependentUpon>FrmRegistrarCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmRegistrarCertificados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +294,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\FrmActualizarCategoria.resx">
+      <DependentUpon>FrmActualizarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmActualizarCliente.resx">
       <DependentUpon>FrmActualizarCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmActualizarUsuario.resx">
       <DependentUpon>FrmActualizarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarCategoria.resx">
+      <DependentUpon>FrmBuscarCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
@@ -331,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistrarCategoria.resx">
+      <DependentUpon>FrmRegistrarCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRegistrarCertificados.resx">
       <DependentUpon>FrmRegistrarCertificados.cs</DependentUpon>

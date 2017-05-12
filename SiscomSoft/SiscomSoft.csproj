@@ -55,17 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201705111648543_INICIAL.cs" />
-    <Compile Include="Migrations\201705111648543_INICIAL.Designer.cs">
-      <DependentUpon>201705111648543_INICIAL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705111653074_String.cs" />
-    <Compile Include="Migrations\201705111653074_String.Designer.cs">
-      <DependentUpon>201705111653074_String.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705112003070_MOD-TABLES.cs" />
-    <Compile Include="Migrations\201705112003070_MOD-TABLES.Designer.cs">
-      <DependentUpon>201705112003070_MOD-TABLES.cs</DependentUpon>
+    <Compile Include="Migrations\201705121806053_INICIAL.cs" />
+    <Compile Include="Migrations\201705121806053_INICIAL.Designer.cs">
+      <DependentUpon>201705121806053_INICIAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -91,14 +83,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705111648543_INICIAL.resx">
-      <DependentUpon>201705111648543_INICIAL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705111653074_String.resx">
-      <DependentUpon>201705111653074_String.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705112003070_MOD-TABLES.resx">
-      <DependentUpon>201705112003070_MOD-TABLES.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705121806053_INICIAL.resx">
+      <DependentUpon>201705121806053_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
