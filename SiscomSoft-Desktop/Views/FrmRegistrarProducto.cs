@@ -10,11 +10,14 @@ using System.Windows.Forms;
 using SiscomSoft.Models;
 using SiscomSoft_Desktop.Comun;
 using SiscomSoft_Desktop.Controller;
+using System.Drawing.Imaging;
 
 namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmRegistrarProducto : Form
     {
+        public String ImagenString { get; set; }
+        public Bitmap ImagenBitmap { get; set; }
         public FrmRegistrarProducto()
         {
             InitializeComponent();
@@ -53,12 +56,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtDescripcion, "Campo necesario");
                 this.txtDescripcion.Focus();
             }
-            else if (this.txtCategoria.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtCategoria, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtCategoria, "Campo necesario");
-                this.txtCategoria.Focus();
-            }
+      
             else if (this.txtMarca.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtMarca, ErrorIconAlignment.MiddleRight);
@@ -71,12 +69,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtUnidadMedida, "Campo necesario");
                 this.txtUnidadMedida.Focus();
             }
-            else if (this.txtPrecio.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtPrecio, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtPrecio, "Campo necesario");
-                this.txtPrecio.Focus();
-            }
+         
             else if (this.txtCosto.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtCosto, ErrorIconAlignment.MiddleRight);
@@ -90,10 +83,9 @@ namespace SiscomSoft_Desktop.Views
                 Producto nProducto = new Producto();
 
                 nProducto.sDescripcion = txtDescripcion.Text;
-                nProducto.sCategoria = txtCategoria.Text;
+               
                 nProducto.sMarca = txtMarca.Text;
-                nProducto.sUnidadMed = txtUnidadMedida.Text;
-                nProducto.dPrecio = Convert.ToDecimal(txtPrecio.Text);
+              
                 nProducto.dCosto = Convert.ToDecimal(txtCosto.Text);
                 int fkImpuesto = Convert.ToInt32(cbxImpuesto.SelectedValue.ToString());
 
@@ -103,11 +95,40 @@ namespace SiscomSoft_Desktop.Views
 
                 MessageBox.Show("¡Producto Registrado!");
                 txtDescripcion.Clear();
-                txtCategoria.Clear();
+                
                 txtUnidadMedida.Clear();
-                txtPrecio.Clear();
+               
                 txtCosto.Clear();
                
+            }
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExaminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog BuscarImagen = new OpenFileDialog();
+                BuscarImagen.Filter = "Archivos de Imagen|*.jpg;*.png;*gif;*.bmp";
+                //Aquí incluiremos los filtros que queramos.
+                BuscarImagen.FileName = "";
+                BuscarImagen.Title = "Seleccione una imagen";
+                if (BuscarImagen.ShowDialog() == DialogResult.OK)
+                {
+                    string logo = BuscarImagen.FileName;
+                    this.pcbLogo.ImageLocation = logo;
+                    ImagenBitmap = new System.Drawing.Bitmap(logo);
+                    ImagenString = ToolImagen.ToBase64String(ImagenBitmap, ImageFormat.Jpeg);
+                    pcbLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
             }
         }
     }

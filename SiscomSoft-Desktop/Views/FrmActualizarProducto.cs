@@ -38,9 +38,9 @@ namespace SiscomSoft_Desktop.Views
             this.cargarImpuestos();
 
             Producto nProducto = ManejoProducto.getById(FrmBuscarProducto.PKPRODUCTO);
-            txtCategoria.Text = nProducto.sCategoria;
+            
             txtDescripcion.Text = nProducto.sDescripcion;
-            txtUnidadMedida.Text = nProducto.sUnidadMed;
+            
             txtMarca.Text = nProducto.sMarca;
         }
 
@@ -89,8 +89,7 @@ namespace SiscomSoft_Desktop.Views
                 nProducto.pkProducto = FrmBuscarProducto.PKPRODUCTO;
                 nProducto.sDescripcion = txtDescripcion.Text;
                 nProducto.sMarca = txtMarca.Text;
-                nProducto.sUnidadMed = txtUnidadMedida.Text;
-                nProducto.sCategoria = txtCategoria.Text;
+                
                 nProducto.dCosto = Convert.ToDecimal(txtCosto.Text);
                 nProducto.dPrecio = Convert.ToDecimal(txtPrecio.Text);
                 int fkImpuesto = Convert.ToInt32(cbxImpuesto.SelectedValue.ToString());

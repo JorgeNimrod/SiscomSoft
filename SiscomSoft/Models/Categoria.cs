@@ -18,6 +18,12 @@ namespace SiscomSoft.Models
         public string sNombre { get; set; }
 
         public string sNomSubCat { get; set; }
+        public Boolean bStatus { get; set; }
+
+        public Categoria()
+        {
+            this.bStatus = true;
+        }
 
         public ICollection<Producto> Productos { get; set; }
     }

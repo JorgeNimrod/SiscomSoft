@@ -8,80 +8,90 @@ namespace SiscomSoft.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Certificados",
+                "dbo.CatalogosSAT",
                 c => new
                     {
-                        pkCertificado = c.Int(nullable: false, identity: true),
-                        sCSD = c.String(nullable: false, unicode: false),
-                        sCertificado = c.String(nullable: false, unicode: false),
-                        sLLave = c.String(nullable: false, unicode: false),
-                        sContraseña = c.String(nullable: false, unicode: false),
+                        pkCatalogoSAT = c.Int(nullable: false, identity: true),
+                        sUnidMed = c.String(unicode: false),
                     })
-                .PrimaryKey(t => t.pkCertificado);
+                .PrimaryKey(t => t.pkCatalogoSAT);
             
             CreateTable(
-                "dbo.Empresas",
+                "dbo.Productos",
                 c => new
                     {
-                        pkEmpresa = c.Int(nullable: false, identity: true),
-                        sRazonSocial = c.String(nullable: false, unicode: false),
-                        sNomComercial = c.String(nullable: false, unicode: false),
-                        sNomContacto = c.String(nullable: false, unicode: false),
-                        sRegComercial = c.String(nullable: false, unicode: false),
-                        iTelefono = c.Int(nullable: false),
-                        sCorreo = c.String(nullable: false, unicode: false),
-                        sPais = c.String(nullable: false, unicode: false),
-                        sEstado = c.String(nullable: false, unicode: false),
-                        sMunicipio = c.String(nullable: false, unicode: false),
-                        sColonia = c.String(nullable: false, unicode: false),
-                        sLocalidad = c.String(unicode: false),
-                        sCalle = c.String(nullable: false, unicode: false),
-                        iNumExterior = c.Int(nullable: false),
-                        iNumInterir = c.Int(nullable: false),
-                        iCodPostal = c.Int(nullable: false),
-                        fkCertificado_pkCertificado = c.Int(),
-                        fkSucursal_pkSucursal = c.Int(),
+                        pkProducto = c.Int(nullable: false, identity: true),
+                        sDescripcion = c.String(unicode: false),
+                        sMarca = c.String(unicode: false),
+                        dPrecio = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        dCosto = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        iDescuento = c.Int(nullable: false),
+                        sFoto = c.String(unicode: false),
+                        dtCaducidad = c.DateTime(nullable: false, precision: 0),
+                        iLote = c.Int(nullable: false),
+                        bStatus = c.Boolean(nullable: false),
+                        fkCatalogoSAT_pkCatalogoSAT = c.Int(),
+                        fkCategoria_pkCategoria = c.Int(),
+                        fkImpuesto_pkImpuesto = c.Int(),
+                        fkInventarioEntrada_pkInventioEntrada = c.Int(),
+                        fkPrecio_pkPrecios = c.Int(),
                     })
-                .PrimaryKey(t => t.pkEmpresa)
-                .ForeignKey("dbo.Certificados", t => t.fkCertificado_pkCertificado)
-                .ForeignKey("dbo.Sucursales", t => t.fkSucursal_pkSucursal)
-                .Index(t => t.fkCertificado_pkCertificado)
-                .Index(t => t.fkSucursal_pkSucursal);
+                .PrimaryKey(t => t.pkProducto)
+                .ForeignKey("dbo.CatalogosSAT", t => t.fkCatalogoSAT_pkCatalogoSAT)
+                .ForeignKey("dbo.Categorias", t => t.fkCategoria_pkCategoria)
+                .ForeignKey("dbo.Impuestos", t => t.fkImpuesto_pkImpuesto)
+                .ForeignKey("dbo.InventariosEntradas", t => t.fkInventarioEntrada_pkInventioEntrada)
+                .ForeignKey("dbo.Precios", t => t.fkPrecio_pkPrecios)
+                .Index(t => t.fkCatalogoSAT_pkCatalogoSAT)
+                .Index(t => t.fkCategoria_pkCategoria)
+                .Index(t => t.fkImpuesto_pkImpuesto)
+                .Index(t => t.fkInventarioEntrada_pkInventioEntrada)
+                .Index(t => t.fkPrecio_pkPrecios);
             
             CreateTable(
-                "dbo.Sucursales",
+                "dbo.Categorias",
                 c => new
                     {
-                        pkSucursal = c.Int(nullable: false, identity: true),
+                        pkCategoria = c.Int(nullable: false, identity: true),
                         sNombre = c.String(unicode: false),
-                        sEstSucursal = c.String(unicode: false),
-                        iNumCertificado = c.Int(nullable: false),
-                        sPais = c.String(unicode: false),
-                        sEstado = c.String(unicode: false),
-                        sMunicipio = c.String(unicode: false),
-                        sColonia = c.String(unicode: false),
-                        sLocalidad = c.String(unicode: false),
-                        sCalle = c.String(unicode: false),
-                        iNumExterior = c.Int(nullable: false),
-                        iNumInterior = c.Int(nullable: false),
-                        iCodPostal = c.Int(nullable: false),
-                        fkPreferencia_pkPreferencia = c.Int(),
+                        sNomSubCat = c.String(unicode: false),
+                        bStatus = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.pkSucursal)
-                .ForeignKey("dbo.Preferencias", t => t.fkPreferencia_pkPreferencia)
-                .Index(t => t.fkPreferencia_pkPreferencia);
+                .PrimaryKey(t => t.pkCategoria);
             
             CreateTable(
-                "dbo.Preferencias",
+                "dbo.Impuestos",
                 c => new
                     {
-                        pkPreferencia = c.Int(nullable: false, identity: true),
-                        sLogotipo = c.String(unicode: false),
-                        sForImpreso = c.String(unicode: false),
-                        sNumSerie = c.String(unicode: false),
-                        sEnvFactura = c.String(unicode: false),
+                        pkImpuesto = c.Int(nullable: false, identity: true),
+                        sTipoImpuesto = c.String(unicode: false),
+                        sImpuesto = c.String(unicode: false),
+                        dTasaImpuesto = c.Double(nullable: false),
+                        bStatus = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.pkPreferencia);
+                .PrimaryKey(t => t.pkImpuesto);
+            
+            CreateTable(
+                "dbo.InventariosEntradas",
+                c => new
+                    {
+                        pkInventioEntrada = c.Int(nullable: false, identity: true),
+                        dtFecha = c.DateTime(nullable: false, precision: 0),
+                        sTipoPago = c.String(unicode: false),
+                        sMoneda = c.String(unicode: false),
+                        iNoFactura = c.Int(nullable: false),
+                        dCantidad = c.Double(nullable: false),
+                        sNomProducto = c.String(unicode: false),
+                        dPrecio = c.Double(nullable: false),
+                        iDescuento = c.Int(nullable: false),
+                        iLote = c.Int(nullable: false),
+                        dtCaducidad = c.DateTime(nullable: false, precision: 0),
+                        bStatus = c.Boolean(nullable: false),
+                        fkProveedor_pkCliente = c.Int(),
+                    })
+                .PrimaryKey(t => t.pkInventioEntrada)
+                .ForeignKey("dbo.Clientes", t => t.fkProveedor_pkCliente)
+                .Index(t => t.fkProveedor_pkCliente);
             
             CreateTable(
                 "dbo.Clientes",
@@ -117,16 +127,93 @@ namespace SiscomSoft.Migrations
                 .PrimaryKey(t => t.pkCliente);
             
             CreateTable(
-                "dbo.Impuestos",
+                "dbo.Precios",
                 c => new
                     {
-                        pkImpuesto = c.Int(nullable: false, identity: true),
-                        sTipoImpuesto = c.String(unicode: false),
-                        sImpuesto = c.String(unicode: false),
-                        dTasaImpuesto = c.Double(nullable: false),
+                        pkPrecios = c.Int(nullable: false, identity: true),
+                        iPrePorcen = c.Int(nullable: false),
                         bStatus = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.pkImpuesto);
+                .PrimaryKey(t => t.pkPrecios);
+            
+            CreateTable(
+                "dbo.Certificados",
+                c => new
+                    {
+                        pkCertificado = c.Int(nullable: false, identity: true),
+                        sCSD = c.String(nullable: false, unicode: false),
+                        sCertificado = c.String(nullable: false, unicode: false),
+                        sLLave = c.String(nullable: false, unicode: false),
+                        sContraseña = c.String(nullable: false, unicode: false),
+                    })
+                .PrimaryKey(t => t.pkCertificado);
+            
+            CreateTable(
+                "dbo.Empresas",
+                c => new
+                    {
+                        pkEmpresa = c.Int(nullable: false, identity: true),
+                        sRazonSocial = c.String(nullable: false, unicode: false),
+                        sNomComercial = c.String(nullable: false, unicode: false),
+                        sNomContacto = c.String(nullable: false, unicode: false),
+                        sRegComercial = c.String(nullable: false, unicode: false),
+                        iTelefono = c.Int(nullable: false),
+                        sCorreo = c.String(nullable: false, unicode: false),
+                        sPais = c.String(nullable: false, unicode: false),
+                        sEstado = c.String(nullable: false, unicode: false),
+                        sMunicipio = c.String(nullable: false, unicode: false),
+                        sColonia = c.String(nullable: false, unicode: false),
+                        sLocalidad = c.String(unicode: false),
+                        sCalle = c.String(nullable: false, unicode: false),
+                        iNumExterior = c.Int(nullable: false),
+                        iNumInterir = c.Int(nullable: false),
+                        iCodPostal = c.Int(nullable: false),
+                        bStatus = c.Boolean(nullable: false),
+                        fkCertificado_pkCertificado = c.Int(),
+                        fkSucursal_pkSucursal = c.Int(),
+                    })
+                .PrimaryKey(t => t.pkEmpresa)
+                .ForeignKey("dbo.Certificados", t => t.fkCertificado_pkCertificado)
+                .ForeignKey("dbo.Sucursales", t => t.fkSucursal_pkSucursal)
+                .Index(t => t.fkCertificado_pkCertificado)
+                .Index(t => t.fkSucursal_pkSucursal);
+            
+            CreateTable(
+                "dbo.Sucursales",
+                c => new
+                    {
+                        pkSucursal = c.Int(nullable: false, identity: true),
+                        sNombre = c.String(unicode: false),
+                        sEstSucursal = c.String(unicode: false),
+                        iNumCertificado = c.Int(nullable: false),
+                        sPais = c.String(unicode: false),
+                        sEstado = c.String(unicode: false),
+                        sMunicipio = c.String(unicode: false),
+                        sColonia = c.String(unicode: false),
+                        sLocalidad = c.String(unicode: false),
+                        sCalle = c.String(unicode: false),
+                        iNumExterior = c.Int(nullable: false),
+                        iNumInterior = c.Int(nullable: false),
+                        iCodPostal = c.Int(nullable: false),
+                        bStatus = c.Boolean(nullable: false),
+                        fkPreferencia_pkPreferencia = c.Int(),
+                    })
+                .PrimaryKey(t => t.pkSucursal)
+                .ForeignKey("dbo.Preferencias", t => t.fkPreferencia_pkPreferencia)
+                .Index(t => t.fkPreferencia_pkPreferencia);
+            
+            CreateTable(
+                "dbo.Preferencias",
+                c => new
+                    {
+                        pkPreferencia = c.Int(nullable: false, identity: true),
+                        sLogotipo = c.String(unicode: false),
+                        sForImpreso = c.String(unicode: false),
+                        sNumSerie = c.String(unicode: false),
+                        sEnvFactura = c.String(unicode: false),
+                        bStatus = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.pkPreferencia);
             
             CreateTable(
                 "dbo.Permisos",
@@ -185,53 +272,49 @@ namespace SiscomSoft.Migrations
                 .ForeignKey("dbo.Roles", t => t.fkRol_pkRol)
                 .Index(t => t.fkRol_pkRol);
             
-            CreateTable(
-                "dbo.Productos",
-                c => new
-                    {
-                        pkProducto = c.Int(nullable: false, identity: true),
-                        sDescripcion = c.String(unicode: false),
-                        sCategoria = c.String(unicode: false),
-                        sMarca = c.String(unicode: false),
-                        iUnidadMed = c.Int(nullable: false),
-                        dPrecio = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        dCosto = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        bStatus = c.Boolean(nullable: false),
-                        fkImpuesto_pkImpuesto = c.Int(),
-                    })
-                .PrimaryKey(t => t.pkProducto)
-                .ForeignKey("dbo.Impuestos", t => t.fkImpuesto_pkImpuesto)
-                .Index(t => t.fkImpuesto_pkImpuesto);
-            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Productos", "fkImpuesto_pkImpuesto", "dbo.Impuestos");
             DropForeignKey("dbo.PermisosNegadosRol", "fkRol_pkRol", "dbo.Roles");
             DropForeignKey("dbo.Usuarios", "fkRol_pkRol", "dbo.Roles");
             DropForeignKey("dbo.PermisosNegadosRol", "fkPermiso_pkPermiso", "dbo.Permisos");
             DropForeignKey("dbo.Sucursales", "fkPreferencia_pkPreferencia", "dbo.Preferencias");
             DropForeignKey("dbo.Empresas", "fkSucursal_pkSucursal", "dbo.Sucursales");
             DropForeignKey("dbo.Empresas", "fkCertificado_pkCertificado", "dbo.Certificados");
-            DropIndex("dbo.Productos", new[] { "fkImpuesto_pkImpuesto" });
-            DropIndex("dbo.PermisosNegadosRol", new[] { "fkRol_pkRol" });
+            DropForeignKey("dbo.Productos", "fkPrecio_pkPrecios", "dbo.Precios");
+            DropForeignKey("dbo.Productos", "fkInventarioEntrada_pkInventioEntrada", "dbo.InventariosEntradas");
+            DropForeignKey("dbo.InventariosEntradas", "fkProveedor_pkCliente", "dbo.Clientes");
+            DropForeignKey("dbo.Productos", "fkImpuesto_pkImpuesto", "dbo.Impuestos");
+            DropForeignKey("dbo.Productos", "fkCategoria_pkCategoria", "dbo.Categorias");
+            DropForeignKey("dbo.Productos", "fkCatalogoSAT_pkCatalogoSAT", "dbo.CatalogosSAT");
             DropIndex("dbo.Usuarios", new[] { "fkRol_pkRol" });
+            DropIndex("dbo.PermisosNegadosRol", new[] { "fkRol_pkRol" });
             DropIndex("dbo.PermisosNegadosRol", new[] { "fkPermiso_pkPermiso" });
             DropIndex("dbo.Sucursales", new[] { "fkPreferencia_pkPreferencia" });
             DropIndex("dbo.Empresas", new[] { "fkSucursal_pkSucursal" });
             DropIndex("dbo.Empresas", new[] { "fkCertificado_pkCertificado" });
-            DropTable("dbo.Productos");
+            DropIndex("dbo.InventariosEntradas", new[] { "fkProveedor_pkCliente" });
+            DropIndex("dbo.Productos", new[] { "fkPrecio_pkPrecios" });
+            DropIndex("dbo.Productos", new[] { "fkInventarioEntrada_pkInventioEntrada" });
+            DropIndex("dbo.Productos", new[] { "fkImpuesto_pkImpuesto" });
+            DropIndex("dbo.Productos", new[] { "fkCategoria_pkCategoria" });
+            DropIndex("dbo.Productos", new[] { "fkCatalogoSAT_pkCatalogoSAT" });
             DropTable("dbo.Usuarios");
             DropTable("dbo.Roles");
             DropTable("dbo.PermisosNegadosRol");
             DropTable("dbo.Permisos");
-            DropTable("dbo.Impuestos");
-            DropTable("dbo.Clientes");
             DropTable("dbo.Preferencias");
             DropTable("dbo.Sucursales");
             DropTable("dbo.Empresas");
             DropTable("dbo.Certificados");
+            DropTable("dbo.Precios");
+            DropTable("dbo.Clientes");
+            DropTable("dbo.InventariosEntradas");
+            DropTable("dbo.Impuestos");
+            DropTable("dbo.Categorias");
+            DropTable("dbo.Productos");
+            DropTable("dbo.CatalogosSAT");
         }
     }
 }

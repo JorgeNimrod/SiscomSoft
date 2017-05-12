@@ -91,5 +91,11 @@ namespace SiscomSoft_Desktop.Views
             FrmConfiguracionBD Config = new FrmConfiguracionBD();
             Config.Show();
         }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarCategoria Cate = new FrmRegistrarCategoria();
+            Cate.Show();
+        }
     }
 }
