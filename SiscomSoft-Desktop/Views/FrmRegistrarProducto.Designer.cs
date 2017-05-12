@@ -45,7 +45,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -55,7 +54,6 @@
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.txtLote = new System.Windows.Forms.TextBox();
             this.cbxUnidadMedida = new System.Windows.Forms.ComboBox();
-            this.cbxCat = new System.Windows.Forms.ComboBox();
             this.btnExaminar = new System.Windows.Forms.Button();
             this.pcbLogo = new System.Windows.Forms.PictureBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -197,15 +195,6 @@
             // 
             this.ErrorProvider.ContainerControl = this;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(4, 217);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 18);
-            this.label11.TabIndex = 58;
-            this.label11.Text = "Categoria :";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -280,14 +269,6 @@
             this.cbxUnidadMedida.Size = new System.Drawing.Size(208, 26);
             this.cbxUnidadMedida.TabIndex = 68;
             // 
-            // cbxCat
-            // 
-            this.cbxCat.FormattingEnabled = true;
-            this.cbxCat.Location = new System.Drawing.Point(108, 214);
-            this.cbxCat.Name = "cbxCat";
-            this.cbxCat.Size = new System.Drawing.Size(208, 26);
-            this.cbxCat.TabIndex = 69;
-            // 
             // btnExaminar
             // 
             this.btnExaminar.Location = new System.Drawing.Point(790, 336);
@@ -324,7 +305,6 @@
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.btnExaminar);
             this.Controls.Add(this.pcbLogo);
-            this.Controls.Add(this.cbxCat);
             this.Controls.Add(this.cbxUnidadMedida);
             this.Controls.Add(this.txtLote);
             this.Controls.Add(this.txtDescuento);
@@ -334,7 +314,6 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnRegistrar);
@@ -388,8 +367,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbxCat;
         private System.Windows.Forms.ComboBox cbxUnidadMedida;
         private System.Windows.Forms.TextBox txtLote;
         private System.Windows.Forms.TextBox txtDescuento;

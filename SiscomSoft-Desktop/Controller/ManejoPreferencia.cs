@@ -9,18 +9,15 @@ using System.Data.Entity;
 
 namespace SiscomSoft_Desktop.Controller
 {
-   public class ManejoSucursal
+  public  class ManejoPreferencia
     {
-        public static void RegistrarNuevaSucursal(Sucursal nSucursal, int pkPreferencia)
+        public static void RegistrarNuevaPreferencia(Preferencia nPreferencia)
         {
-            Preferencia preferencia = ManejoPreferencia.getById(pkPreferencia);
-
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nSucursal.fkPreferencia = preferencia;
-                    ctx.Sucursales.Add(nSucursal);
+                    ctx.Preferencias.Add(nPreferencia);
                     ctx.SaveChanges();
                 }
             }
@@ -30,73 +27,7 @@ namespace SiscomSoft_Desktop.Controller
                 throw;
             }
         }
-        public static Sucursal getById(int pkSucursal)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    return ctx.Sucursales.Where(r => r.bStatus == true && r.pkSucursal == pkSucursal).FirstOrDefault();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        public static void Eliminar(int pkSucursal)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    Sucursal nSucursal = ManejoSucursal.getById(pkSucursal);
-                    nSucursal.bStatus = false;
-
-                    ctx.Entry(nSucursal).State = EntityState.Modified;
-                    ctx.SaveChanges();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        public static List<Sucursal> Buscar(string valor, Boolean Status)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    return ctx.Sucursales.Where(r => r.bStatus == Status && r.sNombre.Contains(valor)).ToList();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        public static void Modificar(Sucursal nSucursal)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    ctx.Sucursales.Attach(nSucursal);
-                    ctx.Entry(nSucursal).State = EntityState.Modified;
-                    ctx.SaveChanges();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        public static Preferencia getById2(int pkPreferencia)
+        public static Preferencia getById(int pkPreferencia)
         {
             try
             {
@@ -108,6 +39,71 @@ namespace SiscomSoft_Desktop.Controller
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+        public static void Eliminar(int pkPreferencia)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    Preferencia nPreferencia = ManejoPreferencia.getById(pkPreferencia);
+                    nPreferencia.bStatus = false;
+
+                    ctx.Entry(nPreferencia).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static List<Preferencia> Buscar(string valor, Boolean Status)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Preferencias.Where(r => r.bStatus == Status && r.sNumSerie.Contains(valor)).ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static void Modificar(Preferencia nPreferencia)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    ctx.Preferencias.Attach(nPreferencia);
+                    ctx.Entry(nPreferencia).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static List<Preferencia> getAll(Boolean status)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Preferencias.Where(r => r.bStatus == status).ToList();
+                }
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }

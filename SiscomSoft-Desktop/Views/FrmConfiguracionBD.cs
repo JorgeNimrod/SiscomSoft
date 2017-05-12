@@ -26,5 +26,10 @@ namespace SiscomSoft_Desktop.Views
         {
             this.Close();
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

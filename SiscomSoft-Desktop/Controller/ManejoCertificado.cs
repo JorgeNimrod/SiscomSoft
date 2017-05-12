@@ -9,18 +9,15 @@ using System.Data.Entity;
 
 namespace SiscomSoft_Desktop.Controller
 {
-   public class ManejoSucursal
+  public  class ManejoCertificado
     {
-        public static void RegistrarNuevaSucursal(Sucursal nSucursal, int pkPreferencia)
+        public static void RegistrarNuevoCertificado(Certificado nCertificado)
         {
-            Preferencia preferencia = ManejoPreferencia.getById(pkPreferencia);
-
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nSucursal.fkPreferencia = preferencia;
-                    ctx.Sucursales.Add(nSucursal);
+                    ctx.Certificados.Add(nCertificado);
                     ctx.SaveChanges();
                 }
             }
@@ -30,13 +27,13 @@ namespace SiscomSoft_Desktop.Controller
                 throw;
             }
         }
-        public static Sucursal getById(int pkSucursal)
+        public static Certificado getById(int pkCertificado)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Sucursales.Where(r => r.bStatus == true && r.pkSucursal == pkSucursal).FirstOrDefault();
+                    return ctx.Certificados.Where(r =>   r.pkCertificado == pkCertificado).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -45,16 +42,16 @@ namespace SiscomSoft_Desktop.Controller
                 throw;
             }
         }
-        public static void Eliminar(int pkSucursal)
+        public static void Eliminar(int pkCertificado)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    Sucursal nSucursal = ManejoSucursal.getById(pkSucursal);
-                    nSucursal.bStatus = false;
+                    Certificado nCertificado = ManejoCertificado.getById(pkCertificado);
+                   
 
-                    ctx.Entry(nSucursal).State = EntityState.Modified;
+                    ctx.Entry(nCertificado).State = EntityState.Modified;
                     ctx.SaveChanges();
                 }
             }
@@ -64,13 +61,13 @@ namespace SiscomSoft_Desktop.Controller
                 throw;
             }
         }
-        public static List<Sucursal> Buscar(string valor, Boolean Status)
+        public static List<Certificado> Buscar(string valor, Boolean Status)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Sucursales.Where(r => r.bStatus == Status && r.sNombre.Contains(valor)).ToList();
+                    return ctx.Certificados.Where(r => r.sCertificado.Contains(valor)).ToList();
                 }
             }
             catch (Exception)
@@ -79,14 +76,14 @@ namespace SiscomSoft_Desktop.Controller
                 throw;
             }
         }
-        public static void Modificar(Sucursal nSucursal)
+        public static void Modificar(Certificado nCertificado)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    ctx.Sucursales.Attach(nSucursal);
-                    ctx.Entry(nSucursal).State = EntityState.Modified;
+                    ctx.Certificados.Attach(nCertificado);
+                    ctx.Entry(nCertificado).State = EntityState.Modified;
                     ctx.SaveChanges();
                 }
             }
@@ -96,20 +93,6 @@ namespace SiscomSoft_Desktop.Controller
                 throw;
             }
         }
-        public static Preferencia getById2(int pkPreferencia)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    return ctx.Preferencias.Where(r => r.bStatus == true && r.pkPreferencia == pkPreferencia).FirstOrDefault();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+       
     }
 }
