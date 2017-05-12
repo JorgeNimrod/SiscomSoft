@@ -46,6 +46,7 @@ namespace SiscomSoft.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<DataModel>(null);
             base.OnModelCreating(modelBuilder);
         }
     }
