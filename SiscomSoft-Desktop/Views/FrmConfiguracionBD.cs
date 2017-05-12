@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Configuration;
+using System.Configuration.Assemblies;
+
 namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmConfiguracionBD : Form
@@ -29,7 +32,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            //ConfigurationSettings.AppSettings["DB_HOST"] = txtHost.Text;
         }
     }
 }

@@ -66,6 +66,8 @@ namespace SiscomSoft.Models
         // llave foranea de sucursales
         public virtual Sucursal fkSucursal { get; set; }
 
+        public ICollection<Factura> Facturas { get; set; }
+
         public Empresa()
         {
             this.bStatus = true;
