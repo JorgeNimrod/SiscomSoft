@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201705112003070_MOD-TABLES.Designer.cs">
       <DependentUpon>201705112003070_MOD-TABLES.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705121855085_ADD-TABLE-FACTURA.cs" />
+    <Compile Include="Migrations\201705121855085_ADD-TABLE-FACTURA.Designer.cs">
+      <DependentUpon>201705121855085_ADD-TABLE-FACTURA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\CatSat.cs" />
@@ -74,6 +78,7 @@
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\Empresa.cs" />
+    <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Impuesto.cs" />
     <Compile Include="Models\InventarioEntrada.cs" />
     <Compile Include="Models\Permiso.cs" />
@@ -99,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705112003070_MOD-TABLES.resx">
       <DependentUpon>201705112003070_MOD-TABLES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705121855085_ADD-TABLE-FACTURA.resx">
+      <DependentUpon>201705121855085_ADD-TABLE-FACTURA.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

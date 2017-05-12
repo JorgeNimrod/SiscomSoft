@@ -11,18 +11,7 @@ namespace SiscomSoft.Models
     public class DataModel : DbContext
     {
         public DataModel() : base("DataModel") { }
-
-        /*  Empresa -
-         *  Certificado -
-         *  Sucursales -
-         *  Preferencias
-         *  Usuarios -
-         *  Impuestos
-         *  Productos
-         *  Clientes/Proveedores
-         *  
-         */
-
+        
         public DbSet<Usuario> Usuarios { get; set; }
 
         public DbSet<Empresa> Empresas { get; set; }
@@ -52,6 +41,8 @@ namespace SiscomSoft.Models
         public DbSet<InventarioEntrada> InventariosEntradas { get; set; }
 
         public DbSet<CatSat> CatalogosSAT { get; set; }
+
+        public DbSet<Factura> Facturas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
