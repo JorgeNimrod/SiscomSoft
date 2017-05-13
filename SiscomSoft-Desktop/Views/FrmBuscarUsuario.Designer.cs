@@ -40,7 +40,6 @@
             this.SRfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sPerfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sComentario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +59,7 @@
             // lblRegistros
             // 
             this.lblRegistros.AutoSize = true;
-            this.lblRegistros.Location = new System.Drawing.Point(725, 387);
+            this.lblRegistros.Location = new System.Drawing.Point(651, 391);
             this.lblRegistros.Name = "lblRegistros";
             this.lblRegistros.Size = new System.Drawing.Size(68, 18);
             this.lblRegistros.TabIndex = 37;
@@ -83,7 +82,7 @@
             // 
             this.txtBuscarUsuario.Location = new System.Drawing.Point(206, 12);
             this.txtBuscarUsuario.Name = "txtBuscarUsuario";
-            this.txtBuscarUsuario.Size = new System.Drawing.Size(613, 24);
+            this.txtBuscarUsuario.Size = new System.Drawing.Size(513, 24);
             this.txtBuscarUsuario.TabIndex = 34;
             this.txtBuscarUsuario.TextChanged += new System.EventHandler(this.txtBuscarUsuario_TextChanged);
             // 
@@ -124,14 +123,13 @@
             this.SRfc,
             this.sUsuario,
             this.sNombre,
-            this.sPerfil,
             this.sNumero,
             this.sCorreo,
             this.sComentario});
             this.dgvDatosUsuario.Location = new System.Drawing.Point(15, 42);
             this.dgvDatosUsuario.Name = "dgvDatosUsuario";
             this.dgvDatosUsuario.RowHeadersVisible = false;
-            this.dgvDatosUsuario.Size = new System.Drawing.Size(804, 342);
+            this.dgvDatosUsuario.Size = new System.Drawing.Size(704, 332);
             this.dgvDatosUsuario.TabIndex = 43;
             // 
             // pkUsuarios
@@ -158,12 +156,6 @@
             this.sNombre.HeaderText = "Nombre";
             this.sNombre.Name = "sNombre";
             // 
-            // sPerfil
-            // 
-            this.sPerfil.DataPropertyName = "sPerfil";
-            this.sPerfil.HeaderText = "Perfil";
-            this.sPerfil.Name = "sPerfil";
-            // 
             // sNumero
             // 
             this.sNumero.DataPropertyName = "sNumero";
@@ -186,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 487);
+            this.ClientSize = new System.Drawing.Size(736, 482);
             this.Controls.Add(this.dgvDatosUsuario);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnBorrar);
@@ -222,7 +214,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SRfc;
         private System.Windows.Forms.DataGridViewTextBoxColumn sUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn sNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sPerfil;
         private System.Windows.Forms.DataGridViewTextBoxColumn sNumero;
         private System.Windows.Forms.DataGridViewTextBoxColumn sCorreo;
         private System.Windows.Forms.DataGridViewTextBoxColumn sComentario;

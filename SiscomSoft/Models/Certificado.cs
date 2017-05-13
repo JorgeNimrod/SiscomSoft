@@ -27,6 +27,12 @@ namespace SiscomSoft.Models
         // Vigencia CSD
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string sContraseña { get; set; }
+        public Boolean bStatus { get; set; }
+
+        public Certificado()
+        {
+            this.bStatus = true;
+        }
 
         public ICollection<Empresa> Empresas { get; set; }
     }

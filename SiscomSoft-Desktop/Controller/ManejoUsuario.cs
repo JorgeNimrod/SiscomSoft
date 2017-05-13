@@ -24,6 +24,7 @@ namespace SiscomSoft_Desktop.Controller
                 {
                     nUsuario.fkRol = rol;
                     ctx.Usuarios.Add(nUsuario);
+                    ctx.Roles.Attach(rol);
                     ctx.SaveChanges();
                 }
             }

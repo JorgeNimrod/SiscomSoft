@@ -37,7 +37,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbllocalidad = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtNombreComercial = new System.Windows.Forms.TextBox();
             this.txtRegionComercial = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtCorreoElectronico = new System.Windows.Forms.TextBox();
@@ -61,6 +61,12 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtRazonSocial = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtNombreContacto = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,9 +75,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 18);
+            this.label1.Size = new System.Drawing.Size(142, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre :";
+            this.label1.Text = "Nombre Comercial :";
             // 
             // label2
             // 
@@ -121,7 +127,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 176);
+            this.label7.Location = new System.Drawing.Point(335, 223);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 18);
             this.label7.TabIndex = 6;
@@ -136,12 +142,12 @@
             this.lbllocalidad.TabIndex = 7;
             this.lbllocalidad.Text = "Localidad :";
             // 
-            // txtNombre
+            // txtNombreComercial
             // 
-            this.txtNombre.Location = new System.Drawing.Point(88, 12);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(578, 24);
-            this.txtNombre.TabIndex = 8;
+            this.txtNombreComercial.Location = new System.Drawing.Point(153, 15);
+            this.txtNombreComercial.Name = "txtNombreComercial";
+            this.txtNombreComercial.Size = new System.Drawing.Size(188, 24);
+            this.txtNombreComercial.TabIndex = 8;
             // 
             // txtRegionComercial
             // 
@@ -180,9 +186,9 @@
             // 
             // txtColonia
             // 
-            this.txtColonia.Location = new System.Drawing.Point(88, 176);
+            this.txtColonia.Location = new System.Drawing.Point(443, 220);
             this.txtColonia.Name = "txtColonia";
-            this.txtColonia.Size = new System.Drawing.Size(188, 24);
+            this.txtColonia.Size = new System.Drawing.Size(223, 24);
             this.txtColonia.TabIndex = 14;
             // 
             // txtLocalidad
@@ -196,7 +202,7 @@
             // 
             this.txtCalle.Location = new System.Drawing.Point(70, 223);
             this.txtCalle.Name = "txtCalle";
-            this.txtCalle.Size = new System.Drawing.Size(596, 24);
+            this.txtCalle.Size = new System.Drawing.Size(206, 24);
             this.txtCalle.TabIndex = 17;
             // 
             // label8
@@ -324,11 +330,65 @@
             // 
             this.ErrorProvider.ContainerControl = this;
             // 
+            // txtRazonSocial
+            // 
+            this.txtRazonSocial.Location = new System.Drawing.Point(119, 348);
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.Size = new System.Drawing.Size(157, 24);
+            this.txtRazonSocial.TabIndex = 35;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(12, 348);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(105, 18);
+            this.label14.TabIndex = 34;
+            this.label14.Text = "Razon Social :";
+            // 
+            // txtNombreContacto
+            // 
+            this.txtNombreContacto.Location = new System.Drawing.Point(504, 18);
+            this.txtNombreContacto.Name = "txtNombreContacto";
+            this.txtNombreContacto.Size = new System.Drawing.Size(162, 24);
+            this.txtNombreContacto.TabIndex = 37;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(347, 21);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(151, 18);
+            this.label15.TabIndex = 36;
+            this.label15.Text = "Nombre de Contacto:";
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Location = new System.Drawing.Point(87, 176);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(189, 24);
+            this.txtEstado.TabIndex = 39;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(2, 182);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(63, 18);
+            this.label16.TabIndex = 38;
+            this.label16.Text = "Estado :";
+            // 
             // FrmRegistrarEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(687, 438);
+            this.Controls.Add(this.txtEstado);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.txtNombreContacto);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.txtRazonSocial);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnRegistrar);
@@ -351,7 +411,7 @@
             this.Controls.Add(this.txtCorreoElectronico);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtRegionComercial);
-            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtNombreComercial);
             this.Controls.Add(this.lbllocalidad);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -382,7 +442,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbllocalidad;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtNombreComercial;
         private System.Windows.Forms.TextBox txtRegionComercial;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtCorreoElectronico;
@@ -406,5 +466,11 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ErrorProvider ErrorProvider;
+        private System.Windows.Forms.TextBox txtRazonSocial;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtNombreContacto;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtEstado;
+        private System.Windows.Forms.Label label16;
     }
 }

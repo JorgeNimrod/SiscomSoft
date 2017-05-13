@@ -46,25 +46,7 @@ namespace SiscomSoft_Desktop.Views
 
             cbxRol.SelectedIndex = indexrol;
         }
-        public static bool ValidarEmail(string email)
-        {
-            string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(email, expresion))
-            {
-                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
+      
 
 
 
@@ -120,12 +102,7 @@ namespace SiscomSoft_Desktop.Views
                     this.ErrorProvider.SetError(this.txtComentario, "Campo necesario");
                     this.txtComentario.Focus();
                 }
-                else if (this.cbxRol.Text == "")
-                {
-                    this.ErrorProvider.SetIconAlignment(this.cbxRol, ErrorIconAlignment.MiddleRight);
-                    this.ErrorProvider.SetError(this.cbxRol, "Seleccione una opcion");
-                    this.cbxRol.Focus();
-                }
+            
                 else
                 {
                     Usuario nUsuario = new Usuario();

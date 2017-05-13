@@ -93,6 +93,20 @@ namespace SiscomSoft_Desktop.Controller
                 throw;
             }
         }
-       
+        public static List<Certificado> getAll(Boolean status)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Certificados.Where(r => r.bStatus == status).ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

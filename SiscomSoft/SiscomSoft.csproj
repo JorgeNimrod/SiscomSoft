@@ -55,13 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201705121806053_INICIAL.cs" />
-    <Compile Include="Migrations\201705121806053_INICIAL.Designer.cs">
-      <DependentUpon>201705121806053_INICIAL.cs</DependentUpon>
+    <Compile Include="Migrations\201705122049547_INICIAL.cs" />
+    <Compile Include="Migrations\201705122049547_INICIAL.Designer.cs">
+      <DependentUpon>201705122049547_INICIAL.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705121855085_ADD-TABLE-FACTURA.cs" />
-    <Compile Include="Migrations\201705121855085_ADD-TABLE-FACTURA.Designer.cs">
-      <DependentUpon>201705121855085_ADD-TABLE-FACTURA.cs</DependentUpon>
+    <Compile Include="Migrations\201705131902391_Status Certificado.cs" />
+    <Compile Include="Migrations\201705131902391_Status Certificado.Designer.cs">
+      <DependentUpon>201705131902391_Status Certificado.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -88,11 +88,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705121806053_INICIAL.resx">
-      <DependentUpon>201705121806053_INICIAL.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705122049547_INICIAL.resx">
+      <DependentUpon>201705122049547_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705121855085_ADD-TABLE-FACTURA.resx">
-      <DependentUpon>201705121855085_ADD-TABLE-FACTURA.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705131902391_Status Certificado.resx">
+      <DependentUpon>201705131902391_Status Certificado.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

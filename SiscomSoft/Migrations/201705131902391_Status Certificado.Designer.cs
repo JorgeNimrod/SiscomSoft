@@ -7,13 +7,13 @@ namespace SiscomSoft.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ADDTABLEFACTURA : IMigrationMetadata
+    public sealed partial class StatusCertificado : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ADDTABLEFACTURA));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(StatusCertificado));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705121855085_ADD-TABLE-FACTURA"; }
+            get { return "201705131902391_Status Certificado"; }
         }
         
         string IMigrationMetadata.Source

@@ -179,6 +179,39 @@ namespace SiscomSoft.Migrations
                 .Index(t => t.fkSucursal_pkSucursal);
             
             CreateTable(
+                "dbo.Facturas",
+                c => new
+                    {
+                        pkFactura = c.Int(nullable: false, identity: true),
+                        sTipCambio = c.String(unicode: false),
+                        fkCliente = c.Int(nullable: false),
+                        sNombre = c.String(unicode: false),
+                        sDireccion = c.String(unicode: false),
+                        sRFC = c.String(unicode: false),
+                        sTelefono = c.String(unicode: false),
+                        dtFecha = c.DateTime(nullable: false, precision: 0),
+                        bStatus = c.Boolean(nullable: false),
+                        iCaja = c.Int(nullable: false),
+                        iFolio = c.Int(nullable: false),
+                        sTurno = c.String(unicode: false),
+                        sVendedor = c.String(unicode: false),
+                        sRegion = c.String(unicode: false),
+                        iCodigo = c.Int(nullable: false),
+                        iCantidad = c.Int(nullable: false),
+                        sUDM = c.String(unicode: false),
+                        dCostoPro = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        dPreVta = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        dImporte = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        sImpuestos = c.String(unicode: false),
+                        iDescuento = c.Int(nullable: false),
+                        iArticulo = c.Int(nullable: false),
+                        fkEmpresa_pkEmpresa = c.Int(),
+                    })
+                .PrimaryKey(t => t.pkFactura)
+                .ForeignKey("dbo.Empresas", t => t.fkEmpresa_pkEmpresa)
+                .Index(t => t.fkEmpresa_pkEmpresa);
+            
+            CreateTable(
                 "dbo.Sucursales",
                 c => new
                     {
@@ -260,7 +293,6 @@ namespace SiscomSoft.Migrations
                         sRfc = c.String(unicode: false),
                         sUsuario = c.String(nullable: false, unicode: false),
                         sNombre = c.String(nullable: false, unicode: false),
-                        sPerfil = c.String(nullable: false, unicode: false),
                         sContrasena = c.String(nullable: false, unicode: false),
                         sNumero = c.String(nullable: false, unicode: false),
                         sCorreo = c.String(nullable: false, unicode: false),
@@ -282,6 +314,7 @@ namespace SiscomSoft.Migrations
             DropForeignKey("dbo.Sucursales", "fkPreferencia_pkPreferencia", "dbo.Preferencias");
             DropForeignKey("dbo.Empresas", "fkSucursal_pkSucursal", "dbo.Sucursales");
             DropForeignKey("dbo.Empresas", "fkCertificado_pkCertificado", "dbo.Certificados");
+            DropForeignKey("dbo.Facturas", "fkEmpresa_pkEmpresa", "dbo.Empresas");
             DropForeignKey("dbo.Productos", "fkPrecio_pkPrecios", "dbo.Precios");
             DropForeignKey("dbo.Productos", "fkInventarioEntrada_pkInventioEntrada", "dbo.InventariosEntradas");
             DropForeignKey("dbo.InventariosEntradas", "fkProveedor_pkCliente", "dbo.Clientes");
@@ -292,6 +325,7 @@ namespace SiscomSoft.Migrations
             DropIndex("dbo.PermisosNegadosRol", new[] { "fkRol_pkRol" });
             DropIndex("dbo.PermisosNegadosRol", new[] { "fkPermiso_pkPermiso" });
             DropIndex("dbo.Sucursales", new[] { "fkPreferencia_pkPreferencia" });
+            DropIndex("dbo.Facturas", new[] { "fkEmpresa_pkEmpresa" });
             DropIndex("dbo.Empresas", new[] { "fkSucursal_pkSucursal" });
             DropIndex("dbo.Empresas", new[] { "fkCertificado_pkCertificado" });
             DropIndex("dbo.InventariosEntradas", new[] { "fkProveedor_pkCliente" });
@@ -306,6 +340,7 @@ namespace SiscomSoft.Migrations
             DropTable("dbo.Permisos");
             DropTable("dbo.Preferencias");
             DropTable("dbo.Sucursales");
+            DropTable("dbo.Facturas");
             DropTable("dbo.Empresas");
             DropTable("dbo.Certificados");
             DropTable("dbo.Precios");

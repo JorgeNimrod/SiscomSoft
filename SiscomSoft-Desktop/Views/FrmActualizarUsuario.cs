@@ -41,7 +41,7 @@ namespace SiscomSoft_Desktop.Views
             txtRFC.Text = nUsuario.sRfc;
             txtUsuario.Text = nUsuario.sUsuario;
             txtNombre.Text = nUsuario.sNombre;
-            txtPerfil.Text = nUsuario.sPerfil;
+           
             txtContraseña.Text = nUsuario.sContrasena;
             txtTelefono.Text = nUsuario.sNumero;
             txtCorreo.Text = nUsuario.sCorreo;
@@ -75,12 +75,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtNombre, "Campo necesario");
                 this.txtNombre.Focus();
             }
-            else if (this.txtPerfil.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtPerfil, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtPerfil, "Campo necesario");
-                this.txtPerfil.Focus();
-            }
+          
             else if (this.txtContraseña.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtContraseña, ErrorIconAlignment.MiddleRight);
@@ -124,7 +119,7 @@ namespace SiscomSoft_Desktop.Views
                 nUsuario.sRfc = txtRFC.Text;
                 nUsuario.sUsuario = txtUsuario.Text;
                 nUsuario.sNombre = txtNombre.Text;
-                nUsuario.sPerfil = txtPerfil.Text;
+              
                 nUsuario.sContrasena = txtContraseña.Text;
                 nUsuario.sNumero = txtTelefono.Text;
                 nUsuario.sCorreo = txtCorreo.Text;

@@ -21,6 +21,7 @@ namespace SiscomSoft_Desktop.Controller
                 {
                     nSucursal.fkPreferencia = preferencia;
                     ctx.Sucursales.Add(nSucursal);
+                    ctx.Preferencias.Attach(preferencia);
                     ctx.SaveChanges();
                 }
             }

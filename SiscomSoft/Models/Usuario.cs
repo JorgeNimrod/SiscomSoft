@@ -25,9 +25,6 @@ namespace SiscomSoft.Models
         public string sNombre { get; set; }
 
         [Required(ErrorMessage = "Este campo es necesario")]
-        public string sPerfil { get; set; }
-
-        [Required(ErrorMessage = "Este campo es necesario")]
         public string sContrasena { get; set; }
 
         [Required(ErrorMessage = "Este campo es necesario")]

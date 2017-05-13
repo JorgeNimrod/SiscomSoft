@@ -41,8 +41,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtPerfil = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -155,22 +153,6 @@
             this.label5.TabIndex = 69;
             this.label5.Text = "Contraseña :";
             // 
-            // txtPerfil
-            // 
-            this.txtPerfil.Location = new System.Drawing.Point(427, 59);
-            this.txtPerfil.Name = "txtPerfil";
-            this.txtPerfil.Size = new System.Drawing.Size(172, 24);
-            this.txtPerfil.TabIndex = 68;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(353, 65);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 18);
-            this.label4.TabIndex = 67;
-            this.label4.Text = "Perfil :";
-            // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(85, 56);
@@ -240,8 +222,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtPerfil);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtUsuario);
@@ -275,8 +255,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtPerfil;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUsuario;
