@@ -66,5 +66,21 @@ namespace SiscomSoft_Desktop.Views
                
             }
         }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+               && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtComentario_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
     }
 }

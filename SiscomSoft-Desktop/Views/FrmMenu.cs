@@ -97,5 +97,11 @@ namespace SiscomSoft_Desktop.Views
             FrmRegistrarCategoria Cate = new FrmRegistrarCategoria();
             Cate.Show();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarEntrada Entrada = new FrmRegistrarEntrada();
+            Entrada.Show();
+        }
     }
 }

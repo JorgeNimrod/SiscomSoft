@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnBorrar = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.ckbStatus = new System.Windows.Forms.CheckBox();
             this.dgvDatosEmpresa = new System.Windows.Forms.DataGridView();
@@ -45,6 +43,8 @@
             this.iCodPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarEmpresa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosEmpresa)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,29 +57,6 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Enabled = false;
-            this.btnActualizar.Location = new System.Drawing.Point(127, 397);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(109, 31);
-            this.btnActualizar.TabIndex = 23;
-            this.btnActualizar.Tag = "2";
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.Enabled = false;
-            this.btnBorrar.Location = new System.Drawing.Point(12, 397);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(109, 31);
-            this.btnBorrar.TabIndex = 22;
-            this.btnBorrar.Tag = "1";
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = true;
             // 
             // lblRegistros
             // 
@@ -101,6 +78,7 @@
             this.ckbStatus.TabIndex = 20;
             this.ckbStatus.Text = "Status";
             this.ckbStatus.UseVisualStyleBackColor = true;
+            this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
             // 
             // dgvDatosEmpresa
             // 
@@ -182,6 +160,7 @@
             this.txtBuscarEmpresa.Name = "txtBuscarEmpresa";
             this.txtBuscarEmpresa.Size = new System.Drawing.Size(676, 24);
             this.txtBuscarEmpresa.TabIndex = 18;
+            this.txtBuscarEmpresa.TextChanged += new System.EventHandler(this.txtBuscarEmpresa_TextChanged);
             // 
             // label1
             // 
@@ -192,14 +171,34 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Buscar Empresa Por Nombre";
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Location = new System.Drawing.Point(130, 397);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(109, 31);
+            this.btnBorrar.TabIndex = 25;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(15, 397);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(109, 31);
+            this.btnActualizar.TabIndex = 26;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
+            // 
             // FrmBuscarEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 451);
-            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblRegistros);
             this.Controls.Add(this.ckbStatus);
             this.Controls.Add(this.dgvDatosEmpresa);
@@ -221,8 +220,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Label lblRegistros;
         private System.Windows.Forms.CheckBox ckbStatus;
         private System.Windows.Forms.DataGridView dgvDatosEmpresa;
@@ -237,5 +234,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iCodPostal;
         private System.Windows.Forms.TextBox txtBuscarEmpresa;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

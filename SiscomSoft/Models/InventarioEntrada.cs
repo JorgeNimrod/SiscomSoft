@@ -15,7 +15,7 @@ namespace SiscomSoft.Models
         [Key]
         public int pkInventioEntrada { get; set; }
 
-        public virtual Cliente fkProveedor { get; set; }
+        public virtual Cliente fkCliente { get; set; }
 
         public DateTime dtFecha { get; set; }
 

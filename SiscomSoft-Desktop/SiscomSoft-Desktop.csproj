@@ -91,6 +91,7 @@
     <Compile Include="Controller\ManejoEmpresa.cs" />
     <Compile Include="Controller\Helpers\UsuarioHelper.cs" />
     <Compile Include="Controller\ManejoCliente.cs" />
+    <Compile Include="Controller\ManejoEntrada.cs" />
     <Compile Include="Controller\ManejoImpuesto.cs" />
     <Compile Include="Controller\ManejoPermiso.cs" />
     <Compile Include="Controller\ManejoPreferencia.cs" />
@@ -117,6 +118,12 @@
     </Compile>
     <Compile Include="Views\FrmActualizarEmpresa.Designer.cs">
       <DependentUpon>FrmActualizarEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmActualizarEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarEntrada.Designer.cs">
+      <DependentUpon>FrmActualizarEntrada.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmActualizarImpuesto.cs">
       <SubType>Form</SubType>
@@ -171,6 +178,12 @@
     </Compile>
     <Compile Include="Views\FrmBuscarEmpresa.Designer.cs">
       <DependentUpon>FrmBuscarEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBuscarEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarEntrada.Designer.cs">
+      <DependentUpon>FrmBuscarEntrada.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmBuscarImpuesto.cs">
       <SubType>Form</SubType>
@@ -250,6 +263,12 @@
     <Compile Include="Views\FrmRegistrarEmpresa.Designer.cs">
       <DependentUpon>FrmRegistrarEmpresa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmRegistrarEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRegistrarEntrada.Designer.cs">
+      <DependentUpon>FrmRegistrarEntrada.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmRegistrarImpuesto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +324,9 @@
     <EmbeddedResource Include="Views\FrmActualizarEmpresa.resx">
       <DependentUpon>FrmActualizarEmpresa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizarEntrada.resx">
+      <DependentUpon>FrmActualizarEntrada.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmActualizarImpuesto.resx">
       <DependentUpon>FrmActualizarImpuesto.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmBuscarEmpresa.resx">
       <DependentUpon>FrmBuscarEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarEntrada.resx">
+      <DependentUpon>FrmBuscarEntrada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmBuscarImpuesto.resx">
       <DependentUpon>FrmBuscarImpuesto.cs</DependentUpon>
@@ -370,6 +395,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRegistrarEmpresa.resx">
       <DependentUpon>FrmRegistrarEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRegistrarEntrada.resx">
+      <DependentUpon>FrmRegistrarEntrada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRegistrarImpuesto.resx">
       <DependentUpon>FrmRegistrarImpuesto.cs</DependentUpon>
@@ -423,6 +451,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\All_reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\msn-messenger-logo_318-50203.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa_318-80384.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18122.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\descarga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_89725628-stock-illustration-the-pay-day-icon-tax.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\entrada_318-31630.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\commercial-buldings_318-35853.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-View-Details-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_115423478-stock-illustration-user-icon-dollar-business-money.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

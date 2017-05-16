@@ -7,7 +7,7 @@ using SiscomSoft.Models;
 using SiscomSoft_Desktop.Controller;
 using System.Data.Entity;
 
-namespace SiscomSoft_Desktop.Controller.Helpers
+namespace SiscomSoft_Desktop.Controller
 {
    public class ManejoEmpresa
     {
@@ -22,6 +22,8 @@ namespace SiscomSoft_Desktop.Controller.Helpers
                 {
                     nEmpresa.fkSucursal = sucursal;
                     nEmpresa.fkCertificado = certificado;
+                    ctx.Certificados.Attach(certificado);
+                    ctx.Sucursales.Attach(sucursal);
                     ctx.Empresas.Add(nEmpresa);
                     ctx.SaveChanges();
                 }

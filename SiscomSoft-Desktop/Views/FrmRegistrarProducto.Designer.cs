@@ -57,6 +57,10 @@
             this.btnExaminar = new System.Windows.Forms.Button();
             this.pcbLogo = new System.Windows.Forms.PictureBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             this.SuspendLayout();
@@ -297,11 +301,49 @@
             this.txtPrecio.Size = new System.Drawing.Size(145, 24);
             this.txtPrecio.TabIndex = 72;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(108, 271);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(208, 26);
+            this.comboBox1.TabIndex = 74;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 274);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 18);
+            this.label7.TabIndex = 73;
+            this.label7.Text = "Impuesto :";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(108, 218);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(208, 26);
+            this.comboBox2.TabIndex = 76;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(22, 221);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 18);
+            this.label9.TabIndex = 75;
+            this.label9.Text = "Impuesto :";
+            // 
             // FrmRegistrarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 463);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.btnExaminar);
             this.Controls.Add(this.pcbLogo);
@@ -373,5 +415,9 @@
         private System.Windows.Forms.Button btnExaminar;
         private System.Windows.Forms.PictureBox pcbLogo;
         private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label7;
     }
 }
