@@ -12,6 +12,7 @@ namespace SiscomSoft.Models
     [Table("Certificados")]
     public class Certificado
     {
+        //TODO: revisar bien la info que se guardara en esta tabla para poner bien los campos en la bd
         [Key]
         public int pkCertificado { get; set; }
 

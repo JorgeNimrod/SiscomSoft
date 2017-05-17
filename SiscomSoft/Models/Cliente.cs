@@ -21,7 +21,7 @@ namespace SiscomSoft.Models
             this.iNumInterior = 0;
             this.iPersona = 0;
         }
-
+        
         [Key]
         public int pkCliente { get; set; }
 

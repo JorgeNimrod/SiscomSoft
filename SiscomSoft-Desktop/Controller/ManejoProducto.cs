@@ -38,7 +38,12 @@ namespace SiscomSoft_Desktop.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Productos.Where(r => r.bStatus == true && r.pkProducto == pkProducto).FirstOrDefault();
+                    return ctx.Productos.Include("fkImpuesto")
+                        .Include("fkCategoria")
+                        .Include("fkCatalogoSAT")
+                        .Include("fkPrecio")
+                        .Where(r => r.bStatus == true && r.pkProducto == pkProducto)
+                        .FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -72,7 +77,13 @@ namespace SiscomSoft_Desktop.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Productos.Where(r => r.bStatus == Status && r.sMarca.Contains(valor)).ToList();
+                    return ctx.Productos
+                        .Include("fkImpuesto")
+                        .Include("fkCategoria")
+                        .Include("fkCatalogoSAT")
+                        .Include("fkPrecio")
+                        .Where(r => r.bStatus == Status && r.sMarca.Contains(valor))
+                        .ToList();
                 }
             }
             catch (Exception)

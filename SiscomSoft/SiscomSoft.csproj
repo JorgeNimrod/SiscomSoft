@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201705161651504_INICIAL.Designer.cs">
       <DependentUpon>201705161651504_INICIAL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705140129170_MOD-PRODUCTO.cs" />
+    <Compile Include="Migrations\201705140129170_MOD-PRODUCTO.Designer.cs">
+      <DependentUpon>201705140129170_MOD-PRODUCTO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\CatSat.cs" />
@@ -86,6 +90,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705161651504_INICIAL.resx">
       <DependentUpon>201705161651504_INICIAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705140129170_MOD-PRODUCTO.resx">
+      <DependentUpon>201705140129170_MOD-PRODUCTO.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

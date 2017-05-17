@@ -15,6 +15,8 @@ namespace SiscomSoft.Models
         [Key]
         public int pkProducto { get; set; }
 
+        public int iClaveProd { get; set; }
+
         public string sDescripcion { get; set; }
 
         public virtual Categoria fkCategoria { get; set; }
