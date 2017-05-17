@@ -66,5 +66,62 @@ namespace SiscomSoft_Desktop.Views
                 this.Close();
             }
         }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            if (this.txtNombre.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNombre, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNombre, "Campo necesario");
+                this.txtNombre.Focus();
+            }
+            else if (this.txtSubCat.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtSubCat, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtSubCat, "Campo necesario");
+                this.txtSubCat.Focus();
+            }
+
+            else
+            {
+                Categoria nCategoria = new Categoria();
+                nCategoria.pkCategoria = FrmBuscarCategoria.PKCATEGORIA;
+                nCategoria.sNombre = txtNombre.Text;
+                nCategoria.sNomSubCat = txtSubCat.Text;
+
+                ManejoCategoria.Modificar(nCategoria);
+
+                vMain.cargarCategorias();
+
+                this.Close();
+            }
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtSubCat_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtSubCat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
     }
 }

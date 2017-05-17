@@ -347,9 +347,9 @@
             // 
             // txtTelMvil
             // 
-            this.txtTelMvil.Location = new System.Drawing.Point(822, 314);
+            this.txtTelMvil.Location = new System.Drawing.Point(814, 314);
             this.txtTelMvil.Name = "txtTelMvil";
-            this.txtTelMvil.Size = new System.Drawing.Size(228, 24);
+            this.txtTelMvil.Size = new System.Drawing.Size(236, 24);
             this.txtTelMvil.TabIndex = 31;
             this.txtTelMvil.TextChanged += new System.EventHandler(this.txtTelMvil_TextChanged);
             this.txtTelMvil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelMvil_KeyPress);
