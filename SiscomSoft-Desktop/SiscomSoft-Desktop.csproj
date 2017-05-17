@@ -522,6 +522,33 @@
   <ItemGroup>
     <None Include="Resources\magnifier5.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door21.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7663995-icono-m-s-verde--Foto-de-archivo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1495064052_Add_create_new_more_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1495064052_Add_create_new_more_plus1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StatusAnnotations_Complete_and_ok_32xLG_color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StatusAnnotations_Critical_32xLG_color.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

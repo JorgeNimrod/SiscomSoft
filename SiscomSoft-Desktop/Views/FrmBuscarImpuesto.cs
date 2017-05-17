@@ -73,5 +73,21 @@ namespace SiscomSoft_Desktop.Views
         {
             this.cargarImpuestos();
         }
+
+        private void dgvDatosImpuesto_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistros.Text = "Registros: " + this.dgvDatosImpuesto.Rows.Count;
+        }
+
+        private void dgvDatosImpuesto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosImpuesto.RowCount >= 1)
+            {
+                PKIMPUESTO = Convert.ToInt32(this.dgvDatosImpuesto.CurrentRow.Cells[0].Value);
+                FrmActualizarImpuesto v = new FrmActualizarImpuesto(this);
+                v.ShowDialog();
+            }
+
+        }
     }
 }

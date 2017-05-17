@@ -59,5 +59,20 @@ namespace SiscomSoft_Desktop.Views
                 v.ShowDialog();
             }
         }
+
+        private void dgvDatosCategoria_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistros.Text = "Registros: " + this.dgvDatosCategoria.Rows.Count;
+        }
+
+        private void dgvDatosCategoria_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosCategoria.RowCount >= 1)
+            {
+                PKCATEGORIA = Convert.ToInt32(this.dgvDatosCategoria.CurrentRow.Cells[0].Value);
+                FrmActualizarCategoria v = new FrmActualizarCategoria(this);
+                v.ShowDialog();
+            }
+        }
     }
 }

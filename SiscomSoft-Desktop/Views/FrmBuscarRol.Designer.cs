@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSalir = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.ckbStatus = new System.Windows.Forms.CheckBox();
             this.dgvDatosRol = new System.Windows.Forms.DataGridView();
@@ -37,25 +36,16 @@
             this.sComentario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarRol = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBorrar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosRol)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(175, 386);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(78, 31);
-            this.btnSalir.TabIndex = 56;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // lblRegistros
             // 
             this.lblRegistros.AutoSize = true;
-            this.lblRegistros.Location = new System.Drawing.Point(247, 346);
+            this.lblRegistros.Location = new System.Drawing.Point(185, 342);
             this.lblRegistros.Name = "lblRegistros";
             this.lblRegistros.Size = new System.Drawing.Size(68, 18);
             this.lblRegistros.TabIndex = 53;
@@ -86,6 +76,8 @@
             this.dgvDatosRol.RowHeadersVisible = false;
             this.dgvDatosRol.Size = new System.Drawing.Size(303, 283);
             this.dgvDatosRol.TabIndex = 51;
+            this.dgvDatosRol.DataSourceChanged += new System.EventHandler(this.dgvDatosRol_DataSourceChanged);
+            this.dgvDatosRol.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosRol_CellDoubleClick);
             // 
             // pkRol
             // 
@@ -122,31 +114,41 @@
             this.label1.TabIndex = 49;
             this.label1.Text = "Buscar Rol";
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Image = global::SiscomSoft_Desktop.Properties.Resources.book_edit;
+            this.btnActualizar.Location = new System.Drawing.Point(7, 386);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(87, 41);
+            this.btnActualizar.TabIndex = 58;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
+            // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(7, 386);
+            this.btnBorrar.Image = global::SiscomSoft_Desktop.Properties.Resources.delete;
+            this.btnBorrar.Location = new System.Drawing.Point(100, 386);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(78, 31);
+            this.btnBorrar.Size = new System.Drawing.Size(87, 41);
             this.btnBorrar.TabIndex = 57;
-            this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
-            // btnActualizar
+            // btnSalir
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(91, 386);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(78, 31);
-            this.btnActualizar.TabIndex = 58;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
+            this.btnSalir.Image = global::SiscomSoft_Desktop.Properties.Resources.door2;
+            this.btnSalir.Location = new System.Drawing.Point(193, 386);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(87, 41);
+            this.btnSalir.TabIndex = 56;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FrmBuscarRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 442);
+            this.ClientSize = new System.Drawing.Size(335, 451);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnSalir);

@@ -269,5 +269,36 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
+
+        private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMoneda_KeyDown(object sender, KeyEventArgs e)
+        {
+         
+        }
+
+        private void txtMoneda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+          && e.KeyChar != 8) e.Handled = true;
+        }
     }
 }

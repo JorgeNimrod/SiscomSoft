@@ -56,6 +56,12 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtRazonSocial, "Campo necesario");
                 this.txtRazonSocial.Focus();
             }
+            else if (this.cbxPais.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxPais, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxPais, "Campo necesario");
+                this.cbxPais.Focus();
+            }
             else if (this.txtPersona.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtPersona, ErrorIconAlignment.MiddleRight);
@@ -209,7 +215,7 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.sEstCliente = cbxEstadoCli.Text;
                 nCliente.sReferencia = txtReferencia.Text;
                 nCliente.sTipoPAgo = cbxMetodoPago.Text;
-                nCliente.iNumCuenta = Convert.ToInt32(txtNumCuenta.Text);
+                nCliente.sNumCuenta = txtNumCuenta.Text;
                 nCliente.sCondPAgo = txtCondicionesPago.Text;
                 nCliente.sTipoCliente = cbxTipoCliente.Text;
                 nCliente.sLogo = ImagenString;

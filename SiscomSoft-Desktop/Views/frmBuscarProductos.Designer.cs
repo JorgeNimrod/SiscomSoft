@@ -146,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 378);
+            this.ClientSize = new System.Drawing.Size(751, 441);
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.txtBuscarProducto);
             this.Controls.Add(this.label1);

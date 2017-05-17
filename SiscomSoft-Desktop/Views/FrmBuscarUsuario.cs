@@ -68,5 +68,16 @@ namespace SiscomSoft_Desktop.Views
                 v.ShowDialog();
             }
         }
+
+        private void dgvDatosUsuario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosUsuario.RowCount >= 1)
+            {
+                PKUSUARIO = Convert.ToInt32(this.dgvDatosUsuario.CurrentRow.Cells[0].Value);
+                FrmActualizarUsuario v = new FrmActualizarUsuario(this);
+                v.ShowDialog();
+            }
+
+        }
     }
 }

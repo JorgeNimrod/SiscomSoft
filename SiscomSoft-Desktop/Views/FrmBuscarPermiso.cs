@@ -68,5 +68,25 @@ namespace SiscomSoft_Desktop.Views
         {
             this.cargarPermisos();
         }
+
+        private void dgvDatosPermiso_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistros.Text = "Registros: " + this.dgvDatosPermiso.Rows.Count;
+        }
+
+        private void dgvDatosPermiso_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDatosPermiso_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosPermiso.RowCount >= 1)
+            {
+                PKPERMISO = Convert.ToInt32(this.dgvDatosPermiso.CurrentRow.Cells[0].Value);
+                FrmActualizarPermiso v = new FrmActualizarPermiso(this);
+                v.ShowDialog();
+            }
+        }
     }
 }

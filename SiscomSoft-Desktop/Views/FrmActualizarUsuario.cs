@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SiscomSoft.Models;
 using SiscomSoft_Desktop.Controller;
 using SiscomSoft_Desktop.Comun;
+using System.Text.RegularExpressions;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -31,6 +32,25 @@ namespace SiscomSoft_Desktop.Views
             cbxRol.ValueMember = "pkRol";
 
             cbxRol.SelectedIndex = indexrol;
+        }
+        public static bool ValidarEmail(string email)
+        {
+            string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void FrmActualizarUsuario_Load(object sender, EventArgs e)
@@ -109,7 +129,7 @@ namespace SiscomSoft_Desktop.Views
             else if (this.cbxRol.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.cbxRol, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.cbxRol, "Seleccione una opcion");
+                this.ErrorProvider.SetError(this.cbxRol, "Debe Ingresar un Rol Primero");
                 this.cbxRol.Focus();
             }
             else
@@ -137,6 +157,82 @@ namespace SiscomSoft_Desktop.Views
 
                 this.Close();
             }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRFC_Leave(object sender, EventArgs e)
+        {
+            if (ValidarEmail(txtCorreo.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Direccion De Correo Electronico No Valido Debe de tener el formato : correo@gmail.com, " +
+                    "Favor Sellecione Un Correo Valido", "Validacion De Correo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCorreo.SelectAll();
+                txtCorreo.Focus();
+            }
+        }
+
+        private void txtRFC_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtComentario_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
         }
     }
 }

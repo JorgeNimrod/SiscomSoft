@@ -104,5 +104,11 @@ namespace SiscomSoft_Desktop.Views
         {
             
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarEntrada Entrada = new FrmRegistrarEntrada();
+            Entrada.Show();
+        }
     }
 }

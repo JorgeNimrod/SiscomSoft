@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label24 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbxEstadoCli = new System.Windows.Forms.ComboBox();
             this.cbxPais = new System.Windows.Forms.ComboBox();
             this.cbxTipoCliente = new System.Windows.Forms.ComboBox();
@@ -40,9 +38,7 @@
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnExaminar = new System.Windows.Forms.Button();
-            this.pcbLogo = new System.Windows.Forms.PictureBox();
             this.txtCondicionesPago = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.cbxMetodoPago = new System.Windows.Forms.ComboBox();
@@ -83,6 +79,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtRFC = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.pcbLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -103,25 +103,6 @@
             this.label24.Size = new System.Drawing.Size(198, 29);
             this.label24.TabIndex = 152;
             this.label24.Text = "Actualizar Cliente";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::SiscomSoft_Desktop.Properties.Resources.depositphotos_115423478_stock_illustration_user_icon_dollar_business_money;
-            this.pictureBox2.Location = new System.Drawing.Point(33, 11);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(98, 74);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 151;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox1.Location = new System.Drawing.Point(1, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1111, 94);
-            this.pictureBox1.TabIndex = 150;
-            this.pictureBox1.TabStop = false;
             // 
             // cbxEstadoCli
             // 
@@ -385,22 +366,13 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Image = global::SiscomSoft_Desktop.Properties.Resources.StatusAnnotations_Critical_32xLG_color;
             this.btnCancelar.Location = new System.Drawing.Point(863, 581);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
             this.btnCancelar.TabIndex = 142;
-            this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.Location = new System.Drawing.Point(985, 581);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(116, 42);
-            this.btnRegistrar.TabIndex = 141;
-            this.btnRegistrar.Text = "Actualizar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // btnExaminar
             // 
@@ -412,16 +384,6 @@
             this.btnExaminar.Text = "Examinar";
             this.btnExaminar.UseVisualStyleBackColor = true;
             this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click_1);
-            // 
-            // pcbLogo
-            // 
-            this.pcbLogo.Location = new System.Drawing.Point(880, 366);
-            this.pcbLogo.Name = "pcbLogo";
-            this.pcbLogo.Size = new System.Drawing.Size(167, 113);
-            this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbLogo.TabIndex = 139;
-            this.pcbLogo.TabStop = false;
-            this.pcbLogo.Tag = "2";
             // 
             // txtCondicionesPago
             // 
@@ -792,6 +754,45 @@
             this.label1.Size = new System.Drawing.Size(47, 18);
             this.label1.TabIndex = 99;
             this.label1.Text = "RFC :";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::SiscomSoft_Desktop.Properties.Resources.depositphotos_115423478_stock_illustration_user_icon_dollar_business_money;
+            this.pictureBox2.Location = new System.Drawing.Point(33, 11);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(98, 74);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 151;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBox1.Location = new System.Drawing.Point(1, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1111, 94);
+            this.pictureBox1.TabIndex = 150;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Image = global::SiscomSoft_Desktop.Properties.Resources.StatusAnnotations_Complete_and_ok_32xLG_color;
+            this.btnRegistrar.Location = new System.Drawing.Point(985, 581);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(116, 42);
+            this.btnRegistrar.TabIndex = 141;
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
+            // pcbLogo
+            // 
+            this.pcbLogo.Location = new System.Drawing.Point(880, 366);
+            this.pcbLogo.Name = "pcbLogo";
+            this.pcbLogo.Size = new System.Drawing.Size(167, 113);
+            this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbLogo.TabIndex = 139;
+            this.pcbLogo.TabStop = false;
+            this.pcbLogo.Tag = "2";
             // 
             // FrmActualizarCliente
             // 

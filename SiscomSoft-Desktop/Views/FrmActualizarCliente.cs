@@ -89,7 +89,7 @@ namespace SiscomSoft_Desktop.Views
             cbxEstadoCli.Text = nCliente.sEstCliente;
             txtReferencia.Text = nCliente.sReferencia;
             cbxMetodoPago.Text = nCliente.sTipoPAgo;
-            txtNumCuenta.Text = Convert.ToInt32(nCliente.iNumCuenta).ToString();
+            txtNumCuenta.Text = nCliente.sNumCuenta;
             txtCondicionesPago.Text = nCliente.sCondPAgo;
             cbxTipoCliente.Text = nCliente.sTipoCliente;
             pcbLogo.Image = ToolImagen.Base64StringToBitmap(nCliente.sLogo);
@@ -282,7 +282,7 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.sEstCliente = cbxEstadoCli.Text;
                 nCliente.sReferencia = txtReferencia.Text;
                 nCliente.sTipoPAgo = cbxMetodoPago.Text;
-                nCliente.iNumCuenta = Convert.ToInt32(txtNumCuenta.Text);
+                nCliente.sNumCuenta = txtNumCuenta.Text;
                 nCliente.sCondPAgo = txtCondicionesPago.Text;
                 nCliente.sTipoCliente = cbxTipoCliente.Text;
                 nCliente.sLogo = ImagenString;
@@ -633,6 +633,11 @@ namespace SiscomSoft_Desktop.Views
                 txtCurp.SelectAll();
                 txtCurp.Focus();
             }
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

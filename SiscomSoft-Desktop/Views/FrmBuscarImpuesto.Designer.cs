@@ -28,30 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSalir = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.ckbStatus = new System.Windows.Forms.CheckBox();
             this.txtBuscarImpuesto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.dgvDatosImpuesto = new System.Windows.Forms.DataGridView();
             this.s = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sTipoImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dTasaImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosImpuesto)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(242, 397);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(109, 31);
-            this.btnSalir.TabIndex = 40;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // lblRegistros
             // 
@@ -67,7 +57,7 @@
             this.ckbStatus.AutoSize = true;
             this.ckbStatus.Checked = true;
             this.ckbStatus.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbStatus.Location = new System.Drawing.Point(15, 369);
+            this.ckbStatus.Location = new System.Drawing.Point(15, 346);
             this.ckbStatus.Name = "ckbStatus";
             this.ckbStatus.Size = new System.Drawing.Size(69, 22);
             this.ckbStatus.TabIndex = 36;
@@ -92,26 +82,6 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "Buscar Impuesto Por Tipo";
             // 
-            // btnBorrar
-            // 
-            this.btnBorrar.Location = new System.Drawing.Point(12, 397);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(109, 31);
-            this.btnBorrar.TabIndex = 41;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = true;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(127, 397);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(109, 31);
-            this.btnActualizar.TabIndex = 42;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
             // dgvDatosImpuesto
             // 
             this.dgvDatosImpuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -125,6 +95,8 @@
             this.dgvDatosImpuesto.RowHeadersVisible = false;
             this.dgvDatosImpuesto.Size = new System.Drawing.Size(403, 301);
             this.dgvDatosImpuesto.TabIndex = 43;
+            this.dgvDatosImpuesto.DataSourceChanged += new System.EventHandler(this.dgvDatosImpuesto_DataSourceChanged);
+            this.dgvDatosImpuesto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosImpuesto_CellDoubleClick);
             // 
             // s
             // 
@@ -149,6 +121,36 @@
             this.dTasaImpuesto.DataPropertyName = "dTasaImpuesto";
             this.dTasaImpuesto.HeaderText = "Tasa Impuesto";
             this.dTasaImpuesto.Name = "dTasaImpuesto";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Image = global::SiscomSoft_Desktop.Properties.Resources.book_edit;
+            this.btnActualizar.Location = new System.Drawing.Point(6, 406);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(117, 42);
+            this.btnActualizar.TabIndex = 42;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Image = global::SiscomSoft_Desktop.Properties.Resources.delete;
+            this.btnBorrar.Location = new System.Drawing.Point(129, 406);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(117, 42);
+            this.btnBorrar.TabIndex = 41;
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Image = global::SiscomSoft_Desktop.Properties.Resources.door2;
+            this.btnSalir.Location = new System.Drawing.Point(252, 406);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(117, 42);
+            this.btnSalir.TabIndex = 40;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FrmBuscarImpuesto
             // 

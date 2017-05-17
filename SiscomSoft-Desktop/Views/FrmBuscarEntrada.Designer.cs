@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.ckbStatus = new System.Windows.Forms.CheckBox();
             this.txtBuscarEntrada = new System.Windows.Forms.TextBox();
@@ -47,38 +44,11 @@
             this.idescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtCaducidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosEntrada)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.Location = new System.Drawing.Point(127, 399);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(109, 31);
-            this.btnBorrar.TabIndex = 42;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = true;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(15, 399);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(109, 31);
-            this.btnActualizar.TabIndex = 41;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(242, 399);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(109, 31);
-            this.btnSalir.TabIndex = 40;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // lblRegistros
             // 
@@ -115,9 +85,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 18);
+            this.label1.Size = new System.Drawing.Size(201, 18);
             this.label1.TabIndex = 35;
-            this.label1.Text = "Buscar Sucursal Por Nombre";
+            this.label1.Text = "Buscar Entrada por Producto";
             // 
             // dgvDatosEntrada
             // 
@@ -139,7 +109,9 @@
             this.dgvDatosEntrada.RowHeadersVisible = false;
             this.dgvDatosEntrada.Size = new System.Drawing.Size(1104, 324);
             this.dgvDatosEntrada.TabIndex = 43;
+            this.dgvDatosEntrada.DataSourceChanged += new System.EventHandler(this.dgvDatosEntrada_DataSourceChanged);
             this.dgvDatosEntrada.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosEntrada_CellContentClick);
+            this.dgvDatosEntrada.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosEntrada_CellDoubleClick);
             // 
             // pkInventioEntrada
             // 
@@ -207,11 +179,41 @@
             this.dtCaducidad.HeaderText = "Caducidad";
             this.dtCaducidad.Name = "dtCaducidad";
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Image = global::SiscomSoft_Desktop.Properties.Resources.delete;
+            this.btnBorrar.Location = new System.Drawing.Point(131, 417);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(115, 44);
+            this.btnBorrar.TabIndex = 42;
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Image = global::SiscomSoft_Desktop.Properties.Resources.book_edit;
+            this.btnActualizar.Location = new System.Drawing.Point(10, 417);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(115, 44);
+            this.btnActualizar.TabIndex = 41;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Image = global::SiscomSoft_Desktop.Properties.Resources.door2;
+            this.btnSalir.Location = new System.Drawing.Point(252, 417);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(115, 44);
+            this.btnSalir.TabIndex = 40;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FrmBuscarEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 450);
+            this.ClientSize = new System.Drawing.Size(1133, 473);
             this.Controls.Add(this.dgvDatosEntrada);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnActualizar);
@@ -222,7 +224,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmBuscarEntrada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Entrada";
