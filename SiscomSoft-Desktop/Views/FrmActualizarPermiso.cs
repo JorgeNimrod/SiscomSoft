@@ -77,12 +77,23 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtModulo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
+        
+        }
+
+        private void txtModulo_TextChanged_1(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtComentario_TextChanged_1(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtModulo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
         }
     }
 }

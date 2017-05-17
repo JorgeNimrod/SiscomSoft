@@ -11,6 +11,7 @@ using SiscomSoft.Models;
 using SiscomSoft_Desktop.Controller;
 using SiscomSoft_Desktop.Comun;
 using System.Drawing.Imaging;
+using System.Text.RegularExpressions;
 
 
 namespace SiscomSoft_Desktop.Views
@@ -26,6 +27,44 @@ namespace SiscomSoft_Desktop.Views
             vMain = vmain;
             vMain.cargarClientes();
         }
+        public static bool ValidarCurp(string curp)
+        {
+            string expresion = "^.*(?=.{18})(?=.*[0-9])(?=.*[A-ZÑ]).*$";
+            if (Regex.IsMatch(curp, expresion))
+            {
+                if (Regex.Replace(curp, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static bool ValidarEmail(string email)
+        {
+            string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         private void FrmActualizarCliente_Load(object sender, EventArgs e)
         {
@@ -35,7 +74,7 @@ namespace SiscomSoft_Desktop.Views
             txtPersona.Text = Convert.ToInt32(nCliente.iPersona).ToString();
             txtCurp.Text = nCliente.sCurp;
             txtNombre.Text = nCliente.sNombre;
-            txtPais.Text = nCliente.sPais;
+            cbxPais.Text = nCliente.sPais;
             txtCodigoPostal.Text = Convert.ToInt32(nCliente.iCodPostal).ToString();
             txtEstado.Text = nCliente.sEstado;
             txtMunicipio.Text = nCliente.sMunicipio;
@@ -47,11 +86,11 @@ namespace SiscomSoft_Desktop.Views
             txtTelFijo.Text = nCliente.sTelFijo;
             txtTelMvil.Text = nCliente.sTelMovil;
             txtCorreo.Text = nCliente.sCorreo;
-            txtEstadoCliente.Text = nCliente.sEstCliente;
+            cbxEstadoCli.Text = nCliente.sEstCliente;
             txtReferencia.Text = nCliente.sReferencia;
             cbxMetodoPago.Text = nCliente.sTipoPAgo;
             txtNumCuenta.Text = Convert.ToInt32(nCliente.iNumCuenta).ToString();
-            txtCondicionPago.Text = nCliente.sCondPAgo;
+            txtCondicionesPago.Text = nCliente.sCondPAgo;
             cbxTipoCliente.Text = nCliente.sTipoCliente;
             pcbLogo.Image = ToolImagen.Base64StringToBitmap(nCliente.sLogo);
 
@@ -65,6 +104,17 @@ namespace SiscomSoft_Desktop.Views
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
+        {
+          
+
+        }
+
+        private void btnExaminar_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
         {
             if (this.txtRFC.Text == "")
             {
@@ -96,11 +146,11 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtNombre, "Campo necesario");
                 this.txtNombre.Focus();
             }
-            else if (this.txtPais.Text == "")
+            else if (this.cbxPais.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtPais, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtPais, "Campo necesario");
-                this.txtPais.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxPais, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxPais, "Campo necesario");
+                this.cbxPais.Focus();
             }
             else if (this.txtCodigoPostal.Text == "")
             {
@@ -168,11 +218,11 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtCorreo, "Campo necesario");
                 this.txtCorreo.Focus();
             }
-            else if (this.txtEstadoCliente.Text == "")
+            else if (this.cbxEstadoCli.Text == "Seleccione una opcion")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtEstadoCliente, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtEstadoCliente, "Campo necesario");
-                this.txtEstadoCliente.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxEstadoCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxEstadoCli, "Seleccione una opcion");
+                this.cbxEstadoCli.Focus();
             }
             else if (this.txtReferencia.Text == "")
             {
@@ -192,11 +242,11 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtNumCuenta, "Campo necesario");
                 this.txtNumCuenta.Focus();
             }
-            else if (this.txtCondicionPago.Text == "")
+            else if (this.txtCondicionesPago.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtCondicionPago, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtCondicionPago, "Campo necesario");
-                this.txtCondicionPago.Focus();
+                this.ErrorProvider.SetIconAlignment(this.txtCondicionesPago, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCondicionesPago, "Campo necesario");
+                this.txtCondicionesPago.Focus();
             }
             else if (this.cbxTipoCliente.Text == "Seleccione Una Opcion")
             {
@@ -210,14 +260,14 @@ namespace SiscomSoft_Desktop.Views
             {
                 Cliente nCliente = new Cliente();
                 nCliente.pkCliente = FrmBuscarCliente.PKCLIENTE;
-                
+
                 nCliente.sRfc = txtRFC.Text;
                 nCliente.sRazonSocial = txtRazonSocial.Text;
 
                 nCliente.iPersona = Convert.ToInt32(txtPersona.Text);
                 nCliente.sCurp = txtCurp.Text;
                 nCliente.sNombre = txtNombre.Text;
-                nCliente.sPais = txtPais.Text;
+                nCliente.sPais = cbxPais.Text;
                 nCliente.iCodPostal = Convert.ToInt32(txtCodigoPostal.Text);
                 nCliente.sEstado = txtEstado.Text;
                 nCliente.sMunicipio = txtMunicipio.Text;
@@ -229,15 +279,15 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.sTelFijo = txtTelFijo.Text;
                 nCliente.sTelMovil = txtTelMvil.Text;
                 nCliente.sCorreo = txtCorreo.Text;
-                nCliente.sEstCliente = txtEstadoCliente.Text;
+                nCliente.sEstCliente = cbxEstadoCli.Text;
                 nCliente.sReferencia = txtReferencia.Text;
                 nCliente.sTipoPAgo = cbxMetodoPago.Text;
                 nCliente.iNumCuenta = Convert.ToInt32(txtNumCuenta.Text);
-                nCliente.sCondPAgo = txtCondicionPago.Text;
+                nCliente.sCondPAgo = txtCondicionesPago.Text;
                 nCliente.sTipoCliente = cbxTipoCliente.Text;
                 nCliente.sLogo = ImagenString;
 
-             
+
                 ManejoCliente.Modificar(nCliente);
 
                 vMain.cargarClientes();
@@ -247,7 +297,7 @@ namespace SiscomSoft_Desktop.Views
 
         }
 
-        private void btnExaminar_Click(object sender, EventArgs e)
+        private void btnExaminar_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -268,6 +318,320 @@ namespace SiscomSoft_Desktop.Views
             catch (Exception ex)
             {
                 MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
+            }
+        }
+
+        private void txtRFC_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtRazonSocial_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtPersona_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCurp_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCodigoPostal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtEstado_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtLocalidad_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtMunicipio_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtColonia_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCalle_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNumExte_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNuminte_TextAlignChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNuminte_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTelMvil_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTelFijo_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtReferencia_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNumCuenta_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCondicionesPago_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxMetodoPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxEstadoCli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxPais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtLocalidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtMunicipio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtTelMvil_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumCuenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelFijo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNuminte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumExte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCodigoPostal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPersona_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+            if (ValidarEmail(txtCorreo.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Direccion De Correo Electronico No Valido Debe de tener el formato : correo@gmail.com, " +
+                    "Favor Sellecione Un Correo Valido", "Validacion De Correo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCorreo.SelectAll();
+                txtCorreo.Focus();
+            }
+        }
+
+        private void txtCurp_Leave(object sender, EventArgs e)
+        {
+            if (ValidarCurp(txtCurp.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Curp No Valida Debe de tener el formato : BOMC870421HDGRLS05, " +
+                    "Favor Sellecione Un Curp Valido", "Validacion De Curp", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCurp.SelectAll();
+                txtCurp.Focus();
             }
         }
     }
