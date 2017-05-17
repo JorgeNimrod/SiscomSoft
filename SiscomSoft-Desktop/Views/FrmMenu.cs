@@ -98,10 +98,11 @@ namespace SiscomSoft_Desktop.Views
             Cate.Show();
         }
 
-        private void facturacionToolStripMenuItem_Click(object sender, EventArgs e)
+    
+
+        private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmFacturacion v = new frmFacturacion();
-            v.ShowDialog();
+            
         }
     }
 }

@@ -75,17 +75,26 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+          
+        }
+
+        private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
             if (this.txtNombreComercial.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtNombreComercial, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtNombreComercial, "Campo necesario");
                 this.txtNombreComercial.Focus();
-            }
-            if (this.txtPais.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtPais, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtPais, "Campo necesario");
-                this.txtPais.Focus();
             }
             else if (this.txtRazonSocial.Text == "")
             {
@@ -161,6 +170,18 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtCodigoPostal, "Campo necesario");
                 this.txtCodigoPostal.Focus();
             }
+            else if (this.cbxCertificado.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxCertificado, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxCertificado, "Debe agregar un Certificado Primero");
+                this.cbxCertificado.Focus();
+            }
+            else if (this.cbxSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxSucursal, "Debe agregar una Sucursal Primero");
+                this.cbxSucursal.Focus();
+            }
             Empresa nEmpresa = new Empresa();
             nEmpresa.pkEmpresa = FrmBuscarEmpresa.PKEMPRESA;
             nEmpresa.sRazonSocial = txtRazonSocial.Text;
@@ -193,9 +214,189 @@ namespace SiscomSoft_Desktop.Views
             this.Close();
         }
 
-        private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
+        private void txtNombreComercial_TextChanged(object sender, EventArgs e)
         {
+            ErrorProvider.Clear();
+        }
 
+        private void txtNombreContacto_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtRegionComercial_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtMunicipio_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtRazonSocial_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCorreoElectronico_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtPais_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtEstado_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtLocalidad_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCalle_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtColonia_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNumInterior_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNumExterior_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCodigoPostal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCodigoPostal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumExterior_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumInterior_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtLocalidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtPais_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtMunicipio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtNombreComercial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
         }
     }
 }

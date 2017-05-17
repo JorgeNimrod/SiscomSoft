@@ -11,6 +11,7 @@ using SiscomSoft.Models;
 using SiscomSoft_Desktop.Controller;
 using SiscomSoft_Desktop.Comun;
 using System.Drawing.Imaging;
+using System.Text.RegularExpressions;
 
 
 namespace SiscomSoft_Desktop.Views
@@ -25,6 +26,44 @@ namespace SiscomSoft_Desktop.Views
             InitializeComponent();
             vMain = vmain;
             vMain.cargarClientes();
+        }
+        public static bool ValidarCurp(string curp)
+        {
+            string expresion = "^.*(?=.{18})(?=.*[0-9])(?=.*[A-ZÑ]).*$";
+            if (Regex.IsMatch(curp, expresion))
+            {
+                if (Regex.Replace(curp, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static bool ValidarEmail(string email)
+        {
+            string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void FrmActualizarCliente_Load(object sender, EventArgs e)
@@ -563,6 +602,36 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+            if (ValidarEmail(txtCorreo.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Direccion De Correo Electronico No Valido Debe de tener el formato : correo@gmail.com, " +
+                    "Favor Sellecione Un Correo Valido", "Validacion De Correo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCorreo.SelectAll();
+                txtCorreo.Focus();
+            }
+        }
+
+        private void txtCurp_Leave(object sender, EventArgs e)
+        {
+            if (ValidarCurp(txtCurp.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Curp No Valida Debe de tener el formato : BOMC870421HDGRLS05, " +
+                    "Favor Sellecione Un Curp Valido", "Validacion De Curp", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCurp.SelectAll();
+                txtCurp.Focus();
             }
         }
     }

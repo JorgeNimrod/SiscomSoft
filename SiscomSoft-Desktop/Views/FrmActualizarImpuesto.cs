@@ -34,7 +34,7 @@ namespace SiscomSoft_Desktop.Views
             Impuesto nImpuesto = ManejoImpuesto.getById(FrmBuscarImpuesto.PKIMPUESTO);
             txtTipoImpuesto.Text = nImpuesto.sTipoImpuesto;
             txtImpuesto.Text = nImpuesto.sImpuesto;
-            txTasaImpuesto.Text = Convert.ToDouble(nImpuesto.dTasaImpuesto).ToString();
+            txtTasaImpuesto.Text = Convert.ToDouble(nImpuesto.dTasaImpuesto).ToString();
 
         }
 
@@ -52,11 +52,11 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtImpuesto, "Campo necesario");
                 this.txtImpuesto.Focus();
             }
-            else if (this.txTasaImpuesto.Text == "")
+            else if (this.txtTasaImpuesto.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.txTasaImpuesto, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txTasaImpuesto, "Campo necesario");
-                this.txTasaImpuesto.Focus();
+                this.ErrorProvider.SetIconAlignment(this.txtTasaImpuesto, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtTasaImpuesto, "Campo necesario");
+                this.txtTasaImpuesto.Focus();
             }
 
             else
@@ -65,7 +65,7 @@ namespace SiscomSoft_Desktop.Views
                 nImpuesto.pkImpuesto = FrmBuscarImpuesto.PKIMPUESTO;
                 nImpuesto.sTipoImpuesto = txtTipoImpuesto.Text;
                 nImpuesto.sImpuesto = txtImpuesto.Text;
-                nImpuesto.dTasaImpuesto = Convert.ToDouble( txTasaImpuesto.Text);
+                nImpuesto.dTasaImpuesto = Convert.ToDouble( txtTasaImpuesto.Text);
 
                 ManejoImpuesto.Modificar(nImpuesto);
 
@@ -88,6 +88,53 @@ namespace SiscomSoft_Desktop.Views
         private void txTasaImpuesto_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
+        }
+
+        private void txtTipoImpuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtImpuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtTipoImpuesto_TextChanged_1(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtImpuesto_TextChanged_1(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTasaImpuesto_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTasaImpuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

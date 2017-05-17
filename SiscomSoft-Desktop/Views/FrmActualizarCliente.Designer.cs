@@ -372,6 +372,7 @@
             this.txtCorreo.Size = new System.Drawing.Size(268, 24);
             this.txtCorreo.TabIndex = 145;
             this.txtCorreo.TextChanged += new System.EventHandler(this.txtCorreo_TextChanged);
+            this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
             // 
             // label23
             // 
@@ -729,6 +730,7 @@
             this.txtCurp.Size = new System.Drawing.Size(223, 24);
             this.txtCurp.TabIndex = 106;
             this.txtCurp.TextChanged += new System.EventHandler(this.txtCurp_TextChanged);
+            this.txtCurp.Leave += new System.EventHandler(this.txtCurp_Leave);
             // 
             // label3
             // 
