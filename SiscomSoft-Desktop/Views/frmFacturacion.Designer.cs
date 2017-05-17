@@ -36,15 +36,6 @@
             this.cmbFormaPago = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sUnidadMed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fkImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -55,6 +46,8 @@
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtSubtotal = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.btnTimFactura = new System.Windows.Forms.Button();
             this.btnGenPdf = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,18 +61,23 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rb01 = new System.Windows.Forms.RadioButton();
-            this.rb02 = new System.Windows.Forms.RadioButton();
-            this.rb03 = new System.Windows.Forms.RadioButton();
-            this.rb04 = new System.Windows.Forms.RadioButton();
-            this.rb98 = new System.Windows.Forms.RadioButton();
-            this.rb99 = new System.Windows.Forms.RadioButton();
+            this.cmbTipoDeComprobante = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sUnidadMed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fkImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.gbDetalleFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosProducto)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBuscar
@@ -188,11 +186,12 @@
             this.dgvDatosProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pkProductos,
             this.sDescripcion,
-            this.sCategoria,
             this.sMarca,
+            this.sCategoria,
             this.sUnidadMed,
             this.dCosto,
             this.fkImpuesto,
+            this.sCantidad,
             this.sDescuento,
             this.sClaveProd});
             this.dgvDatosProducto.Location = new System.Drawing.Point(7, 46);
@@ -200,63 +199,6 @@
             this.dgvDatosProducto.RowHeadersVisible = false;
             this.dgvDatosProducto.Size = new System.Drawing.Size(733, 171);
             this.dgvDatosProducto.TabIndex = 72;
-            // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "pkProducto";
-            this.pkProductos.HeaderText = "No. Producto";
-            this.pkProductos.Name = "pkProductos";
-            this.pkProductos.Width = 130;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            // 
-            // sCategoria
-            // 
-            this.sCategoria.DataPropertyName = "sCategoria";
-            this.sCategoria.HeaderText = "Categoria";
-            this.sCategoria.Name = "sCategoria";
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            // 
-            // sUnidadMed
-            // 
-            this.sUnidadMed.DataPropertyName = "sUnidadMed";
-            this.sUnidadMed.HeaderText = "Unidad de medida";
-            this.sUnidadMed.Name = "sUnidadMed";
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            // 
-            // fkImpuesto
-            // 
-            this.fkImpuesto.DataPropertyName = "fkImpuesto_pkImpuesto";
-            this.fkImpuesto.HeaderText = "Impuesto";
-            this.fkImpuesto.Name = "fkImpuesto";
-            // 
-            // sDescuento
-            // 
-            this.sDescuento.DataPropertyName = "sDescuento";
-            this.sDescuento.HeaderText = "Descuento";
-            this.sDescuento.Name = "sDescuento";
-            this.sDescuento.Visible = false;
-            // 
-            // sClaveProd
-            // 
-            this.sClaveProd.DataPropertyName = "sClaveProd";
-            this.sClaveProd.HeaderText = "Clave Prod";
-            this.sClaveProd.Name = "sClaveProd";
-            this.sClaveProd.Visible = false;
             // 
             // label15
             // 
@@ -363,6 +305,46 @@
             this.txtSubtotal.TabIndex = 30;
             this.txtSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.checkedListBox1);
+            this.groupBox2.Location = new System.Drawing.Point(7, 232);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(278, 146);
+            this.groupBox2.TabIndex = 29;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Forma de pago";
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "01 EFECTIVO",
+            "02 CHEQUE",
+            "03 TRANSFERENCIA",
+            "04 TARJETA DE CRÉDITO",
+            "05 MONEDERO ELECTRONICO",
+            "06 DINERO ELECTRÓNICO",
+            "07 TARJETAS DIGITALES",
+            "08 VALES DE DESPENSA",
+            "09 BIENES",
+            "10 SERVICIO",
+            "11 POR CUENTA DE TERCERO",
+            "12 DACIÓN EN PAGO",
+            "13 PAGO POR SUBROGACIÓN",
+            "14 PAGO POR CONSIGNACIÓN",
+            "15 CONDONACIÓN",
+            "16 CANCELACIÓN",
+            "17 COMPENSACIÓN",
+            "98 \"NA\"",
+            "99 OTROS"});
+            this.checkedListBox1.Location = new System.Drawing.Point(6, 22);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(266, 118);
+            this.checkedListBox1.TabIndex = 77;
+            // 
             // btnTimFactura
             // 
             this.btnTimFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -415,7 +397,6 @@
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Size = new System.Drawing.Size(177, 24);
             this.txtRFC.TabIndex = 1;
-            this.txtRFC.TextChanged += new System.EventHandler(this.txtRFC_TextChanged);
             // 
             // label17
             // 
@@ -497,90 +478,94 @@
             this.txtTelefono.Size = new System.Drawing.Size(139, 24);
             this.txtTelefono.TabIndex = 4;
             // 
-            // groupBox2
+            // cmbTipoDeComprobante
             // 
-            this.groupBox2.Controls.Add(this.rb99);
-            this.groupBox2.Controls.Add(this.rb98);
-            this.groupBox2.Controls.Add(this.rb04);
-            this.groupBox2.Controls.Add(this.rb03);
-            this.groupBox2.Controls.Add(this.rb02);
-            this.groupBox2.Controls.Add(this.rb01);
-            this.groupBox2.Location = new System.Drawing.Point(7, 232);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(278, 126);
-            this.groupBox2.TabIndex = 29;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Forma de pago";
+            this.cmbTipoDeComprobante.FormattingEnabled = true;
+            this.cmbTipoDeComprobante.Location = new System.Drawing.Point(629, 6);
+            this.cmbTipoDeComprobante.Name = "cmbTipoDeComprobante";
+            this.cmbTipoDeComprobante.Size = new System.Drawing.Size(121, 26);
+            this.cmbTipoDeComprobante.TabIndex = 78;
             // 
-            // rb01
+            // label3
             // 
-            this.rb01.AutoSize = true;
-            this.rb01.Checked = true;
-            this.rb01.Location = new System.Drawing.Point(15, 22);
-            this.rb01.Name = "rb01";
-            this.rb01.Size = new System.Drawing.Size(79, 22);
-            this.rb01.TabIndex = 77;
-            this.rb01.TabStop = true;
-            this.rb01.Text = "Efectivo";
-            this.rb01.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(470, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(153, 18);
+            this.label3.TabIndex = 79;
+            this.label3.Text = "Tipo de comprobante:";
             // 
-            // rb02
+            // pkProductos
             // 
-            this.rb02.AutoSize = true;
-            this.rb02.Location = new System.Drawing.Point(15, 49);
-            this.rb02.Name = "rb02";
-            this.rb02.Size = new System.Drawing.Size(77, 22);
-            this.rb02.TabIndex = 78;
-            this.rb02.Text = "Cheque";
-            this.rb02.UseVisualStyleBackColor = true;
+            this.pkProductos.DataPropertyName = "pkProducto";
+            this.pkProductos.HeaderText = "No.";
+            this.pkProductos.Name = "pkProductos";
             // 
-            // rb03
+            // sDescripcion
             // 
-            this.rb03.AutoSize = true;
-            this.rb03.Location = new System.Drawing.Point(15, 75);
-            this.rb03.Name = "rb03";
-            this.rb03.Size = new System.Drawing.Size(116, 22);
-            this.rb03.TabIndex = 79;
-            this.rb03.Text = "Transferencia";
-            this.rb03.UseVisualStyleBackColor = true;
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.Width = 200;
             // 
-            // rb04
+            // sMarca
             // 
-            this.rb04.AutoSize = true;
-            this.rb04.Location = new System.Drawing.Point(137, 22);
-            this.rb04.Name = "rb04";
-            this.rb04.Size = new System.Drawing.Size(74, 22);
-            this.rb04.TabIndex = 80;
-            this.rb04.Text = "Credito";
-            this.rb04.UseVisualStyleBackColor = true;
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
             // 
-            // rb98
+            // sCategoria
             // 
-            this.rb98.AutoSize = true;
-            this.rb98.Location = new System.Drawing.Point(137, 49);
-            this.rb98.Name = "rb98";
-            this.rb98.Size = new System.Drawing.Size(56, 22);
-            this.rb98.TabIndex = 81;
-            this.rb98.Text = "\"NA\"";
-            this.rb98.UseVisualStyleBackColor = true;
+            this.sCategoria.DataPropertyName = "sCategoria";
+            this.sCategoria.HeaderText = "Categoria";
+            this.sCategoria.Name = "sCategoria";
             // 
-            // rb99
+            // sUnidadMed
             // 
-            this.rb99.AutoSize = true;
-            this.rb99.Location = new System.Drawing.Point(137, 75);
-            this.rb99.Name = "rb99";
-            this.rb99.Size = new System.Drawing.Size(80, 22);
-            this.rb99.TabIndex = 82;
-            this.rb99.Text = "OTROS";
-            this.rb99.UseVisualStyleBackColor = true;
+            this.sUnidadMed.DataPropertyName = "sUnidadMed";
+            this.sUnidadMed.HeaderText = "UDM";
+            this.sUnidadMed.Name = "sUnidadMed";
+            this.sUnidadMed.Width = 50;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            // 
+            // fkImpuesto
+            // 
+            this.fkImpuesto.DataPropertyName = "fkImpuesto_pkImpuesto";
+            this.fkImpuesto.HeaderText = "Impuesto";
+            this.fkImpuesto.Name = "fkImpuesto";
+            // 
+            // sCantidad
+            // 
+            this.sCantidad.HeaderText = "Cantidad";
+            this.sCantidad.Name = "sCantidad";
+            // 
+            // sDescuento
+            // 
+            this.sDescuento.DataPropertyName = "sDescuento";
+            this.sDescuento.HeaderText = "Descuento";
+            this.sDescuento.Name = "sDescuento";
+            this.sDescuento.Visible = false;
+            // 
+            // sClaveProd
+            // 
+            this.sClaveProd.DataPropertyName = "sClaveProd";
+            this.sClaveProd.HeaderText = "Clave Prod";
+            this.sClaveProd.Name = "sClaveProd";
+            this.sClaveProd.Visible = false;
             // 
             // frmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 607);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cmbTipoDeComprobante);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbDetalleFactura);
@@ -601,10 +586,9 @@
             this.gbDetalleFactura.ResumeLayout(false);
             this.gbDetalleFactura.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosProducto)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -643,21 +627,19 @@
         private System.Windows.Forms.DataGridView dgvDatosProducto;
         private System.Windows.Forms.ComboBox cmbFormaPago;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.ComboBox cmbTipoDeComprobante;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn sUnidadMed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
         private System.Windows.Forms.DataGridViewTextBoxColumn fkImpuesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn sDescuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn sClaveProd;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton rb99;
-        private System.Windows.Forms.RadioButton rb98;
-        private System.Windows.Forms.RadioButton rb04;
-        private System.Windows.Forms.RadioButton rb03;
-        private System.Windows.Forms.RadioButton rb02;
-        private System.Windows.Forms.RadioButton rb01;
     }
 }
