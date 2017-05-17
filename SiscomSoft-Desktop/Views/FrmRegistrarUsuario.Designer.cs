@@ -45,12 +45,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cbxRol = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,15 +68,15 @@
             // 
             // txtRFC
             // 
-            this.txtRFC.Location = new System.Drawing.Point(106, 117);
+            this.txtRFC.Location = new System.Drawing.Point(106, 120);
             this.txtRFC.Name = "txtRFC";
-            this.txtRFC.Size = new System.Drawing.Size(202, 24);
+            this.txtRFC.Size = new System.Drawing.Size(207, 24);
             this.txtRFC.TabIndex = 1;
             this.txtRFC.TextChanged += new System.EventHandler(this.txtRFC_TextChanged);
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(440, 159);
+            this.txtUsuario.Location = new System.Drawing.Point(423, 162);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(172, 24);
             this.txtUsuario.TabIndex = 3;
@@ -90,11 +93,12 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(440, 114);
+            this.txtNombre.Location = new System.Drawing.Point(423, 120);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(172, 24);
             this.txtNombre.TabIndex = 5;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label3
             // 
@@ -114,6 +118,7 @@
             this.txtContraseña.TabIndex = 9;
             this.txtContraseña.TextAlignChanged += new System.EventHandler(this.txtContraseña_TextAlignChanged);
             this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
             // label5
             // 
@@ -126,11 +131,12 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(440, 198);
+            this.txtTelefono.Location = new System.Drawing.Point(423, 204);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(172, 24);
             this.txtTelefono.TabIndex = 11;
             this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label6
             // 
@@ -162,7 +168,7 @@
             // 
             // txtComentario
             // 
-            this.txtComentario.Location = new System.Drawing.Point(440, 238);
+            this.txtComentario.Location = new System.Drawing.Point(423, 243);
             this.txtComentario.Multiline = true;
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Size = new System.Drawing.Size(172, 89);
@@ -189,25 +195,16 @@
             // 
             // cbxRol
             // 
+            this.cbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxRol.FormattingEnabled = true;
             this.cbxRol.Location = new System.Drawing.Point(106, 243);
             this.cbxRol.Name = "cbxRol";
             this.cbxRol.Size = new System.Drawing.Size(207, 26);
             this.cbxRol.TabIndex = 17;
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(374, 367);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(116, 42);
-            this.btnBuscar.TabIndex = 60;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(252, 367);
+            this.btnCancelar.Location = new System.Drawing.Point(374, 367);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
             this.btnCancelar.TabIndex = 59;
@@ -229,6 +226,27 @@
             // 
             this.ErrorProvider.ContainerControl = this;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(137, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(200, 29);
+            this.label4.TabIndex = 95;
+            this.label4.Text = "Registrar Usuario";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::SiscomSoft_Desktop.Properties.Resources.msn_messenger_logo_318_50203;
+            this.pictureBox2.Location = new System.Drawing.Point(33, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(98, 74);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 94;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -238,12 +256,24 @@
             this.pictureBox1.TabIndex = 93;
             this.pictureBox1.TabStop = false;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::SiscomSoft_Desktop.Properties.Resources.magnifier;
+            this.btnBuscar.Location = new System.Drawing.Point(12, 367);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(116, 42);
+            this.btnBuscar.TabIndex = 60;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // FrmRegistrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(624, 421);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnCancelar);
@@ -270,9 +300,9 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmRegistrarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registrar Usuario";
             this.Load += new System.EventHandler(this.FrmRegistrarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -302,5 +332,7 @@
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.ErrorProvider ErrorProvider;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label4;
     }
 }

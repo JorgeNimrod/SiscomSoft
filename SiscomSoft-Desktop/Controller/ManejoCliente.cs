@@ -114,5 +114,19 @@ namespace SiscomSoft_Desktop.Controller
                 throw;
             }
         }
+        public static List<Cliente> getAll(Boolean status)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Clientes.Where(r => r.bStatus == status).ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

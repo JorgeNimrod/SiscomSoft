@@ -34,8 +34,7 @@ namespace SiscomSoft_Desktop.Views
             Impuesto nImpuesto = ManejoImpuesto.getById(FrmBuscarImpuesto.PKIMPUESTO);
             txtTipoImpuesto.Text = nImpuesto.sTipoImpuesto;
             txtImpuesto.Text = nImpuesto.sImpuesto;
-            double v = Convert.ToDouble(txTasaImpuesto.Text);
-            v    =  nImpuesto.dTasaImpuesto;
+            txTasaImpuesto.Text = Convert.ToDouble(nImpuesto.dTasaImpuesto).ToString();
 
         }
 

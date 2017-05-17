@@ -29,7 +29,7 @@ namespace SiscomSoft.Models
         public string sRegComercial { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        public int iTelefono { get; set; }
+        public string sTelefono { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string sCorreo { get; set; }

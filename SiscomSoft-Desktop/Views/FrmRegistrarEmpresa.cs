@@ -26,6 +26,25 @@ namespace SiscomSoft_Desktop.Views
             this.cargarCertificados();
             this.cargarSucursales();
         }
+        public static bool ValidarEmail(string email)
+        {
+            string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void cargarCertificados()
         {
             int indexrol = 0;
@@ -40,7 +59,7 @@ namespace SiscomSoft_Desktop.Views
         {
             int indexrol = 0;
             //llenar combo
-            cbxSucursal.DataSource = ManejoCertificado.getAll(true);
+            cbxSucursal.DataSource = ManejoSucursal.getAll(true);
             cbxSucursal.DisplayMember = "sNombre";
             cbxSucursal.ValueMember = "pkSucursal";
 
@@ -91,12 +110,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtPais, "Campo necesario");
                 this.txtPais.Focus();
             }
-            else if (this.txtPais.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtPais, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtPais, "Campo necesario");
-                this.txtPais.Focus();
-            }
+
             else if (this.txtRegionComercial.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtRegionComercial, ErrorIconAlignment.MiddleRight);
@@ -130,55 +144,76 @@ namespace SiscomSoft_Desktop.Views
             else if (this.txtCalle.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtCalle, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtCalle, "Seleccione una opcion");
+                this.ErrorProvider.SetError(this.txtCalle, "Campo necesario");
                 this.txtCalle.Focus();
             }
             else if (this.txtNumExterior.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtNumExterior, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtNumExterior, "Seleccione una opcion");
+                this.ErrorProvider.SetError(this.txtNumExterior, "Campo necesario");
                 this.txtNumExterior.Focus();
             }
             else if (this.txtNumInterior.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtNumInterior, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtNumInterior, "Seleccione una opcion");
+                this.ErrorProvider.SetError(this.txtNumInterior, "Campo necesario");
                 this.txtNumInterior.Focus();
             }
             else if (this.txtCodigoPostal.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtCodigoPostal, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtCodigoPostal, "Seleccione una opcion");
+                this.ErrorProvider.SetError(this.txtCodigoPostal, "Campo necesario");
                 this.txtCodigoPostal.Focus();
             }
+            else if (this.cbxCertificado.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxCertificado, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxCertificado, "Debe agregar un Certificado Primero");
+                this.cbxCertificado.Focus();
+            }
+            else if (this.cbxSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxSucursal, "Debe agregar una Sucursal Primero");
+                this.cbxSucursal.Focus();
+            }
+
             else
             {
-                Sucursal nSucursal = new Sucursal();
-                //nSucursal.sNombre = txtNombreSucursal.Text;
-                //nSucursal.sEstSucursal = txtEstadoSucursal.Text;
-                //nSucursal.iNumCertificado = Convert.ToInt32(txtNumCertificado.Text);
-                nSucursal.sPais = txtPais.Text;
-                nSucursal.sEstado = txtEstado.Text;
-                nSucursal.sMunicipio = txtMunicipio.Text;
-                nSucursal.sColonia = txtColonia.Text;
-                nSucursal.sLocalidad = txtLocalidad.Text;
-                nSucursal.sCalle = txtCalle.Text;
-                nSucursal.iNumExterior = Convert.ToInt32(txtNumExterior.Text);
-                nSucursal.iNumInterior = Convert.ToInt32(txtNumInterior.Text);
-                nSucursal.iCodPostal = Convert.ToInt32(txtCodigoPostal.Text);
+                Empresa nEmpresa = new Empresa();
+                nEmpresa.sRazonSocial = txtRazonSocial.Text;
+                nEmpresa.sNomComercial = txtNombreComercial.Text;
+                nEmpresa.sNomContacto = txtNombreContacto.Text;
+                nEmpresa.sRegComercial = txtRegionComercial.Text;
+                nEmpresa.sTelefono = txtTelefono.Text;
+                nEmpresa.sCorreo = txtCorreoElectronico.Text;
+               
+                nEmpresa.sPais = txtPais.Text;
+                nEmpresa.sEstado = txtEstado.Text;
+                nEmpresa.sMunicipio = txtMunicipio.Text;
+                nEmpresa.sColonia = txtColonia.Text;
+                nEmpresa.sLocalidad = txtLocalidad.Text;
+                nEmpresa.sCalle = txtCalle.Text;
+                nEmpresa.iNumExterior = Convert.ToInt32(txtNumExterior.Text);
+                nEmpresa.iNumInterir = Convert.ToInt32(txtNumInterior.Text);
+                nEmpresa.iCodPostal = Convert.ToInt32(txtCodigoPostal.Text);
 
 
 
-                //int fkPreferencia = Convert.ToInt32(cbmPreferencia.SelectedValue.ToString());
+                int fkCertificado = Convert.ToInt32(cbxCertificado.SelectedValue.ToString());
+                int fkSucursal = Convert.ToInt32(cbxSucursal.SelectedValue.ToString());
 
 
 
-                //ManejoSucursal.RegistrarNuevaSucursal(nSucursal, fkPreferencia);
+                ManejoEmpresa.RegistrarNuevaEmpresa(nEmpresa, fkCertificado,fkSucursal);
 
-                MessageBox.Show("¡Sucursal Registrada!");
-                //txtNombreSucursal.Clear();
-                //txtNumCertificado.Clear();
-                //txtEstadoSucursal.Clear();
+                MessageBox.Show("¡Empresa Registrada!");
+                txtRazonSocial.Clear();
+                txtNombreComercial.Clear();
+                txtNombreContacto.Clear();
+                txtRegionComercial.Clear();
+                txtCorreoElectronico.Clear();
+                txtTelefono.Clear();
                 txtCalle.Clear();
                 txtCodigoPostal.Clear();
                 txtColonia.Clear();
@@ -194,6 +229,198 @@ namespace SiscomSoft_Desktop.Views
 
 
 
+            }
+        }
+
+        private void txtNombreComercial_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNombreContacto_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtRegionComercial_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtMunicipio_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtRazonSocial_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCorreoElectronico_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtPais_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtEstado_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtLocalidad_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCalle_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtColonia_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNumInterior_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNumExterior_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCodigoPostal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxCertificado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxSucursal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumInterior_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumExterior_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCodigoPostal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPais_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtCorreoElectronico_Leave(object sender, EventArgs e)
+        {
+            if (ValidarEmail(txtCorreoElectronico.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Direccion De Correo Electronico No Valido Debe de tener el formato : correo@gmail.com, " +
+                    "Favor Sellecione Un Correo Valido", "Validacion De Correo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCorreoElectronico.SelectAll();
+                txtCorreoElectronico.Focus();
             }
         }
     }

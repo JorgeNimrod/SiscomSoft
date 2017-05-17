@@ -75,5 +75,11 @@ namespace SiscomSoft_Desktop.Views
         {
             ErrorProvider.Clear();
         }
+
+        private void txtModulo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
     }
 }

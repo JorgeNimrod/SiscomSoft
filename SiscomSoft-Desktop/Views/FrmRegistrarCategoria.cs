@@ -65,5 +65,32 @@ namespace SiscomSoft_Desktop.Views
             FrmBuscarCategoria Cat = new FrmBuscarCategoria();
             Cat.ShowDialog();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtSubCate_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtSubCate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
     }
 }

@@ -22,6 +22,8 @@ namespace SiscomSoft_Desktop.Controller
                 {
                     nEmpresa.fkSucursal = sucursal;
                     nEmpresa.fkCertificado = certificado;
+                    ctx.Certificados.Attach(certificado);
+                    ctx.Sucursales.Attach(sucursal);
                     ctx.Empresas.Add(nEmpresa);
                     ctx.SaveChanges();
                 }

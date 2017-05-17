@@ -87,11 +87,11 @@ namespace SiscomSoft.Migrations
                         iLote = c.Int(nullable: false),
                         dtCaducidad = c.DateTime(nullable: false, precision: 0),
                         bStatus = c.Boolean(nullable: false),
-                        fkProveedor_pkCliente = c.Int(),
+                        fkCliente_pkCliente = c.Int(),
                     })
                 .PrimaryKey(t => t.pkInventioEntrada)
-                .ForeignKey("dbo.Clientes", t => t.fkProveedor_pkCliente)
-                .Index(t => t.fkProveedor_pkCliente);
+                .ForeignKey("dbo.Clientes", t => t.fkCliente_pkCliente)
+                .Index(t => t.fkCliente_pkCliente);
             
             CreateTable(
                 "dbo.Clientes",
@@ -145,6 +145,7 @@ namespace SiscomSoft.Migrations
                         sCertificado = c.String(nullable: false, unicode: false),
                         sLLave = c.String(nullable: false, unicode: false),
                         sContraseña = c.String(nullable: false, unicode: false),
+                        bStatus = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.pkCertificado);
             
@@ -157,7 +158,7 @@ namespace SiscomSoft.Migrations
                         sNomComercial = c.String(nullable: false, unicode: false),
                         sNomContacto = c.String(nullable: false, unicode: false),
                         sRegComercial = c.String(nullable: false, unicode: false),
-                        iTelefono = c.Int(nullable: false),
+                        sTelefono = c.String(nullable: false, unicode: false),
                         sCorreo = c.String(nullable: false, unicode: false),
                         sPais = c.String(nullable: false, unicode: false),
                         sEstado = c.String(nullable: false, unicode: false),
@@ -317,7 +318,7 @@ namespace SiscomSoft.Migrations
             DropForeignKey("dbo.Facturas", "fkEmpresa_pkEmpresa", "dbo.Empresas");
             DropForeignKey("dbo.Productos", "fkPrecio_pkPrecios", "dbo.Precios");
             DropForeignKey("dbo.Productos", "fkInventarioEntrada_pkInventioEntrada", "dbo.InventariosEntradas");
-            DropForeignKey("dbo.InventariosEntradas", "fkProveedor_pkCliente", "dbo.Clientes");
+            DropForeignKey("dbo.InventariosEntradas", "fkCliente_pkCliente", "dbo.Clientes");
             DropForeignKey("dbo.Productos", "fkImpuesto_pkImpuesto", "dbo.Impuestos");
             DropForeignKey("dbo.Productos", "fkCategoria_pkCategoria", "dbo.Categorias");
             DropForeignKey("dbo.Productos", "fkCatalogoSAT_pkCatalogoSAT", "dbo.CatalogosSAT");
@@ -328,7 +329,7 @@ namespace SiscomSoft.Migrations
             DropIndex("dbo.Facturas", new[] { "fkEmpresa_pkEmpresa" });
             DropIndex("dbo.Empresas", new[] { "fkSucursal_pkSucursal" });
             DropIndex("dbo.Empresas", new[] { "fkCertificado_pkCertificado" });
-            DropIndex("dbo.InventariosEntradas", new[] { "fkProveedor_pkCliente" });
+            DropIndex("dbo.InventariosEntradas", new[] { "fkCliente_pkCliente" });
             DropIndex("dbo.Productos", new[] { "fkPrecio_pkPrecios" });
             DropIndex("dbo.Productos", new[] { "fkInventarioEntrada_pkInventioEntrada" });
             DropIndex("dbo.Productos", new[] { "fkImpuesto_pkImpuesto" });
