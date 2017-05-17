@@ -91,7 +91,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtPais, "Campo necesario");
                 this.txtPais.Focus();
             }
-            else if (this.txtes.Text == "")
+            else if (this.txtPais.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtPais, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtPais, "Campo necesario");
@@ -154,9 +154,9 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Sucursal nSucursal = new Sucursal();
-                nSucursal.sNombre = txtNombreSucursal.Text;
-                nSucursal.sEstSucursal = txtEstadoSucursal.Text;
-                nSucursal.iNumCertificado = Convert.ToInt32(txtNumCertificado.Text);
+                //nSucursal.sNombre = txtNombreSucursal.Text;
+                //nSucursal.sEstSucursal = txtEstadoSucursal.Text;
+                //nSucursal.iNumCertificado = Convert.ToInt32(txtNumCertificado.Text);
                 nSucursal.sPais = txtPais.Text;
                 nSucursal.sEstado = txtEstado.Text;
                 nSucursal.sMunicipio = txtMunicipio.Text;
@@ -169,16 +169,16 @@ namespace SiscomSoft_Desktop.Views
 
 
 
-                int fkPreferencia = Convert.ToInt32(cbxPreferencia.SelectedValue.ToString());
+                //int fkPreferencia = Convert.ToInt32(cbmPreferencia.SelectedValue.ToString());
 
 
 
-                ManejoSucursal.RegistrarNuevaSucursal(nSucursal, fkPreferencia);
+                //ManejoSucursal.RegistrarNuevaSucursal(nSucursal, fkPreferencia);
 
                 MessageBox.Show("¡Sucursal Registrada!");
-                txtNombreSucursal.Clear();
-                txtNumCertificado.Clear();
-                txtEstadoSucursal.Clear();
+                //txtNombreSucursal.Clear();
+                //txtNumCertificado.Clear();
+                //txtEstadoSucursal.Clear();
                 txtCalle.Clear();
                 txtCodigoPostal.Clear();
                 txtColonia.Clear();

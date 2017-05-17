@@ -73,6 +73,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -88,9 +89,11 @@
     <Compile Include="Comun\ToolImagen.cs" />
     <Compile Include="Controller\ManejoCategoria.cs" />
     <Compile Include="Controller\ManejoCertificado.cs" />
+    <Compile Include="Controller\ManejoCFDIv33.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
     <Compile Include="Controller\Helpers\UsuarioHelper.cs" />
     <Compile Include="Controller\ManejoCliente.cs" />
+    <Compile Include="Controller\ManejoFactura.cs" />
     <Compile Include="Controller\ManejoImpuesto.cs" />
     <Compile Include="Controller\ManejoPermiso.cs" />
     <Compile Include="Controller\ManejoPreferencia.cs" />
@@ -190,6 +193,12 @@
     <Compile Include="Views\FrmBuscarProducto.Designer.cs">
       <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frmBuscarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmBuscarProductos.Designer.cs">
+      <DependentUpon>frmBuscarProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmBuscarRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +222,12 @@
     </Compile>
     <Compile Include="Views\FrmConfiguracionBD.Designer.cs">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmFacturacion.Designer.cs">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -341,6 +356,9 @@
     <EmbeddedResource Include="Views\FrmBuscarProducto.resx">
       <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmBuscarProductos.resx">
+      <DependentUpon>frmBuscarProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmBuscarRol.resx">
       <DependentUpon>FrmBuscarRol.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmConfiguracionBD.resx">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmFacturacion.resx">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

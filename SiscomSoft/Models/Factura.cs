@@ -34,9 +34,9 @@ namespace SiscomSoft.Models
         public Boolean bStatus { get; set; }
 
         public int iCaja { get; set; }
-
+        //TODO: cambiar el tipo de folio int a string
         public int iFolio { get; set; }
-
+        //TODO: cambiar el tipo de turno de string a int 
         public string sTurno { get; set; }
 
         public string sVendedor { get; set; }

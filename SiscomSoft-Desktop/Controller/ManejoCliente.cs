@@ -75,6 +75,28 @@ namespace SiscomSoft_Desktop.Controller
                 throw;
             }
         }
+
+        public static List<string> Autocompletar(string valor)
+        {
+            List<string> clientes = new List<string>();
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    var cliente = ctx.Clientes.Where(r => r.sRfc.Contains(valor)).GroupBy(r => r.sRfc).ToList();
+                    foreach (var item in cliente)
+                    {
+                        clientes.Add(item.Key.ToUpper());
+                    }
+                    return clientes;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static void Modificar(Cliente nCliente)
         {
             try

@@ -97,5 +97,11 @@ namespace SiscomSoft_Desktop.Views
             FrmRegistrarCategoria Cate = new FrmRegistrarCategoria();
             Cate.Show();
         }
+
+        private void facturacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFacturacion v = new frmFacturacion();
+            v.ShowDialog();
+        }
     }
 }
