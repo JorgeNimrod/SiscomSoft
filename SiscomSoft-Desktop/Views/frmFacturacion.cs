@@ -317,6 +317,11 @@ namespace SiscomSoft_Desktop.Views
             if (this.Width > 442) this.Width = 442;
             if (this.Height > 131) this.Height = 131;
         }
+
+        private void btnTimFactura_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     //TODO: Preguntar que es eso de curp fiscal activar
     //TODO: Preguntar cuales son los datos fiscales del cliente

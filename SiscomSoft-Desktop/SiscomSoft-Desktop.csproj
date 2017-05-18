@@ -246,6 +246,12 @@
     <Compile Include="Views\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmMainVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmMainVentas.Designer.cs">
+      <DependentUpon>FrmMainVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +406,9 @@
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmMainVentas.resx">
+      <DependentUpon>FrmMainVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -548,6 +557,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\StatusAnnotations_Critical_32xLG_color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simbolo-de-dolar_318-27603.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1495157376_Setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1495157510_13.Clipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1495157724_Calculator-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simbolo-de-dolar_318-276031.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1495157938_lock-safe-dollar-currency.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1495157997_globe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1495158074_icons_exit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1495158208_office-09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1495158452_warehouse.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

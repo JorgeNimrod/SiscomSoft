@@ -118,5 +118,11 @@ namespace SiscomSoft_Desktop.Views
             if (this.Width > 442) this.Width = 442;
             if (this.Height > 131) this.Height = 131;
         }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMainVentas sales = new FrmMainVentas();
+            sales.Show();
+        }
     }
 }

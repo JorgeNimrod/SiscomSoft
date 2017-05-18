@@ -418,6 +418,7 @@
             this.btnTimFactura.TabIndex = 7;
             this.btnTimFactura.Text = "Timbrar Factura";
             this.btnTimFactura.UseVisualStyleBackColor = true;
+            this.btnTimFactura.Click += new System.EventHandler(this.btnTimFactura_Click);
             // 
             // btnGenPdf
             // 
