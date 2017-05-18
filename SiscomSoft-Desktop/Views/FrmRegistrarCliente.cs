@@ -56,12 +56,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtRazonSocial, "Campo necesario");
                 this.txtRazonSocial.Focus();
             }
-            else if (this.cbxPais.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.cbxPais, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.cbxPais, "Campo necesario");
-                this.cbxPais.Focus();
-            }
+         
             else if (this.txtPersona.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtPersona, ErrorIconAlignment.MiddleRight);
@@ -80,11 +75,11 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtNombre, "Campo necesario");
                 this.txtNombre.Focus();
             }
-            else if (this.cbxPais.Text == "Seleccione Una Opcion")
+            else if (this.txtPais.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.cbxPais, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.cbxPais, "Favor de Seleccionar una opcion");
-                this.cbxPais.Focus();
+                this.ErrorProvider.SetIconAlignment(this.txtPais, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtPais, "Campo necesario");
+                this.txtPais.Focus();
             }
             else if (this.txtCodigoPostal.Text == "")
             {
@@ -200,7 +195,7 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.iPersona = Convert.ToInt32(txtPersona.Text);
                 nCliente.sCurp = txtCurp.Text;
                 nCliente.sNombre = txtNombre.Text;
-                nCliente.sPais = cbxPais.Text;
+                nCliente.sPais = txtPais.Text;
                 nCliente.iCodPostal = Convert.ToInt32(txtCodigoPostal.Text);
                 nCliente.sEstado = txtEstado.Text;
                 nCliente.sMunicipio = txtMunicipio.Text;
@@ -492,15 +487,34 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
+     
 
         private void pcbLogo_Click(object sender, EventArgs e)
         {
 
         }
+        public AutoCompleteStringCollection cargarCliente()
+        {
+            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+
+            List<string> nClientes = new List<string>();
+            if (txtPais.Text != null)
+            {
+                nClientes = ManejoCliente.Autocompletar(txtPais.Text);
+            }
+            collection.AddRange(nClientes.ToArray());
+
+            return collection;
+        }
+
+
+
 
         private void FrmRegistrarCliente_Load(object sender, EventArgs e)
         {
-          
+            this.txtPais.AutoCompleteCustomSource = cargarCliente();
+            this.txtPais.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtPais.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void cbxTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
@@ -773,6 +787,14 @@ namespace SiscomSoft_Desktop.Views
         private void txtRazonSocial_KeyPress(object sender, KeyPressEventArgs e)
         {
             ErrorProvider.Clear();
+        }
+
+        private void FrmRegistrarCliente_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width < 442) this.Width = 442;
+            if (this.Height < 131) this.Height = 131;
+            if (this.Width > 442) this.Width = 442;
+            if (this.Height > 131) this.Height = 131;
         }
     }
 }

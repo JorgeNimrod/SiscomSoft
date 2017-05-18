@@ -51,5 +51,13 @@ namespace SiscomSoft_Desktop.Views
             PKPRODUCTO = Convert.ToInt32(dgvDatosProducto.CurrentRow.Cells[0].Value);
             vMain.cargarDetalleFactura();
         }
+
+        private void frmBuscarProductos_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width < 442) this.Width = 442;
+            if (this.Height < 131) this.Height = 131;
+            if (this.Width > 442) this.Width = 442;
+            if (this.Height > 131) this.Height = 131;
+        }
     }
 }

@@ -47,7 +47,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(225, 284);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(165, 40);
-            this.btnCancelar.TabIndex = 52;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -58,7 +58,7 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(228, 24);
-            this.txtContraseña.TabIndex = 50;
+            this.txtContraseña.TabIndex = 2;
             // 
             // label2
             // 
@@ -75,7 +75,7 @@
             this.txtRFC.Location = new System.Drawing.Point(146, 190);
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Size = new System.Drawing.Size(228, 24);
-            this.txtRFC.TabIndex = 48;
+            this.txtRFC.TabIndex = 1;
             // 
             // label1
             // 
@@ -93,7 +93,7 @@
             this.btnIngresar.Location = new System.Drawing.Point(40, 284);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(165, 40);
-            this.btnIngresar.TabIndex = 46;
+            this.btnIngresar.TabIndex = 3;
             this.btnIngresar.Text = "Iniciar sesión";
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
@@ -126,11 +126,13 @@
             this.Controls.Add(this.btnIngresar);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLogin_FormClosing);
             this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmLogin_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

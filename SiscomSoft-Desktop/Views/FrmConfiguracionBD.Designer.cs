@@ -48,7 +48,7 @@
             this.btnSalir.Location = new System.Drawing.Point(156, 161);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(109, 30);
-            this.btnSalir.TabIndex = 74;
+            this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -61,7 +61,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(12, 161);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(109, 30);
-            this.btnGuardar.TabIndex = 73;
+            this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -74,7 +74,7 @@
             this.txtBD.Name = "txtBD";
             this.txtBD.PasswordChar = '*';
             this.txtBD.Size = new System.Drawing.Size(108, 22);
-            this.txtBD.TabIndex = 72;
+            this.txtBD.TabIndex = 4;
             // 
             // txtClave
             // 
@@ -83,7 +83,7 @@
             this.txtClave.Location = new System.Drawing.Point(157, 82);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(108, 22);
-            this.txtClave.TabIndex = 71;
+            this.txtClave.TabIndex = 3;
             // 
             // txtUsuario
             // 
@@ -93,7 +93,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.PasswordChar = '*';
             this.txtUsuario.Size = new System.Drawing.Size(108, 22);
-            this.txtUsuario.TabIndex = 70;
+            this.txtUsuario.TabIndex = 2;
             // 
             // txtHost
             // 
@@ -102,7 +102,7 @@
             this.txtHost.Location = new System.Drawing.Point(157, 26);
             this.txtHost.Name = "txtHost";
             this.txtHost.Size = new System.Drawing.Size(108, 22);
-            this.txtHost.TabIndex = 69;
+            this.txtHost.TabIndex = 1;
             // 
             // label3
             // 
@@ -166,10 +166,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmConfiguracionBD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuracion";
             this.Load += new System.EventHandler(this.FrmConfiguracionBD_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmConfiguracionBD_ResizeEnd);
             this.ResumeLayout(false);
             this.PerformLayout();
 

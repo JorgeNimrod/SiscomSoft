@@ -69,7 +69,7 @@
             this.txtImpuesto.Location = new System.Drawing.Point(177, 179);
             this.txtImpuesto.Name = "txtImpuesto";
             this.txtImpuesto.Size = new System.Drawing.Size(278, 24);
-            this.txtImpuesto.TabIndex = 3;
+            this.txtImpuesto.TabIndex = 2;
             this.txtImpuesto.TextChanged += new System.EventHandler(this.txtImpuesto_TextChanged);
             // 
             // label2
@@ -86,7 +86,7 @@
             this.txtTasaImpuesto.Location = new System.Drawing.Point(177, 238);
             this.txtTasaImpuesto.Name = "txtTasaImpuesto";
             this.txtTasaImpuesto.Size = new System.Drawing.Size(278, 24);
-            this.txtTasaImpuesto.TabIndex = 5;
+            this.txtTasaImpuesto.TabIndex = 3;
             this.txtTasaImpuesto.TextChanged += new System.EventHandler(this.txtTasaImpuesto_TextChanged);
             this.txtTasaImpuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTasaImpuesto_KeyPress);
             // 
@@ -105,7 +105,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(284, 320);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
-            this.btnCancelar.TabIndex = 56;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -150,7 +150,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(15, 320);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(116, 42);
-            this.btnBuscar.TabIndex = 57;
+            this.btnBuscar.TabIndex = 4;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -160,7 +160,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(406, 320);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(116, 42);
-            this.btnRegistrar.TabIndex = 55;
+            this.btnRegistrar.TabIndex = 6;
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -184,9 +184,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmRegistrarImpuesto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmRegistrarImpuesto_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmRegistrarImpuesto_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

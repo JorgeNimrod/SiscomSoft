@@ -59,7 +59,7 @@
             this.ckbStatus.Location = new System.Drawing.Point(12, 342);
             this.ckbStatus.Name = "ckbStatus";
             this.ckbStatus.Size = new System.Drawing.Size(69, 22);
-            this.ckbStatus.TabIndex = 62;
+            this.ckbStatus.TabIndex = 2;
             this.ckbStatus.Text = "Status";
             this.ckbStatus.UseVisualStyleBackColor = true;
             // 
@@ -101,7 +101,7 @@
             this.txtBuscarCategoria.Location = new System.Drawing.Point(133, 14);
             this.txtBuscarCategoria.Name = "txtBuscarCategoria";
             this.txtBuscarCategoria.Size = new System.Drawing.Size(182, 24);
-            this.txtBuscarCategoria.TabIndex = 60;
+            this.txtBuscarCategoria.TabIndex = 1;
             // 
             // label1
             // 
@@ -118,7 +118,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(12, 376);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(78, 41);
-            this.btnActualizar.TabIndex = 66;
+            this.btnActualizar.TabIndex = 3;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
@@ -128,7 +128,7 @@
             this.btnBorrar.Location = new System.Drawing.Point(96, 376);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(80, 41);
-            this.btnBorrar.TabIndex = 65;
+            this.btnBorrar.TabIndex = 4;
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
@@ -138,7 +138,7 @@
             this.btnSalir.Location = new System.Drawing.Point(177, 376);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(80, 41);
-            this.btnSalir.TabIndex = 64;
+            this.btnSalir.TabIndex = 5;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -158,10 +158,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmBuscarCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Categoria";
             this.Load += new System.EventHandler(this.FrmBuscarCategoria_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmBuscarCategoria_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCategoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

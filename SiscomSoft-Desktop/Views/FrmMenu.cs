@@ -110,5 +110,13 @@ namespace SiscomSoft_Desktop.Views
             FrmRegistrarEntrada Entrada = new FrmRegistrarEntrada();
             Entrada.Show();
         }
+
+        private void FrmMenu_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width < 442) this.Width = 442;
+            if (this.Height < 131) this.Height = 131;
+            if (this.Width > 442) this.Width = 442;
+            if (this.Height > 131) this.Height = 131;
+        }
     }
 }

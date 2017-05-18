@@ -74,7 +74,7 @@ namespace SiscomSoft_Desktop.Views
             txtPersona.Text = Convert.ToInt32(nCliente.iPersona).ToString();
             txtCurp.Text = nCliente.sCurp;
             txtNombre.Text = nCliente.sNombre;
-            cbxPais.Text = nCliente.sPais;
+            txtPais.Text = nCliente.sPais;
             txtCodigoPostal.Text = Convert.ToInt32(nCliente.iCodPostal).ToString();
             txtEstado.Text = nCliente.sEstado;
             txtMunicipio.Text = nCliente.sMunicipio;
@@ -146,11 +146,11 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtNombre, "Campo necesario");
                 this.txtNombre.Focus();
             }
-            else if (this.cbxPais.Text == "")
+            else if (this.txtPais.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.cbxPais, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.cbxPais, "Campo necesario");
-                this.cbxPais.Focus();
+                this.ErrorProvider.SetIconAlignment(this.txtPais, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtPais, "Campo necesario");
+                this.txtPais.Focus();
             }
             else if (this.txtCodigoPostal.Text == "")
             {
@@ -267,7 +267,7 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.iPersona = Convert.ToInt32(txtPersona.Text);
                 nCliente.sCurp = txtCurp.Text;
                 nCliente.sNombre = txtNombre.Text;
-                nCliente.sPais = cbxPais.Text;
+                nCliente.sPais = txtPais.Text;
                 nCliente.iCodPostal = Convert.ToInt32(txtCodigoPostal.Text);
                 nCliente.sEstado = txtEstado.Text;
                 nCliente.sMunicipio = txtMunicipio.Text;
@@ -638,6 +638,14 @@ namespace SiscomSoft_Desktop.Views
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmActualizarCliente_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width < 442) this.Width = 442;
+            if (this.Height < 131) this.Height = 131;
+            if (this.Width > 442) this.Width = 442;
+            if (this.Height > 131) this.Height = 131;
         }
     }
 }

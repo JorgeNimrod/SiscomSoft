@@ -36,6 +36,16 @@
             this.cmbFormaPago = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sUnidadMed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fkImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -63,16 +73,6 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.cmbTipoDeComprobante = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sUnidadMed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fkImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.gbDetalleFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosProducto)).BeginInit();
@@ -199,6 +199,69 @@
             this.dgvDatosProducto.RowHeadersVisible = false;
             this.dgvDatosProducto.Size = new System.Drawing.Size(733, 171);
             this.dgvDatosProducto.TabIndex = 72;
+            // 
+            // pkProductos
+            // 
+            this.pkProductos.DataPropertyName = "pkProducto";
+            this.pkProductos.HeaderText = "No.";
+            this.pkProductos.Name = "pkProductos";
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.Width = 200;
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            // 
+            // sCategoria
+            // 
+            this.sCategoria.DataPropertyName = "sCategoria";
+            this.sCategoria.HeaderText = "Categoria";
+            this.sCategoria.Name = "sCategoria";
+            // 
+            // sUnidadMed
+            // 
+            this.sUnidadMed.DataPropertyName = "sUnidadMed";
+            this.sUnidadMed.HeaderText = "UDM";
+            this.sUnidadMed.Name = "sUnidadMed";
+            this.sUnidadMed.Width = 50;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            // 
+            // fkImpuesto
+            // 
+            this.fkImpuesto.DataPropertyName = "fkImpuesto_pkImpuesto";
+            this.fkImpuesto.HeaderText = "Impuesto";
+            this.fkImpuesto.Name = "fkImpuesto";
+            // 
+            // sCantidad
+            // 
+            this.sCantidad.HeaderText = "Cantidad";
+            this.sCantidad.Name = "sCantidad";
+            // 
+            // sDescuento
+            // 
+            this.sDescuento.DataPropertyName = "sDescuento";
+            this.sDescuento.HeaderText = "Descuento";
+            this.sDescuento.Name = "sDescuento";
+            this.sDescuento.Visible = false;
+            // 
+            // sClaveProd
+            // 
+            this.sClaveProd.DataPropertyName = "sClaveProd";
+            this.sClaveProd.HeaderText = "Clave Prod";
+            this.sClaveProd.Name = "sClaveProd";
+            this.sClaveProd.Visible = false;
             // 
             // label15
             // 
@@ -496,69 +559,6 @@
             this.label3.TabIndex = 79;
             this.label3.Text = "Tipo de comprobante:";
             // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "pkProducto";
-            this.pkProductos.HeaderText = "No.";
-            this.pkProductos.Name = "pkProductos";
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.Width = 200;
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            // 
-            // sCategoria
-            // 
-            this.sCategoria.DataPropertyName = "sCategoria";
-            this.sCategoria.HeaderText = "Categoria";
-            this.sCategoria.Name = "sCategoria";
-            // 
-            // sUnidadMed
-            // 
-            this.sUnidadMed.DataPropertyName = "sUnidadMed";
-            this.sUnidadMed.HeaderText = "UDM";
-            this.sUnidadMed.Name = "sUnidadMed";
-            this.sUnidadMed.Width = 50;
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            // 
-            // fkImpuesto
-            // 
-            this.fkImpuesto.DataPropertyName = "fkImpuesto_pkImpuesto";
-            this.fkImpuesto.HeaderText = "Impuesto";
-            this.fkImpuesto.Name = "fkImpuesto";
-            // 
-            // sCantidad
-            // 
-            this.sCantidad.HeaderText = "Cantidad";
-            this.sCantidad.Name = "sCantidad";
-            // 
-            // sDescuento
-            // 
-            this.sDescuento.DataPropertyName = "sDescuento";
-            this.sDescuento.HeaderText = "Descuento";
-            this.sDescuento.Name = "sDescuento";
-            this.sDescuento.Visible = false;
-            // 
-            // sClaveProd
-            // 
-            this.sClaveProd.DataPropertyName = "sClaveProd";
-            this.sClaveProd.HeaderText = "Clave Prod";
-            this.sClaveProd.Name = "sClaveProd";
-            this.sClaveProd.Visible = false;
-            // 
             // frmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -581,6 +581,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturación Electronica";
             this.Load += new System.EventHandler(this.frmFacturacion_Load);
+            this.ResizeEnd += new System.EventHandler(this.frmFacturacion_ResizeEnd);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gbDetalleFactura.ResumeLayout(false);

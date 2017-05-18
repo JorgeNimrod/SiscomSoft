@@ -52,7 +52,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(273, 313);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
-            this.btnCancelar.TabIndex = 65;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -76,7 +76,7 @@
             this.txtTasaImpuesto.Location = new System.Drawing.Point(179, 238);
             this.txtTasaImpuesto.Name = "txtTasaImpuesto";
             this.txtTasaImpuesto.Size = new System.Drawing.Size(278, 24);
-            this.txtTasaImpuesto.TabIndex = 110;
+            this.txtTasaImpuesto.TabIndex = 3;
             this.txtTasaImpuesto.TextChanged += new System.EventHandler(this.txtTasaImpuesto_TextChanged);
             this.txtTasaImpuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTasaImpuesto_KeyPress);
             // 
@@ -94,7 +94,7 @@
             this.txtImpuesto.Location = new System.Drawing.Point(179, 179);
             this.txtImpuesto.Name = "txtImpuesto";
             this.txtImpuesto.Size = new System.Drawing.Size(278, 24);
-            this.txtImpuesto.TabIndex = 108;
+            this.txtImpuesto.TabIndex = 2;
             this.txtImpuesto.TextChanged += new System.EventHandler(this.txtImpuesto_TextChanged_1);
             this.txtImpuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImpuesto_KeyPress);
             // 
@@ -112,7 +112,7 @@
             this.txtTipoImpuesto.Location = new System.Drawing.Point(179, 129);
             this.txtTipoImpuesto.Name = "txtTipoImpuesto";
             this.txtTipoImpuesto.Size = new System.Drawing.Size(278, 24);
-            this.txtTipoImpuesto.TabIndex = 106;
+            this.txtTipoImpuesto.TabIndex = 1;
             this.txtTipoImpuesto.TextChanged += new System.EventHandler(this.txtTipoImpuesto_TextChanged_1);
             this.txtTipoImpuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTipoImpuesto_KeyPress);
             // 
@@ -151,7 +151,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(395, 313);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(116, 42);
-            this.btnActualizar.TabIndex = 64;
+            this.btnActualizar.TabIndex = 5;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
@@ -174,9 +174,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmActualizarImpuesto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmActualizarImpuesto_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmActualizarImpuesto_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

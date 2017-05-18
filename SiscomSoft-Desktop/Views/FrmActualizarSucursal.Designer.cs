@@ -76,7 +76,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(592, 397);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(116, 42);
-            this.btnActualizar.TabIndex = 84;
+            this.btnActualizar.TabIndex = 15;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
@@ -86,7 +86,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(470, 397);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
-            this.btnCancelar.TabIndex = 85;
+            this.btnCancelar.TabIndex = 14;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -108,7 +108,7 @@
             this.cbxPreferencia.Location = new System.Drawing.Point(116, 334);
             this.cbxPreferencia.Name = "cbxPreferencia";
             this.cbxPreferencia.Size = new System.Drawing.Size(227, 26);
-            this.cbxPreferencia.TabIndex = 123;
+            this.cbxPreferencia.TabIndex = 13;
             // 
             // label13
             // 
@@ -124,7 +124,7 @@
             this.txtCodigoPostal.Location = new System.Drawing.Point(620, 298);
             this.txtCodigoPostal.Name = "txtCodigoPostal";
             this.txtCodigoPostal.Size = new System.Drawing.Size(103, 24);
-            this.txtCodigoPostal.TabIndex = 121;
+            this.txtCodigoPostal.TabIndex = 12;
             this.txtCodigoPostal.TextChanged += new System.EventHandler(this.txtCodigoPostal_TextChanged);
             this.txtCodigoPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoPostal_KeyPress);
             // 
@@ -142,7 +142,7 @@
             this.txtNumExterior.Location = new System.Drawing.Point(393, 298);
             this.txtNumExterior.Name = "txtNumExterior";
             this.txtNumExterior.Size = new System.Drawing.Size(97, 24);
-            this.txtNumExterior.TabIndex = 119;
+            this.txtNumExterior.TabIndex = 11;
             this.txtNumExterior.TextChanged += new System.EventHandler(this.txtNumExterior_TextChanged);
             this.txtNumExterior.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumExterior_KeyPress);
             // 
@@ -160,7 +160,7 @@
             this.txtNumInterior.Location = new System.Drawing.Point(147, 298);
             this.txtNumInterior.Name = "txtNumInterior";
             this.txtNumInterior.Size = new System.Drawing.Size(103, 24);
-            this.txtNumInterior.TabIndex = 117;
+            this.txtNumInterior.TabIndex = 10;
             this.txtNumInterior.TextChanged += new System.EventHandler(this.txtNumInterior_TextChanged);
             this.txtNumInterior.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumInterior_KeyPress);
             // 
@@ -178,7 +178,7 @@
             this.txtCalle.Location = new System.Drawing.Point(360, 259);
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(363, 24);
-            this.txtCalle.TabIndex = 115;
+            this.txtCalle.TabIndex = 9;
             this.txtCalle.TextChanged += new System.EventHandler(this.txtCalle_TextChanged);
             // 
             // label9
@@ -195,7 +195,7 @@
             this.txtLocalidad.Location = new System.Drawing.Point(111, 259);
             this.txtLocalidad.Name = "txtLocalidad";
             this.txtLocalidad.Size = new System.Drawing.Size(188, 24);
-            this.txtLocalidad.TabIndex = 113;
+            this.txtLocalidad.TabIndex = 8;
             this.txtLocalidad.TextChanged += new System.EventHandler(this.txtLocalidad_TextChanged);
             // 
             // label8
@@ -212,7 +212,7 @@
             this.txtColonia.Location = new System.Drawing.Point(592, 214);
             this.txtColonia.Name = "txtColonia";
             this.txtColonia.Size = new System.Drawing.Size(131, 24);
-            this.txtColonia.TabIndex = 111;
+            this.txtColonia.TabIndex = 7;
             this.txtColonia.TextChanged += new System.EventHandler(this.txtColonia_TextChanged);
             // 
             // label7
@@ -229,7 +229,7 @@
             this.txtMunicipio.Location = new System.Drawing.Point(388, 214);
             this.txtMunicipio.Name = "txtMunicipio";
             this.txtMunicipio.Size = new System.Drawing.Size(125, 24);
-            this.txtMunicipio.TabIndex = 109;
+            this.txtMunicipio.TabIndex = 6;
             this.txtMunicipio.TextChanged += new System.EventHandler(this.txtMunicipio_TextChanged);
             this.txtMunicipio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMunicipio_KeyPress);
             // 
@@ -247,7 +247,7 @@
             this.txtEstado.Location = new System.Drawing.Point(95, 214);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(188, 24);
-            this.txtEstado.TabIndex = 107;
+            this.txtEstado.TabIndex = 5;
             this.txtEstado.TextChanged += new System.EventHandler(this.txtEstado_TextChanged);
             this.txtEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstado_KeyPress);
             // 
@@ -265,7 +265,7 @@
             this.txtPais.Location = new System.Drawing.Point(439, 172);
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(284, 24);
-            this.txtPais.TabIndex = 105;
+            this.txtPais.TabIndex = 4;
             this.txtPais.TextChanged += new System.EventHandler(this.txtPais_TextChanged);
             this.txtPais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPais_KeyPress);
             // 
@@ -283,7 +283,7 @@
             this.txtNumCertificado.Location = new System.Drawing.Point(147, 172);
             this.txtNumCertificado.Name = "txtNumCertificado";
             this.txtNumCertificado.Size = new System.Drawing.Size(220, 24);
-            this.txtNumCertificado.TabIndex = 103;
+            this.txtNumCertificado.TabIndex = 3;
             this.txtNumCertificado.TextChanged += new System.EventHandler(this.txtNumCertificado_TextChanged);
             this.txtNumCertificado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumCertificado_KeyPress);
             // 
@@ -301,7 +301,7 @@
             this.txtEstadoSucursal.Location = new System.Drawing.Point(507, 120);
             this.txtEstadoSucursal.Name = "txtEstadoSucursal";
             this.txtEstadoSucursal.Size = new System.Drawing.Size(216, 24);
-            this.txtEstadoSucursal.TabIndex = 101;
+            this.txtEstadoSucursal.TabIndex = 2;
             this.txtEstadoSucursal.TextChanged += new System.EventHandler(this.txtEstadoSucursal_TextChanged);
             // 
             // label2
@@ -318,7 +318,7 @@
             this.txtNombreSucursal.Location = new System.Drawing.Point(95, 123);
             this.txtNombreSucursal.Name = "txtNombreSucursal";
             this.txtNombreSucursal.Size = new System.Drawing.Size(271, 24);
-            this.txtNombreSucursal.TabIndex = 99;
+            this.txtNombreSucursal.TabIndex = 1;
             this.txtNombreSucursal.TextChanged += new System.EventHandler(this.txtNombreSucursal_TextChanged);
             // 
             // label1
@@ -388,9 +388,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmActualizarSucursal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmActualizarSucursal_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmActualizarSucursal_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

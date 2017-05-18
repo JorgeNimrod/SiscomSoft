@@ -60,7 +60,7 @@
             this.ckbStatus.Location = new System.Drawing.Point(15, 346);
             this.ckbStatus.Name = "ckbStatus";
             this.ckbStatus.Size = new System.Drawing.Size(69, 22);
-            this.ckbStatus.TabIndex = 36;
+            this.ckbStatus.TabIndex = 2;
             this.ckbStatus.Text = "Status";
             this.ckbStatus.UseVisualStyleBackColor = true;
             this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged_1);
@@ -70,7 +70,7 @@
             this.txtBuscarImpuesto.Location = new System.Drawing.Point(209, 9);
             this.txtBuscarImpuesto.Name = "txtBuscarImpuesto";
             this.txtBuscarImpuesto.Size = new System.Drawing.Size(209, 24);
-            this.txtBuscarImpuesto.TabIndex = 34;
+            this.txtBuscarImpuesto.TabIndex = 1;
             this.txtBuscarImpuesto.TextChanged += new System.EventHandler(this.txtBuscarImpuesto_TextChanged);
             // 
             // label1
@@ -128,7 +128,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(6, 406);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(117, 42);
-            this.btnActualizar.TabIndex = 42;
+            this.btnActualizar.TabIndex = 3;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
@@ -138,7 +138,7 @@
             this.btnBorrar.Location = new System.Drawing.Point(129, 406);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(117, 42);
-            this.btnBorrar.TabIndex = 41;
+            this.btnBorrar.TabIndex = 4;
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
@@ -148,7 +148,7 @@
             this.btnSalir.Location = new System.Drawing.Point(252, 406);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(117, 42);
-            this.btnSalir.TabIndex = 40;
+            this.btnSalir.TabIndex = 5;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -168,10 +168,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmBuscarImpuesto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Impuesto";
             this.Load += new System.EventHandler(this.FrmBuscarImpuesto_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmBuscarImpuesto_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosImpuesto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

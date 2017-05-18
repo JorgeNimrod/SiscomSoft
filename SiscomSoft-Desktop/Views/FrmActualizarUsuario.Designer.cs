@@ -62,7 +62,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(371, 350);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
-            this.btnCancelar.TabIndex = 80;
+            this.btnCancelar.TabIndex = 9;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -72,7 +72,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(493, 350);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(116, 42);
-            this.btnActualizar.TabIndex = 79;
+            this.btnActualizar.TabIndex = 10;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
@@ -98,7 +98,7 @@
             this.cbxRol.Location = new System.Drawing.Point(104, 240);
             this.cbxRol.Name = "cbxRol";
             this.cbxRol.Size = new System.Drawing.Size(207, 26);
-            this.cbxRol.TabIndex = 111;
+            this.cbxRol.TabIndex = 7;
             // 
             // label9
             // 
@@ -115,7 +115,7 @@
             this.txtComentario.Multiline = true;
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Size = new System.Drawing.Size(172, 89);
-            this.txtComentario.TabIndex = 109;
+            this.txtComentario.TabIndex = 8;
             this.txtComentario.TextChanged += new System.EventHandler(this.txtComentario_TextChanged);
             // 
             // label8
@@ -132,7 +132,7 @@
             this.txtCorreo.Location = new System.Drawing.Point(109, 201);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(202, 24);
-            this.txtCorreo.TabIndex = 107;
+            this.txtCorreo.TabIndex = 5;
             this.txtCorreo.TextChanged += new System.EventHandler(this.txtCorreo_TextChanged);
             // 
             // label7
@@ -149,7 +149,7 @@
             this.txtTelefono.Location = new System.Drawing.Point(421, 201);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(172, 24);
-            this.txtTelefono.TabIndex = 105;
+            this.txtTelefono.TabIndex = 6;
             this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
@@ -168,7 +168,7 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(202, 24);
-            this.txtContraseña.TabIndex = 103;
+            this.txtContraseña.TabIndex = 3;
             this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
             // 
             // label5
@@ -185,7 +185,7 @@
             this.txtNombre.Location = new System.Drawing.Point(421, 117);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(172, 24);
-            this.txtNombre.TabIndex = 101;
+            this.txtNombre.TabIndex = 2;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
@@ -203,7 +203,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(421, 159);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(172, 24);
-            this.txtUsuario.TabIndex = 99;
+            this.txtUsuario.TabIndex = 4;
             this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // label2
@@ -220,7 +220,7 @@
             this.txtRFC.Location = new System.Drawing.Point(104, 117);
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Size = new System.Drawing.Size(207, 24);
-            this.txtRFC.TabIndex = 97;
+            this.txtRFC.TabIndex = 1;
             this.txtRFC.TextChanged += new System.EventHandler(this.txtRFC_TextChanged);
             this.txtRFC.Leave += new System.EventHandler(this.txtRFC_Leave);
             // 
@@ -281,9 +281,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmActualizarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmActualizarUsuario_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmActualizarUsuario_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

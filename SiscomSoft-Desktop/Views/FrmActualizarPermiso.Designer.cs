@@ -50,7 +50,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(283, 333);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
-            this.btnCancelar.TabIndex = 63;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -75,7 +75,7 @@
             this.txtComentario.Multiline = true;
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Size = new System.Drawing.Size(390, 125);
-            this.txtComentario.TabIndex = 105;
+            this.txtComentario.TabIndex = 2;
             this.txtComentario.TextChanged += new System.EventHandler(this.txtComentario_TextChanged_1);
             // 
             // label2
@@ -92,7 +92,7 @@
             this.txtModulo.Location = new System.Drawing.Point(118, 127);
             this.txtModulo.Name = "txtModulo";
             this.txtModulo.Size = new System.Drawing.Size(390, 24);
-            this.txtModulo.TabIndex = 103;
+            this.txtModulo.TabIndex = 1;
             this.txtModulo.TextChanged += new System.EventHandler(this.txtModulo_TextChanged_1);
             this.txtModulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtModulo_KeyPress_1);
             // 
@@ -131,7 +131,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(405, 333);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(116, 42);
-            this.btnActualizar.TabIndex = 62;
+            this.btnActualizar.TabIndex = 4;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
@@ -152,9 +152,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmActualizarPermiso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmActualizarPermiso_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmActualizarPermiso_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

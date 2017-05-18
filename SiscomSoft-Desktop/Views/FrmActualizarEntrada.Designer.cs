@@ -78,7 +78,7 @@
             this.dtpFechaCaducidad.Location = new System.Drawing.Point(550, 262);
             this.dtpFechaCaducidad.Name = "dtpFechaCaducidad";
             this.dtpFechaCaducidad.Size = new System.Drawing.Size(192, 24);
-            this.dtpFechaCaducidad.TabIndex = 139;
+            this.dtpFechaCaducidad.TabIndex = 11;
             // 
             // btnCancelar
             // 
@@ -86,7 +86,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(626, 327);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
-            this.btnCancelar.TabIndex = 137;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
@@ -111,7 +111,7 @@
             this.cbxProveedor.Location = new System.Drawing.Point(714, 222);
             this.cbxProveedor.Name = "cbxProveedor";
             this.cbxProveedor.Size = new System.Drawing.Size(137, 26);
-            this.cbxProveedor.TabIndex = 135;
+            this.cbxProveedor.TabIndex = 9;
             this.cbxProveedor.SelectedIndexChanged += new System.EventHandler(this.cbxProveedor_SelectedIndexChanged);
             // 
             // label8
@@ -137,7 +137,7 @@
             this.txtLote.Location = new System.Drawing.Point(714, 117);
             this.txtLote.Name = "txtLote";
             this.txtLote.Size = new System.Drawing.Size(137, 24);
-            this.txtLote.TabIndex = 132;
+            this.txtLote.TabIndex = 3;
             this.txtLote.TextChanged += new System.EventHandler(this.txtLote_TextChanged);
             this.txtLote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLote_KeyPress);
             // 
@@ -155,7 +155,7 @@
             this.txtDescuento.Location = new System.Drawing.Point(717, 169);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(134, 24);
-            this.txtDescuento.TabIndex = 130;
+            this.txtDescuento.TabIndex = 6;
             this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
             this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
             // 
@@ -173,7 +173,7 @@
             this.txtPrecio.Location = new System.Drawing.Point(459, 171);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(155, 24);
-            this.txtPrecio.TabIndex = 128;
+            this.txtPrecio.TabIndex = 5;
             this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
@@ -191,7 +191,7 @@
             this.txtNombreProducto.Location = new System.Drawing.Point(181, 119);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(200, 24);
-            this.txtNombreProducto.TabIndex = 126;
+            this.txtNombreProducto.TabIndex = 1;
             this.txtNombreProducto.TextChanged += new System.EventHandler(this.txtNombreProducto_TextChanged);
             // 
             // txtCantidad
@@ -199,7 +199,7 @@
             this.txtCantidad.Location = new System.Drawing.Point(181, 262);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(200, 24);
-            this.txtCantidad.TabIndex = 125;
+            this.txtCantidad.TabIndex = 10;
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
@@ -208,7 +208,7 @@
             this.txtNoFactura.Location = new System.Drawing.Point(487, 219);
             this.txtNoFactura.Name = "txtNoFactura";
             this.txtNoFactura.Size = new System.Drawing.Size(127, 24);
-            this.txtNoFactura.TabIndex = 124;
+            this.txtNoFactura.TabIndex = 8;
             this.txtNoFactura.TextChanged += new System.EventHandler(this.txtNoFactura_TextChanged);
             this.txtNoFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoFactura_KeyPress);
             // 
@@ -217,7 +217,7 @@
             this.txtMoneda.Location = new System.Drawing.Point(181, 216);
             this.txtMoneda.Name = "txtMoneda";
             this.txtMoneda.Size = new System.Drawing.Size(200, 24);
-            this.txtMoneda.TabIndex = 123;
+            this.txtMoneda.TabIndex = 7;
             this.txtMoneda.TextChanged += new System.EventHandler(this.txtMoneda_TextChanged);
             this.txtMoneda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMoneda_KeyPress);
             // 
@@ -242,7 +242,7 @@
             this.cbxMetodoPago.Location = new System.Drawing.Point(181, 169);
             this.cbxMetodoPago.Name = "cbxMetodoPago";
             this.cbxMetodoPago.Size = new System.Drawing.Size(200, 26);
-            this.cbxMetodoPago.TabIndex = 122;
+            this.cbxMetodoPago.TabIndex = 4;
             this.cbxMetodoPago.SelectedIndexChanged += new System.EventHandler(this.cbxMetodoPago_SelectedIndexChanged);
             // 
             // label20
@@ -259,7 +259,7 @@
             this.dtpFechaEntrada.Location = new System.Drawing.Point(457, 117);
             this.dtpFechaEntrada.Name = "dtpFechaEntrada";
             this.dtpFechaEntrada.Size = new System.Drawing.Size(200, 24);
-            this.dtpFechaEntrada.TabIndex = 120;
+            this.dtpFechaEntrada.TabIndex = 2;
             // 
             // label11
             // 
@@ -336,7 +336,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(748, 327);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(116, 42);
-            this.btnRegistrar.TabIndex = 136;
+            this.btnRegistrar.TabIndex = 13;
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -375,9 +375,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmActualizarEntrada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmActualizarEntrada_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmActualizarEntrada_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

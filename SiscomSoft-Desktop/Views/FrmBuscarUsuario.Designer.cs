@@ -63,7 +63,7 @@
             this.ckbStatus.Location = new System.Drawing.Point(15, 414);
             this.ckbStatus.Name = "ckbStatus";
             this.ckbStatus.Size = new System.Drawing.Size(69, 22);
-            this.ckbStatus.TabIndex = 36;
+            this.ckbStatus.TabIndex = 2;
             this.ckbStatus.Text = "Status";
             this.ckbStatus.UseVisualStyleBackColor = true;
             this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
@@ -73,7 +73,7 @@
             this.txtBuscarUsuario.Location = new System.Drawing.Point(206, 12);
             this.txtBuscarUsuario.Name = "txtBuscarUsuario";
             this.txtBuscarUsuario.Size = new System.Drawing.Size(513, 24);
-            this.txtBuscarUsuario.TabIndex = 34;
+            this.txtBuscarUsuario.TabIndex = 1;
             this.txtBuscarUsuario.TextChanged += new System.EventHandler(this.txtBuscarUsuario_TextChanged);
             // 
             // label1
@@ -151,7 +151,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(15, 453);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(117, 44);
-            this.btnActualizar.TabIndex = 42;
+            this.btnActualizar.TabIndex = 3;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
@@ -161,7 +161,7 @@
             this.btnBorrar.Location = new System.Drawing.Point(138, 453);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(117, 44);
-            this.btnBorrar.TabIndex = 41;
+            this.btnBorrar.TabIndex = 4;
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
@@ -171,7 +171,7 @@
             this.btnSalir.Location = new System.Drawing.Point(261, 453);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(117, 44);
-            this.btnSalir.TabIndex = 40;
+            this.btnSalir.TabIndex = 5;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -195,6 +195,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Usuario";
             this.Load += new System.EventHandler(this.FrmBuscarUsuario_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmBuscarUsuario_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

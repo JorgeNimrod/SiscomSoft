@@ -156,6 +156,7 @@
             this.Name = "frmBuscarProductos";
             this.Text = "frmBuscarProductos";
             this.Load += new System.EventHandler(this.frmBuscarProductos_Load);
+            this.ResizeEnd += new System.EventHandler(this.frmBuscarProductos_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosProducto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

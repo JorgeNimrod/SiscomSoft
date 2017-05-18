@@ -67,7 +67,7 @@
             this.ckbStatus.Location = new System.Drawing.Point(15, 368);
             this.ckbStatus.Name = "ckbStatus";
             this.ckbStatus.Size = new System.Drawing.Size(69, 22);
-            this.ckbStatus.TabIndex = 28;
+            this.ckbStatus.TabIndex = 2;
             this.ckbStatus.Text = "Status";
             this.ckbStatus.UseVisualStyleBackColor = true;
             this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
@@ -166,7 +166,7 @@
             this.txtBuscarSucursal.Location = new System.Drawing.Point(229, 8);
             this.txtBuscarSucursal.Name = "txtBuscarSucursal";
             this.txtBuscarSucursal.Size = new System.Drawing.Size(878, 24);
-            this.txtBuscarSucursal.TabIndex = 26;
+            this.txtBuscarSucursal.TabIndex = 1;
             this.txtBuscarSucursal.TextChanged += new System.EventHandler(this.txtBuscarSucursal_TextChanged);
             // 
             // label1
@@ -184,7 +184,7 @@
             this.btnBorrar.Location = new System.Drawing.Point(133, 404);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(116, 44);
-            this.btnBorrar.TabIndex = 34;
+            this.btnBorrar.TabIndex = 4;
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
@@ -194,7 +194,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(15, 404);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(116, 44);
-            this.btnActualizar.TabIndex = 33;
+            this.btnActualizar.TabIndex = 3;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
             // 
@@ -204,7 +204,7 @@
             this.btnSalir.Location = new System.Drawing.Point(255, 404);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(116, 44);
-            this.btnSalir.TabIndex = 32;
+            this.btnSalir.TabIndex = 5;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -224,10 +224,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmBuscarSucursal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Sucursal";
             this.Load += new System.EventHandler(this.FrmBuscarSucursal_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmBuscarSucursal_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

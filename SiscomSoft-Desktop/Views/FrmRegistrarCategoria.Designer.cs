@@ -78,7 +78,7 @@
             this.txtSubCate.Location = new System.Drawing.Point(148, 191);
             this.txtSubCate.Name = "txtSubCate";
             this.txtSubCate.Size = new System.Drawing.Size(342, 24);
-            this.txtSubCate.TabIndex = 3;
+            this.txtSubCate.TabIndex = 2;
             this.txtSubCate.TextChanged += new System.EventHandler(this.txtSubCate_TextChanged);
             this.txtSubCate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubCate_KeyPress);
             // 
@@ -88,7 +88,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(292, 288);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
-            this.btnCancelar.TabIndex = 53;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -133,7 +133,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(15, 288);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(116, 42);
-            this.btnBuscar.TabIndex = 54;
+            this.btnBuscar.TabIndex = 3;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -143,7 +143,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(414, 288);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(116, 42);
-            this.btnRegistrar.TabIndex = 52;
+            this.btnRegistrar.TabIndex = 5;
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -165,9 +165,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmRegistrarCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmRegistrarCategoria_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmRegistrarCategoria_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -76,7 +76,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.cbxTipoCliente = new System.Windows.Forms.ComboBox();
-            this.cbxPais = new System.Windows.Forms.ComboBox();
             this.cbxEstadoCli = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -84,6 +83,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.pcbLogo = new System.Windows.Forms.PictureBox();
+            this.txtPais = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -114,7 +114,7 @@
             this.txtRazonSocial.Location = new System.Drawing.Point(427, 124);
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(282, 24);
-            this.txtRazonSocial.TabIndex = 3;
+            this.txtRazonSocial.TabIndex = 2;
             this.txtRazonSocial.TextChanged += new System.EventHandler(this.txtRazonSocial_TextChanged);
             this.txtRazonSocial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRazonSocial_KeyPress);
             // 
@@ -133,7 +133,7 @@
             this.txtCurp.Location = new System.Drawing.Point(75, 174);
             this.txtCurp.Name = "txtCurp";
             this.txtCurp.Size = new System.Drawing.Size(223, 24);
-            this.txtCurp.TabIndex = 7;
+            this.txtCurp.TabIndex = 4;
             this.txtCurp.TextChanged += new System.EventHandler(this.txtCurp_TextChanged);
             this.txtCurp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCurp_KeyPress);
             this.txtCurp.Leave += new System.EventHandler(this.txtCurp_Leave);
@@ -153,7 +153,7 @@
             this.txtPersona.Location = new System.Drawing.Point(814, 124);
             this.txtPersona.Name = "txtPersona";
             this.txtPersona.Size = new System.Drawing.Size(236, 24);
-            this.txtPersona.TabIndex = 5;
+            this.txtPersona.TabIndex = 3;
             this.txtPersona.TextChanged += new System.EventHandler(this.txtPersona_TextChanged);
             this.txtPersona.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPersona_KeyPress);
             // 
@@ -182,7 +182,7 @@
             this.txtNombre.Location = new System.Drawing.Point(427, 171);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(282, 24);
-            this.txtNombre.TabIndex = 9;
+            this.txtNombre.TabIndex = 5;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
@@ -201,7 +201,7 @@
             this.txtEstado.Location = new System.Drawing.Point(427, 222);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(282, 24);
-            this.txtEstado.TabIndex = 15;
+            this.txtEstado.TabIndex = 8;
             this.txtEstado.TextChanged += new System.EventHandler(this.txtEstado_TextChanged);
             this.txtEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstado_KeyPress);
             // 
@@ -220,7 +220,7 @@
             this.txtCodigoPostal.Location = new System.Drawing.Point(128, 222);
             this.txtCodigoPostal.Name = "txtCodigoPostal";
             this.txtCodigoPostal.Size = new System.Drawing.Size(170, 24);
-            this.txtCodigoPostal.TabIndex = 13;
+            this.txtCodigoPostal.TabIndex = 7;
             this.txtCodigoPostal.TextChanged += new System.EventHandler(this.txtCodigoPostal_TextChanged);
             this.txtCodigoPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoPostal_KeyPress);
             // 
@@ -239,7 +239,7 @@
             this.txtLocalidad.Location = new System.Drawing.Point(814, 222);
             this.txtLocalidad.Name = "txtLocalidad";
             this.txtLocalidad.Size = new System.Drawing.Size(236, 24);
-            this.txtLocalidad.TabIndex = 19;
+            this.txtLocalidad.TabIndex = 9;
             this.txtLocalidad.TextChanged += new System.EventHandler(this.txtLocalidad_TextChanged);
             // 
             // label9
@@ -257,7 +257,7 @@
             this.txtMunicipio.Location = new System.Drawing.Point(102, 271);
             this.txtMunicipio.Name = "txtMunicipio";
             this.txtMunicipio.Size = new System.Drawing.Size(196, 24);
-            this.txtMunicipio.TabIndex = 17;
+            this.txtMunicipio.TabIndex = 10;
             this.txtMunicipio.TextChanged += new System.EventHandler(this.txtMunicipio_TextChanged);
             this.txtMunicipio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMunicipio_KeyPress);
             // 
@@ -276,7 +276,7 @@
             this.txtCalle.Location = new System.Drawing.Point(814, 274);
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(236, 24);
-            this.txtCalle.TabIndex = 23;
+            this.txtCalle.TabIndex = 12;
             this.txtCalle.TextChanged += new System.EventHandler(this.txtCalle_TextChanged);
             // 
             // label11
@@ -294,7 +294,7 @@
             this.txtColonia.Location = new System.Drawing.Point(427, 271);
             this.txtColonia.Name = "txtColonia";
             this.txtColonia.Size = new System.Drawing.Size(282, 24);
-            this.txtColonia.TabIndex = 21;
+            this.txtColonia.TabIndex = 11;
             this.txtColonia.TextChanged += new System.EventHandler(this.txtColonia_TextChanged);
             // 
             // label12
@@ -312,7 +312,7 @@
             this.txtNuminte.Location = new System.Drawing.Point(441, 314);
             this.txtNuminte.Name = "txtNuminte";
             this.txtNuminte.Size = new System.Drawing.Size(268, 24);
-            this.txtNuminte.TabIndex = 27;
+            this.txtNuminte.TabIndex = 14;
             this.txtNuminte.TextChanged += new System.EventHandler(this.txtNuminte_TextChanged);
             this.txtNuminte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNuminte_KeyPress);
             // 
@@ -331,7 +331,7 @@
             this.txtNumExte.Location = new System.Drawing.Point(117, 317);
             this.txtNumExte.Name = "txtNumExte";
             this.txtNumExte.Size = new System.Drawing.Size(181, 24);
-            this.txtNumExte.TabIndex = 25;
+            this.txtNumExte.TabIndex = 13;
             this.txtNumExte.TextChanged += new System.EventHandler(this.txtNumExte_TextChanged);
             this.txtNumExte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumExte_KeyPress);
             // 
@@ -350,7 +350,7 @@
             this.txtTelMvil.Location = new System.Drawing.Point(814, 314);
             this.txtTelMvil.Name = "txtTelMvil";
             this.txtTelMvil.Size = new System.Drawing.Size(236, 24);
-            this.txtTelMvil.TabIndex = 31;
+            this.txtTelMvil.TabIndex = 15;
             this.txtTelMvil.TextChanged += new System.EventHandler(this.txtTelMvil_TextChanged);
             this.txtTelMvil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelMvil_KeyPress);
             // 
@@ -369,7 +369,7 @@
             this.txtTelFijo.Location = new System.Drawing.Point(94, 366);
             this.txtTelFijo.Name = "txtTelFijo";
             this.txtTelFijo.Size = new System.Drawing.Size(204, 24);
-            this.txtTelFijo.TabIndex = 29;
+            this.txtTelFijo.TabIndex = 16;
             this.txtTelFijo.TextChanged += new System.EventHandler(this.txtTelFijo_TextChanged);
             this.txtTelFijo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelFijo_KeyPress);
             // 
@@ -388,7 +388,7 @@
             this.txtReferencia.Location = new System.Drawing.Point(427, 363);
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(282, 24);
-            this.txtReferencia.TabIndex = 35;
+            this.txtReferencia.TabIndex = 17;
             this.txtReferencia.TextChanged += new System.EventHandler(this.txtReferencia_TextChanged);
             // 
             // label17
@@ -416,7 +416,7 @@
             this.txtNumCuenta.Location = new System.Drawing.Point(441, 413);
             this.txtNumCuenta.Name = "txtNumCuenta";
             this.txtNumCuenta.Size = new System.Drawing.Size(268, 24);
-            this.txtNumCuenta.TabIndex = 39;
+            this.txtNumCuenta.TabIndex = 20;
             this.txtNumCuenta.TextChanged += new System.EventHandler(this.textBox18_TextChanged);
             this.txtNumCuenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumCuenta_KeyPress);
             // 
@@ -460,7 +460,7 @@
             this.cbxMetodoPago.Location = new System.Drawing.Point(137, 453);
             this.cbxMetodoPago.Name = "cbxMetodoPago";
             this.cbxMetodoPago.Size = new System.Drawing.Size(186, 26);
-            this.cbxMetodoPago.TabIndex = 41;
+            this.cbxMetodoPago.TabIndex = 21;
             this.cbxMetodoPago.Text = "Seleccione Una Opcion";
             this.cbxMetodoPago.SelectedIndexChanged += new System.EventHandler(this.cbxMetodoPago_SelectedIndexChanged);
             // 
@@ -469,7 +469,7 @@
             this.txtCondicionesPago.Location = new System.Drawing.Point(171, 500);
             this.txtCondicionesPago.Name = "txtCondicionesPago";
             this.txtCondicionesPago.Size = new System.Drawing.Size(300, 24);
-            this.txtCondicionesPago.TabIndex = 43;
+            this.txtCondicionesPago.TabIndex = 23;
             this.txtCondicionesPago.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
             // 
             // label22
@@ -484,10 +484,10 @@
             // 
             // btnExaminar
             // 
-            this.btnExaminar.Location = new System.Drawing.Point(883, 485);
+            this.btnExaminar.Location = new System.Drawing.Point(937, 535);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(167, 27);
-            this.btnExaminar.TabIndex = 47;
+            this.btnExaminar.TabIndex = 24;
             this.btnExaminar.Tag = "2";
             this.btnExaminar.Text = "Examinar";
             this.btnExaminar.UseVisualStyleBackColor = true;
@@ -499,7 +499,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(866, 581);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
-            this.btnCancelar.TabIndex = 50;
+            this.btnCancelar.TabIndex = 26;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -512,7 +512,7 @@
             this.txtCorreo.Location = new System.Drawing.Point(441, 458);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(268, 24);
-            this.txtCorreo.TabIndex = 53;
+            this.txtCorreo.TabIndex = 22;
             this.txtCorreo.TextChanged += new System.EventHandler(this.txtCorreo_TextChanged);
             this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
             // 
@@ -528,7 +528,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(491, 507);
+            this.label21.Location = new System.Drawing.Point(725, 370);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(114, 18);
             this.label21.TabIndex = 54;
@@ -540,216 +540,12 @@
             this.cbxTipoCliente.Items.AddRange(new object[] {
             "Vendedor",
             "Comprador"});
-            this.cbxTipoCliente.Location = new System.Drawing.Point(612, 503);
+            this.cbxTipoCliente.Location = new System.Drawing.Point(846, 366);
             this.cbxTipoCliente.Name = "cbxTipoCliente";
             this.cbxTipoCliente.Size = new System.Drawing.Size(204, 26);
-            this.cbxTipoCliente.TabIndex = 55;
+            this.cbxTipoCliente.TabIndex = 18;
             this.cbxTipoCliente.Text = "Seleccione Una Opcion";
             this.cbxTipoCliente.SelectedIndexChanged += new System.EventHandler(this.cbxTipoCliente_SelectedIndexChanged);
-            // 
-            // cbxPais
-            // 
-            this.cbxPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxPais.FormattingEnabled = true;
-            this.cbxPais.Items.AddRange(new object[] {
-            "Afganistán",
-            "Albania",
-            "Alemania",
-            "Andorra",
-            "Angola",
-            "Antigua y Barbuda",
-            "Arabia Saudita",
-            "Argelia",
-            "Argentina",
-            "Armenia",
-            "Australia",
-            "Austria",
-            "Azerbaiyán",
-            "Bahamas",
-            "Bangladés",
-            "Barbados",
-            "Baréin",
-            "Bélgica",
-            "Belice",
-            "Benín",
-            "Bielorrusia",
-            "Birmania",
-            "Bolivia",
-            "Bosnia y Herzegovina",
-            "Botsuana",
-            "Brasil",
-            "Brunéi",
-            "Bulgaria",
-            "Burkina Faso",
-            "Burundi",
-            "Bután",
-            "Cabo Verde",
-            "Camboya",
-            "Camerún",
-            "Canadá",
-            "Catar",
-            "Chad",
-            "Chile",
-            "China",
-            "Chipre",
-            "Ciudad del Vaticano",
-            "Colombia",
-            "Comoras",
-            "Corea del Norte",
-            "Corea del Sur",
-            "Costa de Marfil",
-            "Costa Rica",
-            "Croacia",
-            "Cuba",
-            "Dinamarca",
-            "Dominica",
-            "Ecuador",
-            "Egipto",
-            "El Salvador",
-            "Emiratos Árabes Unidos",
-            "Eritrea",
-            "Eslovaquia",
-            "Eslovenia",
-            "España",
-            "Estados Unidos",
-            "Estonia",
-            "Etiopía",
-            "Filipinas",
-            "Finlandia",
-            "Fiyi",
-            "Francia",
-            "Gabón",
-            "Gambia",
-            "Georgia",
-            "Ghana",
-            "Granada",
-            "Grecia",
-            "Guatemala",
-            "Guyana",
-            "Guinea",
-            "Guinea ecuatorial",
-            "Guinea-Bisáu",
-            "Haití",
-            "Honduras",
-            "Hungría",
-            "India",
-            "Indonesia",
-            "Irak",
-            "Irán",
-            "Irlanda",
-            "Islandia",
-            "Islas Marshall",
-            "Islas Salomón",
-            "Israel",
-            "Italia",
-            "Jamaica",
-            "Japón",
-            "Jordania",
-            "Kazajistán",
-            "Kenia",
-            "Kirguistán",
-            "Kiribati",
-            "Kuwait",
-            "Laos",
-            "Lesoto",
-            "Letonia",
-            "Líbano",
-            "Liberia",
-            "Libia",
-            "Liechtenstein",
-            "Lituania",
-            "Luxemburgo",
-            "Madagascar",
-            "Malasia",
-            "Malaui",
-            "Maldivas",
-            "Malí",
-            "Malta",
-            "Marruecos",
-            "Mauricio",
-            "Mauritania",
-            "México",
-            "Micronesia",
-            "Moldavia",
-            "Mónaco",
-            "Mongolia",
-            "Montenegro",
-            "Mozambique",
-            "Namibia",
-            "Nauru",
-            "Nepal",
-            "Nicaragua",
-            "Níger",
-            "Nigeria",
-            "Noruega",
-            "Nueva Zelanda",
-            "Omán",
-            "Países Bajos",
-            "Pakistán",
-            "Palaos",
-            "Panamá",
-            "Papúa Nueva Guinea",
-            "Paraguay",
-            "Perú",
-            "Polonia",
-            "Portugal",
-            "Reino Unido",
-            "República Centroafricana",
-            "República Checa",
-            "República de Macedonia",
-            "República del Congo",
-            "República Democrática del Congo",
-            "República Dominicana",
-            "República Sudafricana",
-            "Ruanda",
-            "Rumanía",
-            "Rusia",
-            "Samoa",
-            "San Cristóbal y Nieves",
-            "San Marino",
-            "San Vicente y las Granadinas",
-            "Santa Lucía",
-            "Santo Tomé y Príncipe",
-            "Senegal",
-            "Serbia",
-            "Seychelles",
-            "Sierra Leona",
-            "Singapur",
-            "Siria",
-            "Somalia",
-            "Sri Lanka",
-            "Suazilandia",
-            "Sudán",
-            "Sudán del Sur",
-            "Suecia",
-            "Suiza",
-            "Surinam",
-            "Tailandia",
-            "Tanzania",
-            "Tayikistán",
-            "Timor Oriental",
-            "Togo",
-            "Tonga",
-            "Trinidad y Tobago",
-            "Túnez",
-            "Turkmenistán",
-            "Turquía",
-            "Tuvalu",
-            "Ucrania",
-            "Uganda",
-            "Uruguay",
-            "Uzbekistán",
-            "Vanuatu",
-            "Venezuela",
-            "Vietnam",
-            "Yemen",
-            "Yibuti",
-            "Zambia",
-            "Zimbabue"});
-            this.cbxPais.Location = new System.Drawing.Point(814, 177);
-            this.cbxPais.Name = "cbxPais";
-            this.cbxPais.Size = new System.Drawing.Size(236, 26);
-            this.cbxPais.TabIndex = 56;
             // 
             // cbxEstadoCli
             // 
@@ -762,7 +558,7 @@
             this.cbxEstadoCli.Location = new System.Drawing.Point(140, 410);
             this.cbxEstadoCli.Name = "cbxEstadoCli";
             this.cbxEstadoCli.Size = new System.Drawing.Size(183, 26);
-            this.cbxEstadoCli.TabIndex = 57;
+            this.cbxEstadoCli.TabIndex = 19;
             this.cbxEstadoCli.Text = "Seleccione Una Opcion";
             // 
             // label24
@@ -801,7 +597,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(15, 581);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(116, 42);
-            this.btnBuscar.TabIndex = 51;
+            this.btnBuscar.TabIndex = 25;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -811,13 +607,13 @@
             this.btnRegistrar.Location = new System.Drawing.Point(988, 581);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(116, 42);
-            this.btnRegistrar.TabIndex = 49;
+            this.btnRegistrar.TabIndex = 27;
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // pcbLogo
             // 
-            this.pcbLogo.Location = new System.Drawing.Point(883, 366);
+            this.pcbLogo.Location = new System.Drawing.Point(937, 416);
             this.pcbLogo.Name = "pcbLogo";
             this.pcbLogo.Size = new System.Drawing.Size(167, 113);
             this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -826,16 +622,23 @@
             this.pcbLogo.Tag = "2";
             this.pcbLogo.Click += new System.EventHandler(this.pcbLogo_Click);
             // 
+            // txtPais
+            // 
+            this.txtPais.Location = new System.Drawing.Point(814, 177);
+            this.txtPais.Name = "txtPais";
+            this.txtPais.Size = new System.Drawing.Size(236, 24);
+            this.txtPais.TabIndex = 6;
+            // 
             // FrmRegistrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 635);
+            this.Controls.Add(this.txtPais);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbxEstadoCli);
-            this.Controls.Add(this.cbxPais);
             this.Controls.Add(this.cbxTipoCliente);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.txtCorreo);
@@ -888,10 +691,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmRegistrarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Cliente";
             this.Load += new System.EventHandler(this.FrmRegistrarCliente_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmRegistrarCliente_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -953,10 +758,10 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox cbxTipoCliente;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox cbxPais;
         private System.Windows.Forms.ComboBox cbxEstadoCli;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtPais;
     }
 }

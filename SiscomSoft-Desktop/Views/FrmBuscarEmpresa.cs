@@ -90,5 +90,13 @@ namespace SiscomSoft_Desktop.Views
             }
 
         }
+
+        private void FrmBuscarEmpresa_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width < 442) this.Width = 442;
+            if (this.Height < 131) this.Height = 131;
+            if (this.Width > 442) this.Width = 442;
+            if (this.Height > 131) this.Height = 131;
+        }
     }
 }
