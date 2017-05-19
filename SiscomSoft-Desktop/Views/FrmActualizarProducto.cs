@@ -15,8 +15,8 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmActualizarProducto : Form
     {
-        FrmBuscarProducto vMain;
-        public FrmActualizarProducto(FrmBuscarProducto vmain)
+        FrmCatalogoProductos vMain;
+        public FrmActualizarProducto(FrmCatalogoProductos vmain)
         {
             InitializeComponent();
             vMain = vmain;
@@ -37,7 +37,7 @@ namespace SiscomSoft_Desktop.Views
         {
             this.cargarImpuestos();
 
-            Producto nProducto = ManejoProducto.getById(FrmBuscarProducto.PKPRODUCTO);
+            Producto nProducto = ManejoProducto.getById(FrmCatalogoProductos.PKPRODUCTO);
             
             txtDescripcion.Text = nProducto.sDescripcion;
             
@@ -86,7 +86,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Producto nProducto = new Producto();
-                nProducto.pkProducto = FrmBuscarProducto.PKPRODUCTO;
+                nProducto.pkProducto = FrmCatalogoProductos.PKPRODUCTO;
                 nProducto.sDescripcion = txtDescripcion.Text;
                 nProducto.sMarca = txtMarca.Text;
                 

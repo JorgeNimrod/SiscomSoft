@@ -1,6 +1,6 @@
 ﻿namespace SiscomSoft_Desktop.Views
 {
-    partial class FrmBuscarRol
+    partial class FrmCatalogoRoles
     {
         /// <summary>
         /// Required designer variable.

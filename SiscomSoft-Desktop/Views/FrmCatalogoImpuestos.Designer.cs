@@ -1,6 +1,6 @@
 ﻿namespace SiscomSoft_Desktop.Views
 {
-    partial class FrmBuscarImpuesto
+    partial class FrmCatalogoImpuestos
     {
         /// <summary>
         /// Required designer variable.

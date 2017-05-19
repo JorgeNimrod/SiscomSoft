@@ -18,10 +18,10 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmActualizarCliente : Form
     {
-        FrmBuscarCliente vMain;
+        FrmCatalogoClientes vMain;
         public String ImagenString { get; set; }
         public Bitmap ImagenBitmap { get; set; }
-        public FrmActualizarCliente(FrmBuscarCliente vmain)
+        public FrmActualizarCliente(FrmCatalogoClientes vmain)
         {
             InitializeComponent();
             vMain = vmain;
@@ -68,7 +68,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmActualizarCliente_Load(object sender, EventArgs e)
         {
-            Cliente nCliente = ManejoCliente.getById(FrmBuscarCliente.PKCLIENTE);
+            Cliente nCliente = ManejoCliente.getById(FrmCatalogoClientes.PKCLIENTE);
             txtRFC.Text = nCliente.sRfc;
             txtRazonSocial.Text = nCliente.sRazonSocial;
             txtPersona.Text = Convert.ToInt32(nCliente.iPersona).ToString();
@@ -259,7 +259,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Cliente nCliente = new Cliente();
-                nCliente.pkCliente = FrmBuscarCliente.PKCLIENTE;
+                nCliente.pkCliente = FrmCatalogoClientes.PKCLIENTE;
 
                 nCliente.sRfc = txtRFC.Text;
                 nCliente.sRazonSocial = txtRazonSocial.Text;

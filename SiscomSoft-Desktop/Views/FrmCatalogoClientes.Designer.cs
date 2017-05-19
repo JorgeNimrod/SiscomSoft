@@ -1,6 +1,6 @@
 ﻿namespace SiscomSoft_Desktop.Views
 {
-    partial class FrmBuscarCliente
+    partial class FrmCatalogoClientes
     {
         /// <summary>
         /// Required designer variable.

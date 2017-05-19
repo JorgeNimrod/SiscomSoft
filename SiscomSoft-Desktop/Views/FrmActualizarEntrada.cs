@@ -15,8 +15,8 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmActualizarEntrada : Form
     {
-        FrmBuscarEntrada vMain;
-        public FrmActualizarEntrada(FrmBuscarEntrada vmain)
+        FrmCatalogoEntradas vMain;
+        public FrmActualizarEntrada(FrmCatalogoEntradas vmain)
         {
             InitializeComponent();
             vMain = vmain;
@@ -36,7 +36,7 @@ namespace SiscomSoft_Desktop.Views
         private void FrmActualizarEntrada_Load(object sender, EventArgs e)
         {
             this.cargarClientes();
-            InventarioEntrada nEntrada = ManejoEntrada.getById(FrmBuscarEntrada.PKENTRADA);
+            InventarioEntrada nEntrada = ManejoEntrada.getById(FrmCatalogoEntradas.PKENTRADA);
 
             dtpFechaCaducidad.Value = nEntrada.dtCaducidad;
             dtpFechaEntrada.Value = nEntrada.dtFecha;
@@ -131,7 +131,7 @@ namespace SiscomSoft_Desktop.Views
                 this.cbxMetodoPago.Focus();
             }
             InventarioEntrada nEntrada = new InventarioEntrada();
-            nEntrada.pkInventioEntrada = FrmBuscarEntrada.PKENTRADA;
+            nEntrada.pkInventioEntrada = FrmCatalogoEntradas.PKENTRADA;
             nEntrada.dtCaducidad = dtpFechaCaducidad.Value;
             nEntrada.dtFecha = dtpFechaEntrada.Value;
             nEntrada.sTipoPago = cbxMetodoPago.Text;

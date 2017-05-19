@@ -12,10 +12,10 @@ using SiscomSoft_Desktop.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class FrmBuscarPermiso : Form
+    public partial class FrmCatalogoPermisos : Form
     {
         public static int PKPERMISO;
-        public FrmBuscarPermiso()
+        public FrmCatalogoPermisos()
         {
             InitializeComponent();
             this.dgvDatosPermiso.AutoGenerateColumns = false;

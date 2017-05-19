@@ -16,8 +16,8 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmActualizarUsuario : Form
     {
-        FrmBuscarUsuario vMain;
-        public FrmActualizarUsuario(FrmBuscarUsuario vmain)
+        FrmCatalogoUsuarios vMain;
+        public FrmActualizarUsuario(FrmCatalogoUsuarios vmain)
         {
             InitializeComponent();
             vMain = vmain;
@@ -56,7 +56,7 @@ namespace SiscomSoft_Desktop.Views
         private void FrmActualizarUsuario_Load(object sender, EventArgs e)
         {
             this.cargarRoles();
-            Usuario nUsuario = ManejoUsuario.getById(FrmBuscarUsuario.PKUSUARIO);
+            Usuario nUsuario = ManejoUsuario.getById(FrmCatalogoUsuarios.PKUSUARIO);
 
             txtRFC.Text = nUsuario.sRfc;
             txtUsuario.Text = nUsuario.sUsuario;
@@ -135,7 +135,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Usuario nUsuario = new Usuario();
-                nUsuario.pkUsuario = FrmBuscarUsuario.PKUSUARIO;
+                nUsuario.pkUsuario = FrmCatalogoUsuarios.PKUSUARIO;
                 nUsuario.sRfc = txtRFC.Text;
                 nUsuario.sUsuario = txtUsuario.Text;
                 nUsuario.sNombre = txtNombre.Text;

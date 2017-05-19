@@ -15,8 +15,8 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmActualizarPermiso : Form
     {
-        FrmBuscarPermiso vMain;
-        public FrmActualizarPermiso(FrmBuscarPermiso vmain)
+        FrmCatalogoPermisos vMain;
+        public FrmActualizarPermiso(FrmCatalogoPermisos vmain)
         {
             InitializeComponent();
             vMain = vmain;
@@ -25,7 +25,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmActualizarPermiso_Load(object sender, EventArgs e)
         {
-            Permiso nPermiso = ManejoPermiso.getById(FrmBuscarPermiso.PKPERMISO);
+            Permiso nPermiso = ManejoPermiso.getById(FrmCatalogoPermisos.PKPERMISO);
             txtModulo.Text = nPermiso.sModulo;
             txtComentario.Text = nPermiso.sComentario;
         }
@@ -48,7 +48,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Permiso nPermiso = new Permiso();
-                nPermiso.pkPermiso = FrmBuscarPermiso.PKPERMISO;
+                nPermiso.pkPermiso = FrmCatalogoPermisos.PKPERMISO;
                 nPermiso.sModulo = txtModulo.Text;
                 nPermiso.sComentario = txtComentario.Text;
 

@@ -12,10 +12,10 @@ using SiscomSoft_Desktop.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class FrmBuscarRol : Form
+    public partial class FrmCatalogoRoles : Form
     {
         public static int PKROL;
-        public FrmBuscarRol()
+        public FrmCatalogoRoles()
         {
             InitializeComponent();
             this.dgvDatosRol.AutoGenerateColumns = false;

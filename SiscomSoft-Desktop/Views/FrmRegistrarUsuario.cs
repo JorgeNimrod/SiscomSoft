@@ -29,7 +29,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            FrmBuscarUsuario Usuario = new FrmBuscarUsuario();
+            FrmCatalogoUsuarios Usuario = new FrmCatalogoUsuarios();
             Usuario.ShowDialog();
         }
 

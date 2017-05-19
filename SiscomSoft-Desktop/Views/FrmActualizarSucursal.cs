@@ -15,8 +15,8 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmActualizarSucursal : Form
     {
-        FrmBuscarSucursal vMain;
-        public FrmActualizarSucursal(FrmBuscarSucursal vmain)
+        FrmCatalogoSucursales vMain;
+        public FrmActualizarSucursal(FrmCatalogoSucursales vmain)
         {
             InitializeComponent();
             vMain = vmain;
@@ -36,7 +36,7 @@ namespace SiscomSoft_Desktop.Views
         private void FrmActualizarSucursal_Load(object sender, EventArgs e)
         {
             this.cargarPreferencias();
-            Sucursal nSucursal = ManejoSucursal.getById(FrmBuscarSucursal.PKSUCURSAL);
+            Sucursal nSucursal = ManejoSucursal.getById(FrmCatalogoSucursales.PKSUCURSAL);
 
             txtNombreSucursal.Text = nSucursal.sNombre;
             txtEstadoSucursal.Text = nSucursal.sEstSucursal;
@@ -137,7 +137,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Sucursal nSucursal = new Sucursal();
-                nSucursal.pkSucursal = FrmBuscarSucursal.PKSUCURSAL;
+                nSucursal.pkSucursal = FrmCatalogoSucursales.PKSUCURSAL;
               
                 nSucursal.sNombre = txtNombreSucursal.Text;
                 nSucursal.sEstSucursal = txtEstadoSucursal.Text;

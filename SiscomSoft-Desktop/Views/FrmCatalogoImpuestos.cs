@@ -12,10 +12,10 @@ using SiscomSoft_Desktop.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class FrmBuscarImpuesto : Form
+    public partial class FrmCatalogoImpuestos : Form
     {
         public static int PKIMPUESTO;
-        public FrmBuscarImpuesto()
+        public FrmCatalogoImpuestos()
         {
             InitializeComponent();
             this.dgvDatosImpuesto.AutoGenerateColumns = false;

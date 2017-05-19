@@ -15,8 +15,8 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmActualizarImpuesto : Form
     {
-        FrmBuscarImpuesto vMain;
-        public FrmActualizarImpuesto(FrmBuscarImpuesto vmain)
+        FrmCatalogoImpuestos vMain;
+        public FrmActualizarImpuesto(FrmCatalogoImpuestos vmain)
         {
             InitializeComponent();
             vMain = vmain;
@@ -31,7 +31,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmActualizarImpuesto_Load(object sender, EventArgs e)
         {
-            Impuesto nImpuesto = ManejoImpuesto.getById(FrmBuscarImpuesto.PKIMPUESTO);
+            Impuesto nImpuesto = ManejoImpuesto.getById(FrmCatalogoImpuestos.PKIMPUESTO);
             txtTipoImpuesto.Text = nImpuesto.sTipoImpuesto;
             txtImpuesto.Text = nImpuesto.sImpuesto;
             txtTasaImpuesto.Text = Convert.ToDouble(nImpuesto.dTasaImpuesto).ToString();
@@ -62,7 +62,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Impuesto nImpuesto = new Impuesto();
-                nImpuesto.pkImpuesto = FrmBuscarImpuesto.PKIMPUESTO;
+                nImpuesto.pkImpuesto = FrmCatalogoImpuestos.PKIMPUESTO;
                 nImpuesto.sTipoImpuesto = txtTipoImpuesto.Text;
                 nImpuesto.sImpuesto = txtImpuesto.Text;
                 nImpuesto.dTasaImpuesto = Convert.ToDouble( txtTasaImpuesto.Text);

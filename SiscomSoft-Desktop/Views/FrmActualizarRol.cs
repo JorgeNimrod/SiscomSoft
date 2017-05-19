@@ -15,8 +15,8 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmActualizarRol : Form
     {
-        FrmBuscarRol vMain;
-        public FrmActualizarRol(FrmBuscarRol vmain)
+        FrmCatalogoRoles vMain;
+        public FrmActualizarRol(FrmCatalogoRoles vmain)
         {
             InitializeComponent();
             vMain = vmain;
@@ -25,7 +25,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmActualizarRol_Load(object sender, EventArgs e)
         {
-            Rol nRol = ManejoRol.getById(FrmBuscarRol.PKROL);
+            Rol nRol = ManejoRol.getById(FrmCatalogoRoles.PKROL);
             txtNombre.Text = nRol.sNombre;
             txtComentario.Text = nRol.sComentario;
 
@@ -49,7 +49,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Rol nRol = new Rol();
-                nRol.pkRol = FrmBuscarRol.PKROL;
+                nRol.pkRol = FrmCatalogoRoles.PKROL;
                 nRol.sNombre = txtNombre.Text;
                 nRol.sComentario = txtComentario.Text;
                 

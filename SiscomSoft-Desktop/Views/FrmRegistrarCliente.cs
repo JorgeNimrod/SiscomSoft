@@ -38,7 +38,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            FrmBuscarCliente Buscar = new FrmBuscarCliente();
+            FrmCatalogoClientes Buscar = new FrmCatalogoClientes();
             Buscar.ShowDialog();
         }
 

@@ -162,17 +162,17 @@
     <Compile Include="Views\FrmActualizarUsuario.Designer.cs">
       <DependentUpon>FrmActualizarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarCategoria.cs">
+    <Compile Include="Views\FrmCatalogoCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmBuscarCategoria.Designer.cs">
-      <DependentUpon>FrmBuscarCategoria.cs</DependentUpon>
+    <Compile Include="Views\FrmCatalogoCategorias.Designer.cs">
+      <DependentUpon>FrmCatalogoCategorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarCliente.cs">
+    <Compile Include="Views\FrmCatalogoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmBuscarCliente.Designer.cs">
-      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    <Compile Include="Views\FrmCatalogoClientes.Designer.cs">
+      <DependentUpon>FrmCatalogoClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmBuscarClientes.cs">
       <SubType>Form</SubType>
@@ -180,35 +180,35 @@
     <Compile Include="Views\frmBuscarClientes.Designer.cs">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarEmpresa.cs">
+    <Compile Include="Views\FrmCatalogoEmpresas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmBuscarEmpresa.Designer.cs">
-      <DependentUpon>FrmBuscarEmpresa.cs</DependentUpon>
+    <Compile Include="Views\FrmCatalogoEmpresas.Designer.cs">
+      <DependentUpon>FrmCatalogoEmpresas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarEntrada.cs">
+    <Compile Include="Views\FrmCatalogoEntradas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmBuscarEntrada.Designer.cs">
-      <DependentUpon>FrmBuscarEntrada.cs</DependentUpon>
+    <Compile Include="Views\FrmCatalogoEntradas.Designer.cs">
+      <DependentUpon>FrmCatalogoEntradas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarImpuesto.cs">
+    <Compile Include="Views\FrmCatalogoImpuestos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmBuscarImpuesto.Designer.cs">
-      <DependentUpon>FrmBuscarImpuesto.cs</DependentUpon>
+    <Compile Include="Views\FrmCatalogoImpuestos.Designer.cs">
+      <DependentUpon>FrmCatalogoImpuestos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarPermiso.cs">
+    <Compile Include="Views\FrmCatalogoPermisos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmBuscarPermiso.Designer.cs">
-      <DependentUpon>FrmBuscarPermiso.cs</DependentUpon>
+    <Compile Include="Views\FrmCatalogoPermisos.Designer.cs">
+      <DependentUpon>FrmCatalogoPermisos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarProducto.cs">
+    <Compile Include="Views\FrmCatalogoProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmBuscarProducto.Designer.cs">
-      <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
+    <Compile Include="Views\FrmCatalogoProductos.Designer.cs">
+      <DependentUpon>FrmCatalogoProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmBuscarProductos.cs">
       <SubType>Form</SubType>
@@ -216,23 +216,23 @@
     <Compile Include="Views\frmBuscarProductos.Designer.cs">
       <DependentUpon>frmBuscarProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarRol.cs">
+    <Compile Include="Views\FrmCatalogoRoles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmBuscarRol.Designer.cs">
-      <DependentUpon>FrmBuscarRol.cs</DependentUpon>
+    <Compile Include="Views\FrmCatalogoRoles.Designer.cs">
+      <DependentUpon>FrmCatalogoRoles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarSucursal.cs">
+    <Compile Include="Views\FrmCatalogoSucursales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmBuscarSucursal.Designer.cs">
-      <DependentUpon>FrmBuscarSucursal.cs</DependentUpon>
+    <Compile Include="Views\FrmCatalogoSucursales.Designer.cs">
+      <DependentUpon>FrmCatalogoSucursales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarUsuario.cs">
+    <Compile Include="Views\FrmCatalogoUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmBuscarUsuario.Designer.cs">
-      <DependentUpon>FrmBuscarUsuario.cs</DependentUpon>
+    <Compile Include="Views\FrmCatalogoUsuarios.Designer.cs">
+      <DependentUpon>FrmCatalogoUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmConfiguracionBD.cs">
       <SubType>Form</SubType>
@@ -257,12 +257,6 @@
     </Compile>
     <Compile Include="Views\FrmMainVentas.Designer.cs">
       <DependentUpon>FrmMainVentas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmMenu.Designer.cs">
-      <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmRegistrarCategoria.cs">
       <SubType>Form</SubType>
@@ -370,41 +364,41 @@
     <EmbeddedResource Include="Views\FrmActualizarUsuario.resx">
       <DependentUpon>FrmActualizarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarCategoria.resx">
-      <DependentUpon>FrmBuscarCategoria.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmCatalogoCategorias.resx">
+      <DependentUpon>FrmCatalogoCategorias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarCliente.resx">
-      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmCatalogoClientes.resx">
+      <DependentUpon>FrmCatalogoClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmBuscarClientes.resx">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarEmpresa.resx">
-      <DependentUpon>FrmBuscarEmpresa.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmCatalogoEmpresas.resx">
+      <DependentUpon>FrmCatalogoEmpresas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarEntrada.resx">
-      <DependentUpon>FrmBuscarEntrada.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmCatalogoEntradas.resx">
+      <DependentUpon>FrmCatalogoEntradas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarImpuesto.resx">
-      <DependentUpon>FrmBuscarImpuesto.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmCatalogoImpuestos.resx">
+      <DependentUpon>FrmCatalogoImpuestos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarPermiso.resx">
-      <DependentUpon>FrmBuscarPermiso.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmCatalogoPermisos.resx">
+      <DependentUpon>FrmCatalogoPermisos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarProducto.resx">
-      <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmCatalogoProductos.resx">
+      <DependentUpon>FrmCatalogoProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmBuscarProductos.resx">
       <DependentUpon>frmBuscarProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarRol.resx">
-      <DependentUpon>FrmBuscarRol.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmCatalogoRoles.resx">
+      <DependentUpon>FrmCatalogoRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarSucursal.resx">
-      <DependentUpon>FrmBuscarSucursal.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmCatalogoSucursales.resx">
+      <DependentUpon>FrmCatalogoSucursales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarUsuario.resx">
-      <DependentUpon>FrmBuscarUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmCatalogoUsuarios.resx">
+      <DependentUpon>FrmCatalogoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmConfiguracionBD.resx">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
@@ -417,9 +411,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmMainVentas.resx">
       <DependentUpon>FrmMainVentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmMenu.resx">
-      <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRegistrarCategoria.resx">
       <DependentUpon>FrmRegistrarCategoria.cs</DependentUpon>

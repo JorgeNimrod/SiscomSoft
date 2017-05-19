@@ -15,8 +15,8 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmActualizarCategoria : Form
     {
-        FrmBuscarCategoria vMain;
-        public FrmActualizarCategoria(FrmBuscarCategoria vmain)
+        FrmCatalogoCategorias vMain;
+        public FrmActualizarCategoria(FrmCatalogoCategorias vmain)
         {
             InitializeComponent();
             vMain = vmain;
@@ -31,7 +31,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmActualizarCategoria_Load(object sender, EventArgs e)
         {
-            Categoria nCategoria = ManejoCategoria.getById(FrmBuscarCategoria.PKCATEGORIA);
+            Categoria nCategoria = ManejoCategoria.getById(FrmCatalogoCategorias.PKCATEGORIA);
             txtNombre.Text = nCategoria.sNombre;
             txtSubCat.Text = nCategoria.sNomSubCat;
 
@@ -55,7 +55,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Categoria nCategoria = new Categoria();
-                nCategoria.pkCategoria = FrmBuscarCategoria.PKCATEGORIA;
+                nCategoria.pkCategoria = FrmCatalogoCategorias.PKCATEGORIA;
                 nCategoria.sNombre = txtNombre.Text;
                 nCategoria.sNomSubCat = txtSubCat.Text;
 
@@ -90,7 +90,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Categoria nCategoria = new Categoria();
-                nCategoria.pkCategoria = FrmBuscarCategoria.PKCATEGORIA;
+                nCategoria.pkCategoria = FrmCatalogoCategorias.PKCATEGORIA;
                 nCategoria.sNombre = txtNombre.Text;
                 nCategoria.sNomSubCat = txtSubCat.Text;
 

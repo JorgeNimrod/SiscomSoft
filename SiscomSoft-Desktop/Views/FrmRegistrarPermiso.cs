@@ -27,7 +27,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            FrmBuscarPermiso Permiso = new FrmBuscarPermiso();
+            FrmCatalogoPermisos Permiso = new FrmCatalogoPermisos();
             Permiso.ShowDialog();
         }
 

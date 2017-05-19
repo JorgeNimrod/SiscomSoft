@@ -60,10 +60,6 @@ namespace SiscomSoft_Desktop.Views
 
                 dgvDatosProducto.Rows.Add(row);
                 CalcularTotales();
-                //if (this.dgvDatosProducto.Rows.Count > 1)
-                //{
-                //    CalcularTotales();
-                //}
             }
         }
 

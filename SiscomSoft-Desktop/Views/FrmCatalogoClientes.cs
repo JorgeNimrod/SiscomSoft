@@ -12,10 +12,10 @@ using SiscomSoft_Desktop.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class FrmBuscarCliente : Form
+    public partial class FrmCatalogoClientes : Form
     {
         public static int PKCLIENTE;
-        public FrmBuscarCliente()
+        public FrmCatalogoClientes()
         {
             InitializeComponent();
             this.dgvDatosCliente.AutoGenerateColumns = false;

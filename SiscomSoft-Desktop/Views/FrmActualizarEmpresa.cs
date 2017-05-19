@@ -15,8 +15,8 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmActualizarEmpresa : Form
     {
-        FrmBuscarEmpresa vMain;
-        public FrmActualizarEmpresa(FrmBuscarEmpresa vmain)
+        FrmCatalogoEmpresas vMain;
+        public FrmActualizarEmpresa(FrmCatalogoEmpresas vmain)
         {
             InitializeComponent();
             vMain = vmain;
@@ -52,7 +52,7 @@ namespace SiscomSoft_Desktop.Views
         {
             this.cargarCertificados();
             this.cargarSucursales();
-            Empresa nEmpresa = ManejoEmpresa.getById(FrmBuscarEmpresa.PKEMPRESA);
+            Empresa nEmpresa = ManejoEmpresa.getById(FrmCatalogoEmpresas.PKEMPRESA);
 
             txtNombreContacto.Text = nEmpresa.sNomContacto;
             txtNombreComercial.Text = nEmpresa.sNomComercial;
@@ -183,7 +183,7 @@ namespace SiscomSoft_Desktop.Views
                 this.cbxSucursal.Focus();
             }
             Empresa nEmpresa = new Empresa();
-            nEmpresa.pkEmpresa = FrmBuscarEmpresa.PKEMPRESA;
+            nEmpresa.pkEmpresa = FrmCatalogoEmpresas.PKEMPRESA;
             nEmpresa.sRazonSocial = txtRazonSocial.Text;
             nEmpresa.sNomComercial = txtNombreComercial.Text;
             nEmpresa.sNomContacto = txtNombreContacto.Text;

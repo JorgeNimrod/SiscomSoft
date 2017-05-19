@@ -33,7 +33,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            FrmBuscarRol Rol = new FrmBuscarRol();
+            FrmCatalogoRoles Rol = new FrmCatalogoRoles();
             Rol.ShowDialog();
         }
 
