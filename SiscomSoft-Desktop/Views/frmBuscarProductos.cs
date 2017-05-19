@@ -22,7 +22,6 @@ namespace SiscomSoft_Desktop.Views
             InitializeComponent();
             dgvDatosProducto.AutoGenerateColumns = false;
             vMain = vmain;
-            vMain.cargarDetalleFactura();
         }
 
         public void cargarProductos()
@@ -41,15 +40,16 @@ namespace SiscomSoft_Desktop.Views
             cargarProductos();
         }
 
-        private void dgvDatosProducto_DataSourceChanged(object sender, EventArgs e)
-        {
-            lblCantidad.Text = "Cantidad: " + dgvDatosProducto.Rows.Count;
-        }
-
-        private void dgvDatosProducto_DoubleClick(object sender, EventArgs e)
+        private void dgvDatosProducto_DoubleClick_1(object sender, EventArgs e)
         {
             PKPRODUCTO = Convert.ToInt32(dgvDatosProducto.CurrentRow.Cells[0].Value);
             vMain.cargarDetalleFactura();
+            Close();
+        }
+
+        private void dgvDatosProducto_DataSourceChanged_1(object sender, EventArgs e)
+        {
+            lblCantidad.Text = "Cantidad: " + dgvDatosProducto.Rows.Count;
         }
     }
 }
