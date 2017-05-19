@@ -81,6 +81,7 @@
             this.dgvDatosProducto.Size = new System.Drawing.Size(733, 304);
             this.dgvDatosProducto.TabIndex = 39;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
+           
             this.dgvDatosProducto.DoubleClick += new System.EventHandler(this.dgvDatosProducto_DoubleClick);
             // 
             // pkProductos
