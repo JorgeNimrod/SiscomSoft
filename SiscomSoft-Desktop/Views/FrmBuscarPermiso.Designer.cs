@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSalir = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.ckbStatus = new System.Windows.Forms.CheckBox();
             this.dgvDatosPermiso = new System.Windows.Forms.DataGridView();
@@ -37,25 +36,16 @@
             this.sComentario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarPermiso = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBorrar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosPermiso)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(171, 384);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(78, 31);
-            this.btnSalir.TabIndex = 48;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // lblRegistros
             // 
             this.lblRegistros.AutoSize = true;
-            this.lblRegistros.Location = new System.Drawing.Point(247, 344);
+            this.lblRegistros.Location = new System.Drawing.Point(228, 341);
             this.lblRegistros.Name = "lblRegistros";
             this.lblRegistros.Size = new System.Drawing.Size(68, 18);
             this.lblRegistros.TabIndex = 45;
@@ -69,7 +59,7 @@
             this.ckbStatus.Location = new System.Drawing.Point(12, 340);
             this.ckbStatus.Name = "ckbStatus";
             this.ckbStatus.Size = new System.Drawing.Size(69, 22);
-            this.ckbStatus.TabIndex = 44;
+            this.ckbStatus.TabIndex = 2;
             this.ckbStatus.Text = "Status";
             this.ckbStatus.UseVisualStyleBackColor = true;
             this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
@@ -86,6 +76,9 @@
             this.dgvDatosPermiso.RowHeadersVisible = false;
             this.dgvDatosPermiso.Size = new System.Drawing.Size(303, 286);
             this.dgvDatosPermiso.TabIndex = 43;
+            this.dgvDatosPermiso.DataSourceChanged += new System.EventHandler(this.dgvDatosPermiso_DataSourceChanged);
+            this.dgvDatosPermiso.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosPermiso_CellContentDoubleClick);
+            this.dgvDatosPermiso.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosPermiso_CellDoubleClick);
             // 
             // pkPermiso
             // 
@@ -110,7 +103,7 @@
             this.txtBuscarPermiso.Location = new System.Drawing.Point(133, 12);
             this.txtBuscarPermiso.Name = "txtBuscarPermiso";
             this.txtBuscarPermiso.Size = new System.Drawing.Size(182, 24);
-            this.txtBuscarPermiso.TabIndex = 42;
+            this.txtBuscarPermiso.TabIndex = 1;
             this.txtBuscarPermiso.TextChanged += new System.EventHandler(this.txtBuscarPermiso_TextChanged);
             // 
             // label1
@@ -122,31 +115,41 @@
             this.label1.TabIndex = 41;
             this.label1.Text = "Buscar Permiso";
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Image = global::SiscomSoft_Desktop.Properties.Resources.book_edit;
+            this.btnActualizar.Location = new System.Drawing.Point(12, 408);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(97, 50);
+            this.btnActualizar.TabIndex = 3;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(3, 384);
+            this.btnBorrar.Image = global::SiscomSoft_Desktop.Properties.Resources.delete;
+            this.btnBorrar.Location = new System.Drawing.Point(115, 408);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(78, 31);
-            this.btnBorrar.TabIndex = 49;
-            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.Size = new System.Drawing.Size(97, 50);
+            this.btnBorrar.TabIndex = 4;
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
-            // btnActualizar
+            // btnSalir
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(87, 384);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(78, 31);
-            this.btnActualizar.TabIndex = 50;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            this.btnSalir.Image = global::SiscomSoft_Desktop.Properties.Resources.door2;
+            this.btnSalir.Location = new System.Drawing.Point(218, 408);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(97, 50);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FrmBuscarPermiso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 433);
+            this.ClientSize = new System.Drawing.Size(333, 470);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnSalir);
@@ -158,10 +161,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmBuscarPermiso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Permiso";
             this.Load += new System.EventHandler(this.FrmBuscarPermiso_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmBuscarPermiso_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosPermiso)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -16,7 +16,7 @@ namespace SiscomSoft.Models
         {
             this.bStatus = true;
             this.iCodPostal = 0;
-            this.iNumCuenta = 0;
+           
             this.iNumExterior = 0;
             this.iNumInterior = 0;
             this.iPersona = 0;
@@ -67,7 +67,7 @@ namespace SiscomSoft.Models
 
         public string sTipoPAgo { get; set; }
 
-        public int iNumCuenta { get; set; }
+        public string sNumCuenta { get; set; }
 
         // CONDICIONES DE PAGO(CATCFDI)
         public string sCondPAgo { get; set; }

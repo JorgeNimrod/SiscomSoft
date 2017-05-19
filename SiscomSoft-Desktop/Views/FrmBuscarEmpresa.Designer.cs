@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSalir = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.ckbStatus = new System.Windows.Forms.CheckBox();
             this.dgvDatosEmpresa = new System.Windows.Forms.DataGridView();
@@ -43,20 +42,11 @@
             this.iCodPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarEmpresa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBorrar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosEmpresa)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(242, 397);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(109, 31);
-            this.btnSalir.TabIndex = 24;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // lblRegistros
             // 
@@ -75,7 +65,7 @@
             this.ckbStatus.Location = new System.Drawing.Point(15, 369);
             this.ckbStatus.Name = "ckbStatus";
             this.ckbStatus.Size = new System.Drawing.Size(69, 22);
-            this.ckbStatus.TabIndex = 20;
+            this.ckbStatus.TabIndex = 2;
             this.ckbStatus.Text = "Status";
             this.ckbStatus.UseVisualStyleBackColor = true;
             this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
@@ -98,6 +88,8 @@
             this.dgvDatosEmpresa.RowHeadersVisible = false;
             this.dgvDatosEmpresa.Size = new System.Drawing.Size(894, 324);
             this.dgvDatosEmpresa.TabIndex = 19;
+            this.dgvDatosEmpresa.DataSourceChanged += new System.EventHandler(this.dgvDatosEmpresa_DataSourceChanged);
+            this.dgvDatosEmpresa.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosEmpresa_CellDoubleClick);
             // 
             // pkEmpresa
             // 
@@ -159,7 +151,7 @@
             this.txtBuscarEmpresa.Location = new System.Drawing.Point(229, 9);
             this.txtBuscarEmpresa.Name = "txtBuscarEmpresa";
             this.txtBuscarEmpresa.Size = new System.Drawing.Size(676, 24);
-            this.txtBuscarEmpresa.TabIndex = 18;
+            this.txtBuscarEmpresa.TabIndex = 1;
             this.txtBuscarEmpresa.TextChanged += new System.EventHandler(this.txtBuscarEmpresa_TextChanged);
             // 
             // label1
@@ -171,31 +163,41 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Buscar Empresa Por Nombre";
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Image = global::SiscomSoft_Desktop.Properties.Resources.book_edit;
+            this.btnActualizar.Location = new System.Drawing.Point(15, 416);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(114, 43);
+            this.btnActualizar.TabIndex = 3;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
+            // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(130, 397);
+            this.btnBorrar.Image = global::SiscomSoft_Desktop.Properties.Resources.delete;
+            this.btnBorrar.Location = new System.Drawing.Point(130, 416);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(109, 31);
-            this.btnBorrar.TabIndex = 25;
-            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.Size = new System.Drawing.Size(114, 43);
+            this.btnBorrar.TabIndex = 4;
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
-            // btnActualizar
+            // btnSalir
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(15, 397);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(109, 31);
-            this.btnActualizar.TabIndex = 26;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
+            this.btnSalir.Image = global::SiscomSoft_Desktop.Properties.Resources.door2;
+            this.btnSalir.Location = new System.Drawing.Point(245, 416);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(114, 43);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FrmBuscarEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 451);
+            this.ClientSize = new System.Drawing.Size(922, 471);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnSalir);
@@ -207,10 +209,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmBuscarEmpresa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Empresa";
             this.Load += new System.EventHandler(this.FrmBuscarEmpresa_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmBuscarEmpresa_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosEmpresa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

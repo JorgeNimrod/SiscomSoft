@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.txtSubCat = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,6 +58,52 @@
             this.label4.Size = new System.Drawing.Size(227, 29);
             this.label4.TabIndex = 108;
             this.label4.Text = "Actualizar Categoria";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Image = global::SiscomSoft_Desktop.Properties.Resources.StatusAnnotations_Critical_32xLG_color;
+            this.btnCancelar.Location = new System.Drawing.Point(292, 286);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(116, 42);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
+            // 
+            // txtSubCat
+            // 
+            this.txtSubCat.Location = new System.Drawing.Point(148, 189);
+            this.txtSubCat.Name = "txtSubCat";
+            this.txtSubCat.Size = new System.Drawing.Size(342, 24);
+            this.txtSubCat.TabIndex = 2;
+            this.txtSubCat.TextChanged += new System.EventHandler(this.txtSubCat_TextChanged);
+            this.txtSubCat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubCat_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(39, 189);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 18);
+            this.label2.TabIndex = 101;
+            this.label2.Text = "Subcategoria :";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(148, 119);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(342, 24);
+            this.txtNombre.TabIndex = 1;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(69, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 18);
+            this.label1.TabIndex = 99;
+            this.label1.Text = "Nombre :";
             // 
             // pictureBox2
             // 
@@ -79,61 +125,15 @@
             this.pictureBox1.TabIndex = 106;
             this.pictureBox1.TabStop = false;
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(292, 286);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(116, 42);
-            this.btnCancelar.TabIndex = 104;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
-            // 
             // btnRegistrar
             // 
+            this.btnRegistrar.Image = global::SiscomSoft_Desktop.Properties.Resources.StatusAnnotations_Complete_and_ok_32xLG_color;
             this.btnRegistrar.Location = new System.Drawing.Point(414, 286);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(116, 42);
-            this.btnRegistrar.TabIndex = 103;
-            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
-            // txtSubCat
-            // 
-            this.txtSubCat.Location = new System.Drawing.Point(148, 189);
-            this.txtSubCat.Name = "txtSubCat";
-            this.txtSubCat.Size = new System.Drawing.Size(342, 24);
-            this.txtSubCat.TabIndex = 102;
-            this.txtSubCat.TextChanged += new System.EventHandler(this.txtSubCat_TextChanged);
-            this.txtSubCat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubCat_KeyPress);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 189);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 18);
-            this.label2.TabIndex = 101;
-            this.label2.Text = "Subcategoria :";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(148, 119);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(342, 24);
-            this.txtNombre.TabIndex = 100;
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 18);
-            this.label1.TabIndex = 99;
-            this.label1.Text = "Nombre :";
             // 
             // FrmActualizarCategoria
             // 
@@ -152,9 +152,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmActualizarCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmActualizarCategoria_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmActualizarCategoria_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

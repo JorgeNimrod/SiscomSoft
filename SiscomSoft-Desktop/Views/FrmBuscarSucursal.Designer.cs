@@ -28,14 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSalir = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.ckbStatus = new System.Windows.Forms.CheckBox();
             this.dgvDatosSucursal = new System.Windows.Forms.DataGridView();
-            this.txtBuscarSucursal = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnBorrar = new System.Windows.Forms.Button();
             this.pkSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sEstSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,18 +42,13 @@
             this.sCalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iNumExterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iCodPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtBuscarSucursal = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(242, 396);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(109, 31);
-            this.btnSalir.TabIndex = 32;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // lblRegistros
             // 
@@ -77,7 +67,7 @@
             this.ckbStatus.Location = new System.Drawing.Point(15, 368);
             this.ckbStatus.Name = "ckbStatus";
             this.ckbStatus.Size = new System.Drawing.Size(69, 22);
-            this.ckbStatus.TabIndex = 28;
+            this.ckbStatus.TabIndex = 2;
             this.ckbStatus.Text = "Status";
             this.ckbStatus.UseVisualStyleBackColor = true;
             this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
@@ -102,43 +92,7 @@
             this.dgvDatosSucursal.RowHeadersVisible = false;
             this.dgvDatosSucursal.Size = new System.Drawing.Size(1095, 324);
             this.dgvDatosSucursal.TabIndex = 27;
-            // 
-            // txtBuscarSucursal
-            // 
-            this.txtBuscarSucursal.Location = new System.Drawing.Point(229, 8);
-            this.txtBuscarSucursal.Name = "txtBuscarSucursal";
-            this.txtBuscarSucursal.Size = new System.Drawing.Size(878, 24);
-            this.txtBuscarSucursal.TabIndex = 26;
-            this.txtBuscarSucursal.TextChanged += new System.EventHandler(this.txtBuscarSucursal_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 18);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Buscar Sucursal Por Nombre";
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(15, 396);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(109, 31);
-            this.btnActualizar.TabIndex = 33;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.Location = new System.Drawing.Point(127, 396);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(109, 31);
-            this.btnBorrar.TabIndex = 34;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = true;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            this.dgvDatosSucursal.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosSucursal_CellDoubleClick);
             // 
             // pkSucursal
             // 
@@ -207,11 +161,58 @@
             this.iCodPostal.HeaderText = "Codigo Postal";
             this.iCodPostal.Name = "iCodPostal";
             // 
+            // txtBuscarSucursal
+            // 
+            this.txtBuscarSucursal.Location = new System.Drawing.Point(229, 8);
+            this.txtBuscarSucursal.Name = "txtBuscarSucursal";
+            this.txtBuscarSucursal.Size = new System.Drawing.Size(878, 24);
+            this.txtBuscarSucursal.TabIndex = 1;
+            this.txtBuscarSucursal.TextChanged += new System.EventHandler(this.txtBuscarSucursal_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(203, 18);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Buscar Sucursal Por Nombre";
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Image = global::SiscomSoft_Desktop.Properties.Resources.delete;
+            this.btnBorrar.Location = new System.Drawing.Point(133, 404);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(116, 44);
+            this.btnBorrar.TabIndex = 4;
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Image = global::SiscomSoft_Desktop.Properties.Resources.book_edit;
+            this.btnActualizar.Location = new System.Drawing.Point(15, 404);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(116, 44);
+            this.btnActualizar.TabIndex = 3;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Image = global::SiscomSoft_Desktop.Properties.Resources.door2;
+            this.btnSalir.Location = new System.Drawing.Point(255, 404);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(116, 44);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FrmBuscarSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1128, 444);
+            this.ClientSize = new System.Drawing.Size(1128, 460);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnSalir);
@@ -223,10 +224,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmBuscarSucursal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Sucursal";
             this.Load += new System.EventHandler(this.FrmBuscarSucursal_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmBuscarSucursal_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

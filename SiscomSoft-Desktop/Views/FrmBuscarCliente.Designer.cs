@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSalir = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.ckbStatus = new System.Windows.Forms.CheckBox();
             this.dgvDatosCliente = new System.Windows.Forms.DataGridView();
-            this.pkCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pkClientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sRFC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sCurp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,25 +47,16 @@
             this.sEstCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCliente)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(242, 493);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(109, 31);
-            this.btnSalir.TabIndex = 32;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // lblRegistros
             // 
             this.lblRegistros.AutoSize = true;
-            this.lblRegistros.Location = new System.Drawing.Point(1145, 452);
+            this.lblRegistros.Location = new System.Drawing.Point(1085, 452);
             this.lblRegistros.Name = "lblRegistros";
             this.lblRegistros.Size = new System.Drawing.Size(68, 18);
             this.lblRegistros.TabIndex = 29;
@@ -80,7 +70,7 @@
             this.ckbStatus.Location = new System.Drawing.Point(12, 465);
             this.ckbStatus.Name = "ckbStatus";
             this.ckbStatus.Size = new System.Drawing.Size(69, 22);
-            this.ckbStatus.TabIndex = 28;
+            this.ckbStatus.TabIndex = 2;
             this.ckbStatus.Text = "Status";
             this.ckbStatus.UseVisualStyleBackColor = true;
             this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
@@ -89,7 +79,7 @@
             // 
             this.dgvDatosCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pkCliente,
+            this.pkClientes,
             this.sRFC,
             this.sCurp,
             this.sNombre,
@@ -108,12 +98,14 @@
             this.dgvDatosCliente.RowHeadersVisible = false;
             this.dgvDatosCliente.Size = new System.Drawing.Size(1201, 403);
             this.dgvDatosCliente.TabIndex = 27;
+            this.dgvDatosCliente.DataSourceChanged += new System.EventHandler(this.dgvDatosCliente_DataSourceChanged);
+            this.dgvDatosCliente.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCliente_CellContentDoubleClick);
             // 
-            // pkCliente
+            // pkClientes
             // 
-            this.pkCliente.DataPropertyName = "pkCliente";
-            this.pkCliente.HeaderText = "Cliente";
-            this.pkCliente.Name = "pkCliente";
+            this.pkClientes.DataPropertyName = "pkCliente";
+            this.pkClientes.HeaderText = "Cliente";
+            this.pkClientes.Name = "pkClientes";
             // 
             // sRFC
             // 
@@ -184,7 +176,7 @@
             // 
             // iNumCuenta
             // 
-            this.iNumCuenta.DataPropertyName = "iNumCuenta";
+            this.iNumCuenta.DataPropertyName = "sNumCuenta";
             this.iNumCuenta.HeaderText = "Numero de Cuenta";
             this.iNumCuenta.Name = "iNumCuenta";
             // 
@@ -199,7 +191,7 @@
             this.txtBuscarCliente.Location = new System.Drawing.Point(229, 16);
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(984, 24);
-            this.txtBuscarCliente.TabIndex = 26;
+            this.txtBuscarCliente.TabIndex = 1;
             this.txtBuscarCliente.TextChanged += new System.EventHandler(this.txtBuscarCliente_TextChanged);
             // 
             // label1
@@ -211,31 +203,41 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Buscar Cliente Por Nombre";
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Image = global::SiscomSoft_Desktop.Properties.Resources.delete;
+            this.btnBorrar.Location = new System.Drawing.Point(130, 497);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(109, 44);
+            this.btnBorrar.TabIndex = 4;
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(12, 493);
+            this.btnActualizar.Image = global::SiscomSoft_Desktop.Properties.Resources.book_edit;
+            this.btnActualizar.Location = new System.Drawing.Point(15, 497);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(109, 31);
-            this.btnActualizar.TabIndex = 33;
-            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(109, 44);
+            this.btnActualizar.TabIndex = 3;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // btnBorrar
+            // btnSalir
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(127, 493);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(109, 31);
-            this.btnBorrar.TabIndex = 34;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = true;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            this.btnSalir.Image = global::SiscomSoft_Desktop.Properties.Resources.door2;
+            this.btnSalir.Location = new System.Drawing.Point(245, 497);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(110, 44);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FrmBuscarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1225, 536);
+            this.ClientSize = new System.Drawing.Size(1225, 553);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnSalir);
@@ -247,10 +249,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmBuscarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Cliente";
             this.Load += new System.EventHandler(this.FrmBuscarCliente_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmBuscarCliente_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -263,7 +267,11 @@
         private System.Windows.Forms.Label lblRegistros;
         private System.Windows.Forms.CheckBox ckbStatus;
         private System.Windows.Forms.DataGridView dgvDatosCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkCliente;
+        private System.Windows.Forms.TextBox txtBuscarCliente;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkClientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn sRFC;
         private System.Windows.Forms.DataGridViewTextBoxColumn sCurp;
         private System.Windows.Forms.DataGridViewTextBoxColumn sNombre;
@@ -277,9 +285,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sTipoPAgo;
         private System.Windows.Forms.DataGridViewTextBoxColumn iNumCuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn sEstCliente;
-        private System.Windows.Forms.TextBox txtBuscarCliente;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Button btnBorrar;
     }
 }

@@ -73,5 +73,28 @@ namespace SiscomSoft_Desktop.Views
         {
             this.cargarRoles();
         }
+
+        private void dgvDatosRol_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistros.Text = "Registros: " + this.dgvDatosRol.Rows.Count;
+        }
+
+        private void dgvDatosRol_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosRol.RowCount >= 1)
+            {
+                PKROL = Convert.ToInt32(this.dgvDatosRol.CurrentRow.Cells[0].Value);
+                FrmActualizarRol v = new FrmActualizarRol(this);
+                v.ShowDialog();
+            }
+        }
+
+        private void FrmBuscarRol_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width < 442) this.Width = 442;
+            if (this.Height < 131) this.Height = 131;
+            if (this.Width > 442) this.Width = 442;
+            if (this.Height > 131) this.Height = 131;
+        }
     }
 }

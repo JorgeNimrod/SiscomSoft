@@ -55,13 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201705161651504_INICIAL.cs" />
-    <Compile Include="Migrations\201705161651504_INICIAL.Designer.cs">
-      <DependentUpon>201705161651504_INICIAL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705140129170_MOD-PRODUCTO.cs" />
-    <Compile Include="Migrations\201705140129170_MOD-PRODUCTO.Designer.cs">
-      <DependentUpon>201705140129170_MOD-PRODUCTO.cs</DependentUpon>
+    <Compile Include="Migrations\201705171941097_INICIAL.cs" />
+    <Compile Include="Migrations\201705171941097_INICIAL.Designer.cs">
+      <DependentUpon>201705171941097_INICIAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -88,11 +84,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705161651504_INICIAL.resx">
-      <DependentUpon>201705161651504_INICIAL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705140129170_MOD-PRODUCTO.resx">
-      <DependentUpon>201705140129170_MOD-PRODUCTO.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705171941097_INICIAL.resx">
+      <DependentUpon>201705171941097_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -131,5 +131,53 @@ namespace SiscomSoft_Desktop.Views
                 MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
             }
         }
+
+        private void FrmRegistrarProducto_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width < 442) this.Width = 442;
+            if (this.Height < 131) this.Height = 131;
+            if (this.Width > 442) this.Width = 442;
+            if (this.Height > 131) this.Height = 131;
+        }
+
+        private void pcbLogo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxUnidadMedida_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLote_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescuento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaCaducidad_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

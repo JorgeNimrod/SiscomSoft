@@ -21,6 +21,7 @@ namespace SiscomSoft.Migrations
                 c => new
                     {
                         pkProducto = c.Int(nullable: false, identity: true),
+                        iClaveProd = c.Int(nullable: false),
                         sDescripcion = c.String(unicode: false),
                         sMarca = c.String(unicode: false),
                         dPrecio = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -118,7 +119,7 @@ namespace SiscomSoft.Migrations
                         sEstCliente = c.String(unicode: false),
                         sReferencia = c.String(unicode: false),
                         sTipoPAgo = c.String(unicode: false),
-                        iNumCuenta = c.Int(nullable: false),
+                        sNumCuenta = c.String(unicode: false),
                         sCondPAgo = c.String(unicode: false),
                         sTipoCliente = c.String(unicode: false),
                         sLogo = c.String(unicode: false),

@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtComentario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtModulo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,23 +46,13 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Image = global::SiscomSoft_Desktop.Properties.Resources.StatusAnnotations_Critical_32xLG_color;
             this.btnCancelar.Location = new System.Drawing.Point(283, 333);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
-            this.btnCancelar.TabIndex = 63;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(405, 333);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(116, 42);
-            this.btnActualizar.TabIndex = 62;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // ErrorProvider
             // 
@@ -78,6 +68,42 @@
             this.label4.Size = new System.Drawing.Size(212, 29);
             this.label4.TabIndex = 108;
             this.label4.Text = "Actualizar Permiso";
+            // 
+            // txtComentario
+            // 
+            this.txtComentario.Location = new System.Drawing.Point(118, 188);
+            this.txtComentario.Multiline = true;
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Size = new System.Drawing.Size(390, 125);
+            this.txtComentario.TabIndex = 2;
+            this.txtComentario.TextChanged += new System.EventHandler(this.txtComentario_TextChanged_1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 188);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 18);
+            this.label2.TabIndex = 104;
+            this.label2.Text = "Comentario :";
+            // 
+            // txtModulo
+            // 
+            this.txtModulo.Location = new System.Drawing.Point(118, 127);
+            this.txtModulo.Name = "txtModulo";
+            this.txtModulo.Size = new System.Drawing.Size(390, 24);
+            this.txtModulo.TabIndex = 1;
+            this.txtModulo.TextChanged += new System.EventHandler(this.txtModulo_TextChanged_1);
+            this.txtModulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtModulo_KeyPress_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 127);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 18);
+            this.label1.TabIndex = 102;
+            this.label1.Text = "Modulo :";
             // 
             // pictureBox2
             // 
@@ -99,41 +125,15 @@
             this.pictureBox1.TabIndex = 106;
             this.pictureBox1.TabStop = false;
             // 
-            // txtComentario
+            // btnActualizar
             // 
-            this.txtComentario.Location = new System.Drawing.Point(118, 188);
-            this.txtComentario.Multiline = true;
-            this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Size = new System.Drawing.Size(390, 125);
-            this.txtComentario.TabIndex = 105;
-            this.txtComentario.TextChanged += new System.EventHandler(this.txtComentario_TextChanged_1);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 188);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 18);
-            this.label2.TabIndex = 104;
-            this.label2.Text = "Comentario :";
-            // 
-            // txtModulo
-            // 
-            this.txtModulo.Location = new System.Drawing.Point(118, 127);
-            this.txtModulo.Name = "txtModulo";
-            this.txtModulo.Size = new System.Drawing.Size(390, 24);
-            this.txtModulo.TabIndex = 103;
-            this.txtModulo.TextChanged += new System.EventHandler(this.txtModulo_TextChanged_1);
-            this.txtModulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtModulo_KeyPress_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 127);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 18);
-            this.label1.TabIndex = 102;
-            this.label1.Text = "Modulo :";
+            this.btnActualizar.Image = global::SiscomSoft_Desktop.Properties.Resources.StatusAnnotations_Complete_and_ok_32xLG_color;
+            this.btnActualizar.Location = new System.Drawing.Point(405, 333);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(116, 42);
+            this.btnActualizar.TabIndex = 4;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // FrmActualizarPermiso
             // 
@@ -152,9 +152,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmActualizarPermiso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmActualizarPermiso_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmActualizarPermiso_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

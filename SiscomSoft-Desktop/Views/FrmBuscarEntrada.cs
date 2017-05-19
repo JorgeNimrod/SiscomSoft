@@ -20,6 +20,7 @@ namespace SiscomSoft_Desktop.Views
         public FrmBuscarEntrada()
         {
             InitializeComponent();
+            this.dgvDatosEntrada.AutoGenerateColumns = false;
         }
         public void cargarEntradas()
         {
@@ -74,6 +75,31 @@ namespace SiscomSoft_Desktop.Views
         private void dgvDatosEntrada_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dgvDatosEntrada_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistros.Text = "Registros: " + this.dgvDatosEntrada.Rows.Count;
+        }
+
+        private void dgvDatosEntrada_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosEntrada.RowCount >= 1)
+            {
+                PKENTRADA = Convert.ToInt32(this.dgvDatosEntrada.CurrentRow.Cells[0].Value);
+                FrmActualizarEntrada v = new FrmActualizarEntrada(this);
+                v.ShowDialog();
+            }
+
+
+        }
+
+        private void FrmBuscarEntrada_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width < 442) this.Width = 442;
+            if (this.Height < 131) this.Height = 131;
+            if (this.Width > 442) this.Width = 442;
+            if (this.Height > 131) this.Height = 131;
         }
     }
 }

@@ -103,5 +103,25 @@ namespace SiscomSoft_Desktop.Views
             frmFacturacion v = new frmFacturacion();
             v.ShowDialog();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarEntrada Entrada = new FrmRegistrarEntrada();
+            Entrada.Show();
+        }
+
+        private void FrmMenu_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width < 442) this.Width = 442;
+            if (this.Height < 131) this.Height = 131;
+            if (this.Width > 442) this.Width = 442;
+            if (this.Height > 131) this.Height = 131;
+        }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMainVentas sales = new FrmMainVentas();
+            sales.Show();
+        }
     }
 }

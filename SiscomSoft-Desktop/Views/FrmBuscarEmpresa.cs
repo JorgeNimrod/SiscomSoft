@@ -74,5 +74,29 @@ namespace SiscomSoft_Desktop.Views
         {
             this.cargarEmpresas();
         }
+
+        private void dgvDatosEmpresa_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistros.Text = "Registros: " + this.dgvDatosEmpresa.Rows.Count;
+        }
+
+        private void dgvDatosEmpresa_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosEmpresa.RowCount >= 1)
+            {
+                PKEMPRESA = Convert.ToInt32(this.dgvDatosEmpresa.CurrentRow.Cells[0].Value);
+                FrmActualizarEmpresa v = new FrmActualizarEmpresa(this);
+                v.ShowDialog();
+            }
+
+        }
+
+        private void FrmBuscarEmpresa_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width < 442) this.Width = 442;
+            if (this.Height < 131) this.Height = 131;
+            if (this.Width > 442) this.Width = 442;
+            if (this.Height > 131) this.Height = 131;
+        }
     }
 }
