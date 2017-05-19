@@ -588,6 +588,9 @@
   <ItemGroup>
     <None Include="Resources\1495158452_warehouse.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\supermarket-codigo-de-barras-de-identificacion-del-producto_318-74026.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -40,24 +40,30 @@ namespace SiscomSoft_Desktop.Views
             cargarProductos();
         }
 
-        private void dgvDatosProducto_DoubleClick_1(object sender, EventArgs e)
-        {
-            PKPRODUCTO = Convert.ToInt32(dgvDatosProducto.CurrentRow.Cells[0].Value);
-            vMain.cargarDetalleFactura();
-            Close();
-        }
-
-        private void dgvDatosProducto_DataSourceChanged_1(object sender, EventArgs e)
-        {
-            lblCantidad.Text = "Cantidad: " + dgvDatosProducto.Rows.Count;
-        }
-
+      
+      
         private void frmBuscarProductos_ResizeEnd(object sender, EventArgs e)
         {
             if (this.Width < 442) this.Width = 442;
             if (this.Height < 131) this.Height = 131;
             if (this.Width > 442) this.Width = 442;
             if (this.Height > 131) this.Height = 131;
+        }
+
+       
+
+        private void dgvDatosProducto_DoubleClick(object sender, EventArgs e)
+        {
+            PKPRODUCTO = Convert.ToInt32(dgvDatosProducto.CurrentRow.Cells[0].Value);
+            vMain.cargarDetalleFactura();
+            Close();
+
+        }
+
+       
+        private void dgvDatosProducto_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblCantidad.Text = "Cantidad: " + dgvDatosProducto.Rows.Count;
         }
     }
 }
