@@ -469,5 +469,15 @@ namespace SiscomSoft_Desktop.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap supermarket_codigo_de_barras_de_identificacion_del_producto_318_74026 {
+            get {
+                object obj = ResourceManager.GetObject("supermarket-codigo-de-barras-de-identificacion-del-producto_318-74026", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
