@@ -59,6 +59,7 @@
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(228, 24);
             this.txtContraseña.TabIndex = 2;
+            this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
             // 
             // label2
             // 
@@ -76,6 +77,7 @@
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Size = new System.Drawing.Size(228, 24);
             this.txtRFC.TabIndex = 1;
+            this.txtRFC.TextChanged += new System.EventHandler(this.txtRFC_TextChanged);
             // 
             // label1
             // 

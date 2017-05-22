@@ -94,5 +94,15 @@ namespace SiscomSoft_Desktop.Views
         {
             Application.Exit();
         }
+
+        private void txtRFC_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
     }
 }
