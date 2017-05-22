@@ -41,7 +41,7 @@ namespace SiscomSoft_Desktop.Views
              //       txtContraseña.Text);
                 if (uHelper.esValido)
                 {
-                    FrmMenu.uHelper = uHelper;
+                    
                     this.Close();
                 }
                 else
@@ -77,7 +77,7 @@ namespace SiscomSoft_Desktop.Views
           //          txtContraseña.Text);
                 if (uHelper.esValido)
                 {
-                    FrmMenu.uHelper = uHelper;
+                    
                     this.Close();
                 }
                 else
