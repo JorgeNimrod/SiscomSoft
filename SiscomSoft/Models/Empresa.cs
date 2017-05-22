@@ -15,47 +15,36 @@ namespace SiscomSoft.Models
     {
         [Key]
         public int pkEmpresa { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
         public string sRazonSocial { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
         public string sNomComercial { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
         public string sNomContacto { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
-        public string sRegComercial { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
+        //REGION FISCAL(CFDI)
+        public string sRegFiscal { get; set; }
+        
         public string sTelefono { get; set; }
 
-        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string sCorreo { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
         public string sPais { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
         public string sEstado { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
         public string sMunicipio { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
         public string sColonia { get; set; }
 
         public string sLocalidad { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
         public string sCalle { get; set; }
 
         public int iNumExterior { get; set; }
 
         public int iNumInterir { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
         public int iCodPostal { get; set; }
 
         public Boolean bStatus { get; set; }

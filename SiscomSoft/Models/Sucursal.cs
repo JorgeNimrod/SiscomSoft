@@ -17,9 +17,11 @@ namespace SiscomSoft.Models
 
         public string sNombre { get; set; }
 
-        public string sEstSucursal { get; set; }
+        // Estado de la sucursal(Abierta, Cerrada, etc)
+        public int iStatus { get; set; }
 
-        public int iNumCertificado { get; set; }
+        //TODO: Numero de certificado(CFDI) : Preguntar si es un llave foranea a la tabla de certificados
+        public int iNumCertifi { get; set; }
 
         public string sPais { get; set; }
 

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using SiscomSoft_Desktop.Controller;
+using SiscomSoft.Controller;
 using SiscomSoft.Models;
 
 namespace SiscomSoft_Desktop.Views
@@ -16,8 +16,8 @@ namespace SiscomSoft_Desktop.Views
     public partial class frmBuscarProductos : Form
     {
         public static int PKPRODUCTO;
-        frmFacturacion vMain;
-        public frmBuscarProductos(frmFacturacion vmain)
+        FrmFacturacion vMain;
+        public frmBuscarProductos(FrmFacturacion vmain)
         {
             InitializeComponent();
             dgvDatosProducto.AutoGenerateColumns = false;

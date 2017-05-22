@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
-using SiscomSoft_Desktop.Comun;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -91,7 +91,7 @@ namespace SiscomSoft_Desktop.Views
                 nProducto.sMarca = txtMarca.Text;
                 
                 nProducto.dCosto = Convert.ToDecimal(txtCosto.Text);
-                nProducto.dPrecio = Convert.ToDecimal(txtPrecio.Text);
+                //nProducto.fkPrecio = Convert.ToDecimal(txtPrecio.Text);
                 int fkImpuesto = Convert.ToInt32(cbxImpuesto.SelectedValue.ToString());
 
 

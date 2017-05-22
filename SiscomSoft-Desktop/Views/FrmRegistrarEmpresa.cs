@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
-using SiscomSoft_Desktop.Comun;
+using SiscomSoft.Controller;
 using System.Text.RegularExpressions;
 
 namespace SiscomSoft_Desktop.Views
@@ -184,7 +184,7 @@ namespace SiscomSoft_Desktop.Views
                 nEmpresa.sRazonSocial = txtRazonSocial.Text;
                 nEmpresa.sNomComercial = txtNombreComercial.Text;
                 nEmpresa.sNomContacto = txtNombreContacto.Text;
-                nEmpresa.sRegComercial = txtRegionComercial.Text;
+                nEmpresa.sRegFiscal = txtRegionComercial.Text;
                 nEmpresa.sTelefono = txtTelefono.Text;
                 nEmpresa.sCorreo = txtCorreoElectronico.Text;
                

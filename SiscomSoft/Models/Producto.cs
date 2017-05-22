@@ -19,21 +19,10 @@ namespace SiscomSoft.Models
 
         public string sDescripcion { get; set; }
 
-        public virtual Categoria fkCategoria { get; set; }
-
         public string sMarca { get; set; }
 
-        // llave foranea de CatSat
-        public virtual CatSat fkCatalogoSAT { get; set; }
-
-        // llave foranea de impuestos 
-        public virtual Impuesto fkImpuesto { get; set; }
-
-        public decimal dPrecio { get; set; }
-
+        //Costo real del producto
         public decimal dCosto { get; set; }
-
-        public virtual Precio fkPrecio { get; set; }
 
         public int iDescuento { get; set; }
 
@@ -43,10 +32,22 @@ namespace SiscomSoft.Models
 
         public int iLote { get; set; }
 
-        // llave foranea de InventarioEntrada
-        public virtual InventarioEntrada fkInventarioEntrada { get; set; }
-
         public Boolean bStatus { get; set; }
+
+        // llave foranea de categoria
+        public virtual Categoria fkCategoria { get; set; }
+
+        // llave foranea de catalogo - Es la unidad de medida del producto (K, Kg, L, Ml, Etc)
+        public virtual Catalogo fkCatalogo { get; set; }
+
+        // llave foranea de impuestos
+        public virtual Impuesto fkImpuesto { get; set; }
+
+        // llave foranea de precio - Precio que se le da al cliente 
+        public virtual Precio fkPrecio { get; set; }
+
+        // llave foranea de InventarioEntrada
+        public ICollection<InventarioEntrada> InventarioEntrada { get; set; }
 
         public Producto()
         {

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lblRegistros = new System.Windows.Forms.Label();
-            this.ckbStatus = new System.Windows.Forms.CheckBox();
             this.dgvDatosCliente = new System.Windows.Forms.DataGridView();
             this.pkClientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sRFC = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,19 +60,6 @@
             this.lblRegistros.Size = new System.Drawing.Size(68, 18);
             this.lblRegistros.TabIndex = 29;
             this.lblRegistros.Text = "Registro:";
-            // 
-            // ckbStatus
-            // 
-            this.ckbStatus.AutoSize = true;
-            this.ckbStatus.Checked = true;
-            this.ckbStatus.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbStatus.Location = new System.Drawing.Point(12, 465);
-            this.ckbStatus.Name = "ckbStatus";
-            this.ckbStatus.Size = new System.Drawing.Size(69, 22);
-            this.ckbStatus.TabIndex = 2;
-            this.ckbStatus.Text = "Status";
-            this.ckbStatus.UseVisualStyleBackColor = true;
-            this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
             // 
             // dgvDatosCliente
             // 
@@ -205,7 +191,6 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Image = global::SiscomSoft_Desktop.Properties.Resources.delete;
             this.btnBorrar.Location = new System.Drawing.Point(130, 497);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(109, 44);
@@ -215,7 +200,6 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Image = global::SiscomSoft_Desktop.Properties.Resources.book_edit;
             this.btnActualizar.Location = new System.Drawing.Point(15, 497);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(109, 44);
@@ -225,7 +209,6 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Image = global::SiscomSoft_Desktop.Properties.Resources.door2;
             this.btnSalir.Location = new System.Drawing.Point(245, 497);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(110, 44);
@@ -233,7 +216,7 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // FrmBuscarCliente
+            // FrmCatalogoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -242,7 +225,6 @@
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblRegistros);
-            this.Controls.Add(this.ckbStatus);
             this.Controls.Add(this.dgvDatosCliente);
             this.Controls.Add(this.txtBuscarCliente);
             this.Controls.Add(this.label1);
@@ -250,7 +232,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "FrmBuscarCliente";
+            this.Name = "FrmCatalogoClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Cliente";
             this.Load += new System.EventHandler(this.FrmBuscarCliente_Load);
@@ -265,7 +247,6 @@
 
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label lblRegistros;
-        private System.Windows.Forms.CheckBox ckbStatus;
         private System.Windows.Forms.DataGridView dgvDatosCliente;
         private System.Windows.Forms.TextBox txtBuscarCliente;
         private System.Windows.Forms.Label label1;

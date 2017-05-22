@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
-using SiscomSoft_Desktop.Comun;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -39,19 +39,17 @@ namespace SiscomSoft_Desktop.Views
             Sucursal nSucursal = ManejoSucursal.getById(FrmCatalogoSucursales.PKSUCURSAL);
 
             txtNombreSucursal.Text = nSucursal.sNombre;
-            txtEstadoSucursal.Text = nSucursal.sEstSucursal;
-            txtNumCertificado.Text = Convert.ToInt32(nSucursal.iNumCertificado).ToString();
+            txtEstadoSucursal.Text = nSucursal.iStatus.ToString();
+            txtNumCertificado.Text = nSucursal.iNumCertifi.ToString();
             txtPais.Text = nSucursal.sPais;
             txtEstado.Text = nSucursal.sEstado;
             txtMunicipio.Text = nSucursal.sMunicipio;
             txtColonia.Text = nSucursal.sColonia;
             txtLocalidad.Text = nSucursal.sLocalidad;
             txtCalle.Text = nSucursal.sCalle;
-            txtNumExterior.Text = Convert.ToInt32(nSucursal.iNumExterior).ToString();
-           txtNumInterior.Text = Convert.ToInt32(nSucursal.iNumInterior).ToString();
-            txtCodigoPostal.Text = Convert.ToInt32(nSucursal.iCodPostal).ToString();
-
-
+            txtNumExterior.Text = nSucursal.iNumExterior.ToString();
+            txtNumInterior.Text = nSucursal.iNumInterior.ToString();
+            txtCodigoPostal.Text = nSucursal.iCodPostal.ToString();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -140,9 +138,8 @@ namespace SiscomSoft_Desktop.Views
                 nSucursal.pkSucursal = FrmCatalogoSucursales.PKSUCURSAL;
               
                 nSucursal.sNombre = txtNombreSucursal.Text;
-                nSucursal.sEstSucursal = txtEstadoSucursal.Text;
-                nSucursal.sEstSucursal = txtEstadoSucursal.Text;
-                nSucursal.iNumCertificado = Convert.ToInt32(txtNumCertificado.Text);
+                nSucursal.iStatus = Convert.ToInt32(txtEstadoSucursal.Text);
+                nSucursal.iNumCertifi = Convert.ToInt32(txtNumCertificado.Text);
                 nSucursal.sPais = txtPais.Text;
                 nSucursal.sEstado = txtEstado.Text;
                 nSucursal.sMunicipio = txtMunicipio.Text;
@@ -152,20 +149,11 @@ namespace SiscomSoft_Desktop.Views
                 nSucursal.iNumExterior = Convert.ToInt32(txtNumExterior.Text);
                 nSucursal.iNumInterior = Convert.ToInt32(txtNumInterior.Text);
                 nSucursal.iCodPostal = Convert.ToInt32(txtCodigoPostal.Text);
-
-
-
-
-
-
-
+                
                 int fkPreferencia = Convert.ToInt32(cbxPreferencia.SelectedValue.ToString());
-
-
+                
                 ManejoSucursal.Modificar(nSucursal);
-
                 vMain.cargarSucursales();
-
                 this.Close();
             }
         }

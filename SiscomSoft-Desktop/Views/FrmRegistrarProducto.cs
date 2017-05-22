@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Comun;
-using SiscomSoft_Desktop.Controller;
+using SiscomSoft.Comun;
+using SiscomSoft.Controller;
 using System.Drawing.Imaging;
 
 namespace SiscomSoft_Desktop.Views
@@ -40,7 +41,13 @@ namespace SiscomSoft_Desktop.Views
         }
         public void cargarImpuestos()
         {
-       
+            int indexrol = 0;
+            //llenar combo
+            cmbImpuesto.DataSource = ManejoImpuesto.getAll(true);
+            cmbImpuesto.DisplayMember = "dTasaImpuesto";
+            cmbImpuesto.ValueMember = "pkImpuesto";
+
+            cmbImpuesto.SelectedIndex = indexrol;
         }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -57,7 +64,6 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtMarca, "Campo necesario");
                 this.txtMarca.Focus();
             }
-         
             else if (this.txtCosto.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtCosto, ErrorIconAlignment.MiddleRight);
@@ -75,19 +81,16 @@ namespace SiscomSoft_Desktop.Views
                 nProducto.sMarca = txtMarca.Text;
               
                 nProducto.dCosto = Convert.ToDecimal(txtCosto.Text);
-              
+                int fkImpuesto = Convert.ToInt32(cmbImpuesto.SelectedValue.ToString());
 
 
 
-            
+                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto);
 
                 MessageBox.Show("¡Producto Registrado!");
                 txtDescripcion.Clear();
-                
-               
-               
                 txtCosto.Clear();
-               
+                // falta limpiar los otros txt
             }
         }
 

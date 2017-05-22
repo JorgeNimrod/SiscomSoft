@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
-using SiscomSoft_Desktop.Comun;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -58,14 +58,13 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtTasaImpuesto, "Campo necesario");
                 this.txtTasaImpuesto.Focus();
             }
-
             else
             {
                 Impuesto nImpuesto = new Impuesto();
                 nImpuesto.pkImpuesto = FrmCatalogoImpuestos.PKIMPUESTO;
                 nImpuesto.sTipoImpuesto = txtTipoImpuesto.Text;
                 nImpuesto.sImpuesto = txtImpuesto.Text;
-                nImpuesto.dTasaImpuesto = Convert.ToDouble( txtTasaImpuesto.Text);
+                nImpuesto.dTasaImpuesto = Convert.ToDecimal(txtTasaImpuesto.Text);
 
                 ManejoImpuesto.Modificar(nImpuesto);
 

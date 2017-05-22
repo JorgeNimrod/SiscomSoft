@@ -1,6 +1,6 @@
 ﻿namespace SiscomSoft_Desktop.Views
 {
-    partial class frmFacturacion
+    partial class FrmFacturacion
     {
         /// <summary>
         /// Required designer variable.

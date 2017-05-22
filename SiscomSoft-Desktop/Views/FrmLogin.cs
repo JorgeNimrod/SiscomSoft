@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SiscomSoft_Desktop.Controller;
-using SiscomSoft_Desktop.Controller.Helpers;
 
+using SiscomSoft.Controller.Helpers;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -37,8 +37,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-          //      uHelper = ManejoUsuario.Autentificar(Convert.ToString(txtRFC.Text),
-             //       txtContraseña.Text);
+                uHelper = ManejoUsuario.Autentificar(Convert.ToString(txtRFC.Text), txtContraseña.Text);
                 if (uHelper.esValido)
                 {
                   
@@ -73,8 +72,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-        //        uHelper = ManejoUsuario.Autentificar(Convert.ToString(txtRFC.Text),
-          //          txtContraseña.Text);
+                uHelper = ManejoUsuario.Autentificar(Convert.ToString(txtRFC.Text), txtContraseña.Text);
                 if (uHelper.esValido)
                 {
                    
@@ -92,22 +90,9 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void FrmLogin_ResizeEnd(object sender, EventArgs e)
-        {
-            if (this.Width < 442) this.Width = 442;
-            if (this.Height < 131) this.Height = 131;
-            if (this.Width > 442) this.Width = 442;
-            if (this.Height > 131) this.Height = 131;
         }
     }
 }

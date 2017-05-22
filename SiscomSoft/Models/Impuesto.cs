@@ -19,11 +19,13 @@ namespace SiscomSoft.Models
 
         public string sImpuesto { get; set; }
 
-        public double dTasaImpuesto { get; set; }
+        public decimal dTasaImpuesto { get; set; }
 
         public Boolean bStatus { get; set; }
 
         public ICollection<Producto> Productos { get; set; }
+
+        public ICollection<Factura> Facturas { get; set; }
 
         public Impuesto()
         {

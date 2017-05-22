@@ -19,9 +19,10 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
+        public ICollection<Producto> Productos { get; set; }
+
         public Precio()
         {
-            this.iPrePorcen = 0;
             this.bStatus = true;
         }
     }
