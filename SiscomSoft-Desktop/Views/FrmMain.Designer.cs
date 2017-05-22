@@ -1,6 +1,6 @@
 ﻿namespace SiscomSoft_Desktop.Views
 {
-    partial class FrmMainVentas
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button9
@@ -129,12 +130,22 @@
             this.button5.TabIndex = 4;
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // FrmMainVentas
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(1087, 21);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(12, 18);
+            this.lblFecha.TabIndex = 15;
+            this.lblFecha.Text = " ";
+            // 
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
-            this.ClientSize = new System.Drawing.Size(1370, 754);
+            this.ClientSize = new System.Drawing.Size(1370, 750);
+            this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button4);
@@ -146,10 +157,13 @@
             this.Controls.Add(this.button5);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "FrmMainVentas";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FrmMain";
+            this.TransparencyKey = System.Drawing.Color.White;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmMainVentas_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -163,5 +177,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label lblFecha;
     }
 }

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class FrmMainVentas : Form
+    public partial class FrmMain : Form
     {
-        public FrmMainVentas()
+        public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private void FrmMainVentas_Load(object sender, EventArgs e)
+        {
+            this.lblFecha.Text = DateTime.Today.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
         }
     }
 }

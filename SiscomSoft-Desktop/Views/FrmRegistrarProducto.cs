@@ -40,13 +40,7 @@ namespace SiscomSoft_Desktop.Views
         }
         public void cargarImpuestos()
         {
-            int indexrol = 0;
-            //llenar combo
-            cbxImpuesto.DataSource = ManejoImpuesto.getAll(true);
-            cbxImpuesto.DisplayMember = "dTasaImpuesto";
-            cbxImpuesto.ValueMember = "pkImpuesto";
-
-            cbxImpuesto.SelectedIndex = indexrol;
+       
         }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -62,12 +56,6 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetIconAlignment(this.txtMarca, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtMarca, "Campo necesario");
                 this.txtMarca.Focus();
-            }
-            else if (this.txtUnidadMedida.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtUnidadMedida, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtUnidadMedida, "Campo necesario");
-                this.txtUnidadMedida.Focus();
             }
          
             else if (this.txtCosto.Text == "")
@@ -87,16 +75,16 @@ namespace SiscomSoft_Desktop.Views
                 nProducto.sMarca = txtMarca.Text;
               
                 nProducto.dCosto = Convert.ToDecimal(txtCosto.Text);
-                int fkImpuesto = Convert.ToInt32(cbxImpuesto.SelectedValue.ToString());
+              
 
 
 
-                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto);
+            
 
                 MessageBox.Show("¡Producto Registrado!");
                 txtDescripcion.Clear();
                 
-                txtUnidadMedida.Clear();
+               
                
                 txtCosto.Clear();
                
