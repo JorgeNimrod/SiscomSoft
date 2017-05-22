@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
+
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -22,7 +22,7 @@ namespace SiscomSoft_Desktop.Views
         }
         public void cargarClientes()
         {
-            this.dgvDatosCliente.DataSource = ManejoCliente.Buscar(txtBuscarCliente.Text, ckbStatus.Checked);
+            this.dgvDatosCliente.DataSource = ManejoCliente.Buscar(txtBuscarCliente.Text,1);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
     public partial class frmBuscarClientes : Form
     {
         public static int PKCLIENTE;
-        frmFacturacion vMain;
-        public frmBuscarClientes(frmFacturacion vmain)
+        FrmFacturacion vMain;
+        public frmBuscarClientes(FrmFacturacion vmain)
         {
             InitializeComponent();
             this.dgvDatosCliente.AutoGenerateColumns = false;
@@ -26,7 +26,7 @@ namespace SiscomSoft_Desktop.Views
 
         public void cargarClientes()
         {
-            List<Cliente> nProductos = ManejoCliente.Buscar(txtBuscarCliente.Text, true);
+            List<Cliente> nProductos = ManejoCliente.Buscar(txtBuscarCliente.Text, 1);
             this.dgvDatosCliente.DataSource = nProductos;
         }
 

@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
-using SiscomSoft_Desktop.Comun;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -26,7 +26,7 @@ namespace SiscomSoft_Desktop.Views
         {
             int indexrol = 0;
             //llenar combo
-            cbxProveedor.DataSource = ManejoCliente.getAll(true);
+            cbxProveedor.DataSource = ManejoCliente.getAll(1);
             cbxProveedor.DisplayMember = "sNombre";
             cbxProveedor.ValueMember = "pkCliente";
 
@@ -41,20 +41,13 @@ namespace SiscomSoft_Desktop.Views
             dtpFechaCaducidad.Value = nEntrada.dtCaducidad;
             dtpFechaEntrada.Value = nEntrada.dtFecha;
             cbxMetodoPago.Text = nEntrada.sTipoPago;
-            txtNoFactura.Text = Convert.ToInt32(nEntrada.iNoFactura).ToString();
+            //txtNoFactura.Text = Convert.ToInt32(nEntrada.iNoFactura).ToString();
             txtMoneda.Text = nEntrada.sMoneda;
-            txtCantidad.Text = Convert.ToDouble(nEntrada.dCantidad).ToString();
+            txtCantidad.Text = nEntrada.iCantidad.ToString();
             txtNombreProducto.Text = nEntrada.sNomProducto;
             txtPrecio.Text = Convert.ToDouble(nEntrada.dPrecio).ToString();
             txtDescuento.Text = Convert.ToInt32(nEntrada.iDescuento).ToString();
             txtLote.Text = Convert.ToInt32(nEntrada.iLote).ToString();
-
-
-
-
-
-
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -130,33 +123,28 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.cbxMetodoPago, "Seleccione un metodo de pago");
                 this.cbxMetodoPago.Focus();
             }
-            InventarioEntrada nEntrada = new InventarioEntrada();
-            nEntrada.pkInventioEntrada = FrmCatalogoEntradas.PKENTRADA;
-            nEntrada.dtCaducidad = dtpFechaCaducidad.Value;
-            nEntrada.dtFecha = dtpFechaEntrada.Value;
-            nEntrada.sTipoPago = cbxMetodoPago.Text;
-            nEntrada.sMoneda = txtMoneda.Text;
-            nEntrada.sNomProducto = txtNombreProducto.Text;
-            nEntrada.iDescuento = Convert.ToInt32(txtDescuento.Text);
-            nEntrada.iLote = Convert.ToInt32(txtLote.Text);
-            
-            nEntrada.iNoFactura = Convert.ToInt32(txtNoFactura.Text);
-            nEntrada.dCantidad = Convert.ToDouble(txtCantidad.Text);
-            nEntrada.dPrecio = Convert.ToDouble(txtPrecio.Text);
+            else
+            {
+                InventarioEntrada nEntrada = new InventarioEntrada();
+                nEntrada.pkInventioEntrada = FrmCatalogoEntradas.PKENTRADA;
+                nEntrada.dtCaducidad = dtpFechaCaducidad.Value;
+                nEntrada.dtFecha = dtpFechaEntrada.Value;
+                nEntrada.sTipoPago = cbxMetodoPago.Text;
+                nEntrada.sMoneda = txtMoneda.Text;
+                nEntrada.sNomProducto = txtNombreProducto.Text;
+                nEntrada.iDescuento = Convert.ToInt32(txtDescuento.Text);
+                nEntrada.iLote = Convert.ToInt32(txtLote.Text);
 
+                //nEntrada.iNoFactura = Convert.ToInt32(txtNoFactura.Text);
+                nEntrada.iCantidad = Convert.ToInt32(txtCantidad.Text);
+                //nEntrada.dPrecio = Convert.ToDouble(txtPrecio.Text);
 
+                int fkCliente = Convert.ToInt32(cbxProveedor.SelectedValue.ToString());
 
-
-            int fkCliente = Convert.ToInt32(cbxProveedor.SelectedValue.ToString());
-           
-
-
-            ManejoEntrada.Modificar(nEntrada);
-
-            vMain.cargarEntradas();
-
-            this.Close();
-
+                ManejoEntrada.Modificar(nEntrada);
+                vMain.cargarEntradas();
+                this.Close();
+            }
         }
 
         private void txtNombreProducto_TextChanged(object sender, EventArgs e)

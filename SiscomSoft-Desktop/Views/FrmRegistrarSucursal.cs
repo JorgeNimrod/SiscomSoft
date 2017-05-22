@@ -7,10 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
-using SiscomSoft_Desktop.Comun;
-using System.Text.RegularExpressions;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -117,8 +116,8 @@ namespace SiscomSoft_Desktop.Views
             {
                 Sucursal nSucursal = new Sucursal();
                 nSucursal.sNombre = txtNombreSucursal.Text;
-                nSucursal.sEstSucursal = txtEstadoSucursal.Text;
-                nSucursal.iNumCertificado = Convert.ToInt32(txtNumCertificado.Text);
+                nSucursal.iStatus = Convert.ToInt32(txtEstadoSucursal.Text);
+                nSucursal.iNumCertifi = Convert.ToInt32(txtNumCertificado.Text);
                 nSucursal.sPais = txtPais.Text;
                 nSucursal.sEstado = txtEstado.Text;
                 nSucursal.sMunicipio = txtMunicipio.Text;

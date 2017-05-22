@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {

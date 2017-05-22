@@ -72,7 +72,6 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Image = global::SiscomSoft_Desktop.Properties.Resources.StatusAnnotations_Complete_and_ok_32xLG_color;
             this.btnActualizar.Location = new System.Drawing.Point(592, 397);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(116, 42);
@@ -82,7 +81,6 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Image = global::SiscomSoft_Desktop.Properties.Resources.StatusAnnotations_Critical_32xLG_color;
             this.btnCancelar.Location = new System.Drawing.Point(470, 397);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
@@ -332,7 +330,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::SiscomSoft_Desktop.Properties.Resources.images;
             this.pictureBox2.Location = new System.Drawing.Point(22, 13);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(98, 74);

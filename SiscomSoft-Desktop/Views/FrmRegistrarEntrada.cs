@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Comun;
-using SiscomSoft_Desktop.Controller;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -28,7 +28,7 @@ namespace SiscomSoft_Desktop.Views
         {
             int indexrol = 0;
             //llenar combo
-            cbxProveedor.DataSource = ManejoCliente.getAll(true);
+            cbxProveedor.DataSource = ManejoCliente.getAll(1);
             cbxProveedor.DisplayMember = "sNombre";
             cbxProveedor.ValueMember = "pkCliente";
 
@@ -117,10 +117,10 @@ namespace SiscomSoft_Desktop.Views
                 nEntrada.dtFecha = dtpFechaEntrada.Value.Date;
                 nEntrada.sTipoPago = cbxMetodoPago.Text;
                 nEntrada.sMoneda = txtMoneda.Text;
-                nEntrada.iNoFactura = Convert.ToInt32(txtNoFactura.Text);
-                nEntrada.dCantidad = Convert.ToDouble(txtCantidad.Text);
+                // nEntrada.fkFactura = Convert.ToInt32(txtNoFactura.Text);
+                nEntrada.iCantidad = Convert.ToInt32(txtCantidad.Text);
                 nEntrada.sNomProducto = txtNombreProducto.Text;
-                nEntrada.dPrecio = Convert.ToDouble(txtPrecio.Text);
+                nEntrada.dPrecio = Convert.ToDecimal(txtPrecio.Text);
                 nEntrada.iDescuento = Convert.ToInt32(txtDescuento.Text);
                 nEntrada.iLote = Convert.ToInt32(txtLote.Text);
                 nEntrada.dtCaducidad = dtpFechaCaducidad.Value.Date;

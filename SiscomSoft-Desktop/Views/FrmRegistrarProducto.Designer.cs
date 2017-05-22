@@ -54,7 +54,7 @@
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbImpuesto = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -285,13 +285,13 @@
             this.label7.TabIndex = 73;
             this.label7.Text = "Impuesto :";
             // 
-            // comboBox2
+            // cmbImpuesto
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(476, 199);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(208, 26);
-            this.comboBox2.TabIndex = 76;
+            this.cmbImpuesto.FormattingEnabled = true;
+            this.cmbImpuesto.Location = new System.Drawing.Point(476, 199);
+            this.cmbImpuesto.Name = "cmbImpuesto";
+            this.cmbImpuesto.Size = new System.Drawing.Size(208, 26);
+            this.cmbImpuesto.TabIndex = 76;
             // 
             // label9
             // 
@@ -316,7 +316,6 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox2.Image = global::SiscomSoft_Desktop.Properties.Resources.supermarket_codigo_de_barras_de_identificacion_del_producto_318_74026;
             this.pictureBox2.Location = new System.Drawing.Point(20, 10);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(91, 74);
@@ -370,7 +369,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmbImpuesto);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label7);
@@ -440,7 +439,7 @@
         private System.Windows.Forms.Button btnExaminar;
         private System.Windows.Forms.PictureBox pcbLogo;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbImpuesto;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;

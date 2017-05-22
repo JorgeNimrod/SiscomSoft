@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Comun;
-using SiscomSoft_Desktop.Controller;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -54,7 +54,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 Permiso nPermiso = new Permiso();
 
-                nPermiso.sModulo = txtModulo.Text;
+                nPermiso.sNombre = txtModulo.Text;
                 nPermiso.sComentario = txtComentario.Text;
 
                 ManejoPermiso.RegistrarNuevoPermiso(nPermiso);

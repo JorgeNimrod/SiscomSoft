@@ -147,7 +147,6 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Image = global::SiscomSoft_Desktop.Properties.Resources.book_edit;
             this.btnActualizar.Location = new System.Drawing.Point(15, 453);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(117, 44);
@@ -157,7 +156,6 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Image = global::SiscomSoft_Desktop.Properties.Resources.delete;
             this.btnBorrar.Location = new System.Drawing.Point(138, 453);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(117, 44);
@@ -167,7 +165,6 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Image = global::SiscomSoft_Desktop.Properties.Resources.door2;
             this.btnSalir.Location = new System.Drawing.Point(261, 453);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(117, 44);

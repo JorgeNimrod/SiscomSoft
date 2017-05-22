@@ -16,8 +16,9 @@ namespace SiscomSoft.Models
         public int pkPermiso { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        public string sModulo { get; set; }
+        public string sNombre { get; set; }
 
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string sComentario { get; set; }
 
         public Boolean bStatus { get; set; }
