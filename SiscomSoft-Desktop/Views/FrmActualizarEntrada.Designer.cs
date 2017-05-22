@@ -82,7 +82,6 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Image = global::SiscomSoft_Desktop.Properties.Resources.StatusAnnotations_Critical_32xLG_color;
             this.btnCancelar.Location = new System.Drawing.Point(626, 327);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
@@ -313,7 +312,6 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox2.Image = global::SiscomSoft_Desktop.Properties.Resources.entrada_318_31630;
             this.pictureBox2.Location = new System.Drawing.Point(20, 10);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(108, 74);
@@ -331,8 +329,7 @@
             this.pictureBox1.TabStop = false;
             // 
             // btnRegistrar
-            // 
-            this.btnRegistrar.Image = global::SiscomSoft_Desktop.Properties.Resources.StatusAnnotations_Complete_and_ok_32xLG_color;
+            // ¿
             this.btnRegistrar.Location = new System.Drawing.Point(748, 327);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(116, 42);

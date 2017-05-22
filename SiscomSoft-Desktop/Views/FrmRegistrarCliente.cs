@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
-using SiscomSoft_Desktop.Comun;
+using SiscomSoft.Controller;
+using SiscomSoft.Comun;
 using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
 
@@ -207,11 +208,11 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.sTelFijo = txtTelFijo.Text;
                 nCliente.sTelMovil = txtTelMvil.Text;
                 nCliente.sCorreo = txtCorreo.Text;
-                nCliente.sEstCliente = cbxEstadoCli.Text;
+                nCliente.iStatus = Convert.ToInt32(cbxEstadoCli.Text);
                 nCliente.sReferencia = txtReferencia.Text;
-                nCliente.sTipoPAgo = cbxMetodoPago.Text;
+                nCliente.sTipoPago = cbxMetodoPago.Text;
                 nCliente.sNumCuenta = txtNumCuenta.Text;
-                nCliente.sCondPAgo = txtCondicionesPago.Text;
+                nCliente.sConPago = txtCondicionesPago.Text;
                 nCliente.sTipoCliente = cbxTipoCliente.Text;
                 nCliente.sLogo = ImagenString;
 

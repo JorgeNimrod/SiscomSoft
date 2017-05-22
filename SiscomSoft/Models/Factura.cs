@@ -14,12 +14,14 @@ namespace SiscomSoft.Models
     {
         [Key]
         public int pkFactura { get; set; }
-
+        
+        // llave foranea de emoresa
         public virtual Empresa fkEmpresa { get; set; }
 
-        public string sTipCambio { get; set; }
+        // llave foranea de cliente
+        public virtual Cliente fkCliente { get; set; }
 
-        public int fkCliente { get; set; }
+        public string sTipoCambio { get; set; }
 
         public string sNombre { get; set; }
 
@@ -31,15 +33,16 @@ namespace SiscomSoft.Models
 
         public DateTime dtFecha { get; set; }
 
-        public Boolean bStatus { get; set; }
-
         public int iCaja { get; set; }
-        //TODO: cambiar el tipo de folio int a string
-        public int iFolio { get; set; }
-        //TODO: cambiar el tipo de turno de string a int 
+        
+        public string sFolio { get; set; }
+        
         public string sTurno { get; set; }
 
-        public string sVendedor { get; set; }
+        // llave foranea de usuarios
+        public virtual Usuario fkUsuario { get; set; }
+
+        public string sNomUsuario { get; set; }
 
         public string sRegion { get; set; }
 
@@ -47,7 +50,8 @@ namespace SiscomSoft.Models
 
         public int iCantidad { get; set; }
 
-        public string sUDM { get; set; }
+        // llave foranea de catalogo
+        public virtual Catalogo fkCatalogo { get; set; }
 
         public decimal dCostoPro { get; set; }
 
@@ -55,10 +59,21 @@ namespace SiscomSoft.Models
 
         public decimal dImporte { get; set; }
 
-        public string sImpuestos { get; set; }
+        // llave foranea de impuesto
+        public virtual Impuesto fkImpuestos { get; set; }
 
         public int iDescuento { get; set; }
 
+        //TODO: Preguntar que es Articulo en la tabla de factura
         public int iArticulo { get; set; }
+
+        public Boolean bStatus { get; set; }
+
+        public ICollection<InventarioEntrada> InventariosEntradas { get; set; }
+
+        public Factura()
+        {
+            this.bStatus = true;
+        }
     }
 }

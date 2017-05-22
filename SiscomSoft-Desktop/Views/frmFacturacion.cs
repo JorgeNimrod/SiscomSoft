@@ -10,19 +10,17 @@ using System.Windows.Forms;
 
 using System.IO;
 using System.Xml;
-using System.Xml.Linq;
-using System.Xml.Schema;
 using System.Xml.XPath;
 using System.Xml.Xsl;
 using System.Xml.Serialization;
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class frmFacturacion : Form
+    public partial class FrmFacturacion : Form
     {
-        public frmFacturacion()
+        public FrmFacturacion()
         {
             InitializeComponent();
             this.dgvDatosProducto.AutoGenerateColumns = false;
@@ -51,7 +49,7 @@ namespace SiscomSoft_Desktop.Views
                 row.Cells[0].Value = nProducto.pkProducto;
                 row.Cells[1].Value = nProducto.sDescripcion;
                 row.Cells[2].Value = nProducto.sMarca;
-                row.Cells[3].Value = nProducto.fkCatalogoSAT;
+                row.Cells[3].Value = nProducto.fkCatalogo;
                 row.Cells[4].Value = nProducto.fkImpuesto;
                 row.Cells[5].Value = nProducto.dCosto;
                 row.Cells[6].Value = 1;
@@ -70,9 +68,9 @@ namespace SiscomSoft_Desktop.Views
             this.txtNombre.Text = nCliente.sNombre;
             this.txtDireccion.Text = nCliente.sCalle;
             this.txtTelefono.Text = nCliente.sTelMovil;
-            this.cmbMoneda.SelectedValue = nCliente.sTipoPAgo;
-            this.txtCondicionesDeVenta.Text = nCliente.sCondPAgo;
-            //Todo:preguntar como se manejara el tipo de cambio, si lo pongo o no: no es obligatorio
+            this.cmbMoneda.SelectedValue = nCliente.sTipoPago;
+            this.txtCondicionesDeVenta.Text = nCliente.sConPago;
+            //TODO: Preguntar como se manejara el tipo de cambio, si lo pongo o no: no es obligatorio
         }
 
         public void CalcularTotales()

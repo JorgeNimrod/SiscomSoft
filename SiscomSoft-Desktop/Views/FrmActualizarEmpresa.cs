@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Models;
-using SiscomSoft_Desktop.Controller;
-using SiscomSoft_Desktop.Comun;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -57,7 +57,7 @@ namespace SiscomSoft_Desktop.Views
             txtNombreContacto.Text = nEmpresa.sNomContacto;
             txtNombreComercial.Text = nEmpresa.sNomComercial;
             txtRazonSocial.Text = nEmpresa.sRazonSocial;
-            txtRegionComercial.Text = nEmpresa.sRegComercial;
+            txtRegionComercial.Text = nEmpresa.sRegFiscal;
             txtTelefono.Text = nEmpresa.sTelefono;
             txtMunicipio.Text = nEmpresa.sMunicipio;
             txtPais.Text = nEmpresa.sPais;
@@ -187,7 +187,7 @@ namespace SiscomSoft_Desktop.Views
             nEmpresa.sRazonSocial = txtRazonSocial.Text;
             nEmpresa.sNomComercial = txtNombreComercial.Text;
             nEmpresa.sNomContacto = txtNombreContacto.Text;
-            nEmpresa.sRegComercial = txtRegionComercial.Text;
+            nEmpresa.sRegFiscal = txtRegionComercial.Text;
             nEmpresa.sCorreo = txtCorreoElectronico.Text;
             nEmpresa.sPais = txtPais.Text;
             nEmpresa.sEstado = txtEstado.Text;

@@ -15,26 +15,24 @@ namespace SiscomSoft.Models
         //TODO: revisar bien la info que se guardara en esta tabla para poner bien los campos en la bd
         [Key]
         public int pkCertificado { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
         public string sCSD { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
+        
         public string sCertificado { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
-        public string sLLave { get; set; }
+        
+        public string sKey { get; set; }
 
         // Vigencia CSD
-        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string sContraseña { get; set; }
+
         public Boolean bStatus { get; set; }
+
+        public ICollection<Empresa> Empresas { get; set; }
 
         public Certificado()
         {
             this.bStatus = true;
         }
 
-        public ICollection<Empresa> Empresas { get; set; }
     }
 }

@@ -12,16 +12,6 @@ namespace SiscomSoft.Models
     [Table("Clientes")]
     public class Cliente
     {
-        public Cliente()
-        {
-            this.bStatus = true;
-            this.iCodPostal = 0;
-           
-            this.iNumExterior = 0;
-            this.iNumInterior = 0;
-            this.iPersona = 0;
-        }
-        
         [Key]
         public int pkCliente { get; set; }
 
@@ -60,25 +50,26 @@ namespace SiscomSoft.Models
 
         public string sCorreo { get; set; }
 
-        // ESTADO(ACTIVO, BAJA, SUSPENDIDO, OTRO)
-        public string sEstCliente { get; set; }
-
         public string sReferencia { get; set; }
 
-        public string sTipoPAgo { get; set; }
+        //TIPO DE PAGO(CATCFDI)
+        public string sTipoPago { get; set; }
 
         public string sNumCuenta { get; set; }
 
         // CONDICIONES DE PAGO(CATCFDI)
-        public string sCondPAgo { get; set; }
+        public string sConPago { get; set; }
 
         // VENDEDOR/COMPRADOR
         public string sTipoCliente { get; set; }
+        
+        // ESTADO(ACTIVO, BAJA, SUSPENDIDO, OTRO)
+        public int iStatus { get; set; }
 
         public string sLogo { get; set; }
 
-        public Boolean bStatus { get; set; }
-
         public ICollection<InventarioEntrada> InventariosEntradas { get; set; }
+
+        public ICollection<Factura> Facturas { get; set; }
     }
 }
