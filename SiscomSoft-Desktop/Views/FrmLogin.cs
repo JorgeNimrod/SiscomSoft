@@ -40,7 +40,7 @@ namespace SiscomSoft_Desktop.Views
                 uHelper = ManejoUsuario.Autentificar(Convert.ToString(txtRFC.Text), txtContraseña.Text);
                 if (uHelper.esValido)
                 {
-                    
+                  
                     this.Close();
                 }
                 else
@@ -75,7 +75,7 @@ namespace SiscomSoft_Desktop.Views
                 uHelper = ManejoUsuario.Autentificar(Convert.ToString(txtRFC.Text), txtContraseña.Text);
                 if (uHelper.esValido)
                 {
-                    
+                   
                     this.Close();
                 }
                 else
@@ -93,6 +93,16 @@ namespace SiscomSoft_Desktop.Views
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txtRFC_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
         }
     }
 }

@@ -296,7 +296,7 @@
             // 
             this.dtpFechaCaducidad.Location = new System.Drawing.Point(550, 262);
             this.dtpFechaCaducidad.Name = "dtpFechaCaducidad";
-            this.dtpFechaCaducidad.Size = new System.Drawing.Size(192, 24);
+            this.dtpFechaCaducidad.Size = new System.Drawing.Size(301, 24);
             this.dtpFechaCaducidad.TabIndex = 11;
             // 
             // label3

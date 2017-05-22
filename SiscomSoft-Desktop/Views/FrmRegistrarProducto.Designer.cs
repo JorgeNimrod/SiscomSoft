@@ -113,7 +113,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(703, 118);
+            this.label5.Location = new System.Drawing.Point(771, 121);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 18);
             this.label5.TabIndex = 8;
@@ -263,9 +263,9 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(786, 115);
+            this.txtPrecio.Location = new System.Drawing.Point(853, 115);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(145, 24);
+            this.txtPrecio.Size = new System.Drawing.Size(200, 24);
             this.txtPrecio.TabIndex = 72;
             // 
             // comboBox1
