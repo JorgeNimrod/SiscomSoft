@@ -31,6 +31,16 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.gbDetalleFactura = new System.Windows.Forms.GroupBox();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sUnidadMed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fkImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -65,16 +75,6 @@
             this.cmbMoneda = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sUnidadMed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fkImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbDetalleFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosProducto)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -132,6 +132,76 @@
             this.dgvDatosProducto.RowHeadersVisible = false;
             this.dgvDatosProducto.Size = new System.Drawing.Size(954, 177);
             this.dgvDatosProducto.TabIndex = 72;
+            // 
+            // pkProductos
+            // 
+            this.pkProductos.DataPropertyName = "pkProducto";
+            this.pkProductos.HeaderText = "No.";
+            this.pkProductos.Name = "pkProductos";
+            this.pkProductos.ReadOnly = true;
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
+            this.sDescripcion.Width = 200;
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            this.sMarca.ReadOnly = true;
+            // 
+            // sUnidadMed
+            // 
+            this.sUnidadMed.DataPropertyName = "sUnidadMed";
+            this.sUnidadMed.HeaderText = "UDM";
+            this.sUnidadMed.Name = "sUnidadMed";
+            this.sUnidadMed.ReadOnly = true;
+            this.sUnidadMed.Width = 50;
+            // 
+            // fkImpuesto
+            // 
+            this.fkImpuesto.DataPropertyName = "fkImpuesto_pkImpuesto";
+            this.fkImpuesto.HeaderText = "Impuesto";
+            this.fkImpuesto.Name = "fkImpuesto";
+            this.fkImpuesto.ReadOnly = true;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
+            // 
+            // sCantidad
+            // 
+            this.sCantidad.HeaderText = "Cantidad";
+            this.sCantidad.Name = "sCantidad";
+            // 
+            // sDescuento
+            // 
+            this.sDescuento.DataPropertyName = "sDescuento";
+            this.sDescuento.HeaderText = "Descuento";
+            this.sDescuento.Name = "sDescuento";
+            this.sDescuento.ReadOnly = true;
+            // 
+            // sTotal
+            // 
+            this.sTotal.HeaderText = "Total";
+            this.sTotal.Name = "sTotal";
+            this.sTotal.ReadOnly = true;
+            // 
+            // sClaveProd
+            // 
+            this.sClaveProd.DataPropertyName = "sClaveProd";
+            this.sClaveProd.HeaderText = "Clave Prod";
+            this.sClaveProd.Name = "sClaveProd";
+            this.sClaveProd.ReadOnly = true;
+            this.sClaveProd.Visible = false;
             // 
             // label15
             // 
@@ -579,77 +649,7 @@
             this.txtTelefono.Size = new System.Drawing.Size(103, 24);
             this.txtTelefono.TabIndex = 4;
             // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "pkProducto";
-            this.pkProductos.HeaderText = "No.";
-            this.pkProductos.Name = "pkProductos";
-            this.pkProductos.ReadOnly = true;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            this.sDescripcion.Width = 200;
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            this.sMarca.ReadOnly = true;
-            // 
-            // sUnidadMed
-            // 
-            this.sUnidadMed.DataPropertyName = "sUnidadMed";
-            this.sUnidadMed.HeaderText = "UDM";
-            this.sUnidadMed.Name = "sUnidadMed";
-            this.sUnidadMed.ReadOnly = true;
-            this.sUnidadMed.Width = 50;
-            // 
-            // fkImpuesto
-            // 
-            this.fkImpuesto.DataPropertyName = "fkImpuesto_pkImpuesto";
-            this.fkImpuesto.HeaderText = "Impuesto";
-            this.fkImpuesto.Name = "fkImpuesto";
-            this.fkImpuesto.ReadOnly = true;
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
-            // 
-            // sCantidad
-            // 
-            this.sCantidad.HeaderText = "Cantidad";
-            this.sCantidad.Name = "sCantidad";
-            // 
-            // sDescuento
-            // 
-            this.sDescuento.DataPropertyName = "sDescuento";
-            this.sDescuento.HeaderText = "Descuento";
-            this.sDescuento.Name = "sDescuento";
-            this.sDescuento.ReadOnly = true;
-            // 
-            // sTotal
-            // 
-            this.sTotal.HeaderText = "Total";
-            this.sTotal.Name = "sTotal";
-            this.sTotal.ReadOnly = true;
-            // 
-            // sClaveProd
-            // 
-            this.sClaveProd.DataPropertyName = "sClaveProd";
-            this.sClaveProd.HeaderText = "Clave Prod";
-            this.sClaveProd.Name = "sClaveProd";
-            this.sClaveProd.ReadOnly = true;
-            this.sClaveProd.Visible = false;
-            // 
-            // frmFacturacion
+            // FrmFacturacion
             // 
             this.AcceptButton = this.btnBuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -664,7 +664,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmFacturacion";
+            this.Name = "FrmFacturacion";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturación Electronica";
