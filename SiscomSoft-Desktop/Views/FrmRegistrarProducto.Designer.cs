@@ -39,7 +39,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -64,10 +63,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtLinea = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -85,7 +85,8 @@
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(206, 105);
-            this.txtDescripcion.TabIndex = 1;
+            this.txtDescripcion.TabIndex = 11;
+            this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
             // 
             // label2
             // 
@@ -101,7 +102,8 @@
             this.txtMarca.Location = new System.Drawing.Point(448, 115);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(236, 24);
-            this.txtMarca.TabIndex = 5;
+            this.txtMarca.TabIndex = 2;
+            this.txtMarca.TextChanged += new System.EventHandler(this.txtMarca_TextChanged);
             // 
             // label3
             // 
@@ -117,7 +119,8 @@
             this.txtCosto.Location = new System.Drawing.Point(158, 157);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(213, 24);
-            this.txtCosto.TabIndex = 11;
+            this.txtCosto.TabIndex = 4;
+            this.txtCosto.TextChanged += new System.EventHandler(this.txtCosto_TextChanged);
             // 
             // label6
             // 
@@ -133,7 +136,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(12, 441);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(116, 42);
-            this.btnBuscar.TabIndex = 54;
+            this.btnBuscar.TabIndex = 15;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -143,7 +146,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(815, 441);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
-            this.btnCancelar.TabIndex = 53;
+            this.btnCancelar.TabIndex = 16;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -153,14 +156,10 @@
             this.btnRegistrar.Location = new System.Drawing.Point(937, 441);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(116, 42);
-            this.btnRegistrar.TabIndex = 52;
+            this.btnRegistrar.TabIndex = 17;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
-            // ErrorProvider
-            // 
-            this.ErrorProvider.ContainerControl = this;
             // 
             // label12
             // 
@@ -204,18 +203,20 @@
             // 
             // cbxCategoria
             // 
+            this.cbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(162, 339);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(209, 26);
-            this.cbxCategoria.TabIndex = 63;
+            this.cbxCategoria.TabIndex = 13;
+            this.cbxCategoria.SelectedIndexChanged += new System.EventHandler(this.cbxCategoria_SelectedIndexChanged);
             // 
             // dtpFechaCaducidad
             // 
             this.dtpFechaCaducidad.Location = new System.Drawing.Point(853, 115);
             this.dtpFechaCaducidad.Name = "dtpFechaCaducidad";
             this.dtpFechaCaducidad.Size = new System.Drawing.Size(200, 24);
-            this.dtpFechaCaducidad.TabIndex = 65;
+            this.dtpFechaCaducidad.TabIndex = 3;
             this.dtpFechaCaducidad.ValueChanged += new System.EventHandler(this.dtpFechaCaducidad_ValueChanged);
             // 
             // txtDescuento
@@ -223,7 +224,7 @@
             this.txtDescuento.Location = new System.Drawing.Point(478, 157);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(206, 24);
-            this.txtDescuento.TabIndex = 66;
+            this.txtDescuento.TabIndex = 5;
             this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
             // 
             // txtLote
@@ -231,16 +232,17 @@
             this.txtLote.Location = new System.Drawing.Point(158, 201);
             this.txtLote.Name = "txtLote";
             this.txtLote.Size = new System.Drawing.Size(213, 24);
-            this.txtLote.TabIndex = 67;
+            this.txtLote.TabIndex = 7;
             this.txtLote.TextChanged += new System.EventHandler(this.txtLote_TextChanged);
             // 
             // cbxCatalogo
             // 
+            this.cbxCatalogo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCatalogo.FormattingEnabled = true;
             this.cbxCatalogo.Location = new System.Drawing.Point(853, 207);
             this.cbxCatalogo.Name = "cbxCatalogo";
             this.cbxCatalogo.Size = new System.Drawing.Size(200, 26);
-            this.cbxCatalogo.TabIndex = 68;
+            this.cbxCatalogo.TabIndex = 9;
             this.cbxCatalogo.SelectedIndexChanged += new System.EventHandler(this.cbxUnidadMedida_SelectedIndexChanged);
             // 
             // btnExaminar
@@ -248,7 +250,7 @@
             this.btnExaminar.Location = new System.Drawing.Point(886, 384);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(167, 27);
-            this.btnExaminar.TabIndex = 71;
+            this.btnExaminar.TabIndex = 14;
             this.btnExaminar.Tag = "2";
             this.btnExaminar.Text = "Examinar";
             this.btnExaminar.UseVisualStyleBackColor = true;
@@ -256,11 +258,13 @@
             // 
             // cbxPrecio
             // 
+            this.cbxPrecio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPrecio.FormattingEnabled = true;
             this.cbxPrecio.Location = new System.Drawing.Point(853, 158);
             this.cbxPrecio.Name = "cbxPrecio";
             this.cbxPrecio.Size = new System.Drawing.Size(200, 26);
-            this.cbxPrecio.TabIndex = 74;
+            this.cbxPrecio.TabIndex = 6;
+            this.cbxPrecio.SelectedIndexChanged += new System.EventHandler(this.cbxPrecio_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -273,11 +277,13 @@
             // 
             // cmbImpuesto
             // 
+            this.cmbImpuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbImpuesto.FormattingEnabled = true;
             this.cmbImpuesto.Location = new System.Drawing.Point(476, 199);
             this.cmbImpuesto.Name = "cmbImpuesto";
             this.cmbImpuesto.Size = new System.Drawing.Size(208, 26);
-            this.cmbImpuesto.TabIndex = 76;
+            this.cmbImpuesto.TabIndex = 8;
+            this.cmbImpuesto.SelectedIndexChanged += new System.EventHandler(this.cmbImpuesto_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -334,7 +340,8 @@
             this.txtClaveProducto.Location = new System.Drawing.Point(158, 115);
             this.txtClaveProducto.Name = "txtClaveProducto";
             this.txtClaveProducto.Size = new System.Drawing.Size(213, 24);
-            this.txtClaveProducto.TabIndex = 106;
+            this.txtClaveProducto.TabIndex = 1;
+            this.txtClaveProducto.TextChanged += new System.EventHandler(this.txtClaveProducto_TextChanged);
             // 
             // label11
             // 
@@ -350,7 +357,8 @@
             this.txtSublinea.Location = new System.Drawing.Point(160, 286);
             this.txtSublinea.Name = "txtSublinea";
             this.txtSublinea.Size = new System.Drawing.Size(209, 24);
-            this.txtSublinea.TabIndex = 110;
+            this.txtSublinea.TabIndex = 12;
+            this.txtSublinea.TextChanged += new System.EventHandler(this.txtSublinea_TextChanged);
             // 
             // label4
             // 
@@ -366,7 +374,8 @@
             this.txtLinea.Location = new System.Drawing.Point(160, 242);
             this.txtLinea.Name = "txtLinea";
             this.txtLinea.Size = new System.Drawing.Size(211, 24);
-            this.txtLinea.TabIndex = 108;
+            this.txtLinea.TabIndex = 10;
+            this.txtLinea.TextChanged += new System.EventHandler(this.txtLinea_TextChanged);
             // 
             // label5
             // 
@@ -377,8 +386,13 @@
             this.label5.TabIndex = 107;
             this.label5.Text = "Linea :";
             // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
+            // 
             // FrmRegistrarProducto
             // 
+            this.AcceptButton = this.btnRegistrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 492);
@@ -424,10 +438,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmRegistrarProducto_Load);
             this.ResizeEnd += new System.EventHandler(this.FrmRegistrarProducto_ResizeEnd);
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,7 +459,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.ErrorProvider ErrorProvider;
         private System.Windows.Forms.DateTimePicker dtpFechaCaducidad;
         private System.Windows.Forms.ComboBox cbxCategoria;
         private System.Windows.Forms.Label label15;
@@ -470,5 +483,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtLinea;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
     }
 }

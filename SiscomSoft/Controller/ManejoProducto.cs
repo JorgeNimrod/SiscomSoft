@@ -48,7 +48,7 @@ namespace SiscomSoft.Controller
                 {
                     return ctx.Productos.Include("fkImpuesto")
                         .Include("fkCategoria")
-                        .Include("fkCatalogoSAT")
+                        .Include("fkCatalogo")
                         .Include("fkPrecio")
                         .Where(r => r.bStatus == true && r.pkProducto == pkProducto)
                         .FirstOrDefault();
@@ -88,9 +88,9 @@ namespace SiscomSoft.Controller
                     return ctx.Productos
                         .Include("fkImpuesto")
                         .Include("fkCategoria")
-                        .Include("fkCatalogoSAT")
+                        .Include("fkCatalogo")
                         .Include("fkPrecio")
-                        .Where(r => r.bStatus == Status && r.sMarca.Contains(valor))
+                        .Where(r => r.bStatus == Status && r.sDescripcion.Contains(valor))
                         .ToList();
                 }
             }
