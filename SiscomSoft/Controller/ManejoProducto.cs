@@ -11,16 +11,26 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoProducto
     {
-        public static void RegistrarNuevoProducto(Producto nProducto, int pkImpuesto)
+        public static void RegistrarNuevoProducto(Producto nProducto, int pkImpuesto,int pkPrecio,int pkCatalogo, int pkCategoria)
         {
             Impuesto impuesto = ManejoImpuesto.getById(pkImpuesto);
+            Precio precio = ManejoPrecio.getById(pkImpuesto);
+            Catalogo catalogo = ManejoCatalogo.getById(pkCatalogo);
+            Categoria categoria = ManejoCategoria.getById(pkCategoria);
 
             try
             {
                 using (var ctx = new DataModel())
                 {
                     nProducto.fkImpuesto = impuesto;
+                    nProducto.fkPrecio = precio;
+                    nProducto.fkCatalogo = catalogo;
+                    nProducto.fkCategoria = categoria;
                     ctx.Productos.Add(nProducto);
+                    ctx.Impuestos.Attach(impuesto);
+                    ctx.Precios.Attach(precio);
+                    ctx.Catalogos.Attach(catalogo);
+                    ctx.Categorias.Attach(categoria);
                     ctx.SaveChanges();
                 }
             }

@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Comun\LoginTool.cs" />
     <Compile Include="Comun\ToolImagen.cs" />
+    <Compile Include="Controller\ManejoCatalogo.cs" />
     <Compile Include="Controller\Helpers\UsuarioHelper.cs" />
     <Compile Include="Controller\ManejoCategoria.cs" />
     <Compile Include="Controller\ManejoCertificado.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Controller\ManejoEntrada.cs" />
     <Compile Include="Controller\ManejoImpuesto.cs" />
     <Compile Include="Controller\ManejoPermiso.cs" />
+    <Compile Include="Controller\ManejoPrecio.cs" />
     <Compile Include="Controller\ManejoPreferencia.cs" />
     <Compile Include="Controller\ManejoProducto.cs" />
     <Compile Include="Controller\ManejoRol.cs" />
