@@ -38,6 +38,39 @@ namespace SiscomSoft_Desktop.Views
         private void FrmRegistrarProducto_Load(object sender, EventArgs e)
         {
             this.cargarImpuestos();
+            this.cargaCatalogos();
+            this.cargarCategorias();
+            this.cargarPrecios();
+        }
+        public void cargarPrecios()
+        {
+            int indexrol = 0;
+            //llenar combo
+            cmbImpuesto.DataSource = ManejoPrecio.getAll(true);
+            cmbImpuesto.DisplayMember = "iPrePorcen";
+            cmbImpuesto.ValueMember = "pkPrecios";
+
+            cmbImpuesto.SelectedIndex = indexrol;
+        }
+        public void cargaCatalogos()
+        {
+            int indexrol = 0;
+            //llenar combo
+            cmbImpuesto.DataSource = ManejoCatalogo.getAll(true);
+            cmbImpuesto.DisplayMember = "sUDM";
+            cmbImpuesto.ValueMember = "pkCatalogo";
+
+            cmbImpuesto.SelectedIndex = indexrol;
+        }
+        public void cargarCategorias()
+        {
+            int indexrol = 0;
+            //llenar combo
+            cmbImpuesto.DataSource = ManejoCategoria.getAll(true);
+            cmbImpuesto.DisplayMember = "sNombre";
+            cmbImpuesto.ValueMember = "pkCategoria";
+
+            cmbImpuesto.SelectedIndex = indexrol;
         }
         public void cargarImpuestos()
         {
@@ -74,22 +107,40 @@ namespace SiscomSoft_Desktop.Views
 
             else
             {
+
+                Categoria nCategoria = new Categoria();
+                nCategoria.sNombre = txtLinea.Text;
+                nCategoria.sNomSubCat = txtSublinea.Text;
+
+
                 Producto nProducto = new Producto();
+                nProducto.iClaveProd = Convert.ToInt32(txtClaveProducto.ToString());
+                nProducto.sMarca = txtMarca.Text;
+                nProducto.dtCaducidad = dtpFechaCaducidad.Value.Date;
+                nProducto.dCosto = Convert.ToDecimal(txtCosto.Text);
+                nProducto.iDescuento = Convert.ToInt32(txtDescuento.ToString());
+                nProducto.sFoto = ImagenString;
+                nProducto.iLote = Convert.ToInt32(txtLote.Text);
 
                 nProducto.sDescripcion = txtDescripcion.Text;
-               
-                nProducto.sMarca = txtMarca.Text;
-              
-                nProducto.dCosto = Convert.ToDecimal(txtCosto.Text);
+
                 int fkImpuesto = Convert.ToInt32(cmbImpuesto.SelectedValue.ToString());
+                int fkPrecio = Convert.ToInt32(cbxPrecio.SelectedValue.ToString());
+                int fkCategoria = Convert.ToInt32(cbxCategoria.SelectedValue.ToString());
+                int fkCatalogo = Convert.ToInt32(cbxCatalogo.SelectedValue.ToString());
 
-
-
-                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto);
+                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto,fkPrecio,fkCategoria,fkCatalogo);
 
                 MessageBox.Show("¡Producto Registrado!");
                 txtDescripcion.Clear();
                 txtCosto.Clear();
+                txtClaveProducto.Clear();
+                txtMarca.Clear();
+                dtpFechaCaducidad.ResetText();
+                txtDescuento.Clear();
+                pcbLogo.Image = null;
+                txtLote.Clear();
+                txtClaveProducto.Focus();
                 // falta limpiar los otros txt
             }
         }

@@ -59,5 +59,24 @@ namespace SiscomSoft_Desktop.Views
             FrmFacturacion v = new FrmFacturacion();
             v.ShowDialog();
         }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmAdministrador admin = new FrmAdministrador();
+            admin.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmMenu_MdiChildActivate(object sender, EventArgs e)
+        {
+
+          
+
+        }
     }
 }

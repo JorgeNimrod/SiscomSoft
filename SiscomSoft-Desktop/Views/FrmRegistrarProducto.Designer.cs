@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtCosto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -49,10 +48,9 @@
             this.dtpFechaCaducidad = new System.Windows.Forms.DateTimePicker();
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.txtLote = new System.Windows.Forms.TextBox();
-            this.cbxUnidadMedida = new System.Windows.Forms.ComboBox();
+            this.cbxCatalogo = new System.Windows.Forms.ComboBox();
             this.btnExaminar = new System.Windows.Forms.Button();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxPrecio = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbImpuesto = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,6 +60,10 @@
             this.pcbLogo = new System.Windows.Forms.PictureBox();
             this.txtClaveProducto = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.txtSublinea = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtLinea = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,7 +73,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(401, 395);
+            this.label1.Location = new System.Drawing.Point(377, 248);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 18);
             this.label1.TabIndex = 0;
@@ -79,20 +81,20 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(502, 392);
+            this.txtDescripcion.Location = new System.Drawing.Point(478, 245);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(145, 65);
+            this.txtDescripcion.Size = new System.Drawing.Size(206, 105);
             this.txtDescripcion.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 243);
+            this.label2.Location = new System.Drawing.Point(86, 339);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 18);
+            this.label2.Size = new System.Drawing.Size(51, 18);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Categoria :";
+            this.label2.Text = "UDM :";
             // 
             // txtMarca
             // 
@@ -110,20 +112,11 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Marca :";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(703, 118);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 18);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Precio :";
-            // 
             // txtCosto
             // 
             this.txtCosto.Location = new System.Drawing.Point(158, 157);
             this.txtCosto.Name = "txtCosto";
-            this.txtCosto.Size = new System.Drawing.Size(211, 24);
+            this.txtCosto.Size = new System.Drawing.Size(213, 24);
             this.txtCosto.TabIndex = 11;
             // 
             // label6
@@ -137,7 +130,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(12, 540);
+            this.btnBuscar.Location = new System.Drawing.Point(12, 441);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(116, 42);
             this.btnBuscar.TabIndex = 54;
@@ -147,7 +140,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(815, 540);
+            this.btnCancelar.Location = new System.Drawing.Point(815, 441);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
             this.btnCancelar.TabIndex = 53;
@@ -157,7 +150,7 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(937, 540);
+            this.btnRegistrar.Location = new System.Drawing.Point(937, 441);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(116, 42);
             this.btnRegistrar.TabIndex = 52;
@@ -172,17 +165,17 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(615, 292);
+            this.label12.Location = new System.Drawing.Point(759, 207);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(134, 18);
+            this.label12.Size = new System.Drawing.Size(76, 18);
             this.label12.TabIndex = 59;
-            this.label12.Text = "Unidad de medida :";
+            this.label12.Text = "Catalogo :";
             this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(92, 207);
+            this.label13.Location = new System.Drawing.Point(100, 207);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(45, 18);
             this.label13.TabIndex = 60;
@@ -202,7 +195,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(696, 163);
+            this.label15.Location = new System.Drawing.Point(696, 118);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(151, 18);
             this.label15.TabIndex = 62;
@@ -212,14 +205,14 @@
             // cbxCategoria
             // 
             this.cbxCategoria.FormattingEnabled = true;
-            this.cbxCategoria.Location = new System.Drawing.Point(158, 240);
+            this.cbxCategoria.Location = new System.Drawing.Point(162, 339);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(209, 26);
             this.cbxCategoria.TabIndex = 63;
             // 
             // dtpFechaCaducidad
             // 
-            this.dtpFechaCaducidad.Location = new System.Drawing.Point(853, 158);
+            this.dtpFechaCaducidad.Location = new System.Drawing.Point(853, 115);
             this.dtpFechaCaducidad.Name = "dtpFechaCaducidad";
             this.dtpFechaCaducidad.Size = new System.Drawing.Size(200, 24);
             this.dtpFechaCaducidad.TabIndex = 65;
@@ -237,22 +230,22 @@
             // 
             this.txtLote.Location = new System.Drawing.Point(158, 201);
             this.txtLote.Name = "txtLote";
-            this.txtLote.Size = new System.Drawing.Size(209, 24);
+            this.txtLote.Size = new System.Drawing.Size(213, 24);
             this.txtLote.TabIndex = 67;
             this.txtLote.TextChanged += new System.EventHandler(this.txtLote_TextChanged);
             // 
-            // cbxUnidadMedida
+            // cbxCatalogo
             // 
-            this.cbxUnidadMedida.FormattingEnabled = true;
-            this.cbxUnidadMedida.Location = new System.Drawing.Point(774, 292);
-            this.cbxUnidadMedida.Name = "cbxUnidadMedida";
-            this.cbxUnidadMedida.Size = new System.Drawing.Size(208, 26);
-            this.cbxUnidadMedida.TabIndex = 68;
-            this.cbxUnidadMedida.SelectedIndexChanged += new System.EventHandler(this.cbxUnidadMedida_SelectedIndexChanged);
+            this.cbxCatalogo.FormattingEnabled = true;
+            this.cbxCatalogo.Location = new System.Drawing.Point(853, 207);
+            this.cbxCatalogo.Name = "cbxCatalogo";
+            this.cbxCatalogo.Size = new System.Drawing.Size(200, 26);
+            this.cbxCatalogo.TabIndex = 68;
+            this.cbxCatalogo.SelectedIndexChanged += new System.EventHandler(this.cbxUnidadMedida_SelectedIndexChanged);
             // 
             // btnExaminar
             // 
-            this.btnExaminar.Location = new System.Drawing.Point(815, 461);
+            this.btnExaminar.Location = new System.Drawing.Point(886, 384);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(167, 27);
             this.btnExaminar.TabIndex = 71;
@@ -261,29 +254,22 @@
             this.btnExaminar.UseVisualStyleBackColor = true;
             this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
             // 
-            // txtPrecio
+            // cbxPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(786, 115);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(145, 24);
-            this.txtPrecio.TabIndex = 72;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 431);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(208, 26);
-            this.comboBox1.TabIndex = 74;
+            this.cbxPrecio.FormattingEnabled = true;
+            this.cbxPrecio.Location = new System.Drawing.Point(853, 158);
+            this.cbxPrecio.Name = "cbxPrecio";
+            this.cbxPrecio.Size = new System.Drawing.Size(200, 26);
+            this.cbxPrecio.TabIndex = 74;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(41, 434);
+            this.label7.Location = new System.Drawing.Point(776, 163);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 18);
+            this.label7.Size = new System.Drawing.Size(59, 18);
             this.label7.TabIndex = 73;
-            this.label7.Text = "Impuesto :";
+            this.label7.Text = "Precio :";
             // 
             // cmbImpuesto
             // 
@@ -334,7 +320,7 @@
             // 
             // pcbLogo
             // 
-            this.pcbLogo.Location = new System.Drawing.Point(815, 339);
+            this.pcbLogo.Location = new System.Drawing.Point(886, 262);
             this.pcbLogo.Name = "pcbLogo";
             this.pcbLogo.Size = new System.Drawing.Size(167, 113);
             this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -347,7 +333,7 @@
             // 
             this.txtClaveProducto.Location = new System.Drawing.Point(158, 115);
             this.txtClaveProducto.Name = "txtClaveProducto";
-            this.txtClaveProducto.Size = new System.Drawing.Size(211, 24);
+            this.txtClaveProducto.Size = new System.Drawing.Size(213, 24);
             this.txtClaveProducto.TabIndex = 106;
             // 
             // label11
@@ -359,11 +345,47 @@
             this.label11.TabIndex = 105;
             this.label11.Text = "Clave del Producto :";
             // 
+            // txtSublinea
+            // 
+            this.txtSublinea.Location = new System.Drawing.Point(160, 286);
+            this.txtSublinea.Name = "txtSublinea";
+            this.txtSublinea.Size = new System.Drawing.Size(209, 24);
+            this.txtSublinea.TabIndex = 110;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(69, 292);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 18);
+            this.label4.TabIndex = 109;
+            this.label4.Text = "Sub linea :";
+            // 
+            // txtLinea
+            // 
+            this.txtLinea.Location = new System.Drawing.Point(160, 242);
+            this.txtLinea.Name = "txtLinea";
+            this.txtLinea.Size = new System.Drawing.Size(211, 24);
+            this.txtLinea.TabIndex = 108;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(94, 243);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 18);
+            this.label5.TabIndex = 107;
+            this.label5.Text = "Linea :";
+            // 
             // FrmRegistrarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 594);
+            this.ClientSize = new System.Drawing.Size(1065, 492);
+            this.Controls.Add(this.txtSublinea);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtLinea);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtClaveProducto);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -371,12 +393,11 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmbImpuesto);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxPrecio);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.btnExaminar);
             this.Controls.Add(this.pcbLogo);
-            this.Controls.Add(this.cbxUnidadMedida);
+            this.Controls.Add(this.cbxCatalogo);
             this.Controls.Add(this.txtLote);
             this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.dtpFechaCaducidad);
@@ -390,7 +411,6 @@
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.txtCosto);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -420,7 +440,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCosto;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnBuscar;
@@ -433,20 +452,23 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cbxUnidadMedida;
+        private System.Windows.Forms.ComboBox cbxCatalogo;
         private System.Windows.Forms.TextBox txtLote;
         private System.Windows.Forms.TextBox txtDescuento;
         private System.Windows.Forms.Button btnExaminar;
         private System.Windows.Forms.PictureBox pcbLogo;
-        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.ComboBox cmbImpuesto;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxPrecio;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtClaveProducto;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtSublinea;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtLinea;
+        private System.Windows.Forms.Label label5;
     }
 }

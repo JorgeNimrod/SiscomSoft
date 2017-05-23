@@ -23,6 +23,10 @@ namespace SiscomSoft_Desktop.Views
             vMain.cargarCategorias();
         }
 
+        public FrmActualizarCategoria()
+        {
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
