@@ -37,20 +37,20 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            if (uHelper == null)
-            {
-                FrmLogin vLogin = new FrmLogin();
-                vLogin.ShowDialog();
-            }
-            if (uHelper.esValido && uHelper != null)
-            {
-                //TODO: ACTIVAR TODOS LOS CONTROLES SEGUN EL PERMISO
-                //ProcesarPermisos();
-            }
-            else
-            {
-                MessageBox.Show("Se require se autentifique", "Eror..", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //if (uHelper == null)
+            //{
+            //    FrmLogin vLogin = new FrmLogin();
+            //    vLogin.ShowDialog();
+            //}
+            //if (uHelper.esValido && uHelper != null)
+            //{
+            //    //TODO: ACTIVAR TODOS LOS CONTROLES SEGUN EL PERMISO
+            //    //ProcesarPermisos();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Se require se autentifique", "Eror..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void btnFacturacion_Click(object sender, EventArgs e)
