@@ -22,7 +22,7 @@ namespace SiscomSoft_Desktop.Views
         }
         public void cargarClientes()
         {
-            this.dgvDatosCliente.DataSource = ManejoCliente.Buscar(txtBuscarCliente.Text,1);
+            this.dgvDatosCliente.DataSource = ManejoCliente.Buscar(txtBuscarCliente.Text,cbxSearchStatus.SelectedIndex+1);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -35,11 +35,9 @@ namespace SiscomSoft_Desktop.Views
         private void FrmBuscarCliente_Load(object sender, EventArgs e)
         {
             this.cargarClientes();
-          
+            cbxSearchStatus.SelectedIndex = 0;
+
             
-
-
-
         }
     
 
@@ -98,6 +96,11 @@ namespace SiscomSoft_Desktop.Views
             if (this.Height < 131) this.Height = 131;
             if (this.Width > 442) this.Width = 442;
             if (this.Height > 131) this.Height = 131;
+        }
+
+        private void cbxSearchStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.cargarClientes();
         }
     }
 }

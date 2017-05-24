@@ -187,6 +187,7 @@
             // txtComentario
             // 
             this.txtComentario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtComentario.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtComentario.Location = new System.Drawing.Point(423, 243);
             this.txtComentario.Multiline = true;
             this.txtComentario.Name = "txtComentario";
@@ -259,6 +260,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnBuscar.Location = new System.Drawing.Point(12, 367);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(116, 42);
@@ -269,6 +271,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnCancelar.Location = new System.Drawing.Point(374, 367);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 42);
@@ -279,6 +282,7 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnRegistrar.Location = new System.Drawing.Point(496, 367);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(116, 42);

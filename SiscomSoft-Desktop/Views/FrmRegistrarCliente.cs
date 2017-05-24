@@ -208,7 +208,26 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.sTelFijo = txtTelFijo.Text;
                 nCliente.sTelMovil = txtTelMvil.Text;
                 nCliente.sCorreo = txtCorreo.Text;
-                nCliente.iStatus = Convert.ToInt32(cbxEstadoCli.Text);
+              
+                if(cbxEstadoCli.SelectedIndex==0)
+                {
+                    nCliente.iStatus =1;
+                }
+                else if (cbxEstadoCli.SelectedIndex==1)
+                {
+                    nCliente.iStatus = 2;
+                }
+                else if (cbxEstadoCli.SelectedIndex==2)
+                {
+                    nCliente.iStatus = 3;
+                }
+                else if (cbxEstadoCli.SelectedIndex == 3)
+                {
+                    nCliente.iStatus = 4;
+                }
+
+
+
                 nCliente.sReferencia = txtReferencia.Text;
                 nCliente.sTipoPago = cbxMetodoPago.Text;
                 nCliente.sNumCuenta = txtNumCuenta.Text;
