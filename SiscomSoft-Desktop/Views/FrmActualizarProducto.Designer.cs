@@ -99,6 +99,7 @@
             this.txtSublinea.Name = "txtSublinea";
             this.txtSublinea.Size = new System.Drawing.Size(209, 24);
             this.txtSublinea.TabIndex = 125;
+            this.txtSublinea.TextChanged += new System.EventHandler(this.txtSublinea_TextChanged);
             // 
             // label4
             // 
@@ -115,6 +116,7 @@
             this.txtLinea.Name = "txtLinea";
             this.txtLinea.Size = new System.Drawing.Size(211, 24);
             this.txtLinea.TabIndex = 122;
+            this.txtLinea.TextChanged += new System.EventHandler(this.txtLinea_TextChanged);
             // 
             // label5
             // 
@@ -131,6 +133,8 @@
             this.txtClaveProducto.Name = "txtClaveProducto";
             this.txtClaveProducto.Size = new System.Drawing.Size(213, 24);
             this.txtClaveProducto.TabIndex = 111;
+            this.txtClaveProducto.TextChanged += new System.EventHandler(this.txtClaveProducto_TextChanged);
+            this.txtClaveProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClaveProducto_KeyPress);
             // 
             // label11
             // 
@@ -148,9 +152,9 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(133, 35);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(214, 29);
+            this.label10.Size = new System.Drawing.Size(219, 29);
             this.label10.TabIndex = 137;
-            this.label10.Text = "Registrar Producto";
+            this.label10.Text = "Actualizar Producto";
             // 
             // pictureBox2
             // 
@@ -223,7 +227,7 @@
             this.pcbLogo.Location = new System.Drawing.Point(882, 263);
             this.pcbLogo.Name = "pcbLogo";
             this.pcbLogo.Size = new System.Drawing.Size(167, 113);
-            this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbLogo.TabIndex = 132;
             this.pcbLogo.TabStop = false;
             this.pcbLogo.Tag = "2";
@@ -243,6 +247,8 @@
             this.txtLote.Name = "txtLote";
             this.txtLote.Size = new System.Drawing.Size(213, 24);
             this.txtLote.TabIndex = 119;
+            this.txtLote.TextChanged += new System.EventHandler(this.txtLote_TextChanged);
+            this.txtLote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLote_KeyPress);
             // 
             // txtDescuento
             // 
@@ -250,6 +256,8 @@
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(206, 24);
             this.txtDescuento.TabIndex = 117;
+            this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
             // 
             // dtpFechaCaducidad
             // 
@@ -309,6 +317,8 @@
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(213, 24);
             this.txtCosto.TabIndex = 116;
+            this.txtCosto.TextChanged += new System.EventHandler(this.txtCosto_TextChanged);
+            this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCosto_KeyPress);
             // 
             // label6
             // 
@@ -325,6 +335,7 @@
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(236, 24);
             this.txtMarca.TabIndex = 113;
+            this.txtMarca.TextChanged += new System.EventHandler(this.txtMarca_TextChanged);
             // 
             // label3
             // 
@@ -351,6 +362,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(206, 105);
             this.txtDescripcion.TabIndex = 124;
+            this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
             // 
             // label1
             // 

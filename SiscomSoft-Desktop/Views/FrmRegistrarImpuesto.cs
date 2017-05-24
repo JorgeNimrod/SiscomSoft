@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using SiscomSoft.Models;
 using SiscomSoft.Controller;
+using System.Globalization;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -91,22 +92,13 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtTasaImpuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar))
-            {
+            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+            if (char.IsNumber(e.KeyChar) ||
+                e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator
+                )
                 e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsSeparator(e.KeyChar))
-            {
-                e.Handled = false;
-            }
             else
-            {
                 e.Handled = true;
-            }
         }
 
         private void FrmRegistrarImpuesto_ResizeEnd(object sender, EventArgs e)

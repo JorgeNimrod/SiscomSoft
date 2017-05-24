@@ -121,6 +121,7 @@
             this.txtCosto.Size = new System.Drawing.Size(213, 24);
             this.txtCosto.TabIndex = 4;
             this.txtCosto.TextChanged += new System.EventHandler(this.txtCosto_TextChanged);
+            this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCosto_KeyPress);
             // 
             // label6
             // 
@@ -226,6 +227,7 @@
             this.txtDescuento.Size = new System.Drawing.Size(206, 24);
             this.txtDescuento.TabIndex = 5;
             this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
             // 
             // txtLote
             // 
@@ -234,6 +236,7 @@
             this.txtLote.Size = new System.Drawing.Size(213, 24);
             this.txtLote.TabIndex = 7;
             this.txtLote.TextChanged += new System.EventHandler(this.txtLote_TextChanged);
+            this.txtLote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLote_KeyPress);
             // 
             // cbxCatalogo
             // 
@@ -342,6 +345,7 @@
             this.txtClaveProducto.Size = new System.Drawing.Size(213, 24);
             this.txtClaveProducto.TabIndex = 1;
             this.txtClaveProducto.TextChanged += new System.EventHandler(this.txtClaveProducto_TextChanged);
+            this.txtClaveProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClaveProducto_KeyPress);
             // 
             // label11
             // 

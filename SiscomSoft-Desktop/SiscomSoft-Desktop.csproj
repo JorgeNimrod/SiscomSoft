@@ -127,6 +127,12 @@
     <Compile Include="Views\FrmActualizarPermiso.Designer.cs">
       <DependentUpon>FrmActualizarPermiso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmActualizarPrecio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActualizarPrecio.Designer.cs">
+      <DependentUpon>FrmActualizarPrecio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmActualizarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,12 @@
     </Compile>
     <Compile Include="Views\FrmCatalogoPermisos.Designer.cs">
       <DependentUpon>FrmCatalogoPermisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmCatalogoPrecios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmCatalogoPrecios.Designer.cs">
+      <DependentUpon>FrmCatalogoPrecios.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmCatalogoProductos.cs">
       <SubType>Form</SubType>
@@ -354,6 +366,9 @@
     <EmbeddedResource Include="Views\FrmActualizarPermiso.resx">
       <DependentUpon>FrmActualizarPermiso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmActualizarPrecio.resx">
+      <DependentUpon>FrmActualizarPrecio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmActualizarProducto.resx">
       <DependentUpon>FrmActualizarProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -389,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmCatalogoPermisos.resx">
       <DependentUpon>FrmCatalogoPermisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmCatalogoPrecios.resx">
+      <DependentUpon>FrmCatalogoPrecios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmCatalogoProductos.resx">
       <DependentUpon>FrmCatalogoProductos.cs</DependentUpon>

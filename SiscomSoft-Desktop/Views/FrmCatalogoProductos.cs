@@ -14,6 +14,8 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmCatalogoProductos : Form
     {
+
+
         public static int PKPRODUCTO;
         public FrmCatalogoProductos()
         {
@@ -34,10 +36,13 @@ namespace SiscomSoft_Desktop.Views
         {
             this.dgvDatosProducto.DataSource = ManejoProducto.Buscar(txtBuscarProducto.Text, ckbStatus.Checked);
         }
+   
 
         private void FrmBuscarProducto_Load(object sender, EventArgs e)
         {
             this.cargarProductos();
+           
+          
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)

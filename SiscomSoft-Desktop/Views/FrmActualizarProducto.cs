@@ -13,6 +13,7 @@ using SiscomSoft.Comun;
 using SiscomSoft.Models;
 using SiscomSoft.Controller;
 using SiscomSoft.Controller.Helpers;
+using System.Globalization;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -21,6 +22,10 @@ namespace SiscomSoft_Desktop.Views
         FrmCatalogoProductos vMain;
         public String ImagenString { get; set; }
         public Bitmap ImagenBitmap { get; set; }
+        public int pkprecio;
+        public int pkCatalogo;
+        public int pkCategoria;
+        public int pkImpuesto;
         public FrmActualizarProducto(FrmCatalogoProductos vmain)
         {
             InitializeComponent();
@@ -41,7 +46,7 @@ namespace SiscomSoft_Desktop.Views
         {
             int indexrol = 0;
             //llenar combo
-            cbxPrecio.DataSource = ManejoPrecio.getAll(true);
+            cbxPrecio.DataSource = ManejoPrecio.getAll();
             cbxPrecio.DisplayMember = "iPrePorcen";
             cbxPrecio.ValueMember = "pkPrecios";
 
@@ -77,7 +82,7 @@ namespace SiscomSoft_Desktop.Views
 
             Categoria nCategoria = ManejoCategoria.getById(FrmCatalogoProductos.PKPRODUCTO);
             Producto nProducto = ManejoProducto.getById(FrmCatalogoProductos.PKPRODUCTO);
-
+            
             txtLinea.Text = nCategoria.sNombre;
             txtSublinea.Text = nCategoria.sNomSubCat;
             txtClaveProducto.Text = nProducto.iClaveProd.ToString();
@@ -85,6 +90,7 @@ namespace SiscomSoft_Desktop.Views
             txtMarca.Text = nProducto.sMarca;
             txtCosto.Text = nProducto.dCosto.ToString();
             txtDescuento.Text = Convert.ToInt32(nProducto.iDescuento).ToString();
+            
             pcbLogo.Image = ToolImagen.Base64StringToBitmap(nProducto.sFoto);
             dtpFechaCaducidad.Value = nProducto.dtCaducidad;
             txtLote.Text = Convert.ToInt32(nProducto.iLote).ToString();
@@ -196,10 +202,10 @@ namespace SiscomSoft_Desktop.Views
 
 
 
-                int fkImpuesto = Convert.ToInt32(cmbImpuesto.SelectedValue.ToString());
-                int fkCatalogo = Convert.ToInt32(cbxCatalogo.SelectedValue.ToString());
-                int fkPrecio = Convert.ToInt32(cbxPrecio.SelectedValue.ToString());
-                int fkCategoria = Convert.ToInt32(cbxCategoria.SelectedValue.ToString());
+                int fkImpuesto = cmbImpuesto.SelectedIndex+1;
+                int fkCatalogo = cbxCatalogo.SelectedIndex+1;
+                int fkPrecio = cbxPrecio.SelectedIndex+1;
+                int fkCategoria = cbxCategoria.SelectedIndex+1;
 
 
                 ManejoCategoria.Modificar(nCategoria);
@@ -246,6 +252,117 @@ namespace SiscomSoft_Desktop.Views
             {
                 MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
             }
+        }
+
+        private void txtCosto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+            if (char.IsNumber(e.KeyChar) ||
+                e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator
+                )
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtClaveProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtLote_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtClaveProducto_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtMarca_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCosto_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtDescuento_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtLote_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtLinea_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtSublinea_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
         }
     }
 }
