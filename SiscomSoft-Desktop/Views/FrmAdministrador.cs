@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using SiscomSoft.Controller;
+using SiscomSoft.Models;
+
 namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmAdministrador : Form
@@ -18,10 +21,20 @@ namespace SiscomSoft_Desktop.Views
         Boolean flagPrecio = false;
         Boolean flagImpuesto = false;
         Boolean flagCategoria = false;
+        Boolean flagAddRoles = false;
+        Boolean flagUpdateRoles = false;
+
+        public static int PKROL;
 
         public FrmAdministrador()
         {
             InitializeComponent();
+            this.dgvDatosRol.AutoGenerateColumns = false;
+        }
+
+        public void cargarRoles()
+        {
+            this.dgvDatosRol.DataSource = ManejoRol.Buscar(txtBuscarRol.Text, ckbStatusRol.Checked);
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -130,6 +143,8 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpCategoria);
             tbcGeneral.TabPages.Remove(tbpPrecio);
             tbcGeneral.TabPages.Remove(tbpProducto);
+            tbcGeneral.TabPages.Remove(tbpAddRol);
+            tbcGeneral.TabPages.Remove(tbpUpdateRol);
         }
 
         private void btnRollist_Click(object sender, EventArgs e)
@@ -145,7 +160,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.SelectedTab = tbpRol;
             }
-            
+            cargarRoles();
         }
 
         private void btnImpuestolist_Click(object sender, EventArgs e)
@@ -209,6 +224,206 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.SelectedTab = tbpPrecio;
             }
             
+        }
+
+        private void txtBuscarRol_TextChanged(object sender, EventArgs e)
+        {
+            cargarRoles();
+        }
+
+        private void ckbStatusRol_CheckedChanged(object sender, EventArgs e)
+        {
+            cargarRoles();
+        }
+
+        private void btnActualizarRol_Click(object sender, EventArgs e)
+        {
+            if (this.dgvDatosRol.RowCount >= 1)
+            {
+                PKROL = Convert.ToInt32(this.dgvDatosRol.CurrentRow.Cells[0].Value);
+                if (flagUpdateRoles == false)
+                {
+                    tbcGeneral.TabPages.Add(tbpUpdateRol);
+                    ActualizarRol();
+                    tbcGeneral.SelectedTab = tbpUpdateRol;
+                    flagUpdateRoles = true;
+                }
+                else
+                {
+                    tbcGeneral.SelectedTab = tbpUpdateRol;
+                }
+            }
+        }
+
+        private void btnBorrarRol_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosRol.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoRol.Eliminar(Convert.ToInt32(dgvDatosRol.CurrentRow.Cells[0].Value));
+                    cargarRoles();
+                }
+            }
+        }
+
+        private void dgvDatosRol_DataSourceChanged_1(object sender, EventArgs e)
+        {
+            lblRegistros.Text = "Registros: " + dgvDatosRol.Rows.Count;
+        }
+
+        private void btnPnlAddRoles_Click(object sender, EventArgs e)
+        {
+            pnlAddPermisos.Visible = false;
+            pnlAddRol.Visible = true;
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            if (this.txtNombre.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNombre, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNombre, "Campo necesario");
+                this.txtNombre.Focus();
+            }
+            else if (this.txtComentario.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtComentario, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtComentario, "Campo necesario");
+                this.txtComentario.Focus();
+            }
+            else
+            {
+                Rol nRol = new Rol();
+
+                nRol.sNombre = txtNombre.Text;
+                nRol.sComentario = txtComentario.Text;
+
+                ManejoRol.RegistrarNuevoRol(nRol);
+
+                MessageBox.Show("¡Rol Registrado!");
+                txtNombre.Clear();
+                txtComentario.Clear();
+                cargarRoles();
+            }
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+               && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtComentario_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (flagAddRoles == false)
+            {
+                tbcGeneral.TabPages.Add(tbpAddRol);
+                tbcGeneral.SelectedTab = tbpAddRol;
+                flagAddRoles = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpAddRol;
+            }
+        }
+
+        private void btnPnlAddRoles_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnPnlAddPermises.BackColor = Color.White;
+            btnPnlAddPermises.ForeColor = Color.Black;
+            btnPnlAddRoles.BackColor = Color.Teal;
+            btnPnlAddRoles.ForeColor = Color.White;
+        }
+
+        private void btnPnlAddPermises_Click(object sender, EventArgs e)
+        {
+            pnlAddRol.Visible = false;
+            pnlAddPermisos.Visible = true;
+        }
+
+        private void btnPnlAddPermises_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnPnlAddRoles.BackColor = Color.White;
+            btnPnlAddRoles.ForeColor = Color.Black;
+            btnPnlAddPermises.BackColor = Color.Teal;
+            btnPnlAddPermises.ForeColor = Color.White;
+        }
+
+        private void btnUpdateRol_Click(object sender, EventArgs e)
+        {
+            pnlUpdatePermisos.Visible = false;
+            pnlUpdateRol.Visible = true;
+        }
+
+        private void btnUpdatePermisos_Click(object sender, EventArgs e)
+        {
+            pnlUpdateRol.Visible = false;
+            pnlUpdatePermisos.Visible = true;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (this.txtUpdateNombre.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateNombre, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateNombre, "Campo necesario");
+                this.txtUpdateNombre.Focus();
+            }
+            else if (this.txtUpdateComentario.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateComentario, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateComentario, "Campo necesario");
+                this.txtUpdateComentario.Focus();
+            }
+
+            else
+            {
+                Rol nRol = new Rol();
+                nRol.pkRol = PKROL;
+                nRol.sNombre = txtUpdateNombre.Text;
+                nRol.sComentario = txtUpdateComentario.Text;
+
+                ManejoRol.Modificar(nRol);
+                MessageBox.Show("¡Rol Actualizado!");
+                cargarRoles();
+            }
+        }
+
+
+        public void ActualizarRol()
+        {
+            Rol nRol = ManejoRol.getById(PKROL);
+            txtUpdateNombre.Text = nRol.sNombre;
+            txtUpdateComentario.Text = nRol.sComentario;
+        }
+
+        private void btnUpdateRol_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnUpdatePermisos.BackColor = Color.White;
+            btnUpdatePermisos.ForeColor = Color.Black;
+            btnUpdateRol.BackColor = Color.Teal;
+            btnUpdateRol.ForeColor = Color.White;
+        }
+
+        private void btnUpdatePermisos_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnUpdateRol.BackColor = Color.White;
+            btnUpdateRol.ForeColor = Color.Black;
+            btnUpdatePermisos.BackColor = Color.Teal;
+            btnUpdatePermisos.ForeColor = Color.White;
         }
     }
 }
