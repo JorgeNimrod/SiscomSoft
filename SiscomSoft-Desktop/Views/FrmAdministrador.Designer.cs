@@ -47,10 +47,71 @@
             this.btnProductolist = new System.Windows.Forms.Button();
             this.tbcGeneral = new System.Windows.Forms.TabControl();
             this.tbpProducto = new System.Windows.Forms.TabPage();
+            this.btnRegistrarProducto = new System.Windows.Forms.Button();
+            this.btnActualizarProducto = new System.Windows.Forms.Button();
+            this.btnBorrarProducto = new System.Windows.Forms.Button();
+            this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sFoto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblRegistroProducto = new System.Windows.Forms.Label();
+            this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
+            this.txtBuscarProducto = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.tbpPrecio = new System.Windows.Forms.TabPage();
+            this.btnRegistrarPrecio = new System.Windows.Forms.Button();
+            this.btnPrecio = new System.Windows.Forms.Button();
+            this.btnBorrarPrecio = new System.Windows.Forms.Button();
+            this.lblRegistroPrecio = new System.Windows.Forms.Label();
+            this.dgvDatosPrecio = new System.Windows.Forms.DataGridView();
+            this.pkPrecios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iPrePorcen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpImpuestos = new System.Windows.Forms.TabPage();
+            this.btnRegistrarImpuesto = new System.Windows.Forms.Button();
+            this.btnActualizarImpuesto = new System.Windows.Forms.Button();
+            this.btnBorrarImpuesto = new System.Windows.Forms.Button();
+            this.dgvDatosImpuesto = new System.Windows.Forms.DataGridView();
+            this.s = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTipoImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dTasaImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblRegistroImpuesto = new System.Windows.Forms.Label();
+            this.ckbStatusImpuesto = new System.Windows.Forms.CheckBox();
+            this.txtBuscarImpuesto = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.tbpCategoria = new System.Windows.Forms.TabPage();
+            this.btnRegistrarCategoria = new System.Windows.Forms.Button();
+            this.btnActualizarCategoria = new System.Windows.Forms.Button();
+            this.btnBorrarCategoria = new System.Windows.Forms.Button();
+            this.lblRegistroCat = new System.Windows.Forms.Label();
+            this.ckbStatusCategoria = new System.Windows.Forms.CheckBox();
+            this.dgvDatosCategoria = new System.Windows.Forms.DataGridView();
+            this.pkCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNomSubCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtBuscarCategoria = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.tbpUsuario = new System.Windows.Forms.TabPage();
+            this.btnRegistrarUsuario = new System.Windows.Forms.Button();
+            this.btnActualizarUsuario = new System.Windows.Forms.Button();
+            this.btnBorrarUsuario = new System.Windows.Forms.Button();
+            this.dgvDatosUsuario = new System.Windows.Forms.DataGridView();
+            this.pkUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SRfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ckbStatusUsuario = new System.Windows.Forms.CheckBox();
+            this.txtBuscarUsuario = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tbpRol = new System.Windows.Forms.TabPage();
             this.pnlCatalogoRoles = new System.Windows.Forms.Panel();
             this.btnRegistrarRol = new System.Windows.Forms.Button();
@@ -66,6 +127,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbpAddRol = new System.Windows.Forms.TabPage();
             this.pnlAddRol = new System.Windows.Forms.Panel();
+            this.pnlAddPermisos = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.txtComentario = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -74,9 +137,6 @@
             this.pnlAddRolesPermisos = new System.Windows.Forms.Panel();
             this.btnPnlAddPermises = new System.Windows.Forms.Button();
             this.btnPnlAddRoles = new System.Windows.Forms.Button();
-            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pnlAddPermisos = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.tbpUpdateRol = new System.Windows.Forms.TabPage();
             this.pnlUpdateRol = new System.Windows.Forms.Panel();
             this.pnlUpdatePermisos = new System.Windows.Forms.Panel();
@@ -89,23 +149,86 @@
             this.PnlUpdteRolesPermisos = new System.Windows.Forms.Panel();
             this.btnUpdatePermisos = new System.Windows.Forms.Button();
             this.btnUpdateRol = new System.Windows.Forms.Button();
+            this.tbpAddCategoria = new System.Windows.Forms.TabPage();
+            this.btnGuardarCategoria = new System.Windows.Forms.Button();
+            this.txtSubcategoria = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtNombreCategoria = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.tbpUpdateCategoria = new System.Windows.Forms.TabPage();
+            this.btnActualiCateg = new System.Windows.Forms.Button();
+            this.txtActualizarSubCat = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtActualizarNomCat = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tbpAddImpuesto = new System.Windows.Forms.TabPage();
+            this.btnGuardarImpuesto = new System.Windows.Forms.Button();
+            this.txtTasaImpuesto = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtImpuesto = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtTipoImpuesto = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbpUpdateImpuesto = new System.Windows.Forms.TabPage();
+            this.btnacatualiImpu = new System.Windows.Forms.Button();
+            this.txtActualiTasaImpu = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtActualiImpu = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtActualiTipoImpues = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.tbpAddUsuario = new System.Windows.Forms.TabPage();
+            this.btnGuardarUsuario = new System.Windows.Forms.Button();
+            this.cbxRol = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtComentUsua = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txtRFC = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.tbpUpdateUser = new System.Windows.Forms.TabPage();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
             this.pnlProducto.SuspendLayout();
             this.tbcGeneral.SuspendLayout();
+            this.tbpProducto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosProducto)).BeginInit();
+            this.tbpPrecio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosPrecio)).BeginInit();
+            this.tbpImpuestos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosImpuesto)).BeginInit();
+            this.tbpCategoria.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCategoria)).BeginInit();
+            this.tbpUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosUsuario)).BeginInit();
             this.tbpRol.SuspendLayout();
             this.pnlCatalogoRoles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosRol)).BeginInit();
             this.tbpAddRol.SuspendLayout();
             this.pnlAddRol.SuspendLayout();
-            this.pnlAddRolesPermisos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlAddPermisos.SuspendLayout();
+            this.pnlAddRolesPermisos.SuspendLayout();
             this.tbpUpdateRol.SuspendLayout();
             this.pnlUpdateRol.SuspendLayout();
             this.pnlUpdatePermisos.SuspendLayout();
             this.PnlUpdteRolesPermisos.SuspendLayout();
+            this.tbpAddCategoria.SuspendLayout();
+            this.tbpUpdateCategoria.SuspendLayout();
+            this.tbpAddImpuesto.SuspendLayout();
+            this.tbpUpdateImpuesto.SuspendLayout();
+            this.tbpAddUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMenu
@@ -341,6 +464,12 @@
             this.tbcGeneral.Controls.Add(this.tbpRol);
             this.tbcGeneral.Controls.Add(this.tbpAddRol);
             this.tbcGeneral.Controls.Add(this.tbpUpdateRol);
+            this.tbcGeneral.Controls.Add(this.tbpAddCategoria);
+            this.tbcGeneral.Controls.Add(this.tbpUpdateCategoria);
+            this.tbcGeneral.Controls.Add(this.tbpAddImpuesto);
+            this.tbcGeneral.Controls.Add(this.tbpUpdateImpuesto);
+            this.tbcGeneral.Controls.Add(this.tbpAddUsuario);
+            this.tbcGeneral.Controls.Add(this.tbpUpdateUser);
             this.tbcGeneral.Location = new System.Drawing.Point(179, 50);
             this.tbcGeneral.Name = "tbcGeneral";
             this.tbcGeneral.SelectedIndex = 0;
@@ -351,6 +480,14 @@
             // tbpProducto
             // 
             this.tbpProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbpProducto.Controls.Add(this.btnRegistrarProducto);
+            this.tbpProducto.Controls.Add(this.btnActualizarProducto);
+            this.tbpProducto.Controls.Add(this.btnBorrarProducto);
+            this.tbpProducto.Controls.Add(this.dgvDatosProducto);
+            this.tbpProducto.Controls.Add(this.lblRegistroProducto);
+            this.tbpProducto.Controls.Add(this.ckbStatusProducto);
+            this.tbpProducto.Controls.Add(this.txtBuscarProducto);
+            this.tbpProducto.Controls.Add(this.label17);
             this.tbpProducto.Location = new System.Drawing.Point(4, 27);
             this.tbpProducto.Name = "tbpProducto";
             this.tbpProducto.Padding = new System.Windows.Forms.Padding(3);
@@ -358,10 +495,149 @@
             this.tbpProducto.TabIndex = 0;
             this.tbpProducto.Text = "Productos";
             this.tbpProducto.UseVisualStyleBackColor = true;
+            this.tbpProducto.Click += new System.EventHandler(this.tbpProducto_Click);
+            // 
+            // btnRegistrarProducto
+            // 
+            this.btnRegistrarProducto.Location = new System.Drawing.Point(816, 38);
+            this.btnRegistrarProducto.Name = "btnRegistrarProducto";
+            this.btnRegistrarProducto.Size = new System.Drawing.Size(143, 41);
+            this.btnRegistrarProducto.TabIndex = 93;
+            this.btnRegistrarProducto.Text = "Registrar Producto";
+            this.btnRegistrarProducto.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizarProducto
+            // 
+            this.btnActualizarProducto.Location = new System.Drawing.Point(816, 85);
+            this.btnActualizarProducto.Name = "btnActualizarProducto";
+            this.btnActualizarProducto.Size = new System.Drawing.Size(143, 41);
+            this.btnActualizarProducto.TabIndex = 91;
+            this.btnActualizarProducto.Text = "Actualizar Precio";
+            this.btnActualizarProducto.UseVisualStyleBackColor = true;
+            // 
+            // btnBorrarProducto
+            // 
+            this.btnBorrarProducto.Location = new System.Drawing.Point(816, 132);
+            this.btnBorrarProducto.Name = "btnBorrarProducto";
+            this.btnBorrarProducto.Size = new System.Drawing.Size(143, 41);
+            this.btnBorrarProducto.TabIndex = 92;
+            this.btnBorrarProducto.Text = "Borrar Producto";
+            this.btnBorrarProducto.UseVisualStyleBackColor = true;
+            // 
+            // dgvDatosProducto
+            // 
+            this.dgvDatosProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pkProductos,
+            this.iClaveProd,
+            this.sMarca,
+            this.sDescripcion,
+            this.iDescuento,
+            this.dCosto,
+            this.iLote,
+            this.sFoto});
+            this.dgvDatosProducto.Location = new System.Drawing.Point(6, 37);
+            this.dgvDatosProducto.Name = "dgvDatosProducto";
+            this.dgvDatosProducto.RowHeadersVisible = false;
+            this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
+            this.dgvDatosProducto.TabIndex = 40;
+            this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
+            // 
+            // pkProductos
+            // 
+            this.pkProductos.DataPropertyName = "pkProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            // 
+            // iClaveProd
+            // 
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            this.iClaveProd.HeaderText = "Clave del Producto";
+            this.iClaveProd.Name = "iClaveProd";
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            // 
+            // iDescuento
+            // 
+            this.iDescuento.DataPropertyName = "iDescuento";
+            this.iDescuento.HeaderText = "Descuento";
+            this.iDescuento.Name = "iDescuento";
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            // 
+            // iLote
+            // 
+            this.iLote.DataPropertyName = "iLote";
+            this.iLote.HeaderText = "Lote";
+            this.iLote.Name = "iLote";
+            // 
+            // sFoto
+            // 
+            this.sFoto.DataPropertyName = "sFoto";
+            this.sFoto.HeaderText = "Imagen";
+            this.sFoto.Name = "sFoto";
+            // 
+            // lblRegistroProducto
+            // 
+            this.lblRegistroProducto.AutoSize = true;
+            this.lblRegistroProducto.Location = new System.Drawing.Point(6, 518);
+            this.lblRegistroProducto.Name = "lblRegistroProducto";
+            this.lblRegistroProducto.Size = new System.Drawing.Size(68, 18);
+            this.lblRegistroProducto.TabIndex = 39;
+            this.lblRegistroProducto.Text = "Registro:";
+            // 
+            // ckbStatusProducto
+            // 
+            this.ckbStatusProducto.AutoSize = true;
+            this.ckbStatusProducto.Checked = true;
+            this.ckbStatusProducto.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbStatusProducto.Location = new System.Drawing.Point(741, 10);
+            this.ckbStatusProducto.Name = "ckbStatusProducto";
+            this.ckbStatusProducto.Size = new System.Drawing.Size(69, 22);
+            this.ckbStatusProducto.TabIndex = 37;
+            this.ckbStatusProducto.Text = "Status";
+            this.ckbStatusProducto.UseVisualStyleBackColor = true;
+            this.ckbStatusProducto.CheckedChanged += new System.EventHandler(this.ckbStatusProducto_CheckedChanged);
+            // 
+            // txtBuscarProducto
+            // 
+            this.txtBuscarProducto.Location = new System.Drawing.Point(74, 10);
+            this.txtBuscarProducto.Name = "txtBuscarProducto";
+            this.txtBuscarProducto.Size = new System.Drawing.Size(661, 24);
+            this.txtBuscarProducto.TabIndex = 36;
+            this.txtBuscarProducto.TextChanged += new System.EventHandler(this.txtBuscarProducto_TextChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(5, 10);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(63, 18);
+            this.label17.TabIndex = 38;
+            this.label17.Text = "Buscar :";
             // 
             // tbpPrecio
             // 
             this.tbpPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbpPrecio.Controls.Add(this.btnRegistrarPrecio);
+            this.tbpPrecio.Controls.Add(this.btnPrecio);
+            this.tbpPrecio.Controls.Add(this.btnBorrarPrecio);
+            this.tbpPrecio.Controls.Add(this.lblRegistroPrecio);
+            this.tbpPrecio.Controls.Add(this.dgvDatosPrecio);
             this.tbpPrecio.Location = new System.Drawing.Point(4, 27);
             this.tbpPrecio.Name = "tbpPrecio";
             this.tbpPrecio.Padding = new System.Windows.Forms.Padding(3);
@@ -370,9 +646,80 @@
             this.tbpPrecio.Text = "Precios";
             this.tbpPrecio.UseVisualStyleBackColor = true;
             // 
+            // btnRegistrarPrecio
+            // 
+            this.btnRegistrarPrecio.Location = new System.Drawing.Point(517, 9);
+            this.btnRegistrarPrecio.Name = "btnRegistrarPrecio";
+            this.btnRegistrarPrecio.Size = new System.Drawing.Size(143, 41);
+            this.btnRegistrarPrecio.TabIndex = 90;
+            this.btnRegistrarPrecio.Text = "Registrar Precio";
+            this.btnRegistrarPrecio.UseVisualStyleBackColor = true;
+            // 
+            // btnPrecio
+            // 
+            this.btnPrecio.Location = new System.Drawing.Point(517, 56);
+            this.btnPrecio.Name = "btnPrecio";
+            this.btnPrecio.Size = new System.Drawing.Size(143, 41);
+            this.btnPrecio.TabIndex = 88;
+            this.btnPrecio.Text = "Actualizar Precio";
+            this.btnPrecio.UseVisualStyleBackColor = true;
+            // 
+            // btnBorrarPrecio
+            // 
+            this.btnBorrarPrecio.Location = new System.Drawing.Point(517, 103);
+            this.btnBorrarPrecio.Name = "btnBorrarPrecio";
+            this.btnBorrarPrecio.Size = new System.Drawing.Size(143, 41);
+            this.btnBorrarPrecio.TabIndex = 89;
+            this.btnBorrarPrecio.Text = "Borrar Precio";
+            this.btnBorrarPrecio.UseVisualStyleBackColor = true;
+            // 
+            // lblRegistroPrecio
+            // 
+            this.lblRegistroPrecio.AutoSize = true;
+            this.lblRegistroPrecio.Location = new System.Drawing.Point(6, 518);
+            this.lblRegistroPrecio.Name = "lblRegistroPrecio";
+            this.lblRegistroPrecio.Size = new System.Drawing.Size(68, 18);
+            this.lblRegistroPrecio.TabIndex = 55;
+            this.lblRegistroPrecio.Text = "Registro:";
+            // 
+            // dgvDatosPrecio
+            // 
+            this.dgvDatosPrecio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosPrecio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pkPrecios,
+            this.iPrePorcen});
+            this.dgvDatosPrecio.Location = new System.Drawing.Point(6, 7);
+            this.dgvDatosPrecio.Name = "dgvDatosPrecio";
+            this.dgvDatosPrecio.RowHeadersVisible = false;
+            this.dgvDatosPrecio.Size = new System.Drawing.Size(505, 501);
+            this.dgvDatosPrecio.TabIndex = 54;
+            this.dgvDatosPrecio.DataSourceChanged += new System.EventHandler(this.dgvDatosPrecio_DataSourceChanged);
+            // 
+            // pkPrecios
+            // 
+            this.pkPrecios.DataPropertyName = "pkPrecios";
+            this.pkPrecios.HeaderText = "No. Precio";
+            this.pkPrecios.Name = "pkPrecios";
+            this.pkPrecios.Width = 250;
+            // 
+            // iPrePorcen
+            // 
+            this.iPrePorcen.DataPropertyName = "iPrePorcen";
+            this.iPrePorcen.HeaderText = "Precio";
+            this.iPrePorcen.Name = "iPrePorcen";
+            this.iPrePorcen.Width = 250;
+            // 
             // tbpImpuestos
             // 
             this.tbpImpuestos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbpImpuestos.Controls.Add(this.btnRegistrarImpuesto);
+            this.tbpImpuestos.Controls.Add(this.btnActualizarImpuesto);
+            this.tbpImpuestos.Controls.Add(this.btnBorrarImpuesto);
+            this.tbpImpuestos.Controls.Add(this.dgvDatosImpuesto);
+            this.tbpImpuestos.Controls.Add(this.lblRegistroImpuesto);
+            this.tbpImpuestos.Controls.Add(this.ckbStatusImpuesto);
+            this.tbpImpuestos.Controls.Add(this.txtBuscarImpuesto);
+            this.tbpImpuestos.Controls.Add(this.label14);
             this.tbpImpuestos.Location = new System.Drawing.Point(4, 27);
             this.tbpImpuestos.Name = "tbpImpuestos";
             this.tbpImpuestos.Size = new System.Drawing.Size(1151, 546);
@@ -380,9 +727,128 @@
             this.tbpImpuestos.Text = "Impuestos";
             this.tbpImpuestos.UseVisualStyleBackColor = true;
             // 
+            // btnRegistrarImpuesto
+            // 
+            this.btnRegistrarImpuesto.Location = new System.Drawing.Point(563, 30);
+            this.btnRegistrarImpuesto.Name = "btnRegistrarImpuesto";
+            this.btnRegistrarImpuesto.Size = new System.Drawing.Size(143, 41);
+            this.btnRegistrarImpuesto.TabIndex = 87;
+            this.btnRegistrarImpuesto.Text = "Registrar Impuesto";
+            this.btnRegistrarImpuesto.UseVisualStyleBackColor = true;
+            this.btnRegistrarImpuesto.Click += new System.EventHandler(this.btnRegistrarImpuesto_Click);
+            // 
+            // btnActualizarImpuesto
+            // 
+            this.btnActualizarImpuesto.Location = new System.Drawing.Point(563, 77);
+            this.btnActualizarImpuesto.Name = "btnActualizarImpuesto";
+            this.btnActualizarImpuesto.Size = new System.Drawing.Size(143, 41);
+            this.btnActualizarImpuesto.TabIndex = 85;
+            this.btnActualizarImpuesto.Text = "Actualizar Impuesto";
+            this.btnActualizarImpuesto.UseVisualStyleBackColor = true;
+            this.btnActualizarImpuesto.Click += new System.EventHandler(this.btnActualizarImpuesto_Click);
+            // 
+            // btnBorrarImpuesto
+            // 
+            this.btnBorrarImpuesto.Location = new System.Drawing.Point(563, 124);
+            this.btnBorrarImpuesto.Name = "btnBorrarImpuesto";
+            this.btnBorrarImpuesto.Size = new System.Drawing.Size(143, 41);
+            this.btnBorrarImpuesto.TabIndex = 86;
+            this.btnBorrarImpuesto.Text = "Borrar Impuesto";
+            this.btnBorrarImpuesto.UseVisualStyleBackColor = true;
+            this.btnBorrarImpuesto.Click += new System.EventHandler(this.btnBorrarImpuesto_Click);
+            // 
+            // dgvDatosImpuesto
+            // 
+            this.dgvDatosImpuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosImpuesto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.s,
+            this.sTipoImpuesto,
+            this.sImpuesto,
+            this.dTasaImpuesto});
+            this.dgvDatosImpuesto.Location = new System.Drawing.Point(3, 32);
+            this.dgvDatosImpuesto.Name = "dgvDatosImpuesto";
+            this.dgvDatosImpuesto.RowHeadersVisible = false;
+            this.dgvDatosImpuesto.Size = new System.Drawing.Size(554, 476);
+            this.dgvDatosImpuesto.TabIndex = 48;
+            this.dgvDatosImpuesto.DataSourceChanged += new System.EventHandler(this.dgvDatosImpuesto_DataSourceChanged);
+            this.dgvDatosImpuesto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosImpuesto_CellDoubleClick);
+            // 
+            // s
+            // 
+            this.s.DataPropertyName = "pkImpuesto";
+            this.s.HeaderText = "No. ";
+            this.s.Name = "s";
+            // 
+            // sTipoImpuesto
+            // 
+            this.sTipoImpuesto.DataPropertyName = "sTipoImpuesto";
+            this.sTipoImpuesto.HeaderText = "Tipo Impuesto";
+            this.sTipoImpuesto.Name = "sTipoImpuesto";
+            this.sTipoImpuesto.Width = 200;
+            // 
+            // sImpuesto
+            // 
+            this.sImpuesto.DataPropertyName = "sImpuesto";
+            this.sImpuesto.HeaderText = "Impuesto";
+            this.sImpuesto.Name = "sImpuesto";
+            this.sImpuesto.Width = 150;
+            // 
+            // dTasaImpuesto
+            // 
+            this.dTasaImpuesto.DataPropertyName = "dTasaImpuesto";
+            this.dTasaImpuesto.HeaderText = "Tasa Impuesto";
+            this.dTasaImpuesto.Name = "dTasaImpuesto";
+            // 
+            // lblRegistroImpuesto
+            // 
+            this.lblRegistroImpuesto.AutoSize = true;
+            this.lblRegistroImpuesto.Location = new System.Drawing.Point(9, 518);
+            this.lblRegistroImpuesto.Name = "lblRegistroImpuesto";
+            this.lblRegistroImpuesto.Size = new System.Drawing.Size(68, 18);
+            this.lblRegistroImpuesto.TabIndex = 47;
+            this.lblRegistroImpuesto.Text = "Registro:";
+            // 
+            // ckbStatusImpuesto
+            // 
+            this.ckbStatusImpuesto.AutoSize = true;
+            this.ckbStatusImpuesto.Checked = true;
+            this.ckbStatusImpuesto.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbStatusImpuesto.Location = new System.Drawing.Point(483, 7);
+            this.ckbStatusImpuesto.Name = "ckbStatusImpuesto";
+            this.ckbStatusImpuesto.Size = new System.Drawing.Size(69, 22);
+            this.ckbStatusImpuesto.TabIndex = 45;
+            this.ckbStatusImpuesto.Text = "Status";
+            this.ckbStatusImpuesto.UseVisualStyleBackColor = true;
+            this.ckbStatusImpuesto.CheckedChanged += new System.EventHandler(this.ckbStatusImpuesto_CheckedChanged);
+            // 
+            // txtBuscarImpuesto
+            // 
+            this.txtBuscarImpuesto.Location = new System.Drawing.Point(78, 5);
+            this.txtBuscarImpuesto.Name = "txtBuscarImpuesto";
+            this.txtBuscarImpuesto.Size = new System.Drawing.Size(399, 24);
+            this.txtBuscarImpuesto.TabIndex = 44;
+            this.txtBuscarImpuesto.TextChanged += new System.EventHandler(this.txtBuscarImpuesto_TextChanged_1);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 5);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(63, 18);
+            this.label14.TabIndex = 46;
+            this.label14.Text = "Buscar :";
+            // 
             // tbpCategoria
             // 
             this.tbpCategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbpCategoria.Controls.Add(this.btnRegistrarCategoria);
+            this.tbpCategoria.Controls.Add(this.btnActualizarCategoria);
+            this.tbpCategoria.Controls.Add(this.btnBorrarCategoria);
+            this.tbpCategoria.Controls.Add(this.lblRegistroCat);
+            this.tbpCategoria.Controls.Add(this.ckbStatusCategoria);
+            this.tbpCategoria.Controls.Add(this.dgvDatosCategoria);
+            this.tbpCategoria.Controls.Add(this.txtBuscarCategoria);
+            this.tbpCategoria.Controls.Add(this.label12);
             this.tbpCategoria.Location = new System.Drawing.Point(4, 27);
             this.tbpCategoria.Name = "tbpCategoria";
             this.tbpCategoria.Size = new System.Drawing.Size(1151, 546);
@@ -390,15 +856,256 @@
             this.tbpCategoria.Text = "Categorias";
             this.tbpCategoria.UseVisualStyleBackColor = true;
             // 
+            // btnRegistrarCategoria
+            // 
+            this.btnRegistrarCategoria.Location = new System.Drawing.Point(613, 32);
+            this.btnRegistrarCategoria.Name = "btnRegistrarCategoria";
+            this.btnRegistrarCategoria.Size = new System.Drawing.Size(143, 41);
+            this.btnRegistrarCategoria.TabIndex = 84;
+            this.btnRegistrarCategoria.Text = "Registrar Categoria";
+            this.btnRegistrarCategoria.UseVisualStyleBackColor = true;
+            this.btnRegistrarCategoria.Click += new System.EventHandler(this.btnRegistrarCategoria_Click);
+            // 
+            // btnActualizarCategoria
+            // 
+            this.btnActualizarCategoria.Location = new System.Drawing.Point(613, 79);
+            this.btnActualizarCategoria.Name = "btnActualizarCategoria";
+            this.btnActualizarCategoria.Size = new System.Drawing.Size(143, 41);
+            this.btnActualizarCategoria.TabIndex = 82;
+            this.btnActualizarCategoria.Text = "Actualizar Categoria";
+            this.btnActualizarCategoria.UseVisualStyleBackColor = true;
+            this.btnActualizarCategoria.Click += new System.EventHandler(this.btnActualizarCategoria_Click);
+            // 
+            // btnBorrarCategoria
+            // 
+            this.btnBorrarCategoria.Location = new System.Drawing.Point(613, 126);
+            this.btnBorrarCategoria.Name = "btnBorrarCategoria";
+            this.btnBorrarCategoria.Size = new System.Drawing.Size(143, 41);
+            this.btnBorrarCategoria.TabIndex = 83;
+            this.btnBorrarCategoria.Text = "Borrar Categoria";
+            this.btnBorrarCategoria.UseVisualStyleBackColor = true;
+            this.btnBorrarCategoria.Click += new System.EventHandler(this.btnBorrarCategoria_Click);
+            // 
+            // lblRegistroCat
+            // 
+            this.lblRegistroCat.AutoSize = true;
+            this.lblRegistroCat.Location = new System.Drawing.Point(3, 518);
+            this.lblRegistroCat.Name = "lblRegistroCat";
+            this.lblRegistroCat.Size = new System.Drawing.Size(68, 18);
+            this.lblRegistroCat.TabIndex = 68;
+            this.lblRegistroCat.Text = "Registro:";
+            // 
+            // ckbStatusCategoria
+            // 
+            this.ckbStatusCategoria.AutoSize = true;
+            this.ckbStatusCategoria.Checked = true;
+            this.ckbStatusCategoria.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbStatusCategoria.Location = new System.Drawing.Point(528, 4);
+            this.ckbStatusCategoria.Name = "ckbStatusCategoria";
+            this.ckbStatusCategoria.Size = new System.Drawing.Size(69, 22);
+            this.ckbStatusCategoria.TabIndex = 65;
+            this.ckbStatusCategoria.Text = "Status";
+            this.ckbStatusCategoria.UseVisualStyleBackColor = true;
+            this.ckbStatusCategoria.CheckedChanged += new System.EventHandler(this.ckbStatusCategoria_CheckedChanged);
+            // 
+            // dgvDatosCategoria
+            // 
+            this.dgvDatosCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pkCategoria,
+            this.dataGridViewTextBoxColumn3,
+            this.sNomSubCat});
+            this.dgvDatosCategoria.Location = new System.Drawing.Point(3, 32);
+            this.dgvDatosCategoria.Name = "dgvDatosCategoria";
+            this.dgvDatosCategoria.RowHeadersVisible = false;
+            this.dgvDatosCategoria.Size = new System.Drawing.Size(604, 483);
+            this.dgvDatosCategoria.TabIndex = 67;
+            this.dgvDatosCategoria.DataSourceChanged += new System.EventHandler(this.dgvDatosCategoria_DataSourceChanged);
+            this.dgvDatosCategoria.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCategoria_CellDoubleClick);
+            // 
+            // pkCategoria
+            // 
+            this.pkCategoria.DataPropertyName = "pkCategoria";
+            this.pkCategoria.HeaderText = "Categoria";
+            this.pkCategoria.Name = "pkCategoria";
+            this.pkCategoria.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "sNombre";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 200;
+            // 
+            // sNomSubCat
+            // 
+            this.sNomSubCat.DataPropertyName = "sNomSubCat";
+            this.sNomSubCat.HeaderText = "Subcategoria";
+            this.sNomSubCat.Name = "sNomSubCat";
+            this.sNomSubCat.Width = 200;
+            // 
+            // txtBuscarCategoria
+            // 
+            this.txtBuscarCategoria.Location = new System.Drawing.Point(72, 2);
+            this.txtBuscarCategoria.Name = "txtBuscarCategoria";
+            this.txtBuscarCategoria.Size = new System.Drawing.Size(450, 24);
+            this.txtBuscarCategoria.TabIndex = 64;
+            this.txtBuscarCategoria.TextChanged += new System.EventHandler(this.txtBuscarCategoria_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 2);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 18);
+            this.label12.TabIndex = 66;
+            this.label12.Text = "Buscar :";
+            // 
             // tbpUsuario
             // 
             this.tbpUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbpUsuario.Controls.Add(this.btnRegistrarUsuario);
+            this.tbpUsuario.Controls.Add(this.btnActualizarUsuario);
+            this.tbpUsuario.Controls.Add(this.btnBorrarUsuario);
+            this.tbpUsuario.Controls.Add(this.dgvDatosUsuario);
+            this.tbpUsuario.Controls.Add(this.label9);
+            this.tbpUsuario.Controls.Add(this.ckbStatusUsuario);
+            this.tbpUsuario.Controls.Add(this.txtBuscarUsuario);
+            this.tbpUsuario.Controls.Add(this.label10);
             this.tbpUsuario.Location = new System.Drawing.Point(4, 27);
             this.tbpUsuario.Name = "tbpUsuario";
             this.tbpUsuario.Size = new System.Drawing.Size(1151, 546);
             this.tbpUsuario.TabIndex = 4;
             this.tbpUsuario.Text = "Usuarios";
             this.tbpUsuario.UseVisualStyleBackColor = true;
+            // 
+            // btnRegistrarUsuario
+            // 
+            this.btnRegistrarUsuario.Location = new System.Drawing.Point(715, 33);
+            this.btnRegistrarUsuario.Name = "btnRegistrarUsuario";
+            this.btnRegistrarUsuario.Size = new System.Drawing.Size(143, 41);
+            this.btnRegistrarUsuario.TabIndex = 81;
+            this.btnRegistrarUsuario.Text = "Registrar Usuario";
+            this.btnRegistrarUsuario.UseVisualStyleBackColor = true;
+            this.btnRegistrarUsuario.Click += new System.EventHandler(this.btnRegistrarUsuario_Click);
+            // 
+            // btnActualizarUsuario
+            // 
+            this.btnActualizarUsuario.Location = new System.Drawing.Point(715, 80);
+            this.btnActualizarUsuario.Name = "btnActualizarUsuario";
+            this.btnActualizarUsuario.Size = new System.Drawing.Size(143, 41);
+            this.btnActualizarUsuario.TabIndex = 79;
+            this.btnActualizarUsuario.Text = "Actualizar Usuario";
+            this.btnActualizarUsuario.UseVisualStyleBackColor = true;
+            this.btnActualizarUsuario.Click += new System.EventHandler(this.btnActualizarUsuario_Click);
+            // 
+            // btnBorrarUsuario
+            // 
+            this.btnBorrarUsuario.Location = new System.Drawing.Point(715, 127);
+            this.btnBorrarUsuario.Name = "btnBorrarUsuario";
+            this.btnBorrarUsuario.Size = new System.Drawing.Size(143, 41);
+            this.btnBorrarUsuario.TabIndex = 80;
+            this.btnBorrarUsuario.Text = "Borrar Usuario";
+            this.btnBorrarUsuario.UseVisualStyleBackColor = true;
+            // 
+            // dgvDatosUsuario
+            // 
+            this.dgvDatosUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pkUsuarios,
+            this.SRfc,
+            this.sUsuario,
+            this.dataGridViewTextBoxColumn1,
+            this.sNumero,
+            this.sCorreo,
+            this.dataGridViewTextBoxColumn2});
+            this.dgvDatosUsuario.Location = new System.Drawing.Point(6, 35);
+            this.dgvDatosUsuario.Name = "dgvDatosUsuario";
+            this.dgvDatosUsuario.RowHeadersVisible = false;
+            this.dgvDatosUsuario.Size = new System.Drawing.Size(703, 480);
+            this.dgvDatosUsuario.TabIndex = 48;
+            this.dgvDatosUsuario.DataSourceChanged += new System.EventHandler(this.dgvDatosUsuario_DataSourceChanged);
+            // 
+            // pkUsuarios
+            // 
+            this.pkUsuarios.DataPropertyName = "pkUsuario";
+            this.pkUsuarios.HeaderText = "No.";
+            this.pkUsuarios.Name = "pkUsuarios";
+            // 
+            // SRfc
+            // 
+            this.SRfc.DataPropertyName = "sRfc";
+            this.SRfc.HeaderText = "RFC";
+            this.SRfc.Name = "SRfc";
+            // 
+            // sUsuario
+            // 
+            this.sUsuario.DataPropertyName = "sUsuario";
+            this.sUsuario.HeaderText = "Usuario";
+            this.sUsuario.Name = "sUsuario";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "sNombre";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // sNumero
+            // 
+            this.sNumero.DataPropertyName = "sNumero";
+            this.sNumero.HeaderText = "Telefono";
+            this.sNumero.Name = "sNumero";
+            // 
+            // sCorreo
+            // 
+            this.sCorreo.DataPropertyName = "sCorreo";
+            this.sCorreo.HeaderText = "Correo";
+            this.sCorreo.Name = "sCorreo";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "sComentario";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Comentario";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 518);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 18);
+            this.label9.TabIndex = 47;
+            this.label9.Text = "Registro:";
+            // 
+            // ckbStatusUsuario
+            // 
+            this.ckbStatusUsuario.AutoSize = true;
+            this.ckbStatusUsuario.Checked = true;
+            this.ckbStatusUsuario.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbStatusUsuario.Location = new System.Drawing.Point(637, 7);
+            this.ckbStatusUsuario.Name = "ckbStatusUsuario";
+            this.ckbStatusUsuario.Size = new System.Drawing.Size(69, 22);
+            this.ckbStatusUsuario.TabIndex = 45;
+            this.ckbStatusUsuario.Text = "Status";
+            this.ckbStatusUsuario.UseVisualStyleBackColor = true;
+            this.ckbStatusUsuario.CheckedChanged += new System.EventHandler(this.ckbStatusUsuario_CheckedChanged);
+            // 
+            // txtBuscarUsuario
+            // 
+            this.txtBuscarUsuario.Location = new System.Drawing.Point(72, 4);
+            this.txtBuscarUsuario.Name = "txtBuscarUsuario";
+            this.txtBuscarUsuario.Size = new System.Drawing.Size(559, 24);
+            this.txtBuscarUsuario.TabIndex = 44;
+            this.txtBuscarUsuario.TextChanged += new System.EventHandler(this.txtBuscarUsuario_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 18);
+            this.label10.TabIndex = 46;
+            this.label10.Text = "Buscar :";
             // 
             // tbpRol
             // 
@@ -452,6 +1159,8 @@
             this.dgvDatosRol.Size = new System.Drawing.Size(790, 481);
             this.dgvDatosRol.TabIndex = 77;
             this.dgvDatosRol.DataSourceChanged += new System.EventHandler(this.dgvDatosRol_DataSourceChanged_1);
+            this.dgvDatosRol.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosRol_CellContentClick);
+            this.dgvDatosRol.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosRol_CellDoubleClick);
             // 
             // Rol
             // 
@@ -562,6 +1271,25 @@
             this.pnlAddRol.TabIndex = 25;
             this.pnlAddRol.Visible = false;
             // 
+            // pnlAddPermisos
+            // 
+            this.pnlAddPermisos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAddPermisos.Controls.Add(this.label5);
+            this.pnlAddPermisos.Location = new System.Drawing.Point(85, 90);
+            this.pnlAddPermisos.Name = "pnlAddPermisos";
+            this.pnlAddPermisos.Size = new System.Drawing.Size(993, 550);
+            this.pnlAddPermisos.TabIndex = 8;
+            this.pnlAddPermisos.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(219, 127);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 18);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "PERMISOS";
+            // 
             // btnRegistrar
             // 
             this.btnRegistrar.Location = new System.Drawing.Point(39, 202);
@@ -654,29 +1382,6 @@
             this.btnPnlAddRoles.UseVisualStyleBackColor = false;
             this.btnPnlAddRoles.Click += new System.EventHandler(this.btnPnlAddRoles_Click);
             this.btnPnlAddRoles.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnPnlAddRoles_MouseClick);
-            // 
-            // ErrorProvider
-            // 
-            this.ErrorProvider.ContainerControl = this;
-            // 
-            // pnlAddPermisos
-            // 
-            this.pnlAddPermisos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlAddPermisos.Controls.Add(this.label5);
-            this.pnlAddPermisos.Location = new System.Drawing.Point(85, 90);
-            this.pnlAddPermisos.Name = "pnlAddPermisos";
-            this.pnlAddPermisos.Size = new System.Drawing.Size(993, 550);
-            this.pnlAddPermisos.TabIndex = 8;
-            this.pnlAddPermisos.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(219, 127);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 18);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "PERMISOS";
             // 
             // tbpUpdateRol
             // 
@@ -814,6 +1519,492 @@
             this.btnUpdateRol.Click += new System.EventHandler(this.btnUpdateRol_Click);
             this.btnUpdateRol.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnUpdateRol_MouseClick);
             // 
+            // tbpAddCategoria
+            // 
+            this.tbpAddCategoria.Controls.Add(this.btnGuardarCategoria);
+            this.tbpAddCategoria.Controls.Add(this.txtSubcategoria);
+            this.tbpAddCategoria.Controls.Add(this.label18);
+            this.tbpAddCategoria.Controls.Add(this.txtNombreCategoria);
+            this.tbpAddCategoria.Controls.Add(this.label19);
+            this.tbpAddCategoria.Location = new System.Drawing.Point(4, 27);
+            this.tbpAddCategoria.Name = "tbpAddCategoria";
+            this.tbpAddCategoria.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddCategoria.TabIndex = 8;
+            this.tbpAddCategoria.Text = "Registrar Categoria";
+            this.tbpAddCategoria.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardarCategoria
+            // 
+            this.btnGuardarCategoria.Location = new System.Drawing.Point(242, 167);
+            this.btnGuardarCategoria.Name = "btnGuardarCategoria";
+            this.btnGuardarCategoria.Size = new System.Drawing.Size(116, 42);
+            this.btnGuardarCategoria.TabIndex = 8;
+            this.btnGuardarCategoria.Text = "Guardar";
+            this.btnGuardarCategoria.UseVisualStyleBackColor = true;
+            this.btnGuardarCategoria.Click += new System.EventHandler(this.btnGuardarCategoria_Click);
+            // 
+            // txtSubcategoria
+            // 
+            this.txtSubcategoria.Location = new System.Drawing.Point(16, 111);
+            this.txtSubcategoria.Name = "txtSubcategoria";
+            this.txtSubcategoria.Size = new System.Drawing.Size(342, 24);
+            this.txtSubcategoria.TabIndex = 5;
+            this.txtSubcategoria.TextChanged += new System.EventHandler(this.txtSubcategoria_TextChanged);
+            this.txtSubcategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubcategoria_KeyPress);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(13, 90);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(103, 18);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "Subcategoria :";
+            // 
+            // txtNombreCategoria
+            // 
+            this.txtNombreCategoria.Location = new System.Drawing.Point(16, 49);
+            this.txtNombreCategoria.Name = "txtNombreCategoria";
+            this.txtNombreCategoria.Size = new System.Drawing.Size(342, 24);
+            this.txtNombreCategoria.TabIndex = 4;
+            this.txtNombreCategoria.TextChanged += new System.EventHandler(this.txtNombreCategoria_TextChanged);
+            this.txtNombreCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCategoria_KeyPress);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(13, 20);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(70, 18);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Nombre :";
+            // 
+            // tbpUpdateCategoria
+            // 
+            this.tbpUpdateCategoria.Controls.Add(this.btnActualiCateg);
+            this.tbpUpdateCategoria.Controls.Add(this.txtActualizarSubCat);
+            this.tbpUpdateCategoria.Controls.Add(this.label20);
+            this.tbpUpdateCategoria.Controls.Add(this.txtActualizarNomCat);
+            this.tbpUpdateCategoria.Controls.Add(this.label21);
+            this.tbpUpdateCategoria.Location = new System.Drawing.Point(4, 27);
+            this.tbpUpdateCategoria.Name = "tbpUpdateCategoria";
+            this.tbpUpdateCategoria.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateCategoria.TabIndex = 9;
+            this.tbpUpdateCategoria.Text = "Actualizar Categoria";
+            this.tbpUpdateCategoria.UseVisualStyleBackColor = true;
+            this.tbpUpdateCategoria.Click += new System.EventHandler(this.tbpUpdateCategoria_Click);
+            // 
+            // btnActualiCateg
+            // 
+            this.btnActualiCateg.Location = new System.Drawing.Point(238, 156);
+            this.btnActualiCateg.Name = "btnActualiCateg";
+            this.btnActualiCateg.Size = new System.Drawing.Size(116, 42);
+            this.btnActualiCateg.TabIndex = 13;
+            this.btnActualiCateg.Text = "Guardar";
+            this.btnActualiCateg.UseVisualStyleBackColor = true;
+            this.btnActualiCateg.Click += new System.EventHandler(this.btnActualiCateg_Click);
+            // 
+            // txtActualizarSubCat
+            // 
+            this.txtActualizarSubCat.Location = new System.Drawing.Point(12, 100);
+            this.txtActualizarSubCat.Name = "txtActualizarSubCat";
+            this.txtActualizarSubCat.Size = new System.Drawing.Size(342, 24);
+            this.txtActualizarSubCat.TabIndex = 11;
+            this.txtActualizarSubCat.TextChanged += new System.EventHandler(this.txtActualizarSubCat_TextChanged);
+            this.txtActualizarSubCat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActualizarSubCat_KeyPress);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(9, 79);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(103, 18);
+            this.label20.TabIndex = 12;
+            this.label20.Text = "Subcategoria :";
+            // 
+            // txtActualizarNomCat
+            // 
+            this.txtActualizarNomCat.Location = new System.Drawing.Point(12, 38);
+            this.txtActualizarNomCat.Name = "txtActualizarNomCat";
+            this.txtActualizarNomCat.Size = new System.Drawing.Size(342, 24);
+            this.txtActualizarNomCat.TabIndex = 10;
+            this.txtActualizarNomCat.TextChanged += new System.EventHandler(this.txtActualizarNomCat_TextChanged);
+            this.txtActualizarNomCat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActualizarNomCat_KeyPress);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(9, 9);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(70, 18);
+            this.label21.TabIndex = 9;
+            this.label21.Text = "Nombre :";
+            // 
+            // tbpAddImpuesto
+            // 
+            this.tbpAddImpuesto.Controls.Add(this.btnGuardarImpuesto);
+            this.tbpAddImpuesto.Controls.Add(this.txtTasaImpuesto);
+            this.tbpAddImpuesto.Controls.Add(this.label11);
+            this.tbpAddImpuesto.Controls.Add(this.txtImpuesto);
+            this.tbpAddImpuesto.Controls.Add(this.label13);
+            this.tbpAddImpuesto.Controls.Add(this.txtTipoImpuesto);
+            this.tbpAddImpuesto.Controls.Add(this.label15);
+            this.tbpAddImpuesto.Location = new System.Drawing.Point(4, 27);
+            this.tbpAddImpuesto.Name = "tbpAddImpuesto";
+            this.tbpAddImpuesto.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddImpuesto.TabIndex = 10;
+            this.tbpAddImpuesto.Text = "Registrar Impuesto";
+            this.tbpAddImpuesto.UseVisualStyleBackColor = true;
+            this.tbpAddImpuesto.Click += new System.EventHandler(this.tbpAddImpuesto_Click);
+            // 
+            // btnGuardarImpuesto
+            // 
+            this.btnGuardarImpuesto.Location = new System.Drawing.Point(180, 242);
+            this.btnGuardarImpuesto.Name = "btnGuardarImpuesto";
+            this.btnGuardarImpuesto.Size = new System.Drawing.Size(116, 42);
+            this.btnGuardarImpuesto.TabIndex = 11;
+            this.btnGuardarImpuesto.Text = "Guardar";
+            this.btnGuardarImpuesto.UseVisualStyleBackColor = true;
+            this.btnGuardarImpuesto.Click += new System.EventHandler(this.btnGuardarImpuesto_Click);
+            // 
+            // txtTasaImpuesto
+            // 
+            this.txtTasaImpuesto.Location = new System.Drawing.Point(18, 191);
+            this.txtTasaImpuesto.Name = "txtTasaImpuesto";
+            this.txtTasaImpuesto.Size = new System.Drawing.Size(278, 24);
+            this.txtTasaImpuesto.TabIndex = 9;
+            this.txtTasaImpuesto.TextChanged += new System.EventHandler(this.txtTasaImpuesto_TextChanged);
+            this.txtTasaImpuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTasaImpuesto_KeyPress);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(20, 159);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(126, 18);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Tasa de Impuesto";
+            // 
+            // txtImpuesto
+            // 
+            this.txtImpuesto.Location = new System.Drawing.Point(18, 122);
+            this.txtImpuesto.Name = "txtImpuesto";
+            this.txtImpuesto.Size = new System.Drawing.Size(278, 24);
+            this.txtImpuesto.TabIndex = 7;
+            this.txtImpuesto.TextChanged += new System.EventHandler(this.txtImpuesto_TextChanged);
+            this.txtImpuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImpuesto_KeyPress);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(20, 90);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 18);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Impuesto";
+            // 
+            // txtTipoImpuesto
+            // 
+            this.txtTipoImpuesto.Location = new System.Drawing.Point(18, 49);
+            this.txtTipoImpuesto.Name = "txtTipoImpuesto";
+            this.txtTipoImpuesto.Size = new System.Drawing.Size(278, 24);
+            this.txtTipoImpuesto.TabIndex = 6;
+            this.txtTipoImpuesto.TextChanged += new System.EventHandler(this.txtTipoImpuesto_TextChanged);
+            this.txtTipoImpuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTipoImpuesto_KeyPress);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(15, 22);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(122, 18);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Tipo de Impuesto";
+            // 
+            // tbpUpdateImpuesto
+            // 
+            this.tbpUpdateImpuesto.Controls.Add(this.btnacatualiImpu);
+            this.tbpUpdateImpuesto.Controls.Add(this.txtActualiTasaImpu);
+            this.tbpUpdateImpuesto.Controls.Add(this.label16);
+            this.tbpUpdateImpuesto.Controls.Add(this.txtActualiImpu);
+            this.tbpUpdateImpuesto.Controls.Add(this.label22);
+            this.tbpUpdateImpuesto.Controls.Add(this.txtActualiTipoImpues);
+            this.tbpUpdateImpuesto.Controls.Add(this.label23);
+            this.tbpUpdateImpuesto.Location = new System.Drawing.Point(4, 27);
+            this.tbpUpdateImpuesto.Name = "tbpUpdateImpuesto";
+            this.tbpUpdateImpuesto.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateImpuesto.TabIndex = 11;
+            this.tbpUpdateImpuesto.Text = "Actualizar Impuesto";
+            this.tbpUpdateImpuesto.UseVisualStyleBackColor = true;
+            // 
+            // btnacatualiImpu
+            // 
+            this.btnacatualiImpu.Location = new System.Drawing.Point(174, 225);
+            this.btnacatualiImpu.Name = "btnacatualiImpu";
+            this.btnacatualiImpu.Size = new System.Drawing.Size(116, 42);
+            this.btnacatualiImpu.TabIndex = 18;
+            this.btnacatualiImpu.Text = "Guardar";
+            this.btnacatualiImpu.UseVisualStyleBackColor = true;
+            this.btnacatualiImpu.Click += new System.EventHandler(this.btnacatualiImpu_Click);
+            // 
+            // txtActualiTasaImpu
+            // 
+            this.txtActualiTasaImpu.Location = new System.Drawing.Point(12, 174);
+            this.txtActualiTasaImpu.Name = "txtActualiTasaImpu";
+            this.txtActualiTasaImpu.Size = new System.Drawing.Size(278, 24);
+            this.txtActualiTasaImpu.TabIndex = 16;
+            this.txtActualiTasaImpu.TextChanged += new System.EventHandler(this.txtActualiTasaImpu_TextChanged);
+            this.txtActualiTasaImpu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActualiTasaImpu_KeyPress);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(14, 142);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(126, 18);
+            this.label16.TabIndex = 17;
+            this.label16.Text = "Tasa de Impuesto";
+            // 
+            // txtActualiImpu
+            // 
+            this.txtActualiImpu.Location = new System.Drawing.Point(12, 105);
+            this.txtActualiImpu.Name = "txtActualiImpu";
+            this.txtActualiImpu.Size = new System.Drawing.Size(278, 24);
+            this.txtActualiImpu.TabIndex = 14;
+            this.txtActualiImpu.TextChanged += new System.EventHandler(this.txtActualiImpu_TextChanged);
+            this.txtActualiImpu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActualiImpu_KeyPress);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(14, 73);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(69, 18);
+            this.label22.TabIndex = 15;
+            this.label22.Text = "Impuesto";
+            // 
+            // txtActualiTipoImpues
+            // 
+            this.txtActualiTipoImpues.Location = new System.Drawing.Point(12, 32);
+            this.txtActualiTipoImpues.Name = "txtActualiTipoImpues";
+            this.txtActualiTipoImpues.Size = new System.Drawing.Size(278, 24);
+            this.txtActualiTipoImpues.TabIndex = 13;
+            this.txtActualiTipoImpues.TextChanged += new System.EventHandler(this.txtActualiTipoImpues_TextChanged);
+            this.txtActualiTipoImpues.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActualiTipoImpues_KeyPress);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(9, 5);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(122, 18);
+            this.label23.TabIndex = 12;
+            this.label23.Text = "Tipo de Impuesto";
+            // 
+            // tbpAddUsuario
+            // 
+            this.tbpAddUsuario.Controls.Add(this.btnGuardarUsuario);
+            this.tbpAddUsuario.Controls.Add(this.cbxRol);
+            this.tbpAddUsuario.Controls.Add(this.label24);
+            this.tbpAddUsuario.Controls.Add(this.txtComentUsua);
+            this.tbpAddUsuario.Controls.Add(this.label25);
+            this.tbpAddUsuario.Controls.Add(this.txtCorreo);
+            this.tbpAddUsuario.Controls.Add(this.label26);
+            this.tbpAddUsuario.Controls.Add(this.txtTelefono);
+            this.tbpAddUsuario.Controls.Add(this.label27);
+            this.tbpAddUsuario.Controls.Add(this.txtContraseña);
+            this.tbpAddUsuario.Controls.Add(this.label28);
+            this.tbpAddUsuario.Controls.Add(this.txtNombreUsuario);
+            this.tbpAddUsuario.Controls.Add(this.label29);
+            this.tbpAddUsuario.Controls.Add(this.txtUsuario);
+            this.tbpAddUsuario.Controls.Add(this.label30);
+            this.tbpAddUsuario.Controls.Add(this.txtRFC);
+            this.tbpAddUsuario.Controls.Add(this.label31);
+            this.tbpAddUsuario.Location = new System.Drawing.Point(4, 27);
+            this.tbpAddUsuario.Name = "tbpAddUsuario";
+            this.tbpAddUsuario.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddUsuario.TabIndex = 12;
+            this.tbpAddUsuario.Text = "Registrar Usuario";
+            this.tbpAddUsuario.UseVisualStyleBackColor = true;
+            this.tbpAddUsuario.Click += new System.EventHandler(this.tbpAddUsuario_Click);
+            // 
+            // btnGuardarUsuario
+            // 
+            this.btnGuardarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardarUsuario.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnGuardarUsuario.Location = new System.Drawing.Point(550, 50);
+            this.btnGuardarUsuario.Name = "btnGuardarUsuario";
+            this.btnGuardarUsuario.Size = new System.Drawing.Size(116, 42);
+            this.btnGuardarUsuario.TabIndex = 33;
+            this.btnGuardarUsuario.Text = "GuardarXXX";
+            this.btnGuardarUsuario.UseVisualStyleBackColor = true;
+            this.btnGuardarUsuario.Click += new System.EventHandler(this.btnGuardarUsuario_Click);
+            // 
+            // cbxRol
+            // 
+            this.cbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRol.FormattingEnabled = true;
+            this.cbxRol.Location = new System.Drawing.Point(18, 228);
+            this.cbxRol.Name = "cbxRol";
+            this.cbxRol.Size = new System.Drawing.Size(207, 26);
+            this.cbxRol.TabIndex = 26;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(24, 207);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(49, 18);
+            this.label24.TabIndex = 32;
+            this.label24.Text = "Perfil :";
+            // 
+            // txtComentUsua
+            // 
+            this.txtComentUsua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtComentUsua.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtComentUsua.Location = new System.Drawing.Point(331, 238);
+            this.txtComentUsua.Multiline = true;
+            this.txtComentUsua.Name = "txtComentUsua";
+            this.txtComentUsua.Size = new System.Drawing.Size(172, 89);
+            this.txtComentUsua.TabIndex = 27;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(328, 213);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(94, 18);
+            this.label25.TabIndex = 31;
+            this.label25.Text = "Comentario :";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(23, 169);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(202, 24);
+            this.txtCorreo.TabIndex = 24;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(24, 144);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(63, 18);
+            this.label26.TabIndex = 30;
+            this.label26.Text = "Correo :";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTelefono.Location = new System.Drawing.Point(333, 180);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(172, 24);
+            this.txtTelefono.TabIndex = 25;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(330, 159);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(74, 18);
+            this.label27.TabIndex = 29;
+            this.label27.Text = "Telefono :";
+            // 
+            // txtContraseña
+            // 
+            this.txtContraseña.Location = new System.Drawing.Point(23, 110);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
+            this.txtContraseña.Size = new System.Drawing.Size(202, 24);
+            this.txtContraseña.TabIndex = 21;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(24, 82);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(93, 18);
+            this.label28.TabIndex = 28;
+            this.label28.Text = "Contraseña :";
+            // 
+            // txtNombreUsuario
+            // 
+            this.txtNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNombreUsuario.Location = new System.Drawing.Point(333, 49);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(172, 24);
+            this.txtNombreUsuario.TabIndex = 19;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(334, 26);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(70, 18);
+            this.label29.TabIndex = 22;
+            this.label29.Text = "Nombre :";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUsuario.Location = new System.Drawing.Point(331, 119);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(172, 24);
+            this.txtUsuario.TabIndex = 23;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(328, 90);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(68, 18);
+            this.label30.TabIndex = 20;
+            this.label30.Text = "Usuario :";
+            // 
+            // txtRFC
+            // 
+            this.txtRFC.AutoCompleteCustomSource.AddRange(new string[] {
+            "public static AutoCompleteStringCollection LoadAutoComplete()",
+            "{",
+            "    DataTable dt = LoadDataTable();",
+            " ",
+            "    AutoCompleteStringCollection stringCol = new AutoCompleteStringCollection();",
+            " ",
+            "    foreach (DataRow row in dt.Rows)",
+            "    {",
+            "        stringCol.Add(Convert.ToString(row[\"Nombre\"]));",
+            "    }",
+            " ",
+            "    return stringCol;",
+            "}"});
+            this.txtRFC.Location = new System.Drawing.Point(23, 49);
+            this.txtRFC.Name = "txtRFC";
+            this.txtRFC.Size = new System.Drawing.Size(207, 24);
+            this.txtRFC.TabIndex = 18;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(24, 26);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(47, 18);
+            this.label31.TabIndex = 17;
+            this.label31.Text = "RFC :";
+            // 
+            // tbpUpdateUser
+            // 
+            this.tbpUpdateUser.Location = new System.Drawing.Point(4, 27);
+            this.tbpUpdateUser.Name = "tbpUpdateUser";
+            this.tbpUpdateUser.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateUser.TabIndex = 13;
+            this.tbpUpdateUser.Text = "Actualizar Usuario";
+            this.tbpUpdateUser.UseVisualStyleBackColor = true;
+            // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
+            // 
             // FrmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -841,6 +2032,21 @@
             this.pnlProducto.ResumeLayout(false);
             this.pnlProducto.PerformLayout();
             this.tbcGeneral.ResumeLayout(false);
+            this.tbpProducto.ResumeLayout(false);
+            this.tbpProducto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosProducto)).EndInit();
+            this.tbpPrecio.ResumeLayout(false);
+            this.tbpPrecio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosPrecio)).EndInit();
+            this.tbpImpuestos.ResumeLayout(false);
+            this.tbpImpuestos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosImpuesto)).EndInit();
+            this.tbpCategoria.ResumeLayout(false);
+            this.tbpCategoria.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCategoria)).EndInit();
+            this.tbpUsuario.ResumeLayout(false);
+            this.tbpUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosUsuario)).EndInit();
             this.tbpRol.ResumeLayout(false);
             this.pnlCatalogoRoles.ResumeLayout(false);
             this.pnlCatalogoRoles.PerformLayout();
@@ -848,16 +2054,26 @@
             this.tbpAddRol.ResumeLayout(false);
             this.pnlAddRol.ResumeLayout(false);
             this.pnlAddRol.PerformLayout();
-            this.pnlAddRolesPermisos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.pnlAddPermisos.ResumeLayout(false);
             this.pnlAddPermisos.PerformLayout();
+            this.pnlAddRolesPermisos.ResumeLayout(false);
             this.tbpUpdateRol.ResumeLayout(false);
             this.pnlUpdateRol.ResumeLayout(false);
             this.pnlUpdateRol.PerformLayout();
             this.pnlUpdatePermisos.ResumeLayout(false);
             this.pnlUpdatePermisos.PerformLayout();
             this.PnlUpdteRolesPermisos.ResumeLayout(false);
+            this.tbpAddCategoria.ResumeLayout(false);
+            this.tbpAddCategoria.PerformLayout();
+            this.tbpUpdateCategoria.ResumeLayout(false);
+            this.tbpUpdateCategoria.PerformLayout();
+            this.tbpAddImpuesto.ResumeLayout(false);
+            this.tbpAddImpuesto.PerformLayout();
+            this.tbpUpdateImpuesto.ResumeLayout(false);
+            this.tbpUpdateImpuesto.PerformLayout();
+            this.tbpAddUsuario.ResumeLayout(false);
+            this.tbpAddUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -913,6 +2129,7 @@
         private System.Windows.Forms.Panel pnlAddPermisos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabPage tbpUpdateRol;
+        private System.Windows.Forms.TabPage tbpUpdateUsuario;
         private System.Windows.Forms.Panel pnlUpdateRol;
         private System.Windows.Forms.Panel pnlUpdatePermisos;
         private System.Windows.Forms.Label label6;
@@ -924,5 +2141,113 @@
         private System.Windows.Forms.Panel PnlUpdteRolesPermisos;
         private System.Windows.Forms.Button btnUpdatePermisos;
         private System.Windows.Forms.Button btnUpdateRol;
+        private System.Windows.Forms.Button btnRegistrarUsuario;
+        private System.Windows.Forms.Button btnActualizarUsuario;
+        private System.Windows.Forms.Button btnBorrarUsuario;
+        private System.Windows.Forms.DataGridView dgvDatosUsuario;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox ckbStatusUsuario;
+        private System.Windows.Forms.TextBox txtBuscarUsuario;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnRegistrarCategoria;
+        private System.Windows.Forms.Button btnActualizarCategoria;
+        private System.Windows.Forms.Button btnBorrarCategoria;
+        private System.Windows.Forms.Label lblRegistroCat;
+        private System.Windows.Forms.CheckBox ckbStatusCategoria;
+        private System.Windows.Forms.DataGridView dgvDatosCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sNomSubCat;
+        private System.Windows.Forms.TextBox txtBuscarCategoria;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkUsuarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SRfc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sCorreo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridView dgvDatosImpuesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn s;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTipoImpuesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sImpuesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dTasaImpuesto;
+        private System.Windows.Forms.Label lblRegistroImpuesto;
+        private System.Windows.Forms.CheckBox ckbStatusImpuesto;
+        private System.Windows.Forms.TextBox txtBuscarImpuesto;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnRegistrarPrecio;
+        private System.Windows.Forms.Button btnPrecio;
+        private System.Windows.Forms.Button btnBorrarPrecio;
+        private System.Windows.Forms.Label lblRegistroPrecio;
+        private System.Windows.Forms.DataGridView dgvDatosPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkPrecios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iPrePorcen;
+        private System.Windows.Forms.Button btnRegistrarImpuesto;
+        private System.Windows.Forms.Button btnActualizarImpuesto;
+        private System.Windows.Forms.Button btnBorrarImpuesto;
+        private System.Windows.Forms.DataGridView dgvDatosProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sFoto;
+        private System.Windows.Forms.Label lblRegistroProducto;
+        private System.Windows.Forms.CheckBox ckbStatusProducto;
+        private System.Windows.Forms.TextBox txtBuscarProducto;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btnRegistrarProducto;
+        private System.Windows.Forms.Button btnActualizarProducto;
+        private System.Windows.Forms.Button btnBorrarProducto;
+        private System.Windows.Forms.TabPage tbpAddCategoria;
+        private System.Windows.Forms.TabPage tbpUpdateCategoria;
+        private System.Windows.Forms.Button btnGuardarCategoria;
+        private System.Windows.Forms.TextBox txtSubcategoria;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtNombreCategoria;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnActualiCateg;
+        private System.Windows.Forms.TextBox txtActualizarSubCat;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtActualizarNomCat;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TabPage tbpAddImpuesto;
+        private System.Windows.Forms.TextBox txtTasaImpuesto;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtImpuesto;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtTipoImpuesto;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TabPage tbpUpdateImpuesto;
+        private System.Windows.Forms.Button btnGuardarImpuesto;
+        private System.Windows.Forms.Button btnacatualiImpu;
+        private System.Windows.Forms.TextBox txtActualiTasaImpu;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtActualiImpu;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtActualiTipoImpues;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TabPage tbpAddUsuario;
+        private System.Windows.Forms.TabPage tbpUpdateUser;
+        private System.Windows.Forms.Button btnGuardarUsuario;
+        private System.Windows.Forms.ComboBox cbxRol;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txtComentUsua;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtNombreUsuario;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txtRFC;
+        private System.Windows.Forms.Label label31;
     }
 }

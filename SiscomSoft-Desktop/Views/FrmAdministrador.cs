@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using SiscomSoft.Comun;
 using SiscomSoft.Controller;
 using SiscomSoft.Models;
+using System.Globalization;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -22,20 +23,82 @@ namespace SiscomSoft_Desktop.Views
         Boolean flagImpuesto = false;
         Boolean flagCategoria = false;
         Boolean flagAddRoles = false;
+        Boolean flagAddCategorias = false;
         Boolean flagUpdateRoles = false;
+        Boolean flagUpdateCategorias = false;
+        Boolean flagAddUsuario = false;
+        Boolean flagUpdateUser = false;
+        Boolean flagAddImpuesto = false;
+        Boolean flagUpdateImpuestos = false;
 
         public static int PKROL;
+        public static int PKUSUARIO;
+        public static int PKCATEGORIA;
+        public static int PKIMPUESTO;
+        public static int PKPRECIO;
+        public static int PKPRODUCTO;
+      
 
         public FrmAdministrador()
         {
             InitializeComponent();
             this.dgvDatosRol.AutoGenerateColumns = false;
+            this.dgvDatosUsuario.AutoGenerateColumns = false;
+            this.dgvDatosCategoria.AutoGenerateColumns = false;
+            this.dgvDatosImpuesto.AutoGenerateColumns = false;
+            this.dgvDatosProducto.AutoGenerateColumns = false;
+            this.dgvDatosPrecio.AutoGenerateColumns = false;
+            CargarTablas();
+            cargarCombos();
+        }
+        public void CargarTablas()
+        {
+            cargarUsuarios();
+            cargarPrecios();
+            cargarImpuestos();
+            cargarCategorias();
+            cargarRoles();
+            cargarProductos();
+
+        }
+        public void cargarCombos()
+        {
+            int indexrol = 0;
+            //llenar combo
+            cbxRol.DataSource = ManejoRol.getAll(true);
+            cbxRol.DisplayMember = "sNombre";
+            cbxRol.ValueMember = "pkRol";
+
+            cbxRol.SelectedIndex = indexrol;
         }
 
         public void cargarRoles()
         {
             this.dgvDatosRol.DataSource = ManejoRol.Buscar(txtBuscarRol.Text, ckbStatusRol.Checked);
         }
+        public void cargarUsuarios()
+        {
+            this.dgvDatosUsuario.DataSource = ManejoUsuario.Buscar(txtBuscarUsuario.Text, ckbStatusUsuario.Checked);
+        }
+        public void cargarCategorias()
+        {
+            this.dgvDatosCategoria.DataSource = ManejoCategoria.Buscar(txtBuscarCategoria.Text, ckbStatusCategoria.Checked);
+        }
+        public void cargarImpuestos()
+        {
+            this.dgvDatosImpuesto.DataSource = ManejoImpuesto.Buscar(txtBuscarImpuesto.Text, ckbStatusImpuesto.Checked);
+        }
+        public void cargarPrecios()
+        {
+            this.dgvDatosPrecio.DataSource = ManejoPrecio.getAll();
+        }
+        public void cargarProductos()
+        {
+            this.dgvDatosProducto.DataSource = ManejoProducto.Buscar(txtBuscarProducto.Text, ckbStatusProducto.Checked);
+        }
+
+
+
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
@@ -145,6 +208,12 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpProducto);
             tbcGeneral.TabPages.Remove(tbpAddRol);
             tbcGeneral.TabPages.Remove(tbpUpdateRol);
+            tbcGeneral.TabPages.Remove(tbpAddCategoria);
+            tbcGeneral.TabPages.Remove(tbpUpdateCategoria);
+            tbcGeneral.TabPages.Remove(tbpAddImpuesto);
+            tbcGeneral.TabPages.Remove(tbpUpdateImpuesto);
+            tbcGeneral.TabPages.Remove(tbpAddUsuario);
+            tbcGeneral.TabPages.Remove(tbpUpdateUser);
         }
 
         private void btnRollist_Click(object sender, EventArgs e)
@@ -409,6 +478,27 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateNombre.Text = nRol.sNombre;
             txtUpdateComentario.Text = nRol.sComentario;
         }
+        public void ActualizarCategoria()
+        {
+            Categoria nCategoria = ManejoCategoria.getById(PKCATEGORIA);
+            txtActualizarNomCat.Text = nCategoria.sNombre;
+            txtActualizarSubCat.Text = nCategoria.sNomSubCat;
+        }
+        public void ActualizarUsuario()
+        {
+            Usuario nUsuario = ManejoUsuario.getById(PKUSUARIO);
+            
+            txtUpdateNombre.Text = nUsuario.sNombre;
+            txtUpdateComentario.Text = nUsuario.sComentario;
+        }
+        public void ActualizarImpuesto()
+        {
+            Impuesto nImpuesto = ManejoImpuesto.getById(PKIMPUESTO);
+
+            txtActualiImpu.Text = nImpuesto.sImpuesto;
+            txtActualiTipoImpues.Text = nImpuesto.sTipoImpuesto;
+            txtActualiTasaImpu.Text = nImpuesto.dTasaImpuesto.ToString();
+        }
 
         private void btnUpdateRol_MouseClick(object sender, MouseEventArgs e)
         {
@@ -424,6 +514,626 @@ namespace SiscomSoft_Desktop.Views
             btnUpdateRol.ForeColor = Color.Black;
             btnUpdatePermisos.BackColor = Color.Teal;
             btnUpdatePermisos.ForeColor = Color.White;
+        }
+
+        private void txtBuscarUsuario_TextChanged(object sender, EventArgs e)
+        {
+            this.cargarUsuarios();
+        }
+
+        private void ckbStatusUsuario_CheckedChanged(object sender, EventArgs e)
+        {
+            this.cargarUsuarios();
+        }
+
+        private void dgvDatosUsuario_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistros.Text = "Registros: " + dgvDatosUsuario.Rows.Count;
+        }
+
+        private void btnRegistrarUsuario_Click(object sender, EventArgs e)
+        {
+            if (flagAddUsuario == false)
+            {
+                tbcGeneral.TabPages.Add(tbpAddUsuario);
+                tbcGeneral.SelectedTab = tbpAddUsuario;
+                flagAddUsuario = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpAddUsuario;
+            }
+        }
+
+        private void btnActualizarUsuario_Click(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void tbpProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvDatosRol_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtBuscarCategoria_TextChanged(object sender, EventArgs e)
+        {
+            this.cargarCategorias();
+        }
+
+        private void ckbStatusCategoria_CheckedChanged(object sender, EventArgs e)
+        {
+            this.cargarCategorias();
+        }
+
+        private void dgvDatosCategoria_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistroCat.Text = "Registros: " + dgvDatosCategoria.Rows.Count;
+        }
+
+        private void ckbStatus_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBuscarImpuesto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBuscarImpuesto_TextChanged_1(object sender, EventArgs e)
+        {
+            this.cargarImpuestos();
+        }
+
+        private void ckbStatusImpuesto_CheckedChanged(object sender, EventArgs e)
+        {
+            this.cargarImpuestos();
+        }
+
+        private void dgvDatosImpuesto_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistroImpuesto.Text = "Registros: " + dgvDatosImpuesto.Rows.Count;
+        }
+
+        private void txtBuscarProducto_TextChanged(object sender, EventArgs e)
+        {
+            this.cargarProductos();
+        }
+
+        private void ckbStatusProducto_CheckedChanged(object sender, EventArgs e)
+        {
+            this.cargarProductos();
+        }
+
+        private void dgvDatosProducto_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistroProducto.Text = "Registros: " + dgvDatosProducto.Rows.Count;
+        }
+
+        private void dgvDatosPrecio_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistroPrecio.Text = "Registros: " + dgvDatosPrecio.Rows.Count;
+        }
+
+        private void tbpUpdateCategoria_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGuardarCategoria_Click(object sender, EventArgs e)
+        {
+            if (this.txtNombreCategoria.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNombreCategoria, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNombreCategoria, "Campo necesario");
+                this.txtNombreCategoria.Focus();
+            }
+            else if (this.txtSubcategoria.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtSubcategoria, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtSubcategoria, "Campo necesario");
+                this.txtSubcategoria.Focus();
+            }
+            else
+            {
+                Categoria nCategoria = new Categoria();
+
+                nCategoria.sNombre = txtNombreCategoria.Text;
+                nCategoria.sNomSubCat = txtSubcategoria.Text;
+
+                ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
+
+                MessageBox.Show("¡Categoria Registrada!");
+                txtNombreCategoria.Clear();
+                txtSubcategoria.Clear();
+                cargarCategorias();
+
+            }
+        }
+
+        private void btnRegistrarCategoria_Click(object sender, EventArgs e)
+        {
+            if (flagAddCategorias == false)
+            {
+                tbcGeneral.TabPages.Add(tbpAddCategoria);
+                tbcGeneral.SelectedTab = tbpAddCategoria;
+                flagAddCategorias = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpAddCategoria;
+            }
+        }
+
+        private void btnActualizarCategoria_Click(object sender, EventArgs e)
+        {
+            if (this.dgvDatosRol.RowCount >= 1)
+            {
+                PKCATEGORIA = Convert.ToInt32(this.dgvDatosCategoria.CurrentRow.Cells[0].Value);
+                if (flagUpdateCategorias == false)
+                {
+                    tbcGeneral.TabPages.Add(tbpUpdateCategoria);
+                    ActualizarCategoria();
+                    tbcGeneral.SelectedTab = tbpUpdateCategoria;
+                    flagUpdateCategorias = true;
+                }
+                else
+                {
+                    tbcGeneral.SelectedTab = tbpUpdateCategoria;
+                }
+            }
+        }
+
+        private void btnActualiCateg_Click(object sender, EventArgs e)
+        {
+            if (this.txtActualizarNomCat.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtActualizarNomCat, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtActualizarNomCat, "Campo necesario");
+                this.txtActualizarNomCat.Focus();
+            }
+            else if (this.txtActualizarSubCat.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtActualizarSubCat, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtActualizarSubCat, "Campo necesario");
+                this.txtActualizarSubCat.Focus();
+            }
+
+            else
+            {
+                Categoria nCategoria = new Categoria();
+                nCategoria.pkCategoria = PKCATEGORIA;
+                nCategoria.sNombre = txtActualizarNomCat.Text;
+                nCategoria.sNomSubCat = txtActualizarSubCat.Text;
+
+                ManejoCategoria.Modificar(nCategoria);
+                MessageBox.Show("¡Categoria Actualizada!");
+                cargarCategorias();
+
+               
+
+            }
+        }
+
+        private void txtNombreCategoria_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtSubcategoria_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNombreCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtSubcategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtActualizarNomCat_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtActualizarSubCat_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtActualizarNomCat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtActualizarSubCat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+              && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void btnBorrarCategoria_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosCategoria.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoCategoria.Eliminar(Convert.ToInt32(dgvDatosCategoria.CurrentRow.Cells[0].Value));
+                    cargarCategorias();
+                }
+            }
+        }
+
+        private void btnRegistrarImpuesto_Click(object sender, EventArgs e)
+        {
+            if (flagAddImpuesto == false)
+            {
+                tbcGeneral.TabPages.Add(tbpAddImpuesto);
+                tbcGeneral.SelectedTab = tbpAddImpuesto;
+                flagAddImpuesto = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpAddImpuesto;
+            }
+        }
+
+        private void tbpAddImpuesto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGuardarImpuesto_Click(object sender, EventArgs e)
+        {
+            if (this.txtTipoImpuesto.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtTipoImpuesto, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtTipoImpuesto, "Campo necesario");
+                this.txtTipoImpuesto.Focus();
+            }
+            else if (this.txtImpuesto.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtImpuesto, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtImpuesto, "Campo necesario");
+                this.txtImpuesto.Focus();
+            }
+            else if (this.txtTasaImpuesto.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtTasaImpuesto, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtTasaImpuesto, "Campo necesario");
+                this.txtTasaImpuesto.Focus();
+            }
+            else
+            {
+                Impuesto nImpuesto = new Impuesto();
+
+                nImpuesto.sTipoImpuesto = txtTipoImpuesto.Text;
+                nImpuesto.sImpuesto = txtImpuesto.Text;
+                nImpuesto.dTasaImpuesto = Convert.ToDecimal(txtTasaImpuesto.Text);
+
+                ManejoImpuesto.RegistrarNuevoImpuesto(nImpuesto);
+
+                MessageBox.Show("¡Impuesto Registrado!");
+                txtImpuesto.Clear();
+                txtTipoImpuesto.Clear();
+                txtTasaImpuesto.Clear();
+                cargarImpuestos();
+
+
+
+            }
+        }
+
+        private void txtTipoImpuesto_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtImpuesto_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTasaImpuesto_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTasaImpuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+            if (char.IsNumber(e.KeyChar) ||
+                e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator
+                )
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void btnActualizarImpuesto_Click(object sender, EventArgs e)
+        {
+            if (this.dgvDatosImpuesto.RowCount >= 1)
+            {
+                PKIMPUESTO = Convert.ToInt32(this.dgvDatosImpuesto.CurrentRow.Cells[0].Value);
+                if (flagUpdateImpuestos == false)
+                {
+                    tbcGeneral.TabPages.Add(tbpUpdateImpuesto);
+                    ActualizarImpuesto();
+                    tbcGeneral.SelectedTab = tbpUpdateImpuesto;
+                    flagUpdateImpuestos = true;
+                }
+                else
+                {
+                    tbcGeneral.SelectedTab = tbpUpdateImpuesto;
+                }
+            }
+        }
+
+        private void dgvDatosImpuesto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosImpuesto.RowCount >= 1)
+            {
+                PKIMPUESTO = Convert.ToInt32(this.dgvDatosImpuesto.CurrentRow.Cells[0].Value);
+                if (flagUpdateImpuestos == false)
+                {
+                    tbcGeneral.TabPages.Add(tbpUpdateImpuesto);
+                    ActualizarImpuesto();
+                    tbcGeneral.SelectedTab = tbpUpdateImpuesto;
+                    flagUpdateImpuestos = true;
+                }
+                else
+                {
+                    tbcGeneral.SelectedTab = tbpUpdateImpuesto;
+                }
+            }
+        }
+
+        private void dgvDatosCategoria_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosRol.RowCount >= 1)
+            {
+                PKCATEGORIA = Convert.ToInt32(this.dgvDatosCategoria.CurrentRow.Cells[0].Value);
+                if (flagUpdateCategorias == false)
+                {
+                    tbcGeneral.TabPages.Add(tbpUpdateCategoria);
+                    ActualizarCategoria();
+                    tbcGeneral.SelectedTab = tbpUpdateCategoria;
+                    flagUpdateCategorias = true;
+                }
+                else
+                {
+                    tbcGeneral.SelectedTab = tbpUpdateCategoria;
+                }
+            }
+        }
+
+        private void dgvDatosRol_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (flagAddRoles == false)
+            {
+                tbcGeneral.TabPages.Add(tbpAddRol);
+                tbcGeneral.SelectedTab = tbpAddRol;
+                flagAddRoles = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpAddRol;
+            }
+        }
+
+        private void btnacatualiImpu_Click(object sender, EventArgs e)
+        {
+            if (this.txtActualiTipoImpues.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtActualiTipoImpues, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtActualiTipoImpues, "Campo necesario");
+                this.txtActualiTipoImpues.Focus();
+            }
+            else if (this.txtActualiImpu.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtActualiImpu, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtActualiImpu, "Campo necesario");
+                this.txtActualiImpu.Focus();
+            }
+            else if (this.txtActualiTasaImpu.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtActualiTasaImpu, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtActualiTasaImpu, "Campo necesario");
+                this.txtActualiTasaImpu.Focus();
+            }
+            else
+            {
+                Impuesto nImpuesto = new Impuesto();
+                nImpuesto.pkImpuesto = PKIMPUESTO;
+                nImpuesto.sTipoImpuesto = txtTipoImpuesto.Text;
+                nImpuesto.sImpuesto = txtImpuesto.Text;
+                nImpuesto.dTasaImpuesto = Convert.ToDecimal(txtTasaImpuesto.Text);
+
+                ManejoImpuesto.Modificar(nImpuesto);
+
+                cargarImpuestos();
+
+                this.Close();
+            }
+        }
+
+        private void txtActualiTipoImpues_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtActualiImpu_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtActualiTasaImpu_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtActualiTasaImpu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+            if (char.IsNumber(e.KeyChar) ||
+                e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator
+                )
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtActualiImpu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtActualiTipoImpues_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtTipoImpuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtImpuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void btnBorrarImpuesto_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosImpuesto.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoImpuesto.Eliminar(Convert.ToInt32(dgvDatosImpuesto.CurrentRow.Cells[0].Value));
+                    cargarImpuestos();
+                }
+            }
+        }
+
+        private void tbpAddUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGuardarUsuario_Click(object sender, EventArgs e)
+        {
+            if (this.txtRFC.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtRFC, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtRFC, "Campo necesario");
+                this.txtRFC.Focus();
+            }
+            else if (this.txtUsuario.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUsuario, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUsuario, "Campo necesario");
+                this.txtUsuario.Focus();
+            }
+            else if (this.txtNombre.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNombre, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNombre, "Campo necesario");
+                this.txtNombre.Focus();
+            }
+
+            else if (this.txtContraseña.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtContraseña, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtContraseña, "Campo necesario");
+                this.txtContraseña.Focus();
+            }
+            else if (this.txtTelefono.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtTelefono, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtTelefono, "Campo necesario");
+                this.txtTelefono.Focus();
+            }
+            else if (this.txtNombreUsuario.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNombreUsuario, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNombreUsuario, "Campo necesario");
+                this.txtNombreUsuario.Focus();
+            }
+            else if (this.txtCorreo.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCorreo, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCorreo, "Campo necesario");
+                this.txtCorreo.Focus();
+            }
+            else if (this.txtComentUsua.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtComentUsua, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtComentUsua, "Campo necesario");
+                this.txtComentUsua.Focus();
+            }
+            else if (this.cbxRol.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxRol, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxRol, "Necesita Agregar un Rol Primero");
+                this.cbxRol.Focus();
+            }
+
+            else
+            {
+                Usuario nUsuario = new Usuario();
+
+                nUsuario.sRfc = txtRFC.Text;
+                nUsuario.sUsuario = txtUsuario.Text;
+                nUsuario.sNombre = txtNombreUsuario.Text;
+
+
+                nUsuario.sContrasena = LoginTool.GetMD5(txtContraseña.Text);
+                nUsuario.sNumero = txtTelefono.Text;
+                nUsuario.sCorreo = txtCorreo.Text;
+                nUsuario.sComentario = txtComentUsua.Text;
+                int fkRol = Convert.ToInt32(cbxRol.SelectedValue.ToString());
+
+
+
+                ManejoUsuario.RegistrarNuevoUsuario(nUsuario, fkRol);
+
+                MessageBox.Show("¡Usuario Registrado!");
+                txtRFC.Clear();
+                txtUsuario.Clear();
+                txtNombreUsuario.Clear();
+
+                txtContraseña.Clear();
+                txtTelefono.Clear();
+                txtCorreo.Clear();
+                txtComentUsua.Clear();
+                cargarUsuarios();
+
+
+
+
+
+
+            }
         }
     }
 }
