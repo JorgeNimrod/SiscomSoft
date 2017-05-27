@@ -11,9 +11,11 @@ using SiscomSoft.Comun;
 using SiscomSoft.Controller;
 using SiscomSoft.Models;
 using System.Globalization;
+using System.Drawing.Imaging;
 
 namespace SiscomSoft_Desktop.Views
 {
+
     public partial class FrmAdministrador : Form
     {
         Boolean flagRol = false;
@@ -30,6 +32,10 @@ namespace SiscomSoft_Desktop.Views
         Boolean flagUpdateUser = false;
         Boolean flagAddImpuesto = false;
         Boolean flagUpdateImpuestos = false;
+        Boolean flagAddProducto = false;
+        Boolean flagUpdateProducto = false;
+        Boolean flagAddPrecio = false;
+        Boolean flagUpdatePrecio = false;
 
         public static int PKROL;
         public static int PKUSUARIO;
@@ -37,7 +43,7 @@ namespace SiscomSoft_Desktop.Views
         public static int PKIMPUESTO;
         public static int PKPRECIO;
         public static int PKPRODUCTO;
-      
+
 
         public FrmAdministrador()
         {
@@ -51,6 +57,8 @@ namespace SiscomSoft_Desktop.Views
             CargarTablas();
             cargarCombos();
         }
+        public String ImagenString { get; set; }
+        public Bitmap ImagenBitmap { get; set; }
         public void CargarTablas()
         {
             cargarUsuarios();
@@ -63,13 +71,46 @@ namespace SiscomSoft_Desktop.Views
         }
         public void cargarCombos()
         {
+            //ComboBox de Registrar Usuarios
             int indexrol = 0;
-            //llenar combo
             cbxRol.DataSource = ManejoRol.getAll(true);
             cbxRol.DisplayMember = "sNombre";
             cbxRol.ValueMember = "pkRol";
-
             cbxRol.SelectedIndex = indexrol;
+          
+            //ComboBox de Actualizar Usuarios
+            int indexuser = 0;
+            cbxUpdateProfile.DataSource = ManejoRol.getAll(true);
+            cbxUpdateProfile.DisplayMember = "sNombre";
+            cbxUpdateProfile.ValueMember = "pkRol";
+            cbxUpdateProfile.SelectedIndex = indexuser;
+
+            //Combo's de Registrar Productos
+            int PrecioAddProd = 0;
+            cbxPrecioAddProd.DataSource = ManejoPrecio.getAll();
+            cbxPrecioAddProd.DisplayMember = "iPrePorcen";
+            cbxPrecioAddProd.ValueMember = "pkPrecios";
+            cbxPrecioAddProd.SelectedIndex = PrecioAddProd;
+
+            int CatalogoAddProd = 0;
+            cbxCatalogoAddProd.DataSource = ManejoCatalogo.getAll(true);
+            cbxCatalogoAddProd.DisplayMember = "sUDM";
+            cbxCatalogoAddProd.ValueMember = "pkCatalogo";
+            cbxCatalogoAddProd.SelectedIndex = CatalogoAddProd;
+
+            int CategoriaAddProd = 0;
+            cbxCategoriaAddProd.DataSource = ManejoCategoria.getAll(true);
+            cbxCategoriaAddProd.DisplayMember = "sNombre";
+            cbxCategoriaAddProd.ValueMember = "pkCategoria";
+            cbxCategoriaAddProd.SelectedIndex = CategoriaAddProd;
+
+            int ImpuestoAddProd = 0;
+            cbxImpuestoAddProd.DataSource = ManejoImpuesto.getAll(true);
+            cbxImpuestoAddProd.DisplayMember = "dTasaImpuesto";
+            cbxImpuestoAddProd.ValueMember = "pkImpuesto";
+            cbxImpuestoAddProd.SelectedIndex = ImpuestoAddProd;
+           
+
         }
 
         public void cargarRoles()
@@ -182,7 +223,7 @@ namespace SiscomSoft_Desktop.Views
             btnCategorialist.BackColor = Color.DarkCyan;
             btnCategorialist.ForeColor = Color.White;
         }
-        
+
         private void btnUserlist_Click(object sender, EventArgs e)
         {
             if (flagUsuario == false)
@@ -214,6 +255,10 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpUpdateImpuesto);
             tbcGeneral.TabPages.Remove(tbpAddUsuario);
             tbcGeneral.TabPages.Remove(tbpUpdateUser);
+            tbcGeneral.TabPages.Remove(tbpAddProducto);
+            tbcGeneral.TabPages.Remove(tbpUpdateProducto);
+            tbcGeneral.TabPages.Remove(tbpAddPrecio);
+            tbcGeneral.TabPages.Remove(tbpUpdatePrecio);
         }
 
         private void btnRollist_Click(object sender, EventArgs e)
@@ -245,7 +290,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.SelectedTab = tbpImpuestos;
             }
-            
+
         }
 
         private void btnCategorialist_Click(object sender, EventArgs e)
@@ -276,7 +321,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.SelectedTab = tbpProducto;
             }
-            
+
         }
 
         private void btnPreciolist_Click(object sender, EventArgs e)
@@ -292,7 +337,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.SelectedTab = tbpPrecio;
             }
-            
+
         }
 
         private void txtBuscarRol_TextChanged(object sender, EventArgs e)
@@ -478,6 +523,12 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateNombre.Text = nRol.sNombre;
             txtUpdateComentario.Text = nRol.sComentario;
         }
+        public void ActualizarPrecio()
+        {
+            Precio nPrecio = ManejoPrecio.getById(PKPRECIO);
+            txtUpdatePrecio.Text = nPrecio.iPrePorcen.ToString();
+           
+        }
         public void ActualizarCategoria()
         {
             Categoria nCategoria = ManejoCategoria.getById(PKCATEGORIA);
@@ -487,9 +538,14 @@ namespace SiscomSoft_Desktop.Views
         public void ActualizarUsuario()
         {
             Usuario nUsuario = ManejoUsuario.getById(PKUSUARIO);
-            
-            txtUpdateNombre.Text = nUsuario.sNombre;
-            txtUpdateComentario.Text = nUsuario.sComentario;
+
+            txtUpdateRFCUser.Text = nUsuario.sRfc;
+            txtUpdateUser.Text = nUsuario.sUsuario;
+            txtUpdateNameUser.Text = nUsuario.sNombre;
+            txtUpdateContrasena.Text = nUsuario.sContrasena;
+            txtUpdatePhone.Text = nUsuario.sNumero;
+            txtUpdateCorreo.Text = nUsuario.sCorreo;
+            txtUpdateComment.Text = nUsuario.sComentario;
         }
         public void ActualizarImpuesto()
         {
@@ -547,7 +603,21 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnActualizarUsuario_Click(object sender, EventArgs e)
         {
-         
+            if (this.dgvDatosUsuario.RowCount >= 1)
+            {
+                PKUSUARIO = Convert.ToInt32(this.dgvDatosUsuario.CurrentRow.Cells[0].Value);
+                if (flagUpdateUser == false)
+                {
+                    tbcGeneral.TabPages.Add(tbpUpdateUser);
+                    ActualizarUsuario();
+                    tbcGeneral.SelectedTab = tbpUpdateUser;
+                    flagUpdateUser = true;
+                }
+                else
+                {
+                    tbcGeneral.SelectedTab = tbpUpdateUser;
+                }
+            }
         }
 
         private void tbpProducto_Click(object sender, EventArgs e)
@@ -715,7 +785,7 @@ namespace SiscomSoft_Desktop.Views
                 MessageBox.Show("¡Categoria Actualizada!");
                 cargarCategorias();
 
-               
+
 
             }
         }
@@ -967,7 +1037,7 @@ namespace SiscomSoft_Desktop.Views
 
                 cargarImpuestos();
 
-                this.Close();
+
             }
         }
 
@@ -1041,6 +1111,11 @@ namespace SiscomSoft_Desktop.Views
         }
 
         private void btnGuardarUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegistrarUsu_Click(object sender, EventArgs e)
         {
             if (this.txtRFC.Text == "")
             {
@@ -1134,6 +1209,364 @@ namespace SiscomSoft_Desktop.Views
 
 
             }
+        }
+
+        private void btnUpdateGuardar_Click(object sender, EventArgs e)
+        {
+            if (this.txtUpdateRFCUser.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateRFCUser, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateRFCUser, "Campo necesario");
+                this.txtUpdateRFCUser.Focus();
+            }
+            else if (this.txtUpdateNombre.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateNombre, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateNombre, "Campo necesario");
+                this.txtUpdateNombre.Focus();
+            }
+            else if (this.txtUpdateContrasena.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateContrasena, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateContrasena, "Campo necesario");
+                this.txtUpdateContrasena.Focus();
+            }
+            else if (this.txtUpdateUser.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateUser, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateUser, "Campo necesario");
+                this.txtUpdateUser.Focus();
+            }
+            else if (this.txtUpdateCorreo.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateCorreo, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateCorreo, "Campo necesario");
+                this.txtUpdateCorreo.Focus();
+            }
+            else if (this.txtUpdatePhone.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdatePhone, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdatePhone, "Campo necesario");
+                this.txtUpdatePhone.Focus();
+            }
+            else if (this.txtUpdateComment.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateComment, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateComment, "Campo necesario");
+                this.txtUpdateComment.Focus();
+            }
+            else
+            {
+                Usuario nUsuario = new Usuario();
+
+                nUsuario.pkUsuario = PKUSUARIO;
+                nUsuario.sRfc = txtUpdateRFCUser.Text;
+                nUsuario.sUsuario = txtUpdateUser.Text;
+                nUsuario.sNombre = txtUpdateNameUser.Text;
+
+                nUsuario.sContrasena = txtUpdateContrasena.Text;
+                nUsuario.sNumero = txtUpdatePhone.Text;
+                nUsuario.sCorreo = txtUpdateCorreo.Text;
+                nUsuario.sComentario = txtUpdateComment.Text;
+                int fkRol = Convert.ToInt32(cbxUpdateProfile.SelectedValue.ToString());
+                ManejoUsuario.Modificar(nUsuario);
+                cargarUsuarios();
+
+
+
+
+
+
+
+
+            
+
+
+
+            }
+        }
+
+        private void pcbLogo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegistrarProducto_Click(object sender, EventArgs e)
+        {
+            if (flagAddProducto == false)
+            {
+                tbcGeneral.TabPages.Add(tbpAddProducto);
+                tbcGeneral.SelectedTab = tbpAddProducto;
+                flagAddProducto = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpAddProducto;
+            }
+        }
+
+        private void btnAddProducto_Click(object sender, EventArgs e)
+        {
+            if (this.txtClaveaddprod.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtClaveaddprod, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtClaveaddprod, "Campo necesario");
+                this.txtClaveaddprod.Focus();
+            }
+            else if (this.txtMarcaaddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtMarcaaddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtMarcaaddProd, "Campo necesario");
+                this.txtMarcaaddProd.Focus();
+            }
+            else if (this.txtCostoAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCostoAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCostoAddProd, "Campo necesario");
+                this.txtCostoAddProd.Focus();
+            }
+            else if (this.txtDescuentoProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtDescuentoProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtDescuentoProd, "Campo necesario");
+                this.txtDescuentoProd.Focus();
+            }
+            else if (this.cbxPrecioAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxPrecioAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxPrecioAddProd, "Primero debe Agregar un Precio");
+                this.cbxPrecioAddProd.Focus();
+            }
+            else if (this.txtLoteAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtLoteAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtLoteAddProd, "Campo necesario");
+                this.txtLoteAddProd.Focus();
+            }
+            else if (this.cbxImpuestoAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxImpuestoAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxImpuestoAddProd, "Primero debe Agregar un Impuesto");
+                this.cbxImpuestoAddProd.Focus();
+            }
+            else if (this.cbxCatalogoAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxCatalogoAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxCatalogoAddProd, "Primero debe Agregar un Catalogo");
+                this.cbxCatalogoAddProd.Focus();
+            }
+            else if (this.txtLineaAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtLineaAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtLineaAddProd, "Campo necesario");
+                this.txtLineaAddProd.Focus();
+            }
+            else if (this.txtDescripcionAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtDescripcionAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtDescripcionAddProd, "Campo necesario");
+                this.txtDescripcionAddProd.Focus();
+            }
+            else if (this.txtSublineaAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtSublineaAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtSublineaAddProd, "Campo necesario");
+                this.txtSublineaAddProd.Focus();
+            }
+
+            else if (this.cbxCategoriaAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxCategoriaAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxCategoriaAddProd, "Primero debe Agregar una Categoria");
+                this.cbxCategoriaAddProd.Focus();
+            }
+            else if (this.pcbimgAddProd == null)
+            {
+                this.ErrorProvider.SetIconAlignment(this.pcbimgAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.pcbimgAddProd, "Debe agregar una imagen del producto en Examinar ");
+                btnExaImgProdu.Focus();
+            }
+            Categoria nCategoria = new Categoria();
+            nCategoria.sNombre = txtLineaAddProd.Text;
+            nCategoria.sNomSubCat = txtLineaAddProd.Text;
+
+
+            Producto nProducto = new Producto();
+            nProducto.iClaveProd = Convert.ToInt32(txtClaveaddprod.Text.ToString());
+            nProducto.sMarca = txtMarcaaddProd.Text;
+            nProducto.dtCaducidad = dtpFechaCaducidadProd.Value.Date;
+            nProducto.dCosto = Convert.ToDecimal(txtCostoAddProd.Text);
+            nProducto.iDescuento = Convert.ToInt32(txtDescuentoProd.Text.ToString());
+            nProducto.sFoto = ImagenString;
+            nProducto.iLote = Convert.ToInt32(txtLoteAddProd.Text.ToString());
+
+            nProducto.sDescripcion = txtDescripcionAddProd.Text;
+
+            int fkImpuesto = Convert.ToInt32(cbxImpuestoAddProd.SelectedValue.ToString());
+            int fkPrecio = Convert.ToInt32(cbxPrecioAddProd.SelectedValue.ToString());
+            int fkCategoria = Convert.ToInt32(cbxCategoriaAddProd.SelectedValue.ToString());
+            int fkCatalogo = Convert.ToInt32(cbxCatalogoAddProd.SelectedValue.ToString());
+
+            ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
+            ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, fkCategoria, fkCatalogo);
+
+            MessageBox.Show("¡Producto Registrado!");
+            txtDescripcionAddProd.Clear();
+            txtCostoAddProd.Clear();
+            txtClaveaddprod.Clear();
+            txtMarcaaddProd.Clear();
+            dtpFechaCaducidadProd.ResetText();
+            txtDescuentoProd.Clear();
+            pcbimgAddProd.Image = null;
+            txtLineaAddProd.Clear();
+            txtSublineaAddProd.Clear();
+            txtLoteAddProd.Clear();
+            txtClaveaddprod.Focus();
+            cargarProductos();
+
+
+
+
+
+           
+
+        }
+
+        private void btnExaImgProdu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog BuscarImagen = new OpenFileDialog();
+                BuscarImagen.Filter = "Archivos de Imagen|*.jpg;*.png;*gif;*.bmp";
+                //Aquí incluiremos los filtros que queramos.
+                BuscarImagen.FileName = "";
+                BuscarImagen.Title = "Seleccione una imagen";
+                if (BuscarImagen.ShowDialog() == DialogResult.OK)
+                {
+                    string logo = BuscarImagen.FileName;
+                    this.pcbimgAddProd.ImageLocation = logo;
+                    ImagenBitmap = new System.Drawing.Bitmap(logo);
+                    ImagenString = ToolImagen.ToBase64String(ImagenBitmap, ImageFormat.Jpeg);
+                    pcbimgAddProd.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
+            }
+        }
+
+        private void btnBorrarProducto_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosProducto.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoProducto.Eliminar(Convert.ToInt32(dgvDatosProducto.CurrentRow.Cells[0].Value));
+                    cargarRoles();
+                }
+            }
+        }
+
+        private void btnRegistrarPrecio_Click(object sender, EventArgs e)
+        {
+            if (flagAddPrecio == false)
+            {
+                tbcGeneral.TabPages.Add(tbpAddPrecio);
+                tbcGeneral.SelectedTab = tbpAddPrecio;
+                flagAddPrecio = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpAddPrecio;
+            }
+        }
+
+        private void btnAgregarPrecio_Click(object sender, EventArgs e)
+        {
+            if (this.txtAddPrecio.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddPrecio, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddPrecio, "Campo necesario");
+                this.txtAddPrecio.Focus();
+            }
+
+            else
+            {
+                Precio nPrecio = new Precio();
+
+                nPrecio.iPrePorcen = Convert.ToInt32(txtAddPrecio.Text);
+
+
+                ManejoPrecio.RegistrarNuevoPrecio(nPrecio);
+
+                MessageBox.Show("¡Precio Registrado!");
+                txtAddPrecio.Clear();
+                txtAddPrecio.Focus();
+                cargarPrecios();
+
+
+            }
+        }
+
+        private void btnPrecio_Click(object sender, EventArgs e)
+        {
+            if (this.dgvDatosPrecio.RowCount >= 1)
+            {
+                PKPRECIO = Convert.ToInt32(this.dgvDatosPrecio.CurrentRow.Cells[0].Value);
+                if (flagUpdatePrecio == false)
+                {
+                    tbcGeneral.TabPages.Add(tbpUpdatePrecio);
+                    ActualizarPrecio();
+                    tbcGeneral.SelectedTab = tbpUpdatePrecio;
+                    flagUpdatePrecio = true;
+                }
+                else
+                {
+                    tbcGeneral.SelectedTab = tbpUpdatePrecio;
+                }
+            }
+
+        }
+
+        private void btnUpdatePrecio_Click(object sender, EventArgs e)
+        {
+
+            if (this.txtUpdatePrecio.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdatePrecio, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdatePrecio, "Campo necesario");
+                this.txtUpdatePrecio.Focus();
+            }
+
+            else
+            {
+                Precio nPrecio = new Precio();
+                nPrecio.pkPrecios = PKPRECIO;
+                nPrecio.iPrePorcen = Convert.ToInt32(txtUpdateNombre.Text);
+              
+
+                ManejoPrecio.Modificar(nPrecio);
+                MessageBox.Show("¡Precio Actualizado!");
+                cargarPrecios();
+            }
+        }
+
+        private void btnBorrarPrecio_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosPrecio.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoPrecio.Eliminar(Convert.ToInt32(dgvDatosPrecio.CurrentRow.Cells[0].Value));
+                    cargarPrecios();
+                }
+            }
+
         }
     }
 }
