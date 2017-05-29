@@ -10,12 +10,13 @@
 
 <head>
     <style>
-        .c
-        {
-            color:white;
-            width: 137px;
-            font-size: 12pt;
-        }
+        .classImage
+    {
+        
+        width: 150px;
+        height: 94px;
+    }
+        
     </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,49 +53,49 @@
         <script type="text/javascript" async> ; (function (o, l, a, r, k, y) { if (o.olark) return; r = "script"; y = l.createElement(r); r = l.getElementsByTagName(r)[0]; y.async = 1; y.src = "//" + a; r.parentNode.insertBefore(y, r); y = o.olark = function () { k.s.push(arguments); k.t.push(+new Date) }; y.extend = function (i, j) { y("extend", i, j) }; y.identify = function (i) { y("identify", k.i = i) }; y.configure = function (i, j) { y("configure", i, j); k.c[i] = j }; k = y._ = { s: [], t: [+new Date], c: {}, l: a }; })(window, document, "static.olark.com/jsclient/loader.js");
             /* custom configuration goes here (www.olark.com/documentation) */
             olark.identify('8933-745-10-9942');
+
+            
 </script>
+         <style>
+           #resizable
+             {
+                 
+                 height: 50px;
+                 
+             }
+        </style>
 
-     <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="WebForm1.aspx"><div style="position:absolute; top:4px;"><img src="img/aber.png" alt="SiscomSoft" height="70" width=110"></div></a>
-            </div>
-            <div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><p class="c">Bienvenido, 
-                    <li><p class="c"><asp:Label ID="lblNombre" runat="server" Text="" ></asp:Label></p></li>
-                </ul>
-            </div>
-        </div>
-    </header><!--/header-->
-
-
-        <!-- Page Title -->
-	
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1></h1>
-					</div>
-				</div>
-			</div>
-		
-		
-		
+                <a class="navbar-brand" href="WebForm1.aspx"><div style="position:absolute; top:6px;"><img src="img/nuevo_logo.png" alt="SiscomSoft" width="210" height="40"></div></a>
+           
+                    <center>
+                    <p>Bienvenido, 
+                    <p><asp:Label ID="lblNombre" runat="server" Text="" ></asp:Label></p>
+                </center>
+            
         <div class="section">
 	    	<div class="container">
 				<div class="row">
-				<div class="col-sm-12"> 
-                    <br /><br /><br /><br />
-						
-					</div>
-                    Por favor ingrese un nuevo usuario y una nueva clave a su gusto.<br /><br /> 
+                    <div class="col-sm-12">
+                        <br /><center>
+                    <asp:ImageButton  ID="btnReportes" runat="server"  BackColor="Blue" Height="178px" Width="223px" ImageUrl="~/img/b1.png" />
+                    <asp:ImageButton  ID="ImageButton7" runat="server"  BackColor="Blue" Height="178px" Width="223px" ImageUrl="~/img/b2.png" />
+                    <asp:ImageButton  ID="ImageButton8" runat="server"  BackColor="Blue" Height="178px" Width="223px" ImageUrl="~/img/b3.png" />
+                </center></div>
+                    <div class="col-sm-12">
+                        <center>
+                     <asp:ImageButton  ID="ImageButton1" runat="server"  BackColor="Blue" Height="178px" Width="223px" ImageUrl="~/img/b4.png" />
+                    <asp:ImageButton  ID="ImageButton2" runat="server"  BackColor="Blue" Height="178px" Width="223px" ImageUrl="~/img/b5.png" />
+                    <asp:ImageButton  ID="ImageButton3" runat="server"  BackColor="Blue" Height="178px" Width="223px" ImageUrl="~/img/b6.png" />
+                </center></div>
+
+                    <div class="col-sm-12">
+                        <center>
+                     <asp:ImageButton  ID="ImageButton4" runat="server"  BackColor="Blue" Height="178px" Width="223px" ImageUrl="~/img/b1.png" />
+                    <asp:ImageButton  ID="ImageButton5" runat="server"  BackColor="Blue" Height="178px" Width="223px" ImageUrl="~/img/b1.png" />
+                    <asp:ImageButton  ID="ImageButton6" runat="server"  BackColor="Blue" Height="178px" Width="223px" ImageUrl="~/img/b3.png" />
+                </center></div>
+				</div>
+
                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<br /><br />
 			<asp:Label ID="Label2" runat="server" Visible="False"></asp:Label>
 

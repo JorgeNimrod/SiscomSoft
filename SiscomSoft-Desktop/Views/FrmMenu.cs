@@ -59,5 +59,10 @@ namespace SiscomSoft_Desktop.Views
             FrmFacturacion v = new FrmFacturacion();
             v.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

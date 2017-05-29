@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Clientes";
+    List<SiscomSoft.Models.Cliente> dato = ViewBag.dato;
+}
+
+<div class="col-xs-12">
+    <div class="col-xs-12">
+        <h2>Categorias</h2>
+        <h2 class="col-xs-9">&nbsp;</h2> <h2 class="col-xs-3"><a href="~/Home/frmNuevo">Agregar</a></h2>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table table-condensed col-xs-12">
+                    <thead>
+                        <tr>
+                            <td class="col-xs-12">Id</td>
+                            <td class="col-xs-1">RFC</td>
+                            <td class="col-xs-1">Razon Social</td>
+                            <td class="col-xs-1">Persona</td>
+                            <td class="col-xs-1">CURP</td>
+                            <td class="col-xs-1">Nombre</td>
+                            <td class="col-xs-1">Pais</td>
+                            <td class="col-xs-1">Estado</td>
+                            <td class="col-xs-1">Municipio</td>
+                            <td class="col-xs-1">Localidad</td>
+                            <td class="col-xs-1">Categoria</td>
+                            <td class="col-xs-1">Colonia</td>
+                            <td class="col-xs-1">Calle</td>
+                            <td class="col-xs-1">Numero Exterior</td>
+                            <td class="col-xs-1">Numero Interior</td>
+                            <td class="col-xs-1">Telefono Fijo</td>
+                            <td class="col-xs-1">Telefono Movil</td>
+                            <td class="col-xs-1">Correo</td>
+                            <td class="col-xs-1">Referencia</td>
+                            <td class="col-xs-1">Tipo de pago</td>
+                            <td class="col-xs-1">Numero de cuenta</td>
+                            <td class="col-xs-1">Con pago</td>
+                            <td class="col-xs-1">Tipo de cliente</td>
+                            <td class="col-xs-1">Logo</td>
+                        </tr>
+                    </thead>
+            </div>
+            <!--Aqui se utiliza el forech para rellenar el cuadro-->
+            @foreach (SiscomSoft.Models.Cliente item in dato)
+            {
+                <tr>
+                    <td>@item.pkCliente</td>
+                    <td>@item.sRfc</td>
+                    <td>@item.sRazonSocial</td>
+                    <td>@item.iPersona</td>
+                    <td>@item.sCurp</td>
+                    <td>@item.sNombre</td>
+                    <td>@item.sPais</td>
+                    <td>@item.iCodPostal</td>
+                    <td>@item.sEstado</td>
+                    <td>@item.sMunicipio</td>
+                    <td>@item.sLocalidad</td>
+                    <td>@item.sColonia</td>
+                    <td>@item.sCalle</td>
+                    <td>@item.iNumExterior</td>
+                    <td>@item.iNumInterior</td>
+                    <td>@item.sTelFijo</td>
+                    <td>@item.sTelMovil</td>
+                    <td>@item.sCorreo</td>
+                    <td>@item.pkCliente</td>
+                    <td>@item.sCorreo</td>
+                    <td>@item.sReferencia</td>
+                    <td>@item.sTipoPago</td>
+                    <td>@item.sLogo</td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="~/Home/ActualizarCat/@item.pkCliente">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        </a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="~/Home/Borrar/@item.pkCliente">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

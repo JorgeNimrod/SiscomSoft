@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "AgregarCatalogo";
+}
+
+<div class="container">
+    @using (Html.BeginForm("GuardarCatalogo", "Home", FormMethod.Post))
+    {
+        <input type="hidden" name="txtID" />
+        <div class="form-group">
+            <label class="control-label col-xs-3">UDM: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtUDM" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <input type="reset" value="Limpiar" class="btn btn-default" />
+            </div>
+        </div>
+
+    }
+</div>
+
