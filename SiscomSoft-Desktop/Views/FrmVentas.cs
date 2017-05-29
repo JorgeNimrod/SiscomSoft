@@ -19,7 +19,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmVentas_Load(object sender, EventArgs e)
         {
-            lblFecha.Text = DateTime.Today.ToLongDateString() + " " + DateTime.Today.ToShortTimeString();
+            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
         }
 
         private void button1_Click(object sender, EventArgs e)

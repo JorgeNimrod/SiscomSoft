@@ -507,7 +507,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmMenuFacturacion_Load(object sender, EventArgs e)
         {
-            lblFecha.Text = DateTime.Today.ToLongDateString() + " " + DateTime.Today.ToShortTimeString();
+            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             this.cmbMetodoDePago.SelectedIndex = 0;
             this.cmbTipoDeComprobante.SelectedIndex = 0;
             this.cmbMoneda.SelectedIndex = 0;

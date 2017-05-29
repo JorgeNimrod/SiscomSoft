@@ -37,7 +37,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            lblFecha.Text = DateTime.Today.ToLongDateString() + " " + DateTime.Today.ToShortTimeString();
+            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             //if (uHelper == null)
             //{
             //    FrmLogin vLogin = new FrmLogin();

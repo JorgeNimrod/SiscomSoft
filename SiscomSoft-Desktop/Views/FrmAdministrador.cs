@@ -290,7 +290,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
-            lblFecha.Text = DateTime.Today.ToLongDateString() + " " + DateTime.Today.ToShortTimeString();
+            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
             tbcGeneral.TabPages.Remove(tbpRol);
             tbcGeneral.TabPages.Remove(tbpImpuestos);
