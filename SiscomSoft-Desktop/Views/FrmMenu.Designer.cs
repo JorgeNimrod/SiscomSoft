@@ -40,6 +40,7 @@
             this.btnFacturacion = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,7 +180,7 @@
             // 
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(71, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(181, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -193,11 +194,23 @@
             this.lblNombre.BackColor = System.Drawing.Color.White;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblNombre.Location = new System.Drawing.Point(1176, 24);
+            this.lblNombre.Location = new System.Drawing.Point(1079, 671);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(107, 20);
+            this.lblNombre.Size = new System.Drawing.Size(189, 20);
             this.lblNombre.TabIndex = 21;
-            this.lblNombre.Text = "Administrador";
+            this.lblNombre.Text = "Bienvenido Administrador";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblFecha.Location = new System.Drawing.Point(981, 26);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(302, 18);
+            this.lblFecha.TabIndex = 26;
+            this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
             // 
             // FrmMenu
             // 
@@ -205,6 +218,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1358, 696);
+            this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnFacturacion);
@@ -245,5 +259,6 @@
         private System.Windows.Forms.Button btnFacturacion;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblFecha;
     }
 }
