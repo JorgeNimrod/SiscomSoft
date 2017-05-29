@@ -2009,6 +2009,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(172, 24);
             this.txtTelefono.TabIndex = 25;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label27
@@ -2685,7 +2686,7 @@
             // 
             // btnUpdatePrecio
             // 
-            this.btnUpdatePrecio.Location = new System.Drawing.Point(333, 90);
+            this.btnUpdatePrecio.Location = new System.Drawing.Point(345, 110);
             this.btnUpdatePrecio.Name = "btnUpdatePrecio";
             this.btnUpdatePrecio.Size = new System.Drawing.Size(103, 67);
             this.btnUpdatePrecio.TabIndex = 109;
@@ -2695,7 +2696,7 @@
             // 
             // txtUpdatePrecio
             // 
-            this.txtUpdatePrecio.Location = new System.Drawing.Point(14, 39);
+            this.txtUpdatePrecio.Location = new System.Drawing.Point(26, 59);
             this.txtUpdatePrecio.Name = "txtUpdatePrecio";
             this.txtUpdatePrecio.Size = new System.Drawing.Size(390, 24);
             this.txtUpdatePrecio.TabIndex = 108;
@@ -2704,7 +2705,7 @@
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(11, 8);
+            this.label54.Location = new System.Drawing.Point(23, 28);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(59, 18);
             this.label54.TabIndex = 107;
@@ -2730,6 +2731,7 @@
             this.txtUpdateSubProd.Name = "txtUpdateSubProd";
             this.txtUpdateSubProd.Size = new System.Drawing.Size(209, 24);
             this.txtUpdateSubProd.TabIndex = 154;
+            this.txtUpdateSubProd.TextChanged += new System.EventHandler(this.txtUpdateSubProd_TextChanged);
             // 
             // label55
             // 
@@ -2746,6 +2748,7 @@
             this.txtUpdateLineaProd.Name = "txtUpdateLineaProd";
             this.txtUpdateLineaProd.Size = new System.Drawing.Size(211, 24);
             this.txtUpdateLineaProd.TabIndex = 151;
+            this.txtUpdateLineaProd.TextChanged += new System.EventHandler(this.txtUpdateLineaProd_TextChanged);
             // 
             // label56
             // 
@@ -2762,6 +2765,8 @@
             this.txtUpdateClavProd.Name = "txtUpdateClavProd";
             this.txtUpdateClavProd.Size = new System.Drawing.Size(213, 24);
             this.txtUpdateClavProd.TabIndex = 140;
+            this.txtUpdateClavProd.TextChanged += new System.EventHandler(this.txtUpdateClavProd_TextChanged);
+            this.txtUpdateClavProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateClavProd_KeyPress);
             // 
             // label57
             // 
@@ -2844,6 +2849,7 @@
             this.txtUpdateLoteProd.Name = "txtUpdateLoteProd";
             this.txtUpdateLoteProd.Size = new System.Drawing.Size(213, 24);
             this.txtUpdateLoteProd.TabIndex = 148;
+            this.txtUpdateLoteProd.TextChanged += new System.EventHandler(this.txtUpdateLoteProd_TextChanged);
             this.txtUpdateLoteProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateLoteProd_KeyPress);
             // 
             // txtUpdateDescProd
@@ -2852,6 +2858,7 @@
             this.txtUpdateDescProd.Name = "txtUpdateDescProd";
             this.txtUpdateDescProd.Size = new System.Drawing.Size(206, 24);
             this.txtUpdateDescProd.TabIndex = 146;
+            this.txtUpdateDescProd.TextChanged += new System.EventHandler(this.txtUpdateDescProd_TextChanged);
             this.txtUpdateDescProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateDescProd_KeyPress);
             // 
             // dtpUpdateFechaProd
@@ -2912,6 +2919,7 @@
             this.txtUpdateCostoProd.Name = "txtUpdateCostoProd";
             this.txtUpdateCostoProd.Size = new System.Drawing.Size(213, 24);
             this.txtUpdateCostoProd.TabIndex = 145;
+            this.txtUpdateCostoProd.TextChanged += new System.EventHandler(this.txtUpdateCostoProd_TextChanged);
             this.txtUpdateCostoProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateCostoProd_KeyPress);
             // 
             // label64
@@ -2929,6 +2937,7 @@
             this.txtUpdateMarcProd.Name = "txtUpdateMarcProd";
             this.txtUpdateMarcProd.Size = new System.Drawing.Size(236, 24);
             this.txtUpdateMarcProd.TabIndex = 142;
+            this.txtUpdateMarcProd.TextChanged += new System.EventHandler(this.txtUpdateMarcProd_TextChanged);
             // 
             // label65
             // 
@@ -2955,6 +2964,7 @@
             this.txtUpdateDesProd.Name = "txtUpdateDesProd";
             this.txtUpdateDesProd.Size = new System.Drawing.Size(206, 105);
             this.txtUpdateDesProd.TabIndex = 153;
+            this.txtUpdateDesProd.TextChanged += new System.EventHandler(this.txtUpdateDesProd_TextChanged);
             // 
             // label67
             // 
