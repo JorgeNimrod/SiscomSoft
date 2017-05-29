@@ -37,6 +37,15 @@ namespace SiscomSoft_Desktop.Views
         Boolean flagUpdateProducto = false;
         Boolean flagAddPrecio = false;
         Boolean flagUpdatePrecio = false;
+        Boolean flagEmpresa = false;
+        Boolean flagAddEmpres = false;
+        Boolean flagUpdateEmpresa = false;
+        Boolean flagSucursal = false;
+        Boolean flagAddSucursal = false;
+        Boolean flagUpdateSucursal = false;
+        Boolean flagClientes = false;
+        Boolean flagAddCliente = false;
+        Boolean flagUpdateCliente = false;
 
         public static int PKROL;
         public static int PKUSUARIO;
@@ -165,25 +174,19 @@ namespace SiscomSoft_Desktop.Views
             this.dgvDatosProducto.DataSource = ManejoProducto.Buscar(txtBuscarProducto.Text, ckbStatusProducto.Checked);
         }
 
-
-
-
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmMenu v = new FrmMenu();
-            v.Show();
-        }
-
         private void btnUser_Click(object sender, EventArgs e)
         {
+            pnlEmpresas.Visible = false;
             pnlProducto.Visible = false;
+            pnlCliente.Visible = false;
             pnlUsuario.Visible = true;
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
+            pnlEmpresas.Visible = false;
             pnlUsuario.Visible = false;
+            pnlCliente.Visible = false;
             pnlProducto.Visible = true;
         }
 
@@ -305,6 +308,15 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpUpdateProducto);
             tbcGeneral.TabPages.Remove(tbpAddPrecio);
             tbcGeneral.TabPages.Remove(tbpUpdatePrecio);
+            tbcGeneral.TabPages.Remove(tbpEmpresa);
+            tbcGeneral.TabPages.Remove(tbpAddEmpresa);
+            tbcGeneral.TabPages.Remove(tbpUpdateEmpresa);
+            tbcGeneral.TabPages.Remove(tbpSucursal);
+            tbcGeneral.TabPages.Remove(tbpAddSucursal);
+            tbcGeneral.TabPages.Remove(tbpUpdateSucursal);
+            tbcGeneral.TabPages.Remove(tbpClientes);
+            tbcGeneral.TabPages.Remove(tbpAddCliente);
+            tbcGeneral.TabPages.Remove(tbpUpdateCliente);
         }
 
         private void btnRollist_Click(object sender, EventArgs e)
@@ -2094,6 +2106,96 @@ namespace SiscomSoft_Desktop.Views
                 txtUpdateCorreo.SelectAll();
                 txtUpdateCorreo.Focus();
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmMenu v = new FrmMenu();
+            v.Show();
+        }
+
+        private void btnBussiness_Click(object sender, EventArgs e)
+        {
+            pnlProducto.Visible = false;
+            pnlUsuario.Visible = false;
+            pnlCliente.Visible = false;
+            pnlEmpresas.Visible = true;
+        }
+
+        private void button3_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnSucursalesList.BackColor = Color.White;
+            btnSucursalesList.ForeColor = Color.Black;
+            btnEmpresasList.BackColor = Color.DarkCyan;
+            btnEmpresasList.ForeColor = Color.White;
+        }
+
+        private void btnSucursalesList_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnEmpresasList.BackColor = Color.White;
+            btnEmpresasList.ForeColor = Color.Black;
+            btnSucursalesList.BackColor = Color.DarkCyan;
+            btnSucursalesList.ForeColor = Color.White;
+        }
+
+        private void btnEmpresasList_Click(object sender, EventArgs e)
+        {
+            if (flagEmpresa == false)
+            {
+                tbcGeneral.Visible = true;
+                tbcGeneral.TabPages.Add(tbpEmpresa);
+                tbcGeneral.SelectedTab = tbpEmpresa;
+                flagEmpresa = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpEmpresa;
+            }
+        }
+
+        private void btnSucursalesList_Click(object sender, EventArgs e)
+        {
+            if (flagSucursal == false)
+            {
+                tbcGeneral.Visible = true;
+                tbcGeneral.TabPages.Add(tbpSucursal);
+                tbcGeneral.SelectedTab = tbpSucursal;
+                flagSucursal = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpSucursal;
+            }
+        }
+
+        private void btnCustomersList_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnCustomersList.ForeColor = Color.White;
+            btnCustomersList.BackColor = Color.DarkCyan;
+        }
+
+        private void btnCustomersList_Click(object sender, EventArgs e)
+        {
+            if (flagClientes == false)
+            {
+                tbcGeneral.Visible = true;
+                tbcGeneral.TabPages.Add(tbpClientes);
+                tbcGeneral.SelectedTab = tbpClientes;
+                flagClientes = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpClientes;
+            }
+        }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            pnlEmpresas.Visible = false;
+            pnlUsuario.Visible = false;
+            pnlProducto.Visible = false;
+            pnlCliente.Visible = true;
         }
     }
 }
