@@ -18,27 +18,13 @@ using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class FrmFacturacion : Form
+    public partial class FrmMenuFacturacion : Form
     {
-        public FrmFacturacion()
+        public FrmMenuFacturacion()
         {
             InitializeComponent();
             this.dgvDatosProducto.AutoGenerateColumns = false;
         }
-        
-        //public AutoCompleteStringCollection cargarCliente()
-        //{
-        //    AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
-
-        //    List<string> nClientes = new List<string>();
-        //    if (txtRFC.Text != null)
-        //    {
-        //        nClientes = ManejoCliente.Autocompletar(txtRFC.Text);
-        //    }
-        //    collection.AddRange(nClientes.ToArray());
-
-        //    return collection;
-        //}
 
         public void cargarDetalleFactura()
         {
@@ -70,6 +56,7 @@ namespace SiscomSoft_Desktop.Views
             this.txtTelefono.Text = nCliente.sTelMovil;
             this.cmbMoneda.SelectedValue = nCliente.sTipoPago;
             this.txtCondicionesDeVenta.Text = nCliente.sConPago;
+            //TODO: Preguntar como se manejara el tipo de cambio, si lo pongo o no: no es obligatorio
         }
 
         public void CalcularTotales()
@@ -117,7 +104,7 @@ namespace SiscomSoft_Desktop.Views
             if (this.cmbFormaDePago.SelectedIndex == 0)
             {
                 cfdi.FormaPago = c_FormaPago.Item01;
-                
+
             }
             else if (this.cmbFormaDePago.SelectedIndex == 1)
             {
@@ -387,7 +374,7 @@ namespace SiscomSoft_Desktop.Views
 
             #region Conceptos
             cfdi.Conceptos = new ComprobanteConcepto[this.dgvDatosProducto.Rows.Count - 1]; // Numero de Filas
-            for (int i = 0; i < this.dgvDatosProducto.Rows.Count -1; i++)
+            for (int i = 0; i < this.dgvDatosProducto.Rows.Count - 1; i++)
             {
                 cfdi.Conceptos[i] = new ComprobanteConcepto(); // Instancia de la Fila
                 cfdi.Conceptos[i].ClaveProdServ = c_ClaveProdServ.Item01010101;
@@ -472,28 +459,55 @@ namespace SiscomSoft_Desktop.Views
             //Fin del programa.
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnBussines_Click(object sender, EventArgs e)
         {
-            //frmBuscarProductosNOSIRVE v = new frmBuscarProductosNOSIRVE(this);
-            //v.ShowDialog();
+            pnlCreditNotes.Visible = false;
+            pnlFacturacion.Visible = true;
         }
 
-        private void frmFacturacion_KeyDown(object sender, KeyEventArgs e)
+        private void btnCustomer_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.F1)
-            {
-                frmBuscarClientes nVentana = new frmBuscarClientes(this);
-                nVentana.ShowDialog();
-                e.Handled = true;
-            }
+            pnlFacturacion.Visible = false;
+            pnlCreditNotes.Visible = true;
         }
 
-        private void frmFacturacion_Load(object sender, EventArgs e)
+        private void btnCreateBill_MouseClick(object sender, MouseEventArgs e)
         {
-            //this.txtRFC.AutoCompleteCustomSource = cargarCliente();
-            //this.txtRFC.AutoCompleteMode = AutoCompleteMode.Suggest;
-            //this.txtRFC.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            btnCancelarBill.BackColor = Color.White;
+            btnCancelarBill.ForeColor = Color.Black;
+            btnCreateBill.BackColor = Color.DarkCyan;
+            btnCreateBill.ForeColor = Color.White;
+        }
 
+        private void btnCancelarBill_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnCreateBill.BackColor = Color.White;
+            btnCreateBill.ForeColor = Color.Black;
+            btnCancelarBill.BackColor = Color.DarkCyan;
+            btnCancelarBill.ForeColor = Color.White;
+        }
+
+        private void btnCreateBill_Click(object sender, EventArgs e)
+        {
+            pnlCreateFactura.Visible = true;
+            txtRFC.Focus();
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmMenu v = new FrmMenu();
+            v.ShowDialog();
+        }
+
+        private void btnCancelarBill_Click(object sender, EventArgs e)
+        {
+            pnlCreateFactura.Visible = false;
+        }
+
+        private void FrmMenuFacturacion_Load(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Today.ToLongDateString() + " " + DateTime.Today.ToShortTimeString();
             this.cmbMetodoDePago.SelectedIndex = 0;
             this.cmbTipoDeComprobante.SelectedIndex = 0;
             this.cmbMoneda.SelectedIndex = 0;
@@ -502,27 +516,10 @@ namespace SiscomSoft_Desktop.Views
             this.cmbRegimenFiscal.SelectedIndex = 0;
         }
 
-        private void frmFacturacion_Activated(object sender, EventArgs e)
+        private void btnBuscarProductos_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void btnGenPdf_Click(object sender, EventArgs e)
-        {
-            GenerarXML();
-        }
-
-        private void frmFacturacion_ResizeEnd(object sender, EventArgs e)
-        {
-            if (this.Width < 442) this.Width = 442;
-            if (this.Height < 131) this.Height = 131;
-            if (this.Width > 442) this.Width = 442;
-            if (this.Height > 131) this.Height = 131;
-        }
-
-        private void btnTimFactura_Click(object sender, EventArgs e)
-        {
-
+            FrmBuscarProductos v = new FrmBuscarProductos(this);
+            v.ShowDialog();
         }
     }
 }

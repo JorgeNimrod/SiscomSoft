@@ -40,6 +40,7 @@
             this.btnFacturacion = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             this.button8.Location = new System.Drawing.Point(883, 262);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(400, 200);
-            this.button8.TabIndex = 14;
+            this.button8.TabIndex = 6;
             this.button8.Text = "Actualizaciones";
             this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -83,7 +84,7 @@
             this.button6.Location = new System.Drawing.Point(883, 468);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(400, 200);
-            this.button6.TabIndex = 5;
+            this.button6.TabIndex = 9;
             this.button6.Text = "Cerrar Sesión";
             this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -98,7 +99,7 @@
             this.btnReportes.Location = new System.Drawing.Point(71, 468);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(400, 200);
-            this.btnReportes.TabIndex = 4;
+            this.btnReportes.TabIndex = 7;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -112,7 +113,7 @@
             this.button1.Location = new System.Drawing.Point(71, 262);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(400, 200);
-            this.button1.TabIndex = 15;
+            this.button1.TabIndex = 4;
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button1.UseVisualStyleBackColor = false;
@@ -125,7 +126,7 @@
             this.button2.Location = new System.Drawing.Point(477, 262);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(400, 200);
-            this.button2.TabIndex = 16;
+            this.button2.TabIndex = 5;
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = false;
@@ -138,7 +139,7 @@
             this.button3.Location = new System.Drawing.Point(71, 56);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(400, 200);
-            this.button3.TabIndex = 17;
+            this.button3.TabIndex = 1;
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button3.UseVisualStyleBackColor = false;
@@ -152,11 +153,12 @@
             this.button4.Location = new System.Drawing.Point(477, 56);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(400, 200);
-            this.button4.TabIndex = 18;
+            this.button4.TabIndex = 2;
             this.button4.Text = "Ventas";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnFacturacion
             // 
@@ -167,8 +169,8 @@
             this.btnFacturacion.Location = new System.Drawing.Point(883, 56);
             this.btnFacturacion.Name = "btnFacturacion";
             this.btnFacturacion.Size = new System.Drawing.Size(400, 200);
-            this.btnFacturacion.TabIndex = 19;
-            this.btnFacturacion.Text = "Faturacion";
+            this.btnFacturacion.TabIndex = 3;
+            this.btnFacturacion.Text = "Facturación";
             this.btnFacturacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnFacturacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnFacturacion.UseVisualStyleBackColor = false;
@@ -178,7 +180,7 @@
             // 
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(71, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(181, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -191,11 +193,24 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.BackColor = System.Drawing.Color.White;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(1094, 12);
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblNombre.Location = new System.Drawing.Point(1079, 671);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(189, 20);
             this.lblNombre.TabIndex = 21;
             this.lblNombre.Text = "Bienvenido Administrador";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblFecha.Location = new System.Drawing.Point(981, 26);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(302, 18);
+            this.lblFecha.TabIndex = 26;
+            this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
             // 
             // FrmMenu
             // 
@@ -203,6 +218,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1358, 696);
+            this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnFacturacion);
@@ -220,6 +236,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMenu_Load);
@@ -242,5 +259,6 @@
         private System.Windows.Forms.Button btnFacturacion;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblFecha;
     }
 }
