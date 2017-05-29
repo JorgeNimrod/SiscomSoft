@@ -56,7 +56,7 @@ namespace SiscomSoft_Desktop.Views
         private void btnFacturacion_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmFacturacion v = new FrmFacturacion();
+            FrmMenuFacturacion v = new FrmMenuFacturacion();
             v.ShowDialog();
         }
 
@@ -77,6 +77,12 @@ namespace SiscomSoft_Desktop.Views
 
           
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmVentas v = new FrmVentas();
+            v.ShowDialog();
         }
     }
 }

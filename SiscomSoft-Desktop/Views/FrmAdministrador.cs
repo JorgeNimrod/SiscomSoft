@@ -138,16 +138,6 @@ namespace SiscomSoft_Desktop.Views
             this.dgvDatosProducto.DataSource = ManejoProducto.Buscar(txtBuscarProducto.Text, ckbStatusProducto.Checked);
         }
 
-
-
-
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmMenu v = new FrmMenu();
-            v.Show();
-        }
-
         private void btnUser_Click(object sender, EventArgs e)
         {
             pnlProducto.Visible = false;
@@ -1567,6 +1557,13 @@ namespace SiscomSoft_Desktop.Views
                 }
             }
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmMenu v = new FrmMenu();
+            v.Show();
         }
     }
 }

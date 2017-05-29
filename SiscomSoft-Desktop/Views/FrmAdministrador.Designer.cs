@@ -30,9 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdministrador));
-            this.btnMenu = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.btnBussines = new System.Windows.Forms.Button();
+            this.btnCustomer = new System.Windows.Forms.Button();
             this.pnlUsuario = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRollist = new System.Windows.Forms.Button();
@@ -178,6 +179,7 @@
             this.txtActualiTipoImpues = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.tbpAddUsuario = new System.Windows.Forms.TabPage();
+            this.btnRegistrarUsu = new System.Windows.Forms.Button();
             this.cbxRol = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.txtComentUsua = new System.Windows.Forms.TextBox();
@@ -195,8 +197,6 @@
             this.txtRFC = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.tbpUpdateUser = new System.Windows.Forms.TabPage();
-            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnRegistrarUsu = new System.Windows.Forms.Button();
             this.btnUpdateGuardar = new System.Windows.Forms.Button();
             this.cbxUpdateProfile = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -215,7 +215,7 @@
             this.txtUpdateRFCUser = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.tbpAddProducto = new System.Windows.Forms.TabPage();
-            this.tbpUpdateProducto = new System.Windows.Forms.TabPage();
+            this.btnAddProducto = new System.Windows.Forms.Button();
             this.txtSublineaAddProd = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.txtLineaAddProd = new System.Windows.Forms.TextBox();
@@ -244,15 +244,18 @@
             this.label51 = new System.Windows.Forms.Label();
             this.txtDescripcionAddProd = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.btnAddProducto = new System.Windows.Forms.Button();
+            this.tbpUpdateProducto = new System.Windows.Forms.TabPage();
             this.tbpAddPrecio = new System.Windows.Forms.TabPage();
-            this.tbpUpdatePrecio = new System.Windows.Forms.TabPage();
+            this.btnAgregarPrecio = new System.Windows.Forms.Button();
             this.txtAddPrecio = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
-            this.btnAgregarPrecio = new System.Windows.Forms.Button();
+            this.tbpUpdatePrecio = new System.Windows.Forms.TabPage();
             this.btnUpdatePrecio = new System.Windows.Forms.Button();
             this.txtUpdatePrecio = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -285,24 +288,12 @@
             this.tbpUpdateImpuesto.SuspendLayout();
             this.tbpAddUsuario.SuspendLayout();
             this.tbpUpdateUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.tbpAddProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbimgAddProd)).BeginInit();
             this.tbpAddPrecio.SuspendLayout();
             this.tbpUpdatePrecio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
-            this.btnMenu.Location = new System.Drawing.Point(1291, 676);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(55, 49);
-            this.btnMenu.TabIndex = 0;
-            this.btnMenu.UseVisualStyleBackColor = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // pictureBox1
             // 
@@ -319,6 +310,8 @@
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.White;
             this.pnlPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlPrincipal.Controls.Add(this.btnBussines);
+            this.pnlPrincipal.Controls.Add(this.btnCustomer);
             this.pnlPrincipal.Controls.Add(this.pnlUsuario);
             this.pnlPrincipal.Controls.Add(this.btnProductos);
             this.pnlPrincipal.Controls.Add(this.btnUser);
@@ -327,6 +320,36 @@
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(159, 577);
             this.pnlPrincipal.TabIndex = 22;
+            // 
+            // btnBussines
+            // 
+            this.btnBussines.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnBussines.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBussines.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBussines.ForeColor = System.Drawing.Color.White;
+            this.btnBussines.Image = ((System.Drawing.Image)(resources.GetObject("btnBussines.Image")));
+            this.btnBussines.Location = new System.Drawing.Point(-2, 405);
+            this.btnBussines.Name = "btnBussines";
+            this.btnBussines.Size = new System.Drawing.Size(162, 44);
+            this.btnBussines.TabIndex = 13;
+            this.btnBussines.Text = "Empresas";
+            this.btnBussines.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBussines.UseVisualStyleBackColor = false;
+            // 
+            // btnCustomer
+            // 
+            this.btnCustomer.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomer.ForeColor = System.Drawing.Color.White;
+            this.btnCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomer.Image")));
+            this.btnCustomer.Location = new System.Drawing.Point(-1, 448);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.Size = new System.Drawing.Size(162, 44);
+            this.btnCustomer.TabIndex = 12;
+            this.btnCustomer.Text = "Clientes";
+            this.btnCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCustomer.UseVisualStyleBackColor = false;
             // 
             // pnlUsuario
             // 
@@ -1898,6 +1921,16 @@
             this.tbpAddUsuario.UseVisualStyleBackColor = true;
             this.tbpAddUsuario.Click += new System.EventHandler(this.tbpAddUsuario_Click);
             // 
+            // btnRegistrarUsu
+            // 
+            this.btnRegistrarUsu.Location = new System.Drawing.Point(527, 51);
+            this.btnRegistrarUsu.Name = "btnRegistrarUsu";
+            this.btnRegistrarUsu.Size = new System.Drawing.Size(116, 42);
+            this.btnRegistrarUsu.TabIndex = 33;
+            this.btnRegistrarUsu.Text = "Guardar";
+            this.btnRegistrarUsu.UseVisualStyleBackColor = true;
+            this.btnRegistrarUsu.Click += new System.EventHandler(this.btnRegistrarUsu_Click);
+            // 
             // cbxRol
             // 
             this.cbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -2075,20 +2108,6 @@
             this.tbpUpdateUser.TabIndex = 13;
             this.tbpUpdateUser.Text = "Actualizar Usuario";
             this.tbpUpdateUser.UseVisualStyleBackColor = true;
-            // 
-            // ErrorProvider
-            // 
-            this.ErrorProvider.ContainerControl = this;
-            // 
-            // btnRegistrarUsu
-            // 
-            this.btnRegistrarUsu.Location = new System.Drawing.Point(527, 51);
-            this.btnRegistrarUsu.Name = "btnRegistrarUsu";
-            this.btnRegistrarUsu.Size = new System.Drawing.Size(116, 42);
-            this.btnRegistrarUsu.TabIndex = 33;
-            this.btnRegistrarUsu.Text = "Guardar";
-            this.btnRegistrarUsu.UseVisualStyleBackColor = true;
-            this.btnRegistrarUsu.Click += new System.EventHandler(this.btnRegistrarUsu_Click);
             // 
             // btnUpdateGuardar
             // 
@@ -2290,14 +2309,15 @@
             this.tbpAddProducto.Text = "Registrar Producto";
             this.tbpAddProducto.UseVisualStyleBackColor = true;
             // 
-            // tbpUpdateProducto
+            // btnAddProducto
             // 
-            this.tbpUpdateProducto.Location = new System.Drawing.Point(4, 27);
-            this.tbpUpdateProducto.Name = "tbpUpdateProducto";
-            this.tbpUpdateProducto.Size = new System.Drawing.Size(1151, 546);
-            this.tbpUpdateProducto.TabIndex = 15;
-            this.tbpUpdateProducto.Text = "Actualizar Producto";
-            this.tbpUpdateProducto.UseVisualStyleBackColor = true;
+            this.btnAddProducto.Location = new System.Drawing.Point(619, 299);
+            this.btnAddProducto.Name = "btnAddProducto";
+            this.btnAddProducto.Size = new System.Drawing.Size(170, 53);
+            this.btnAddProducto.TabIndex = 138;
+            this.btnAddProducto.Text = "Save";
+            this.btnAddProducto.UseVisualStyleBackColor = true;
+            this.btnAddProducto.Click += new System.EventHandler(this.btnAddProducto_Click);
             // 
             // txtSublineaAddProd
             // 
@@ -2538,15 +2558,14 @@
             this.label52.TabIndex = 110;
             this.label52.Text = "Descripcion :";
             // 
-            // btnAddProducto
+            // tbpUpdateProducto
             // 
-            this.btnAddProducto.Location = new System.Drawing.Point(619, 299);
-            this.btnAddProducto.Name = "btnAddProducto";
-            this.btnAddProducto.Size = new System.Drawing.Size(170, 53);
-            this.btnAddProducto.TabIndex = 138;
-            this.btnAddProducto.Text = "Save";
-            this.btnAddProducto.UseVisualStyleBackColor = true;
-            this.btnAddProducto.Click += new System.EventHandler(this.btnAddProducto_Click);
+            this.tbpUpdateProducto.Location = new System.Drawing.Point(4, 27);
+            this.tbpUpdateProducto.Name = "tbpUpdateProducto";
+            this.tbpUpdateProducto.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateProducto.TabIndex = 15;
+            this.tbpUpdateProducto.Text = "Actualizar Producto";
+            this.tbpUpdateProducto.UseVisualStyleBackColor = true;
             // 
             // tbpAddPrecio
             // 
@@ -2560,17 +2579,15 @@
             this.tbpAddPrecio.Text = "Registrar Precio";
             this.tbpAddPrecio.UseVisualStyleBackColor = true;
             // 
-            // tbpUpdatePrecio
+            // btnAgregarPrecio
             // 
-            this.tbpUpdatePrecio.Controls.Add(this.btnUpdatePrecio);
-            this.tbpUpdatePrecio.Controls.Add(this.txtUpdatePrecio);
-            this.tbpUpdatePrecio.Controls.Add(this.label54);
-            this.tbpUpdatePrecio.Location = new System.Drawing.Point(4, 27);
-            this.tbpUpdatePrecio.Name = "tbpUpdatePrecio";
-            this.tbpUpdatePrecio.Size = new System.Drawing.Size(1151, 546);
-            this.tbpUpdatePrecio.TabIndex = 17;
-            this.tbpUpdatePrecio.Text = "Actualizar Precio";
-            this.tbpUpdatePrecio.UseVisualStyleBackColor = true;
+            this.btnAgregarPrecio.Location = new System.Drawing.Point(345, 110);
+            this.btnAgregarPrecio.Name = "btnAgregarPrecio";
+            this.btnAgregarPrecio.Size = new System.Drawing.Size(103, 67);
+            this.btnAgregarPrecio.TabIndex = 106;
+            this.btnAgregarPrecio.Text = "Agregar";
+            this.btnAgregarPrecio.UseVisualStyleBackColor = true;
+            this.btnAgregarPrecio.Click += new System.EventHandler(this.btnAgregarPrecio_Click);
             // 
             // txtAddPrecio
             // 
@@ -2588,15 +2605,17 @@
             this.label53.TabIndex = 104;
             this.label53.Text = "Precio :";
             // 
-            // btnAgregarPrecio
+            // tbpUpdatePrecio
             // 
-            this.btnAgregarPrecio.Location = new System.Drawing.Point(345, 110);
-            this.btnAgregarPrecio.Name = "btnAgregarPrecio";
-            this.btnAgregarPrecio.Size = new System.Drawing.Size(103, 67);
-            this.btnAgregarPrecio.TabIndex = 106;
-            this.btnAgregarPrecio.Text = "Agregar";
-            this.btnAgregarPrecio.UseVisualStyleBackColor = true;
-            this.btnAgregarPrecio.Click += new System.EventHandler(this.btnAgregarPrecio_Click);
+            this.tbpUpdatePrecio.Controls.Add(this.btnUpdatePrecio);
+            this.tbpUpdatePrecio.Controls.Add(this.txtUpdatePrecio);
+            this.tbpUpdatePrecio.Controls.Add(this.label54);
+            this.tbpUpdatePrecio.Location = new System.Drawing.Point(4, 27);
+            this.tbpUpdatePrecio.Name = "tbpUpdatePrecio";
+            this.tbpUpdatePrecio.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdatePrecio.TabIndex = 17;
+            this.tbpUpdatePrecio.Text = "Actualizar Precio";
+            this.tbpUpdatePrecio.UseVisualStyleBackColor = true;
             // 
             // btnUpdatePrecio
             // 
@@ -2624,18 +2643,51 @@
             this.label54.TabIndex = 107;
             this.label54.Text = "Precio :";
             // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblFecha.Location = new System.Drawing.Point(1035, 26);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(302, 18);
+            this.lblFecha.TabIndex = 24;
+            this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkCyan;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(1213, 680);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 37);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Menu principal";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FrmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.tbcGeneral);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmAdministrador";
@@ -2694,7 +2746,6 @@
             this.tbpAddUsuario.PerformLayout();
             this.tbpUpdateUser.ResumeLayout(false);
             this.tbpUpdateUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.tbpAddProducto.ResumeLayout(false);
             this.tbpAddProducto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbimgAddProd)).EndInit();
@@ -2702,14 +2753,13 @@
             this.tbpAddPrecio.PerformLayout();
             this.tbpUpdatePrecio.ResumeLayout(false);
             this.tbpUpdatePrecio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.Button btnProductos;
@@ -2933,5 +2983,9 @@
         private System.Windows.Forms.Button btnUpdatePrecio;
         private System.Windows.Forms.TextBox txtUpdatePrecio;
         private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Button btnBussines;
+        private System.Windows.Forms.Button btnCustomer;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Button button1;
     }
 }

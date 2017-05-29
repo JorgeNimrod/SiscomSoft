@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using SiscomSoft.Controller;
 using SiscomSoft.Models;
+using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class frmBuscarProductos : Form
+    public partial class FrmBuscarProductos : Form
     {
         public static int PKPRODUCTO;
-        FrmFacturacion vMain;
-        public frmBuscarProductos(FrmFacturacion vmain)
+        FrmMenuFacturacion vMain;
+        public FrmBuscarProductos(FrmMenuFacturacion vmain)
         {
             InitializeComponent();
             dgvDatosProducto.AutoGenerateColumns = false;
@@ -30,9 +30,16 @@ namespace SiscomSoft_Desktop.Views
             dgvDatosProducto.DataSource = nProductos;
         }
 
-        private void frmBuscarProductos_Load(object sender, EventArgs e)
+        private void dgvDatosProducto_DataSourceChanged(object sender, EventArgs e)
         {
-            cargarProductos();
+            lblCantidad.Text = "Cantidad: " + dgvDatosProducto.Rows.Count;
+        }
+
+        private void dgvDatosProducto_DoubleClick(object sender, EventArgs e)
+        {
+            PKPRODUCTO = Convert.ToInt32(dgvDatosProducto.CurrentRow.Cells[0].Value);
+            vMain.cargarDetalleFactura();
+            Close();
         }
 
         private void txtBuscarProducto_TextChanged(object sender, EventArgs e)
@@ -40,30 +47,14 @@ namespace SiscomSoft_Desktop.Views
             cargarProductos();
         }
 
-      
-      
-        private void frmBuscarProductos_ResizeEnd(object sender, EventArgs e)
+        private void FrmBuscarProductos_Load(object sender, EventArgs e)
         {
-            if (this.Width < 442) this.Width = 442;
-            if (this.Height < 131) this.Height = 131;
-            if (this.Width > 442) this.Width = 442;
-            if (this.Height > 131) this.Height = 131;
+            cargarProductos();
         }
 
-       
-
-        private void dgvDatosProducto_DoubleClick(object sender, EventArgs e)
+        private void ckbStatus_CheckedChanged(object sender, EventArgs e)
         {
-            PKPRODUCTO = Convert.ToInt32(dgvDatosProducto.CurrentRow.Cells[0].Value);
-            vMain.cargarDetalleFactura();
-            Close();
-
-        }
-
-       
-        private void dgvDatosProducto_DataSourceChanged(object sender, EventArgs e)
-        {
-            lblCantidad.Text = "Cantidad: " + dgvDatosProducto.Rows.Count;
+            cargarProductos();
         }
     }
 }

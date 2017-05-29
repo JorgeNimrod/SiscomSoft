@@ -115,12 +115,6 @@
     <Compile Include="Views\FrmActualizarEmpresa.Designer.cs">
       <DependentUpon>FrmActualizarEmpresa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmActualizarEntrada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarEntrada.Designer.cs">
-      <DependentUpon>FrmActualizarEntrada.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmActualizarImpuesto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +163,12 @@
     <Compile Include="Views\FrmAdministrador.Designer.cs">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmBuscarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarProductos.Designer.cs">
+      <DependentUpon>FrmBuscarProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmCatalogoCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,12 +193,6 @@
     <Compile Include="Views\FrmCatalogoEmpresas.Designer.cs">
       <DependentUpon>FrmCatalogoEmpresas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmCatalogoEntradas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoEntradas.Designer.cs">
-      <DependentUpon>FrmCatalogoEntradas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmCatalogoImpuestos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,12 +216,6 @@
     </Compile>
     <Compile Include="Views\FrmCatalogoProductos.Designer.cs">
       <DependentUpon>FrmCatalogoProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\frmBuscarProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\frmBuscarProductos.Designer.cs">
-      <DependentUpon>frmBuscarProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmCatalogoRoles.cs">
       <SubType>Form</SubType>
@@ -271,6 +259,12 @@
     <Compile Include="Views\FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmMenuFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmMenuFacturacion.Designer.cs">
+      <DependentUpon>FrmMenuFacturacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmRegistrarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,12 +288,6 @@
     </Compile>
     <Compile Include="Views\FrmRegistrarEmpresa.Designer.cs">
       <DependentUpon>FrmRegistrarEmpresa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarEntrada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarEntrada.Designer.cs">
-      <DependentUpon>FrmRegistrarEntrada.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmRegistrarImpuesto.cs">
       <SubType>Form</SubType>
@@ -349,6 +337,12 @@
     <Compile Include="Views\FrmSplahScreen.Designer.cs">
       <DependentUpon>FrmSplahScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmVentas.Designer.cs">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -362,9 +356,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmActualizarEmpresa.resx">
       <DependentUpon>FrmActualizarEmpresa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarEntrada.resx">
-      <DependentUpon>FrmActualizarEntrada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmActualizarImpuesto.resx">
       <DependentUpon>FrmActualizarImpuesto.cs</DependentUpon>
@@ -390,6 +381,9 @@
     <EmbeddedResource Include="Views\FrmAdministrador.resx">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarProductos.resx">
+      <DependentUpon>FrmBuscarProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmCatalogoCategorias.resx">
       <DependentUpon>FrmCatalogoCategorias.cs</DependentUpon>
     </EmbeddedResource>
@@ -402,9 +396,6 @@
     <EmbeddedResource Include="Views\FrmCatalogoEmpresas.resx">
       <DependentUpon>FrmCatalogoEmpresas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCatalogoEntradas.resx">
-      <DependentUpon>FrmCatalogoEntradas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmCatalogoImpuestos.resx">
       <DependentUpon>FrmCatalogoImpuestos.cs</DependentUpon>
     </EmbeddedResource>
@@ -416,9 +407,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmCatalogoProductos.resx">
       <DependentUpon>FrmCatalogoProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmBuscarProductos.resx">
-      <DependentUpon>frmBuscarProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmCatalogoRoles.resx">
       <DependentUpon>FrmCatalogoRoles.cs</DependentUpon>
@@ -441,6 +429,9 @@
     <EmbeddedResource Include="Views\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmMenuFacturacion.resx">
+      <DependentUpon>FrmMenuFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRegistrarCategoria.resx">
       <DependentUpon>FrmRegistrarCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -452,9 +443,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRegistrarEmpresa.resx">
       <DependentUpon>FrmRegistrarEmpresa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarEntrada.resx">
-      <DependentUpon>FrmRegistrarEntrada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRegistrarImpuesto.resx">
       <DependentUpon>FrmRegistrarImpuesto.cs</DependentUpon>
@@ -479,6 +467,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmSplahScreen.resx">
       <DependentUpon>FrmSplahScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmVentas.resx">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -157,6 +157,7 @@
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnFacturacion
             // 
@@ -191,11 +192,12 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.BackColor = System.Drawing.Color.White;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(1094, 12);
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblNombre.Location = new System.Drawing.Point(1176, 24);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(189, 20);
+            this.lblNombre.Size = new System.Drawing.Size(107, 20);
             this.lblNombre.TabIndex = 21;
-            this.lblNombre.Text = "Bienvenido Administrador";
+            this.lblNombre.Text = "Administrador";
             // 
             // FrmMenu
             // 
@@ -220,6 +222,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMenu_Load);
