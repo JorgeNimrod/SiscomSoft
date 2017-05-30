@@ -53,6 +53,7 @@ namespace SiscomSoft_Desktop.Views
         public static int PKIMPUESTO;
         public static int PKPRECIO;
         public static int PKPRODUCTO;
+        public static int PKCLIENTE;
 
 
         public FrmAdministrador()
@@ -64,6 +65,7 @@ namespace SiscomSoft_Desktop.Views
             this.dgvDatosImpuesto.AutoGenerateColumns = false;
             this.dgvDatosProducto.AutoGenerateColumns = false;
             this.dgvDatosPrecio.AutoGenerateColumns = false;
+            this.dgvDatosCliente.AutoGenerateColumns = false;
             CargarTablas();
             cargarCombos();
         }
@@ -77,6 +79,7 @@ namespace SiscomSoft_Desktop.Views
             cargarCategorias();
             cargarRoles();
             cargarProductos();
+            cargarClientes();
 
         }
         public void cargarCombos()
@@ -173,6 +176,11 @@ namespace SiscomSoft_Desktop.Views
         {
             this.dgvDatosProducto.DataSource = ManejoProducto.Buscar(txtBuscarProducto.Text, ckbStatusProducto.Checked);
         }
+        public void cargarClientes()
+        {
+            this.dgvDatosCliente.DataSource = ManejoCliente.Buscar(txtBuscarCliente.Text, cbxSearchStatusCli.SelectedIndex + 1);
+        }
+
 
         private void btnUser_Click(object sender, EventArgs e)
         {
@@ -290,6 +298,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
+            cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
             tbcGeneral.TabPages.Remove(tbpRol);
@@ -581,6 +590,55 @@ namespace SiscomSoft_Desktop.Views
             Rol nRol = ManejoRol.getById(PKROL);
             txtUpdateNombre.Text = nRol.sNombre;
             txtUpdateComentario.Text = nRol.sComentario;
+        }
+        public void ActualizarCliente()
+        {
+            Cliente nCliente = ManejoCliente.getById(PKCLIENTE);
+            txtRfcUpdateCli.Text = nCliente.sRfc;
+            txtRazonUpdateCli.Text = nCliente.sRazonSocial;
+            txtPersonaUpdateCli.Text = nCliente.iPersona.ToString();
+            txtCurpUpdateCli.Text = nCliente.sCurp;
+            txtNombreUpdateCli.Text = nCliente.sNombre;
+            txtPaisUpdateCli.Text = nCliente.sPais;
+            txtCPUpdateCli.Text = nCliente.iCodPostal.ToString();
+            txtEstadoUpdateCli.Text = nCliente.sEstado;
+            txtLocalidadUpdateCli.Text = nCliente.sLocalidad;
+            txtMunicipioUpdateCli.Text = nCliente.sMunicipio;
+            txtColoniaUpdateCli.Text = nCliente.sColonia;
+            txtCalleUpdateCli.Text = nCliente.sCalle;
+            txtNumExteUpdateCli.Text = nCliente.iNumExterior.ToString();
+            txtNumInteUpdateCli.Text = nCliente.iNumInterior.ToString();
+            txtTelFijoUpdateCli.Text = nCliente.sTelFijo;
+            txtTelMvlUpdateCli.Text = nCliente.sTelMovil;
+            txtReferenciaUpdateCli.Text = nCliente.sReferencia;
+            cbxTipoCliUpdateCli.Text = nCliente.sTipoCliente;
+            cbxEstadoCliUpdateCli.Text = nCliente.iStatus.ToString();
+            if (nCliente.iStatus == 1)
+            {
+                cbxEstadoCliUpdateCli.SelectedIndex = 0;
+            }
+            else if (nCliente.iStatus == 2)
+            {
+                cbxEstadoCliUpdateCli.SelectedIndex = 1;
+            }
+            else if (nCliente.iStatus == 3)
+            {
+                cbxEstadoCliUpdateCli.SelectedIndex = 2;
+            }
+            else if (nCliente.iStatus == 4)
+            {
+                cbxEstadoCliUpdateCli.SelectedIndex = 3;
+
+            }
+            txtNumCuentaUpdateCli.Text = nCliente.sNumCuenta;
+            cbxMetodoPagoUpdateCli.Text = nCliente.sTipoPago;
+            txtCorreoUpdateCli.Text = nCliente.sCorreo;
+            txtCondicionesUpdateCli.Text = nCliente.sConPago;
+            pcbImgUpdatCli.Image = ToolImagen.Base64StringToBitmap(nCliente.sLogo);
+
+
+
+
         }
         public void ActualizarProducto()
         {
@@ -2197,6 +2255,823 @@ namespace SiscomSoft_Desktop.Views
             pnlUsuario.Visible = false;
             pnlProducto.Visible = false;
             pnlCliente.Visible = true;
+        }
+
+        private void cbxSearchStatusCli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarClientes();
+        }
+
+        private void dgvDatosCliente_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistrosCli.Text = "Registros: " + dgvDatosCliente.Rows.Count;
+        }
+
+        private void txtBuscarCliente_TextChanged(object sender, EventArgs e)
+        {
+            cargarClientes();
+        }
+
+        private void btnRegistrarCli_Click(object sender, EventArgs e)
+        {
+            if (flagAddCliente == false)
+            {
+                tbcGeneral.TabPages.Add(tbpAddCliente);
+                tbcGeneral.SelectedTab = tbpAddCliente;
+                flagAddCliente = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpAddCliente;
+            }
+        }
+
+        private void btnExaminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog BuscarImagen = new OpenFileDialog();
+                BuscarImagen.Filter = "Archivos de Imagen|*.jpg;*.png;*gif;*.bmp";
+                //Aquí incluiremos los filtros que queramos.
+                BuscarImagen.FileName = "";
+                BuscarImagen.Title = "Seleccione una imagen";
+                if (BuscarImagen.ShowDialog() == DialogResult.OK)
+                {
+                    string logo = BuscarImagen.FileName;
+                    this.pcbimgAddCli.ImageLocation = logo;
+                    ImagenBitmap = new System.Drawing.Bitmap(logo);
+                    ImagenString = ToolImagen.ToBase64String(ImagenBitmap, ImageFormat.Jpeg);
+                    pcbimgAddCli.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
+            }
+        }
+
+        private void btnGuardarCliente_Click(object sender, EventArgs e)
+        {
+            if (this.txtRFCAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtRFCAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtRFCAddCli, "Campo necesario");
+                this.txtRFCAddCli.Focus();
+            }
+            else if (this.txtRazonAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtRazonAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtRazonAddCli, "Campo necesario");
+                this.txtRazonAddCli.Focus();
+            }
+
+            else if (this.txtPersonaAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtPersonaAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtPersonaAddCli, "Campo necesario");
+                this.txtPersonaAddCli.Focus();
+            }
+            else if (this.txtCurpAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCurpAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCurpAddCli, "Campo necesario");
+                this.txtCurpAddCli.Focus();
+            }
+            else if (this.txtNombreAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNombreAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNombreAddCli, "Campo necesario");
+                this.txtNombreAddCli.Focus();
+            }
+            else if (this.txtPaisAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtPaisAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtPaisAddCli, "Campo necesario");
+                this.txtPaisAddCli.Focus();
+            }
+            else if (this.txtCodigoPosAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCodigoPosAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCodigoPosAddCli, "Campo necesario");
+                this.txtCodigoPosAddCli.Focus();
+            }
+            else if (this.txtEstadoAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtEstadoAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtEstadoAddCli, "Campo necesario");
+                this.txtEstadoAddCli.Focus();
+            }
+            else if (this.txtMunicipioAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtMunicipioAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtMunicipioAddCli, "Campo necesario");
+                this.txtMunicipioAddCli.Focus();
+            }
+            else if (this.txtLocalidadAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtLocalidadAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtLocalidadAddCli, "Campo necesario");
+                this.txtLocalidadAddCli.Focus();
+            }
+            else if (this.txtColoniaAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtColoniaAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtColoniaAddCli, "Campo necesario");
+                this.txtColoniaAddCli.Focus();
+            }
+            else if (this.txtCalleAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCalleAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCalleAddCli, "Campo necesario");
+                this.txtCalleAddCli.Focus();
+            }
+            else if (this.txtNumExteAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNumExteAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNumExteAddCli, "Campo necesario");
+                this.txtNumExteAddCli.Focus();
+            }
+            else if (this.txtNuminteAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNuminteAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNuminteAddCli, "Campo necesario");
+                this.txtNuminteAddCli.Focus();
+            }
+            else if (this.txtTelFijoAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtTelFijoAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtTelFijoAddCli, "Campo necesario");
+                this.txtTelFijoAddCli.Focus();
+            }
+            else if (this.txtTelMvilAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtTelMvilAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtTelMvilAddCli, "Campo necesario");
+                this.txtTelMvilAddCli.Focus();
+            }
+            else if (this.txtCorreoAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCorreoAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCorreoAddCli, "Campo necesario");
+                this.txtCorreoAddCli.Focus();
+            }
+            else if (this.cbxEstadoCliAddCli.Text == "Seleccione Una Opcion")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxEstadoCliAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxEstadoCliAddCli, "Favor de Seleccionar una Opcion");
+                this.cbxEstadoCliAddCli.Focus();
+            }
+            else if (this.txtReferenciaAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtReferenciaAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtReferenciaAddCli, "Campo necesario");
+                this.txtReferenciaAddCli.Focus();
+            }
+            else if (this.cbxMetodoPagoAddCli.Text == "Seleccione Una Opcion")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxMetodoPagoAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxMetodoPagoAddCli, "Favor de Seleccionar una opcion");
+                this.cbxMetodoPagoAddCli.Focus();
+            }
+            else if (this.txtNumCuentaAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNumCuentaAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNumCuentaAddCli, "Campo necesario");
+                this.txtNumCuentaAddCli.Focus();
+            }
+            else if (this.txtCondicionesPagoAddCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCondicionesPagoAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCondicionesPagoAddCli, "Campo necesario");
+                this.txtCondicionesPagoAddCli.Focus();
+            }
+            else if (this.cbxTipoClienteAddCli.Text == "Seleccione Una Opcion")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxTipoClienteAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxTipoClienteAddCli, "Favor de Seleccionar Una Opcion");
+                this.cbxTipoClienteAddCli.Focus();
+            }
+
+
+            else
+            {
+                Cliente nCliente = new Cliente();
+
+                nCliente.sRfc = txtRFCAddCli.Text;
+                nCliente.sRazonSocial = txtRazonAddCli.Text;
+
+                nCliente.iPersona = Convert.ToInt32(txtPersonaAddCli.Text);
+                nCliente.sCurp = txtCurpAddCli.Text;
+                nCliente.sNombre = txtNombreAddCli.Text;
+                nCliente.sPais = txtPaisAddCli.Text;
+                nCliente.iCodPostal = Convert.ToInt32(txtCodigoPosAddCli.Text);
+                nCliente.sEstado = txtEstadoAddCli.Text;
+                nCliente.sMunicipio = txtMunicipioAddCli.Text;
+                nCliente.sLocalidad = txtLocalidadAddCli.Text;
+                nCliente.sColonia = txtColoniaAddCli.Text;
+                nCliente.sCalle = txtCalleAddCli.Text;
+                nCliente.iNumExterior = Convert.ToInt32(txtNumExteAddCli.Text);
+                nCliente.iNumInterior = Convert.ToInt32(txtNuminteAddCli.Text);
+                nCliente.sTelFijo = txtTelFijoAddCli.Text;
+                nCliente.sTelMovil = txtTelMvilAddCli.Text;
+                nCliente.sCorreo = txtCorreoAddCli.Text;
+
+                if (cbxEstadoCliAddCli.SelectedIndex == 0)
+                {
+                    nCliente.iStatus = 1;
+                }
+                else if (cbxEstadoCliAddCli.SelectedIndex == 1)
+                {
+                    nCliente.iStatus = 2;
+                }
+                else if (cbxEstadoCliAddCli.SelectedIndex == 2)
+                {
+                    nCliente.iStatus = 3;
+                }
+                else if (cbxEstadoCliAddCli.SelectedIndex == 3)
+                {
+                    nCliente.iStatus = 4;
+                }
+
+
+
+                nCliente.sReferencia = txtReferenciaAddCli.Text;
+                nCliente.sTipoPago = cbxMetodoPagoAddCli.Text;
+                nCliente.sNumCuenta = txtNumCuentaAddCli.Text;
+                nCliente.sConPago = txtCondicionesPagoAddCli.Text;
+                nCliente.sTipoCliente = cbxTipoClienteAddCli.Text;
+                nCliente.sLogo = ImagenString;
+
+
+
+
+
+                ManejoCliente.RegistrarNuevoCliente(nCliente);
+
+                MessageBox.Show("¡Cliente Registrado!");
+                txtRFC.Clear();
+                txtRazonAddCli.Clear();
+                txtPersonaAddCli.Clear();
+                txtCurpAddCli.Clear();
+                txtNombreAddCli.Clear();
+
+                txtCodigoPosAddCli.Clear();
+                txtEstadoAddCli.Clear();
+                txtMunicipioAddCli.Clear();
+                txtLocalidadAddCli.Clear();
+                txtColoniaAddCli.Clear();
+                txtCalleAddCli.Clear();
+                txtNuminteAddCli.Clear();
+                txtNumExteAddCli.Clear();
+                txtTelFijoAddCli.Clear();
+                txtTelMvilAddCli.Clear();
+                txtCorreoAddCli.Clear();
+
+                txtReferenciaAddCli.Clear();
+                txtNumCuentaAddCli.Clear();
+                txtCondicionesPagoAddCli.Clear();
+
+
+                pcbimgAddCli.Image = null;
+                cargarClientes();
+            }
+        }
+
+        private void btnExaminarUpdateCli_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog BuscarImagen = new OpenFileDialog();
+                BuscarImagen.Filter = "Archivos de Imagen|*.jpg;*.png;*gif;*.bmp";
+                //Aquí incluiremos los filtros que queramos.
+                BuscarImagen.FileName = "";
+                BuscarImagen.Title = "Seleccione una imagen";
+                if (BuscarImagen.ShowDialog() == DialogResult.OK)
+                {
+                    string logo = BuscarImagen.FileName;
+                    this.pcbUpdateImgProd.ImageLocation = logo;
+                    ImagenBitmap = new System.Drawing.Bitmap(logo);
+                    ImagenString = ToolImagen.ToBase64String(ImagenBitmap, ImageFormat.Jpeg);
+                    pcbUpdateImgProd.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
+            }
+        }
+
+        private void BtnAcualizarCli_Click(object sender, EventArgs e)
+        {
+            if (this.txtRfcUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtRfcUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtRfcUpdateCli, "Campo necesario");
+                this.txtRfcUpdateCli.Focus();
+            }
+            else if (this.txtRazonUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtRazonUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtRazonUpdateCli, "Campo necesario");
+                this.txtRazonUpdateCli.Focus();
+            }
+
+            else if (this.txtPersonaUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtPersonaUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtPersonaUpdateCli, "Campo necesario");
+                this.txtPersonaUpdateCli.Focus();
+            }
+            else if (this.txtCurpUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCurpUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCurpUpdateCli, "Campo necesario");
+                this.txtCurpUpdateCli.Focus();
+            }
+            else if (this.txtNombreUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNombreUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNombreUpdateCli, "Campo necesario");
+                this.txtNombreUpdateCli.Focus();
+            }
+            else if (this.txtPaisUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtPaisUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtPaisUpdateCli, "Campo necesario");
+                this.txtPaisUpdateCli.Focus();
+            }
+            else if (this.txtCPUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCPUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCPUpdateCli, "Campo necesario");
+                this.txtCPUpdateCli.Focus();
+            }
+            else if (this.txtEstadoUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtEstadoUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtEstadoUpdateCli, "Campo necesario");
+                this.txtEstadoUpdateCli.Focus();
+            }
+            else if (this.txtMunicipioUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtMunicipioUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtMunicipioUpdateCli, "Campo necesario");
+                this.txtMunicipioUpdateCli.Focus();
+            }
+            else if (this.txtLocalidadUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtLocalidadUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtLocalidadUpdateCli, "Campo necesario");
+                this.txtLocalidadUpdateCli.Focus();
+            }
+            else if (this.txtColoniaUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtColoniaUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtColoniaUpdateCli, "Campo necesario");
+                this.txtColoniaUpdateCli.Focus();
+            }
+            else if (this.txtCalleUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCalleUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCalleUpdateCli, "Campo necesario");
+                this.txtCalleUpdateCli.Focus();
+            }
+            else if (this.txtNumExteUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNumExteUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNumExteUpdateCli, "Campo necesario");
+                this.txtNumExteUpdateCli.Focus();
+            }
+            else if (this.txtNumInteUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNumInteUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNumInteUpdateCli, "Campo necesario");
+                this.txtNumInteUpdateCli.Focus();
+            }
+            else if (this.txtTelFijoUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtTelFijoUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtTelFijoUpdateCli, "Campo necesario");
+                this.txtTelFijoUpdateCli.Focus();
+            }
+            else if (this.txtTelMvlUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtTelMvlUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtTelMvlUpdateCli, "Campo necesario");
+                this.txtTelMvlUpdateCli.Focus();
+            }
+            else if (this.txtCorreoUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCorreoUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCorreoUpdateCli, "Campo necesario");
+                this.txtCorreoUpdateCli.Focus();
+            }
+            else if (this.cbxEstadoCliUpdateCli.Text == "Seleccione Una Opcion")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxEstadoCliUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxEstadoCliUpdateCli, "Favor de Seleccionar una Opcion");
+                this.cbxEstadoCliUpdateCli.Focus();
+            }
+            else if (this.txtReferenciaUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtReferenciaUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtReferenciaUpdateCli, "Campo necesario");
+                this.txtReferenciaUpdateCli.Focus();
+            }
+            else if (this.cbxMetodoPagoUpdateCli.Text == "Seleccione Una Opcion")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxMetodoPagoUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxMetodoPagoUpdateCli, "Favor de Seleccionar una opcion");
+                this.cbxMetodoPagoUpdateCli.Focus();
+            }
+            else if (this.txtNumInteUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNumInteUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNumInteUpdateCli,("Campo necesario"));
+                this.txtNumCuentaAddCli.Focus();
+            }
+            else if (this.txtCondicionesUpdateCli.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCondicionesUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCondicionesUpdateCli, "Campo necesario");
+                this.txtCondicionesUpdateCli.Focus();
+            }
+            else if (this.cbxTipoCliUpdateCli.Text == "Seleccione Una Opcion")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxTipoCliUpdateCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxTipoCliUpdateCli, "Favor de Seleccionar Una Opcion");
+                this.cbxTipoCliUpdateCli.Focus();
+            }
+            else if (this.pcbUpdateImgProd.Text == null)
+            {
+                this.ErrorProvider.SetIconAlignment(this.pcbUpdateImgProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.pcbUpdateImgProd, "Favor de Seleccionar Una Imagen");
+                this.btnExaminarUpdateCli.Focus();
+            }
+            else
+            {
+                Cliente nCliente = new Cliente();
+                nCliente.pkCliente = PKCLIENTE;
+                nCliente.sRfc = txtRfcUpdateCli.Text;
+                nCliente.sRazonSocial = txtRazonUpdateCli.Text;
+                nCliente.iPersona = Convert.ToInt32(txtPersonaUpdateCli.Text);
+                nCliente.sCurp = txtCurpUpdateCli.Text;
+                nCliente.sNombre = txtNombreUpdateCli.Text;
+                nCliente.sPais = txtPaisUpdateCli.Text;
+                nCliente.iCodPostal = Convert.ToInt32(txtCPUpdateCli.Text);
+                nCliente.sColonia = txtColoniaUpdateCli.Text;
+                nCliente.sEstado = txtEstadoUpdateCli.Text;
+                nCliente.sMunicipio = txtMunicipioUpdateCli.Text;
+                nCliente.sLocalidad = txtLocalidadUpdateCli.Text;
+                nCliente.sCalle = txtCalleUpdateCli.Text;
+                nCliente.iNumExterior = Convert.ToInt32(txtNumExteUpdateCli.Text);
+                nCliente.iNumInterior = Convert.ToInt32(txtNumInteUpdateCli.Text);
+                nCliente.sTelFijo = txtTelFijoUpdateCli.Text;
+                nCliente.sTelMovil = txtTelMvlUpdateCli.Text;
+                nCliente.sCorreo = txtCorreoUpdateCli.Text;
+                nCliente.sReferencia = txtReferenciaUpdateCli.Text;
+                nCliente.sTipoPago = cbxTipoCliUpdateCli.Text;
+                nCliente.sNumCuenta = txtNumCuentaUpdateCli.Text;
+                nCliente.sConPago = txtCondicionesUpdateCli.Text;
+                nCliente.sTipoCliente = cbxTipoCliUpdateCli.Text;
+                if (cbxEstadoCliUpdateCli.SelectedIndex == 0)
+                {
+                    nCliente.iStatus = 1;
+                }
+                else if (cbxEstadoCliUpdateCli.SelectedIndex == 1)
+                {
+                    nCliente.iStatus = 2;
+                }
+                else if (cbxEstadoCliUpdateCli.SelectedIndex == 2)
+                {
+                    nCliente.iStatus = 3;
+                }
+                else if (cbxEstadoCliUpdateCli.SelectedIndex == 3)
+                {
+                    nCliente.iStatus = 4;
+                }
+
+                nCliente.sLogo = ImagenString;
+
+
+
+                ManejoCliente.Modificar(nCliente);
+                MessageBox.Show("¡Cliente Actualizado!");
+                cargarClientes();
+            }
+        }
+
+        private void btnActualizarCli_Click(object sender, EventArgs e)
+        {
+            if (this.dgvDatosCliente.RowCount >= 1)
+            {
+                PKCLIENTE = Convert.ToInt32(this.dgvDatosCliente.CurrentRow.Cells[0].Value);
+                if (flagUpdateCliente == false)
+                {
+                    tbcGeneral.TabPages.Add(tbpUpdateCliente);
+                    ActualizarCliente();
+                    tbcGeneral.SelectedTab = tbpUpdateCliente;
+                    flagUpdateCliente = true;
+                }
+                else
+                {
+                    tbcGeneral.SelectedTab = tbpUpdateCliente;
+                }
+            }
+        }
+
+        private void txtPaisUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+          
+        }
+
+        private void txtEstadoUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        
+        }
+
+        private void txtMunicipioUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+         
+        }
+
+        private void txtTelMvlUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnBorrarCli_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosCliente.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoCliente.Eliminar(Convert.ToInt32(dgvDatosCliente.CurrentRow.Cells[0].Value));
+                    cargarRoles();
+                }
+            }
+        }
+
+        private void txtRFCAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtRazonAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtPersonaAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCurpAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNombreAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtPaisAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCodigoPosAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtEstadoAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtLocalidadAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtMunicipioAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtColoniaAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCalleAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNumExteAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNuminteAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTelMvilAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTelFijoAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtReferenciaAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxTipoClienteAddCli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxEstadoCliAddCli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNumCuentaAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxMetodoPagoAddCli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCorreoAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCondicionesPagoAddCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtRfcUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtRazonUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtPersonaUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCurpUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNombreUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtPaisUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCPUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtEstadoUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtLocalidadUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtMunicipioUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtColoniaUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCalleUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNumExteUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNumInteUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTelMvlUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTelFijoUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtReferenciaUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxTipoCliUpdateCli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxEstadoCliUpdateCli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtNumCuentaUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxMetodoPagoUpdateCli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCorreoUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCondicionesUpdateCli_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCorreoUpdateCli_Leave(object sender, EventArgs e)
+        {
+            if (ValidarEmail(txtCorreoUpdateCli.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Direccion De Correo Electronico No Valido Debe de tener el formato : correo@gmail.com, " +
+                    "Favor Sellecione Un Correo Valido", "Validacion De Correo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCorreoUpdateCli.SelectAll();
+                txtCorreoUpdateCli.Focus();
+            }
         }
     }
 }

@@ -524,5 +524,10 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
+
+        private void dgvDatosProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -32,12 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdministrador));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.btnBussiness = new System.Windows.Forms.Button();
+            this.btnCustomers = new System.Windows.Forms.Button();
+            this.btnProductos = new System.Windows.Forms.Button();
+            this.btnUser = new System.Windows.Forms.Button();
             this.pnlUsuario = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRollist = new System.Windows.Forms.Button();
             this.btnUserlist = new System.Windows.Forms.Button();
-            this.btnProductos = new System.Windows.Forms.Button();
-            this.btnUser = new System.Windows.Forms.Button();
             this.pnlProducto = new System.Windows.Forms.Panel();
             this.btnCategorialist = new System.Windows.Forms.Button();
             this.btnImpuestolist = new System.Windows.Forms.Button();
@@ -50,6 +52,14 @@
             this.btnActualizarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sFoto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -272,35 +282,145 @@
             this.btnUpdatePrecio = new System.Windows.Forms.Button();
             this.txtUpdatePrecio = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
-            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCustomers = new System.Windows.Forms.Button();
-            this.btnBussiness = new System.Windows.Forms.Button();
-            this.pnlEmpresas = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnSucursalesList = new System.Windows.Forms.Button();
-            this.btnEmpresasList = new System.Windows.Forms.Button();
             this.tbpEmpresa = new System.Windows.Forms.TabPage();
             this.tbpAddEmpresa = new System.Windows.Forms.TabPage();
             this.tbpUpdateEmpresa = new System.Windows.Forms.TabPage();
             this.tbpSucursal = new System.Windows.Forms.TabPage();
             this.tbpAddSucursal = new System.Windows.Forms.TabPage();
             this.tbpUpdateSucursal = new System.Windows.Forms.TabPage();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sFoto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlCliente = new System.Windows.Forms.Panel();
-            this.label68 = new System.Windows.Forms.Label();
-            this.btnCustomersList = new System.Windows.Forms.Button();
             this.tbpClientes = new System.Windows.Forms.TabPage();
             this.tbpAddCliente = new System.Windows.Forms.TabPage();
             this.tbpUpdateCliente = new System.Windows.Forms.TabPage();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pnlEmpresas = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnSucursalesList = new System.Windows.Forms.Button();
+            this.btnEmpresasList = new System.Windows.Forms.Button();
+            this.pnlCliente = new System.Windows.Forms.Panel();
+            this.label68 = new System.Windows.Forms.Label();
+            this.btnCustomersList = new System.Windows.Forms.Button();
+            this.cbxSearchStatusCli = new System.Windows.Forms.ComboBox();
+            this.label69 = new System.Windows.Forms.Label();
+            this.btnActualizarCli = new System.Windows.Forms.Button();
+            this.btnRegistrarCli = new System.Windows.Forms.Button();
+            this.btnBorrarCli = new System.Windows.Forms.Button();
+            this.lblRegistrosCli = new System.Windows.Forms.Label();
+            this.dgvDatosCliente = new System.Windows.Forms.DataGridView();
+            this.pkClientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCurp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMunicipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sColonia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iCodPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTelMovil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTipoPAgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iNumCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtBuscarCliente = new System.Windows.Forms.TextBox();
+            this.label71 = new System.Windows.Forms.Label();
+            this.txtPaisAddCli = new System.Windows.Forms.TextBox();
+            this.cbxEstadoCliAddCli = new System.Windows.Forms.ComboBox();
+            this.cbxTipoClienteAddCli = new System.Windows.Forms.ComboBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.txtCorreoAddCli = new System.Windows.Forms.TextBox();
+            this.label72 = new System.Windows.Forms.Label();
+            this.btnGuardarCliente = new System.Windows.Forms.Button();
+            this.btnExaminar = new System.Windows.Forms.Button();
+            this.pcbimgAddCli = new System.Windows.Forms.PictureBox();
+            this.txtCondicionesPagoAddCli = new System.Windows.Forms.TextBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.cbxMetodoPagoAddCli = new System.Windows.Forms.ComboBox();
+            this.txtNumCuentaAddCli = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.txtReferenciaAddCli = new System.Windows.Forms.TextBox();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.txtTelMvilAddCli = new System.Windows.Forms.TextBox();
+            this.label78 = new System.Windows.Forms.Label();
+            this.txtTelFijoAddCli = new System.Windows.Forms.TextBox();
+            this.label79 = new System.Windows.Forms.Label();
+            this.txtNuminteAddCli = new System.Windows.Forms.TextBox();
+            this.label80 = new System.Windows.Forms.Label();
+            this.txtNumExteAddCli = new System.Windows.Forms.TextBox();
+            this.label81 = new System.Windows.Forms.Label();
+            this.txtCalleAddCli = new System.Windows.Forms.TextBox();
+            this.label82 = new System.Windows.Forms.Label();
+            this.txtColoniaAddCli = new System.Windows.Forms.TextBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.txtLocalidadAddCli = new System.Windows.Forms.TextBox();
+            this.label84 = new System.Windows.Forms.Label();
+            this.txtMunicipioAddCli = new System.Windows.Forms.TextBox();
+            this.label85 = new System.Windows.Forms.Label();
+            this.txtEstadoAddCli = new System.Windows.Forms.TextBox();
+            this.label86 = new System.Windows.Forms.Label();
+            this.txtCodigoPosAddCli = new System.Windows.Forms.TextBox();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label88 = new System.Windows.Forms.Label();
+            this.txtNombreAddCli = new System.Windows.Forms.TextBox();
+            this.label89 = new System.Windows.Forms.Label();
+            this.txtCurpAddCli = new System.Windows.Forms.TextBox();
+            this.label90 = new System.Windows.Forms.Label();
+            this.txtPersonaAddCli = new System.Windows.Forms.TextBox();
+            this.label91 = new System.Windows.Forms.Label();
+            this.txtRazonAddCli = new System.Windows.Forms.TextBox();
+            this.label92 = new System.Windows.Forms.Label();
+            this.txtRFCAddCli = new System.Windows.Forms.TextBox();
+            this.label93 = new System.Windows.Forms.Label();
+            this.txtPaisUpdateCli = new System.Windows.Forms.TextBox();
+            this.cbxEstadoCliUpdateCli = new System.Windows.Forms.ComboBox();
+            this.cbxTipoCliUpdateCli = new System.Windows.Forms.ComboBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.txtCorreoUpdateCli = new System.Windows.Forms.TextBox();
+            this.label95 = new System.Windows.Forms.Label();
+            this.BtnAcualizarCli = new System.Windows.Forms.Button();
+            this.btnExaminarUpdateCli = new System.Windows.Forms.Button();
+            this.pcbImgUpdatCli = new System.Windows.Forms.PictureBox();
+            this.txtCondicionesUpdateCli = new System.Windows.Forms.TextBox();
+            this.label96 = new System.Windows.Forms.Label();
+            this.cbxMetodoPagoUpdateCli = new System.Windows.Forms.ComboBox();
+            this.txtNumCuentaUpdateCli = new System.Windows.Forms.TextBox();
+            this.label97 = new System.Windows.Forms.Label();
+            this.label98 = new System.Windows.Forms.Label();
+            this.txtReferenciaUpdateCli = new System.Windows.Forms.TextBox();
+            this.label99 = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
+            this.txtTelMvlUpdateCli = new System.Windows.Forms.TextBox();
+            this.label101 = new System.Windows.Forms.Label();
+            this.txtTelFijoUpdateCli = new System.Windows.Forms.TextBox();
+            this.label102 = new System.Windows.Forms.Label();
+            this.txtNumInteUpdateCli = new System.Windows.Forms.TextBox();
+            this.label103 = new System.Windows.Forms.Label();
+            this.txtNumExteUpdateCli = new System.Windows.Forms.TextBox();
+            this.label104 = new System.Windows.Forms.Label();
+            this.txtCalleUpdateCli = new System.Windows.Forms.TextBox();
+            this.label105 = new System.Windows.Forms.Label();
+            this.txtColoniaUpdateCli = new System.Windows.Forms.TextBox();
+            this.label106 = new System.Windows.Forms.Label();
+            this.txtLocalidadUpdateCli = new System.Windows.Forms.TextBox();
+            this.label107 = new System.Windows.Forms.Label();
+            this.txtMunicipioUpdateCli = new System.Windows.Forms.TextBox();
+            this.label108 = new System.Windows.Forms.Label();
+            this.txtEstadoUpdateCli = new System.Windows.Forms.TextBox();
+            this.label109 = new System.Windows.Forms.Label();
+            this.txtCPUpdateCli = new System.Windows.Forms.TextBox();
+            this.label110 = new System.Windows.Forms.Label();
+            this.label111 = new System.Windows.Forms.Label();
+            this.txtNombreUpdateCli = new System.Windows.Forms.TextBox();
+            this.label112 = new System.Windows.Forms.Label();
+            this.txtCurpUpdateCli = new System.Windows.Forms.TextBox();
+            this.label113 = new System.Windows.Forms.Label();
+            this.txtPersonaUpdateCli = new System.Windows.Forms.TextBox();
+            this.label114 = new System.Windows.Forms.Label();
+            this.txtRazonUpdateCli = new System.Windows.Forms.TextBox();
+            this.label115 = new System.Windows.Forms.Label();
+            this.txtRfcUpdateCli = new System.Windows.Forms.TextBox();
+            this.label116 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -339,9 +459,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbUpdateImgProd)).BeginInit();
             this.tbpAddPrecio.SuspendLayout();
             this.tbpUpdatePrecio.SuspendLayout();
+            this.tbpClientes.SuspendLayout();
+            this.tbpAddCliente.SuspendLayout();
+            this.tbpUpdateCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlEmpresas.SuspendLayout();
             this.pnlCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbimgAddCli)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImgUpdatCli)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -367,6 +493,70 @@
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(159, 577);
             this.pnlPrincipal.TabIndex = 22;
+            // 
+            // btnBussiness
+            // 
+            this.btnBussiness.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnBussiness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBussiness.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBussiness.ForeColor = System.Drawing.Color.White;
+            this.btnBussiness.Image = ((System.Drawing.Image)(resources.GetObject("btnBussiness.Image")));
+            this.btnBussiness.Location = new System.Drawing.Point(-3, 403);
+            this.btnBussiness.Name = "btnBussiness";
+            this.btnBussiness.Size = new System.Drawing.Size(162, 44);
+            this.btnBussiness.TabIndex = 13;
+            this.btnBussiness.Text = "Empresa";
+            this.btnBussiness.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBussiness.UseVisualStyleBackColor = false;
+            this.btnBussiness.Click += new System.EventHandler(this.btnBussiness_Click);
+            // 
+            // btnCustomers
+            // 
+            this.btnCustomers.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomers.ForeColor = System.Drawing.Color.White;
+            this.btnCustomers.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomers.Image")));
+            this.btnCustomers.Location = new System.Drawing.Point(-3, 489);
+            this.btnCustomers.Name = "btnCustomers";
+            this.btnCustomers.Size = new System.Drawing.Size(162, 44);
+            this.btnCustomers.TabIndex = 12;
+            this.btnCustomers.Text = "Clientes";
+            this.btnCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCustomers.UseVisualStyleBackColor = false;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
+            // 
+            // btnProductos
+            // 
+            this.btnProductos.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductos.ForeColor = System.Drawing.Color.White;
+            this.btnProductos.Image = ((System.Drawing.Image)(resources.GetObject("btnProductos.Image")));
+            this.btnProductos.Location = new System.Drawing.Point(-2, 446);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(162, 44);
+            this.btnProductos.TabIndex = 1212;
+            this.btnProductos.Text = "Productos";
+            this.btnProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProductos.UseVisualStyleBackColor = false;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            // 
+            // btnUser
+            // 
+            this.btnUser.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUser.ForeColor = System.Drawing.Color.White;
+            this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
+            this.btnUser.Location = new System.Drawing.Point(-2, 532);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(162, 44);
+            this.btnUser.TabIndex = 14;
+            this.btnUser.Text = "Usuarios";
+            this.btnUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUser.UseVisualStyleBackColor = false;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
             // pnlUsuario
             // 
@@ -426,38 +616,6 @@
             this.btnUserlist.UseVisualStyleBackColor = false;
             this.btnUserlist.Click += new System.EventHandler(this.btnUserlist_Click);
             this.btnUserlist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnUserlist_MouseClick);
-            // 
-            // btnProductos
-            // 
-            this.btnProductos.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductos.ForeColor = System.Drawing.Color.White;
-            this.btnProductos.Image = ((System.Drawing.Image)(resources.GetObject("btnProductos.Image")));
-            this.btnProductos.Location = new System.Drawing.Point(-2, 446);
-            this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(162, 44);
-            this.btnProductos.TabIndex = 1212;
-            this.btnProductos.Text = "Productos";
-            this.btnProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProductos.UseVisualStyleBackColor = false;
-            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
-            // 
-            // btnUser
-            // 
-            this.btnUser.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUser.ForeColor = System.Drawing.Color.White;
-            this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
-            this.btnUser.Location = new System.Drawing.Point(-2, 532);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(162, 44);
-            this.btnUser.TabIndex = 14;
-            this.btnUser.Text = "Usuarios";
-            this.btnUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUser.UseVisualStyleBackColor = false;
-            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
             // pnlProducto
             // 
@@ -645,6 +803,7 @@
             // 
             // dgvDatosProducto
             // 
+            this.dgvDatosProducto.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pkProductos,
@@ -662,6 +821,54 @@
             this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
+            // 
+            // pkProductos
+            // 
+            this.pkProductos.DataPropertyName = "pkProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            // 
+            // iClaveProd
+            // 
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            this.iClaveProd.HeaderText = "Clave";
+            this.iClaveProd.Name = "iClaveProd";
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            // 
+            // iDescuento
+            // 
+            this.iDescuento.DataPropertyName = "iDescuento";
+            this.iDescuento.HeaderText = "Descuento";
+            this.iDescuento.Name = "iDescuento";
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            // 
+            // iLote
+            // 
+            this.iLote.DataPropertyName = "iLote";
+            this.iLote.HeaderText = "Lote";
+            this.iLote.Name = "iLote";
+            // 
+            // sFoto
+            // 
+            this.sFoto.DataPropertyName = "sFoto";
+            this.sFoto.HeaderText = "Imagen";
+            this.sFoto.Name = "sFoto";
             // 
             // lblRegistroProducto
             // 
@@ -759,6 +966,7 @@
             // 
             // dgvDatosPrecio
             // 
+            this.dgvDatosPrecio.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosPrecio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosPrecio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pkPrecios,
@@ -835,6 +1043,7 @@
             // 
             // dgvDatosImpuesto
             // 
+            this.dgvDatosImpuesto.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosImpuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosImpuesto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.s,
@@ -844,6 +1053,7 @@
             this.dgvDatosImpuesto.Location = new System.Drawing.Point(3, 32);
             this.dgvDatosImpuesto.Name = "dgvDatosImpuesto";
             this.dgvDatosImpuesto.RowHeadersVisible = false;
+            this.dgvDatosImpuesto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosImpuesto.Size = new System.Drawing.Size(554, 476);
             this.dgvDatosImpuesto.TabIndex = 48;
             this.dgvDatosImpuesto.DataSourceChanged += new System.EventHandler(this.dgvDatosImpuesto_DataSourceChanged);
@@ -986,6 +1196,7 @@
             // 
             // dgvDatosCategoria
             // 
+            this.dgvDatosCategoria.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pkCategoria,
@@ -1087,6 +1298,7 @@
             // 
             // dgvDatosUsuario
             // 
+            this.dgvDatosUsuario.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pkUsuarios,
@@ -1224,6 +1436,7 @@
             // dgvDatosRol
             // 
             this.dgvDatosRol.AllowUserToDeleteRows = false;
+            this.dgvDatosRol.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosRol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosRol.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Rol,
@@ -2933,6 +3146,195 @@
             this.label54.TabIndex = 107;
             this.label54.Text = "Precio :";
             // 
+            // tbpEmpresa
+            // 
+            this.tbpEmpresa.Location = new System.Drawing.Point(4, 27);
+            this.tbpEmpresa.Name = "tbpEmpresa";
+            this.tbpEmpresa.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpEmpresa.Size = new System.Drawing.Size(1151, 546);
+            this.tbpEmpresa.TabIndex = 18;
+            this.tbpEmpresa.Text = "Empresas";
+            this.tbpEmpresa.UseVisualStyleBackColor = true;
+            // 
+            // tbpAddEmpresa
+            // 
+            this.tbpAddEmpresa.Location = new System.Drawing.Point(4, 27);
+            this.tbpAddEmpresa.Name = "tbpAddEmpresa";
+            this.tbpAddEmpresa.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddEmpresa.TabIndex = 19;
+            this.tbpAddEmpresa.Text = "Registrar Empresa";
+            this.tbpAddEmpresa.UseVisualStyleBackColor = true;
+            // 
+            // tbpUpdateEmpresa
+            // 
+            this.tbpUpdateEmpresa.Location = new System.Drawing.Point(4, 27);
+            this.tbpUpdateEmpresa.Name = "tbpUpdateEmpresa";
+            this.tbpUpdateEmpresa.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateEmpresa.TabIndex = 20;
+            this.tbpUpdateEmpresa.Text = "Actualizar Empresa";
+            this.tbpUpdateEmpresa.UseVisualStyleBackColor = true;
+            // 
+            // tbpSucursal
+            // 
+            this.tbpSucursal.Location = new System.Drawing.Point(4, 27);
+            this.tbpSucursal.Name = "tbpSucursal";
+            this.tbpSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpSucursal.TabIndex = 21;
+            this.tbpSucursal.Text = "Sucursales";
+            this.tbpSucursal.UseVisualStyleBackColor = true;
+            // 
+            // tbpAddSucursal
+            // 
+            this.tbpAddSucursal.Location = new System.Drawing.Point(4, 27);
+            this.tbpAddSucursal.Name = "tbpAddSucursal";
+            this.tbpAddSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddSucursal.TabIndex = 22;
+            this.tbpAddSucursal.Text = "Registrar Sucursal";
+            this.tbpAddSucursal.UseVisualStyleBackColor = true;
+            // 
+            // tbpUpdateSucursal
+            // 
+            this.tbpUpdateSucursal.Location = new System.Drawing.Point(4, 27);
+            this.tbpUpdateSucursal.Name = "tbpUpdateSucursal";
+            this.tbpUpdateSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateSucursal.TabIndex = 23;
+            this.tbpUpdateSucursal.Text = "Actualizar Sucursal";
+            this.tbpUpdateSucursal.UseVisualStyleBackColor = true;
+            // 
+            // tbpClientes
+            // 
+            this.tbpClientes.Controls.Add(this.cbxSearchStatusCli);
+            this.tbpClientes.Controls.Add(this.label69);
+            this.tbpClientes.Controls.Add(this.btnActualizarCli);
+            this.tbpClientes.Controls.Add(this.btnRegistrarCli);
+            this.tbpClientes.Controls.Add(this.btnBorrarCli);
+            this.tbpClientes.Controls.Add(this.lblRegistrosCli);
+            this.tbpClientes.Controls.Add(this.dgvDatosCliente);
+            this.tbpClientes.Controls.Add(this.txtBuscarCliente);
+            this.tbpClientes.Controls.Add(this.label71);
+            this.tbpClientes.Location = new System.Drawing.Point(4, 27);
+            this.tbpClientes.Name = "tbpClientes";
+            this.tbpClientes.Size = new System.Drawing.Size(1151, 546);
+            this.tbpClientes.TabIndex = 24;
+            this.tbpClientes.Text = "Clientes";
+            this.tbpClientes.UseVisualStyleBackColor = true;
+            // 
+            // tbpAddCliente
+            // 
+            this.tbpAddCliente.Controls.Add(this.txtPaisAddCli);
+            this.tbpAddCliente.Controls.Add(this.cbxEstadoCliAddCli);
+            this.tbpAddCliente.Controls.Add(this.cbxTipoClienteAddCli);
+            this.tbpAddCliente.Controls.Add(this.label70);
+            this.tbpAddCliente.Controls.Add(this.txtCorreoAddCli);
+            this.tbpAddCliente.Controls.Add(this.label72);
+            this.tbpAddCliente.Controls.Add(this.btnGuardarCliente);
+            this.tbpAddCliente.Controls.Add(this.btnExaminar);
+            this.tbpAddCliente.Controls.Add(this.pcbimgAddCli);
+            this.tbpAddCliente.Controls.Add(this.txtCondicionesPagoAddCli);
+            this.tbpAddCliente.Controls.Add(this.label73);
+            this.tbpAddCliente.Controls.Add(this.cbxMetodoPagoAddCli);
+            this.tbpAddCliente.Controls.Add(this.txtNumCuentaAddCli);
+            this.tbpAddCliente.Controls.Add(this.label74);
+            this.tbpAddCliente.Controls.Add(this.label75);
+            this.tbpAddCliente.Controls.Add(this.txtReferenciaAddCli);
+            this.tbpAddCliente.Controls.Add(this.label76);
+            this.tbpAddCliente.Controls.Add(this.label77);
+            this.tbpAddCliente.Controls.Add(this.txtTelMvilAddCli);
+            this.tbpAddCliente.Controls.Add(this.label78);
+            this.tbpAddCliente.Controls.Add(this.txtTelFijoAddCli);
+            this.tbpAddCliente.Controls.Add(this.label79);
+            this.tbpAddCliente.Controls.Add(this.txtNuminteAddCli);
+            this.tbpAddCliente.Controls.Add(this.label80);
+            this.tbpAddCliente.Controls.Add(this.txtNumExteAddCli);
+            this.tbpAddCliente.Controls.Add(this.label81);
+            this.tbpAddCliente.Controls.Add(this.txtCalleAddCli);
+            this.tbpAddCliente.Controls.Add(this.label82);
+            this.tbpAddCliente.Controls.Add(this.txtColoniaAddCli);
+            this.tbpAddCliente.Controls.Add(this.label83);
+            this.tbpAddCliente.Controls.Add(this.txtLocalidadAddCli);
+            this.tbpAddCliente.Controls.Add(this.label84);
+            this.tbpAddCliente.Controls.Add(this.txtMunicipioAddCli);
+            this.tbpAddCliente.Controls.Add(this.label85);
+            this.tbpAddCliente.Controls.Add(this.txtEstadoAddCli);
+            this.tbpAddCliente.Controls.Add(this.label86);
+            this.tbpAddCliente.Controls.Add(this.txtCodigoPosAddCli);
+            this.tbpAddCliente.Controls.Add(this.label87);
+            this.tbpAddCliente.Controls.Add(this.label88);
+            this.tbpAddCliente.Controls.Add(this.txtNombreAddCli);
+            this.tbpAddCliente.Controls.Add(this.label89);
+            this.tbpAddCliente.Controls.Add(this.txtCurpAddCli);
+            this.tbpAddCliente.Controls.Add(this.label90);
+            this.tbpAddCliente.Controls.Add(this.txtPersonaAddCli);
+            this.tbpAddCliente.Controls.Add(this.label91);
+            this.tbpAddCliente.Controls.Add(this.txtRazonAddCli);
+            this.tbpAddCliente.Controls.Add(this.label92);
+            this.tbpAddCliente.Controls.Add(this.txtRFCAddCli);
+            this.tbpAddCliente.Controls.Add(this.label93);
+            this.tbpAddCliente.Location = new System.Drawing.Point(4, 27);
+            this.tbpAddCliente.Name = "tbpAddCliente";
+            this.tbpAddCliente.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddCliente.TabIndex = 25;
+            this.tbpAddCliente.Text = "Registrar Cliente";
+            this.tbpAddCliente.UseVisualStyleBackColor = true;
+            // 
+            // tbpUpdateCliente
+            // 
+            this.tbpUpdateCliente.Controls.Add(this.txtPaisUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.cbxEstadoCliUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.cbxTipoCliUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label94);
+            this.tbpUpdateCliente.Controls.Add(this.txtCorreoUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label95);
+            this.tbpUpdateCliente.Controls.Add(this.BtnAcualizarCli);
+            this.tbpUpdateCliente.Controls.Add(this.btnExaminarUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.pcbImgUpdatCli);
+            this.tbpUpdateCliente.Controls.Add(this.txtCondicionesUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label96);
+            this.tbpUpdateCliente.Controls.Add(this.cbxMetodoPagoUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.txtNumCuentaUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label97);
+            this.tbpUpdateCliente.Controls.Add(this.label98);
+            this.tbpUpdateCliente.Controls.Add(this.txtReferenciaUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label99);
+            this.tbpUpdateCliente.Controls.Add(this.label100);
+            this.tbpUpdateCliente.Controls.Add(this.txtTelMvlUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label101);
+            this.tbpUpdateCliente.Controls.Add(this.txtTelFijoUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label102);
+            this.tbpUpdateCliente.Controls.Add(this.txtNumInteUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label103);
+            this.tbpUpdateCliente.Controls.Add(this.txtNumExteUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label104);
+            this.tbpUpdateCliente.Controls.Add(this.txtCalleUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label105);
+            this.tbpUpdateCliente.Controls.Add(this.txtColoniaUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label106);
+            this.tbpUpdateCliente.Controls.Add(this.txtLocalidadUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label107);
+            this.tbpUpdateCliente.Controls.Add(this.txtMunicipioUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label108);
+            this.tbpUpdateCliente.Controls.Add(this.txtEstadoUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label109);
+            this.tbpUpdateCliente.Controls.Add(this.txtCPUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label110);
+            this.tbpUpdateCliente.Controls.Add(this.label111);
+            this.tbpUpdateCliente.Controls.Add(this.txtNombreUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label112);
+            this.tbpUpdateCliente.Controls.Add(this.txtCurpUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label113);
+            this.tbpUpdateCliente.Controls.Add(this.txtPersonaUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label114);
+            this.tbpUpdateCliente.Controls.Add(this.txtRazonUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label115);
+            this.tbpUpdateCliente.Controls.Add(this.txtRfcUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label116);
+            this.tbpUpdateCliente.Location = new System.Drawing.Point(4, 27);
+            this.tbpUpdateCliente.Name = "tbpUpdateCliente";
+            this.tbpUpdateCliente.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateCliente.TabIndex = 26;
+            this.tbpUpdateCliente.Text = "Actualizar Cliente";
+            this.tbpUpdateCliente.UseVisualStyleBackColor = true;
+            // 
             // ErrorProvider
             // 
             this.ErrorProvider.ContainerControl = this;
@@ -2963,38 +3365,6 @@
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // btnCustomers
-            // 
-            this.btnCustomers.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomers.ForeColor = System.Drawing.Color.White;
-            this.btnCustomers.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomers.Image")));
-            this.btnCustomers.Location = new System.Drawing.Point(-3, 489);
-            this.btnCustomers.Name = "btnCustomers";
-            this.btnCustomers.Size = new System.Drawing.Size(162, 44);
-            this.btnCustomers.TabIndex = 12;
-            this.btnCustomers.Text = "Clientes";
-            this.btnCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCustomers.UseVisualStyleBackColor = false;
-            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
-            // 
-            // btnBussiness
-            // 
-            this.btnBussiness.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnBussiness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBussiness.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBussiness.ForeColor = System.Drawing.Color.White;
-            this.btnBussiness.Image = ((System.Drawing.Image)(resources.GetObject("btnBussiness.Image")));
-            this.btnBussiness.Location = new System.Drawing.Point(-3, 403);
-            this.btnBussiness.Name = "btnBussiness";
-            this.btnBussiness.Size = new System.Drawing.Size(162, 44);
-            this.btnBussiness.TabIndex = 13;
-            this.btnBussiness.Text = "Empresa";
-            this.btnBussiness.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBussiness.UseVisualStyleBackColor = false;
-            this.btnBussiness.Click += new System.EventHandler(this.btnBussiness_Click);
             // 
             // pnlEmpresas
             // 
@@ -3055,109 +3425,6 @@
             this.btnEmpresasList.Click += new System.EventHandler(this.btnEmpresasList_Click);
             this.btnEmpresasList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button3_MouseClick);
             // 
-            // tbpEmpresa
-            // 
-            this.tbpEmpresa.Location = new System.Drawing.Point(4, 27);
-            this.tbpEmpresa.Name = "tbpEmpresa";
-            this.tbpEmpresa.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpEmpresa.Size = new System.Drawing.Size(1151, 546);
-            this.tbpEmpresa.TabIndex = 18;
-            this.tbpEmpresa.Text = "Empresas";
-            this.tbpEmpresa.UseVisualStyleBackColor = true;
-            // 
-            // tbpAddEmpresa
-            // 
-            this.tbpAddEmpresa.Location = new System.Drawing.Point(4, 27);
-            this.tbpAddEmpresa.Name = "tbpAddEmpresa";
-            this.tbpAddEmpresa.Size = new System.Drawing.Size(1151, 546);
-            this.tbpAddEmpresa.TabIndex = 19;
-            this.tbpAddEmpresa.Text = "Registrar Empresa";
-            this.tbpAddEmpresa.UseVisualStyleBackColor = true;
-            // 
-            // tbpUpdateEmpresa
-            // 
-            this.tbpUpdateEmpresa.Location = new System.Drawing.Point(4, 27);
-            this.tbpUpdateEmpresa.Name = "tbpUpdateEmpresa";
-            this.tbpUpdateEmpresa.Size = new System.Drawing.Size(1151, 546);
-            this.tbpUpdateEmpresa.TabIndex = 20;
-            this.tbpUpdateEmpresa.Text = "Actualizar Empresa";
-            this.tbpUpdateEmpresa.UseVisualStyleBackColor = true;
-            // 
-            // tbpSucursal
-            // 
-            this.tbpSucursal.Location = new System.Drawing.Point(4, 27);
-            this.tbpSucursal.Name = "tbpSucursal";
-            this.tbpSucursal.Size = new System.Drawing.Size(1151, 546);
-            this.tbpSucursal.TabIndex = 21;
-            this.tbpSucursal.Text = "Sucursales";
-            this.tbpSucursal.UseVisualStyleBackColor = true;
-            // 
-            // tbpAddSucursal
-            // 
-            this.tbpAddSucursal.Location = new System.Drawing.Point(4, 27);
-            this.tbpAddSucursal.Name = "tbpAddSucursal";
-            this.tbpAddSucursal.Size = new System.Drawing.Size(1151, 546);
-            this.tbpAddSucursal.TabIndex = 22;
-            this.tbpAddSucursal.Text = "Registrar Sucursal";
-            this.tbpAddSucursal.UseVisualStyleBackColor = true;
-            // 
-            // tbpUpdateSucursal
-            // 
-            this.tbpUpdateSucursal.Location = new System.Drawing.Point(4, 27);
-            this.tbpUpdateSucursal.Name = "tbpUpdateSucursal";
-            this.tbpUpdateSucursal.Size = new System.Drawing.Size(1151, 546);
-            this.tbpUpdateSucursal.TabIndex = 23;
-            this.tbpUpdateSucursal.Text = "Actualizar Sucursal";
-            this.tbpUpdateSucursal.UseVisualStyleBackColor = true;
-            // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "pkProducto";
-            this.pkProductos.HeaderText = "Producto";
-            this.pkProductos.Name = "pkProductos";
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Clave";
-            this.iClaveProd.Name = "iClaveProd";
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            // 
-            // iDescuento
-            // 
-            this.iDescuento.DataPropertyName = "iDescuento";
-            this.iDescuento.HeaderText = "Descuento";
-            this.iDescuento.Name = "iDescuento";
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            // 
-            // iLote
-            // 
-            this.iLote.DataPropertyName = "iLote";
-            this.iLote.HeaderText = "Lote";
-            this.iLote.Name = "iLote";
-            // 
-            // sFoto
-            // 
-            this.sFoto.DataPropertyName = "sFoto";
-            this.sFoto.HeaderText = "Imagen";
-            this.sFoto.Name = "sFoto";
-            // 
             // pnlCliente
             // 
             this.pnlCliente.BackColor = System.Drawing.Color.White;
@@ -3198,32 +3465,1091 @@
             this.btnCustomersList.Click += new System.EventHandler(this.btnCustomersList_Click);
             this.btnCustomersList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCustomersList_MouseClick);
             // 
-            // tbpClientes
+            // cbxSearchStatusCli
             // 
-            this.tbpClientes.Location = new System.Drawing.Point(4, 27);
-            this.tbpClientes.Name = "tbpClientes";
-            this.tbpClientes.Size = new System.Drawing.Size(1151, 546);
-            this.tbpClientes.TabIndex = 24;
-            this.tbpClientes.Text = "Clientes";
-            this.tbpClientes.UseVisualStyleBackColor = true;
+            this.cbxSearchStatusCli.FormattingEnabled = true;
+            this.cbxSearchStatusCli.Items.AddRange(new object[] {
+            "Activo",
+            "Baja",
+            "Suspendido",
+            "Otro(a)"});
+            this.cbxSearchStatusCli.Location = new System.Drawing.Point(683, 11);
+            this.cbxSearchStatusCli.Name = "cbxSearchStatusCli";
+            this.cbxSearchStatusCli.Size = new System.Drawing.Size(275, 26);
+            this.cbxSearchStatusCli.TabIndex = 40;
+            this.cbxSearchStatusCli.SelectedIndexChanged += new System.EventHandler(this.cbxSearchStatusCli_SelectedIndexChanged);
             // 
-            // tbpAddCliente
+            // label69
             // 
-            this.tbpAddCliente.Location = new System.Drawing.Point(4, 27);
-            this.tbpAddCliente.Name = "tbpAddCliente";
-            this.tbpAddCliente.Size = new System.Drawing.Size(1151, 546);
-            this.tbpAddCliente.TabIndex = 25;
-            this.tbpAddCliente.Text = "Registrar Cliente";
-            this.tbpAddCliente.UseVisualStyleBackColor = true;
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(499, 16);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(178, 18);
+            this.label69.TabIndex = 39;
+            this.label69.Text = "Buscar Cliente Por Status";
             // 
-            // tbpUpdateCliente
+            // btnActualizarCli
             // 
-            this.tbpUpdateCliente.Location = new System.Drawing.Point(4, 27);
-            this.tbpUpdateCliente.Name = "tbpUpdateCliente";
-            this.tbpUpdateCliente.Size = new System.Drawing.Size(1151, 546);
-            this.tbpUpdateCliente.TabIndex = 26;
-            this.tbpUpdateCliente.Text = "Actualizar Cliente";
-            this.tbpUpdateCliente.UseVisualStyleBackColor = true;
+            this.btnActualizarCli.Location = new System.Drawing.Point(964, 99);
+            this.btnActualizarCli.Name = "btnActualizarCli";
+            this.btnActualizarCli.Size = new System.Drawing.Size(109, 44);
+            this.btnActualizarCli.TabIndex = 34;
+            this.btnActualizarCli.Text = "Update";
+            this.btnActualizarCli.UseVisualStyleBackColor = true;
+            this.btnActualizarCli.Click += new System.EventHandler(this.btnActualizarCli_Click);
+            // 
+            // btnRegistrarCli
+            // 
+            this.btnRegistrarCli.Location = new System.Drawing.Point(964, 49);
+            this.btnRegistrarCli.Name = "btnRegistrarCli";
+            this.btnRegistrarCli.Size = new System.Drawing.Size(109, 44);
+            this.btnRegistrarCli.TabIndex = 33;
+            this.btnRegistrarCli.Text = "Add";
+            this.btnRegistrarCli.UseVisualStyleBackColor = true;
+            this.btnRegistrarCli.Click += new System.EventHandler(this.btnRegistrarCli_Click);
+            // 
+            // btnBorrarCli
+            // 
+            this.btnBorrarCli.Location = new System.Drawing.Point(964, 149);
+            this.btnBorrarCli.Name = "btnBorrarCli";
+            this.btnBorrarCli.Size = new System.Drawing.Size(110, 44);
+            this.btnBorrarCli.TabIndex = 35;
+            this.btnBorrarCli.Text = "Delete";
+            this.btnBorrarCli.UseVisualStyleBackColor = true;
+            this.btnBorrarCli.Click += new System.EventHandler(this.btnBorrarCli_Click);
+            // 
+            // lblRegistrosCli
+            // 
+            this.lblRegistrosCli.AutoSize = true;
+            this.lblRegistrosCli.Location = new System.Drawing.Point(3, 519);
+            this.lblRegistrosCli.Name = "lblRegistrosCli";
+            this.lblRegistrosCli.Size = new System.Drawing.Size(68, 18);
+            this.lblRegistrosCli.TabIndex = 38;
+            this.lblRegistrosCli.Text = "Registro:";
+            // 
+            // dgvDatosCliente
+            // 
+            this.dgvDatosCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pkClientes,
+            this.dataGridViewTextBoxColumn4,
+            this.sCurp,
+            this.dataGridViewTextBoxColumn5,
+            this.sEstado,
+            this.sMunicipio,
+            this.sColonia,
+            this.sCalle,
+            this.iCodPostal,
+            this.sTelMovil,
+            this.dataGridViewTextBoxColumn6,
+            this.sTipoPAgo,
+            this.iNumCuenta});
+            this.dgvDatosCliente.Location = new System.Drawing.Point(3, 43);
+            this.dgvDatosCliente.Name = "dgvDatosCliente";
+            this.dgvDatosCliente.RowHeadersVisible = false;
+            this.dgvDatosCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatosCliente.Size = new System.Drawing.Size(955, 473);
+            this.dgvDatosCliente.TabIndex = 37;
+            this.dgvDatosCliente.DataSourceChanged += new System.EventHandler(this.dgvDatosCliente_DataSourceChanged);
+            // 
+            // pkClientes
+            // 
+            this.pkClientes.DataPropertyName = "pkCliente";
+            this.pkClientes.HeaderText = "Cliente";
+            this.pkClientes.Name = "pkClientes";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "sRfc";
+            this.dataGridViewTextBoxColumn4.HeaderText = "RFC";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // sCurp
+            // 
+            this.sCurp.DataPropertyName = "sCurp";
+            this.sCurp.HeaderText = "CURP";
+            this.sCurp.Name = "sCurp";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "sNombre";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 90;
+            // 
+            // sEstado
+            // 
+            this.sEstado.DataPropertyName = "sEstado";
+            this.sEstado.HeaderText = "Estado";
+            this.sEstado.Name = "sEstado";
+            // 
+            // sMunicipio
+            // 
+            this.sMunicipio.DataPropertyName = "sMunicipio";
+            this.sMunicipio.HeaderText = "Municipio";
+            this.sMunicipio.Name = "sMunicipio";
+            // 
+            // sColonia
+            // 
+            this.sColonia.DataPropertyName = "sColonia";
+            this.sColonia.HeaderText = "Colonia";
+            this.sColonia.Name = "sColonia";
+            // 
+            // sCalle
+            // 
+            this.sCalle.DataPropertyName = "sCalle";
+            this.sCalle.HeaderText = "Calle";
+            this.sCalle.Name = "sCalle";
+            // 
+            // iCodPostal
+            // 
+            this.iCodPostal.DataPropertyName = "iCodPostal";
+            this.iCodPostal.HeaderText = "Codigo Postal";
+            this.iCodPostal.Name = "iCodPostal";
+            // 
+            // sTelMovil
+            // 
+            this.sTelMovil.DataPropertyName = "sTelMovil";
+            this.sTelMovil.HeaderText = "Celular";
+            this.sTelMovil.Name = "sTelMovil";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "sCorreo";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Correo";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // sTipoPAgo
+            // 
+            this.sTipoPAgo.DataPropertyName = "sTipoPAgo";
+            this.sTipoPAgo.HeaderText = "Tipo Pago";
+            this.sTipoPAgo.Name = "sTipoPAgo";
+            // 
+            // iNumCuenta
+            // 
+            this.iNumCuenta.DataPropertyName = "sNumCuenta";
+            this.iNumCuenta.HeaderText = "Numero de Cuenta";
+            this.iNumCuenta.Name = "iNumCuenta";
+            // 
+            // txtBuscarCliente
+            // 
+            this.txtBuscarCliente.Location = new System.Drawing.Point(77, 13);
+            this.txtBuscarCliente.Name = "txtBuscarCliente";
+            this.txtBuscarCliente.Size = new System.Drawing.Size(416, 24);
+            this.txtBuscarCliente.TabIndex = 32;
+            this.txtBuscarCliente.TextChanged += new System.EventHandler(this.txtBuscarCliente_TextChanged);
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(12, 16);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(59, 18);
+            this.label71.TabIndex = 36;
+            this.label71.Text = "Buscar ";
+            // 
+            // txtPaisAddCli
+            // 
+            this.txtPaisAddCli.Location = new System.Drawing.Point(821, 72);
+            this.txtPaisAddCli.Name = "txtPaisAddCli";
+            this.txtPaisAddCli.Size = new System.Drawing.Size(236, 24);
+            this.txtPaisAddCli.TabIndex = 64;
+            this.txtPaisAddCli.TextChanged += new System.EventHandler(this.txtPaisAddCli_TextChanged);
+            // 
+            // cbxEstadoCliAddCli
+            // 
+            this.cbxEstadoCliAddCli.FormattingEnabled = true;
+            this.cbxEstadoCliAddCli.Items.AddRange(new object[] {
+            "Activo",
+            "Baja",
+            "Suspendido",
+            "Otro(a)"});
+            this.cbxEstadoCliAddCli.Location = new System.Drawing.Point(147, 305);
+            this.cbxEstadoCliAddCli.Name = "cbxEstadoCliAddCli";
+            this.cbxEstadoCliAddCli.Size = new System.Drawing.Size(183, 26);
+            this.cbxEstadoCliAddCli.TabIndex = 83;
+            this.cbxEstadoCliAddCli.Text = "Seleccione Una Opcion";
+            this.cbxEstadoCliAddCli.SelectedIndexChanged += new System.EventHandler(this.cbxEstadoCliAddCli_SelectedIndexChanged);
+            // 
+            // cbxTipoClienteAddCli
+            // 
+            this.cbxTipoClienteAddCli.FormattingEnabled = true;
+            this.cbxTipoClienteAddCli.Items.AddRange(new object[] {
+            "Vendedor",
+            "Comprador"});
+            this.cbxTipoClienteAddCli.Location = new System.Drawing.Point(853, 261);
+            this.cbxTipoClienteAddCli.Name = "cbxTipoClienteAddCli";
+            this.cbxTipoClienteAddCli.Size = new System.Drawing.Size(204, 26);
+            this.cbxTipoClienteAddCli.TabIndex = 81;
+            this.cbxTipoClienteAddCli.Text = "Seleccione Una Opcion";
+            this.cbxTipoClienteAddCli.SelectedIndexChanged += new System.EventHandler(this.cbxTipoClienteAddCli_SelectedIndexChanged);
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(732, 265);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(114, 18);
+            this.label70.TabIndex = 105;
+            this.label70.Text = "Tipo de Cliente :";
+            // 
+            // txtCorreoAddCli
+            // 
+            this.txtCorreoAddCli.Location = new System.Drawing.Point(448, 353);
+            this.txtCorreoAddCli.Name = "txtCorreoAddCli";
+            this.txtCorreoAddCli.Size = new System.Drawing.Size(268, 24);
+            this.txtCorreoAddCli.TabIndex = 87;
+            this.txtCorreoAddCli.TextChanged += new System.EventHandler(this.txtCorreoAddCli_TextChanged);
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(375, 353);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(67, 18);
+            this.label72.TabIndex = 104;
+            this.label72.Text = "Correo  :";
+            // 
+            // btnGuardarCliente
+            // 
+            this.btnGuardarCliente.Location = new System.Drawing.Point(995, 476);
+            this.btnGuardarCliente.Name = "btnGuardarCliente";
+            this.btnGuardarCliente.Size = new System.Drawing.Size(116, 42);
+            this.btnGuardarCliente.TabIndex = 95;
+            this.btnGuardarCliente.UseVisualStyleBackColor = true;
+            this.btnGuardarCliente.Click += new System.EventHandler(this.btnGuardarCliente_Click);
+            // 
+            // btnExaminar
+            // 
+            this.btnExaminar.Location = new System.Drawing.Point(944, 430);
+            this.btnExaminar.Name = "btnExaminar";
+            this.btnExaminar.Size = new System.Drawing.Size(167, 27);
+            this.btnExaminar.TabIndex = 90;
+            this.btnExaminar.Tag = "2";
+            this.btnExaminar.Text = "Examinar";
+            this.btnExaminar.UseVisualStyleBackColor = true;
+            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
+            // 
+            // pcbimgAddCli
+            // 
+            this.pcbimgAddCli.Location = new System.Drawing.Point(944, 311);
+            this.pcbimgAddCli.Name = "pcbimgAddCli";
+            this.pcbimgAddCli.Size = new System.Drawing.Size(167, 113);
+            this.pcbimgAddCli.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbimgAddCli.TabIndex = 103;
+            this.pcbimgAddCli.TabStop = false;
+            this.pcbimgAddCli.Tag = "2";
+            // 
+            // txtCondicionesPagoAddCli
+            // 
+            this.txtCondicionesPagoAddCli.Location = new System.Drawing.Point(178, 395);
+            this.txtCondicionesPagoAddCli.Name = "txtCondicionesPagoAddCli";
+            this.txtCondicionesPagoAddCli.Size = new System.Drawing.Size(300, 24);
+            this.txtCondicionesPagoAddCli.TabIndex = 89;
+            this.txtCondicionesPagoAddCli.TextChanged += new System.EventHandler(this.txtCondicionesPagoAddCli_TextChanged);
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(14, 398);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(158, 18);
+            this.label73.TabIndex = 102;
+            this.label73.Text = "Condiciones de Pago :";
+            // 
+            // cbxMetodoPagoAddCli
+            // 
+            this.cbxMetodoPagoAddCli.FormattingEnabled = true;
+            this.cbxMetodoPagoAddCli.Items.AddRange(new object[] {
+            "Efectivo",
+            "Cheque",
+            "Trasnferencia",
+            "Tarjeta de Credito",
+            "Monederos electronicos",
+            "Dinero electronico",
+            "Tarjetas digitales",
+            "Vales de despensa",
+            "Bienes",
+            "Servicio",
+            "Por cuenta de tercero",
+            "Dacion de pago",
+            "Pago de subrogacion"});
+            this.cbxMetodoPagoAddCli.Location = new System.Drawing.Point(144, 348);
+            this.cbxMetodoPagoAddCli.Name = "cbxMetodoPagoAddCli";
+            this.cbxMetodoPagoAddCli.Size = new System.Drawing.Size(186, 26);
+            this.cbxMetodoPagoAddCli.TabIndex = 86;
+            this.cbxMetodoPagoAddCli.Text = "Seleccione Una Opcion";
+            this.cbxMetodoPagoAddCli.SelectedIndexChanged += new System.EventHandler(this.cbxMetodoPagoAddCli_SelectedIndexChanged);
+            // 
+            // txtNumCuentaAddCli
+            // 
+            this.txtNumCuentaAddCli.Location = new System.Drawing.Point(448, 308);
+            this.txtNumCuentaAddCli.Name = "txtNumCuentaAddCli";
+            this.txtNumCuentaAddCli.Size = new System.Drawing.Size(268, 24);
+            this.txtNumCuentaAddCli.TabIndex = 85;
+            this.txtNumCuentaAddCli.TextChanged += new System.EventHandler(this.txtNumCuentaAddCli_TextChanged);
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(339, 311);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(103, 18);
+            this.label74.TabIndex = 101;
+            this.label74.Text = "Num Cuenta  :";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(32, 353);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(106, 18);
+            this.label75.TabIndex = 100;
+            this.label75.Text = "Metodo Pago :";
+            // 
+            // txtReferenciaAddCli
+            // 
+            this.txtReferenciaAddCli.Location = new System.Drawing.Point(434, 258);
+            this.txtReferenciaAddCli.Name = "txtReferenciaAddCli";
+            this.txtReferenciaAddCli.Size = new System.Drawing.Size(282, 24);
+            this.txtReferenciaAddCli.TabIndex = 80;
+            this.txtReferenciaAddCli.TextChanged += new System.EventHandler(this.txtReferenciaAddCli_TextChanged);
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(341, 264);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(87, 18);
+            this.label76.TabIndex = 99;
+            this.label76.Text = "Referencia :";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(28, 308);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(112, 18);
+            this.label77.TabIndex = 98;
+            this.label77.Text = "Estado Cliente :";
+            // 
+            // txtTelMvilAddCli
+            // 
+            this.txtTelMvilAddCli.Location = new System.Drawing.Point(821, 209);
+            this.txtTelMvilAddCli.Name = "txtTelMvilAddCli";
+            this.txtTelMvilAddCli.Size = new System.Drawing.Size(236, 24);
+            this.txtTelMvilAddCli.TabIndex = 77;
+            this.txtTelMvilAddCli.TextChanged += new System.EventHandler(this.txtTelMvilAddCli_TextChanged);
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(736, 215);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(79, 18);
+            this.label78.TabIndex = 97;
+            this.label78.Text = "Tel Movil  :";
+            // 
+            // txtTelFijoAddCli
+            // 
+            this.txtTelFijoAddCli.Location = new System.Drawing.Point(101, 261);
+            this.txtTelFijoAddCli.Name = "txtTelFijoAddCli";
+            this.txtTelFijoAddCli.Size = new System.Drawing.Size(204, 24);
+            this.txtTelFijoAddCli.TabIndex = 79;
+            this.txtTelFijoAddCli.TextChanged += new System.EventHandler(this.txtTelFijoAddCli_TextChanged);
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(31, 264);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(64, 18);
+            this.label79.TabIndex = 96;
+            this.label79.Text = "Tel Fijo :";
+            // 
+            // txtNuminteAddCli
+            // 
+            this.txtNuminteAddCli.Location = new System.Drawing.Point(448, 209);
+            this.txtNuminteAddCli.Name = "txtNuminteAddCli";
+            this.txtNuminteAddCli.Size = new System.Drawing.Size(268, 24);
+            this.txtNuminteAddCli.TabIndex = 75;
+            this.txtNuminteAddCli.TextChanged += new System.EventHandler(this.txtNuminteAddCli_TextChanged);
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(341, 215);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(101, 18);
+            this.label80.TabIndex = 94;
+            this.label80.Text = "Num. Interior :";
+            // 
+            // txtNumExteAddCli
+            // 
+            this.txtNumExteAddCli.Location = new System.Drawing.Point(124, 212);
+            this.txtNumExteAddCli.Name = "txtNumExteAddCli";
+            this.txtNumExteAddCli.Size = new System.Drawing.Size(181, 24);
+            this.txtNumExteAddCli.TabIndex = 74;
+            this.txtNumExteAddCli.TextChanged += new System.EventHandler(this.txtNumExteAddCli_TextChanged);
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(15, 215);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(103, 18);
+            this.label81.TabIndex = 91;
+            this.label81.Text = "Num Exterior :";
+            // 
+            // txtCalleAddCli
+            // 
+            this.txtCalleAddCli.Location = new System.Drawing.Point(821, 169);
+            this.txtCalleAddCli.Name = "txtCalleAddCli";
+            this.txtCalleAddCli.Size = new System.Drawing.Size(236, 24);
+            this.txtCalleAddCli.TabIndex = 72;
+            this.txtCalleAddCli.TextChanged += new System.EventHandler(this.txtCalleAddCli_TextChanged);
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(754, 172);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(53, 18);
+            this.label82.TabIndex = 88;
+            this.label82.Text = "Calle  :";
+            // 
+            // txtColoniaAddCli
+            // 
+            this.txtColoniaAddCli.Location = new System.Drawing.Point(434, 166);
+            this.txtColoniaAddCli.Name = "txtColoniaAddCli";
+            this.txtColoniaAddCli.Size = new System.Drawing.Size(282, 24);
+            this.txtColoniaAddCli.TabIndex = 71;
+            this.txtColoniaAddCli.TextChanged += new System.EventHandler(this.txtColoniaAddCli_TextChanged);
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(346, 169);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(67, 18);
+            this.label83.TabIndex = 84;
+            this.label83.Text = "Colonia :";
+            // 
+            // txtLocalidadAddCli
+            // 
+            this.txtLocalidadAddCli.Location = new System.Drawing.Point(821, 117);
+            this.txtLocalidadAddCli.Name = "txtLocalidadAddCli";
+            this.txtLocalidadAddCli.Size = new System.Drawing.Size(236, 24);
+            this.txtLocalidadAddCli.TabIndex = 68;
+            this.txtLocalidadAddCli.TextChanged += new System.EventHandler(this.txtLocalidadAddCli_TextChanged);
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(740, 123);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(83, 18);
+            this.label84.TabIndex = 82;
+            this.label84.Text = "Localidad  :";
+            // 
+            // txtMunicipioAddCli
+            // 
+            this.txtMunicipioAddCli.Location = new System.Drawing.Point(109, 166);
+            this.txtMunicipioAddCli.Name = "txtMunicipioAddCli";
+            this.txtMunicipioAddCli.Size = new System.Drawing.Size(196, 24);
+            this.txtMunicipioAddCli.TabIndex = 69;
+            this.txtMunicipioAddCli.TextChanged += new System.EventHandler(this.txtMunicipioAddCli_TextChanged);
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(24, 169);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(79, 18);
+            this.label85.TabIndex = 78;
+            this.label85.Text = "Municipio :";
+            // 
+            // txtEstadoAddCli
+            // 
+            this.txtEstadoAddCli.Location = new System.Drawing.Point(434, 117);
+            this.txtEstadoAddCli.Name = "txtEstadoAddCli";
+            this.txtEstadoAddCli.Size = new System.Drawing.Size(282, 24);
+            this.txtEstadoAddCli.TabIndex = 66;
+            this.txtEstadoAddCli.TextChanged += new System.EventHandler(this.txtEstadoAddCli_TextChanged);
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(353, 123);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(67, 18);
+            this.label86.TabIndex = 76;
+            this.label86.Text = "Estado  :";
+            // 
+            // txtCodigoPosAddCli
+            // 
+            this.txtCodigoPosAddCli.Location = new System.Drawing.Point(135, 117);
+            this.txtCodigoPosAddCli.Name = "txtCodigoPosAddCli";
+            this.txtCodigoPosAddCli.Size = new System.Drawing.Size(170, 24);
+            this.txtCodigoPosAddCli.TabIndex = 65;
+            this.txtCodigoPosAddCli.TextChanged += new System.EventHandler(this.txtCodigoPosAddCli_TextChanged);
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(19, 120);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(110, 18);
+            this.label87.TabIndex = 73;
+            this.label87.Text = "Codigo Postal :";
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(758, 72);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(49, 18);
+            this.label88.TabIndex = 70;
+            this.label88.Text = "Pais  :";
+            // 
+            // txtNombreAddCli
+            // 
+            this.txtNombreAddCli.Location = new System.Drawing.Point(434, 66);
+            this.txtNombreAddCli.Name = "txtNombreAddCli";
+            this.txtNombreAddCli.Size = new System.Drawing.Size(282, 24);
+            this.txtNombreAddCli.TabIndex = 62;
+            this.txtNombreAddCli.TextChanged += new System.EventHandler(this.txtNombreAddCli_TextChanged);
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(346, 72);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(70, 18);
+            this.label89.TabIndex = 67;
+            this.label89.Text = "Nombre :";
+            // 
+            // txtCurpAddCli
+            // 
+            this.txtCurpAddCli.Location = new System.Drawing.Point(82, 69);
+            this.txtCurpAddCli.Name = "txtCurpAddCli";
+            this.txtCurpAddCli.Size = new System.Drawing.Size(223, 24);
+            this.txtCurpAddCli.TabIndex = 61;
+            this.txtCurpAddCli.TextChanged += new System.EventHandler(this.txtCurpAddCli_TextChanged);
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(16, 72);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(52, 18);
+            this.label90.TabIndex = 63;
+            this.label90.Text = "Curp  :";
+            // 
+            // txtPersonaAddCli
+            // 
+            this.txtPersonaAddCli.Location = new System.Drawing.Point(821, 19);
+            this.txtPersonaAddCli.Name = "txtPersonaAddCli";
+            this.txtPersonaAddCli.Size = new System.Drawing.Size(236, 24);
+            this.txtPersonaAddCli.TabIndex = 59;
+            this.txtPersonaAddCli.TextChanged += new System.EventHandler(this.txtPersonaAddCli_TextChanged);
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(743, 22);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(72, 18);
+            this.label91.TabIndex = 60;
+            this.label91.Text = "Persona :";
+            // 
+            // txtRazonAddCli
+            // 
+            this.txtRazonAddCli.Location = new System.Drawing.Point(434, 19);
+            this.txtRazonAddCli.Name = "txtRazonAddCli";
+            this.txtRazonAddCli.Size = new System.Drawing.Size(282, 24);
+            this.txtRazonAddCli.TabIndex = 58;
+            this.txtRazonAddCli.TextChanged += new System.EventHandler(this.txtRazonAddCli_TextChanged);
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(319, 22);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(109, 18);
+            this.label92.TabIndex = 57;
+            this.label92.Text = "Razon Social  :";
+            // 
+            // txtRFCAddCli
+            // 
+            this.txtRFCAddCli.Location = new System.Drawing.Point(69, 19);
+            this.txtRFCAddCli.Name = "txtRFCAddCli";
+            this.txtRFCAddCli.Size = new System.Drawing.Size(236, 24);
+            this.txtRFCAddCli.TabIndex = 56;
+            this.txtRFCAddCli.TextChanged += new System.EventHandler(this.txtRFCAddCli_TextChanged);
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(16, 22);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(47, 18);
+            this.label93.TabIndex = 55;
+            this.label93.Text = "RFC :";
+            // 
+            // txtPaisUpdateCli
+            // 
+            this.txtPaisUpdateCli.Location = new System.Drawing.Point(834, 77);
+            this.txtPaisUpdateCli.Name = "txtPaisUpdateCli";
+            this.txtPaisUpdateCli.Size = new System.Drawing.Size(236, 24);
+            this.txtPaisUpdateCli.TabIndex = 115;
+            this.txtPaisUpdateCli.TextChanged += new System.EventHandler(this.txtPaisUpdateCli_TextChanged);
+            this.txtPaisUpdateCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaisUpdateCli_KeyPress);
+            // 
+            // cbxEstadoCliUpdateCli
+            // 
+            this.cbxEstadoCliUpdateCli.FormattingEnabled = true;
+            this.cbxEstadoCliUpdateCli.Items.AddRange(new object[] {
+            "Activo",
+            "Baja",
+            "Suspendido",
+            "Otro(a)"});
+            this.cbxEstadoCliUpdateCli.Location = new System.Drawing.Point(160, 310);
+            this.cbxEstadoCliUpdateCli.Name = "cbxEstadoCliUpdateCli";
+            this.cbxEstadoCliUpdateCli.Size = new System.Drawing.Size(183, 26);
+            this.cbxEstadoCliUpdateCli.TabIndex = 134;
+            this.cbxEstadoCliUpdateCli.Text = "Seleccione Una Opcion";
+            this.cbxEstadoCliUpdateCli.SelectedIndexChanged += new System.EventHandler(this.cbxEstadoCliUpdateCli_SelectedIndexChanged);
+            // 
+            // cbxTipoCliUpdateCli
+            // 
+            this.cbxTipoCliUpdateCli.FormattingEnabled = true;
+            this.cbxTipoCliUpdateCli.Items.AddRange(new object[] {
+            "Vendedor",
+            "Comprador"});
+            this.cbxTipoCliUpdateCli.Location = new System.Drawing.Point(866, 266);
+            this.cbxTipoCliUpdateCli.Name = "cbxTipoCliUpdateCli";
+            this.cbxTipoCliUpdateCli.Size = new System.Drawing.Size(204, 26);
+            this.cbxTipoCliUpdateCli.TabIndex = 132;
+            this.cbxTipoCliUpdateCli.Text = "Seleccione Una Opcion";
+            this.cbxTipoCliUpdateCli.SelectedIndexChanged += new System.EventHandler(this.cbxTipoCliUpdateCli_SelectedIndexChanged);
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(745, 270);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(114, 18);
+            this.label94.TabIndex = 154;
+            this.label94.Text = "Tipo de Cliente :";
+            // 
+            // txtCorreoUpdateCli
+            // 
+            this.txtCorreoUpdateCli.Location = new System.Drawing.Point(461, 358);
+            this.txtCorreoUpdateCli.Name = "txtCorreoUpdateCli";
+            this.txtCorreoUpdateCli.Size = new System.Drawing.Size(268, 24);
+            this.txtCorreoUpdateCli.TabIndex = 138;
+            this.txtCorreoUpdateCli.TextChanged += new System.EventHandler(this.txtCorreoUpdateCli_TextChanged);
+            this.txtCorreoUpdateCli.Leave += new System.EventHandler(this.txtCorreoUpdateCli_Leave);
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(388, 358);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(67, 18);
+            this.label95.TabIndex = 153;
+            this.label95.Text = "Correo  :";
+            // 
+            // BtnAcualizarCli
+            // 
+            this.BtnAcualizarCli.Location = new System.Drawing.Point(1008, 481);
+            this.BtnAcualizarCli.Name = "BtnAcualizarCli";
+            this.BtnAcualizarCli.Size = new System.Drawing.Size(116, 42);
+            this.BtnAcualizarCli.TabIndex = 144;
+            this.BtnAcualizarCli.UseVisualStyleBackColor = true;
+            this.BtnAcualizarCli.Click += new System.EventHandler(this.BtnAcualizarCli_Click);
+            // 
+            // btnExaminarUpdateCli
+            // 
+            this.btnExaminarUpdateCli.Location = new System.Drawing.Point(957, 435);
+            this.btnExaminarUpdateCli.Name = "btnExaminarUpdateCli";
+            this.btnExaminarUpdateCli.Size = new System.Drawing.Size(167, 27);
+            this.btnExaminarUpdateCli.TabIndex = 141;
+            this.btnExaminarUpdateCli.Tag = "2";
+            this.btnExaminarUpdateCli.Text = "Examinar";
+            this.btnExaminarUpdateCli.UseVisualStyleBackColor = true;
+            this.btnExaminarUpdateCli.Click += new System.EventHandler(this.btnExaminarUpdateCli_Click);
+            // 
+            // pcbImgUpdatCli
+            // 
+            this.pcbImgUpdatCli.Location = new System.Drawing.Point(957, 316);
+            this.pcbImgUpdatCli.Name = "pcbImgUpdatCli";
+            this.pcbImgUpdatCli.Size = new System.Drawing.Size(167, 113);
+            this.pcbImgUpdatCli.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbImgUpdatCli.TabIndex = 152;
+            this.pcbImgUpdatCli.TabStop = false;
+            this.pcbImgUpdatCli.Tag = "2";
+            // 
+            // txtCondicionesUpdateCli
+            // 
+            this.txtCondicionesUpdateCli.Location = new System.Drawing.Point(191, 400);
+            this.txtCondicionesUpdateCli.Name = "txtCondicionesUpdateCli";
+            this.txtCondicionesUpdateCli.Size = new System.Drawing.Size(300, 24);
+            this.txtCondicionesUpdateCli.TabIndex = 140;
+            this.txtCondicionesUpdateCli.TextChanged += new System.EventHandler(this.txtCondicionesUpdateCli_TextChanged);
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(27, 403);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(158, 18);
+            this.label96.TabIndex = 151;
+            this.label96.Text = "Condiciones de Pago :";
+            // 
+            // cbxMetodoPagoUpdateCli
+            // 
+            this.cbxMetodoPagoUpdateCli.FormattingEnabled = true;
+            this.cbxMetodoPagoUpdateCli.Items.AddRange(new object[] {
+            "Efectivo",
+            "Cheque",
+            "Trasnferencia",
+            "Tarjeta de Credito",
+            "Monederos electronicos",
+            "Dinero electronico",
+            "Tarjetas digitales",
+            "Vales de despensa",
+            "Bienes",
+            "Servicio",
+            "Por cuenta de tercero",
+            "Dacion de pago",
+            "Pago de subrogacion"});
+            this.cbxMetodoPagoUpdateCli.Location = new System.Drawing.Point(157, 353);
+            this.cbxMetodoPagoUpdateCli.Name = "cbxMetodoPagoUpdateCli";
+            this.cbxMetodoPagoUpdateCli.Size = new System.Drawing.Size(186, 26);
+            this.cbxMetodoPagoUpdateCli.TabIndex = 137;
+            this.cbxMetodoPagoUpdateCli.Text = "Seleccione Una Opcion";
+            this.cbxMetodoPagoUpdateCli.SelectedIndexChanged += new System.EventHandler(this.cbxMetodoPagoUpdateCli_SelectedIndexChanged);
+            // 
+            // txtNumCuentaUpdateCli
+            // 
+            this.txtNumCuentaUpdateCli.Location = new System.Drawing.Point(461, 313);
+            this.txtNumCuentaUpdateCli.Name = "txtNumCuentaUpdateCli";
+            this.txtNumCuentaUpdateCli.Size = new System.Drawing.Size(268, 24);
+            this.txtNumCuentaUpdateCli.TabIndex = 136;
+            this.txtNumCuentaUpdateCli.TextChanged += new System.EventHandler(this.txtNumCuentaUpdateCli_TextChanged);
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(352, 316);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(103, 18);
+            this.label97.TabIndex = 150;
+            this.label97.Text = "Num Cuenta  :";
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(45, 358);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(106, 18);
+            this.label98.TabIndex = 149;
+            this.label98.Text = "Metodo Pago :";
+            // 
+            // txtReferenciaUpdateCli
+            // 
+            this.txtReferenciaUpdateCli.Location = new System.Drawing.Point(447, 263);
+            this.txtReferenciaUpdateCli.Name = "txtReferenciaUpdateCli";
+            this.txtReferenciaUpdateCli.Size = new System.Drawing.Size(282, 24);
+            this.txtReferenciaUpdateCli.TabIndex = 131;
+            this.txtReferenciaUpdateCli.TextChanged += new System.EventHandler(this.txtReferenciaUpdateCli_TextChanged);
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(354, 269);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(87, 18);
+            this.label99.TabIndex = 148;
+            this.label99.Text = "Referencia :";
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(41, 313);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(112, 18);
+            this.label100.TabIndex = 147;
+            this.label100.Text = "Estado Cliente :";
+            // 
+            // txtTelMvlUpdateCli
+            // 
+            this.txtTelMvlUpdateCli.Location = new System.Drawing.Point(834, 214);
+            this.txtTelMvlUpdateCli.Name = "txtTelMvlUpdateCli";
+            this.txtTelMvlUpdateCli.Size = new System.Drawing.Size(236, 24);
+            this.txtTelMvlUpdateCli.TabIndex = 128;
+            this.txtTelMvlUpdateCli.TextChanged += new System.EventHandler(this.txtTelMvlUpdateCli_TextChanged);
+            this.txtTelMvlUpdateCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelMvlUpdateCli_KeyPress);
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Location = new System.Drawing.Point(749, 220);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(79, 18);
+            this.label101.TabIndex = 146;
+            this.label101.Text = "Tel Movil  :";
+            // 
+            // txtTelFijoUpdateCli
+            // 
+            this.txtTelFijoUpdateCli.Location = new System.Drawing.Point(114, 266);
+            this.txtTelFijoUpdateCli.Name = "txtTelFijoUpdateCli";
+            this.txtTelFijoUpdateCli.Size = new System.Drawing.Size(204, 24);
+            this.txtTelFijoUpdateCli.TabIndex = 130;
+            this.txtTelFijoUpdateCli.TextChanged += new System.EventHandler(this.txtTelFijoUpdateCli_TextChanged);
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Location = new System.Drawing.Point(44, 269);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(64, 18);
+            this.label102.TabIndex = 145;
+            this.label102.Text = "Tel Fijo :";
+            // 
+            // txtNumInteUpdateCli
+            // 
+            this.txtNumInteUpdateCli.Location = new System.Drawing.Point(461, 214);
+            this.txtNumInteUpdateCli.Name = "txtNumInteUpdateCli";
+            this.txtNumInteUpdateCli.Size = new System.Drawing.Size(268, 24);
+            this.txtNumInteUpdateCli.TabIndex = 126;
+            this.txtNumInteUpdateCli.TextChanged += new System.EventHandler(this.txtNumInteUpdateCli_TextChanged);
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Location = new System.Drawing.Point(354, 220);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(101, 18);
+            this.label103.TabIndex = 143;
+            this.label103.Text = "Num. Interior :";
+            // 
+            // txtNumExteUpdateCli
+            // 
+            this.txtNumExteUpdateCli.Location = new System.Drawing.Point(137, 217);
+            this.txtNumExteUpdateCli.Name = "txtNumExteUpdateCli";
+            this.txtNumExteUpdateCli.Size = new System.Drawing.Size(181, 24);
+            this.txtNumExteUpdateCli.TabIndex = 125;
+            this.txtNumExteUpdateCli.TextChanged += new System.EventHandler(this.txtNumExteUpdateCli_TextChanged);
+            // 
+            // label104
+            // 
+            this.label104.AutoSize = true;
+            this.label104.Location = new System.Drawing.Point(28, 220);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(103, 18);
+            this.label104.TabIndex = 142;
+            this.label104.Text = "Num Exterior :";
+            // 
+            // txtCalleUpdateCli
+            // 
+            this.txtCalleUpdateCli.Location = new System.Drawing.Point(834, 174);
+            this.txtCalleUpdateCli.Name = "txtCalleUpdateCli";
+            this.txtCalleUpdateCli.Size = new System.Drawing.Size(236, 24);
+            this.txtCalleUpdateCli.TabIndex = 123;
+            this.txtCalleUpdateCli.TextChanged += new System.EventHandler(this.txtCalleUpdateCli_TextChanged);
+            // 
+            // label105
+            // 
+            this.label105.AutoSize = true;
+            this.label105.Location = new System.Drawing.Point(767, 177);
+            this.label105.Name = "label105";
+            this.label105.Size = new System.Drawing.Size(53, 18);
+            this.label105.TabIndex = 139;
+            this.label105.Text = "Calle  :";
+            // 
+            // txtColoniaUpdateCli
+            // 
+            this.txtColoniaUpdateCli.Location = new System.Drawing.Point(447, 171);
+            this.txtColoniaUpdateCli.Name = "txtColoniaUpdateCli";
+            this.txtColoniaUpdateCli.Size = new System.Drawing.Size(282, 24);
+            this.txtColoniaUpdateCli.TabIndex = 122;
+            this.txtColoniaUpdateCli.TextChanged += new System.EventHandler(this.txtColoniaUpdateCli_TextChanged);
+            // 
+            // label106
+            // 
+            this.label106.AutoSize = true;
+            this.label106.Location = new System.Drawing.Point(359, 174);
+            this.label106.Name = "label106";
+            this.label106.Size = new System.Drawing.Size(67, 18);
+            this.label106.TabIndex = 135;
+            this.label106.Text = "Colonia :";
+            // 
+            // txtLocalidadUpdateCli
+            // 
+            this.txtLocalidadUpdateCli.Location = new System.Drawing.Point(834, 122);
+            this.txtLocalidadUpdateCli.Name = "txtLocalidadUpdateCli";
+            this.txtLocalidadUpdateCli.Size = new System.Drawing.Size(236, 24);
+            this.txtLocalidadUpdateCli.TabIndex = 119;
+            this.txtLocalidadUpdateCli.TextChanged += new System.EventHandler(this.txtLocalidadUpdateCli_TextChanged);
+            // 
+            // label107
+            // 
+            this.label107.AutoSize = true;
+            this.label107.Location = new System.Drawing.Point(753, 128);
+            this.label107.Name = "label107";
+            this.label107.Size = new System.Drawing.Size(83, 18);
+            this.label107.TabIndex = 133;
+            this.label107.Text = "Localidad  :";
+            // 
+            // txtMunicipioUpdateCli
+            // 
+            this.txtMunicipioUpdateCli.Location = new System.Drawing.Point(122, 171);
+            this.txtMunicipioUpdateCli.Name = "txtMunicipioUpdateCli";
+            this.txtMunicipioUpdateCli.Size = new System.Drawing.Size(196, 24);
+            this.txtMunicipioUpdateCli.TabIndex = 120;
+            this.txtMunicipioUpdateCli.TextChanged += new System.EventHandler(this.txtMunicipioUpdateCli_TextChanged);
+            this.txtMunicipioUpdateCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMunicipioUpdateCli_KeyPress);
+            // 
+            // label108
+            // 
+            this.label108.AutoSize = true;
+            this.label108.Location = new System.Drawing.Point(37, 174);
+            this.label108.Name = "label108";
+            this.label108.Size = new System.Drawing.Size(79, 18);
+            this.label108.TabIndex = 129;
+            this.label108.Text = "Municipio :";
+            // 
+            // txtEstadoUpdateCli
+            // 
+            this.txtEstadoUpdateCli.Location = new System.Drawing.Point(447, 122);
+            this.txtEstadoUpdateCli.Name = "txtEstadoUpdateCli";
+            this.txtEstadoUpdateCli.Size = new System.Drawing.Size(282, 24);
+            this.txtEstadoUpdateCli.TabIndex = 117;
+            this.txtEstadoUpdateCli.TextChanged += new System.EventHandler(this.txtEstadoUpdateCli_TextChanged);
+            this.txtEstadoUpdateCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstadoUpdateCli_KeyPress);
+            // 
+            // label109
+            // 
+            this.label109.AutoSize = true;
+            this.label109.Location = new System.Drawing.Point(366, 128);
+            this.label109.Name = "label109";
+            this.label109.Size = new System.Drawing.Size(67, 18);
+            this.label109.TabIndex = 127;
+            this.label109.Text = "Estado  :";
+            // 
+            // txtCPUpdateCli
+            // 
+            this.txtCPUpdateCli.Location = new System.Drawing.Point(148, 122);
+            this.txtCPUpdateCli.Name = "txtCPUpdateCli";
+            this.txtCPUpdateCli.Size = new System.Drawing.Size(170, 24);
+            this.txtCPUpdateCli.TabIndex = 116;
+            this.txtCPUpdateCli.TextChanged += new System.EventHandler(this.txtCPUpdateCli_TextChanged);
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Location = new System.Drawing.Point(32, 125);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(110, 18);
+            this.label110.TabIndex = 124;
+            this.label110.Text = "Codigo Postal :";
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Location = new System.Drawing.Point(771, 77);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(49, 18);
+            this.label111.TabIndex = 121;
+            this.label111.Text = "Pais  :";
+            // 
+            // txtNombreUpdateCli
+            // 
+            this.txtNombreUpdateCli.Location = new System.Drawing.Point(447, 71);
+            this.txtNombreUpdateCli.Name = "txtNombreUpdateCli";
+            this.txtNombreUpdateCli.Size = new System.Drawing.Size(282, 24);
+            this.txtNombreUpdateCli.TabIndex = 113;
+            this.txtNombreUpdateCli.TextChanged += new System.EventHandler(this.txtNombreUpdateCli_TextChanged);
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Location = new System.Drawing.Point(359, 77);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(70, 18);
+            this.label112.TabIndex = 118;
+            this.label112.Text = "Nombre :";
+            // 
+            // txtCurpUpdateCli
+            // 
+            this.txtCurpUpdateCli.Location = new System.Drawing.Point(95, 74);
+            this.txtCurpUpdateCli.Name = "txtCurpUpdateCli";
+            this.txtCurpUpdateCli.Size = new System.Drawing.Size(223, 24);
+            this.txtCurpUpdateCli.TabIndex = 112;
+            this.txtCurpUpdateCli.TextChanged += new System.EventHandler(this.txtCurpUpdateCli_TextChanged);
+            // 
+            // label113
+            // 
+            this.label113.AutoSize = true;
+            this.label113.Location = new System.Drawing.Point(29, 77);
+            this.label113.Name = "label113";
+            this.label113.Size = new System.Drawing.Size(52, 18);
+            this.label113.TabIndex = 114;
+            this.label113.Text = "Curp  :";
+            // 
+            // txtPersonaUpdateCli
+            // 
+            this.txtPersonaUpdateCli.Location = new System.Drawing.Point(834, 24);
+            this.txtPersonaUpdateCli.Name = "txtPersonaUpdateCli";
+            this.txtPersonaUpdateCli.Size = new System.Drawing.Size(236, 24);
+            this.txtPersonaUpdateCli.TabIndex = 110;
+            this.txtPersonaUpdateCli.TextChanged += new System.EventHandler(this.txtPersonaUpdateCli_TextChanged);
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Location = new System.Drawing.Point(756, 27);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(72, 18);
+            this.label114.TabIndex = 111;
+            this.label114.Text = "Persona :";
+            // 
+            // txtRazonUpdateCli
+            // 
+            this.txtRazonUpdateCli.Location = new System.Drawing.Point(447, 24);
+            this.txtRazonUpdateCli.Name = "txtRazonUpdateCli";
+            this.txtRazonUpdateCli.Size = new System.Drawing.Size(282, 24);
+            this.txtRazonUpdateCli.TabIndex = 109;
+            this.txtRazonUpdateCli.TextChanged += new System.EventHandler(this.txtRazonUpdateCli_TextChanged);
+            // 
+            // label115
+            // 
+            this.label115.AutoSize = true;
+            this.label115.Location = new System.Drawing.Point(332, 27);
+            this.label115.Name = "label115";
+            this.label115.Size = new System.Drawing.Size(109, 18);
+            this.label115.TabIndex = 108;
+            this.label115.Text = "Razon Social  :";
+            // 
+            // txtRfcUpdateCli
+            // 
+            this.txtRfcUpdateCli.Location = new System.Drawing.Point(82, 24);
+            this.txtRfcUpdateCli.Name = "txtRfcUpdateCli";
+            this.txtRfcUpdateCli.Size = new System.Drawing.Size(236, 24);
+            this.txtRfcUpdateCli.TabIndex = 107;
+            this.txtRfcUpdateCli.TextChanged += new System.EventHandler(this.txtRfcUpdateCli_TextChanged);
+            // 
+            // label116
+            // 
+            this.label116.AutoSize = true;
+            this.label116.Location = new System.Drawing.Point(29, 27);
+            this.label116.Name = "label116";
+            this.label116.Size = new System.Drawing.Size(47, 18);
+            this.label116.TabIndex = 106;
+            this.label116.Text = "RFC :";
             // 
             // FrmAdministrador
             // 
@@ -3310,11 +4636,20 @@
             this.tbpAddPrecio.PerformLayout();
             this.tbpUpdatePrecio.ResumeLayout(false);
             this.tbpUpdatePrecio.PerformLayout();
+            this.tbpClientes.ResumeLayout(false);
+            this.tbpClientes.PerformLayout();
+            this.tbpAddCliente.ResumeLayout(false);
+            this.tbpAddCliente.PerformLayout();
+            this.tbpUpdateCliente.ResumeLayout(false);
+            this.tbpUpdateCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.pnlEmpresas.ResumeLayout(false);
             this.pnlEmpresas.PerformLayout();
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbimgAddCli)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImgUpdatCli)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3593,5 +4928,125 @@
         private System.Windows.Forms.TabPage tbpClientes;
         private System.Windows.Forms.TabPage tbpAddCliente;
         private System.Windows.Forms.TabPage tbpUpdateCliente;
+        private System.Windows.Forms.ComboBox cbxSearchStatusCli;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Button btnActualizarCli;
+        private System.Windows.Forms.Button btnRegistrarCli;
+        private System.Windows.Forms.Button btnBorrarCli;
+        private System.Windows.Forms.Label lblRegistrosCli;
+        private System.Windows.Forms.DataGridView dgvDatosCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkClientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sCurp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMunicipio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sColonia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sCalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iCodPostal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTelMovil;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTipoPAgo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iNumCuenta;
+        private System.Windows.Forms.TextBox txtBuscarCliente;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.TextBox txtPaisAddCli;
+        private System.Windows.Forms.ComboBox cbxEstadoCliAddCli;
+        private System.Windows.Forms.ComboBox cbxTipoClienteAddCli;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.TextBox txtCorreoAddCli;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Button btnGuardarCliente;
+        private System.Windows.Forms.Button btnExaminar;
+        private System.Windows.Forms.PictureBox pcbimgAddCli;
+        private System.Windows.Forms.TextBox txtCondicionesPagoAddCli;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.ComboBox cbxMetodoPagoAddCli;
+        private System.Windows.Forms.TextBox txtNumCuentaAddCli;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.TextBox txtReferenciaAddCli;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.TextBox txtTelMvilAddCli;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.TextBox txtTelFijoAddCli;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.TextBox txtNuminteAddCli;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.TextBox txtNumExteAddCli;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.TextBox txtCalleAddCli;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.TextBox txtColoniaAddCli;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.TextBox txtLocalidadAddCli;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.TextBox txtMunicipioAddCli;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.TextBox txtEstadoAddCli;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.TextBox txtCodigoPosAddCli;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.TextBox txtNombreAddCli;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.TextBox txtCurpAddCli;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.TextBox txtPersonaAddCli;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.TextBox txtRazonAddCli;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.TextBox txtRFCAddCli;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.TextBox txtPaisUpdateCli;
+        private System.Windows.Forms.ComboBox cbxEstadoCliUpdateCli;
+        private System.Windows.Forms.ComboBox cbxTipoCliUpdateCli;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.TextBox txtCorreoUpdateCli;
+        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.Button BtnAcualizarCli;
+        private System.Windows.Forms.Button btnExaminarUpdateCli;
+        private System.Windows.Forms.PictureBox pcbImgUpdatCli;
+        private System.Windows.Forms.TextBox txtCondicionesUpdateCli;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.ComboBox cbxMetodoPagoUpdateCli;
+        private System.Windows.Forms.TextBox txtNumCuentaUpdateCli;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.TextBox txtReferenciaUpdateCli;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.TextBox txtTelMvlUpdateCli;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.TextBox txtTelFijoUpdateCli;
+        private System.Windows.Forms.Label label102;
+        private System.Windows.Forms.TextBox txtNumInteUpdateCli;
+        private System.Windows.Forms.Label label103;
+        private System.Windows.Forms.TextBox txtNumExteUpdateCli;
+        private System.Windows.Forms.Label label104;
+        private System.Windows.Forms.TextBox txtCalleUpdateCli;
+        private System.Windows.Forms.Label label105;
+        private System.Windows.Forms.TextBox txtColoniaUpdateCli;
+        private System.Windows.Forms.Label label106;
+        private System.Windows.Forms.TextBox txtLocalidadUpdateCli;
+        private System.Windows.Forms.Label label107;
+        private System.Windows.Forms.TextBox txtMunicipioUpdateCli;
+        private System.Windows.Forms.Label label108;
+        private System.Windows.Forms.TextBox txtEstadoUpdateCli;
+        private System.Windows.Forms.Label label109;
+        private System.Windows.Forms.TextBox txtCPUpdateCli;
+        private System.Windows.Forms.Label label110;
+        private System.Windows.Forms.Label label111;
+        private System.Windows.Forms.TextBox txtNombreUpdateCli;
+        private System.Windows.Forms.Label label112;
+        private System.Windows.Forms.TextBox txtCurpUpdateCli;
+        private System.Windows.Forms.Label label113;
+        private System.Windows.Forms.TextBox txtPersonaUpdateCli;
+        private System.Windows.Forms.Label label114;
+        private System.Windows.Forms.TextBox txtRazonUpdateCli;
+        private System.Windows.Forms.Label label115;
+        private System.Windows.Forms.TextBox txtRfcUpdateCli;
+        private System.Windows.Forms.Label label116;
     }
 }

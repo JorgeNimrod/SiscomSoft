@@ -132,6 +132,7 @@
             this.dgvDatosProducto.RowHeadersVisible = false;
             this.dgvDatosProducto.Size = new System.Drawing.Size(954, 177);
             this.dgvDatosProducto.TabIndex = 72;
+            this.dgvDatosProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosProducto_CellContentClick);
             // 
             // pkProductos
             // 
