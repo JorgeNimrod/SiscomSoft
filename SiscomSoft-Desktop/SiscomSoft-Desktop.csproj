@@ -337,11 +337,11 @@
     <Compile Include="Views\FrmSplahScreen.Designer.cs">
       <DependentUpon>FrmSplahScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmVentas.cs">
+    <Compile Include="Views\FrmMenuVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmVentas.Designer.cs">
-      <DependentUpon>FrmVentas.cs</DependentUpon>
+    <Compile Include="Views\FrmMenuVentas.Designer.cs">
+      <DependentUpon>FrmMenuVentas.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -468,8 +468,8 @@
     <EmbeddedResource Include="Views\FrmSplahScreen.resx">
       <DependentUpon>FrmSplahScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmVentas.resx">
-      <DependentUpon>FrmVentas.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmMenuVentas.resx">
+      <DependentUpon>FrmMenuVentas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
 namespace SiscomSoft.Models
 {
     [Table("Empresas")]
@@ -49,13 +48,11 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        // llave foranea de certificados
-        public virtual Certificado fkCertificado { get; set; }
-
-        // llave foranea de sucursales
-        public virtual Sucursal fkSucursal { get; set; }
+        public ICollection<Sucursal> Sucursales { get; set; }
 
         public ICollection<Factura> Facturas { get; set; }
+        
+        public ICollection<Certificado> Certificados { get; set; }
 
         public Empresa()
         {

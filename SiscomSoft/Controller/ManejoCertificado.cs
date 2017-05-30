@@ -61,21 +61,21 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static List<Certificado> Buscar(string valor, Boolean Status)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    return ctx.Certificados.Where(r => r.sCertificado.Contains(valor)).ToList();
-                }
-            }
-            catch (Exception)
-            {
+        //public static List<Certificado> Buscar(string valor, Boolean Status)
+        //{
+        //    try
+        //    {
+        //        using (var ctx = new DataModel())
+        //        {
+        //            return //ctx.Certificados.Where(r => r..Contains(valor)).ToList();
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
         public static void Modificar(Certificado nCertificado)
         {
             try

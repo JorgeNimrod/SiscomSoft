@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class FrmVentas : Form
+    public partial class FrmMenuVentas : Form
     {
-        public FrmVentas()
+        public FrmMenuVentas()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace SiscomSoft_Desktop.Views
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnMenu_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmMenu v = new FrmMenu();
