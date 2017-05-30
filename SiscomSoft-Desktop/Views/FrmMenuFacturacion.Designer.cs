@@ -912,6 +912,7 @@
             this.tbnEnvCorreo.TabIndex = 79;
             this.tbnEnvCorreo.Text = "Enviar Correo\r\n";
             this.tbnEnvCorreo.UseVisualStyleBackColor = true;
+            this.tbnEnvCorreo.Click += new System.EventHandler(this.tbnEnvCorreo_Click);
             // 
             // FrmMenuFacturacion
             // 

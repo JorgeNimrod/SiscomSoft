@@ -74,27 +74,27 @@ namespace SiscomSoft.Migrations
                         iNumInterir = c.Int(nullable: false),
                         iCodPostal = c.Int(nullable: false),
                         bStatus = c.Boolean(nullable: false),
-                        fkCertificado_pkCertificado = c.Int(),
-                        fkSucursal_pkSucursal = c.Int(),
                     })
-                .PrimaryKey(t => t.pkEmpresa)
-                .ForeignKey("dbo.Certificados", t => t.fkCertificado_pkCertificado)
-                .ForeignKey("dbo.Sucursales", t => t.fkSucursal_pkSucursal)
-                .Index(t => t.fkCertificado_pkCertificado)
-                .Index(t => t.fkSucursal_pkSucursal);
+                .PrimaryKey(t => t.pkEmpresa);
             
             CreateTable(
                 "dbo.Certificados",
                 c => new
                     {
                         pkCertificado = c.Int(nullable: false, identity: true),
-                        sCSD = c.String(unicode: false),
-                        sCertificado = c.String(unicode: false),
-                        sKey = c.String(unicode: false),
-                        sContraseña = c.String(unicode: false),
+                        sArchCer = c.String(unicode: false),
+                        sArchkey = c.String(unicode: false),
+                        sContrasena = c.String(unicode: false),
+                        sNoCertifi = c.String(unicode: false),
+                        dtValidoDe = c.DateTime(nullable: false, precision: 0),
+                        dtValidoHasta = c.DateTime(nullable: false, precision: 0),
+                        sRutaCer = c.String(unicode: false),
                         bStatus = c.Boolean(nullable: false),
+                        fkEmpresa_pkEmpresa = c.Int(),
                     })
-                .PrimaryKey(t => t.pkCertificado);
+                .PrimaryKey(t => t.pkCertificado)
+                .ForeignKey("dbo.Empresas", t => t.fkEmpresa_pkEmpresa)
+                .Index(t => t.fkEmpresa_pkEmpresa);
             
             CreateTable(
                 "dbo.Sucursales",
@@ -114,10 +114,13 @@ namespace SiscomSoft.Migrations
                         iNumInterior = c.Int(nullable: false),
                         iCodPostal = c.Int(nullable: false),
                         bStatus = c.Boolean(nullable: false),
+                        fkEmpresa_pkEmpresa = c.Int(),
                         fkPreferencia_pkPreferencia = c.Int(),
                     })
                 .PrimaryKey(t => t.pkSucursal)
+                .ForeignKey("dbo.Empresas", t => t.fkEmpresa_pkEmpresa)
                 .ForeignKey("dbo.Preferencias", t => t.fkPreferencia_pkPreferencia)
+                .Index(t => t.fkEmpresa_pkEmpresa)
                 .Index(t => t.fkPreferencia_pkPreferencia);
             
             CreateTable(
@@ -327,9 +330,9 @@ namespace SiscomSoft.Migrations
             DropForeignKey("dbo.Productos", "fkCatalogo_pkCatalogo", "dbo.Catalogos");
             DropForeignKey("dbo.Facturas", "fkImpuestos_pkImpuesto", "dbo.Impuestos");
             DropForeignKey("dbo.Sucursales", "fkPreferencia_pkPreferencia", "dbo.Preferencias");
-            DropForeignKey("dbo.Empresas", "fkSucursal_pkSucursal", "dbo.Sucursales");
-            DropForeignKey("dbo.Empresas", "fkCertificado_pkCertificado", "dbo.Certificados");
+            DropForeignKey("dbo.Sucursales", "fkEmpresa_pkEmpresa", "dbo.Empresas");
             DropForeignKey("dbo.Facturas", "fkEmpresa_pkEmpresa", "dbo.Empresas");
+            DropForeignKey("dbo.Certificados", "fkEmpresa_pkEmpresa", "dbo.Empresas");
             DropForeignKey("dbo.Facturas", "fkCatalogo_pkCatalogo", "dbo.Catalogos");
             DropIndex("dbo.Usuarios", new[] { "fkRol_pkRol" });
             DropIndex("dbo.PermisosNegadosRol", new[] { "fkRol_pkRol" });
@@ -342,8 +345,8 @@ namespace SiscomSoft.Migrations
             DropIndex("dbo.Productos", new[] { "fkCategoria_pkCategoria" });
             DropIndex("dbo.Productos", new[] { "fkCatalogo_pkCatalogo" });
             DropIndex("dbo.Sucursales", new[] { "fkPreferencia_pkPreferencia" });
-            DropIndex("dbo.Empresas", new[] { "fkSucursal_pkSucursal" });
-            DropIndex("dbo.Empresas", new[] { "fkCertificado_pkCertificado" });
+            DropIndex("dbo.Sucursales", new[] { "fkEmpresa_pkEmpresa" });
+            DropIndex("dbo.Certificados", new[] { "fkEmpresa_pkEmpresa" });
             DropIndex("dbo.Facturas", new[] { "Cliente_pkCliente" });
             DropIndex("dbo.Facturas", new[] { "fkImpuestos_pkImpuesto" });
             DropIndex("dbo.Facturas", new[] { "fkEmpresa_pkEmpresa" });

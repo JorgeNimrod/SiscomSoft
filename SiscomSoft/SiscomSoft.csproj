@@ -74,9 +74,9 @@
     <Compile Include="Controller\ManejoRol.cs" />
     <Compile Include="Controller\ManejoSucursal.cs" />
     <Compile Include="Controller\ManejoUsuario.cs" />
-    <Compile Include="Migrations\201705231820377_INICIAL.cs" />
-    <Compile Include="Migrations\201705231820377_INICIAL.Designer.cs">
-      <DependentUpon>201705231820377_INICIAL.cs</DependentUpon>
+    <Compile Include="Migrations\201705301832509_INICIAL.cs" />
+    <Compile Include="Migrations\201705301832509_INICIAL.Designer.cs">
+      <DependentUpon>201705301832509_INICIAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -103,8 +103,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705231820377_INICIAL.resx">
-      <DependentUpon>201705231820377_INICIAL.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705301832509_INICIAL.resx">
+      <DependentUpon>201705301832509_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

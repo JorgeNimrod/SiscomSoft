@@ -46,7 +46,8 @@ namespace SiscomSoft.Models
         // llave foranea de preferencias
         public virtual Preferencia fkPreferencia { get; set; }
 
-        public ICollection<Empresa> Empresas { get; set; }
+        // llave foranea de Empresa
+        public virtual Empresa fkEmpresa { get; set; }
 
         public Sucursal()
         {

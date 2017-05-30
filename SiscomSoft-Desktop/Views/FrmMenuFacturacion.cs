@@ -26,6 +26,27 @@ namespace SiscomSoft_Desktop.Views
             this.dgvDatosProducto.AutoGenerateColumns = false;
         }
 
+        public void crearCarpetaRaiz()
+        {
+            try
+            {
+                string path = @"C:\SiscomSoft";
+                if (Directory.Exists(path))
+                {
+                    MessageBox.Show("La carpeta SiscomSoft ya existe");
+                    return;
+                }
+
+                Directory.CreateDirectory(path);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("La creacion de la carpeta fallo: " + e.ToString());
+                throw;
+            }
+        }
+
         public void cargarDetalleFactura()
         {
             Producto nProducto = ManejoProducto.getById(FrmBuscarProductos.PKPRODUCTO);
@@ -520,6 +541,11 @@ namespace SiscomSoft_Desktop.Views
         {
             FrmBuscarProductos v = new FrmBuscarProductos(this);
             v.ShowDialog();
+        }
+
+        private void tbnEnvCorreo_Click(object sender, EventArgs e)
+        {
+            crearCarpetaRaiz();
         }
     }
 }
