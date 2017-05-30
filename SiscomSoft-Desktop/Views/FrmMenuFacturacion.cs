@@ -26,6 +26,14 @@ namespace SiscomSoft_Desktop.Views
             this.dgvDatosProducto.AutoGenerateColumns = false;
         }
 
+        public void cargarEmpresas()
+        {
+            cmbEmpresas.DataSource = ManejoEmpresa.getAll(true);
+            cmbEmpresas.DisplayMember = "sNomComercial";
+            cmbEmpresas.ValueMember = "pkEmpresa";
+            cmbEmpresas.SelectedIndex = 0;
+        }
+
         public void crearCarpetaRaiz()
         {
             try
@@ -125,7 +133,6 @@ namespace SiscomSoft_Desktop.Views
             if (this.cmbFormaDePago.SelectedIndex == 0)
             {
                 cfdi.FormaPago = c_FormaPago.Item01;
-
             }
             else if (this.cmbFormaDePago.SelectedIndex == 1)
             {
@@ -286,7 +293,6 @@ namespace SiscomSoft_Desktop.Views
 
             #region RegimenFiscal
             //TODO: Terminar el regimen fiscal: el regimen fiscal se sacara de la tabla de empresa.
-            //TODO: Cambiar el nombre de la tabla empresa sRegComercial a sRegimenFiscal
             if (cmbRegimenFiscal.SelectedIndex == 0)
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item601;
@@ -299,7 +305,7 @@ namespace SiscomSoft_Desktop.Views
             cfdi.Receptor = new ComprobanteReceptor();
             cfdi.Receptor.Rfc = txtRFC.Text;
             cfdi.Receptor.Nombre = txtNombre.Text;
-            cfdi.Receptor.ResidenciaFiscal = c_Pais.MEX;
+            //cfdi.Receptor.ResidenciaFiscal = c_Pais.MEX;
             #endregion
 
             #region UsoCFDI
@@ -535,6 +541,7 @@ namespace SiscomSoft_Desktop.Views
             this.cmbUsoCFDI.SelectedIndex = 0;
             this.cmbFormaDePago.SelectedIndex = 0;
             this.cmbRegimenFiscal.SelectedIndex = 0;
+            cargarEmpresas();
         }
 
         private void btnBuscarProductos_Click(object sender, EventArgs e)

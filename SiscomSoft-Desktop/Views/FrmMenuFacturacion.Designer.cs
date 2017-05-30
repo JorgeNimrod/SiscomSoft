@@ -93,6 +93,8 @@
             this.btnTimFactura = new System.Windows.Forms.Button();
             this.btnGenPdf = new System.Windows.Forms.Button();
             this.tbnEnvCorreo = new System.Windows.Forms.Button();
+            this.cmbEmpresas = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlCreditNotes.SuspendLayout();
@@ -405,19 +407,20 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(7, 133);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 18);
+            this.label7.Size = new System.Drawing.Size(96, 13);
             this.label7.TabIndex = 86;
             this.label7.Text = "REGIMEN FISCAL";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(781, 79);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(185, 18);
+            this.label6.Size = new System.Drawing.Size(132, 13);
             this.label6.TabIndex = 84;
             this.label6.Text = "CONDICIONES DE PAGO";
             // 
@@ -433,10 +436,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(586, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(189, 18);
+            this.label3.Size = new System.Drawing.Size(136, 13);
             this.label3.TabIndex = 79;
             this.label3.Text = "TIPO DE COMPROBANTE";
             // 
@@ -493,9 +496,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(270, 79);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 18);
+            this.label5.Size = new System.Drawing.Size(96, 13);
             this.label5.TabIndex = 82;
             this.label5.Text = "FORMA DE PAGO";
             // 
@@ -561,9 +565,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(426, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 18);
+            this.label2.Size = new System.Drawing.Size(105, 13);
             this.label2.TabIndex = 75;
             this.label2.Text = "METODO DE PAGO";
             // 
@@ -581,9 +586,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(143, 79);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 18);
+            this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 80;
             this.label4.Text = "USO DEL CFDI";
             // 
@@ -608,18 +614,20 @@
             // label17
             // 
             this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(6, 20);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(39, 18);
+            this.label17.Size = new System.Drawing.Size(28, 13);
             this.label17.TabIndex = 72;
             this.label17.Text = "RFC";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(142, 20);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(164, 18);
+            this.label19.Size = new System.Drawing.Size(116, 13);
             this.label19.TabIndex = 76;
             this.label19.Text = "NOMBRE COMPLETO";
             // 
@@ -653,19 +661,20 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(7, 79);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 18);
+            this.label8.Size = new System.Drawing.Size(54, 13);
             this.label8.TabIndex = 58;
             this.label8.Text = "MONEDA";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(425, 20);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(91, 18);
+            this.label18.Size = new System.Drawing.Size(66, 13);
             this.label18.TabIndex = 74;
             this.label18.Text = "DIRECCION";
             // 
@@ -914,12 +923,32 @@
             this.tbnEnvCorreo.UseVisualStyleBackColor = true;
             this.tbnEnvCorreo.Click += new System.EventHandler(this.tbnEnvCorreo_Click);
             // 
+            // cmbEmpresas
+            // 
+            this.cmbEmpresas.FormattingEnabled = true;
+            this.cmbEmpresas.Location = new System.Drawing.Point(202, 23);
+            this.cmbEmpresas.Name = "cmbEmpresas";
+            this.cmbEmpresas.Size = new System.Drawing.Size(121, 21);
+            this.cmbEmpresas.TabIndex = 27;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(199, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 13);
+            this.label9.TabIndex = 87;
+            this.label9.Text = "EMPRESA";
+            // 
             // FrmMenuFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1358, 737);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.cmbEmpresas);
             this.Controls.Add(this.pnlCreateFactura);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.lblFecha);
@@ -1016,5 +1045,7 @@
         private System.Windows.Forms.Button btnTimFactura;
         private System.Windows.Forms.Button btnGenPdf;
         private System.Windows.Forms.Button tbnEnvCorreo;
+        private System.Windows.Forms.ComboBox cmbEmpresas;
+        private System.Windows.Forms.Label label9;
     }
 }

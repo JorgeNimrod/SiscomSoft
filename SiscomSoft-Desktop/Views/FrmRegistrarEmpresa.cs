@@ -200,12 +200,7 @@ namespace SiscomSoft_Desktop.Views
 
 
 
-                int fkCertificado = Convert.ToInt32(cbxCertificado.SelectedValue.ToString());
-                int fkSucursal = Convert.ToInt32(cbxSucursal.SelectedValue.ToString());
-
-
-
-                ManejoEmpresa.RegistrarNuevaEmpresa(nEmpresa, fkCertificado,fkSucursal);
+                ManejoEmpresa.registrarnuevaempresa(nEmpresa);
 
                 MessageBox.Show("¡Empresa Registrada!");
                 txtRazonSocial.Clear();
