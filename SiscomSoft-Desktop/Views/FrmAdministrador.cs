@@ -27,25 +27,22 @@ namespace SiscomSoft_Desktop.Views
         Boolean flagCategoria = false;
         Boolean flagAddRoles = false;
         Boolean flagAddCategorias = false;
-        Boolean flagUpdateRoles = false;
-        Boolean flagUpdateCategorias = false;
+       
         Boolean flagAddUsuario = false;
-        Boolean flagUpdateUser = false;
+       
         Boolean flagAddImpuesto = false;
-        Boolean flagUpdateImpuestos = false;
+      
         Boolean flagAddProducto = false;
-        Boolean flagUpdateProducto = false;
+       
         Boolean flagAddPrecio = false;
-        Boolean flagUpdatePrecio = false;
+       
         Boolean flagEmpresa = false;
         Boolean flagAddEmpres = false;
-        Boolean flagUpdateEmpresa = false;
-        Boolean flagSucursal = false;
-        Boolean flagAddSucursal = false;
-        Boolean flagUpdateSucursal = false;
+        
+   
         Boolean flagClientes = false;
         Boolean flagAddCliente = false;
-        Boolean flagUpdateCliente = false;
+       
 
         public static int PKROL;
         public static int PKUSUARIO;
@@ -321,9 +318,7 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpEmpresa);
             tbcGeneral.TabPages.Remove(tbpAddEmpresa);
             tbcGeneral.TabPages.Remove(tbpUpdateEmpresa);
-            tbcGeneral.TabPages.Remove(tbpSucursal);
-            tbcGeneral.TabPages.Remove(tbpAddSucursal);
-            tbcGeneral.TabPages.Remove(tbpUpdateSucursal);
+         
             tbcGeneral.TabPages.Remove(tbpClientes);
             tbcGeneral.TabPages.Remove(tbpAddCliente);
             tbcGeneral.TabPages.Remove(tbpUpdateCliente);
@@ -422,18 +417,14 @@ namespace SiscomSoft_Desktop.Views
         {
             if (this.dgvDatosRol.RowCount >= 1)
             {
+                tbcGeneral.TabPages.Remove(tbpUpdateRol);
                 PKROL = Convert.ToInt32(this.dgvDatosRol.CurrentRow.Cells[0].Value);
-                if (flagUpdateRoles == false)
-                {
+              
+                
                     tbcGeneral.TabPages.Add(tbpUpdateRol);
                     ActualizarRol();
                     tbcGeneral.SelectedTab = tbpUpdateRol;
-                    flagUpdateRoles = true;
-                }
-                else
-                {
-                    tbcGeneral.SelectedTab = tbpUpdateRol;
-                }
+             
             }
         }
 
@@ -642,8 +633,9 @@ namespace SiscomSoft_Desktop.Views
         }
         public void ActualizarProducto()
         {
-            Categoria nCategoria = ManejoCategoria.getById(PKPRODUCTO);
             Producto nProducto = ManejoProducto.getById(PKPRODUCTO);
+
+            Categoria nCategoria = ManejoCategoria.getById(nProducto.fkCategoria.pkCategoria);
             txtUpdateClavProd.Text =  nProducto.iClaveProd.ToString();
             txtUpdateMarcProd.Text = nProducto.sMarca;
             dtpUpdateFechaProd.Value = nProducto.dtCaducidad;
@@ -654,9 +646,11 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateLoteProd.Text = nProducto.iLote.ToString();
             txtUpdateLineaProd.Text = nCategoria.sNombre;
             txtUpdateSubProd.Text = nCategoria.sNomSubCat;
-            cbxUpdateImpuProd.Text = nProducto.fkImpuesto.ToString();
-          cbxUpdateCataProd.Text = nProducto.fkCatalogo.ToString();
-            cbxUpdateUMDProd.Text = nProducto.fkCategoria.ToString();
+
+            cbxUpdateImpuProd.SelectedIndex = nProducto.fkImpuesto.pkImpuesto-1;
+            cbxUpdateCataProd.SelectedIndex = nProducto.fkCatalogo.pkCatalogo-1;
+            cbxUpdateUMDProd.SelectedIndex = nProducto.fkCategoria.pkCategoria -1 ; 
+      
             pcbUpdateImgProd.Image = ToolImagen.Base64StringToBitmap(nProducto.sFoto);
         }
         public void ActualizarPrecio()
@@ -741,18 +735,14 @@ namespace SiscomSoft_Desktop.Views
         {
             if (this.dgvDatosUsuario.RowCount >= 1)
             {
+                tbcGeneral.TabPages.Remove(tbpUpdateUsuario);
                 PKUSUARIO = Convert.ToInt32(this.dgvDatosUsuario.CurrentRow.Cells[0].Value);
-                if (flagUpdateUser == false)
-                {
+               
                     tbcGeneral.TabPages.Add(tbpUpdateUser);
                     ActualizarUsuario();
                     tbcGeneral.SelectedTab = tbpUpdateUser;
-                    flagUpdateUser = true;
-                }
-                else
-                {
-                    tbcGeneral.SelectedTab = tbpUpdateUser;
-                }
+                   
+             
             }
         }
 
@@ -880,18 +870,13 @@ namespace SiscomSoft_Desktop.Views
         {
             if (this.dgvDatosRol.RowCount >= 1)
             {
+                tbcGeneral.TabPages.Remove(tbpUpdateCategoria);
                 PKCATEGORIA = Convert.ToInt32(this.dgvDatosCategoria.CurrentRow.Cells[0].Value);
-                if (flagUpdateCategorias == false)
-                {
+              
                     tbcGeneral.TabPages.Add(tbpUpdateCategoria);
                     ActualizarCategoria();
                     tbcGeneral.SelectedTab = tbpUpdateCategoria;
-                    flagUpdateCategorias = true;
-                }
-                else
-                {
-                    tbcGeneral.SelectedTab = tbpUpdateCategoria;
-                }
+             
             }
         }
 
@@ -1074,18 +1059,13 @@ namespace SiscomSoft_Desktop.Views
         {
             if (this.dgvDatosImpuesto.RowCount >= 1)
             {
+                tbcGeneral.TabPages.Remove(tbpUpdateImpuesto);
                 PKIMPUESTO = Convert.ToInt32(this.dgvDatosImpuesto.CurrentRow.Cells[0].Value);
-                if (flagUpdateImpuestos == false)
-                {
+              
                     tbcGeneral.TabPages.Add(tbpUpdateImpuesto);
                     ActualizarImpuesto();
                     tbcGeneral.SelectedTab = tbpUpdateImpuesto;
-                    flagUpdateImpuestos = true;
-                }
-                else
-                {
-                    tbcGeneral.SelectedTab = tbpUpdateImpuesto;
-                }
+              
             }
         }
 
@@ -1093,18 +1073,13 @@ namespace SiscomSoft_Desktop.Views
         {
             if (this.dgvDatosImpuesto.RowCount >= 1)
             {
+                tbcGeneral.TabPages.Remove(tbpUpdateImpuesto);
                 PKIMPUESTO = Convert.ToInt32(this.dgvDatosImpuesto.CurrentRow.Cells[0].Value);
-                if (flagUpdateImpuestos == false)
-                {
+              
                     tbcGeneral.TabPages.Add(tbpUpdateImpuesto);
                     ActualizarImpuesto();
                     tbcGeneral.SelectedTab = tbpUpdateImpuesto;
-                    flagUpdateImpuestos = true;
-                }
-                else
-                {
-                    tbcGeneral.SelectedTab = tbpUpdateImpuesto;
-                }
+             
             }
         }
 
@@ -1112,18 +1087,13 @@ namespace SiscomSoft_Desktop.Views
         {
             if (this.dgvDatosRol.RowCount >= 1)
             {
+                tbcGeneral.TabPages.Remove(tbpUpdateRol);
                 PKCATEGORIA = Convert.ToInt32(this.dgvDatosCategoria.CurrentRow.Cells[0].Value);
-                if (flagUpdateCategorias == false)
-                {
+               
                     tbcGeneral.TabPages.Add(tbpUpdateCategoria);
                     ActualizarCategoria();
                     tbcGeneral.SelectedTab = tbpUpdateCategoria;
-                    flagUpdateCategorias = true;
-                }
-                else
-                {
-                    tbcGeneral.SelectedTab = tbpUpdateCategoria;
-                }
+             
             }
         }
 
@@ -1627,18 +1597,14 @@ namespace SiscomSoft_Desktop.Views
         {
             if (this.dgvDatosPrecio.RowCount >= 1)
             {
+                tbcGeneral.TabPages.Remove(tbpUpdatePrecio);
                 PKPRECIO = Convert.ToInt32(this.dgvDatosPrecio.CurrentRow.Cells[0].Value);
-                if (flagUpdatePrecio == false)
-                {
+              
                     tbcGeneral.TabPages.Add(tbpUpdatePrecio);
                     ActualizarPrecio();
                     tbcGeneral.SelectedTab = tbpUpdatePrecio;
-                    flagUpdatePrecio = true;
-                }
-                else
-                {
-                    tbcGeneral.SelectedTab = tbpUpdatePrecio;
-                }
+                 
+             
             }
 
         }
@@ -1726,24 +1692,18 @@ namespace SiscomSoft_Desktop.Views
         {
             if (this.dgvDatosProducto.RowCount >= 1)
             {
+                tbcGeneral.TabPages.Remove(tbpUpdateProducto);
                 PKPRODUCTO = Convert.ToInt32(this.dgvDatosProducto.CurrentRow.Cells[0].Value);
-                if (flagUpdateProducto == false)
-                {
-                    tbcGeneral.TabPages.Add(tbpUpdateProducto);
-                    ActualizarProducto();
-                    tbcGeneral.SelectedTab = tbpUpdateProducto;
-                    flagUpdateProducto = true;
-                }
-                else
-                {
-                    tbcGeneral.SelectedTab = tbpUpdateProducto;
-                }
+                tbcGeneral.TabPages.Add(tbpUpdateProducto);
+                ActualizarProducto();
+          
+                tbcGeneral.SelectedTab = tbpUpdateProducto;
             }
         }
 
         private void btnActualizarProd_Click(object sender, EventArgs e)
         {
-            if (this.txtUpdateClavProd.Text == "")
+             if (this.txtUpdateClavProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtUpdateClavProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtUpdateClavProd, "Campo necesario");
@@ -2213,20 +2173,7 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        private void btnSucursalesList_Click(object sender, EventArgs e)
-        {
-            if (flagSucursal == false)
-            {
-                tbcGeneral.Visible = true;
-                tbcGeneral.TabPages.Add(tbpSucursal);
-                tbcGeneral.SelectedTab = tbpSucursal;
-                flagSucursal = true;
-            }
-            else
-            {
-                tbcGeneral.SelectedTab = tbpSucursal;
-            }
-        }
+    
 
         private void btnCustomersList_MouseClick(object sender, MouseEventArgs e)
         {
@@ -2514,7 +2461,7 @@ namespace SiscomSoft_Desktop.Views
                 txtPersonaAddCli.Clear();
                 txtCurpAddCli.Clear();
                 txtNombreAddCli.Clear();
-
+                txtPaisAddCli.Clear();
                 txtCodigoPosAddCli.Clear();
                 txtEstadoAddCli.Clear();
                 txtMunicipioAddCli.Clear();
@@ -2526,7 +2473,7 @@ namespace SiscomSoft_Desktop.Views
                 txtTelFijoAddCli.Clear();
                 txtTelMvilAddCli.Clear();
                 txtCorreoAddCli.Clear();
-
+                
                 txtReferenciaAddCli.Clear();
                 txtNumCuentaAddCli.Clear();
                 txtCondicionesPagoAddCli.Clear();
@@ -2765,34 +2712,32 @@ namespace SiscomSoft_Desktop.Views
         {
             if (this.dgvDatosCliente.RowCount >= 1)
             {
+                tbcGeneral.TabPages.Remove(tbpUpdateCliente);
                 PKCLIENTE = Convert.ToInt32(this.dgvDatosCliente.CurrentRow.Cells[0].Value);
-                if (flagUpdateCliente == false)
-                {
+              
                     tbcGeneral.TabPages.Add(tbpUpdateCliente);
                     ActualizarCliente();
                     tbcGeneral.SelectedTab = tbpUpdateCliente;
-                    flagUpdateCliente = true;
-                }
-                else
-                {
-                    tbcGeneral.SelectedTab = tbpUpdateCliente;
-                }
+             
             }
         }
 
         private void txtPaisUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
-          
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            && e.KeyChar != 8) e.Handled = true;
         }
 
         private void txtEstadoUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
-        
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            && e.KeyChar != 8) e.Handled = true;
         }
 
         private void txtMunicipioUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
-         
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            && e.KeyChar != 8) e.Handled = true;
         }
 
         private void txtTelMvlUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
@@ -3072,6 +3017,327 @@ namespace SiscomSoft_Desktop.Views
                 txtCorreoUpdateCli.SelectAll();
                 txtCorreoUpdateCli.Focus();
             }
+        }
+
+        private void txtPersonaAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCodigoPosAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumExteAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNuminteAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelMvilAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumCuentaAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelFijoAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtCorreoAddCli_Leave(object sender, EventArgs e)
+        {
+            if (ValidarEmail(txtCorreoAddCli.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Direccion De Correo Electronico No Valido Debe de tener el formato : correo@gmail.com, " +
+                    "Favor Sellecione Un Correo Valido", "Validacion De Correo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCorreoAddCli.SelectAll();
+                txtCorreoAddCli.Focus();
+            }
+        }
+
+        private void txtCurpAddCli_Leave(object sender, EventArgs e)
+        {
+            if (ValidarCurp(txtCurpAddCli.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Curp No Valida Debe de tener el formato : BOMC870421HDGRLS05, " +
+                    "Favor Sellecione Un Curp Valido", "Validacion De Curp", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCurpAddCli.SelectAll();
+                txtCurpAddCli.Focus();
+            }
+        }
+
+        private void txtNombreAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtEstadoAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtMunicipioAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtRazonAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtNombreUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtCPUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPersonaUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumExteUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumInteUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelFijoUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCurpUpdateCli_Leave(object sender, EventArgs e)
+        {
+            if (ValidarCurp(txtCurpUpdateCli.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Curp No Valida Debe de tener el formato : BOMC870421HDGRLS05, " +
+                    "Favor Sellecione Un Curp Valido", "Validacion De Curp", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCurpUpdateCli.SelectAll();
+               txtCurpUpdateCli.Focus();
+            }
+        }
+
+        private void txtPaisAddCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+      && e.KeyChar != 8) e.Handled = true;
         }
     }
 }

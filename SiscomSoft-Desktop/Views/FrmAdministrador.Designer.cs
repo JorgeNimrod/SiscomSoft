@@ -52,14 +52,6 @@
             this.btnActualizarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sFoto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -285,22 +277,7 @@
             this.tbpEmpresa = new System.Windows.Forms.TabPage();
             this.tbpAddEmpresa = new System.Windows.Forms.TabPage();
             this.tbpUpdateEmpresa = new System.Windows.Forms.TabPage();
-            this.tbpSucursal = new System.Windows.Forms.TabPage();
-            this.tbpAddSucursal = new System.Windows.Forms.TabPage();
-            this.tbpUpdateSucursal = new System.Windows.Forms.TabPage();
             this.tbpClientes = new System.Windows.Forms.TabPage();
-            this.tbpAddCliente = new System.Windows.Forms.TabPage();
-            this.tbpUpdateCliente = new System.Windows.Forms.TabPage();
-            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pnlEmpresas = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnSucursalesList = new System.Windows.Forms.Button();
-            this.btnEmpresasList = new System.Windows.Forms.Button();
-            this.pnlCliente = new System.Windows.Forms.Panel();
-            this.label68 = new System.Windows.Forms.Label();
-            this.btnCustomersList = new System.Windows.Forms.Button();
             this.cbxSearchStatusCli = new System.Windows.Forms.ComboBox();
             this.label69 = new System.Windows.Forms.Label();
             this.btnActualizarCli = new System.Windows.Forms.Button();
@@ -323,6 +300,7 @@
             this.iNumCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.label71 = new System.Windows.Forms.Label();
+            this.tbpAddCliente = new System.Windows.Forms.TabPage();
             this.txtPaisAddCli = new System.Windows.Forms.TextBox();
             this.cbxEstadoCliAddCli = new System.Windows.Forms.ComboBox();
             this.cbxTipoClienteAddCli = new System.Windows.Forms.ComboBox();
@@ -372,6 +350,7 @@
             this.label92 = new System.Windows.Forms.Label();
             this.txtRFCAddCli = new System.Windows.Forms.TextBox();
             this.label93 = new System.Windows.Forms.Label();
+            this.tbpUpdateCliente = new System.Windows.Forms.TabPage();
             this.txtPaisUpdateCli = new System.Windows.Forms.TextBox();
             this.cbxEstadoCliUpdateCli = new System.Windows.Forms.ComboBox();
             this.cbxTipoCliUpdateCli = new System.Windows.Forms.ComboBox();
@@ -421,6 +400,23 @@
             this.label115 = new System.Windows.Forms.Label();
             this.txtRfcUpdateCli = new System.Windows.Forms.TextBox();
             this.label116 = new System.Windows.Forms.Label();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pnlEmpresas = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnSucursalesList = new System.Windows.Forms.Button();
+            this.btnEmpresasList = new System.Windows.Forms.Button();
+            this.pnlCliente = new System.Windows.Forms.Panel();
+            this.label68 = new System.Windows.Forms.Label();
+            this.btnCustomersList = new System.Windows.Forms.Button();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -460,14 +456,14 @@
             this.tbpAddPrecio.SuspendLayout();
             this.tbpUpdatePrecio.SuspendLayout();
             this.tbpClientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCliente)).BeginInit();
             this.tbpAddCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbimgAddCli)).BeginInit();
             this.tbpUpdateCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImgUpdatCli)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlEmpresas.SuspendLayout();
             this.pnlCliente.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbimgAddCli)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbImgUpdatCli)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -735,9 +731,6 @@
             this.tbcGeneral.Controls.Add(this.tbpEmpresa);
             this.tbcGeneral.Controls.Add(this.tbpAddEmpresa);
             this.tbcGeneral.Controls.Add(this.tbpUpdateEmpresa);
-            this.tbcGeneral.Controls.Add(this.tbpSucursal);
-            this.tbcGeneral.Controls.Add(this.tbpAddSucursal);
-            this.tbcGeneral.Controls.Add(this.tbpUpdateSucursal);
             this.tbcGeneral.Controls.Add(this.tbpClientes);
             this.tbcGeneral.Controls.Add(this.tbpAddCliente);
             this.tbcGeneral.Controls.Add(this.tbpUpdateCliente);
@@ -812,8 +805,7 @@
             this.sMarca,
             this.iDescuento,
             this.dCosto,
-            this.iLote,
-            this.sFoto});
+            this.iLote});
             this.dgvDatosProducto.Location = new System.Drawing.Point(6, 37);
             this.dgvDatosProducto.Name = "dgvDatosProducto";
             this.dgvDatosProducto.RowHeadersVisible = false;
@@ -821,54 +813,6 @@
             this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
-            // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "pkProducto";
-            this.pkProductos.HeaderText = "Producto";
-            this.pkProductos.Name = "pkProductos";
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Clave";
-            this.iClaveProd.Name = "iClaveProd";
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            // 
-            // iDescuento
-            // 
-            this.iDescuento.DataPropertyName = "iDescuento";
-            this.iDescuento.HeaderText = "Descuento";
-            this.iDescuento.Name = "iDescuento";
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            // 
-            // iLote
-            // 
-            this.iLote.DataPropertyName = "iLote";
-            this.iLote.HeaderText = "Lote";
-            this.iLote.Name = "iLote";
-            // 
-            // sFoto
-            // 
-            this.sFoto.DataPropertyName = "sFoto";
-            this.sFoto.HeaderText = "Imagen";
-            this.sFoto.Name = "sFoto";
             // 
             // lblRegistroProducto
             // 
@@ -3174,33 +3118,6 @@
             this.tbpUpdateEmpresa.Text = "Actualizar Empresa";
             this.tbpUpdateEmpresa.UseVisualStyleBackColor = true;
             // 
-            // tbpSucursal
-            // 
-            this.tbpSucursal.Location = new System.Drawing.Point(4, 27);
-            this.tbpSucursal.Name = "tbpSucursal";
-            this.tbpSucursal.Size = new System.Drawing.Size(1151, 546);
-            this.tbpSucursal.TabIndex = 21;
-            this.tbpSucursal.Text = "Sucursales";
-            this.tbpSucursal.UseVisualStyleBackColor = true;
-            // 
-            // tbpAddSucursal
-            // 
-            this.tbpAddSucursal.Location = new System.Drawing.Point(4, 27);
-            this.tbpAddSucursal.Name = "tbpAddSucursal";
-            this.tbpAddSucursal.Size = new System.Drawing.Size(1151, 546);
-            this.tbpAddSucursal.TabIndex = 22;
-            this.tbpAddSucursal.Text = "Registrar Sucursal";
-            this.tbpAddSucursal.UseVisualStyleBackColor = true;
-            // 
-            // tbpUpdateSucursal
-            // 
-            this.tbpUpdateSucursal.Location = new System.Drawing.Point(4, 27);
-            this.tbpUpdateSucursal.Name = "tbpUpdateSucursal";
-            this.tbpUpdateSucursal.Size = new System.Drawing.Size(1151, 546);
-            this.tbpUpdateSucursal.TabIndex = 23;
-            this.tbpUpdateSucursal.Text = "Actualizar Sucursal";
-            this.tbpUpdateSucursal.UseVisualStyleBackColor = true;
-            // 
             // tbpClientes
             // 
             this.tbpClientes.Controls.Add(this.cbxSearchStatusCli);
@@ -3218,252 +3135,6 @@
             this.tbpClientes.TabIndex = 24;
             this.tbpClientes.Text = "Clientes";
             this.tbpClientes.UseVisualStyleBackColor = true;
-            // 
-            // tbpAddCliente
-            // 
-            this.tbpAddCliente.Controls.Add(this.txtPaisAddCli);
-            this.tbpAddCliente.Controls.Add(this.cbxEstadoCliAddCli);
-            this.tbpAddCliente.Controls.Add(this.cbxTipoClienteAddCli);
-            this.tbpAddCliente.Controls.Add(this.label70);
-            this.tbpAddCliente.Controls.Add(this.txtCorreoAddCli);
-            this.tbpAddCliente.Controls.Add(this.label72);
-            this.tbpAddCliente.Controls.Add(this.btnGuardarCliente);
-            this.tbpAddCliente.Controls.Add(this.btnExaminar);
-            this.tbpAddCliente.Controls.Add(this.pcbimgAddCli);
-            this.tbpAddCliente.Controls.Add(this.txtCondicionesPagoAddCli);
-            this.tbpAddCliente.Controls.Add(this.label73);
-            this.tbpAddCliente.Controls.Add(this.cbxMetodoPagoAddCli);
-            this.tbpAddCliente.Controls.Add(this.txtNumCuentaAddCli);
-            this.tbpAddCliente.Controls.Add(this.label74);
-            this.tbpAddCliente.Controls.Add(this.label75);
-            this.tbpAddCliente.Controls.Add(this.txtReferenciaAddCli);
-            this.tbpAddCliente.Controls.Add(this.label76);
-            this.tbpAddCliente.Controls.Add(this.label77);
-            this.tbpAddCliente.Controls.Add(this.txtTelMvilAddCli);
-            this.tbpAddCliente.Controls.Add(this.label78);
-            this.tbpAddCliente.Controls.Add(this.txtTelFijoAddCli);
-            this.tbpAddCliente.Controls.Add(this.label79);
-            this.tbpAddCliente.Controls.Add(this.txtNuminteAddCli);
-            this.tbpAddCliente.Controls.Add(this.label80);
-            this.tbpAddCliente.Controls.Add(this.txtNumExteAddCli);
-            this.tbpAddCliente.Controls.Add(this.label81);
-            this.tbpAddCliente.Controls.Add(this.txtCalleAddCli);
-            this.tbpAddCliente.Controls.Add(this.label82);
-            this.tbpAddCliente.Controls.Add(this.txtColoniaAddCli);
-            this.tbpAddCliente.Controls.Add(this.label83);
-            this.tbpAddCliente.Controls.Add(this.txtLocalidadAddCli);
-            this.tbpAddCliente.Controls.Add(this.label84);
-            this.tbpAddCliente.Controls.Add(this.txtMunicipioAddCli);
-            this.tbpAddCliente.Controls.Add(this.label85);
-            this.tbpAddCliente.Controls.Add(this.txtEstadoAddCli);
-            this.tbpAddCliente.Controls.Add(this.label86);
-            this.tbpAddCliente.Controls.Add(this.txtCodigoPosAddCli);
-            this.tbpAddCliente.Controls.Add(this.label87);
-            this.tbpAddCliente.Controls.Add(this.label88);
-            this.tbpAddCliente.Controls.Add(this.txtNombreAddCli);
-            this.tbpAddCliente.Controls.Add(this.label89);
-            this.tbpAddCliente.Controls.Add(this.txtCurpAddCli);
-            this.tbpAddCliente.Controls.Add(this.label90);
-            this.tbpAddCliente.Controls.Add(this.txtPersonaAddCli);
-            this.tbpAddCliente.Controls.Add(this.label91);
-            this.tbpAddCliente.Controls.Add(this.txtRazonAddCli);
-            this.tbpAddCliente.Controls.Add(this.label92);
-            this.tbpAddCliente.Controls.Add(this.txtRFCAddCli);
-            this.tbpAddCliente.Controls.Add(this.label93);
-            this.tbpAddCliente.Location = new System.Drawing.Point(4, 27);
-            this.tbpAddCliente.Name = "tbpAddCliente";
-            this.tbpAddCliente.Size = new System.Drawing.Size(1151, 546);
-            this.tbpAddCliente.TabIndex = 25;
-            this.tbpAddCliente.Text = "Registrar Cliente";
-            this.tbpAddCliente.UseVisualStyleBackColor = true;
-            // 
-            // tbpUpdateCliente
-            // 
-            this.tbpUpdateCliente.Controls.Add(this.txtPaisUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.cbxEstadoCliUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.cbxTipoCliUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label94);
-            this.tbpUpdateCliente.Controls.Add(this.txtCorreoUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label95);
-            this.tbpUpdateCliente.Controls.Add(this.BtnAcualizarCli);
-            this.tbpUpdateCliente.Controls.Add(this.btnExaminarUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.pcbImgUpdatCli);
-            this.tbpUpdateCliente.Controls.Add(this.txtCondicionesUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label96);
-            this.tbpUpdateCliente.Controls.Add(this.cbxMetodoPagoUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.txtNumCuentaUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label97);
-            this.tbpUpdateCliente.Controls.Add(this.label98);
-            this.tbpUpdateCliente.Controls.Add(this.txtReferenciaUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label99);
-            this.tbpUpdateCliente.Controls.Add(this.label100);
-            this.tbpUpdateCliente.Controls.Add(this.txtTelMvlUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label101);
-            this.tbpUpdateCliente.Controls.Add(this.txtTelFijoUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label102);
-            this.tbpUpdateCliente.Controls.Add(this.txtNumInteUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label103);
-            this.tbpUpdateCliente.Controls.Add(this.txtNumExteUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label104);
-            this.tbpUpdateCliente.Controls.Add(this.txtCalleUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label105);
-            this.tbpUpdateCliente.Controls.Add(this.txtColoniaUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label106);
-            this.tbpUpdateCliente.Controls.Add(this.txtLocalidadUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label107);
-            this.tbpUpdateCliente.Controls.Add(this.txtMunicipioUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label108);
-            this.tbpUpdateCliente.Controls.Add(this.txtEstadoUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label109);
-            this.tbpUpdateCliente.Controls.Add(this.txtCPUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label110);
-            this.tbpUpdateCliente.Controls.Add(this.label111);
-            this.tbpUpdateCliente.Controls.Add(this.txtNombreUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label112);
-            this.tbpUpdateCliente.Controls.Add(this.txtCurpUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label113);
-            this.tbpUpdateCliente.Controls.Add(this.txtPersonaUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label114);
-            this.tbpUpdateCliente.Controls.Add(this.txtRazonUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label115);
-            this.tbpUpdateCliente.Controls.Add(this.txtRfcUpdateCli);
-            this.tbpUpdateCliente.Controls.Add(this.label116);
-            this.tbpUpdateCliente.Location = new System.Drawing.Point(4, 27);
-            this.tbpUpdateCliente.Name = "tbpUpdateCliente";
-            this.tbpUpdateCliente.Size = new System.Drawing.Size(1151, 546);
-            this.tbpUpdateCliente.TabIndex = 26;
-            this.tbpUpdateCliente.Text = "Actualizar Cliente";
-            this.tbpUpdateCliente.UseVisualStyleBackColor = true;
-            // 
-            // ErrorProvider
-            // 
-            this.ErrorProvider.ContainerControl = this;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblFecha.Location = new System.Drawing.Point(1035, 26);
-            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(302, 18);
-            this.lblFecha.TabIndex = 25;
-            this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkCyan;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1213, 680);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 37);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Menu principal";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // pnlEmpresas
-            // 
-            this.pnlEmpresas.BackColor = System.Drawing.Color.White;
-            this.pnlEmpresas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlEmpresas.Controls.Add(this.label9);
-            this.pnlEmpresas.Controls.Add(this.btnSucursalesList);
-            this.pnlEmpresas.Controls.Add(this.btnEmpresasList);
-            this.pnlEmpresas.Location = new System.Drawing.Point(12, 50);
-            this.pnlEmpresas.Name = "pnlEmpresas";
-            this.pnlEmpresas.Size = new System.Drawing.Size(159, 120);
-            this.pnlEmpresas.TabIndex = 12;
-            this.pnlEmpresas.Visible = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 18);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Empresa";
-            // 
-            // btnSucursalesList
-            // 
-            this.btnSucursalesList.BackColor = System.Drawing.Color.White;
-            this.btnSucursalesList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnSucursalesList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSucursalesList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSucursalesList.ForeColor = System.Drawing.Color.Black;
-            this.btnSucursalesList.Location = new System.Drawing.Point(-1, 75);
-            this.btnSucursalesList.Name = "btnSucursalesList";
-            this.btnSucursalesList.Size = new System.Drawing.Size(160, 44);
-            this.btnSucursalesList.TabIndex = 6;
-            this.btnSucursalesList.Text = "Lista de Sucursales";
-            this.btnSucursalesList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSucursalesList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSucursalesList.UseVisualStyleBackColor = false;
-            this.btnSucursalesList.Click += new System.EventHandler(this.btnSucursalesList_Click);
-            this.btnSucursalesList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnSucursalesList_MouseClick);
-            // 
-            // btnEmpresasList
-            // 
-            this.btnEmpresasList.BackColor = System.Drawing.Color.White;
-            this.btnEmpresasList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnEmpresasList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpresasList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpresasList.ForeColor = System.Drawing.Color.Black;
-            this.btnEmpresasList.Location = new System.Drawing.Point(-2, 33);
-            this.btnEmpresasList.Name = "btnEmpresasList";
-            this.btnEmpresasList.Size = new System.Drawing.Size(161, 44);
-            this.btnEmpresasList.TabIndex = 5;
-            this.btnEmpresasList.Text = "Lista de Empresas";
-            this.btnEmpresasList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpresasList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEmpresasList.UseVisualStyleBackColor = false;
-            this.btnEmpresasList.Click += new System.EventHandler(this.btnEmpresasList_Click);
-            this.btnEmpresasList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button3_MouseClick);
-            // 
-            // pnlCliente
-            // 
-            this.pnlCliente.BackColor = System.Drawing.Color.White;
-            this.pnlCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCliente.Controls.Add(this.label68);
-            this.pnlCliente.Controls.Add(this.btnCustomersList);
-            this.pnlCliente.Location = new System.Drawing.Point(12, 50);
-            this.pnlCliente.Name = "pnlCliente";
-            this.pnlCliente.Size = new System.Drawing.Size(159, 78);
-            this.pnlCliente.TabIndex = 13;
-            this.pnlCliente.Visible = false;
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label68.Location = new System.Drawing.Point(3, 7);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(61, 18);
-            this.label68.TabIndex = 10;
-            this.label68.Text = "Clientes";
-            // 
-            // btnCustomersList
-            // 
-            this.btnCustomersList.BackColor = System.Drawing.Color.White;
-            this.btnCustomersList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnCustomersList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCustomersList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomersList.ForeColor = System.Drawing.Color.Black;
-            this.btnCustomersList.Location = new System.Drawing.Point(-2, 33);
-            this.btnCustomersList.Name = "btnCustomersList";
-            this.btnCustomersList.Size = new System.Drawing.Size(161, 44);
-            this.btnCustomersList.TabIndex = 5;
-            this.btnCustomersList.Text = "Lista de Clientes";
-            this.btnCustomersList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomersList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCustomersList.UseVisualStyleBackColor = false;
-            this.btnCustomersList.Click += new System.EventHandler(this.btnCustomersList_Click);
-            this.btnCustomersList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCustomersList_MouseClick);
             // 
             // cbxSearchStatusCli
             // 
@@ -3648,6 +3319,64 @@
             this.label71.TabIndex = 36;
             this.label71.Text = "Buscar ";
             // 
+            // tbpAddCliente
+            // 
+            this.tbpAddCliente.Controls.Add(this.txtPaisAddCli);
+            this.tbpAddCliente.Controls.Add(this.cbxEstadoCliAddCli);
+            this.tbpAddCliente.Controls.Add(this.cbxTipoClienteAddCli);
+            this.tbpAddCliente.Controls.Add(this.label70);
+            this.tbpAddCliente.Controls.Add(this.txtCorreoAddCli);
+            this.tbpAddCliente.Controls.Add(this.label72);
+            this.tbpAddCliente.Controls.Add(this.btnGuardarCliente);
+            this.tbpAddCliente.Controls.Add(this.btnExaminar);
+            this.tbpAddCliente.Controls.Add(this.pcbimgAddCli);
+            this.tbpAddCliente.Controls.Add(this.txtCondicionesPagoAddCli);
+            this.tbpAddCliente.Controls.Add(this.label73);
+            this.tbpAddCliente.Controls.Add(this.cbxMetodoPagoAddCli);
+            this.tbpAddCliente.Controls.Add(this.txtNumCuentaAddCli);
+            this.tbpAddCliente.Controls.Add(this.label74);
+            this.tbpAddCliente.Controls.Add(this.label75);
+            this.tbpAddCliente.Controls.Add(this.txtReferenciaAddCli);
+            this.tbpAddCliente.Controls.Add(this.label76);
+            this.tbpAddCliente.Controls.Add(this.label77);
+            this.tbpAddCliente.Controls.Add(this.txtTelMvilAddCli);
+            this.tbpAddCliente.Controls.Add(this.label78);
+            this.tbpAddCliente.Controls.Add(this.txtTelFijoAddCli);
+            this.tbpAddCliente.Controls.Add(this.label79);
+            this.tbpAddCliente.Controls.Add(this.txtNuminteAddCli);
+            this.tbpAddCliente.Controls.Add(this.label80);
+            this.tbpAddCliente.Controls.Add(this.txtNumExteAddCli);
+            this.tbpAddCliente.Controls.Add(this.label81);
+            this.tbpAddCliente.Controls.Add(this.txtCalleAddCli);
+            this.tbpAddCliente.Controls.Add(this.label82);
+            this.tbpAddCliente.Controls.Add(this.txtColoniaAddCli);
+            this.tbpAddCliente.Controls.Add(this.label83);
+            this.tbpAddCliente.Controls.Add(this.txtLocalidadAddCli);
+            this.tbpAddCliente.Controls.Add(this.label84);
+            this.tbpAddCliente.Controls.Add(this.txtMunicipioAddCli);
+            this.tbpAddCliente.Controls.Add(this.label85);
+            this.tbpAddCliente.Controls.Add(this.txtEstadoAddCli);
+            this.tbpAddCliente.Controls.Add(this.label86);
+            this.tbpAddCliente.Controls.Add(this.txtCodigoPosAddCli);
+            this.tbpAddCliente.Controls.Add(this.label87);
+            this.tbpAddCliente.Controls.Add(this.label88);
+            this.tbpAddCliente.Controls.Add(this.txtNombreAddCli);
+            this.tbpAddCliente.Controls.Add(this.label89);
+            this.tbpAddCliente.Controls.Add(this.txtCurpAddCli);
+            this.tbpAddCliente.Controls.Add(this.label90);
+            this.tbpAddCliente.Controls.Add(this.txtPersonaAddCli);
+            this.tbpAddCliente.Controls.Add(this.label91);
+            this.tbpAddCliente.Controls.Add(this.txtRazonAddCli);
+            this.tbpAddCliente.Controls.Add(this.label92);
+            this.tbpAddCliente.Controls.Add(this.txtRFCAddCli);
+            this.tbpAddCliente.Controls.Add(this.label93);
+            this.tbpAddCliente.Location = new System.Drawing.Point(4, 27);
+            this.tbpAddCliente.Name = "tbpAddCliente";
+            this.tbpAddCliente.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddCliente.TabIndex = 25;
+            this.tbpAddCliente.Text = "Registrar Cliente";
+            this.tbpAddCliente.UseVisualStyleBackColor = true;
+            // 
             // txtPaisAddCli
             // 
             this.txtPaisAddCli.Location = new System.Drawing.Point(821, 72);
@@ -3655,6 +3384,7 @@
             this.txtPaisAddCli.Size = new System.Drawing.Size(236, 24);
             this.txtPaisAddCli.TabIndex = 64;
             this.txtPaisAddCli.TextChanged += new System.EventHandler(this.txtPaisAddCli_TextChanged);
+            this.txtPaisAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaisAddCli_KeyPress);
             // 
             // cbxEstadoCliAddCli
             // 
@@ -3700,6 +3430,7 @@
             this.txtCorreoAddCli.Size = new System.Drawing.Size(268, 24);
             this.txtCorreoAddCli.TabIndex = 87;
             this.txtCorreoAddCli.TextChanged += new System.EventHandler(this.txtCorreoAddCli_TextChanged);
+            this.txtCorreoAddCli.Leave += new System.EventHandler(this.txtCorreoAddCli_Leave);
             // 
             // label72
             // 
@@ -3788,6 +3519,7 @@
             this.txtNumCuentaAddCli.Size = new System.Drawing.Size(268, 24);
             this.txtNumCuentaAddCli.TabIndex = 85;
             this.txtNumCuentaAddCli.TextChanged += new System.EventHandler(this.txtNumCuentaAddCli_TextChanged);
+            this.txtNumCuentaAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumCuentaAddCli_KeyPress);
             // 
             // label74
             // 
@@ -3840,6 +3572,7 @@
             this.txtTelMvilAddCli.Size = new System.Drawing.Size(236, 24);
             this.txtTelMvilAddCli.TabIndex = 77;
             this.txtTelMvilAddCli.TextChanged += new System.EventHandler(this.txtTelMvilAddCli_TextChanged);
+            this.txtTelMvilAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelMvilAddCli_KeyPress);
             // 
             // label78
             // 
@@ -3857,6 +3590,7 @@
             this.txtTelFijoAddCli.Size = new System.Drawing.Size(204, 24);
             this.txtTelFijoAddCli.TabIndex = 79;
             this.txtTelFijoAddCli.TextChanged += new System.EventHandler(this.txtTelFijoAddCli_TextChanged);
+            this.txtTelFijoAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelFijoAddCli_KeyPress);
             // 
             // label79
             // 
@@ -3874,6 +3608,7 @@
             this.txtNuminteAddCli.Size = new System.Drawing.Size(268, 24);
             this.txtNuminteAddCli.TabIndex = 75;
             this.txtNuminteAddCli.TextChanged += new System.EventHandler(this.txtNuminteAddCli_TextChanged);
+            this.txtNuminteAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNuminteAddCli_KeyPress);
             // 
             // label80
             // 
@@ -3891,6 +3626,7 @@
             this.txtNumExteAddCli.Size = new System.Drawing.Size(181, 24);
             this.txtNumExteAddCli.TabIndex = 74;
             this.txtNumExteAddCli.TextChanged += new System.EventHandler(this.txtNumExteAddCli_TextChanged);
+            this.txtNumExteAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumExteAddCli_KeyPress);
             // 
             // label81
             // 
@@ -3959,6 +3695,7 @@
             this.txtMunicipioAddCli.Size = new System.Drawing.Size(196, 24);
             this.txtMunicipioAddCli.TabIndex = 69;
             this.txtMunicipioAddCli.TextChanged += new System.EventHandler(this.txtMunicipioAddCli_TextChanged);
+            this.txtMunicipioAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMunicipioAddCli_KeyPress);
             // 
             // label85
             // 
@@ -3976,6 +3713,7 @@
             this.txtEstadoAddCli.Size = new System.Drawing.Size(282, 24);
             this.txtEstadoAddCli.TabIndex = 66;
             this.txtEstadoAddCli.TextChanged += new System.EventHandler(this.txtEstadoAddCli_TextChanged);
+            this.txtEstadoAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstadoAddCli_KeyPress);
             // 
             // label86
             // 
@@ -3993,6 +3731,7 @@
             this.txtCodigoPosAddCli.Size = new System.Drawing.Size(170, 24);
             this.txtCodigoPosAddCli.TabIndex = 65;
             this.txtCodigoPosAddCli.TextChanged += new System.EventHandler(this.txtCodigoPosAddCli_TextChanged);
+            this.txtCodigoPosAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoPosAddCli_KeyPress);
             // 
             // label87
             // 
@@ -4019,6 +3758,7 @@
             this.txtNombreAddCli.Size = new System.Drawing.Size(282, 24);
             this.txtNombreAddCli.TabIndex = 62;
             this.txtNombreAddCli.TextChanged += new System.EventHandler(this.txtNombreAddCli_TextChanged);
+            this.txtNombreAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreAddCli_KeyPress);
             // 
             // label89
             // 
@@ -4036,6 +3776,7 @@
             this.txtCurpAddCli.Size = new System.Drawing.Size(223, 24);
             this.txtCurpAddCli.TabIndex = 61;
             this.txtCurpAddCli.TextChanged += new System.EventHandler(this.txtCurpAddCli_TextChanged);
+            this.txtCurpAddCli.Leave += new System.EventHandler(this.txtCurpAddCli_Leave);
             // 
             // label90
             // 
@@ -4053,6 +3794,7 @@
             this.txtPersonaAddCli.Size = new System.Drawing.Size(236, 24);
             this.txtPersonaAddCli.TabIndex = 59;
             this.txtPersonaAddCli.TextChanged += new System.EventHandler(this.txtPersonaAddCli_TextChanged);
+            this.txtPersonaAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPersonaAddCli_KeyPress);
             // 
             // label91
             // 
@@ -4070,6 +3812,7 @@
             this.txtRazonAddCli.Size = new System.Drawing.Size(282, 24);
             this.txtRazonAddCli.TabIndex = 58;
             this.txtRazonAddCli.TextChanged += new System.EventHandler(this.txtRazonAddCli_TextChanged);
+            this.txtRazonAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRazonAddCli_KeyPress);
             // 
             // label92
             // 
@@ -4096,6 +3839,64 @@
             this.label93.Size = new System.Drawing.Size(47, 18);
             this.label93.TabIndex = 55;
             this.label93.Text = "RFC :";
+            // 
+            // tbpUpdateCliente
+            // 
+            this.tbpUpdateCliente.Controls.Add(this.txtPaisUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.cbxEstadoCliUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.cbxTipoCliUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label94);
+            this.tbpUpdateCliente.Controls.Add(this.txtCorreoUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label95);
+            this.tbpUpdateCliente.Controls.Add(this.BtnAcualizarCli);
+            this.tbpUpdateCliente.Controls.Add(this.btnExaminarUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.pcbImgUpdatCli);
+            this.tbpUpdateCliente.Controls.Add(this.txtCondicionesUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label96);
+            this.tbpUpdateCliente.Controls.Add(this.cbxMetodoPagoUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.txtNumCuentaUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label97);
+            this.tbpUpdateCliente.Controls.Add(this.label98);
+            this.tbpUpdateCliente.Controls.Add(this.txtReferenciaUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label99);
+            this.tbpUpdateCliente.Controls.Add(this.label100);
+            this.tbpUpdateCliente.Controls.Add(this.txtTelMvlUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label101);
+            this.tbpUpdateCliente.Controls.Add(this.txtTelFijoUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label102);
+            this.tbpUpdateCliente.Controls.Add(this.txtNumInteUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label103);
+            this.tbpUpdateCliente.Controls.Add(this.txtNumExteUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label104);
+            this.tbpUpdateCliente.Controls.Add(this.txtCalleUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label105);
+            this.tbpUpdateCliente.Controls.Add(this.txtColoniaUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label106);
+            this.tbpUpdateCliente.Controls.Add(this.txtLocalidadUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label107);
+            this.tbpUpdateCliente.Controls.Add(this.txtMunicipioUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label108);
+            this.tbpUpdateCliente.Controls.Add(this.txtEstadoUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label109);
+            this.tbpUpdateCliente.Controls.Add(this.txtCPUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label110);
+            this.tbpUpdateCliente.Controls.Add(this.label111);
+            this.tbpUpdateCliente.Controls.Add(this.txtNombreUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label112);
+            this.tbpUpdateCliente.Controls.Add(this.txtCurpUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label113);
+            this.tbpUpdateCliente.Controls.Add(this.txtPersonaUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label114);
+            this.tbpUpdateCliente.Controls.Add(this.txtRazonUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label115);
+            this.tbpUpdateCliente.Controls.Add(this.txtRfcUpdateCli);
+            this.tbpUpdateCliente.Controls.Add(this.label116);
+            this.tbpUpdateCliente.Location = new System.Drawing.Point(4, 27);
+            this.tbpUpdateCliente.Name = "tbpUpdateCliente";
+            this.tbpUpdateCliente.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateCliente.TabIndex = 26;
+            this.tbpUpdateCliente.Text = "Actualizar Cliente";
+            this.tbpUpdateCliente.UseVisualStyleBackColor = true;
             // 
             // txtPaisUpdateCli
             // 
@@ -4309,6 +4110,7 @@
             this.txtTelFijoUpdateCli.Size = new System.Drawing.Size(204, 24);
             this.txtTelFijoUpdateCli.TabIndex = 130;
             this.txtTelFijoUpdateCli.TextChanged += new System.EventHandler(this.txtTelFijoUpdateCli_TextChanged);
+            this.txtTelFijoUpdateCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelFijoUpdateCli_KeyPress);
             // 
             // label102
             // 
@@ -4326,6 +4128,7 @@
             this.txtNumInteUpdateCli.Size = new System.Drawing.Size(268, 24);
             this.txtNumInteUpdateCli.TabIndex = 126;
             this.txtNumInteUpdateCli.TextChanged += new System.EventHandler(this.txtNumInteUpdateCli_TextChanged);
+            this.txtNumInteUpdateCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumInteUpdateCli_KeyPress);
             // 
             // label103
             // 
@@ -4343,6 +4146,7 @@
             this.txtNumExteUpdateCli.Size = new System.Drawing.Size(181, 24);
             this.txtNumExteUpdateCli.TabIndex = 125;
             this.txtNumExteUpdateCli.TextChanged += new System.EventHandler(this.txtNumExteUpdateCli_TextChanged);
+            this.txtNumExteUpdateCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumExteUpdateCli_KeyPress);
             // 
             // label104
             // 
@@ -4447,6 +4251,7 @@
             this.txtCPUpdateCli.Size = new System.Drawing.Size(170, 24);
             this.txtCPUpdateCli.TabIndex = 116;
             this.txtCPUpdateCli.TextChanged += new System.EventHandler(this.txtCPUpdateCli_TextChanged);
+            this.txtCPUpdateCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPUpdateCli_KeyPress);
             // 
             // label110
             // 
@@ -4473,6 +4278,7 @@
             this.txtNombreUpdateCli.Size = new System.Drawing.Size(282, 24);
             this.txtNombreUpdateCli.TabIndex = 113;
             this.txtNombreUpdateCli.TextChanged += new System.EventHandler(this.txtNombreUpdateCli_TextChanged);
+            this.txtNombreUpdateCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreUpdateCli_KeyPress);
             // 
             // label112
             // 
@@ -4490,6 +4296,7 @@
             this.txtCurpUpdateCli.Size = new System.Drawing.Size(223, 24);
             this.txtCurpUpdateCli.TabIndex = 112;
             this.txtCurpUpdateCli.TextChanged += new System.EventHandler(this.txtCurpUpdateCli_TextChanged);
+            this.txtCurpUpdateCli.Leave += new System.EventHandler(this.txtCurpUpdateCli_Leave);
             // 
             // label113
             // 
@@ -4507,6 +4314,7 @@
             this.txtPersonaUpdateCli.Size = new System.Drawing.Size(236, 24);
             this.txtPersonaUpdateCli.TabIndex = 110;
             this.txtPersonaUpdateCli.TextChanged += new System.EventHandler(this.txtPersonaUpdateCli_TextChanged);
+            this.txtPersonaUpdateCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPersonaUpdateCli_KeyPress);
             // 
             // label114
             // 
@@ -4550,6 +4358,178 @@
             this.label116.Size = new System.Drawing.Size(47, 18);
             this.label116.TabIndex = 106;
             this.label116.Text = "RFC :";
+            // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblFecha.Location = new System.Drawing.Point(1035, 26);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(302, 18);
+            this.lblFecha.TabIndex = 25;
+            this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkCyan;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(1213, 680);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 37);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Menu principal";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // pnlEmpresas
+            // 
+            this.pnlEmpresas.BackColor = System.Drawing.Color.White;
+            this.pnlEmpresas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEmpresas.Controls.Add(this.label9);
+            this.pnlEmpresas.Controls.Add(this.btnSucursalesList);
+            this.pnlEmpresas.Controls.Add(this.btnEmpresasList);
+            this.pnlEmpresas.Location = new System.Drawing.Point(12, 50);
+            this.pnlEmpresas.Name = "pnlEmpresas";
+            this.pnlEmpresas.Size = new System.Drawing.Size(159, 120);
+            this.pnlEmpresas.TabIndex = 12;
+            this.pnlEmpresas.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 18);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Empresa";
+            // 
+            // btnSucursalesList
+            // 
+            this.btnSucursalesList.BackColor = System.Drawing.Color.White;
+            this.btnSucursalesList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSucursalesList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSucursalesList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSucursalesList.ForeColor = System.Drawing.Color.Black;
+            this.btnSucursalesList.Location = new System.Drawing.Point(-1, 75);
+            this.btnSucursalesList.Name = "btnSucursalesList";
+            this.btnSucursalesList.Size = new System.Drawing.Size(160, 44);
+            this.btnSucursalesList.TabIndex = 6;
+            this.btnSucursalesList.Text = "Lista de Sucursales";
+            this.btnSucursalesList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSucursalesList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSucursalesList.UseVisualStyleBackColor = false;
+      
+            this.btnSucursalesList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnSucursalesList_MouseClick);
+            // 
+            // btnEmpresasList
+            // 
+            this.btnEmpresasList.BackColor = System.Drawing.Color.White;
+            this.btnEmpresasList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnEmpresasList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpresasList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpresasList.ForeColor = System.Drawing.Color.Black;
+            this.btnEmpresasList.Location = new System.Drawing.Point(-2, 33);
+            this.btnEmpresasList.Name = "btnEmpresasList";
+            this.btnEmpresasList.Size = new System.Drawing.Size(161, 44);
+            this.btnEmpresasList.TabIndex = 5;
+            this.btnEmpresasList.Text = "Lista de Empresas";
+            this.btnEmpresasList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpresasList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEmpresasList.UseVisualStyleBackColor = false;
+            this.btnEmpresasList.Click += new System.EventHandler(this.btnEmpresasList_Click);
+            this.btnEmpresasList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button3_MouseClick);
+            // 
+            // pnlCliente
+            // 
+            this.pnlCliente.BackColor = System.Drawing.Color.White;
+            this.pnlCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCliente.Controls.Add(this.label68);
+            this.pnlCliente.Controls.Add(this.btnCustomersList);
+            this.pnlCliente.Location = new System.Drawing.Point(12, 50);
+            this.pnlCliente.Name = "pnlCliente";
+            this.pnlCliente.Size = new System.Drawing.Size(159, 78);
+            this.pnlCliente.TabIndex = 13;
+            this.pnlCliente.Visible = false;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.Location = new System.Drawing.Point(3, 7);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(61, 18);
+            this.label68.TabIndex = 10;
+            this.label68.Text = "Clientes";
+            // 
+            // btnCustomersList
+            // 
+            this.btnCustomersList.BackColor = System.Drawing.Color.White;
+            this.btnCustomersList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCustomersList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomersList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomersList.ForeColor = System.Drawing.Color.Black;
+            this.btnCustomersList.Location = new System.Drawing.Point(-2, 33);
+            this.btnCustomersList.Name = "btnCustomersList";
+            this.btnCustomersList.Size = new System.Drawing.Size(161, 44);
+            this.btnCustomersList.TabIndex = 5;
+            this.btnCustomersList.Text = "Lista de Clientes";
+            this.btnCustomersList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomersList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCustomersList.UseVisualStyleBackColor = false;
+            this.btnCustomersList.Click += new System.EventHandler(this.btnCustomersList_Click);
+            this.btnCustomersList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCustomersList_MouseClick);
+            // 
+            // pkProductos
+            // 
+            this.pkProductos.DataPropertyName = "pkProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            // 
+            // iClaveProd
+            // 
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            this.iClaveProd.HeaderText = "Clave";
+            this.iClaveProd.Name = "iClaveProd";
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            // 
+            // iDescuento
+            // 
+            this.iDescuento.DataPropertyName = "iDescuento";
+            this.iDescuento.HeaderText = "Descuento";
+            this.iDescuento.Name = "iDescuento";
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            // 
+            // iLote
+            // 
+            this.iLote.DataPropertyName = "iLote";
+            this.iLote.HeaderText = "Lote";
+            this.iLote.Name = "iLote";
             // 
             // FrmAdministrador
             // 
@@ -4638,18 +4618,18 @@
             this.tbpUpdatePrecio.PerformLayout();
             this.tbpClientes.ResumeLayout(false);
             this.tbpClientes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCliente)).EndInit();
             this.tbpAddCliente.ResumeLayout(false);
             this.tbpAddCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbimgAddCli)).EndInit();
             this.tbpUpdateCliente.ResumeLayout(false);
             this.tbpUpdateCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImgUpdatCli)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.pnlEmpresas.ResumeLayout(false);
             this.pnlEmpresas.PerformLayout();
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbimgAddCli)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbImgUpdatCli)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4911,17 +4891,6 @@
         private System.Windows.Forms.TabPage tbpEmpresa;
         private System.Windows.Forms.TabPage tbpAddEmpresa;
         private System.Windows.Forms.TabPage tbpUpdateEmpresa;
-        private System.Windows.Forms.TabPage tbpSucursal;
-        private System.Windows.Forms.TabPage tbpAddSucursal;
-        private System.Windows.Forms.TabPage tbpUpdateSucursal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sFoto;
         private System.Windows.Forms.Panel pnlCliente;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.Button btnCustomersList;
@@ -5048,5 +5017,12 @@
         private System.Windows.Forms.Label label115;
         private System.Windows.Forms.TextBox txtRfcUpdateCli;
         private System.Windows.Forms.Label label116;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
     }
 }

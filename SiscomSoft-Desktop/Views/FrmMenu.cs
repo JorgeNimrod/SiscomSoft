@@ -86,5 +86,10 @@ namespace SiscomSoft_Desktop.Views
             FrmMenuVentas v = new FrmMenuVentas();
             v.ShowDialog();
         }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
