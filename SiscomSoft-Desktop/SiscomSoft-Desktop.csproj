@@ -499,6 +499,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Reports\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
