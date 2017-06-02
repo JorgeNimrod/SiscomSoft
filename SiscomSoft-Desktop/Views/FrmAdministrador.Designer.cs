@@ -932,7 +932,7 @@
             this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
-            this.dgvDatosProducto.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosProducto_CellContentDoubleClick);
+        
             // 
             // pkProductos
             // 
@@ -1093,8 +1093,7 @@
             this.dgvDatosPrecio.Size = new System.Drawing.Size(505, 501);
             this.dgvDatosPrecio.TabIndex = 54;
             this.dgvDatosPrecio.DataSourceChanged += new System.EventHandler(this.dgvDatosPrecio_DataSourceChanged);
-            this.dgvDatosPrecio.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosPrecio_CellContentDoubleClick);
-            this.dgvDatosPrecio.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosPrecio_CellDoubleClick);
+            
             // 
             // pkPrecios
             // 
