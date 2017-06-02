@@ -318,10 +318,10 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpEmpresa);
             tbcGeneral.TabPages.Remove(tbpAddEmpresa);
             tbcGeneral.TabPages.Remove(tbpUpdateEmpresa);
-         
             tbcGeneral.TabPages.Remove(tbpClientes);
             tbcGeneral.TabPages.Remove(tbpAddCliente);
             tbcGeneral.TabPages.Remove(tbpUpdateCliente);
+         
         }
 
         private void btnRollist_Click(object sender, EventArgs e)
@@ -3416,6 +3416,53 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.SelectedTab = tbpUpdateUsuario;
 
             }
+        }
+
+     
+
+        private void dgvDatosPrecio_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosPrecio.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdatePrecio);
+                PKPRECIO = Convert.ToInt32(this.dgvDatosPrecio.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdatePrecio);
+                ActualizarPrecio();
+                tbcGeneral.SelectedTab = tbpUpdatePrecio;
+
+            }
+
+        }
+
+      
+        private void dgvDatosProducto_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosProducto.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateProducto);
+                PKPRODUCTO = Convert.ToInt32(this.dgvDatosProducto.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateProducto);
+                ActualizarProducto();
+                tbcGeneral.SelectedTab = tbpUpdateProducto;
+
+            }
+        }
+
+        private void dgvDatosPrecio_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosPrecio.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdatePrecio);
+                PKPRECIO = Convert.ToInt32(this.dgvDatosPrecio.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdatePrecio);
+                ActualizarPrecio();
+                tbcGeneral.SelectedTab = tbpUpdatePrecio;
+
+            }
+
         }
     }
 }
