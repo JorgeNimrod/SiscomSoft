@@ -31,7 +31,7 @@ namespace SiscomSoft_Desktop.Views
             cmbEmpresas.DataSource = ManejoEmpresa.getAll(true);
             cmbEmpresas.DisplayMember = "sNomComercial";
             cmbEmpresas.ValueMember = "pkEmpresa";
-            cmbEmpresas.SelectedIndex = 0;
+            cmbEmpresas.SelectedIndex = -1;
         }
 
         public void crearCarpetaRaiz()
@@ -535,12 +535,6 @@ namespace SiscomSoft_Desktop.Views
         private void FrmMenuFacturacion_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
-            this.cmbMetodoDePago.SelectedIndex = 0;
-            this.cmbTipoDeComprobante.SelectedIndex = 0;
-            this.cmbMoneda.SelectedIndex = 0;
-            this.cmbUsoCFDI.SelectedIndex = 0;
-            this.cmbFormaDePago.SelectedIndex = 0;
-            this.cmbRegimenFiscal.SelectedIndex = 0;
             cargarEmpresas();
         }
 
@@ -553,6 +547,17 @@ namespace SiscomSoft_Desktop.Views
         private void tbnEnvCorreo_Click(object sender, EventArgs e)
         {
             crearCarpetaRaiz();
+        }
+
+        private void cmbEmpresas_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Empresa nEmpresa = ManejoEmpresa.getById(Convert.ToInt32(cmbEmpresas.SelectedValue));
+            txtCodigoPostal.Text = nEmpresa.iCodPostal.ToString();
+            if (Convert.ToInt32(nEmpresa.sRegFiscal) == cmbRegimenFiscal.SelectedIndex+1)
+            {
+                cmbRegimenFiscal.SelectedIndex = Convert.ToInt32(nEmpresa.sRegFiscal);
+            }
+            int x = 0;
         }
     }
 }
