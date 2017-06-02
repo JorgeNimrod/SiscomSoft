@@ -66,6 +66,10 @@
     <Compile Include="Controller\ManejoCliente.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
     <Compile Include="Controller\ManejoEntrada.cs" />
+    <Compile Include="Migrations\201706021710474_INICIAL.cs" />
+    <Compile Include="Migrations\201706021710474_INICIAL.Designer.cs">
+      <DependentUpon>201706021710474_INICIAL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManejoImpuesto.cs" />
     <Compile Include="Controller\ManejoPermiso.cs" />
     <Compile Include="Controller\ManejoPrecio.cs" />
@@ -97,6 +101,11 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706021710474_INICIAL.resx">
+      <DependentUpon>201706021710474_INICIAL.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
