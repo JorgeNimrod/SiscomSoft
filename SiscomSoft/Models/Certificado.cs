@@ -16,8 +16,8 @@ namespace SiscomSoft.Models
         [Key]
         public int pkCertificado { get; set; }
 
-        // llave foranea de Empresa
-        public virtual Empresa fkEmpresa { get; set; }
+        // llave foranea de sucursal
+        public virtual Sucursal fkSucursal { get; set; }
         
         public string sArchCer { get; set; }
         

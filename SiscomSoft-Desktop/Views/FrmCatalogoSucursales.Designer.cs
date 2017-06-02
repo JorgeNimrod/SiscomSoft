@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lblRegistros = new System.Windows.Forms.Label();
-            this.ckbStatus = new System.Windows.Forms.CheckBox();
             this.dgvDatosSucursal = new System.Windows.Forms.DataGridView();
             this.pkSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +46,7 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.ckbStatus = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,19 +58,6 @@
             this.lblRegistros.Size = new System.Drawing.Size(68, 18);
             this.lblRegistros.TabIndex = 29;
             this.lblRegistros.Text = "Registro:";
-            // 
-            // ckbStatus
-            // 
-            this.ckbStatus.AutoSize = true;
-            this.ckbStatus.Checked = true;
-            this.ckbStatus.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbStatus.Location = new System.Drawing.Point(15, 368);
-            this.ckbStatus.Name = "ckbStatus";
-            this.ckbStatus.Size = new System.Drawing.Size(69, 22);
-            this.ckbStatus.TabIndex = 2;
-            this.ckbStatus.Text = "Status";
-            this.ckbStatus.UseVisualStyleBackColor = true;
-            this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
             // 
             // dgvDatosSucursal
             // 
@@ -205,7 +192,20 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // FrmBuscarSucursal
+            // ckbStatus
+            // 
+            this.ckbStatus.AutoSize = true;
+            this.ckbStatus.Checked = true;
+            this.ckbStatus.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbStatus.Location = new System.Drawing.Point(15, 368);
+            this.ckbStatus.Name = "ckbStatus";
+            this.ckbStatus.Size = new System.Drawing.Size(69, 22);
+            this.ckbStatus.TabIndex = 2;
+            this.ckbStatus.Text = "Status";
+            this.ckbStatus.UseVisualStyleBackColor = true;
+            this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
+            // 
+            // FrmCatalogoSucursales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -222,7 +222,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "FrmBuscarSucursal";
+            this.Name = "FrmCatalogoSucursales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Sucursal";
             this.Load += new System.EventHandler(this.FrmBuscarSucursal_Load);
@@ -237,7 +237,6 @@
 
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label lblRegistros;
-        private System.Windows.Forms.CheckBox ckbStatus;
         private System.Windows.Forms.DataGridView dgvDatosSucursal;
         private System.Windows.Forms.TextBox txtBuscarSucursal;
         private System.Windows.Forms.Label label1;
@@ -254,5 +253,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iCodPostal;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.CheckBox ckbStatus;
     }
 }
