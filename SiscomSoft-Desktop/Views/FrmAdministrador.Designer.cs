@@ -913,6 +913,7 @@
             // 
             // dgvDatosProducto
             // 
+            this.dgvDatosProducto.AllowUserToDeleteRows = false;
             this.dgvDatosProducto.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -925,53 +926,62 @@
             this.iLote});
             this.dgvDatosProducto.Location = new System.Drawing.Point(6, 37);
             this.dgvDatosProducto.Name = "dgvDatosProducto";
+            this.dgvDatosProducto.ReadOnly = true;
             this.dgvDatosProducto.RowHeadersVisible = false;
             this.dgvDatosProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
+        
             // 
             // pkProductos
             // 
             this.pkProductos.DataPropertyName = "pkProducto";
             this.pkProductos.HeaderText = "Producto";
             this.pkProductos.Name = "pkProductos";
+            this.pkProductos.ReadOnly = true;
             // 
             // iClaveProd
             // 
             this.iClaveProd.DataPropertyName = "iClaveProd";
             this.iClaveProd.HeaderText = "Clave";
             this.iClaveProd.Name = "iClaveProd";
+            this.iClaveProd.ReadOnly = true;
             // 
             // sDescripcion
             // 
             this.sDescripcion.DataPropertyName = "sDescripcion";
             this.sDescripcion.HeaderText = "Descripcion";
             this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
             // 
             // sMarca
             // 
             this.sMarca.DataPropertyName = "sMarca";
             this.sMarca.HeaderText = "Marca";
             this.sMarca.Name = "sMarca";
+            this.sMarca.ReadOnly = true;
             // 
             // iDescuento
             // 
             this.iDescuento.DataPropertyName = "iDescuento";
             this.iDescuento.HeaderText = "Descuento";
             this.iDescuento.Name = "iDescuento";
+            this.iDescuento.ReadOnly = true;
             // 
             // dCosto
             // 
             this.dCosto.DataPropertyName = "dCosto";
             this.dCosto.HeaderText = "Costo";
             this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
             // 
             // iLote
             // 
             this.iLote.DataPropertyName = "iLote";
             this.iLote.HeaderText = "Lote";
             this.iLote.Name = "iLote";
+            this.iLote.ReadOnly = true;
             // 
             // lblRegistroProducto
             // 
@@ -1069,6 +1079,7 @@
             // 
             // dgvDatosPrecio
             // 
+            this.dgvDatosPrecio.AllowUserToDeleteRows = false;
             this.dgvDatosPrecio.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosPrecio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosPrecio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1076,17 +1087,20 @@
             this.iPrePorcen});
             this.dgvDatosPrecio.Location = new System.Drawing.Point(6, 7);
             this.dgvDatosPrecio.Name = "dgvDatosPrecio";
+            this.dgvDatosPrecio.ReadOnly = true;
             this.dgvDatosPrecio.RowHeadersVisible = false;
             this.dgvDatosPrecio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosPrecio.Size = new System.Drawing.Size(505, 501);
             this.dgvDatosPrecio.TabIndex = 54;
             this.dgvDatosPrecio.DataSourceChanged += new System.EventHandler(this.dgvDatosPrecio_DataSourceChanged);
+            
             // 
             // pkPrecios
             // 
             this.pkPrecios.DataPropertyName = "pkPrecios";
             this.pkPrecios.HeaderText = "No. Precio";
             this.pkPrecios.Name = "pkPrecios";
+            this.pkPrecios.ReadOnly = true;
             this.pkPrecios.Width = 250;
             // 
             // iPrePorcen
@@ -1094,6 +1108,7 @@
             this.iPrePorcen.DataPropertyName = "iPrePorcen";
             this.iPrePorcen.HeaderText = "Precio";
             this.iPrePorcen.Name = "iPrePorcen";
+            this.iPrePorcen.ReadOnly = true;
             this.iPrePorcen.Width = 250;
             // 
             // tbpImpuestos
@@ -1146,6 +1161,7 @@
             // 
             // dgvDatosImpuesto
             // 
+            this.dgvDatosImpuesto.AllowUserToDeleteRows = false;
             this.dgvDatosImpuesto.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosImpuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosImpuesto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1155,6 +1171,7 @@
             this.dTasaImpuesto});
             this.dgvDatosImpuesto.Location = new System.Drawing.Point(3, 32);
             this.dgvDatosImpuesto.Name = "dgvDatosImpuesto";
+            this.dgvDatosImpuesto.ReadOnly = true;
             this.dgvDatosImpuesto.RowHeadersVisible = false;
             this.dgvDatosImpuesto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosImpuesto.Size = new System.Drawing.Size(554, 476);
@@ -1167,12 +1184,14 @@
             this.s.DataPropertyName = "pkImpuesto";
             this.s.HeaderText = "No. ";
             this.s.Name = "s";
+            this.s.ReadOnly = true;
             // 
             // sTipoImpuesto
             // 
             this.sTipoImpuesto.DataPropertyName = "sTipoImpuesto";
             this.sTipoImpuesto.HeaderText = "Tipo Impuesto";
             this.sTipoImpuesto.Name = "sTipoImpuesto";
+            this.sTipoImpuesto.ReadOnly = true;
             this.sTipoImpuesto.Width = 200;
             // 
             // sImpuesto
@@ -1180,6 +1199,7 @@
             this.sImpuesto.DataPropertyName = "sImpuesto";
             this.sImpuesto.HeaderText = "Impuesto";
             this.sImpuesto.Name = "sImpuesto";
+            this.sImpuesto.ReadOnly = true;
             this.sImpuesto.Width = 150;
             // 
             // dTasaImpuesto
@@ -1187,6 +1207,7 @@
             this.dTasaImpuesto.DataPropertyName = "dTasaImpuesto";
             this.dTasaImpuesto.HeaderText = "Tasa Impuesto";
             this.dTasaImpuesto.Name = "dTasaImpuesto";
+            this.dTasaImpuesto.ReadOnly = true;
             // 
             // lblRegistroImpuesto
             // 
@@ -1299,6 +1320,7 @@
             // 
             // dgvDatosCategoria
             // 
+            this.dgvDatosCategoria.AllowUserToDeleteRows = false;
             this.dgvDatosCategoria.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1307,6 +1329,7 @@
             this.sNomSubCat});
             this.dgvDatosCategoria.Location = new System.Drawing.Point(3, 32);
             this.dgvDatosCategoria.Name = "dgvDatosCategoria";
+            this.dgvDatosCategoria.ReadOnly = true;
             this.dgvDatosCategoria.RowHeadersVisible = false;
             this.dgvDatosCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosCategoria.Size = new System.Drawing.Size(604, 483);
@@ -1319,6 +1342,7 @@
             this.pkCategoria.DataPropertyName = "pkCategoria";
             this.pkCategoria.HeaderText = "Categoria";
             this.pkCategoria.Name = "pkCategoria";
+            this.pkCategoria.ReadOnly = true;
             this.pkCategoria.Width = 200;
             // 
             // dataGridViewTextBoxColumn3
@@ -1326,6 +1350,7 @@
             this.dataGridViewTextBoxColumn3.DataPropertyName = "sNombre";
             this.dataGridViewTextBoxColumn3.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 200;
             // 
             // sNomSubCat
@@ -1333,6 +1358,7 @@
             this.sNomSubCat.DataPropertyName = "sNomSubCat";
             this.sNomSubCat.HeaderText = "Subcategoria";
             this.sNomSubCat.Name = "sNomSubCat";
+            this.sNomSubCat.ReadOnly = true;
             this.sNomSubCat.Width = 200;
             // 
             // txtBuscarCategoria
@@ -1401,6 +1427,7 @@
             // 
             // dgvDatosUsuario
             // 
+            this.dgvDatosUsuario.AllowUserToDeleteRows = false;
             this.dgvDatosUsuario.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1413,6 +1440,7 @@
             this.dataGridViewTextBoxColumn2});
             this.dgvDatosUsuario.Location = new System.Drawing.Point(6, 35);
             this.dgvDatosUsuario.Name = "dgvDatosUsuario";
+            this.dgvDatosUsuario.ReadOnly = true;
             this.dgvDatosUsuario.RowHeadersVisible = false;
             this.dgvDatosUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosUsuario.Size = new System.Drawing.Size(703, 480);
@@ -1424,42 +1452,49 @@
             this.pkUsuarios.DataPropertyName = "pkUsuario";
             this.pkUsuarios.HeaderText = "No.";
             this.pkUsuarios.Name = "pkUsuarios";
+            this.pkUsuarios.ReadOnly = true;
             // 
             // SRfc
             // 
             this.SRfc.DataPropertyName = "sRfc";
             this.SRfc.HeaderText = "RFC";
             this.SRfc.Name = "SRfc";
+            this.SRfc.ReadOnly = true;
             // 
             // sUsuario
             // 
             this.sUsuario.DataPropertyName = "sUsuario";
             this.sUsuario.HeaderText = "Usuario";
             this.sUsuario.Name = "sUsuario";
+            this.sUsuario.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "sNombre";
             this.dataGridViewTextBoxColumn1.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // sNumero
             // 
             this.sNumero.DataPropertyName = "sNumero";
             this.sNumero.HeaderText = "Telefono";
             this.sNumero.Name = "sNumero";
+            this.sNumero.ReadOnly = true;
             // 
             // sCorreo
             // 
             this.sCorreo.DataPropertyName = "sCorreo";
             this.sCorreo.HeaderText = "Correo";
             this.sCorreo.Name = "sCorreo";
+            this.sCorreo.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "sComentario";
             this.dataGridViewTextBoxColumn2.HeaderText = "Comentario";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // lblRegistroUsuarios
             // 

@@ -104,66 +104,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmActualizarCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarCategoria.Designer.cs">
-      <DependentUpon>FrmActualizarCategoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmActualizarCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarCliente.Designer.cs">
-      <DependentUpon>FrmActualizarCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmActualizarEmpresa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarEmpresa.Designer.cs">
-      <DependentUpon>FrmActualizarEmpresa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmActualizarImpuesto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarImpuesto.Designer.cs">
-      <DependentUpon>FrmActualizarImpuesto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmActualizarPermiso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarPermiso.Designer.cs">
-      <DependentUpon>FrmActualizarPermiso.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmActualizarPrecio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarPrecio.Designer.cs">
-      <DependentUpon>FrmActualizarPrecio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmActualizarProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarProducto.Designer.cs">
-      <DependentUpon>FrmActualizarProducto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmActualizarRol.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarRol.Designer.cs">
-      <DependentUpon>FrmActualizarRol.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmActualizarSucursal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarSucursal.Designer.cs">
-      <DependentUpon>FrmActualizarSucursal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmActualizarUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmActualizarUsuario.Designer.cs">
-      <DependentUpon>FrmActualizarUsuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,71 +116,11 @@
     <Compile Include="Views\FrmBuscarProductos.Designer.cs">
       <DependentUpon>FrmBuscarProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmCatalogoCategorias.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoCategorias.Designer.cs">
-      <DependentUpon>FrmCatalogoCategorias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoClientes.Designer.cs">
-      <DependentUpon>FrmCatalogoClientes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\frmBuscarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\frmBuscarClientes.Designer.cs">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoEmpresas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoEmpresas.Designer.cs">
-      <DependentUpon>FrmCatalogoEmpresas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoImpuestos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoImpuestos.Designer.cs">
-      <DependentUpon>FrmCatalogoImpuestos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoPermisos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoPermisos.Designer.cs">
-      <DependentUpon>FrmCatalogoPermisos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoPrecios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoPrecios.Designer.cs">
-      <DependentUpon>FrmCatalogoPrecios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoProductos.Designer.cs">
-      <DependentUpon>FrmCatalogoProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoRoles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoRoles.Designer.cs">
-      <DependentUpon>FrmCatalogoRoles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoSucursales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoSucursales.Designer.cs">
-      <DependentUpon>FrmCatalogoSucursales.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCatalogoUsuarios.Designer.cs">
-      <DependentUpon>FrmCatalogoUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmConfiguracionBD.cs">
       <SubType>Form</SubType>
@@ -272,72 +152,6 @@
     <Compile Include="Views\FrmMenuFacturacion.Designer.cs">
       <DependentUpon>FrmMenuFacturacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmRegistrarCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarCategoria.Designer.cs">
-      <DependentUpon>FrmRegistrarCategoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarCertificados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarCertificados.Designer.cs">
-      <DependentUpon>FrmRegistrarCertificados.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarCliente.Designer.cs">
-      <DependentUpon>FrmRegistrarCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarEmpresa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarEmpresa.Designer.cs">
-      <DependentUpon>FrmRegistrarEmpresa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarImpuesto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarImpuesto.Designer.cs">
-      <DependentUpon>FrmRegistrarImpuesto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarPermiso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarPermiso.Designer.cs">
-      <DependentUpon>FrmRegistrarPermiso.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarPrecios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarPrecios.Designer.cs">
-      <DependentUpon>FrmRegistrarPrecios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarProducto.Designer.cs">
-      <DependentUpon>FrmRegistrarProducto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarRol.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarRol.Designer.cs">
-      <DependentUpon>FrmRegistrarRol.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarSucursal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarSucursal.Designer.cs">
-      <DependentUpon>FrmRegistrarSucursal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRegistrarUsuario.Designer.cs">
-      <DependentUpon>FrmRegistrarUsuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmSplahScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,74 +169,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarCategoria.resx">
-      <DependentUpon>FrmActualizarCategoria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarCliente.resx">
-      <DependentUpon>FrmActualizarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarEmpresa.resx">
-      <DependentUpon>FrmActualizarEmpresa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarImpuesto.resx">
-      <DependentUpon>FrmActualizarImpuesto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarPermiso.resx">
-      <DependentUpon>FrmActualizarPermiso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarPrecio.resx">
-      <DependentUpon>FrmActualizarPrecio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarProducto.resx">
-      <DependentUpon>FrmActualizarProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarRol.resx">
-      <DependentUpon>FrmActualizarRol.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarSucursal.resx">
-      <DependentUpon>FrmActualizarSucursal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmActualizarUsuario.resx">
-      <DependentUpon>FrmActualizarUsuario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmAdministrador.resx">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmBuscarProductos.resx">
       <DependentUpon>FrmBuscarProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCatalogoCategorias.resx">
-      <DependentUpon>FrmCatalogoCategorias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCatalogoClientes.resx">
-      <DependentUpon>FrmCatalogoClientes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\frmBuscarClientes.resx">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCatalogoEmpresas.resx">
-      <DependentUpon>FrmCatalogoEmpresas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCatalogoImpuestos.resx">
-      <DependentUpon>FrmCatalogoImpuestos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCatalogoPermisos.resx">
-      <DependentUpon>FrmCatalogoPermisos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCatalogoPrecios.resx">
-      <DependentUpon>FrmCatalogoPrecios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCatalogoProductos.resx">
-      <DependentUpon>FrmCatalogoProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCatalogoRoles.resx">
-      <DependentUpon>FrmCatalogoRoles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCatalogoSucursales.resx">
-      <DependentUpon>FrmCatalogoSucursales.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCatalogoUsuarios.resx">
-      <DependentUpon>FrmCatalogoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmConfiguracionBD.resx">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
@@ -438,39 +192,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmMenuFacturacion.resx">
       <DependentUpon>FrmMenuFacturacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarCategoria.resx">
-      <DependentUpon>FrmRegistrarCategoria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarCertificados.resx">
-      <DependentUpon>FrmRegistrarCertificados.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarCliente.resx">
-      <DependentUpon>FrmRegistrarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarEmpresa.resx">
-      <DependentUpon>FrmRegistrarEmpresa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarImpuesto.resx">
-      <DependentUpon>FrmRegistrarImpuesto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarPermiso.resx">
-      <DependentUpon>FrmRegistrarPermiso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarPrecios.resx">
-      <DependentUpon>FrmRegistrarPrecios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarProducto.resx">
-      <DependentUpon>FrmRegistrarProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarRol.resx">
-      <DependentUpon>FrmRegistrarRol.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarSucursal.resx">
-      <DependentUpon>FrmRegistrarSucursal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRegistrarUsuario.resx">
-      <DependentUpon>FrmRegistrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmSplahScreen.resx">
       <DependentUpon>FrmSplahScreen.cs</DependentUpon>

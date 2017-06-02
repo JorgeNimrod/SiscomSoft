@@ -274,7 +274,7 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.SelectedTab = tbpUsuario;
             }
         }
-
+        //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
             cbxSearchStatusCli.SelectedIndex = 0;
