@@ -49,6 +49,8 @@ namespace SiscomSoft.Models
         // llave foranea de Empresa
         public virtual Empresa fkEmpresa { get; set; }
 
+        public ICollection<Certificado> Certificados { get; set; }
+
         public Sucursal()
         {
             this.bStatus = true;

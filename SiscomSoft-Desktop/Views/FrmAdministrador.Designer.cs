@@ -52,6 +52,13 @@
             this.btnActualizarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -275,8 +282,87 @@
             this.txtUpdatePrecio = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
             this.tbpEmpresa = new System.Windows.Forms.TabPage();
+            this.btnActualizarEmpresa = new System.Windows.Forms.Button();
+            this.btnBorrarEmpresa = new System.Windows.Forms.Button();
+            this.btnRegistrarEmpresa = new System.Windows.Forms.Button();
+            this.lblCantidadEmpresas = new System.Windows.Forms.Label();
+            this.ckbStatusEmpresa = new System.Windows.Forms.CheckBox();
+            this.dgvDatosEmpresa = new System.Windows.Forms.DataGridView();
+            this.pkEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNomComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtBuscarEmpresa = new System.Windows.Forms.TextBox();
+            this.label118 = new System.Windows.Forms.Label();
             this.tbpAddEmpresa = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbAddRegimenFiscalEmpresa = new System.Windows.Forms.ComboBox();
+            this.label134 = new System.Windows.Forms.Label();
+            this.txtAddRazonSocialEmpresa = new System.Windows.Forms.TextBox();
+            this.txtAddEstadoEmpresa = new System.Windows.Forms.TextBox();
+            this.label117 = new System.Windows.Forms.Label();
+            this.txtAddNombreContactoEmpresa = new System.Windows.Forms.TextBox();
+            this.label119 = new System.Windows.Forms.Label();
+            this.label120 = new System.Windows.Forms.Label();
+            this.btnGuardarEmpresa = new System.Windows.Forms.Button();
+            this.label123 = new System.Windows.Forms.Label();
+            this.txtAddNumExteriorEmpresa = new System.Windows.Forms.TextBox();
+            this.txtAddNumInteriorEmpresa = new System.Windows.Forms.TextBox();
+            this.label124 = new System.Windows.Forms.Label();
+            this.label125 = new System.Windows.Forms.Label();
+            this.txtAddCalleEmpresa = new System.Windows.Forms.TextBox();
+            this.label126 = new System.Windows.Forms.Label();
+            this.txtAddLocalidadEmpresa = new System.Windows.Forms.TextBox();
+            this.txtAddColoniaEmpresa = new System.Windows.Forms.TextBox();
+            this.txtAddMunicipioEmpresa = new System.Windows.Forms.TextBox();
+            this.txtAddPaisEmpresa = new System.Windows.Forms.TextBox();
+            this.txtAddCorreoElectronicoEmpresa = new System.Windows.Forms.TextBox();
+            this.txtAddTelefonoEmpresa = new System.Windows.Forms.TextBox();
+            this.txtAddNombreComercialEmpresa = new System.Windows.Forms.TextBox();
+            this.lbllocalidad = new System.Windows.Forms.Label();
+            this.label127 = new System.Windows.Forms.Label();
+            this.label128 = new System.Windows.Forms.Label();
+            this.label129 = new System.Windows.Forms.Label();
+            this.label130 = new System.Windows.Forms.Label();
+            this.label131 = new System.Windows.Forms.Label();
+            this.label133 = new System.Windows.Forms.Label();
             this.tbpUpdateEmpresa = new System.Windows.Forms.TabPage();
+            this.cmbUpdateCodigoPostalEmpresa = new System.Windows.Forms.ComboBox();
+            this.cmbUpdateRegimenFiscalEmpresa = new System.Windows.Forms.ComboBox();
+            this.label121 = new System.Windows.Forms.Label();
+            this.txtUpdateRazonSocialEmpresa = new System.Windows.Forms.TextBox();
+            this.txtUpdateEstadoEmpresa = new System.Windows.Forms.TextBox();
+            this.label122 = new System.Windows.Forms.Label();
+            this.txtUpdateNombContactoEmpresa = new System.Windows.Forms.TextBox();
+            this.label132 = new System.Windows.Forms.Label();
+            this.label135 = new System.Windows.Forms.Label();
+            this.btnUpdateEmpresa = new System.Windows.Forms.Button();
+            this.label136 = new System.Windows.Forms.Label();
+            this.txtUpdateNumExteriorEmpresa = new System.Windows.Forms.TextBox();
+            this.txtUpdateNumInteriorEmpresa = new System.Windows.Forms.TextBox();
+            this.label137 = new System.Windows.Forms.Label();
+            this.label138 = new System.Windows.Forms.Label();
+            this.txtUpdateCalleEmpresa = new System.Windows.Forms.TextBox();
+            this.label139 = new System.Windows.Forms.Label();
+            this.txtUpdateLocalidadEmpresa = new System.Windows.Forms.TextBox();
+            this.txtUpdateColoniaEmpresa = new System.Windows.Forms.TextBox();
+            this.txtUpdateMunicipioEmpresa = new System.Windows.Forms.TextBox();
+            this.txtUpdatePaisEmpresa = new System.Windows.Forms.TextBox();
+            this.txtUpdateCorreoEmpresa = new System.Windows.Forms.TextBox();
+            this.txtUpdateTelefonoEmpresa = new System.Windows.Forms.TextBox();
+            this.txtUpdateNomComercialEmpresa = new System.Windows.Forms.TextBox();
+            this.label140 = new System.Windows.Forms.Label();
+            this.label141 = new System.Windows.Forms.Label();
+            this.label142 = new System.Windows.Forms.Label();
+            this.label143 = new System.Windows.Forms.Label();
+            this.label144 = new System.Windows.Forms.Label();
+            this.label145 = new System.Windows.Forms.Label();
+            this.label146 = new System.Windows.Forms.Label();
             this.tbpClientes = new System.Windows.Forms.TabPage();
             this.cbxSearchStatusCli = new System.Windows.Forms.ComboBox();
             this.label69 = new System.Windows.Forms.Label();
@@ -410,13 +496,32 @@
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.label68 = new System.Windows.Forms.Label();
             this.btnCustomersList = new System.Windows.Forms.Button();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbpSucursal = new System.Windows.Forms.TabPage();
+            this.tbpRegistrarSucursal = new System.Windows.Forms.TabPage();
+            this.tbpActualizarSucursal = new System.Windows.Forms.TabPage();
+            this.btnCertificadosList = new System.Windows.Forms.Button();
+            this.tbpCertificado = new System.Windows.Forms.TabPage();
+            this.tbpRegistrarCertificado = new System.Windows.Forms.TabPage();
+            this.tbpActualizarCertificado = new System.Windows.Forms.TabPage();
+            this.btnBorrarSucursal = new System.Windows.Forms.Button();
+            this.btnActualizarSucursal = new System.Windows.Forms.Button();
+            this.btnRegistrarSucursal = new System.Windows.Forms.Button();
+            this.lblCantidadSucursal = new System.Windows.Forms.Label();
+            this.dgvDatosSucursal = new System.Windows.Forms.DataGridView();
+            this.txtBuscarSucursal = new System.Windows.Forms.TextBox();
+            this.label148 = new System.Windows.Forms.Label();
+            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sEstSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iNumCertificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iNumExterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbEstadoSucursal = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -455,6 +560,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbUpdateImgProd)).BeginInit();
             this.tbpAddPrecio.SuspendLayout();
             this.tbpUpdatePrecio.SuspendLayout();
+            this.tbpEmpresa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosEmpresa)).BeginInit();
+            this.tbpAddEmpresa.SuspendLayout();
+            this.tbpUpdateEmpresa.SuspendLayout();
             this.tbpClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCliente)).BeginInit();
             this.tbpAddCliente.SuspendLayout();
@@ -464,6 +573,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlEmpresas.SuspendLayout();
             this.pnlCliente.SuspendLayout();
+            this.tbpSucursal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -734,6 +845,12 @@
             this.tbcGeneral.Controls.Add(this.tbpClientes);
             this.tbcGeneral.Controls.Add(this.tbpAddCliente);
             this.tbcGeneral.Controls.Add(this.tbpUpdateCliente);
+            this.tbcGeneral.Controls.Add(this.tbpSucursal);
+            this.tbcGeneral.Controls.Add(this.tbpRegistrarSucursal);
+            this.tbcGeneral.Controls.Add(this.tbpActualizarSucursal);
+            this.tbcGeneral.Controls.Add(this.tbpCertificado);
+            this.tbcGeneral.Controls.Add(this.tbpRegistrarCertificado);
+            this.tbcGeneral.Controls.Add(this.tbpActualizarCertificado);
             this.tbcGeneral.Location = new System.Drawing.Point(179, 50);
             this.tbcGeneral.Name = "tbcGeneral";
             this.tbcGeneral.SelectedIndex = 0;
@@ -813,6 +930,48 @@
             this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
+            // 
+            // pkProductos
+            // 
+            this.pkProductos.DataPropertyName = "pkProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            // 
+            // iClaveProd
+            // 
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            this.iClaveProd.HeaderText = "Clave";
+            this.iClaveProd.Name = "iClaveProd";
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            // 
+            // iDescuento
+            // 
+            this.iDescuento.DataPropertyName = "iDescuento";
+            this.iDescuento.HeaderText = "Descuento";
+            this.iDescuento.Name = "iDescuento";
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            // 
+            // iLote
+            // 
+            this.iLote.DataPropertyName = "iLote";
+            this.iLote.HeaderText = "Lote";
+            this.iLote.Name = "iLote";
             // 
             // lblRegistroProducto
             // 
@@ -2585,7 +2744,6 @@
             this.pcbimgAddProd.TabIndex = 132;
             this.pcbimgAddProd.TabStop = false;
             this.pcbimgAddProd.Tag = "2";
-            this.pcbimgAddProd.Click += new System.EventHandler(this.pcbLogo_Click);
             // 
             // cbxCatalogoAddProd
             // 
@@ -3092,6 +3250,14 @@
             // 
             // tbpEmpresa
             // 
+            this.tbpEmpresa.Controls.Add(this.btnActualizarEmpresa);
+            this.tbpEmpresa.Controls.Add(this.btnBorrarEmpresa);
+            this.tbpEmpresa.Controls.Add(this.btnRegistrarEmpresa);
+            this.tbpEmpresa.Controls.Add(this.lblCantidadEmpresas);
+            this.tbpEmpresa.Controls.Add(this.ckbStatusEmpresa);
+            this.tbpEmpresa.Controls.Add(this.dgvDatosEmpresa);
+            this.tbpEmpresa.Controls.Add(this.txtBuscarEmpresa);
+            this.tbpEmpresa.Controls.Add(this.label118);
             this.tbpEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpEmpresa.Name = "tbpEmpresa";
             this.tbpEmpresa.Padding = new System.Windows.Forms.Padding(3);
@@ -3100,8 +3266,190 @@
             this.tbpEmpresa.Text = "Empresas";
             this.tbpEmpresa.UseVisualStyleBackColor = true;
             // 
+            // btnActualizarEmpresa
+            // 
+            this.btnActualizarEmpresa.Location = new System.Drawing.Point(1030, 87);
+            this.btnActualizarEmpresa.Name = "btnActualizarEmpresa";
+            this.btnActualizarEmpresa.Size = new System.Drawing.Size(114, 43);
+            this.btnActualizarEmpresa.TabIndex = 24;
+            this.btnActualizarEmpresa.Text = "Actualizar";
+            this.btnActualizarEmpresa.UseVisualStyleBackColor = true;
+            this.btnActualizarEmpresa.Click += new System.EventHandler(this.btnActualizarEmpresa_Click);
+            // 
+            // btnBorrarEmpresa
+            // 
+            this.btnBorrarEmpresa.Location = new System.Drawing.Point(1030, 136);
+            this.btnBorrarEmpresa.Name = "btnBorrarEmpresa";
+            this.btnBorrarEmpresa.Size = new System.Drawing.Size(114, 43);
+            this.btnBorrarEmpresa.TabIndex = 25;
+            this.btnBorrarEmpresa.Text = "Borrar";
+            this.btnBorrarEmpresa.UseVisualStyleBackColor = true;
+            this.btnBorrarEmpresa.Click += new System.EventHandler(this.btnBorrarEmpresa_Click);
+            // 
+            // btnRegistrarEmpresa
+            // 
+            this.btnRegistrarEmpresa.Location = new System.Drawing.Point(1030, 38);
+            this.btnRegistrarEmpresa.Name = "btnRegistrarEmpresa";
+            this.btnRegistrarEmpresa.Size = new System.Drawing.Size(114, 43);
+            this.btnRegistrarEmpresa.TabIndex = 26;
+            this.btnRegistrarEmpresa.Text = "Registrar";
+            this.btnRegistrarEmpresa.UseVisualStyleBackColor = true;
+            this.btnRegistrarEmpresa.Click += new System.EventHandler(this.btnRegistrarEmpresa_Click_1);
+            // 
+            // lblCantidadEmpresas
+            // 
+            this.lblCantidadEmpresas.AutoSize = true;
+            this.lblCantidadEmpresas.Location = new System.Drawing.Point(879, 519);
+            this.lblCantidadEmpresas.Name = "lblCantidadEmpresas";
+            this.lblCantidadEmpresas.Size = new System.Drawing.Size(70, 18);
+            this.lblCantidadEmpresas.TabIndex = 29;
+            this.lblCantidadEmpresas.Text = "Cantidad:";
+            // 
+            // ckbStatusEmpresa
+            // 
+            this.ckbStatusEmpresa.AutoSize = true;
+            this.ckbStatusEmpresa.Checked = true;
+            this.ckbStatusEmpresa.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbStatusEmpresa.Location = new System.Drawing.Point(955, 10);
+            this.ckbStatusEmpresa.Name = "ckbStatusEmpresa";
+            this.ckbStatusEmpresa.Size = new System.Drawing.Size(69, 22);
+            this.ckbStatusEmpresa.TabIndex = 23;
+            this.ckbStatusEmpresa.Text = "Status";
+            this.ckbStatusEmpresa.UseVisualStyleBackColor = true;
+            this.ckbStatusEmpresa.CheckedChanged += new System.EventHandler(this.ckbStatusEmpresa_CheckedChanged_1);
+            // 
+            // dgvDatosEmpresa
+            // 
+            this.dgvDatosEmpresa.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDatosEmpresa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosEmpresa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pkEmpresa,
+            this.sNomComercial,
+            this.sTelefono,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12});
+            this.dgvDatosEmpresa.Location = new System.Drawing.Point(7, 38);
+            this.dgvDatosEmpresa.Name = "dgvDatosEmpresa";
+            this.dgvDatosEmpresa.RowHeadersVisible = false;
+            this.dgvDatosEmpresa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatosEmpresa.Size = new System.Drawing.Size(1017, 478);
+            this.dgvDatosEmpresa.TabIndex = 28;
+            this.dgvDatosEmpresa.DataSourceChanged += new System.EventHandler(this.dgvDatosEmpresa_DataSourceChanged_1);
+            this.dgvDatosEmpresa.DoubleClick += new System.EventHandler(this.dgvDatosEmpresa_DoubleClick);
+            // 
+            // pkEmpresa
+            // 
+            this.pkEmpresa.DataPropertyName = "pkEmpresa";
+            this.pkEmpresa.HeaderText = "No.";
+            this.pkEmpresa.Name = "pkEmpresa";
+            // 
+            // sNomComercial
+            // 
+            this.sNomComercial.DataPropertyName = "sNomComercial";
+            this.sNomComercial.HeaderText = "Nombre";
+            this.sNomComercial.Name = "sNomComercial";
+            this.sNomComercial.Width = 150;
+            // 
+            // sTelefono
+            // 
+            this.sTelefono.DataPropertyName = "sTelefono";
+            this.sTelefono.HeaderText = "Telefono";
+            this.sTelefono.Name = "sTelefono";
+            this.sTelefono.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "sCorreo";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Correo";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "sEstado";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "sMunicipio";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Municipio";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "sColonia";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Colonia";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "sCalle";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Calle";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "iCodPostal";
+            this.dataGridViewTextBoxColumn12.HeaderText = "C.P.";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // txtBuscarEmpresa
+            // 
+            this.txtBuscarEmpresa.Location = new System.Drawing.Point(72, 8);
+            this.txtBuscarEmpresa.Name = "txtBuscarEmpresa";
+            this.txtBuscarEmpresa.Size = new System.Drawing.Size(877, 24);
+            this.txtBuscarEmpresa.TabIndex = 22;
+            this.txtBuscarEmpresa.TextChanged += new System.EventHandler(this.txtBuscarEmpresa_TextChanged_1);
+            // 
+            // label118
+            // 
+            this.label118.AutoSize = true;
+            this.label118.Location = new System.Drawing.Point(7, 11);
+            this.label118.Name = "label118";
+            this.label118.Size = new System.Drawing.Size(59, 18);
+            this.label118.TabIndex = 27;
+            this.label118.Text = "Buscar:";
+            // 
             // tbpAddEmpresa
             // 
+            this.tbpAddEmpresa.Controls.Add(this.comboBox1);
+            this.tbpAddEmpresa.Controls.Add(this.cmbAddRegimenFiscalEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.label134);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddRazonSocialEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddEstadoEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.label117);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddNombreContactoEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.label119);
+            this.tbpAddEmpresa.Controls.Add(this.label120);
+            this.tbpAddEmpresa.Controls.Add(this.btnGuardarEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.label123);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddNumExteriorEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddNumInteriorEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.label124);
+            this.tbpAddEmpresa.Controls.Add(this.label125);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddCalleEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.label126);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddLocalidadEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddColoniaEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddMunicipioEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddPaisEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddCorreoElectronicoEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddTelefonoEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.txtAddNombreComercialEmpresa);
+            this.tbpAddEmpresa.Controls.Add(this.lbllocalidad);
+            this.tbpAddEmpresa.Controls.Add(this.label127);
+            this.tbpAddEmpresa.Controls.Add(this.label128);
+            this.tbpAddEmpresa.Controls.Add(this.label129);
+            this.tbpAddEmpresa.Controls.Add(this.label130);
+            this.tbpAddEmpresa.Controls.Add(this.label131);
+            this.tbpAddEmpresa.Controls.Add(this.label133);
+            this.tbpAddEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbpAddEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpAddEmpresa.Name = "tbpAddEmpresa";
             this.tbpAddEmpresa.Size = new System.Drawing.Size(1151, 546);
@@ -3109,14 +3457,685 @@
             this.tbpAddEmpresa.Text = "Registrar Empresa";
             this.tbpAddEmpresa.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(199, 222);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(159, 24);
+            this.comboBox1.TabIndex = 89;
+            this.comboBox1.Text = "Seleccione una opción";
+            // 
+            // cmbAddRegimenFiscalEmpresa
+            // 
+            this.cmbAddRegimenFiscalEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAddRegimenFiscalEmpresa.FormattingEnabled = true;
+            this.cmbAddRegimenFiscalEmpresa.Items.AddRange(new object[] {
+            "GENERAL DE LEY PERSONAS MORALES",
+            "PERSONAS MORALES CON FINES NO LUCRATIVOS",
+            "SUELDOS Y SALARIOS E INGRESOS ASIMILADOS A SALARIOS",
+            "ARRENDAMIENTO",
+            "DEMÁS INGRESOS",
+            "CONSOLIDACIÓN",
+            "RESIDENTES EN EL EXTRANJERO SIN ESTABLECIMIENTO PERMANENTE EN MÉXICO",
+            "INGRESOS POR DIVIDENDOS (SOCIOS Y ACCIONISTAS)",
+            "PERSONAS FÍSICAS CON ACTIVIDADES EMPRESARIALES Y PROFESIONALES",
+            "INGRESOS POR INTERESES",
+            "SIN OBLIGACIONES FISCALES",
+            "SOCIEDADES COOPERATIVAS DE PRODUCCIÓN QUE OPTAN POR DIFERIR SUS INGRESOS",
+            "INCORPORACIÓN FISCAL",
+            "ACTIVIDADES AGRÍCOLAS, GANADERAS, SILVÍCOLAS Y PESQUERAS",
+            "OPCIONAL PARA GRUPOS DE SOCIEDADES",
+            "COORDINADOS",
+            "HIDROCARBUROS",
+            "RÉGIMEN DE ENAJENACIÓN O ADQUISICIÓN DE BIENES",
+            "DE LOS REGÍMENES FISCALES PREFERENTES Y DE LAS EMPRESAS MULTINACIONALES",
+            "ENAJENACIÓN DE ACCIONES EN BOLSA DE VALORES",
+            "RÉGIMEN DE LOS INGRESOS POR OBTENCIÓN DE PREMIOS"});
+            this.cmbAddRegimenFiscalEmpresa.Location = new System.Drawing.Point(364, 110);
+            this.cmbAddRegimenFiscalEmpresa.Name = "cmbAddRegimenFiscalEmpresa";
+            this.cmbAddRegimenFiscalEmpresa.Size = new System.Drawing.Size(300, 24);
+            this.cmbAddRegimenFiscalEmpresa.TabIndex = 87;
+            this.cmbAddRegimenFiscalEmpresa.Text = "Seleccione una opción";
+            // 
+            // label134
+            // 
+            this.label134.AutoSize = true;
+            this.label134.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label134.Location = new System.Drawing.Point(361, 89);
+            this.label134.Name = "label134";
+            this.label134.Size = new System.Drawing.Size(110, 13);
+            this.label134.TabIndex = 88;
+            this.label134.Text = "REGIMEN FISCAL";
+            // 
+            // txtAddRazonSocialEmpresa
+            // 
+            this.txtAddRazonSocialEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddRazonSocialEmpresa.Location = new System.Drawing.Point(645, 54);
+            this.txtAddRazonSocialEmpresa.Name = "txtAddRazonSocialEmpresa";
+            this.txtAddRazonSocialEmpresa.Size = new System.Drawing.Size(300, 24);
+            this.txtAddRazonSocialEmpresa.TabIndex = 76;
+            this.txtAddRazonSocialEmpresa.Text = "EMPRESA SA DE CV";
+            // 
+            // txtAddEstadoEmpresa
+            // 
+            this.txtAddEstadoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddEstadoEmpresa.Location = new System.Drawing.Point(832, 110);
+            this.txtAddEstadoEmpresa.Name = "txtAddEstadoEmpresa";
+            this.txtAddEstadoEmpresa.Size = new System.Drawing.Size(113, 24);
+            this.txtAddEstadoEmpresa.TabIndex = 55;
+            this.txtAddEstadoEmpresa.Text = "SONORA";
+            // 
+            // label117
+            // 
+            this.label117.AutoSize = true;
+            this.label117.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label117.Location = new System.Drawing.Point(829, 89);
+            this.label117.Name = "label117";
+            this.label117.Size = new System.Drawing.Size(57, 13);
+            this.label117.TabIndex = 75;
+            this.label117.Text = "ESTADO";
+            // 
+            // txtAddNombreContactoEmpresa
+            // 
+            this.txtAddNombreContactoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddNombreContactoEmpresa.Location = new System.Drawing.Point(339, 54);
+            this.txtAddNombreContactoEmpresa.Name = "txtAddNombreContactoEmpresa";
+            this.txtAddNombreContactoEmpresa.Size = new System.Drawing.Size(300, 24);
+            this.txtAddNombreContactoEmpresa.TabIndex = 43;
+            this.txtAddNombreContactoEmpresa.Text = "EMPRESA CONTACTO";
+            // 
+            // label119
+            // 
+            this.label119.AutoSize = true;
+            this.label119.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label119.Location = new System.Drawing.Point(336, 33);
+            this.label119.Name = "label119";
+            this.label119.Size = new System.Drawing.Size(152, 13);
+            this.label119.TabIndex = 74;
+            this.label119.Text = "NOMBRE DE CONTACTO";
+            // 
+            // label120
+            // 
+            this.label120.AutoSize = true;
+            this.label120.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label120.Location = new System.Drawing.Point(642, 33);
+            this.label120.Name = "label120";
+            this.label120.Size = new System.Drawing.Size(98, 13);
+            this.label120.TabIndex = 73;
+            this.label120.Text = "RAZON SOCIAL";
+            // 
+            // btnGuardarEmpresa
+            // 
+            this.btnGuardarEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarEmpresa.Location = new System.Drawing.Point(832, 269);
+            this.btnGuardarEmpresa.Name = "btnGuardarEmpresa";
+            this.btnGuardarEmpresa.Size = new System.Drawing.Size(113, 36);
+            this.btnGuardarEmpresa.TabIndex = 69;
+            this.btnGuardarEmpresa.Text = "GUARDAR";
+            this.btnGuardarEmpresa.UseVisualStyleBackColor = true;
+            this.btnGuardarEmpresa.Click += new System.EventHandler(this.btnGuardarEmpresa_Click);
+            // 
+            // label123
+            // 
+            this.label123.AutoSize = true;
+            this.label123.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label123.Location = new System.Drawing.Point(196, 201);
+            this.label123.Name = "label123";
+            this.label123.Size = new System.Drawing.Size(107, 13);
+            this.label123.TabIndex = 70;
+            this.label123.Text = "CODIGO POSTAL";
+            // 
+            // txtAddNumExteriorEmpresa
+            // 
+            this.txtAddNumExteriorEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddNumExteriorEmpresa.Location = new System.Drawing.Point(34, 222);
+            this.txtAddNumExteriorEmpresa.Name = "txtAddNumExteriorEmpresa";
+            this.txtAddNumExteriorEmpresa.Size = new System.Drawing.Size(156, 24);
+            this.txtAddNumExteriorEmpresa.TabIndex = 60;
+            this.txtAddNumExteriorEmpresa.Text = "0";
+            // 
+            // txtAddNumInteriorEmpresa
+            // 
+            this.txtAddNumInteriorEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddNumInteriorEmpresa.Location = new System.Drawing.Point(832, 167);
+            this.txtAddNumInteriorEmpresa.Name = "txtAddNumInteriorEmpresa";
+            this.txtAddNumInteriorEmpresa.Size = new System.Drawing.Size(113, 24);
+            this.txtAddNumInteriorEmpresa.TabIndex = 59;
+            this.txtAddNumInteriorEmpresa.Text = "171";
+            // 
+            // label124
+            // 
+            this.label124.AutoSize = true;
+            this.label124.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label124.Location = new System.Drawing.Point(31, 201);
+            this.label124.Name = "label124";
+            this.label124.Size = new System.Drawing.Size(106, 13);
+            this.label124.TabIndex = 68;
+            this.label124.Text = "NUM. EXTERIOR";
+            // 
+            // label125
+            // 
+            this.label125.AutoSize = true;
+            this.label125.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label125.Location = new System.Drawing.Point(829, 146);
+            this.label125.Name = "label125";
+            this.label125.Size = new System.Drawing.Size(103, 13);
+            this.label125.TabIndex = 66;
+            this.label125.Text = "NUM. INTERIOR";
+            // 
+            // txtAddCalleEmpresa
+            // 
+            this.txtAddCalleEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddCalleEmpresa.Location = new System.Drawing.Point(199, 167);
+            this.txtAddCalleEmpresa.Name = "txtAddCalleEmpresa";
+            this.txtAddCalleEmpresa.Size = new System.Drawing.Size(241, 24);
+            this.txtAddCalleEmpresa.TabIndex = 57;
+            this.txtAddCalleEmpresa.Text = "AVELARDO ZAMAROCOS";
+            // 
+            // label126
+            // 
+            this.label126.AutoSize = true;
+            this.label126.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label126.Location = new System.Drawing.Point(196, 146);
+            this.label126.Name = "label126";
+            this.label126.Size = new System.Drawing.Size(45, 13);
+            this.label126.TabIndex = 63;
+            this.label126.Text = "CALLE";
+            // 
+            // txtAddLocalidadEmpresa
+            // 
+            this.txtAddLocalidadEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddLocalidadEmpresa.Location = new System.Drawing.Point(639, 167);
+            this.txtAddLocalidadEmpresa.Name = "txtAddLocalidadEmpresa";
+            this.txtAddLocalidadEmpresa.Size = new System.Drawing.Size(187, 24);
+            this.txtAddLocalidadEmpresa.TabIndex = 56;
+            this.txtAddLocalidadEmpresa.Text = "AVELARDO ZAMAROCOS";
+            // 
+            // txtAddColoniaEmpresa
+            // 
+            this.txtAddColoniaEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddColoniaEmpresa.Location = new System.Drawing.Point(446, 167);
+            this.txtAddColoniaEmpresa.Name = "txtAddColoniaEmpresa";
+            this.txtAddColoniaEmpresa.Size = new System.Drawing.Size(187, 24);
+            this.txtAddColoniaEmpresa.TabIndex = 58;
+            this.txtAddColoniaEmpresa.Text = "SAN SEBASTIAN";
+            // 
+            // txtAddMunicipioEmpresa
+            // 
+            this.txtAddMunicipioEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddMunicipioEmpresa.Location = new System.Drawing.Point(33, 167);
+            this.txtAddMunicipioEmpresa.Name = "txtAddMunicipioEmpresa";
+            this.txtAddMunicipioEmpresa.Size = new System.Drawing.Size(157, 24);
+            this.txtAddMunicipioEmpresa.TabIndex = 47;
+            this.txtAddMunicipioEmpresa.Text = "HERMOSILLO";
+            // 
+            // txtAddPaisEmpresa
+            // 
+            this.txtAddPaisEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddPaisEmpresa.Location = new System.Drawing.Point(670, 110);
+            this.txtAddPaisEmpresa.Name = "txtAddPaisEmpresa";
+            this.txtAddPaisEmpresa.Size = new System.Drawing.Size(156, 24);
+            this.txtAddPaisEmpresa.TabIndex = 54;
+            this.txtAddPaisEmpresa.Text = "MEXICO";
+            // 
+            // txtAddCorreoElectronicoEmpresa
+            // 
+            this.txtAddCorreoElectronicoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddCorreoElectronicoEmpresa.Location = new System.Drawing.Point(135, 110);
+            this.txtAddCorreoElectronicoEmpresa.Name = "txtAddCorreoElectronicoEmpresa";
+            this.txtAddCorreoElectronicoEmpresa.Size = new System.Drawing.Size(223, 24);
+            this.txtAddCorreoElectronicoEmpresa.TabIndex = 53;
+            this.txtAddCorreoElectronicoEmpresa.Text = "EMPRESA@EMPRESA.COM";
+            // 
+            // txtAddTelefonoEmpresa
+            // 
+            this.txtAddTelefonoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddTelefonoEmpresa.Location = new System.Drawing.Point(33, 110);
+            this.txtAddTelefonoEmpresa.Name = "txtAddTelefonoEmpresa";
+            this.txtAddTelefonoEmpresa.Size = new System.Drawing.Size(96, 24);
+            this.txtAddTelefonoEmpresa.TabIndex = 51;
+            this.txtAddTelefonoEmpresa.Text = "6623502340";
+            // 
+            // txtAddNombreComercialEmpresa
+            // 
+            this.txtAddNombreComercialEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddNombreComercialEmpresa.Location = new System.Drawing.Point(33, 54);
+            this.txtAddNombreComercialEmpresa.Name = "txtAddNombreComercialEmpresa";
+            this.txtAddNombreComercialEmpresa.Size = new System.Drawing.Size(300, 24);
+            this.txtAddNombreComercialEmpresa.TabIndex = 40;
+            this.txtAddNombreComercialEmpresa.Text = "EMPRESA COMERCIAL";
+            // 
+            // lbllocalidad
+            // 
+            this.lbllocalidad.AutoSize = true;
+            this.lbllocalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbllocalidad.Location = new System.Drawing.Point(636, 146);
+            this.lbllocalidad.Name = "lbllocalidad";
+            this.lbllocalidad.Size = new System.Drawing.Size(76, 13);
+            this.lbllocalidad.TabIndex = 52;
+            this.lbllocalidad.Text = "LOCALIDAD";
+            // 
+            // label127
+            // 
+            this.label127.AutoSize = true;
+            this.label127.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label127.Location = new System.Drawing.Point(443, 146);
+            this.label127.Name = "label127";
+            this.label127.Size = new System.Drawing.Size(61, 13);
+            this.label127.TabIndex = 50;
+            this.label127.Text = "COLONIA";
+            // 
+            // label128
+            // 
+            this.label128.AutoSize = true;
+            this.label128.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label128.Location = new System.Drawing.Point(30, 146);
+            this.label128.Name = "label128";
+            this.label128.Size = new System.Drawing.Size(72, 13);
+            this.label128.TabIndex = 49;
+            this.label128.Text = "MUNICIPIO";
+            // 
+            // label129
+            // 
+            this.label129.AutoSize = true;
+            this.label129.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label129.Location = new System.Drawing.Point(667, 89);
+            this.label129.Name = "label129";
+            this.label129.Size = new System.Drawing.Size(35, 13);
+            this.label129.TabIndex = 46;
+            this.label129.Text = "PAIS";
+            // 
+            // label130
+            // 
+            this.label130.AutoSize = true;
+            this.label130.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label130.Location = new System.Drawing.Point(132, 89);
+            this.label130.Name = "label130";
+            this.label130.Size = new System.Drawing.Size(150, 13);
+            this.label130.TabIndex = 44;
+            this.label130.Text = "CORREO ELECTRONICO";
+            // 
+            // label131
+            // 
+            this.label131.AutoSize = true;
+            this.label131.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label131.Location = new System.Drawing.Point(30, 89);
+            this.label131.Name = "label131";
+            this.label131.Size = new System.Drawing.Size(72, 13);
+            this.label131.TabIndex = 42;
+            this.label131.Text = "TELEFONO";
+            // 
+            // label133
+            // 
+            this.label133.AutoSize = true;
+            this.label133.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label133.Location = new System.Drawing.Point(30, 33);
+            this.label133.Name = "label133";
+            this.label133.Size = new System.Drawing.Size(135, 13);
+            this.label133.TabIndex = 39;
+            this.label133.Text = "NOMBRE COMERCIAL";
+            // 
             // tbpUpdateEmpresa
             // 
+            this.tbpUpdateEmpresa.Controls.Add(this.cmbUpdateCodigoPostalEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.cmbUpdateRegimenFiscalEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.label121);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateRazonSocialEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateEstadoEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.label122);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateNombContactoEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.label132);
+            this.tbpUpdateEmpresa.Controls.Add(this.label135);
+            this.tbpUpdateEmpresa.Controls.Add(this.btnUpdateEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.label136);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateNumExteriorEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateNumInteriorEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.label137);
+            this.tbpUpdateEmpresa.Controls.Add(this.label138);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateCalleEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.label139);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateLocalidadEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateColoniaEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateMunicipioEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdatePaisEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateCorreoEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateTelefonoEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.txtUpdateNomComercialEmpresa);
+            this.tbpUpdateEmpresa.Controls.Add(this.label140);
+            this.tbpUpdateEmpresa.Controls.Add(this.label141);
+            this.tbpUpdateEmpresa.Controls.Add(this.label142);
+            this.tbpUpdateEmpresa.Controls.Add(this.label143);
+            this.tbpUpdateEmpresa.Controls.Add(this.label144);
+            this.tbpUpdateEmpresa.Controls.Add(this.label145);
+            this.tbpUpdateEmpresa.Controls.Add(this.label146);
             this.tbpUpdateEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateEmpresa.Name = "tbpUpdateEmpresa";
             this.tbpUpdateEmpresa.Size = new System.Drawing.Size(1151, 546);
             this.tbpUpdateEmpresa.TabIndex = 20;
             this.tbpUpdateEmpresa.Text = "Actualizar Empresa";
             this.tbpUpdateEmpresa.UseVisualStyleBackColor = true;
+            // 
+            // cmbUpdateCodigoPostalEmpresa
+            // 
+            this.cmbUpdateCodigoPostalEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUpdateCodigoPostalEmpresa.FormattingEnabled = true;
+            this.cmbUpdateCodigoPostalEmpresa.Location = new System.Drawing.Point(200, 222);
+            this.cmbUpdateCodigoPostalEmpresa.Name = "cmbUpdateCodigoPostalEmpresa";
+            this.cmbUpdateCodigoPostalEmpresa.Size = new System.Drawing.Size(159, 24);
+            this.cmbUpdateCodigoPostalEmpresa.TabIndex = 120;
+            this.cmbUpdateCodigoPostalEmpresa.Text = "Seleccione una opción";
+            // 
+            // cmbUpdateRegimenFiscalEmpresa
+            // 
+            this.cmbUpdateRegimenFiscalEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUpdateRegimenFiscalEmpresa.FormattingEnabled = true;
+            this.cmbUpdateRegimenFiscalEmpresa.Items.AddRange(new object[] {
+            "GENERAL DE LEY PERSONAS MORALES",
+            "PERSONAS MORALES CON FINES NO LUCRATIVOS",
+            "SUELDOS Y SALARIOS E INGRESOS ASIMILADOS A SALARIOS",
+            "ARRENDAMIENTO",
+            "DEMÁS INGRESOS",
+            "CONSOLIDACIÓN",
+            "RESIDENTES EN EL EXTRANJERO SIN ESTABLECIMIENTO PERMANENTE EN MÉXICO",
+            "INGRESOS POR DIVIDENDOS (SOCIOS Y ACCIONISTAS)",
+            "PERSONAS FÍSICAS CON ACTIVIDADES EMPRESARIALES Y PROFESIONALES",
+            "INGRESOS POR INTERESES",
+            "SIN OBLIGACIONES FISCALES",
+            "SOCIEDADES COOPERATIVAS DE PRODUCCIÓN QUE OPTAN POR DIFERIR SUS INGRESOS",
+            "INCORPORACIÓN FISCAL",
+            "ACTIVIDADES AGRÍCOLAS, GANADERAS, SILVÍCOLAS Y PESQUERAS",
+            "OPCIONAL PARA GRUPOS DE SOCIEDADES",
+            "COORDINADOS",
+            "HIDROCARBUROS",
+            "RÉGIMEN DE ENAJENACIÓN O ADQUISICIÓN DE BIENES",
+            "DE LOS REGÍMENES FISCALES PREFERENTES Y DE LAS EMPRESAS MULTINACIONALES",
+            "ENAJENACIÓN DE ACCIONES EN BOLSA DE VALORES",
+            "RÉGIMEN DE LOS INGRESOS POR OBTENCIÓN DE PREMIOS"});
+            this.cmbUpdateRegimenFiscalEmpresa.Location = new System.Drawing.Point(365, 110);
+            this.cmbUpdateRegimenFiscalEmpresa.Name = "cmbUpdateRegimenFiscalEmpresa";
+            this.cmbUpdateRegimenFiscalEmpresa.Size = new System.Drawing.Size(300, 24);
+            this.cmbUpdateRegimenFiscalEmpresa.TabIndex = 118;
+            this.cmbUpdateRegimenFiscalEmpresa.Text = "Seleccione una opción";
+            // 
+            // label121
+            // 
+            this.label121.AutoSize = true;
+            this.label121.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label121.Location = new System.Drawing.Point(362, 89);
+            this.label121.Name = "label121";
+            this.label121.Size = new System.Drawing.Size(110, 13);
+            this.label121.TabIndex = 119;
+            this.label121.Text = "REGIMEN FISCAL";
+            // 
+            // txtUpdateRazonSocialEmpresa
+            // 
+            this.txtUpdateRazonSocialEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateRazonSocialEmpresa.Location = new System.Drawing.Point(646, 54);
+            this.txtUpdateRazonSocialEmpresa.Name = "txtUpdateRazonSocialEmpresa";
+            this.txtUpdateRazonSocialEmpresa.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateRazonSocialEmpresa.TabIndex = 117;
+            this.txtUpdateRazonSocialEmpresa.Text = "EMPRESA SA DE CV";
+            // 
+            // txtUpdateEstadoEmpresa
+            // 
+            this.txtUpdateEstadoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateEstadoEmpresa.Location = new System.Drawing.Point(833, 110);
+            this.txtUpdateEstadoEmpresa.Name = "txtUpdateEstadoEmpresa";
+            this.txtUpdateEstadoEmpresa.Size = new System.Drawing.Size(113, 24);
+            this.txtUpdateEstadoEmpresa.TabIndex = 103;
+            this.txtUpdateEstadoEmpresa.Text = "SONORA";
+            // 
+            // label122
+            // 
+            this.label122.AutoSize = true;
+            this.label122.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label122.Location = new System.Drawing.Point(830, 89);
+            this.label122.Name = "label122";
+            this.label122.Size = new System.Drawing.Size(57, 13);
+            this.label122.TabIndex = 116;
+            this.label122.Text = "ESTADO";
+            // 
+            // txtUpdateNombContactoEmpresa
+            // 
+            this.txtUpdateNombContactoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateNombContactoEmpresa.Location = new System.Drawing.Point(340, 54);
+            this.txtUpdateNombContactoEmpresa.Name = "txtUpdateNombContactoEmpresa";
+            this.txtUpdateNombContactoEmpresa.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateNombContactoEmpresa.TabIndex = 93;
+            this.txtUpdateNombContactoEmpresa.Text = "EMPRESA CONTACTO";
+            // 
+            // label132
+            // 
+            this.label132.AutoSize = true;
+            this.label132.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label132.Location = new System.Drawing.Point(337, 33);
+            this.label132.Name = "label132";
+            this.label132.Size = new System.Drawing.Size(152, 13);
+            this.label132.TabIndex = 115;
+            this.label132.Text = "NOMBRE DE CONTACTO";
+            // 
+            // label135
+            // 
+            this.label135.AutoSize = true;
+            this.label135.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label135.Location = new System.Drawing.Point(643, 33);
+            this.label135.Name = "label135";
+            this.label135.Size = new System.Drawing.Size(98, 13);
+            this.label135.TabIndex = 114;
+            this.label135.Text = "RAZON SOCIAL";
+            // 
+            // btnUpdateEmpresa
+            // 
+            this.btnUpdateEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateEmpresa.Location = new System.Drawing.Point(823, 269);
+            this.btnUpdateEmpresa.Name = "btnUpdateEmpresa";
+            this.btnUpdateEmpresa.Size = new System.Drawing.Size(123, 36);
+            this.btnUpdateEmpresa.TabIndex = 112;
+            this.btnUpdateEmpresa.Text = "ACTUALIZAR";
+            this.btnUpdateEmpresa.UseVisualStyleBackColor = true;
+            this.btnUpdateEmpresa.Click += new System.EventHandler(this.btnUpdateEmpresa_Click);
+            // 
+            // label136
+            // 
+            this.label136.AutoSize = true;
+            this.label136.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label136.Location = new System.Drawing.Point(197, 201);
+            this.label136.Name = "label136";
+            this.label136.Size = new System.Drawing.Size(107, 13);
+            this.label136.TabIndex = 113;
+            this.label136.Text = "CODIGO POSTAL";
+            // 
+            // txtUpdateNumExteriorEmpresa
+            // 
+            this.txtUpdateNumExteriorEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateNumExteriorEmpresa.Location = new System.Drawing.Point(35, 222);
+            this.txtUpdateNumExteriorEmpresa.Name = "txtUpdateNumExteriorEmpresa";
+            this.txtUpdateNumExteriorEmpresa.Size = new System.Drawing.Size(156, 24);
+            this.txtUpdateNumExteriorEmpresa.TabIndex = 108;
+            this.txtUpdateNumExteriorEmpresa.Text = "0";
+            // 
+            // txtUpdateNumInteriorEmpresa
+            // 
+            this.txtUpdateNumInteriorEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateNumInteriorEmpresa.Location = new System.Drawing.Point(833, 167);
+            this.txtUpdateNumInteriorEmpresa.Name = "txtUpdateNumInteriorEmpresa";
+            this.txtUpdateNumInteriorEmpresa.Size = new System.Drawing.Size(113, 24);
+            this.txtUpdateNumInteriorEmpresa.TabIndex = 107;
+            this.txtUpdateNumInteriorEmpresa.Text = "171";
+            // 
+            // label137
+            // 
+            this.label137.AutoSize = true;
+            this.label137.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label137.Location = new System.Drawing.Point(32, 201);
+            this.label137.Name = "label137";
+            this.label137.Size = new System.Drawing.Size(106, 13);
+            this.label137.TabIndex = 111;
+            this.label137.Text = "NUM. EXTERIOR";
+            // 
+            // label138
+            // 
+            this.label138.AutoSize = true;
+            this.label138.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label138.Location = new System.Drawing.Point(830, 146);
+            this.label138.Name = "label138";
+            this.label138.Size = new System.Drawing.Size(103, 13);
+            this.label138.TabIndex = 110;
+            this.label138.Text = "NUM. INTERIOR";
+            // 
+            // txtUpdateCalleEmpresa
+            // 
+            this.txtUpdateCalleEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateCalleEmpresa.Location = new System.Drawing.Point(200, 167);
+            this.txtUpdateCalleEmpresa.Name = "txtUpdateCalleEmpresa";
+            this.txtUpdateCalleEmpresa.Size = new System.Drawing.Size(241, 24);
+            this.txtUpdateCalleEmpresa.TabIndex = 105;
+            this.txtUpdateCalleEmpresa.Text = "AVELARDO ZAMAROCOS";
+            // 
+            // label139
+            // 
+            this.label139.AutoSize = true;
+            this.label139.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label139.Location = new System.Drawing.Point(197, 146);
+            this.label139.Name = "label139";
+            this.label139.Size = new System.Drawing.Size(45, 13);
+            this.label139.TabIndex = 109;
+            this.label139.Text = "CALLE";
+            // 
+            // txtUpdateLocalidadEmpresa
+            // 
+            this.txtUpdateLocalidadEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateLocalidadEmpresa.Location = new System.Drawing.Point(640, 167);
+            this.txtUpdateLocalidadEmpresa.Name = "txtUpdateLocalidadEmpresa";
+            this.txtUpdateLocalidadEmpresa.Size = new System.Drawing.Size(187, 24);
+            this.txtUpdateLocalidadEmpresa.TabIndex = 104;
+            this.txtUpdateLocalidadEmpresa.Text = "AVELARDO ZAMAROCOS";
+            // 
+            // txtUpdateColoniaEmpresa
+            // 
+            this.txtUpdateColoniaEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateColoniaEmpresa.Location = new System.Drawing.Point(447, 167);
+            this.txtUpdateColoniaEmpresa.Name = "txtUpdateColoniaEmpresa";
+            this.txtUpdateColoniaEmpresa.Size = new System.Drawing.Size(187, 24);
+            this.txtUpdateColoniaEmpresa.TabIndex = 106;
+            this.txtUpdateColoniaEmpresa.Text = "SAN SEBASTIAN";
+            // 
+            // txtUpdateMunicipioEmpresa
+            // 
+            this.txtUpdateMunicipioEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateMunicipioEmpresa.Location = new System.Drawing.Point(34, 167);
+            this.txtUpdateMunicipioEmpresa.Name = "txtUpdateMunicipioEmpresa";
+            this.txtUpdateMunicipioEmpresa.Size = new System.Drawing.Size(157, 24);
+            this.txtUpdateMunicipioEmpresa.TabIndex = 96;
+            this.txtUpdateMunicipioEmpresa.Text = "HERMOSILLO";
+            // 
+            // txtUpdatePaisEmpresa
+            // 
+            this.txtUpdatePaisEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdatePaisEmpresa.Location = new System.Drawing.Point(671, 110);
+            this.txtUpdatePaisEmpresa.Name = "txtUpdatePaisEmpresa";
+            this.txtUpdatePaisEmpresa.Size = new System.Drawing.Size(156, 24);
+            this.txtUpdatePaisEmpresa.TabIndex = 102;
+            this.txtUpdatePaisEmpresa.Text = "MEXICO";
+            // 
+            // txtUpdateCorreoEmpresa
+            // 
+            this.txtUpdateCorreoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateCorreoEmpresa.Location = new System.Drawing.Point(136, 110);
+            this.txtUpdateCorreoEmpresa.Name = "txtUpdateCorreoEmpresa";
+            this.txtUpdateCorreoEmpresa.Size = new System.Drawing.Size(223, 24);
+            this.txtUpdateCorreoEmpresa.TabIndex = 101;
+            this.txtUpdateCorreoEmpresa.Text = "EMPRESA@EMPRESA.COM";
+            // 
+            // txtUpdateTelefonoEmpresa
+            // 
+            this.txtUpdateTelefonoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateTelefonoEmpresa.Location = new System.Drawing.Point(34, 110);
+            this.txtUpdateTelefonoEmpresa.Name = "txtUpdateTelefonoEmpresa";
+            this.txtUpdateTelefonoEmpresa.Size = new System.Drawing.Size(96, 24);
+            this.txtUpdateTelefonoEmpresa.TabIndex = 99;
+            this.txtUpdateTelefonoEmpresa.Text = "6623502340";
+            // 
+            // txtUpdateNomComercialEmpresa
+            // 
+            this.txtUpdateNomComercialEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateNomComercialEmpresa.Location = new System.Drawing.Point(34, 54);
+            this.txtUpdateNomComercialEmpresa.Name = "txtUpdateNomComercialEmpresa";
+            this.txtUpdateNomComercialEmpresa.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateNomComercialEmpresa.TabIndex = 91;
+            this.txtUpdateNomComercialEmpresa.Text = "EMPRESA COMERCIAL";
+            // 
+            // label140
+            // 
+            this.label140.AutoSize = true;
+            this.label140.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label140.Location = new System.Drawing.Point(637, 146);
+            this.label140.Name = "label140";
+            this.label140.Size = new System.Drawing.Size(76, 13);
+            this.label140.TabIndex = 100;
+            this.label140.Text = "LOCALIDAD";
+            // 
+            // label141
+            // 
+            this.label141.AutoSize = true;
+            this.label141.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label141.Location = new System.Drawing.Point(444, 146);
+            this.label141.Name = "label141";
+            this.label141.Size = new System.Drawing.Size(61, 13);
+            this.label141.TabIndex = 98;
+            this.label141.Text = "COLONIA";
+            // 
+            // label142
+            // 
+            this.label142.AutoSize = true;
+            this.label142.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label142.Location = new System.Drawing.Point(31, 146);
+            this.label142.Name = "label142";
+            this.label142.Size = new System.Drawing.Size(72, 13);
+            this.label142.TabIndex = 97;
+            this.label142.Text = "MUNICIPIO";
+            // 
+            // label143
+            // 
+            this.label143.AutoSize = true;
+            this.label143.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label143.Location = new System.Drawing.Point(668, 89);
+            this.label143.Name = "label143";
+            this.label143.Size = new System.Drawing.Size(35, 13);
+            this.label143.TabIndex = 95;
+            this.label143.Text = "PAIS";
+            // 
+            // label144
+            // 
+            this.label144.AutoSize = true;
+            this.label144.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label144.Location = new System.Drawing.Point(133, 89);
+            this.label144.Name = "label144";
+            this.label144.Size = new System.Drawing.Size(150, 13);
+            this.label144.TabIndex = 94;
+            this.label144.Text = "CORREO ELECTRONICO";
+            // 
+            // label145
+            // 
+            this.label145.AutoSize = true;
+            this.label145.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label145.Location = new System.Drawing.Point(31, 89);
+            this.label145.Name = "label145";
+            this.label145.Size = new System.Drawing.Size(72, 13);
+            this.label145.TabIndex = 92;
+            this.label145.Text = "TELEFONO";
+            // 
+            // label146
+            // 
+            this.label146.AutoSize = true;
+            this.label146.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label146.Location = new System.Drawing.Point(30, 33);
+            this.label146.Name = "label146";
+            this.label146.Size = new System.Drawing.Size(135, 13);
+            this.label146.TabIndex = 90;
+            this.label146.Text = "NOMBRE COMERCIAL";
             // 
             // tbpClientes
             // 
@@ -4394,12 +5413,13 @@
             // 
             this.pnlEmpresas.BackColor = System.Drawing.Color.White;
             this.pnlEmpresas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEmpresas.Controls.Add(this.btnCertificadosList);
             this.pnlEmpresas.Controls.Add(this.label9);
             this.pnlEmpresas.Controls.Add(this.btnSucursalesList);
             this.pnlEmpresas.Controls.Add(this.btnEmpresasList);
             this.pnlEmpresas.Location = new System.Drawing.Point(12, 50);
             this.pnlEmpresas.Name = "pnlEmpresas";
-            this.pnlEmpresas.Size = new System.Drawing.Size(159, 120);
+            this.pnlEmpresas.Size = new System.Drawing.Size(159, 162);
             this.pnlEmpresas.TabIndex = 12;
             this.pnlEmpresas.Visible = false;
             // 
@@ -4428,7 +5448,7 @@
             this.btnSucursalesList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSucursalesList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSucursalesList.UseVisualStyleBackColor = false;
-      
+            this.btnSucursalesList.Click += new System.EventHandler(this.btnSucursalesList_Click);
             this.btnSucursalesList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnSucursalesList_MouseClick);
             // 
             // btnEmpresasList
@@ -4489,47 +5509,237 @@
             this.btnCustomersList.Click += new System.EventHandler(this.btnCustomersList_Click);
             this.btnCustomersList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCustomersList_MouseClick);
             // 
-            // pkProductos
+            // tbpSucursal
             // 
-            this.pkProductos.DataPropertyName = "pkProducto";
-            this.pkProductos.HeaderText = "Producto";
-            this.pkProductos.Name = "pkProductos";
+            this.tbpSucursal.Controls.Add(this.cmbEstadoSucursal);
+            this.tbpSucursal.Controls.Add(this.btnBorrarSucursal);
+            this.tbpSucursal.Controls.Add(this.btnActualizarSucursal);
+            this.tbpSucursal.Controls.Add(this.btnRegistrarSucursal);
+            this.tbpSucursal.Controls.Add(this.lblCantidadSucursal);
+            this.tbpSucursal.Controls.Add(this.dgvDatosSucursal);
+            this.tbpSucursal.Controls.Add(this.txtBuscarSucursal);
+            this.tbpSucursal.Controls.Add(this.label148);
+            this.tbpSucursal.Location = new System.Drawing.Point(4, 27);
+            this.tbpSucursal.Name = "tbpSucursal";
+            this.tbpSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpSucursal.TabIndex = 27;
+            this.tbpSucursal.Text = "Sucursales";
+            this.tbpSucursal.UseVisualStyleBackColor = true;
             // 
-            // iClaveProd
+            // tbpRegistrarSucursal
             // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Clave";
-            this.iClaveProd.Name = "iClaveProd";
+            this.tbpRegistrarSucursal.Location = new System.Drawing.Point(4, 27);
+            this.tbpRegistrarSucursal.Name = "tbpRegistrarSucursal";
+            this.tbpRegistrarSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpRegistrarSucursal.TabIndex = 28;
+            this.tbpRegistrarSucursal.Text = "Registrar sucursal";
+            this.tbpRegistrarSucursal.UseVisualStyleBackColor = true;
             // 
-            // sDescripcion
+            // tbpActualizarSucursal
             // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
+            this.tbpActualizarSucursal.Location = new System.Drawing.Point(4, 27);
+            this.tbpActualizarSucursal.Name = "tbpActualizarSucursal";
+            this.tbpActualizarSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpActualizarSucursal.TabIndex = 29;
+            this.tbpActualizarSucursal.Text = "Actualizar Sucursal";
+            this.tbpActualizarSucursal.UseVisualStyleBackColor = true;
             // 
-            // sMarca
+            // btnCertificadosList
             // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
+            this.btnCertificadosList.BackColor = System.Drawing.Color.White;
+            this.btnCertificadosList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCertificadosList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCertificadosList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCertificadosList.ForeColor = System.Drawing.Color.Black;
+            this.btnCertificadosList.Location = new System.Drawing.Point(-2, 118);
+            this.btnCertificadosList.Name = "btnCertificadosList";
+            this.btnCertificadosList.Size = new System.Drawing.Size(160, 44);
+            this.btnCertificadosList.TabIndex = 11;
+            this.btnCertificadosList.Text = "Lista de Certificados";
+            this.btnCertificadosList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCertificadosList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCertificadosList.UseVisualStyleBackColor = false;
+            this.btnCertificadosList.Click += new System.EventHandler(this.button2_Click);
             // 
-            // iDescuento
+            // tbpCertificado
             // 
-            this.iDescuento.DataPropertyName = "iDescuento";
-            this.iDescuento.HeaderText = "Descuento";
-            this.iDescuento.Name = "iDescuento";
+            this.tbpCertificado.Location = new System.Drawing.Point(4, 27);
+            this.tbpCertificado.Name = "tbpCertificado";
+            this.tbpCertificado.Size = new System.Drawing.Size(1151, 546);
+            this.tbpCertificado.TabIndex = 30;
+            this.tbpCertificado.Text = "Certificados";
+            this.tbpCertificado.UseVisualStyleBackColor = true;
             // 
-            // dCosto
+            // tbpRegistrarCertificado
             // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
+            this.tbpRegistrarCertificado.Location = new System.Drawing.Point(4, 27);
+            this.tbpRegistrarCertificado.Name = "tbpRegistrarCertificado";
+            this.tbpRegistrarCertificado.Size = new System.Drawing.Size(1151, 546);
+            this.tbpRegistrarCertificado.TabIndex = 31;
+            this.tbpRegistrarCertificado.Text = "Registrar Certificado";
+            this.tbpRegistrarCertificado.UseVisualStyleBackColor = true;
             // 
-            // iLote
+            // tbpActualizarCertificado
             // 
-            this.iLote.DataPropertyName = "iLote";
-            this.iLote.HeaderText = "Lote";
-            this.iLote.Name = "iLote";
+            this.tbpActualizarCertificado.Location = new System.Drawing.Point(4, 27);
+            this.tbpActualizarCertificado.Name = "tbpActualizarCertificado";
+            this.tbpActualizarCertificado.Size = new System.Drawing.Size(1151, 546);
+            this.tbpActualizarCertificado.TabIndex = 32;
+            this.tbpActualizarCertificado.Text = "Actualizar Certificado";
+            this.tbpActualizarCertificado.UseVisualStyleBackColor = true;
+            // 
+            // btnBorrarSucursal
+            // 
+            this.btnBorrarSucursal.Location = new System.Drawing.Point(1030, 139);
+            this.btnBorrarSucursal.Name = "btnBorrarSucursal";
+            this.btnBorrarSucursal.Size = new System.Drawing.Size(116, 44);
+            this.btnBorrarSucursal.TabIndex = 33;
+            this.btnBorrarSucursal.Text = "Borrar";
+            this.btnBorrarSucursal.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizarSucursal
+            // 
+            this.btnActualizarSucursal.Location = new System.Drawing.Point(1030, 89);
+            this.btnActualizarSucursal.Name = "btnActualizarSucursal";
+            this.btnActualizarSucursal.Size = new System.Drawing.Size(116, 44);
+            this.btnActualizarSucursal.TabIndex = 32;
+            this.btnActualizarSucursal.Text = "Modificar";
+            this.btnActualizarSucursal.UseVisualStyleBackColor = true;
+            // 
+            // btnRegistrarSucursal
+            // 
+            this.btnRegistrarSucursal.Location = new System.Drawing.Point(1030, 39);
+            this.btnRegistrarSucursal.Name = "btnRegistrarSucursal";
+            this.btnRegistrarSucursal.Size = new System.Drawing.Size(116, 44);
+            this.btnRegistrarSucursal.TabIndex = 34;
+            this.btnRegistrarSucursal.Text = "Agregar nueva";
+            this.btnRegistrarSucursal.UseVisualStyleBackColor = true;
+            // 
+            // lblCantidadSucursal
+            // 
+            this.lblCantidadSucursal.AutoSize = true;
+            this.lblCantidadSucursal.Location = new System.Drawing.Point(893, 519);
+            this.lblCantidadSucursal.Name = "lblCantidadSucursal";
+            this.lblCantidadSucursal.Size = new System.Drawing.Size(70, 18);
+            this.lblCantidadSucursal.TabIndex = 37;
+            this.lblCantidadSucursal.Text = "Cantidad:";
+            // 
+            // dgvDatosSucursal
+            // 
+            this.dgvDatosSucursal.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDatosSucursal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosSucursal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Sucursal,
+            this.dataGridViewTextBoxColumn13,
+            this.sEstSucursal,
+            this.iNumCertificado,
+            this.sPais,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.iNumExterior,
+            this.dataGridViewTextBoxColumn18});
+            this.dgvDatosSucursal.Location = new System.Drawing.Point(3, 39);
+            this.dgvDatosSucursal.Name = "dgvDatosSucursal";
+            this.dgvDatosSucursal.RowHeadersVisible = false;
+            this.dgvDatosSucursal.Size = new System.Drawing.Size(1021, 477);
+            this.dgvDatosSucursal.TabIndex = 36;
+            // 
+            // txtBuscarSucursal
+            // 
+            this.txtBuscarSucursal.Location = new System.Drawing.Point(68, 9);
+            this.txtBuscarSucursal.Name = "txtBuscarSucursal";
+            this.txtBuscarSucursal.Size = new System.Drawing.Size(822, 24);
+            this.txtBuscarSucursal.TabIndex = 30;
+            // 
+            // label148
+            // 
+            this.label148.AutoSize = true;
+            this.label148.Location = new System.Drawing.Point(3, 12);
+            this.label148.Name = "label148";
+            this.label148.Size = new System.Drawing.Size(59, 18);
+            this.label148.TabIndex = 35;
+            this.label148.Text = "Buscar:";
+            // 
+            // Sucursal
+            // 
+            this.Sucursal.DataPropertyName = "pkSucursal";
+            this.Sucursal.HeaderText = "No.";
+            this.Sucursal.Name = "Sucursal";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "sNombre";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // sEstSucursal
+            // 
+            this.sEstSucursal.DataPropertyName = "sEstSucursal";
+            this.sEstSucursal.HeaderText = "Estado de Sucursal";
+            this.sEstSucursal.Name = "sEstSucursal";
+            // 
+            // iNumCertificado
+            // 
+            this.iNumCertificado.DataPropertyName = "iNumCertificado";
+            this.iNumCertificado.HeaderText = "No. Certificado";
+            this.iNumCertificado.Name = "iNumCertificado";
+            // 
+            // sPais
+            // 
+            this.sPais.DataPropertyName = "sPais";
+            this.sPais.HeaderText = "Pais";
+            this.sPais.Name = "sPais";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "sEstado";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "sMunicipio";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Municipio";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "sColonia";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Colonia";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "sCalle";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Calle";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // iNumExterior
+            // 
+            this.iNumExterior.DataPropertyName = "iNumExterior";
+            this.iNumExterior.HeaderText = "No Exterior";
+            this.iNumExterior.Name = "iNumExterior";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "iCodPostal";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Codigo Postal";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // cmbEstadoSucursal
+            // 
+            this.cmbEstadoSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEstadoSucursal.FormattingEnabled = true;
+            this.cmbEstadoSucursal.Items.AddRange(new object[] {
+            "ABIERTA",
+            "CERRADA"});
+            this.cmbEstadoSucursal.Location = new System.Drawing.Point(896, 9);
+            this.cmbEstadoSucursal.Name = "cmbEstadoSucursal";
+            this.cmbEstadoSucursal.Size = new System.Drawing.Size(128, 24);
+            this.cmbEstadoSucursal.TabIndex = 26;
             // 
             // FrmAdministrador
             // 
@@ -4616,6 +5826,13 @@
             this.tbpAddPrecio.PerformLayout();
             this.tbpUpdatePrecio.ResumeLayout(false);
             this.tbpUpdatePrecio.PerformLayout();
+            this.tbpEmpresa.ResumeLayout(false);
+            this.tbpEmpresa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosEmpresa)).EndInit();
+            this.tbpAddEmpresa.ResumeLayout(false);
+            this.tbpAddEmpresa.PerformLayout();
+            this.tbpUpdateEmpresa.ResumeLayout(false);
+            this.tbpUpdateEmpresa.PerformLayout();
             this.tbpClientes.ResumeLayout(false);
             this.tbpClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCliente)).EndInit();
@@ -4630,6 +5847,9 @@
             this.pnlEmpresas.PerformLayout();
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();
+            this.tbpSucursal.ResumeLayout(false);
+            this.tbpSucursal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5024,5 +6244,110 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
         private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
+        private System.Windows.Forms.Button btnActualizarEmpresa;
+        private System.Windows.Forms.Button btnBorrarEmpresa;
+        private System.Windows.Forms.Button btnRegistrarEmpresa;
+        private System.Windows.Forms.Label lblCantidadEmpresas;
+        private System.Windows.Forms.CheckBox ckbStatusEmpresa;
+        private System.Windows.Forms.DataGridView dgvDatosEmpresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkEmpresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sNomComercial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.TextBox txtBuscarEmpresa;
+        private System.Windows.Forms.Label label118;
+        private System.Windows.Forms.TextBox txtAddRazonSocialEmpresa;
+        private System.Windows.Forms.TextBox txtAddEstadoEmpresa;
+        private System.Windows.Forms.Label label117;
+        private System.Windows.Forms.TextBox txtAddNombreContactoEmpresa;
+        private System.Windows.Forms.Label label119;
+        private System.Windows.Forms.Label label120;
+        private System.Windows.Forms.Button btnGuardarEmpresa;
+        private System.Windows.Forms.Label label123;
+        private System.Windows.Forms.TextBox txtAddNumExteriorEmpresa;
+        private System.Windows.Forms.TextBox txtAddNumInteriorEmpresa;
+        private System.Windows.Forms.Label label124;
+        private System.Windows.Forms.Label label125;
+        private System.Windows.Forms.TextBox txtAddCalleEmpresa;
+        private System.Windows.Forms.Label label126;
+        private System.Windows.Forms.TextBox txtAddLocalidadEmpresa;
+        private System.Windows.Forms.TextBox txtAddColoniaEmpresa;
+        private System.Windows.Forms.TextBox txtAddMunicipioEmpresa;
+        private System.Windows.Forms.TextBox txtAddPaisEmpresa;
+        private System.Windows.Forms.TextBox txtAddCorreoElectronicoEmpresa;
+        private System.Windows.Forms.TextBox txtAddTelefonoEmpresa;
+        private System.Windows.Forms.TextBox txtAddNombreComercialEmpresa;
+        private System.Windows.Forms.Label lbllocalidad;
+        private System.Windows.Forms.Label label127;
+        private System.Windows.Forms.Label label128;
+        private System.Windows.Forms.Label label129;
+        private System.Windows.Forms.Label label130;
+        private System.Windows.Forms.Label label131;
+        private System.Windows.Forms.Label label133;
+        private System.Windows.Forms.ComboBox cmbAddRegimenFiscalEmpresa;
+        private System.Windows.Forms.Label label134;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbUpdateCodigoPostalEmpresa;
+        private System.Windows.Forms.ComboBox cmbUpdateRegimenFiscalEmpresa;
+        private System.Windows.Forms.Label label121;
+        private System.Windows.Forms.TextBox txtUpdateRazonSocialEmpresa;
+        private System.Windows.Forms.TextBox txtUpdateEstadoEmpresa;
+        private System.Windows.Forms.Label label122;
+        private System.Windows.Forms.TextBox txtUpdateNombContactoEmpresa;
+        private System.Windows.Forms.Label label132;
+        private System.Windows.Forms.Label label135;
+        private System.Windows.Forms.Button btnUpdateEmpresa;
+        private System.Windows.Forms.Label label136;
+        private System.Windows.Forms.TextBox txtUpdateNumExteriorEmpresa;
+        private System.Windows.Forms.TextBox txtUpdateNumInteriorEmpresa;
+        private System.Windows.Forms.Label label137;
+        private System.Windows.Forms.Label label138;
+        private System.Windows.Forms.TextBox txtUpdateCalleEmpresa;
+        private System.Windows.Forms.Label label139;
+        private System.Windows.Forms.TextBox txtUpdateLocalidadEmpresa;
+        private System.Windows.Forms.TextBox txtUpdateColoniaEmpresa;
+        private System.Windows.Forms.TextBox txtUpdateMunicipioEmpresa;
+        private System.Windows.Forms.TextBox txtUpdatePaisEmpresa;
+        private System.Windows.Forms.TextBox txtUpdateCorreoEmpresa;
+        private System.Windows.Forms.TextBox txtUpdateTelefonoEmpresa;
+        private System.Windows.Forms.TextBox txtUpdateNomComercialEmpresa;
+        private System.Windows.Forms.Label label140;
+        private System.Windows.Forms.Label label141;
+        private System.Windows.Forms.Label label142;
+        private System.Windows.Forms.Label label143;
+        private System.Windows.Forms.Label label144;
+        private System.Windows.Forms.Label label145;
+        private System.Windows.Forms.Label label146;
+        private System.Windows.Forms.TabPage tbpSucursal;
+        private System.Windows.Forms.TabPage tbpRegistrarSucursal;
+        private System.Windows.Forms.TabPage tbpActualizarSucursal;
+        private System.Windows.Forms.Button btnCertificadosList;
+        private System.Windows.Forms.TabPage tbpCertificado;
+        private System.Windows.Forms.TabPage tbpRegistrarCertificado;
+        private System.Windows.Forms.TabPage tbpActualizarCertificado;
+        private System.Windows.Forms.Button btnBorrarSucursal;
+        private System.Windows.Forms.Button btnActualizarSucursal;
+        private System.Windows.Forms.Button btnRegistrarSucursal;
+        private System.Windows.Forms.Label lblCantidadSucursal;
+        private System.Windows.Forms.DataGridView dgvDatosSucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sEstSucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iNumCertificado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sPais;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iNumExterior;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.TextBox txtBuscarSucursal;
+        private System.Windows.Forms.Label label148;
+        private System.Windows.Forms.ComboBox cmbEstadoSucursal;
     }
 }

@@ -51,8 +51,6 @@ namespace SiscomSoft.Models
         public ICollection<Sucursal> Sucursales { get; set; }
 
         public ICollection<Factura> Facturas { get; set; }
-        
-        public ICollection<Certificado> Certificados { get; set; }
 
         public Empresa()
         {

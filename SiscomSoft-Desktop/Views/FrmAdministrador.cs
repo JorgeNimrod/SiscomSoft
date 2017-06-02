@@ -27,22 +27,18 @@ namespace SiscomSoft_Desktop.Views
         Boolean flagCategoria = false;
         Boolean flagAddRoles = false;
         Boolean flagAddCategorias = false;
-       
         Boolean flagAddUsuario = false;
-       
         Boolean flagAddImpuesto = false;
-      
         Boolean flagAddProducto = false;
-       
         Boolean flagAddPrecio = false;
-       
         Boolean flagEmpresa = false;
         Boolean flagAddEmpres = false;
-        
-   
         Boolean flagClientes = false;
         Boolean flagAddCliente = false;
-       
+        Boolean flagSucursal = false;
+        Boolean flagAddSucursal = false;
+        Boolean flagCertificado = false;
+        Boolean flagAddCertificado = false;
 
         public static int PKROL;
         public static int PKUSUARIO;
@@ -51,7 +47,9 @@ namespace SiscomSoft_Desktop.Views
         public static int PKPRECIO;
         public static int PKPRODUCTO;
         public static int PKCLIENTE;
-
+        public static int PKEMPRESA;
+        public static int PKSUCURSAL;
+        public static int PKCERTIFICADO;
 
         public FrmAdministrador()
         {
@@ -63,11 +61,13 @@ namespace SiscomSoft_Desktop.Views
             this.dgvDatosProducto.AutoGenerateColumns = false;
             this.dgvDatosPrecio.AutoGenerateColumns = false;
             this.dgvDatosCliente.AutoGenerateColumns = false;
+            this.dgvDatosEmpresa.AutoGenerateColumns = false;
             CargarTablas();
             cargarCombos();
         }
         public String ImagenString { get; set; }
         public Bitmap ImagenBitmap { get; set; }
+
         public void CargarTablas()
         {
             cargarUsuarios();
@@ -77,76 +77,58 @@ namespace SiscomSoft_Desktop.Views
             cargarRoles();
             cargarProductos();
             cargarClientes();
-
+            cargarEmpresas();
         }
         public void cargarCombos()
         {
             //ComboBox de Registrar Usuarios
-            int indexrol = 0;
             cbxRol.DataSource = ManejoRol.getAll(true);
             cbxRol.DisplayMember = "sNombre";
             cbxRol.ValueMember = "pkRol";
-            cbxRol.SelectedIndex = indexrol;
           
             //ComboBox de Actualizar Usuarios
-            int indexuser = 0;
             cbxUpdateProfile.DataSource = ManejoRol.getAll(true);
             cbxUpdateProfile.DisplayMember = "sNombre";
             cbxUpdateProfile.ValueMember = "pkRol";
-            cbxUpdateProfile.SelectedIndex = indexuser;
 
             //Combo's de Registrar Productos
-            int PrecioAddProd = 0;
             cbxPrecioAddProd.DataSource = ManejoPrecio.getAll();
             cbxPrecioAddProd.DisplayMember = "iPrePorcen";
             cbxPrecioAddProd.ValueMember = "pkPrecios";
-            cbxPrecioAddProd.SelectedIndex = PrecioAddProd;
 
-            int CatalogoAddProd = 0;
             cbxCatalogoAddProd.DataSource = ManejoCatalogo.getAll(true);
             cbxCatalogoAddProd.DisplayMember = "sUDM";
             cbxCatalogoAddProd.ValueMember = "pkCatalogo";
-            cbxCatalogoAddProd.SelectedIndex = CatalogoAddProd;
 
-            int CategoriaAddProd = 0;
             cbxCategoriaAddProd.DataSource = ManejoCategoria.getAll(true);
             cbxCategoriaAddProd.DisplayMember = "sNombre";
             cbxCategoriaAddProd.ValueMember = "pkCategoria";
-            cbxCategoriaAddProd.SelectedIndex = CategoriaAddProd;
 
-            int ImpuestoAddProd = 0;
             cbxImpuestoAddProd.DataSource = ManejoImpuesto.getAll(true);
             cbxImpuestoAddProd.DisplayMember = "dTasaImpuesto";
             cbxImpuestoAddProd.ValueMember = "pkImpuesto";
-            cbxImpuestoAddProd.SelectedIndex = ImpuestoAddProd;
 
             //Combobox de Actualizar Producto
-
-            int PrecioUpdateProd = 0;
             cbxUpdatePrecioProd.DataSource = ManejoPrecio.getAll();
             cbxUpdatePrecioProd.DisplayMember = "iPrePorcen";
             cbxUpdatePrecioProd.ValueMember = "pkPrecios";
-            cbxUpdatePrecioProd.SelectedIndex = PrecioUpdateProd;
 
-            int CatalogoUpdateProd = 0;
             cbxUpdateCataProd.DataSource = ManejoCatalogo.getAll(true);
             cbxUpdateCataProd.DisplayMember = "sUDM";
             cbxUpdateCataProd.ValueMember = "pkCatalogo";
-            cbxUpdateCataProd.SelectedIndex = CatalogoUpdateProd;
 
-            int CategoriaUpdateProd = 0;
             cbxUpdateUMDProd.DataSource = ManejoCategoria.getAll(true);
             cbxUpdateUMDProd.DisplayMember = "sNombre";
             cbxUpdateUMDProd.ValueMember = "pkCategoria";
-            cbxUpdateUMDProd.SelectedIndex = CategoriaUpdateProd;
 
-            int ImpuestoUpdateProd = 0;
             cbxUpdateImpuProd.DataSource = ManejoImpuesto.getAll(true);
             cbxUpdateImpuProd.DisplayMember = "dTasaImpuesto";
             cbxUpdateImpuProd.ValueMember = "pkImpuesto";
-            cbxUpdateImpuProd.SelectedIndex = ImpuestoUpdateProd;
+        }
 
-
+        public void cargarEmpresas()
+        {
+            this.dgvDatosEmpresa.DataSource = ManejoEmpresa.Buscar(txtBuscarEmpresa.Text, ckbStatusEmpresa.Checked);
         }
 
         public void cargarRoles()
@@ -318,10 +300,16 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpEmpresa);
             tbcGeneral.TabPages.Remove(tbpAddEmpresa);
             tbcGeneral.TabPages.Remove(tbpUpdateEmpresa);
-         
+            tbcGeneral.TabPages.Remove(tbpSucursal);
+            tbcGeneral.TabPages.Remove(tbpActualizarSucursal);
+            tbcGeneral.TabPages.Remove(tbpRegistrarSucursal);
             tbcGeneral.TabPages.Remove(tbpClientes);
             tbcGeneral.TabPages.Remove(tbpAddCliente);
             tbcGeneral.TabPages.Remove(tbpUpdateCliente);
+            tbcGeneral.TabPages.Remove(tbpCertificado);
+            tbcGeneral.TabPages.Remove(tbpActualizarCertificado);
+            tbcGeneral.TabPages.Remove(tbpRegistrarCertificado);
+
         }
 
         private void btnRollist_Click(object sender, EventArgs e)
@@ -1385,11 +1373,6 @@ namespace SiscomSoft_Desktop.Views
 
 
             }
-        }
-
-        private void pcbLogo_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnRegistrarProducto_Click(object sender, EventArgs e)
@@ -3337,7 +3320,351 @@ namespace SiscomSoft_Desktop.Views
         private void txtPaisAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
-      && e.KeyChar != 8) e.Handled = true;
+            && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void btnGuardarEmpresa_Click(object sender, EventArgs e)
+        {
+            if (this.txtAddNombreComercialEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddNombreComercialEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddNombreComercialEmpresa, "Campo necesario");
+                this.txtAddNombreComercialEmpresa.Focus();
+            }
+            else if (this.txtAddNombreContactoEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddNombreContactoEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddNombreContactoEmpresa, "Campo necesario");
+                this.txtAddNombreContactoEmpresa.Focus();
+            }
+            else if (this.txtAddRazonSocialEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddRazonSocialEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddRazonSocialEmpresa, "Campo necesario");
+                this.txtAddRazonSocialEmpresa.Focus();
+            }
+            else if (this.txtAddTelefonoEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddTelefonoEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddTelefonoEmpresa, "Campo necesario");
+                this.txtAddTelefonoEmpresa.Focus();
+            }
+            else if (this.txtAddCorreoElectronicoEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddCorreoElectronicoEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddCorreoElectronicoEmpresa, "Campo necesario");
+                this.txtAddCorreoElectronicoEmpresa.Focus();
+            }
+
+            else if (this.txtAddPaisEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddPaisEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddPaisEmpresa, "Campo necesario");
+                this.txtAddPaisEmpresa.Focus();
+            }
+            else if (this.txtAddEstadoEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddEstadoEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddEstadoEmpresa, "Campo necesario");
+                this.txtAddEstadoEmpresa.Focus();
+            }
+            else if (this.txtAddMunicipioEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddMunicipioEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddMunicipioEmpresa, "Campo necesario");
+                this.txtAddMunicipioEmpresa.Focus();
+            }
+            else if (this.txtAddCalleEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddCalleEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddCalleEmpresa, "Campo necesario");
+                this.txtAddCalleEmpresa.Focus();
+            }
+            else if (this.txtAddColoniaEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddColoniaEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddColoniaEmpresa, "Campo necesario");
+                this.txtAddColoniaEmpresa.Focus();
+            }
+            else if (this.txtAddLocalidadEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddLocalidadEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddLocalidadEmpresa, "Campo necesario");
+                this.txtAddLocalidadEmpresa.Focus();
+            }
+            else if (this.txtAddNumInteriorEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddNumInteriorEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddNumInteriorEmpresa, "Campo necesario");
+                this.txtAddNumInteriorEmpresa.Focus();
+            }
+            else if (this.txtAddNumExteriorEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddNumExteriorEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddNumExteriorEmpresa, "Campo necesario");
+                this.txtAddNumExteriorEmpresa.Focus();
+            }
+            else
+            {
+                Empresa nEmpresa = new Empresa();
+                nEmpresa.sNomComercial = txtAddNombreComercialEmpresa.Text;
+                nEmpresa.sNomContacto = txtAddNombreContactoEmpresa.Text;
+                nEmpresa.sRazonSocial = txtAddRazonSocialEmpresa.Text;
+                nEmpresa.sTelefono = txtAddTelefonoEmpresa.Text;
+                nEmpresa.sCorreo = txtAddCorreoElectronicoEmpresa.Text;
+                //nEmpresa.sRegFiscal =
+                nEmpresa.sPais = txtAddPaisEmpresa.Text;
+                nEmpresa.sEstado = txtAddEstadoEmpresa.Text;
+                nEmpresa.sMunicipio = txtAddMunicipioEmpresa.Text;
+                nEmpresa.sColonia = txtAddColoniaEmpresa.Text;
+                nEmpresa.sLocalidad = txtAddLocalidadEmpresa.Text;
+                nEmpresa.sCalle = txtAddCalleEmpresa.Text;
+                nEmpresa.iNumInterir = Convert.ToInt32(txtAddNumInteriorEmpresa.Text);
+                nEmpresa.iNumExterior = Convert.ToInt32(txtAddNumExteriorEmpresa.Text);
+                //nEmpresa.iCodPostal = 
+                ManejoEmpresa.registrarnuevaempresa(nEmpresa);
+                cargarEmpresas();
+                MessageBox.Show("¡Empresa Registrada!");
+                txtAddNombreComercialEmpresa.Clear();
+                txtAddNombreContactoEmpresa.Clear();
+                txtAddRazonSocialEmpresa.Clear();
+                txtAddTelefonoEmpresa.Clear();
+                txtAddCorreoElectronicoEmpresa.Clear();
+                txtAddPaisEmpresa.Clear();
+                txtAddEstadoEmpresa.Clear();
+                txtAddMunicipioEmpresa.Clear();
+                txtAddCalleEmpresa.Clear();
+                txtAddColoniaEmpresa.Clear();
+                txtAddLocalidadEmpresa.Clear();
+                txtAddNumExteriorEmpresa.Clear();
+                txtAddNumInteriorEmpresa.Clear();
+            }
+        }
+
+        private void txtBuscarEmpresa_TextChanged_1(object sender, EventArgs e)
+        {
+            cargarEmpresas();
+        }
+
+        private void ckbStatusEmpresa_CheckedChanged_1(object sender, EventArgs e)
+        {
+            cargarEmpresas();
+        }
+
+        private void dgvDatosEmpresa_DataSourceChanged_1(object sender, EventArgs e)
+        {
+            lblCantidadEmpresas.Text = "Cantidad: " + dgvDatosEmpresa.Rows.Count;
+        }
+
+        private void btnRegistrarEmpresa_Click_1(object sender, EventArgs e)
+        {
+            if (flagAddEmpres == false)
+            {
+                tbcGeneral.TabPages.Add(tbpAddEmpresa);
+                tbcGeneral.SelectedTab = tbpAddEmpresa;
+                flagAddEmpres = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpAddEmpresa;
+            }
+        }
+
+        private void btnBorrarEmpresa_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosEmpresa.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoEmpresa.Eliminar(Convert.ToInt32(dgvDatosEmpresa.CurrentRow.Cells[0].Value));
+                    cargarEmpresas();
+                }
+            }
+        }
+
+        private void btnActualizarEmpresa_Click(object sender, EventArgs e)
+        {
+            if (this.dgvDatosEmpresa.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateEmpresa);
+                PKEMPRESA = Convert.ToInt32(this.dgvDatosEmpresa.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateEmpresa);
+                ActualizarEmpresa();
+                tbcGeneral.SelectedTab = tbpUpdateEmpresa;
+            }
+        }
+
+        private void ActualizarEmpresa()
+        {
+            Empresa nEmpresa = ManejoEmpresa.getById(PKEMPRESA);
+            txtUpdateNomComercialEmpresa.Text = nEmpresa.sNomComercial;
+            txtUpdateNombContactoEmpresa.Text = nEmpresa.sNomContacto;
+            txtUpdateRazonSocialEmpresa.Text = nEmpresa.sRazonSocial;
+            txtUpdateTelefonoEmpresa.Text = nEmpresa.sTelefono;
+            txtUpdateCorreoEmpresa.Text = nEmpresa.sCorreo;
+            //nEmpresa.sRegFiscal =
+            txtUpdatePaisEmpresa.Text = nEmpresa.sPais;
+            txtUpdateEstadoEmpresa.Text = nEmpresa.sEstado;
+            txtUpdateMunicipioEmpresa.Text = nEmpresa.sMunicipio;
+            txtUpdateColoniaEmpresa.Text = nEmpresa.sColonia;
+            txtUpdateLocalidadEmpresa.Text = nEmpresa.sLocalidad;
+            txtUpdateCalleEmpresa.Text = nEmpresa.sCalle;
+            txtUpdateNumInteriorEmpresa.Text = nEmpresa.iNumInterir.ToString();
+            txtUpdateNumExteriorEmpresa.Text = nEmpresa.iNumExterior.ToString();
+            //nEmpresa.iCodPostal = 
+        }
+
+        private void dgvDatosEmpresa_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.dgvDatosEmpresa.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateEmpresa);
+                PKEMPRESA = Convert.ToInt32(this.dgvDatosEmpresa.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateEmpresa);
+                ActualizarEmpresa();
+                tbcGeneral.SelectedTab = tbpUpdateEmpresa;
+            }
+        }
+
+        private void btnUpdateEmpresa_Click(object sender, EventArgs e)
+        {
+            if (this.txtUpdateNomComercialEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateNomComercialEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateNomComercialEmpresa, "Campo necesario");
+                this.txtUpdateNomComercialEmpresa.Focus();
+            }
+            else if (this.txtUpdateNombContactoEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateNombContactoEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateNombContactoEmpresa, "Campo necesario");
+                this.txtUpdateNombContactoEmpresa.Focus();
+            }
+            else if (this.txtUpdateRazonSocialEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateRazonSocialEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateRazonSocialEmpresa, "Campo necesario");
+                this.txtUpdateRazonSocialEmpresa.Focus();
+            }
+            else if (this.txtUpdateTelefonoEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateTelefonoEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateTelefonoEmpresa, "Campo necesario");
+                this.txtUpdateTelefonoEmpresa.Focus();
+            }
+            else if (this.txtUpdateCorreoEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateCorreoEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateCorreoEmpresa, "Campo necesario");
+                this.txtUpdateCorreoEmpresa.Focus();
+            }
+
+            else if (this.txtUpdatePaisEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdatePaisEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdatePaisEmpresa, "Campo necesario");
+                this.txtUpdatePaisEmpresa.Focus();
+            }
+            else if (this.txtUpdateEstadoEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateEstadoEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateEstadoEmpresa, "Campo necesario");
+                this.txtUpdateEstadoEmpresa.Focus();
+            }
+            else if (this.txtUpdateMunicipioEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateMunicipioEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateMunicipioEmpresa, "Campo necesario");
+                this.txtUpdateMunicipioEmpresa.Focus();
+            }
+            else if (this.txtUpdateCalleEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateCalleEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateCalleEmpresa, "Campo necesario");
+                this.txtUpdateCalleEmpresa.Focus();
+            }
+            else if (this.txtUpdateColoniaEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateColoniaEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateColoniaEmpresa, "Campo necesario");
+                this.txtUpdateColoniaEmpresa.Focus();
+            }
+            else if (this.txtUpdateLocalidadEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateLocalidadEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateLocalidadEmpresa, "Campo necesario");
+                this.txtUpdateLocalidadEmpresa.Focus();
+            }
+            else if (this.txtUpdateNumInteriorEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateNumInteriorEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateNumInteriorEmpresa, "Campo necesario");
+                this.txtUpdateNumInteriorEmpresa.Focus();
+            }
+            else if (this.txtUpdateNumExteriorEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateNumExteriorEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateNumExteriorEmpresa, "Campo necesario");
+                this.txtUpdateNumExteriorEmpresa.Focus();
+            }
+            else
+            {
+                Empresa nEmpresa = new Empresa();
+                nEmpresa.pkEmpresa = PKEMPRESA;
+                nEmpresa.sNomComercial = txtUpdateNomComercialEmpresa.Text;
+                nEmpresa.sNomContacto = txtUpdateNombContactoEmpresa.Text;
+                nEmpresa.sRazonSocial = txtUpdateRazonSocialEmpresa.Text;
+                nEmpresa.sTelefono = txtUpdateTelefonoEmpresa.Text;
+                nEmpresa.sCorreo = txtUpdateCorreoEmpresa.Text;
+                //nEmpresa.sRegFiscal =
+                nEmpresa.sPais = txtUpdatePaisEmpresa.Text;
+                nEmpresa.sEstado = txtUpdateEstadoEmpresa.Text;
+                nEmpresa.sMunicipio = txtUpdateMunicipioEmpresa.Text;
+                nEmpresa.sColonia = txtUpdateColoniaEmpresa.Text;
+                nEmpresa.sLocalidad = txtUpdateLocalidadEmpresa.Text;
+                nEmpresa.sCalle = txtUpdateCalleEmpresa.Text;
+                nEmpresa.iNumInterir = Convert.ToInt32(txtUpdateNumInteriorEmpresa.Text);
+                nEmpresa.iNumExterior = Convert.ToInt32(txtUpdateNumExteriorEmpresa.Text);
+                //nEmpresa.iCodPostal = 
+                ManejoEmpresa.Modificar(nEmpresa);
+                MessageBox.Show("¡Empresa Actualizada!");
+                tbcGeneral.TabPages.Remove(tbpUpdateEmpresa);
+                cargarEmpresas();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (flagCertificado == false)
+            {
+                tbcGeneral.Visible = true;
+                tbcGeneral.TabPages.Add(tbpCertificado);
+                tbcGeneral.SelectedTab = tbpCertificado;
+                flagCertificado = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpCertificado;
+            }
+        }
+
+        private void btnSucursalesList_Click(object sender, EventArgs e)
+        {
+            if (flagSucursal == false)
+            {
+                tbcGeneral.Visible = true;
+                tbcGeneral.TabPages.Add(tbpSucursal);
+                tbcGeneral.SelectedTab = tbpSucursal;
+                flagSucursal = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpSucursal;
+            }
         }
     }
 }
