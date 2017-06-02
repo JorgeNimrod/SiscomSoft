@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using SiscomSoft.Models;
 using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
@@ -20,39 +19,35 @@ namespace SiscomSoft_Desktop.Views
         public FrmBuscarProductos(FrmMenuFacturacion vmain)
         {
             InitializeComponent();
-            dgvDatosProducto.AutoGenerateColumns = false;
-            vMain = vmain;
+            dgvDatosProductos.AutoGenerateColumns = false;
+            vmain = vMain;
         }
 
         public void cargarProductos()
         {
-            List<Producto> nProductos = ManejoProducto.Buscar(txtBuscarProducto.Text, true);
-            dgvDatosProducto.DataSource = nProductos;
+            dgvDatosProductos.DataSource = ManejoProducto.Buscar(txtBuscarProductos.Text,true);
         }
 
-        private void dgvDatosProducto_DataSourceChanged(object sender, EventArgs e)
-        {
-            lblCantidad.Text = "Cantidad: " + dgvDatosProducto.Rows.Count;
-        }
-
-        private void dgvDatosProducto_DoubleClick(object sender, EventArgs e)
-        {
-            PKPRODUCTO = Convert.ToInt32(dgvDatosProducto.CurrentRow.Cells[0].Value);
-            vMain.cargarDetalleFactura();
-            Close();
-        }
-
-        private void txtBuscarProducto_TextChanged(object sender, EventArgs e)
+        private void txtBuscarProductos_TextChanged(object sender, EventArgs e)
         {
             cargarProductos();
+        }
+
+        private void dgvDatosProductos_DoubleClick(object sender, EventArgs e)
+        {
+            if (dgvDatosProductos.RowCount >= 1)
+            {
+                PKPRODUCTO = Convert.ToInt32(dgvDatosProductos.CurrentRow.Cells[0].Value);
+                this.Close();
+            }
+        }
+
+        private void dgvDatosProductos_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblCantidadProductos.Text = dgvDatosProductos.Rows.Count.ToString();
         }
 
         private void FrmBuscarProductos_Load(object sender, EventArgs e)
-        {
-            cargarProductos();
-        }
-
-        private void ckbStatus_CheckedChanged(object sender, EventArgs e)
         {
             cargarProductos();
         }

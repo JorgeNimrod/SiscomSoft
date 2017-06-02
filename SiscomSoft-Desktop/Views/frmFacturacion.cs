@@ -482,8 +482,8 @@ namespace SiscomSoft_Desktop.Views
         {
             if (e.KeyCode == Keys.F1)
             {
-                frmBuscarClientes nVentana = new frmBuscarClientes(this);
-                nVentana.ShowDialog();
+                //frmBuscarClientes nVentana = new frmBuscarClientes(this);
+                //nVentana.ShowDialog();
                 e.Handled = true;
             }
         }
