@@ -52,6 +52,13 @@
             this.btnActualizarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -410,13 +417,6 @@
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.label68 = new System.Windows.Forms.Label();
             this.btnCustomersList = new System.Windows.Forms.Button();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -813,6 +813,48 @@
             this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
+            // 
+            // pkProductos
+            // 
+            this.pkProductos.DataPropertyName = "pkProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            // 
+            // iClaveProd
+            // 
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            this.iClaveProd.HeaderText = "Clave";
+            this.iClaveProd.Name = "iClaveProd";
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            // 
+            // iDescuento
+            // 
+            this.iDescuento.DataPropertyName = "iDescuento";
+            this.iDescuento.HeaderText = "Descuento";
+            this.iDescuento.Name = "iDescuento";
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            // 
+            // iLote
+            // 
+            this.iLote.DataPropertyName = "iLote";
+            this.iLote.HeaderText = "Lote";
+            this.iLote.Name = "iLote";
             // 
             // lblRegistroProducto
             // 
@@ -1259,6 +1301,7 @@
             this.dgvDatosUsuario.Size = new System.Drawing.Size(703, 480);
             this.dgvDatosUsuario.TabIndex = 48;
             this.dgvDatosUsuario.DataSourceChanged += new System.EventHandler(this.dgvDatosUsuario_DataSourceChanged);
+            this.dgvDatosUsuario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosUsuario_CellDoubleClick);
             // 
             // pkUsuarios
             // 
@@ -2503,6 +2546,7 @@
             this.txtLineaAddProd.Name = "txtLineaAddProd";
             this.txtLineaAddProd.Size = new System.Drawing.Size(211, 24);
             this.txtLineaAddProd.TabIndex = 122;
+            this.txtLineaAddProd.TextChanged += new System.EventHandler(this.txtLineaAddProd_TextChanged);
             // 
             // label41
             // 
@@ -2519,6 +2563,8 @@
             this.txtClaveaddprod.Name = "txtClaveaddprod";
             this.txtClaveaddprod.Size = new System.Drawing.Size(213, 24);
             this.txtClaveaddprod.TabIndex = 111;
+            this.txtClaveaddprod.TextChanged += new System.EventHandler(this.txtClaveaddprod_TextChanged);
+            this.txtClaveaddprod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClaveaddprod_KeyPress);
             // 
             // label42
             // 
@@ -2602,6 +2648,7 @@
             this.txtLoteAddProd.Name = "txtLoteAddProd";
             this.txtLoteAddProd.Size = new System.Drawing.Size(213, 24);
             this.txtLoteAddProd.TabIndex = 119;
+            this.txtLoteAddProd.TextChanged += new System.EventHandler(this.txtLoteAddProd_TextChanged);
             this.txtLoteAddProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLoteAddProd_KeyPress);
             // 
             // txtDescuentoProd
@@ -2610,6 +2657,7 @@
             this.txtDescuentoProd.Name = "txtDescuentoProd";
             this.txtDescuentoProd.Size = new System.Drawing.Size(206, 24);
             this.txtDescuentoProd.TabIndex = 117;
+            this.txtDescuentoProd.TextChanged += new System.EventHandler(this.txtDescuentoProd_TextChanged);
             this.txtDescuentoProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuentoProd_KeyPress);
             // 
             // dtpFechaCaducidadProd
@@ -2670,6 +2718,7 @@
             this.txtCostoAddProd.Name = "txtCostoAddProd";
             this.txtCostoAddProd.Size = new System.Drawing.Size(213, 24);
             this.txtCostoAddProd.TabIndex = 116;
+            this.txtCostoAddProd.TextChanged += new System.EventHandler(this.txtCostoAddProd_TextChanged);
             this.txtCostoAddProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostoAddProd_KeyPress);
             // 
             // label49
@@ -2687,6 +2736,7 @@
             this.txtMarcaaddProd.Name = "txtMarcaaddProd";
             this.txtMarcaaddProd.Size = new System.Drawing.Size(236, 24);
             this.txtMarcaaddProd.TabIndex = 113;
+            this.txtMarcaaddProd.TextChanged += new System.EventHandler(this.txtMarcaaddProd_TextChanged);
             // 
             // label50
             // 
@@ -3222,6 +3272,7 @@
             this.dgvDatosCliente.Size = new System.Drawing.Size(955, 473);
             this.dgvDatosCliente.TabIndex = 37;
             this.dgvDatosCliente.DataSourceChanged += new System.EventHandler(this.dgvDatosCliente_DataSourceChanged);
+            this.dgvDatosCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCliente_CellDoubleClick);
             // 
             // pkClientes
             // 
@@ -4428,7 +4479,6 @@
             this.btnSucursalesList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSucursalesList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSucursalesList.UseVisualStyleBackColor = false;
-      
             this.btnSucursalesList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnSucursalesList_MouseClick);
             // 
             // btnEmpresasList
@@ -4488,48 +4538,6 @@
             this.btnCustomersList.UseVisualStyleBackColor = false;
             this.btnCustomersList.Click += new System.EventHandler(this.btnCustomersList_Click);
             this.btnCustomersList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCustomersList_MouseClick);
-            // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "pkProducto";
-            this.pkProductos.HeaderText = "Producto";
-            this.pkProductos.Name = "pkProductos";
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Clave";
-            this.iClaveProd.Name = "iClaveProd";
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            // 
-            // iDescuento
-            // 
-            this.iDescuento.DataPropertyName = "iDescuento";
-            this.iDescuento.HeaderText = "Descuento";
-            this.iDescuento.Name = "iDescuento";
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            // 
-            // iLote
-            // 
-            this.iLote.DataPropertyName = "iLote";
-            this.iLote.HeaderText = "Lote";
-            this.iLote.Name = "iLote";
             // 
             // FrmAdministrador
             // 

@@ -3339,5 +3339,83 @@ namespace SiscomSoft_Desktop.Views
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
       && e.KeyChar != 8) e.Handled = true;
         }
+
+        private void txtClaveaddprod_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtClaveaddprod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMarcaaddProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtCostoAddProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtDescuentoProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtLoteAddProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtLineaAddProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void dgvDatosCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosCliente.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateCliente);
+                PKCLIENTE = Convert.ToInt32(this.dgvDatosCliente.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateCliente);
+                ActualizarCliente();
+                tbcGeneral.SelectedTab = tbpUpdateCliente;
+
+            }
+        }
+
+        private void dgvDatosUsuario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosUsuario.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateImpuesto);
+                PKUSUARIO = Convert.ToInt32(this.dgvDatosUsuario.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateUsuario);
+                ActualizarUsuario();
+                tbcGeneral.SelectedTab = tbpUpdateUsuario;
+
+            }
+        }
     }
 }

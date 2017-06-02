@@ -66,7 +66,7 @@
     <Compile Include="Controller\ManejoCliente.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
     <Compile Include="Controller\ManejoEntrada.cs" />
-    <Compile Include="Controller\ManejoImpuesto.cs" />
+    <Compile Include="Models\ManejoImpuesto.cs" />
     <Compile Include="Controller\ManejoPermiso.cs" />
     <Compile Include="Controller\ManejoPrecio.cs" />
     <Compile Include="Controller\ManejoPreferencia.cs" />
