@@ -31,7 +31,6 @@ namespace SiscomSoft_Desktop.Views
             cmbEmpresas.DataSource = ManejoEmpresa.getAll(true);
             cmbEmpresas.DisplayMember = "sNomComercial";
             cmbEmpresas.ValueMember = "pkEmpresa";
-            cmbEmpresas.SelectedIndex = -1;
         }
 
         public void crearCarpetaRaiz()
@@ -78,7 +77,7 @@ namespace SiscomSoft_Desktop.Views
 
         public void cargarCaliente()
         {
-            Cliente nCliente = ManejoCliente.getById(frmBuscarClientes.PKCLIENTE);
+            Cliente nCliente = ManejoCliente.getById(1);
             this.txtRFC.Text = nCliente.sRfc;
             this.txtNombre.Text = nCliente.sNombre;
             this.txtDireccion.Text = nCliente.sCalle;

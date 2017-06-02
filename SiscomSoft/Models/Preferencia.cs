@@ -18,11 +18,11 @@ namespace SiscomSoft.Models
 
         public string sLogotipo { get; set; }
 
-        public string sForImpreso { get; set; }
+        public Boolean bForImpreso { get; set; }
 
         public string sNumSerie { get; set; }
 
-        public string sEnvFactura { get; set; }
+        public Boolean bEnvFactura { get; set; }
 
         public Boolean bStatus { get; set; }
 

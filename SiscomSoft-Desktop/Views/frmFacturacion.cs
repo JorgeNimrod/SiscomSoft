@@ -61,16 +61,16 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        public void cargarCaliente()
-        {
-            Cliente nCliente = ManejoCliente.getById(frmBuscarClientes.PKCLIENTE);
-            this.txtRFC.Text = nCliente.sRfc;
-            this.txtNombre.Text = nCliente.sNombre;
-            this.txtDireccion.Text = nCliente.sCalle;
-            this.txtTelefono.Text = nCliente.sTelMovil;
-            this.cmbMoneda.SelectedValue = nCliente.sTipoPago;
-            this.txtCondicionesDeVenta.Text = nCliente.sConPago;
-        }
+        //public void cargarCaliente()
+        //{
+        //    Cliente nCliente = ManejoCliente.getById(frmBuscarClientes.PKCLIENTE);
+        //    this.txtRFC.Text = nCliente.sRfc;
+        //    this.txtNombre.Text = nCliente.sNombre;
+        //    this.txtDireccion.Text = nCliente.sCalle;
+        //    this.txtTelefono.Text = nCliente.sTelMovil;
+        //    this.cmbMoneda.SelectedValue = nCliente.sTipoPago;
+        //    this.txtCondicionesDeVenta.Text = nCliente.sConPago;
+        //}
 
         public void CalcularTotales()
         {

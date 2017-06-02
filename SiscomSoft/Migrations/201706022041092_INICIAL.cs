@@ -94,7 +94,6 @@ namespace SiscomSoft.Migrations
                         iNumExterior = c.Int(nullable: false),
                         iNumInterior = c.Int(nullable: false),
                         iCodPostal = c.Int(nullable: false),
-                        bStatus = c.Boolean(nullable: false),
                         fkEmpresa_pkEmpresa = c.Int(),
                         fkPreferencia_pkPreferencia = c.Int(),
                     })
@@ -129,9 +128,9 @@ namespace SiscomSoft.Migrations
                     {
                         pkPreferencia = c.Int(nullable: false, identity: true),
                         sLogotipo = c.String(unicode: false),
-                        sForImpreso = c.String(unicode: false),
+                        bForImpreso = c.Boolean(nullable: false),
                         sNumSerie = c.String(unicode: false),
-                        sEnvFactura = c.String(unicode: false),
+                        bEnvFactura = c.Boolean(nullable: false),
                         bStatus = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.pkPreferencia);

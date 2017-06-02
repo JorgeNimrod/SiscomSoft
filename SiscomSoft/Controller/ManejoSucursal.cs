@@ -11,17 +11,20 @@ namespace SiscomSoft.Controller
 {
    public class ManejoSucursal
     {
-        public static void RegistrarNuevaSucursal(Sucursal nSucursal, int pkPreferencia)
+        public static void RegistrarNuevaSucursal(Sucursal nSucursal, int pkEmpresa, int pkPreferencia)
         {
             Preferencia preferencia = ManejoPreferencia.getById(pkPreferencia);
+            Empresa empresa = ManejoEmpresa.getById(pkEmpresa);
 
             try
             {
                 using (var ctx = new DataModel())
                 {
                     nSucursal.fkPreferencia = preferencia;
+                    nSucursal.fkEmpresa = empresa;
                     ctx.Sucursales.Add(nSucursal);
                     ctx.Preferencias.Attach(preferencia);
+                    ctx.Empresas.Attach(empresa);
                     ctx.SaveChanges();
                 }
             }
@@ -37,7 +40,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Sucursales.Where(r => r.bStatus == true && r.pkSucursal == pkSucursal).FirstOrDefault();
+                    return ctx.Sucursales.Where(r => r.iStatus == 1 && r.pkSucursal == pkSucursal).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -53,7 +56,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     Sucursal nSucursal = ManejoSucursal.getById(pkSucursal);
-                    nSucursal.bStatus = false;
+                    nSucursal.iStatus = 2;
 
                     ctx.Entry(nSucursal).State = EntityState.Modified;
                     ctx.SaveChanges();
@@ -65,13 +68,13 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static List<Sucursal> Buscar(string valor, Boolean Status)
+        public static List<Sucursal> Buscar(string valor, int Status)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Sucursales.Where(r => r.bStatus == Status && r.sNombre.Contains(valor)).ToList();
+                    return ctx.Sucursales.Where(r => r.iStatus == Status && r.sNombre.Contains(valor)).ToList();
                 }
             }
             catch (Exception)
@@ -112,13 +115,13 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static List<Sucursal> getAll(Boolean status)
+        public static List<Sucursal> getAll(int status)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Sucursales.Where(r => r.bStatus == status).ToList();
+                    return ctx.Sucursales.Where(r => r.iStatus == status).ToList();
                 }
             }
             catch (Exception)
