@@ -486,30 +486,13 @@
             this.label115 = new System.Windows.Forms.Label();
             this.txtRfcUpdateCli = new System.Windows.Forms.TextBox();
             this.label116 = new System.Windows.Forms.Label();
-            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pnlEmpresas = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnSucursalesList = new System.Windows.Forms.Button();
-            this.btnEmpresasList = new System.Windows.Forms.Button();
-            this.pnlCliente = new System.Windows.Forms.Panel();
-            this.label68 = new System.Windows.Forms.Label();
-            this.btnCustomersList = new System.Windows.Forms.Button();
             this.tbpSucursal = new System.Windows.Forms.TabPage();
-            this.tbpRegistrarSucursal = new System.Windows.Forms.TabPage();
-            this.tbpActualizarSucursal = new System.Windows.Forms.TabPage();
-            this.btnCertificadosList = new System.Windows.Forms.Button();
-            this.tbpCertificado = new System.Windows.Forms.TabPage();
-            this.tbpRegistrarCertificado = new System.Windows.Forms.TabPage();
-            this.tbpActualizarCertificado = new System.Windows.Forms.TabPage();
+            this.cmbEstadoSucursal = new System.Windows.Forms.ComboBox();
             this.btnBorrarSucursal = new System.Windows.Forms.Button();
             this.btnActualizarSucursal = new System.Windows.Forms.Button();
             this.btnRegistrarSucursal = new System.Windows.Forms.Button();
             this.lblCantidadSucursal = new System.Windows.Forms.Label();
             this.dgvDatosSucursal = new System.Windows.Forms.DataGridView();
-            this.txtBuscarSucursal = new System.Windows.Forms.TextBox();
-            this.label148 = new System.Windows.Forms.Label();
             this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sEstSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -521,7 +504,24 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iNumExterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmbEstadoSucursal = new System.Windows.Forms.ComboBox();
+            this.txtBuscarSucursal = new System.Windows.Forms.TextBox();
+            this.label148 = new System.Windows.Forms.Label();
+            this.tbpRegistrarSucursal = new System.Windows.Forms.TabPage();
+            this.tbpActualizarSucursal = new System.Windows.Forms.TabPage();
+            this.tbpCertificado = new System.Windows.Forms.TabPage();
+            this.tbpRegistrarCertificado = new System.Windows.Forms.TabPage();
+            this.tbpActualizarCertificado = new System.Windows.Forms.TabPage();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pnlEmpresas = new System.Windows.Forms.Panel();
+            this.btnCertificadosList = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnSucursalesList = new System.Windows.Forms.Button();
+            this.btnEmpresasList = new System.Windows.Forms.Button();
+            this.pnlCliente = new System.Windows.Forms.Panel();
+            this.label68 = new System.Windows.Forms.Label();
+            this.btnCustomersList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -570,11 +570,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbimgAddCli)).BeginInit();
             this.tbpUpdateCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbImgUpdatCli)).BeginInit();
+            this.tbpSucursal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlEmpresas.SuspendLayout();
             this.pnlCliente.SuspendLayout();
-            this.tbpSucursal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -5378,6 +5378,221 @@
             this.label116.TabIndex = 106;
             this.label116.Text = "RFC :";
             // 
+            // tbpSucursal
+            // 
+            this.tbpSucursal.Controls.Add(this.cmbEstadoSucursal);
+            this.tbpSucursal.Controls.Add(this.btnBorrarSucursal);
+            this.tbpSucursal.Controls.Add(this.btnActualizarSucursal);
+            this.tbpSucursal.Controls.Add(this.btnRegistrarSucursal);
+            this.tbpSucursal.Controls.Add(this.lblCantidadSucursal);
+            this.tbpSucursal.Controls.Add(this.dgvDatosSucursal);
+            this.tbpSucursal.Controls.Add(this.txtBuscarSucursal);
+            this.tbpSucursal.Controls.Add(this.label148);
+            this.tbpSucursal.Location = new System.Drawing.Point(4, 27);
+            this.tbpSucursal.Name = "tbpSucursal";
+            this.tbpSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpSucursal.TabIndex = 27;
+            this.tbpSucursal.Text = "Sucursales";
+            this.tbpSucursal.UseVisualStyleBackColor = true;
+            // 
+            // cmbEstadoSucursal
+            // 
+            this.cmbEstadoSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEstadoSucursal.FormattingEnabled = true;
+            this.cmbEstadoSucursal.Items.AddRange(new object[] {
+            "ABIERTA",
+            "CERRADA"});
+            this.cmbEstadoSucursal.Location = new System.Drawing.Point(896, 9);
+            this.cmbEstadoSucursal.Name = "cmbEstadoSucursal";
+            this.cmbEstadoSucursal.Size = new System.Drawing.Size(128, 24);
+            this.cmbEstadoSucursal.TabIndex = 26;
+            // 
+            // btnBorrarSucursal
+            // 
+            this.btnBorrarSucursal.Location = new System.Drawing.Point(1030, 139);
+            this.btnBorrarSucursal.Name = "btnBorrarSucursal";
+            this.btnBorrarSucursal.Size = new System.Drawing.Size(116, 44);
+            this.btnBorrarSucursal.TabIndex = 33;
+            this.btnBorrarSucursal.Text = "Borrar";
+            this.btnBorrarSucursal.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizarSucursal
+            // 
+            this.btnActualizarSucursal.Location = new System.Drawing.Point(1030, 89);
+            this.btnActualizarSucursal.Name = "btnActualizarSucursal";
+            this.btnActualizarSucursal.Size = new System.Drawing.Size(116, 44);
+            this.btnActualizarSucursal.TabIndex = 32;
+            this.btnActualizarSucursal.Text = "Modificar";
+            this.btnActualizarSucursal.UseVisualStyleBackColor = true;
+            // 
+            // btnRegistrarSucursal
+            // 
+            this.btnRegistrarSucursal.Location = new System.Drawing.Point(1030, 39);
+            this.btnRegistrarSucursal.Name = "btnRegistrarSucursal";
+            this.btnRegistrarSucursal.Size = new System.Drawing.Size(116, 44);
+            this.btnRegistrarSucursal.TabIndex = 34;
+            this.btnRegistrarSucursal.Text = "Agregar nueva";
+            this.btnRegistrarSucursal.UseVisualStyleBackColor = true;
+            // 
+            // lblCantidadSucursal
+            // 
+            this.lblCantidadSucursal.AutoSize = true;
+            this.lblCantidadSucursal.Location = new System.Drawing.Point(893, 519);
+            this.lblCantidadSucursal.Name = "lblCantidadSucursal";
+            this.lblCantidadSucursal.Size = new System.Drawing.Size(70, 18);
+            this.lblCantidadSucursal.TabIndex = 37;
+            this.lblCantidadSucursal.Text = "Cantidad:";
+            // 
+            // dgvDatosSucursal
+            // 
+            this.dgvDatosSucursal.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDatosSucursal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosSucursal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Sucursal,
+            this.dataGridViewTextBoxColumn13,
+            this.sEstSucursal,
+            this.iNumCertificado,
+            this.sPais,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.iNumExterior,
+            this.dataGridViewTextBoxColumn18});
+            this.dgvDatosSucursal.Location = new System.Drawing.Point(3, 39);
+            this.dgvDatosSucursal.Name = "dgvDatosSucursal";
+            this.dgvDatosSucursal.RowHeadersVisible = false;
+            this.dgvDatosSucursal.Size = new System.Drawing.Size(1021, 477);
+            this.dgvDatosSucursal.TabIndex = 36;
+            // 
+            // Sucursal
+            // 
+            this.Sucursal.DataPropertyName = "pkSucursal";
+            this.Sucursal.HeaderText = "No.";
+            this.Sucursal.Name = "Sucursal";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "sNombre";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // sEstSucursal
+            // 
+            this.sEstSucursal.DataPropertyName = "sEstSucursal";
+            this.sEstSucursal.HeaderText = "Estado de Sucursal";
+            this.sEstSucursal.Name = "sEstSucursal";
+            // 
+            // iNumCertificado
+            // 
+            this.iNumCertificado.DataPropertyName = "iNumCertificado";
+            this.iNumCertificado.HeaderText = "No. Certificado";
+            this.iNumCertificado.Name = "iNumCertificado";
+            // 
+            // sPais
+            // 
+            this.sPais.DataPropertyName = "sPais";
+            this.sPais.HeaderText = "Pais";
+            this.sPais.Name = "sPais";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "sEstado";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "sMunicipio";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Municipio";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "sColonia";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Colonia";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "sCalle";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Calle";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // iNumExterior
+            // 
+            this.iNumExterior.DataPropertyName = "iNumExterior";
+            this.iNumExterior.HeaderText = "No Exterior";
+            this.iNumExterior.Name = "iNumExterior";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "iCodPostal";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Codigo Postal";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // txtBuscarSucursal
+            // 
+            this.txtBuscarSucursal.Location = new System.Drawing.Point(68, 9);
+            this.txtBuscarSucursal.Name = "txtBuscarSucursal";
+            this.txtBuscarSucursal.Size = new System.Drawing.Size(822, 24);
+            this.txtBuscarSucursal.TabIndex = 30;
+            // 
+            // label148
+            // 
+            this.label148.AutoSize = true;
+            this.label148.Location = new System.Drawing.Point(3, 12);
+            this.label148.Name = "label148";
+            this.label148.Size = new System.Drawing.Size(59, 18);
+            this.label148.TabIndex = 35;
+            this.label148.Text = "Buscar:";
+            // 
+            // tbpRegistrarSucursal
+            // 
+            this.tbpRegistrarSucursal.Location = new System.Drawing.Point(4, 27);
+            this.tbpRegistrarSucursal.Name = "tbpRegistrarSucursal";
+            this.tbpRegistrarSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpRegistrarSucursal.TabIndex = 28;
+            this.tbpRegistrarSucursal.Text = "Registrar sucursal";
+            this.tbpRegistrarSucursal.UseVisualStyleBackColor = true;
+            // 
+            // tbpActualizarSucursal
+            // 
+            this.tbpActualizarSucursal.Location = new System.Drawing.Point(4, 27);
+            this.tbpActualizarSucursal.Name = "tbpActualizarSucursal";
+            this.tbpActualizarSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpActualizarSucursal.TabIndex = 29;
+            this.tbpActualizarSucursal.Text = "Actualizar Sucursal";
+            this.tbpActualizarSucursal.UseVisualStyleBackColor = true;
+            // 
+            // tbpCertificado
+            // 
+            this.tbpCertificado.Location = new System.Drawing.Point(4, 27);
+            this.tbpCertificado.Name = "tbpCertificado";
+            this.tbpCertificado.Size = new System.Drawing.Size(1151, 546);
+            this.tbpCertificado.TabIndex = 30;
+            this.tbpCertificado.Text = "Certificados";
+            this.tbpCertificado.UseVisualStyleBackColor = true;
+            // 
+            // tbpRegistrarCertificado
+            // 
+            this.tbpRegistrarCertificado.Location = new System.Drawing.Point(4, 27);
+            this.tbpRegistrarCertificado.Name = "tbpRegistrarCertificado";
+            this.tbpRegistrarCertificado.Size = new System.Drawing.Size(1151, 546);
+            this.tbpRegistrarCertificado.TabIndex = 31;
+            this.tbpRegistrarCertificado.Text = "Registrar Certificado";
+            this.tbpRegistrarCertificado.UseVisualStyleBackColor = true;
+            // 
+            // tbpActualizarCertificado
+            // 
+            this.tbpActualizarCertificado.Location = new System.Drawing.Point(4, 27);
+            this.tbpActualizarCertificado.Name = "tbpActualizarCertificado";
+            this.tbpActualizarCertificado.Size = new System.Drawing.Size(1151, 546);
+            this.tbpActualizarCertificado.TabIndex = 32;
+            this.tbpActualizarCertificado.Text = "Actualizar Certificado";
+            this.tbpActualizarCertificado.UseVisualStyleBackColor = true;
+            // 
             // ErrorProvider
             // 
             this.ErrorProvider.ContainerControl = this;
@@ -5422,6 +5637,23 @@
             this.pnlEmpresas.Size = new System.Drawing.Size(159, 162);
             this.pnlEmpresas.TabIndex = 12;
             this.pnlEmpresas.Visible = false;
+            // 
+            // btnCertificadosList
+            // 
+            this.btnCertificadosList.BackColor = System.Drawing.Color.White;
+            this.btnCertificadosList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCertificadosList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCertificadosList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCertificadosList.ForeColor = System.Drawing.Color.Black;
+            this.btnCertificadosList.Location = new System.Drawing.Point(-2, 118);
+            this.btnCertificadosList.Name = "btnCertificadosList";
+            this.btnCertificadosList.Size = new System.Drawing.Size(160, 44);
+            this.btnCertificadosList.TabIndex = 11;
+            this.btnCertificadosList.Text = "Lista de Certificados";
+            this.btnCertificadosList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCertificadosList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCertificadosList.UseVisualStyleBackColor = false;
+            this.btnCertificadosList.Click += new System.EventHandler(this.button2_Click);
             // 
             // label9
             // 
@@ -5508,238 +5740,6 @@
             this.btnCustomersList.UseVisualStyleBackColor = false;
             this.btnCustomersList.Click += new System.EventHandler(this.btnCustomersList_Click);
             this.btnCustomersList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCustomersList_MouseClick);
-            // 
-            // tbpSucursal
-            // 
-            this.tbpSucursal.Controls.Add(this.cmbEstadoSucursal);
-            this.tbpSucursal.Controls.Add(this.btnBorrarSucursal);
-            this.tbpSucursal.Controls.Add(this.btnActualizarSucursal);
-            this.tbpSucursal.Controls.Add(this.btnRegistrarSucursal);
-            this.tbpSucursal.Controls.Add(this.lblCantidadSucursal);
-            this.tbpSucursal.Controls.Add(this.dgvDatosSucursal);
-            this.tbpSucursal.Controls.Add(this.txtBuscarSucursal);
-            this.tbpSucursal.Controls.Add(this.label148);
-            this.tbpSucursal.Location = new System.Drawing.Point(4, 27);
-            this.tbpSucursal.Name = "tbpSucursal";
-            this.tbpSucursal.Size = new System.Drawing.Size(1151, 546);
-            this.tbpSucursal.TabIndex = 27;
-            this.tbpSucursal.Text = "Sucursales";
-            this.tbpSucursal.UseVisualStyleBackColor = true;
-            // 
-            // tbpRegistrarSucursal
-            // 
-            this.tbpRegistrarSucursal.Location = new System.Drawing.Point(4, 27);
-            this.tbpRegistrarSucursal.Name = "tbpRegistrarSucursal";
-            this.tbpRegistrarSucursal.Size = new System.Drawing.Size(1151, 546);
-            this.tbpRegistrarSucursal.TabIndex = 28;
-            this.tbpRegistrarSucursal.Text = "Registrar sucursal";
-            this.tbpRegistrarSucursal.UseVisualStyleBackColor = true;
-            // 
-            // tbpActualizarSucursal
-            // 
-            this.tbpActualizarSucursal.Location = new System.Drawing.Point(4, 27);
-            this.tbpActualizarSucursal.Name = "tbpActualizarSucursal";
-            this.tbpActualizarSucursal.Size = new System.Drawing.Size(1151, 546);
-            this.tbpActualizarSucursal.TabIndex = 29;
-            this.tbpActualizarSucursal.Text = "Actualizar Sucursal";
-            this.tbpActualizarSucursal.UseVisualStyleBackColor = true;
-            // 
-            // btnCertificadosList
-            // 
-            this.btnCertificadosList.BackColor = System.Drawing.Color.White;
-            this.btnCertificadosList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnCertificadosList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCertificadosList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCertificadosList.ForeColor = System.Drawing.Color.Black;
-            this.btnCertificadosList.Location = new System.Drawing.Point(-2, 118);
-            this.btnCertificadosList.Name = "btnCertificadosList";
-            this.btnCertificadosList.Size = new System.Drawing.Size(160, 44);
-            this.btnCertificadosList.TabIndex = 11;
-            this.btnCertificadosList.Text = "Lista de Certificados";
-            this.btnCertificadosList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCertificadosList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCertificadosList.UseVisualStyleBackColor = false;
-            this.btnCertificadosList.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // tbpCertificado
-            // 
-            this.tbpCertificado.Location = new System.Drawing.Point(4, 27);
-            this.tbpCertificado.Name = "tbpCertificado";
-            this.tbpCertificado.Size = new System.Drawing.Size(1151, 546);
-            this.tbpCertificado.TabIndex = 30;
-            this.tbpCertificado.Text = "Certificados";
-            this.tbpCertificado.UseVisualStyleBackColor = true;
-            // 
-            // tbpRegistrarCertificado
-            // 
-            this.tbpRegistrarCertificado.Location = new System.Drawing.Point(4, 27);
-            this.tbpRegistrarCertificado.Name = "tbpRegistrarCertificado";
-            this.tbpRegistrarCertificado.Size = new System.Drawing.Size(1151, 546);
-            this.tbpRegistrarCertificado.TabIndex = 31;
-            this.tbpRegistrarCertificado.Text = "Registrar Certificado";
-            this.tbpRegistrarCertificado.UseVisualStyleBackColor = true;
-            // 
-            // tbpActualizarCertificado
-            // 
-            this.tbpActualizarCertificado.Location = new System.Drawing.Point(4, 27);
-            this.tbpActualizarCertificado.Name = "tbpActualizarCertificado";
-            this.tbpActualizarCertificado.Size = new System.Drawing.Size(1151, 546);
-            this.tbpActualizarCertificado.TabIndex = 32;
-            this.tbpActualizarCertificado.Text = "Actualizar Certificado";
-            this.tbpActualizarCertificado.UseVisualStyleBackColor = true;
-            // 
-            // btnBorrarSucursal
-            // 
-            this.btnBorrarSucursal.Location = new System.Drawing.Point(1030, 139);
-            this.btnBorrarSucursal.Name = "btnBorrarSucursal";
-            this.btnBorrarSucursal.Size = new System.Drawing.Size(116, 44);
-            this.btnBorrarSucursal.TabIndex = 33;
-            this.btnBorrarSucursal.Text = "Borrar";
-            this.btnBorrarSucursal.UseVisualStyleBackColor = true;
-            // 
-            // btnActualizarSucursal
-            // 
-            this.btnActualizarSucursal.Location = new System.Drawing.Point(1030, 89);
-            this.btnActualizarSucursal.Name = "btnActualizarSucursal";
-            this.btnActualizarSucursal.Size = new System.Drawing.Size(116, 44);
-            this.btnActualizarSucursal.TabIndex = 32;
-            this.btnActualizarSucursal.Text = "Modificar";
-            this.btnActualizarSucursal.UseVisualStyleBackColor = true;
-            // 
-            // btnRegistrarSucursal
-            // 
-            this.btnRegistrarSucursal.Location = new System.Drawing.Point(1030, 39);
-            this.btnRegistrarSucursal.Name = "btnRegistrarSucursal";
-            this.btnRegistrarSucursal.Size = new System.Drawing.Size(116, 44);
-            this.btnRegistrarSucursal.TabIndex = 34;
-            this.btnRegistrarSucursal.Text = "Agregar nueva";
-            this.btnRegistrarSucursal.UseVisualStyleBackColor = true;
-            // 
-            // lblCantidadSucursal
-            // 
-            this.lblCantidadSucursal.AutoSize = true;
-            this.lblCantidadSucursal.Location = new System.Drawing.Point(893, 519);
-            this.lblCantidadSucursal.Name = "lblCantidadSucursal";
-            this.lblCantidadSucursal.Size = new System.Drawing.Size(70, 18);
-            this.lblCantidadSucursal.TabIndex = 37;
-            this.lblCantidadSucursal.Text = "Cantidad:";
-            // 
-            // dgvDatosSucursal
-            // 
-            this.dgvDatosSucursal.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDatosSucursal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatosSucursal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Sucursal,
-            this.dataGridViewTextBoxColumn13,
-            this.sEstSucursal,
-            this.iNumCertificado,
-            this.sPais,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.iNumExterior,
-            this.dataGridViewTextBoxColumn18});
-            this.dgvDatosSucursal.Location = new System.Drawing.Point(3, 39);
-            this.dgvDatosSucursal.Name = "dgvDatosSucursal";
-            this.dgvDatosSucursal.RowHeadersVisible = false;
-            this.dgvDatosSucursal.Size = new System.Drawing.Size(1021, 477);
-            this.dgvDatosSucursal.TabIndex = 36;
-            // 
-            // txtBuscarSucursal
-            // 
-            this.txtBuscarSucursal.Location = new System.Drawing.Point(68, 9);
-            this.txtBuscarSucursal.Name = "txtBuscarSucursal";
-            this.txtBuscarSucursal.Size = new System.Drawing.Size(822, 24);
-            this.txtBuscarSucursal.TabIndex = 30;
-            // 
-            // label148
-            // 
-            this.label148.AutoSize = true;
-            this.label148.Location = new System.Drawing.Point(3, 12);
-            this.label148.Name = "label148";
-            this.label148.Size = new System.Drawing.Size(59, 18);
-            this.label148.TabIndex = 35;
-            this.label148.Text = "Buscar:";
-            // 
-            // Sucursal
-            // 
-            this.Sucursal.DataPropertyName = "pkSucursal";
-            this.Sucursal.HeaderText = "No.";
-            this.Sucursal.Name = "Sucursal";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "sNombre";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // sEstSucursal
-            // 
-            this.sEstSucursal.DataPropertyName = "sEstSucursal";
-            this.sEstSucursal.HeaderText = "Estado de Sucursal";
-            this.sEstSucursal.Name = "sEstSucursal";
-            // 
-            // iNumCertificado
-            // 
-            this.iNumCertificado.DataPropertyName = "iNumCertificado";
-            this.iNumCertificado.HeaderText = "No. Certificado";
-            this.iNumCertificado.Name = "iNumCertificado";
-            // 
-            // sPais
-            // 
-            this.sPais.DataPropertyName = "sPais";
-            this.sPais.HeaderText = "Pais";
-            this.sPais.Name = "sPais";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "sEstado";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "sMunicipio";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Municipio";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "sColonia";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Colonia";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "sCalle";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Calle";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // iNumExterior
-            // 
-            this.iNumExterior.DataPropertyName = "iNumExterior";
-            this.iNumExterior.HeaderText = "No Exterior";
-            this.iNumExterior.Name = "iNumExterior";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "iCodPostal";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Codigo Postal";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // cmbEstadoSucursal
-            // 
-            this.cmbEstadoSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEstadoSucursal.FormattingEnabled = true;
-            this.cmbEstadoSucursal.Items.AddRange(new object[] {
-            "ABIERTA",
-            "CERRADA"});
-            this.cmbEstadoSucursal.Location = new System.Drawing.Point(896, 9);
-            this.cmbEstadoSucursal.Name = "cmbEstadoSucursal";
-            this.cmbEstadoSucursal.Size = new System.Drawing.Size(128, 24);
-            this.cmbEstadoSucursal.TabIndex = 26;
             // 
             // FrmAdministrador
             // 
@@ -5842,14 +5842,14 @@
             this.tbpUpdateCliente.ResumeLayout(false);
             this.tbpUpdateCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbImgUpdatCli)).EndInit();
+            this.tbpSucursal.ResumeLayout(false);
+            this.tbpSucursal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.pnlEmpresas.ResumeLayout(false);
             this.pnlEmpresas.PerformLayout();
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();
-            this.tbpSucursal.ResumeLayout(false);
-            this.tbpSucursal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
