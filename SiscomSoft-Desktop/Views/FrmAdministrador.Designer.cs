@@ -576,6 +576,21 @@
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.label68 = new System.Windows.Forms.Label();
             this.btnCustomersList = new System.Windows.Forms.Button();
+            this.dgvDatosCertificado = new System.Windows.Forms.DataGridView();
+            this.lblCantidadCertificados = new System.Windows.Forms.Label();
+            this.ckbStatusCertificado = new System.Windows.Forms.CheckBox();
+            this.cbmSucursalesCertificado = new System.Windows.Forms.ComboBox();
+            this.label172 = new System.Windows.Forms.Label();
+            this.btnBorrarCertificado = new System.Windows.Forms.Button();
+            this.btnActualizarCertificado = new System.Windows.Forms.Button();
+            this.btnRegistrarCertificado = new System.Windows.Forms.Button();
+            this.pCertificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sArchCer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sArchkey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sContrasena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNoCertifi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtValidoDe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtValidoHasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -628,9 +643,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).BeginInit();
             this.tbpRegistrarSucursal.SuspendLayout();
             this.tbpActualizarSucursal.SuspendLayout();
+            this.tbpCertificado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlEmpresas.SuspendLayout();
             this.pnlCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCertificado)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -916,6 +933,7 @@
             // 
             // tbpProducto
             // 
+            this.tbpProducto.AllowDrop = true;
             this.tbpProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbpProducto.Controls.Add(this.btnRegistrarProducto);
             this.tbpProducto.Controls.Add(this.btnActualizarProducto);
@@ -5556,6 +5574,7 @@
             this.dataGridViewTextBoxColumn18});
             this.dgvDatosSucursal.Location = new System.Drawing.Point(3, 39);
             this.dgvDatosSucursal.Name = "dgvDatosSucursal";
+            this.dgvDatosSucursal.ReadOnly = true;
             this.dgvDatosSucursal.RowHeadersVisible = false;
             this.dgvDatosSucursal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosSucursal.Size = new System.Drawing.Size(1021, 477);
@@ -5567,36 +5586,42 @@
             this.Sucursal.DataPropertyName = "pkSucursal";
             this.Sucursal.HeaderText = "No.";
             this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "sNombre";
             this.dataGridViewTextBoxColumn13.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
             // 
             // sEstSucursal
             // 
             this.sEstSucursal.DataPropertyName = "sEstSucursal";
             this.sEstSucursal.HeaderText = "Estado de Sucursal";
             this.sEstSucursal.Name = "sEstSucursal";
+            this.sEstSucursal.ReadOnly = true;
             // 
             // iNumCertificado
             // 
             this.iNumCertificado.DataPropertyName = "iNumCertificado";
             this.iNumCertificado.HeaderText = "No. Certificado";
             this.iNumCertificado.Name = "iNumCertificado";
+            this.iNumCertificado.ReadOnly = true;
             // 
             // sPais
             // 
             this.sPais.DataPropertyName = "sPais";
             this.sPais.HeaderText = "Pais";
             this.sPais.Name = "sPais";
+            this.sPais.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "sEstado";
             this.dataGridViewTextBoxColumn14.HeaderText = "Estado";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             this.dataGridViewTextBoxColumn14.Width = 90;
             // 
             // dataGridViewTextBoxColumn15
@@ -5604,30 +5629,35 @@
             this.dataGridViewTextBoxColumn15.DataPropertyName = "sMunicipio";
             this.dataGridViewTextBoxColumn15.HeaderText = "Municipio";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "sColonia";
             this.dataGridViewTextBoxColumn16.HeaderText = "Colonia";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "sCalle";
             this.dataGridViewTextBoxColumn17.HeaderText = "Calle";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
             // 
             // iNumExterior
             // 
             this.iNumExterior.DataPropertyName = "iNumExterior";
             this.iNumExterior.HeaderText = "No Exterior";
             this.iNumExterior.Name = "iNumExterior";
+            this.iNumExterior.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "iCodPostal";
             this.dataGridViewTextBoxColumn18.HeaderText = "Codigo Postal";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // txtBuscarSucursal
             // 
@@ -6242,12 +6272,21 @@
             // 
             // tbpCertificado
             // 
+            this.tbpCertificado.Controls.Add(this.btnBorrarCertificado);
+            this.tbpCertificado.Controls.Add(this.btnActualizarCertificado);
+            this.tbpCertificado.Controls.Add(this.btnRegistrarCertificado);
+            this.tbpCertificado.Controls.Add(this.label172);
+            this.tbpCertificado.Controls.Add(this.cbmSucursalesCertificado);
+            this.tbpCertificado.Controls.Add(this.ckbStatusCertificado);
+            this.tbpCertificado.Controls.Add(this.lblCantidadCertificados);
+            this.tbpCertificado.Controls.Add(this.dgvDatosCertificado);
             this.tbpCertificado.Location = new System.Drawing.Point(4, 27);
             this.tbpCertificado.Name = "tbpCertificado";
             this.tbpCertificado.Size = new System.Drawing.Size(1151, 546);
             this.tbpCertificado.TabIndex = 30;
             this.tbpCertificado.Text = "Certificados";
             this.tbpCertificado.UseVisualStyleBackColor = true;
+            this.tbpCertificado.Click += new System.EventHandler(this.tbpCertificado_Click);
             // 
             // tbpRegistrarCertificado
             // 
@@ -6415,6 +6454,142 @@
             this.btnCustomersList.Click += new System.EventHandler(this.btnCustomersList_Click);
             this.btnCustomersList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCustomersList_MouseClick);
             // 
+            // dgvDatosCertificado
+            // 
+            this.dgvDatosCertificado.AllowUserToDeleteRows = false;
+            this.dgvDatosCertificado.AllowUserToResizeColumns = false;
+            this.dgvDatosCertificado.AllowUserToResizeRows = false;
+            this.dgvDatosCertificado.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDatosCertificado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosCertificado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pCertificado,
+            this.sArchCer,
+            this.sArchkey,
+            this.sContrasena,
+            this.sNoCertifi,
+            this.dtValidoDe,
+            this.dtValidoHasta});
+            this.dgvDatosCertificado.Location = new System.Drawing.Point(3, 8);
+            this.dgvDatosCertificado.Name = "dgvDatosCertificado";
+            this.dgvDatosCertificado.ReadOnly = true;
+            this.dgvDatosCertificado.RowHeadersVisible = false;
+            this.dgvDatosCertificado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatosCertificado.Size = new System.Drawing.Size(839, 508);
+            this.dgvDatosCertificado.TabIndex = 0;
+            // 
+            // lblCantidadCertificados
+            // 
+            this.lblCantidadCertificados.AutoSize = true;
+            this.lblCantidadCertificados.Location = new System.Drawing.Point(3, 519);
+            this.lblCantidadCertificados.Name = "lblCantidadCertificados";
+            this.lblCantidadCertificados.Size = new System.Drawing.Size(74, 18);
+            this.lblCantidadCertificados.TabIndex = 1;
+            this.lblCantidadCertificados.Text = "Cantidad: ";
+            // 
+            // ckbStatusCertificado
+            // 
+            this.ckbStatusCertificado.AutoSize = true;
+            this.ckbStatusCertificado.Location = new System.Drawing.Point(1079, 8);
+            this.ckbStatusCertificado.Name = "ckbStatusCertificado";
+            this.ckbStatusCertificado.Size = new System.Drawing.Size(69, 22);
+            this.ckbStatusCertificado.TabIndex = 2;
+            this.ckbStatusCertificado.Text = "Status";
+            this.ckbStatusCertificado.UseVisualStyleBackColor = true;
+            // 
+            // cbmSucursalesCertificado
+            // 
+            this.cbmSucursalesCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmSucursalesCertificado.FormattingEnabled = true;
+            this.cbmSucursalesCertificado.Location = new System.Drawing.Point(926, 8);
+            this.cbmSucursalesCertificado.Name = "cbmSucursalesCertificado";
+            this.cbmSucursalesCertificado.Size = new System.Drawing.Size(147, 24);
+            this.cbmSucursalesCertificado.TabIndex = 3;
+            // 
+            // label172
+            // 
+            this.label172.AutoSize = true;
+            this.label172.Location = new System.Drawing.Point(848, 9);
+            this.label172.Name = "label172";
+            this.label172.Size = new System.Drawing.Size(70, 18);
+            this.label172.TabIndex = 4;
+            this.label172.Text = "Sucursal:";
+            // 
+            // btnBorrarCertificado
+            // 
+            this.btnBorrarCertificado.Location = new System.Drawing.Point(848, 138);
+            this.btnBorrarCertificado.Name = "btnBorrarCertificado";
+            this.btnBorrarCertificado.Size = new System.Drawing.Size(116, 44);
+            this.btnBorrarCertificado.TabIndex = 36;
+            this.btnBorrarCertificado.Text = "Borrar";
+            this.btnBorrarCertificado.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizarCertificado
+            // 
+            this.btnActualizarCertificado.Location = new System.Drawing.Point(848, 88);
+            this.btnActualizarCertificado.Name = "btnActualizarCertificado";
+            this.btnActualizarCertificado.Size = new System.Drawing.Size(116, 44);
+            this.btnActualizarCertificado.TabIndex = 35;
+            this.btnActualizarCertificado.Text = "Modificar";
+            this.btnActualizarCertificado.UseVisualStyleBackColor = true;
+            // 
+            // btnRegistrarCertificado
+            // 
+            this.btnRegistrarCertificado.Location = new System.Drawing.Point(848, 38);
+            this.btnRegistrarCertificado.Name = "btnRegistrarCertificado";
+            this.btnRegistrarCertificado.Size = new System.Drawing.Size(116, 44);
+            this.btnRegistrarCertificado.TabIndex = 37;
+            this.btnRegistrarCertificado.Text = "Agregar nueva";
+            this.btnRegistrarCertificado.UseVisualStyleBackColor = true;
+            // 
+            // pCertificado
+            // 
+            this.pCertificado.DataPropertyName = "pkCertificado";
+            this.pCertificado.HeaderText = "No.";
+            this.pCertificado.Name = "pCertificado";
+            this.pCertificado.ReadOnly = true;
+            // 
+            // sArchCer
+            // 
+            this.sArchCer.DataPropertyName = "sArchCer";
+            this.sArchCer.HeaderText = "Archivo cer";
+            this.sArchCer.Name = "sArchCer";
+            this.sArchCer.ReadOnly = true;
+            // 
+            // sArchkey
+            // 
+            this.sArchkey.DataPropertyName = "sArchKey";
+            this.sArchkey.HeaderText = "Archivo Key";
+            this.sArchkey.Name = "sArchkey";
+            this.sArchkey.ReadOnly = true;
+            // 
+            // sContrasena
+            // 
+            this.sContrasena.DataPropertyName = "sContrasena";
+            this.sContrasena.HeaderText = "Contraseña";
+            this.sContrasena.Name = "sContrasena";
+            this.sContrasena.ReadOnly = true;
+            // 
+            // sNoCertifi
+            // 
+            this.sNoCertifi.DataPropertyName = "sNoCertifi";
+            this.sNoCertifi.HeaderText = "No. Certificado";
+            this.sNoCertifi.Name = "sNoCertifi";
+            this.sNoCertifi.ReadOnly = true;
+            // 
+            // dtValidoDe
+            // 
+            this.dtValidoDe.DataPropertyName = "dtValidoDe";
+            this.dtValidoDe.HeaderText = "Valido De";
+            this.dtValidoDe.Name = "dtValidoDe";
+            this.dtValidoDe.ReadOnly = true;
+            // 
+            // dtValidoHasta
+            // 
+            this.dtValidoHasta.DataPropertyName = "dtValidoHasta";
+            this.dtValidoHasta.HeaderText = "Valido Hasta";
+            this.dtValidoHasta.Name = "dtValidoHasta";
+            this.dtValidoHasta.ReadOnly = true;
+            // 
             // FrmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -6523,11 +6698,14 @@
             this.tbpRegistrarSucursal.PerformLayout();
             this.tbpActualizarSucursal.ResumeLayout(false);
             this.tbpActualizarSucursal.PerformLayout();
+            this.tbpCertificado.ResumeLayout(false);
+            this.tbpCertificado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.pnlEmpresas.ResumeLayout(false);
             this.pnlEmpresas.PerformLayout();
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosCertificado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7081,5 +7259,20 @@
         private System.Windows.Forms.Label label171;
         private System.Windows.Forms.CheckBox ckbUpdateEnvFactura;
         private System.Windows.Forms.CheckBox cbkUpdateForImpreso;
+        private System.Windows.Forms.Label label172;
+        private System.Windows.Forms.ComboBox cbmSucursalesCertificado;
+        private System.Windows.Forms.CheckBox ckbStatusCertificado;
+        private System.Windows.Forms.Label lblCantidadCertificados;
+        private System.Windows.Forms.DataGridView dgvDatosCertificado;
+        private System.Windows.Forms.Button btnBorrarCertificado;
+        private System.Windows.Forms.Button btnActualizarCertificado;
+        private System.Windows.Forms.Button btnRegistrarCertificado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pCertificado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sArchCer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sArchkey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sContrasena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sNoCertifi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtValidoDe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtValidoHasta;
     }
 }

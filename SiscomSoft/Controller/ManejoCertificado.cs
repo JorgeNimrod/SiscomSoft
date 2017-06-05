@@ -11,6 +11,23 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoCertificado
     {
+        public static List<Certificado> Buscar(int pkSucursal, Boolean status)
+        {
+            Sucursal nSucursal = ManejoSucursal.getById(pkSucursal);
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Certificados.Where(r => r.bStatus == status && r.fkSucursal == nSucursal).ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static void RegistrarNuevoCertificado(Certificado nCertificado)
         {
             try

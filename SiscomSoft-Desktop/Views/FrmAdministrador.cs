@@ -80,9 +80,14 @@ namespace SiscomSoft_Desktop.Views
             cargarProductos();
             cargarClientes();
             cargarEmpresas();
+            cargarSucursal();
         }
         public void cargarCombos()
         {
+            cbmSucursalesCertificado.DataSource = ManejoSucursal.getAll(1);
+            cbmSucursalesCertificado.DisplayMember = "sNombre";
+            cbmSucursalesCertificado.ValueMember = "pkSucursal";
+
             //ComboBox de Registrar sucursales
             cmbEmpresasSucursales.DataSource = ManejoEmpresa.getAll(true);
             cmbEmpresasSucursales.DisplayMember = "sNomComercial";
@@ -175,6 +180,11 @@ namespace SiscomSoft_Desktop.Views
         public void cargarSucursal()
         {
             dgvDatosSucursal.DataSource = ManejoSucursal.Buscar(txtBuscarSucursal.Text, cmbStatusSucursal.SelectedIndex + 1);
+        }
+
+        public void cargarCertificado()
+        {
+            dgvDatosCertificado.DataSource = ManejoCertificado.Buscar(Convert.ToInt32(cbmSucursalesCertificado.SelectedValue), ckbStatusCertificado.Checked);
         }
 
 
@@ -4026,6 +4036,11 @@ namespace SiscomSoft_Desktop.Views
                 txtUpdateNumExteriorSucursales.Clear();
                 cargarSucursal();
             }
+        }
+
+        private void tbpCertificado_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
