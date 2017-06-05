@@ -40,7 +40,9 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Sucursales.Where(r => r.iStatus == 1 && r.pkSucursal == pkSucursal).FirstOrDefault();
+                    return ctx.Sucursales.Include("fkPreferencia")
+                        .Include("fkEmpresa")
+                        .Where(r => r.iStatus == 1 && r.pkSucursal == pkSucursal).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -88,7 +90,7 @@ namespace SiscomSoft.Controller
             try
             {
                 using (var ctx = new DataModel())
-                {
+                { 
                     ctx.Sucursales.Attach(nSucursal);
                     ctx.Entry(nSucursal).State = EntityState.Modified;
                     ctx.SaveChanges();

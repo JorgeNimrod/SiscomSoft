@@ -50,6 +50,7 @@ namespace SiscomSoft_Desktop.Views
         public static int PKEMPRESA;
         public static int PKSUCURSAL;
         public static int PKCERTIFICADO;
+        public static int PKPREFERENCIA;
 
         public FrmAdministrador()
         {
@@ -86,7 +87,12 @@ namespace SiscomSoft_Desktop.Views
             cmbEmpresasSucursales.DataSource = ManejoEmpresa.getAll(true);
             cmbEmpresasSucursales.DisplayMember = "sNomComercial";
             cmbEmpresasSucursales.ValueMember = "pkEmpresa";
-            
+
+            //ComboBox de Actualizar sucursales
+            cmbEmpresasSucursal.DataSource = ManejoEmpresa.getAll(true);
+            cmbEmpresasSucursal.DisplayMember = "sNomComercial";
+            cmbEmpresasSucursal.ValueMember = "pkEmpresa";
+
             //ComboBox de Registrar Usuarios
             cbxRol.DataSource = ManejoRol.getAll(true);
             cbxRol.DisplayMember = "sNombre";
@@ -1370,19 +1376,6 @@ namespace SiscomSoft_Desktop.Views
                 ManejoUsuario.Modificar(nUsuario);
                 MessageBox.Show("¡Usuario Actualizado!");
                 cargarUsuarios();
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
         }
 
@@ -3810,6 +3803,8 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateNumSerieSucursales.Text = nPreferencia.sNumSerie;
             ckbAddForImpreso.Checked = nPreferencia.bForImpreso;
             ckbAddEnvFactura.Checked = nPreferencia.bEnvFactura;
+
+            PKPREFERENCIA = nSucursal.fkPreferencia.pkPreferencia;
         }
 
         private void btnBorrarSucursal_Click(object sender, EventArgs e)
@@ -3935,7 +3930,102 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnActualizarSucursales_Click(object sender, EventArgs e)
         {
+            if (this.txtAddNombreSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddNombreSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddNombreSucursal, "Campo necesario");
+                this.txtAddNombreSucursal.Focus();
+            }
+            else if (this.txtAddPaiSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddPaiSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddPaiSucursal, "Campo necesario");
+                this.txtAddPaiSucursal.Focus();
+            }
 
+            else if (this.txtAddEstadoSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddEstadoSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddEstadoSucursal, "Campo necesario");
+                this.txtAddEstadoSucursal.Focus();
+            }
+            else if (this.txtAddMunicipioSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddMunicipioSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddMunicipioSucursal, "Campo necesario");
+                this.txtAddMunicipioSucursal.Focus();
+            }
+            else if (this.txtAddCalleSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddCalleSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddCalleSucursal, "Campo necesario");
+                this.txtAddCalleSucursal.Focus();
+            }
+            else if (this.txtAddColoniaSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddColoniaSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddColoniaSucursal, "Campo necesario");
+                this.txtAddColoniaSucursal.Focus();
+            }
+            else if (this.txtAddLocalidadSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddLocalidadSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddLocalidadSucursal, "Campo necesario");
+                this.txtAddLocalidadSucursal.Focus();
+            }
+            else if (this.txtAddNumInteriorEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddNumInteriorEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddNumInteriorEmpresa, "Campo necesario");
+                this.txtAddNumInteriorEmpresa.Focus();
+            }
+            else if (this.txtAddnumExteriorSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddnumExteriorSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddnumExteriorSucursal, "Campo necesario");
+                this.txtAddnumExteriorSucursal.Focus();
+            }
+            else
+            {
+                Preferencia nPreferencia = new Preferencia();
+                nPreferencia.pkPreferencia = PKPREFERENCIA;
+                nPreferencia.sLogotipo = "Agrega lo de la foto webon";
+                nPreferencia.sNumSerie = txtUpdateNumSerieSucursales.Text;
+                nPreferencia.bForImpreso = cbkUpdateForImpreso.Checked;
+                nPreferencia.bEnvFactura = ckbUpdateEnvFactura.Checked;
+
+
+                Sucursal nSucursal = new Sucursal();
+                nSucursal.pkSucursal = PKSUCURSAL;
+                //TODO: Con selectedValue se puede sacar la pk del combo: awebo :D
+                nSucursal.sNombre = txtUpdateNombreSucursales.Text;
+                nSucursal.sPais = txtUpdatePaisSucursales.Text;
+                nSucursal.sEstado = txtUpdateNombreSucursales.Text;
+                nSucursal.sMunicipio = txtUpdateMunicipioSucursales.Text;
+                nSucursal.sCalle = txtUpdateCalleSucursales.Text;
+                nSucursal.sColonia = txtUpdateColoniaSucursales.Text;
+                nSucursal.sLocalidad = txtUpdateLocalidadSucursales.Text;
+                nSucursal.iNumExterior = Convert.ToInt32(txtUpdateNumExteriorSucursales.Text);
+                nSucursal.iNumInterior = Convert.ToInt32(txtUpdateNumInteriorSucursales.Text);
+                int pkEmpresa = Convert.ToInt32(cmbEmpresasSucursal.SelectedValue);
+                int x = 0;
+                Empresa nEmpresa = ManejoEmpresa.getById(pkEmpresa);
+                nSucursal.fkEmpresa = nEmpresa;
+                ManejoPreferencia.Modificar(nPreferencia);
+                ManejoSucursal.Modificar(nSucursal);
+
+                MessageBox.Show("¡Sucursal Registrada!");
+                txtUpdateNombreSucursales.Clear();
+                txtUpdatePaisSucursales.Clear();
+                txtUpdateEstadoSucursales.Clear();
+                txtUpdateMunicipioSucursales.Clear();
+                txtUpdateCalleSucursales.Clear();
+                txtUpdateColoniaSucursales.Clear();
+                txtUpdateLocalidadSucursales.Clear();
+                txtUpdateNumInteriorSucursales.Clear();
+                txtUpdateNumExteriorSucursales.Clear();
+                cargarSucursal();
+            }
         }
     }
 }
