@@ -13,6 +13,8 @@ using SiscomSoft.Models;
 using System.Globalization;
 using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -82,6 +84,7 @@ namespace SiscomSoft_Desktop.Views
             cargarEmpresas();
             cargarSucursal();
         }
+
         public void cargarCombos()
         {
             cbmSucursalesCertificado.DataSource = ManejoSucursal.getAll(1);
@@ -141,6 +144,10 @@ namespace SiscomSoft_Desktop.Views
             cbxUpdateImpuProd.DataSource = ManejoImpuesto.getAll(true);
             cbxUpdateImpuProd.DisplayMember = "dTasaImpuesto";
             cbxUpdateImpuProd.ValueMember = "pkImpuesto";
+
+            cmbAddSucursalesCertificado.DataSource = ManejoSucursal.getAll(1);
+            cmbAddSucursalesCertificado.DisplayMember = "sNombre";
+            cmbAddSucursalesCertificado.ValueMember = "pkSucursal";
         }
 
         public void cargarEmpresas()
@@ -4042,6 +4049,240 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
-    }
+
+        private void btnAddExaminarCertificado_Click(object sender, EventArgs e)
+        {
+            string rutaArchivoCer = string.Empty;
+            //Asi se busca un archivo
+            OpenFileDialog opf = new OpenFileDialog();
+
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                @rutaArchivoCer = opf.SafeFileName;
+
+                X509Certificate2 m_cer = new X509Certificate2(opf.FileName);
+
+                if (m_cer != null)
+                {
+                    txtAddNoCertficado.Text = Encoding.Default.GetString(m_cer.GetSerialNumber());
+                    //txtEmpresa.Text = m_cer.SubjectName.Name;
+                    //txtEmisor.Text = m_cer.IssuerName.Name;
+                    txtAddValidoDe.Text = m_cer.GetEffectiveDateString();
+                    txtAddValidoHasta.Text = m_cer.GetExpirationDateString();
+                }
+            }
+
+            txtAddCertificado.Text = rutaArchivoCer;
+        }
+
+        private void btnAddExaminarCarpetaCertificados_Click(object sender, EventArgs e)
+        {
+            string rutaDirectorio = string.Empty;
+
+            //Asi se busca en un directorio una carpeta
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                rutaDirectorio = fbd.SelectedPath;
+            }
+
+            txtAddFolderCertificados.Text = @rutaDirectorio;
+        }
+
+        private void btnRegistrarCertificado_Click(object sender, EventArgs e)
+        {
+            if (flagAddCertificado == false)
+            {
+                tbcGeneral.TabPages.Add(tbpRegistrarCertificado);
+                tbcGeneral.SelectedTab = tbpRegistrarCertificado;
+                flagAddCertificado = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpRegistrarCertificado;
+            }
+        }
+
+        private void btnAddExaminarKey_Click(object sender, EventArgs e)
+        {
+            string rutaArchivoKey = string.Empty;
+            //Asi se busca un archivo
+            OpenFileDialog opf = new OpenFileDialog();
+
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                rutaArchivoKey = opf.SafeFileName;
+            }
+
+            txtAddKey.Text = rutaArchivoKey;
+        }
+
+        private void btnAddCertificado_Click(object sender, EventArgs e)
+        {
+            if (this.txtAddFolderCertificados.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddFolderCertificados, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddFolderCertificados, "Campo necesario");
+                this.txtAddFolderCertificados.Focus();
+            }
+            else if (this.txtAddCertificado.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddCertificado, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddCertificado, "Campo necesario");
+                this.txtAddCertificado.Focus();
+            }
+
+            else if (this.txtAddKey.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddKey, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddKey, "Campo necesario");
+                this.txtAddKey.Focus();
+            }
+            else if (this.txtAddNoCertficado.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddNoCertficado, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddNoCertficado, "Campo necesario");
+                this.txtAddNoCertficado.Focus();
+            }
+            else if (this.txtAddValidoDe.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddValidoDe, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddValidoDe, "Campo necesario");
+                this.txtAddValidoDe.Focus();
+            }
+            else if (this.txtAddValidoHasta.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddValidoHasta, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddValidoHasta, "Campo necesario");
+                this.txtAddValidoHasta.Focus();
+            }
+            else
+            {
+                Certificado nCertificado = new Certificado();
+                Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbAddSucursalesCertificado.SelectedValue));
+                nCertificado.fkSucursal = nSucursal;
+                nCertificado.sRutaCer = txtAddFolderCertificados.Text;
+                nCertificado.sArchCer = txtAddCertificado.Text;
+                nCertificado.sContrasena = txtAddContraseña.Text;
+                nCertificado.sArchkey = txtAddKey.Text;
+                nCertificado.sNoCertifi = txtAddNoCertficado.Text;
+                //nCertificado.dtValidoDe = txtAddValidoDe.Text;
+                //nCertificado.dtValidoHasta = txtAddValidoHasta.Text;
+
+                ManejoCertificado.RegistrarNuevoCertificado(nCertificado);
+                MessageBox.Show("¡Certificado Registrado!");
+                txtAddFolderCertificados.Clear();
+                txtAddCertificado.Clear();
+                txtAddKey.Clear();
+                txtAddContraseña.Clear();
+                txtAddNoCertficado.Clear();
+                txtAddValidoDe.Clear();
+                txtAddValidoHasta.Clear();
+            }
+        }
+
+        private void btnBorrarCertificado_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosCertificado.RowCount >= 1)
+            {
+                if (MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoCertificado.Eliminar(Convert.ToInt32(dgvDatosCertificado.CurrentRow.Cells[0].Value));
+                    cargarCertificado();
+                }
+            }
+        }
+
+        private void btnActualizarCertificado_Click(object sender, EventArgs e)
+        {
+            if (this.dgvDatosSucursal.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpActualizarCertificado);
+                PKCERTIFICADO = Convert.ToInt32(this.dgvDatosSucursal.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpActualizarCertificado);
+                ActualizarCertificado();
+                tbcGeneral.SelectedTab = tbpActualizarCertificado;
+
+            }
+        }
+
+        private void ActualizarCertificado()
+        {
+            Certificado nCertificado = ManejoCertificado.getById(PKCERTIFICADO);
+            txtAddFolderCertificados.Text = nCertificado.sRutaCer;
+            txtAddCertificado.Text = nCertificado.sArchCer;
+            txtAddKey.Text = nCertificado.sArchkey;
+            txtAddContraseña.Text = nCertificado.sContrasena;
+            txtAddNoCertficado.Text = nCertificado.sNoCertifi;
+            //txtAddValidoDe.Text = nCertificado.dtValidoDe;
+            //txtAddValidoHasta.Text = nCertificado.dtValidoHasta;
+            //TODO: Hacer que se seleccionen los combos mediante la bd prro
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (this.txtUpdateFolderCertificados.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateFolderCertificados, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateFolderCertificados, "Campo necesario");
+                this.txtUpdateFolderCertificados.Focus();
+            }
+            else if (this.txtUpdateCertificado.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateCertificado, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateCertificado, "Campo necesario");
+                this.txtUpdateCertificado.Focus();
+            }
+
+            else if (this.txtUpdateKey.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateKey, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateKey, "Campo necesario");
+                this.txtUpdateKey.Focus();
+            }
+            else if (this.txtUpdateNoCertificado.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateNoCertificado, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateNoCertificado, "Campo necesario");
+                this.txtUpdateNoCertificado.Focus();
+            }
+            else if (this.txtUpdateValidoDe.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateValidoDe, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateValidoDe, "Campo necesario");
+                this.txtUpdateValidoDe.Focus();
+            }
+            else if (this.txtUpdateValidoHasta.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateValidoHasta, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateValidoHasta, "Campo necesario");
+                this.txtUpdateValidoHasta.Focus();
+            }
+            else
+            {
+                Certificado nCertificado = new Certificado();
+                Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbUpdateSucursalCertificado.SelectedValue));
+                nCertificado.fkSucursal = nSucursal;
+                nCertificado.sRutaCer = txtUpdateFolderCertificados.Text;
+                nCertificado.sArchCer = txtUpdateCertificado.Text;
+                nCertificado.sContrasena = txtUpdateContraseña.Text;
+                nCertificado.sArchkey = txtUpdateKey.Text;
+                nCertificado.sNoCertifi = txtUpdateNoCertificado.Text;
+                //nCertificado.dtValidoDe = txtUpdateValidoDe.Text;
+                //nCertificado.dtValidoHasta = txtUpdateValidoHasta.Text;
+
+                ManejoCertificado.Modificar(nCertificado);
+                MessageBox.Show("¡Certificado Registrado!");
+                txtUpdateFolderCertificados.Clear();
+                txtUpdateCertificado.Clear();
+                txtUpdateKey.Clear();
+                txtUpdateContraseña.Clear();
+                txtUpdateNoCertificado.Clear();
+                txtUpdateValidoDe.Clear();
+                txtUpdateValidoHasta.Clear();
+            }
+        }
 }
 
