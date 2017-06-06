@@ -3915,7 +3915,7 @@ namespace SiscomSoft_Desktop.Views
                 nPreferencia.bEnvFactura = ckbAddEnvFactura.Checked;
 
                 ManejoPreferencia.RegistrarNuevaPreferencia(nPreferencia);
-                
+
                 int pkEmpresa = Convert.ToInt32(cmbEmpresasSucursales.SelectedValue);
                 int pkPreferencia = nPreferencia.pkPreferencia;
                 //TODO: Con selectedValue se puede sacar la pk del combo: awebo :D
@@ -4284,5 +4284,6 @@ namespace SiscomSoft_Desktop.Views
                 txtUpdateValidoHasta.Clear();
             }
         }
+    }
 }
 
