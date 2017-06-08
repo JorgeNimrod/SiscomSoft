@@ -88,6 +88,7 @@ namespace SiscomSoft.Controller
                 {
                     nCertificado.fkSucursal = nSucursal;
                     ctx.Sucursales.Attach(nSucursal);
+                    ctx.Certificados.Attach(nCertificado);
                     ctx.Entry(nCertificado).State = EntityState.Modified;
                     ctx.SaveChanges();
                 }
