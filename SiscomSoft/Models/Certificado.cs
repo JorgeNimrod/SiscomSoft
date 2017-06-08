@@ -27,11 +27,11 @@ namespace SiscomSoft.Models
 
         public string sNoCertifi { get; set; }
 
-        public DateTime dtValidoDe { get; set; }
+        public string sValidoDe { get; set; }
 
-        public DateTime dtValidoHasta { get; set; }
+        public string sValidoHasta { get; set; }
 
-        public string sRutaCer { get; set; }
+        public string sRutaArch { get; set; }
 
         public Boolean bStatus { get; set; }
 

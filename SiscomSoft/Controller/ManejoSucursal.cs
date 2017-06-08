@@ -22,9 +22,9 @@ namespace SiscomSoft.Controller
                 {
                     nSucursal.fkPreferencia = preferencia;
                     nSucursal.fkEmpresa = empresa;
-                    ctx.Sucursales.Add(nSucursal);
-                    ctx.Preferencias.Attach(preferencia);
                     ctx.Empresas.Attach(empresa);
+                    ctx.Preferencias.Attach(preferencia);
+                    ctx.Sucursales.Add(nSucursal);
                     ctx.SaveChanges();
                 }
             }
@@ -90,8 +90,12 @@ namespace SiscomSoft.Controller
             try
             {
                 using (var ctx = new DataModel())
-                { 
+                {
+                    Empresa nEmpresa = nSucursal.fkEmpresa;
+                    Preferencia nPreferencia = nSucursal.fkPreferencia;
                     ctx.Sucursales.Attach(nSucursal);
+                    ctx.Preferencias.Attach(nPreferencia);
+                    ctx.Empresas.Attach(nEmpresa);
                     ctx.Entry(nSucursal).State = EntityState.Modified;
                     ctx.SaveChanges();
                 }

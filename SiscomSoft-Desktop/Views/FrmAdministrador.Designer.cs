@@ -495,14 +495,12 @@
             this.dgvDatosSucursal = new System.Windows.Forms.DataGridView();
             this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sEstSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iNumCertificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iNumExterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarSucursal = new System.Windows.Forms.TextBox();
             this.label148 = new System.Windows.Forms.Label();
@@ -600,6 +598,26 @@
             this.label175 = new System.Windows.Forms.Label();
             this.label176 = new System.Windows.Forms.Label();
             this.tbpActualizarCertificado = new System.Windows.Forms.TabPage();
+            this.label188 = new System.Windows.Forms.Label();
+            this.btnUpdateExaminarCarpetaCErtificados = new System.Windows.Forms.Button();
+            this.txtUpdateFolderCertificados = new System.Windows.Forms.TextBox();
+            this.label181 = new System.Windows.Forms.Label();
+            this.txtUpdateValidoHasta = new System.Windows.Forms.TextBox();
+            this.label182 = new System.Windows.Forms.Label();
+            this.txtUpdateValidoDe = new System.Windows.Forms.TextBox();
+            this.txtUpdateNoCertificado = new System.Windows.Forms.TextBox();
+            this.label183 = new System.Windows.Forms.Label();
+            this.label184 = new System.Windows.Forms.Label();
+            this.btnUpdateExaminarKey = new System.Windows.Forms.Button();
+            this.btnUpdateCertificado = new System.Windows.Forms.Button();
+            this.label185 = new System.Windows.Forms.Label();
+            this.cmbUpdateSucursalCertificado = new System.Windows.Forms.ComboBox();
+            this.txtUpdateContraseña = new System.Windows.Forms.TextBox();
+            this.label186 = new System.Windows.Forms.Label();
+            this.btnUpdateExaminarCertificado = new System.Windows.Forms.Button();
+            this.txtUpdateKey = new System.Windows.Forms.TextBox();
+            this.txtUpdateCertificado = new System.Windows.Forms.TextBox();
+            this.label187 = new System.Windows.Forms.Label();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblFecha = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -611,26 +629,6 @@
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.label68 = new System.Windows.Forms.Label();
             this.btnCustomersList = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.txtUpdateFolderCertificados = new System.Windows.Forms.TextBox();
-            this.label181 = new System.Windows.Forms.Label();
-            this.txtUpdateValidoHasta = new System.Windows.Forms.TextBox();
-            this.label182 = new System.Windows.Forms.Label();
-            this.txtUpdateValidoDe = new System.Windows.Forms.TextBox();
-            this.txtUpdateNoCertificado = new System.Windows.Forms.TextBox();
-            this.label183 = new System.Windows.Forms.Label();
-            this.label184 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnUpdateCertificado = new System.Windows.Forms.Button();
-            this.label185 = new System.Windows.Forms.Label();
-            this.cmbUpdateSucursalCertificado = new System.Windows.Forms.ComboBox();
-            this.txtUpdateContraseña = new System.Windows.Forms.TextBox();
-            this.label186 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.txtUpdateKey = new System.Windows.Forms.TextBox();
-            this.txtUpdateCertificado = new System.Windows.Forms.TextBox();
-            this.label187 = new System.Windows.Forms.Label();
-            this.label188 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -5605,14 +5603,12 @@
             this.dgvDatosSucursal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sucursal,
             this.dataGridViewTextBoxColumn13,
-            this.sEstSucursal,
             this.iNumCertificado,
             this.sPais,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16,
             this.dataGridViewTextBoxColumn17,
-            this.iNumExterior,
             this.dataGridViewTextBoxColumn18});
             this.dgvDatosSucursal.Location = new System.Drawing.Point(3, 39);
             this.dgvDatosSucursal.Name = "dgvDatosSucursal";
@@ -5629,6 +5625,7 @@
             this.Sucursal.HeaderText = "No.";
             this.Sucursal.Name = "Sucursal";
             this.Sucursal.ReadOnly = true;
+            this.Sucursal.Width = 80;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -5636,20 +5633,15 @@
             this.dataGridViewTextBoxColumn13.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // sEstSucursal
-            // 
-            this.sEstSucursal.DataPropertyName = "sEstSucursal";
-            this.sEstSucursal.HeaderText = "Estado de Sucursal";
-            this.sEstSucursal.Name = "sEstSucursal";
-            this.sEstSucursal.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 200;
             // 
             // iNumCertificado
             // 
-            this.iNumCertificado.DataPropertyName = "iNumCertificado";
+            this.iNumCertificado.DataPropertyName = "sNoCertifi";
             this.iNumCertificado.HeaderText = "No. Certificado";
             this.iNumCertificado.Name = "iNumCertificado";
             this.iNumCertificado.ReadOnly = true;
+            this.iNumCertificado.Width = 150;
             // 
             // sPais
             // 
@@ -5686,13 +5678,6 @@
             this.dataGridViewTextBoxColumn17.HeaderText = "Calle";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // iNumExterior
-            // 
-            this.iNumExterior.DataPropertyName = "iNumExterior";
-            this.iNumExterior.HeaderText = "No Exterior";
-            this.iNumExterior.Name = "iNumExterior";
-            this.iNumExterior.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn18
             // 
@@ -6377,6 +6362,7 @@
             this.cbmSucursalesCertificado.Name = "cbmSucursalesCertificado";
             this.cbmSucursalesCertificado.Size = new System.Drawing.Size(147, 24);
             this.cbmSucursalesCertificado.TabIndex = 3;
+            this.cbmSucursalesCertificado.SelectedIndexChanged += new System.EventHandler(this.cbmSucursalesCertificado_SelectedIndexChanged);
             // 
             // ckbStatusCertificado
             // 
@@ -6389,6 +6375,7 @@
             this.ckbStatusCertificado.TabIndex = 2;
             this.ckbStatusCertificado.Text = "Status";
             this.ckbStatusCertificado.UseVisualStyleBackColor = true;
+            this.ckbStatusCertificado.CheckedChanged += new System.EventHandler(this.ckbStatusCertificado_CheckedChanged);
             // 
             // lblCantidadCertificados
             // 
@@ -6435,6 +6422,7 @@
             this.sArchCer.HeaderText = "Archivo cer";
             this.sArchCer.Name = "sArchCer";
             this.sArchCer.ReadOnly = true;
+            this.sArchCer.Width = 150;
             // 
             // sArchkey
             // 
@@ -6442,6 +6430,7 @@
             this.sArchkey.HeaderText = "Archivo Key";
             this.sArchkey.Name = "sArchkey";
             this.sArchkey.ReadOnly = true;
+            this.sArchkey.Width = 150;
             // 
             // sContrasena
             // 
@@ -6456,17 +6445,18 @@
             this.sNoCertifi.HeaderText = "No. Certificado";
             this.sNoCertifi.Name = "sNoCertifi";
             this.sNoCertifi.ReadOnly = true;
+            this.sNoCertifi.Width = 150;
             // 
             // dtValidoDe
             // 
-            this.dtValidoDe.DataPropertyName = "dtValidoDe";
+            this.dtValidoDe.DataPropertyName = "sValidoDe";
             this.dtValidoDe.HeaderText = "Valido De";
             this.dtValidoDe.Name = "dtValidoDe";
             this.dtValidoDe.ReadOnly = true;
             // 
             // dtValidoHasta
             // 
-            this.dtValidoHasta.DataPropertyName = "dtValidoHasta";
+            this.dtValidoHasta.DataPropertyName = "sValidoHasta";
             this.dtValidoHasta.HeaderText = "Valido Hasta";
             this.dtValidoHasta.Name = "dtValidoHasta";
             this.dtValidoHasta.ReadOnly = true;
@@ -6697,7 +6687,7 @@
             // tbpActualizarCertificado
             // 
             this.tbpActualizarCertificado.Controls.Add(this.label188);
-            this.tbpActualizarCertificado.Controls.Add(this.button2);
+            this.tbpActualizarCertificado.Controls.Add(this.btnUpdateExaminarCarpetaCErtificados);
             this.tbpActualizarCertificado.Controls.Add(this.txtUpdateFolderCertificados);
             this.tbpActualizarCertificado.Controls.Add(this.label181);
             this.tbpActualizarCertificado.Controls.Add(this.txtUpdateValidoHasta);
@@ -6706,13 +6696,13 @@
             this.tbpActualizarCertificado.Controls.Add(this.txtUpdateNoCertificado);
             this.tbpActualizarCertificado.Controls.Add(this.label183);
             this.tbpActualizarCertificado.Controls.Add(this.label184);
-            this.tbpActualizarCertificado.Controls.Add(this.button3);
+            this.tbpActualizarCertificado.Controls.Add(this.btnUpdateExaminarKey);
             this.tbpActualizarCertificado.Controls.Add(this.btnUpdateCertificado);
             this.tbpActualizarCertificado.Controls.Add(this.label185);
             this.tbpActualizarCertificado.Controls.Add(this.cmbUpdateSucursalCertificado);
             this.tbpActualizarCertificado.Controls.Add(this.txtUpdateContraseña);
             this.tbpActualizarCertificado.Controls.Add(this.label186);
-            this.tbpActualizarCertificado.Controls.Add(this.button5);
+            this.tbpActualizarCertificado.Controls.Add(this.btnUpdateExaminarCertificado);
             this.tbpActualizarCertificado.Controls.Add(this.txtUpdateKey);
             this.tbpActualizarCertificado.Controls.Add(this.txtUpdateCertificado);
             this.tbpActualizarCertificado.Controls.Add(this.label187);
@@ -6722,6 +6712,199 @@
             this.tbpActualizarCertificado.TabIndex = 32;
             this.tbpActualizarCertificado.Text = "Actualizar Certificado";
             this.tbpActualizarCertificado.UseVisualStyleBackColor = true;
+            // 
+            // label188
+            // 
+            this.label188.AutoSize = true;
+            this.label188.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label188.Location = new System.Drawing.Point(87, 172);
+            this.label188.Name = "label188";
+            this.label188.Size = new System.Drawing.Size(28, 13);
+            this.label188.TabIndex = 163;
+            this.label188.Text = "KEY";
+            // 
+            // btnUpdateExaminarCarpetaCErtificados
+            // 
+            this.btnUpdateExaminarCarpetaCErtificados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateExaminarCarpetaCErtificados.Location = new System.Drawing.Point(800, 68);
+            this.btnUpdateExaminarCarpetaCErtificados.Name = "btnUpdateExaminarCarpetaCErtificados";
+            this.btnUpdateExaminarCarpetaCErtificados.Size = new System.Drawing.Size(107, 24);
+            this.btnUpdateExaminarCarpetaCErtificados.TabIndex = 162;
+            this.btnUpdateExaminarCarpetaCErtificados.Text = "EXAMINAR";
+            this.btnUpdateExaminarCarpetaCErtificados.UseVisualStyleBackColor = true;
+            this.btnUpdateExaminarCarpetaCErtificados.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // txtUpdateFolderCertificados
+            // 
+            this.txtUpdateFolderCertificados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateFolderCertificados.Location = new System.Drawing.Point(494, 69);
+            this.txtUpdateFolderCertificados.Name = "txtUpdateFolderCertificados";
+            this.txtUpdateFolderCertificados.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateFolderCertificados.TabIndex = 161;
+            // 
+            // label181
+            // 
+            this.label181.AutoSize = true;
+            this.label181.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label181.Location = new System.Drawing.Point(491, 48);
+            this.label181.Name = "label181";
+            this.label181.Size = new System.Drawing.Size(156, 13);
+            this.label181.TabIndex = 160;
+            this.label181.Text = "CARPETA DE CERTIFICADOS";
+            // 
+            // txtUpdateValidoHasta
+            // 
+            this.txtUpdateValidoHasta.Enabled = false;
+            this.txtUpdateValidoHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateValidoHasta.Location = new System.Drawing.Point(494, 261);
+            this.txtUpdateValidoHasta.Name = "txtUpdateValidoHasta";
+            this.txtUpdateValidoHasta.Size = new System.Drawing.Size(303, 24);
+            this.txtUpdateValidoHasta.TabIndex = 158;
+            // 
+            // label182
+            // 
+            this.label182.AutoSize = true;
+            this.label182.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label182.Location = new System.Drawing.Point(491, 240);
+            this.label182.Name = "label182";
+            this.label182.Size = new System.Drawing.Size(85, 13);
+            this.label182.TabIndex = 159;
+            this.label182.Text = "VALIDO HASTA";
+            // 
+            // txtUpdateValidoDe
+            // 
+            this.txtUpdateValidoDe.Enabled = false;
+            this.txtUpdateValidoDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateValidoDe.Location = new System.Drawing.Point(497, 193);
+            this.txtUpdateValidoDe.Name = "txtUpdateValidoDe";
+            this.txtUpdateValidoDe.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateValidoDe.TabIndex = 157;
+            // 
+            // txtUpdateNoCertificado
+            // 
+            this.txtUpdateNoCertificado.Enabled = false;
+            this.txtUpdateNoCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateNoCertificado.Location = new System.Drawing.Point(497, 132);
+            this.txtUpdateNoCertificado.Name = "txtUpdateNoCertificado";
+            this.txtUpdateNoCertificado.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateNoCertificado.TabIndex = 155;
+            // 
+            // label183
+            // 
+            this.label183.AutoSize = true;
+            this.label183.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label183.Location = new System.Drawing.Point(494, 172);
+            this.label183.Name = "label183";
+            this.label183.Size = new System.Drawing.Size(64, 13);
+            this.label183.TabIndex = 156;
+            this.label183.Text = "VALIDO DE";
+            // 
+            // label184
+            // 
+            this.label184.AutoSize = true;
+            this.label184.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label184.Location = new System.Drawing.Point(494, 111);
+            this.label184.Name = "label184";
+            this.label184.Size = new System.Drawing.Size(100, 13);
+            this.label184.TabIndex = 154;
+            this.label184.Text = "NO. CERTIFICADO";
+            // 
+            // btnUpdateExaminarKey
+            // 
+            this.btnUpdateExaminarKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateExaminarKey.Location = new System.Drawing.Point(396, 194);
+            this.btnUpdateExaminarKey.Name = "btnUpdateExaminarKey";
+            this.btnUpdateExaminarKey.Size = new System.Drawing.Size(95, 24);
+            this.btnUpdateExaminarKey.TabIndex = 153;
+            this.btnUpdateExaminarKey.Text = "EXAMINAR";
+            this.btnUpdateExaminarKey.UseVisualStyleBackColor = true;
+            this.btnUpdateExaminarKey.Click += new System.EventHandler(this.btnUpdateExaminarKey_Click);
+            // 
+            // btnUpdateCertificado
+            // 
+            this.btnUpdateCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateCertificado.Location = new System.Drawing.Point(800, 312);
+            this.btnUpdateCertificado.Name = "btnUpdateCertificado";
+            this.btnUpdateCertificado.Size = new System.Drawing.Size(107, 36);
+            this.btnUpdateCertificado.TabIndex = 152;
+            this.btnUpdateCertificado.Text = "ACTUALIZAR";
+            this.btnUpdateCertificado.UseVisualStyleBackColor = true;
+            this.btnUpdateCertificado.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label185
+            // 
+            this.label185.AutoSize = true;
+            this.label185.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label185.Location = new System.Drawing.Point(87, 49);
+            this.label185.Name = "label185";
+            this.label185.Size = new System.Drawing.Size(65, 13);
+            this.label185.TabIndex = 151;
+            this.label185.Text = "SUCURSAL";
+            // 
+            // cmbUpdateSucursalCertificado
+            // 
+            this.cmbUpdateSucursalCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUpdateSucursalCertificado.FormattingEnabled = true;
+            this.cmbUpdateSucursalCertificado.Location = new System.Drawing.Point(87, 70);
+            this.cmbUpdateSucursalCertificado.Name = "cmbUpdateSucursalCertificado";
+            this.cmbUpdateSucursalCertificado.Size = new System.Drawing.Size(303, 24);
+            this.cmbUpdateSucursalCertificado.TabIndex = 150;
+            this.cmbUpdateSucursalCertificado.Text = "Seleccione una opción";
+            // 
+            // txtUpdateContraseña
+            // 
+            this.txtUpdateContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateContraseña.Location = new System.Drawing.Point(87, 262);
+            this.txtUpdateContraseña.Name = "txtUpdateContraseña";
+            this.txtUpdateContraseña.Size = new System.Drawing.Size(303, 24);
+            this.txtUpdateContraseña.TabIndex = 147;
+            // 
+            // label186
+            // 
+            this.label186.AutoSize = true;
+            this.label186.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label186.Location = new System.Drawing.Point(87, 240);
+            this.label186.Name = "label186";
+            this.label186.Size = new System.Drawing.Size(81, 13);
+            this.label186.TabIndex = 149;
+            this.label186.Text = "CONTRASEÑA";
+            // 
+            // btnUpdateExaminarCertificado
+            // 
+            this.btnUpdateExaminarCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateExaminarCertificado.Location = new System.Drawing.Point(396, 133);
+            this.btnUpdateExaminarCertificado.Name = "btnUpdateExaminarCertificado";
+            this.btnUpdateExaminarCertificado.Size = new System.Drawing.Size(95, 24);
+            this.btnUpdateExaminarCertificado.TabIndex = 148;
+            this.btnUpdateExaminarCertificado.Text = "EXAMINAR";
+            this.btnUpdateExaminarCertificado.UseVisualStyleBackColor = true;
+            this.btnUpdateExaminarCertificado.Click += new System.EventHandler(this.btnUpdateExaminarCertificado_Click);
+            // 
+            // txtUpdateKey
+            // 
+            this.txtUpdateKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateKey.Location = new System.Drawing.Point(90, 194);
+            this.txtUpdateKey.Name = "txtUpdateKey";
+            this.txtUpdateKey.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateKey.TabIndex = 146;
+            // 
+            // txtUpdateCertificado
+            // 
+            this.txtUpdateCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateCertificado.Location = new System.Drawing.Point(90, 133);
+            this.txtUpdateCertificado.Name = "txtUpdateCertificado";
+            this.txtUpdateCertificado.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateCertificado.TabIndex = 145;
+            // 
+            // label187
+            // 
+            this.label187.AutoSize = true;
+            this.label187.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label187.Location = new System.Drawing.Point(87, 112);
+            this.label187.Name = "label187";
+            this.label187.Size = new System.Drawing.Size(78, 13);
+            this.label187.TabIndex = 144;
+            this.label187.Text = "CERTIFICADO";
             // 
             // ErrorProvider
             // 
@@ -6870,197 +7053,6 @@
             this.btnCustomersList.UseVisualStyleBackColor = false;
             this.btnCustomersList.Click += new System.EventHandler(this.btnCustomersList_Click);
             this.btnCustomersList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCustomersList_MouseClick);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(800, 68);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 24);
-            this.button2.TabIndex = 162;
-            this.button2.Text = "EXAMINAR";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // txtUpdateFolderCertificados
-            // 
-            this.txtUpdateFolderCertificados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdateFolderCertificados.Location = new System.Drawing.Point(494, 69);
-            this.txtUpdateFolderCertificados.Name = "txtUpdateFolderCertificados";
-            this.txtUpdateFolderCertificados.Size = new System.Drawing.Size(300, 24);
-            this.txtUpdateFolderCertificados.TabIndex = 161;
-            // 
-            // label181
-            // 
-            this.label181.AutoSize = true;
-            this.label181.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label181.Location = new System.Drawing.Point(491, 48);
-            this.label181.Name = "label181";
-            this.label181.Size = new System.Drawing.Size(156, 13);
-            this.label181.TabIndex = 160;
-            this.label181.Text = "CARPETA DE CERTIFICADOS";
-            // 
-            // txtUpdateValidoHasta
-            // 
-            this.txtUpdateValidoHasta.Enabled = false;
-            this.txtUpdateValidoHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdateValidoHasta.Location = new System.Drawing.Point(494, 261);
-            this.txtUpdateValidoHasta.Name = "txtUpdateValidoHasta";
-            this.txtUpdateValidoHasta.Size = new System.Drawing.Size(303, 24);
-            this.txtUpdateValidoHasta.TabIndex = 158;
-            // 
-            // label182
-            // 
-            this.label182.AutoSize = true;
-            this.label182.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label182.Location = new System.Drawing.Point(491, 240);
-            this.label182.Name = "label182";
-            this.label182.Size = new System.Drawing.Size(85, 13);
-            this.label182.TabIndex = 159;
-            this.label182.Text = "VALIDO HASTA";
-            // 
-            // txtUpdateValidoDe
-            // 
-            this.txtUpdateValidoDe.Enabled = false;
-            this.txtUpdateValidoDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdateValidoDe.Location = new System.Drawing.Point(497, 193);
-            this.txtUpdateValidoDe.Name = "txtUpdateValidoDe";
-            this.txtUpdateValidoDe.Size = new System.Drawing.Size(300, 24);
-            this.txtUpdateValidoDe.TabIndex = 157;
-            // 
-            // txtUpdateNoCertificado
-            // 
-            this.txtUpdateNoCertificado.Enabled = false;
-            this.txtUpdateNoCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdateNoCertificado.Location = new System.Drawing.Point(497, 132);
-            this.txtUpdateNoCertificado.Name = "txtUpdateNoCertificado";
-            this.txtUpdateNoCertificado.Size = new System.Drawing.Size(300, 24);
-            this.txtUpdateNoCertificado.TabIndex = 155;
-            // 
-            // label183
-            // 
-            this.label183.AutoSize = true;
-            this.label183.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label183.Location = new System.Drawing.Point(494, 172);
-            this.label183.Name = "label183";
-            this.label183.Size = new System.Drawing.Size(64, 13);
-            this.label183.TabIndex = 156;
-            this.label183.Text = "VALIDO DE";
-            // 
-            // label184
-            // 
-            this.label184.AutoSize = true;
-            this.label184.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label184.Location = new System.Drawing.Point(494, 111);
-            this.label184.Name = "label184";
-            this.label184.Size = new System.Drawing.Size(100, 13);
-            this.label184.TabIndex = 154;
-            this.label184.Text = "NO. CERTIFICADO";
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(396, 194);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 24);
-            this.button3.TabIndex = 153;
-            this.button3.Text = "EXAMINAR";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateCertificado
-            // 
-            this.btnUpdateCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateCertificado.Location = new System.Drawing.Point(800, 312);
-            this.btnUpdateCertificado.Name = "btnUpdateCertificado";
-            this.btnUpdateCertificado.Size = new System.Drawing.Size(107, 36);
-            this.btnUpdateCertificado.TabIndex = 152;
-            this.btnUpdateCertificado.Text = "ACTUALIZAR";
-            this.btnUpdateCertificado.UseVisualStyleBackColor = true;
-            this.btnUpdateCertificado.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // label185
-            // 
-            this.label185.AutoSize = true;
-            this.label185.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label185.Location = new System.Drawing.Point(87, 49);
-            this.label185.Name = "label185";
-            this.label185.Size = new System.Drawing.Size(65, 13);
-            this.label185.TabIndex = 151;
-            this.label185.Text = "SUCURSAL";
-            // 
-            // cmbUpdateSucursalCertificado
-            // 
-            this.cmbUpdateSucursalCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbUpdateSucursalCertificado.FormattingEnabled = true;
-            this.cmbUpdateSucursalCertificado.Location = new System.Drawing.Point(87, 70);
-            this.cmbUpdateSucursalCertificado.Name = "cmbUpdateSucursalCertificado";
-            this.cmbUpdateSucursalCertificado.Size = new System.Drawing.Size(303, 24);
-            this.cmbUpdateSucursalCertificado.TabIndex = 150;
-            this.cmbUpdateSucursalCertificado.Text = "Seleccione una opción";
-            // 
-            // txtUpdateContraseña
-            // 
-            this.txtUpdateContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdateContraseña.Location = new System.Drawing.Point(87, 262);
-            this.txtUpdateContraseña.Name = "txtUpdateContraseña";
-            this.txtUpdateContraseña.Size = new System.Drawing.Size(303, 24);
-            this.txtUpdateContraseña.TabIndex = 147;
-            this.txtUpdateContraseña.Text = "12345678a";
-            // 
-            // label186
-            // 
-            this.label186.AutoSize = true;
-            this.label186.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label186.Location = new System.Drawing.Point(87, 240);
-            this.label186.Name = "label186";
-            this.label186.Size = new System.Drawing.Size(81, 13);
-            this.label186.TabIndex = 149;
-            this.label186.Text = "CONTRASEÑA";
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(396, 133);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(95, 24);
-            this.button5.TabIndex = 148;
-            this.button5.Text = "EXAMINAR";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // txtUpdateKey
-            // 
-            this.txtUpdateKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdateKey.Location = new System.Drawing.Point(90, 194);
-            this.txtUpdateKey.Name = "txtUpdateKey";
-            this.txtUpdateKey.Size = new System.Drawing.Size(300, 24);
-            this.txtUpdateKey.TabIndex = 146;
-            // 
-            // txtUpdateCertificado
-            // 
-            this.txtUpdateCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdateCertificado.Location = new System.Drawing.Point(90, 133);
-            this.txtUpdateCertificado.Name = "txtUpdateCertificado";
-            this.txtUpdateCertificado.Size = new System.Drawing.Size(300, 24);
-            this.txtUpdateCertificado.TabIndex = 145;
-            // 
-            // label187
-            // 
-            this.label187.AutoSize = true;
-            this.label187.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label187.Location = new System.Drawing.Point(87, 112);
-            this.label187.Name = "label187";
-            this.label187.Size = new System.Drawing.Size(78, 13);
-            this.label187.TabIndex = 144;
-            this.label187.Text = "CERTIFICADO";
-            // 
-            // label188
-            // 
-            this.label188.AutoSize = true;
-            this.label188.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label188.Location = new System.Drawing.Point(87, 172);
-            this.label188.Name = "label188";
-            this.label188.Size = new System.Drawing.Size(28, 13);
-            this.label188.TabIndex = 163;
-            this.label188.Text = "KEY";
             // 
             // FrmAdministrador
             // 
@@ -7667,17 +7659,6 @@
         private System.Windows.Forms.Button btnRegistrarSucursal;
         private System.Windows.Forms.Label lblCantidadSucursal;
         private System.Windows.Forms.DataGridView dgvDatosSucursal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sEstSucursal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iNumCertificado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sPais;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iNumExterior;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.TextBox txtBuscarSucursal;
         private System.Windows.Forms.Label label148;
         private System.Windows.Forms.ComboBox cmbStatusSucursal;
@@ -7743,13 +7724,6 @@
         private System.Windows.Forms.Button btnBorrarCertificado;
         private System.Windows.Forms.Button btnActualizarCertificado;
         private System.Windows.Forms.Button btnRegistrarCertificado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pCertificado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sArchCer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sArchkey;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sContrasena;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sNoCertifi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtValidoDe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtValidoHasta;
         private System.Windows.Forms.Button btnAddExaminarCarpetaCertificados;
         private System.Windows.Forms.TextBox txtAddFolderCertificados;
         private System.Windows.Forms.Label label180;
@@ -7770,7 +7744,7 @@
         private System.Windows.Forms.TextBox txtAddCertificado;
         private System.Windows.Forms.Label label175;
         private System.Windows.Forms.Label label176;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnUpdateExaminarCarpetaCErtificados;
         private System.Windows.Forms.TextBox txtUpdateFolderCertificados;
         private System.Windows.Forms.Label label181;
         private System.Windows.Forms.TextBox txtUpdateValidoHasta;
@@ -7779,16 +7753,32 @@
         private System.Windows.Forms.TextBox txtUpdateNoCertificado;
         private System.Windows.Forms.Label label183;
         private System.Windows.Forms.Label label184;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnUpdateExaminarKey;
         private System.Windows.Forms.Button btnUpdateCertificado;
         private System.Windows.Forms.Label label185;
         private System.Windows.Forms.ComboBox cmbUpdateSucursalCertificado;
         private System.Windows.Forms.TextBox txtUpdateContraseña;
         private System.Windows.Forms.Label label186;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnUpdateExaminarCertificado;
         private System.Windows.Forms.TextBox txtUpdateKey;
         private System.Windows.Forms.TextBox txtUpdateCertificado;
         private System.Windows.Forms.Label label187;
         private System.Windows.Forms.Label label188;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pCertificado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sArchCer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sArchkey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sContrasena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sNoCertifi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtValidoDe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtValidoHasta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iNumCertificado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sPais;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
     }
 }

@@ -18,7 +18,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Certificados.Where(r => r.bStatus == status && r.fkSucursal == nSucursal).ToList();
+                    return ctx.Certificados.Where(r => r.bStatus == status).ToList();
                 }
             }
             catch (Exception)
@@ -28,13 +28,15 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static void RegistrarNuevoCertificado(Certificado nCertificado)
+        public static void RegistrarNuevoCertificado(Certificado nCertificado, Sucursal nSucursal)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    ctx.Certificados.Add(nCertificado);
+                    nCertificado.fkSucursal = nSucursal;
+                    ctx.Sucursales.Attach(nSucursal);
+                    ctx.Entry(nCertificado).State = EntityState.Added;
                     ctx.SaveChanges();
                 }
             }
@@ -66,7 +68,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     Certificado nCertificado = ManejoCertificado.getById(pkCertificado);
-                   
+                    nCertificado.bStatus = false;
 
                     ctx.Entry(nCertificado).State = EntityState.Modified;
                     ctx.SaveChanges();
@@ -78,28 +80,14 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        //public static List<Certificado> Buscar(string valor, Boolean Status)
-        //{
-        //    try
-        //    {
-        //        using (var ctx = new DataModel())
-        //        {
-        //            return //ctx.Certificados.Where(r => r..Contains(valor)).ToList();
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
-        public static void Modificar(Certificado nCertificado)
+        public static void Modificar(Certificado nCertificado, Sucursal nSucursal)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    ctx.Certificados.Attach(nCertificado);
+                    nCertificado.fkSucursal = nSucursal;
+                    ctx.Sucursales.Attach(nSucursal);
                     ctx.Entry(nCertificado).State = EntityState.Modified;
                     ctx.SaveChanges();
                 }
