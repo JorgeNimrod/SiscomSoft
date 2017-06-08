@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "AgregarImpuesto";
+}
+
+<div class="container">
+    @using (Html.BeginForm("GuardarImpuesto", "Home", FormMethod.Post))
+    {
+        <input type="hidden" name="txtID" />
+        <div class="form-group">
+            <label class="control-label col-xs-3">Tipo de impuesto: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtTipoImpuesto" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Impuesto: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtImpuesto" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Tasa de impuesto: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtTasaImpuesto" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <input type="reset" value="Limpiar" class="btn btn-default" />
+            </div>
+        </div>
+
+    }
+</div>

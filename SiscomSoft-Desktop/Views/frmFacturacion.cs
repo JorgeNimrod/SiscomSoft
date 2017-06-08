@@ -42,7 +42,7 @@ namespace SiscomSoft_Desktop.Views
 
         public void cargarDetalleFactura()
         {
-            Producto nProducto = ManejoProducto.getById(frmBuscarProductos.PKPRODUCTO);
+            Producto nProducto = ManejoProducto.getById(FrmBuscarProductos.PKPRODUCTO);
             if (nProducto != null)
             {
                 DataGridViewRow row = (DataGridViewRow)dgvDatosProducto.Rows[0].Clone();
@@ -61,17 +61,16 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        public void cargarCaliente()
-        {
-            Cliente nCliente = ManejoCliente.getById(frmBuscarClientes.PKCLIENTE);
-            this.txtRFC.Text = nCliente.sRfc;
-            this.txtNombre.Text = nCliente.sNombre;
-            this.txtDireccion.Text = nCliente.sCalle;
-            this.txtTelefono.Text = nCliente.sTelMovil;
-            this.cmbMoneda.SelectedValue = nCliente.sTipoPago;
-            this.txtCondicionesDeVenta.Text = nCliente.sConPago;
-            //TODO: Preguntar como se manejara el tipo de cambio, si lo pongo o no: no es obligatorio
-        }
+        //public void cargarCaliente()
+        //{
+        //    Cliente nCliente = ManejoCliente.getById(frmBuscarClientes.PKCLIENTE);
+        //    this.txtRFC.Text = nCliente.sRfc;
+        //    this.txtNombre.Text = nCliente.sNombre;
+        //    this.txtDireccion.Text = nCliente.sCalle;
+        //    this.txtTelefono.Text = nCliente.sTelMovil;
+        //    this.cmbMoneda.SelectedValue = nCliente.sTipoPago;
+        //    this.txtCondicionesDeVenta.Text = nCliente.sConPago;
+        //}
 
         public void CalcularTotales()
         {
@@ -475,16 +474,16 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            frmBuscarProductos v = new frmBuscarProductos(this);
-            v.ShowDialog();
+            //frmBuscarProductosNOSIRVE v = new frmBuscarProductosNOSIRVE(this);
+            //v.ShowDialog();
         }
 
         private void frmFacturacion_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F1)
             {
-                frmBuscarClientes nVentana = new frmBuscarClientes(this);
-                nVentana.ShowDialog();
+                //frmBuscarClientes nVentana = new frmBuscarClientes(this);
+                //nVentana.ShowDialog();
                 e.Handled = true;
             }
         }
@@ -522,6 +521,11 @@ namespace SiscomSoft_Desktop.Views
         }
 
         private void btnTimFactura_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvDatosProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

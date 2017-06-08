@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "ActualizarUsuario";
+    SiscomSoft.Models.Usuario Dato = ViewBag.id;
+}
+
+<div class="container">
+    @using (Html.BeginForm("VerificarUsuario", "Home", FormMethod.Get))
+    {
+        <input type="hidden" name="txtpkUsuario" value="@Dato.pkUsuario" />
+
+        <div class="form-group">
+            <label class="control-label col-xs-12">RFC</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sRfc" value="@Dato.sRfc" name="txtRfc">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Usuario</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sUsuario" value="@Dato.sUsuario" name="txtUsuario">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Nombre</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sNombre" value="@Dato.sNombre" name="txtNombre">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Numero</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sNumero" value="@Dato.sNumero" name="txtNumero">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Correo</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sCorreo" value="@Dato.sCorreo" name="txtCorreo">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Comentario</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sComentario" value="@Dato.sComentario" name="txtComentario">
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="submit" value="Actualizar" class="btn btn-primary" />
+                <input type="reset" value="Limpiar" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+
+

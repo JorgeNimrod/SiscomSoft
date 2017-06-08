@@ -16,7 +16,7 @@ namespace SiscomSoft.Controller
         public static UsuarioHelper Autentificar(string rfc, String sPassword)
         {
             UsuarioHelper uHelper = new UsuarioHelper();
-            Usuario user = BuscarPorEmail(rfc);
+            Usuario user = BuscarPorRFC(rfc);
             if (user != null)
             {
                 if (user.sContrasena == LoginTool.GetMD5(sPassword))
@@ -32,7 +32,7 @@ namespace SiscomSoft.Controller
             return uHelper;
         }
 
-        private static Usuario BuscarPorEmail(string empleado)
+        private static Usuario BuscarPorRFC(string empleado)
         {
             try
             {

@@ -15,19 +15,25 @@ namespace SiscomSoft.Models
         //TODO: revisar bien la info que se guardara en esta tabla para poner bien los campos en la bd
         [Key]
         public int pkCertificado { get; set; }
-        
-        public string sCSD { get; set; }
-        
-        public string sCertificado { get; set; }
-        
-        public string sKey { get; set; }
 
-        // Vigencia CSD
-        public string sContraseña { get; set; }
+        // llave foranea de sucursal
+        public virtual Sucursal fkSucursal { get; set; }
+        
+        public string sArchCer { get; set; }
+        
+        public string sArchkey { get; set; }
+        
+        public string sContrasena { get; set; }
+
+        public string sNoCertifi { get; set; }
+
+        public DateTime dtValidoDe { get; set; }
+
+        public DateTime dtValidoHasta { get; set; }
+
+        public string sRutaCer { get; set; }
 
         public Boolean bStatus { get; set; }
-
-        public ICollection<Empresa> Empresas { get; set; }
 
         public Certificado()
         {

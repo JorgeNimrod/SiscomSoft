@@ -11,19 +11,12 @@ namespace SiscomSoft.Controller
 {
    public class ManejoEmpresa
     {
-        public static void RegistrarNuevaEmpresa(Empresa nEmpresa, int pkCertificado, int pkSucursal)
+        public static void registrarnuevaempresa(Empresa nEmpresa)
         {
-            Certificado certificado = ManejoCertificado.getById(pkCertificado);
-            Sucursal sucursal = ManejoSucursal.getById(pkSucursal);
-
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nEmpresa.fkSucursal = sucursal;
-                    nEmpresa.fkCertificado = certificado;
-                    ctx.Certificados.Attach(certificado);
-                    ctx.Sucursales.Attach(sucursal);
                     ctx.Empresas.Add(nEmpresa);
                     ctx.SaveChanges();
                 }
@@ -34,13 +27,31 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        public static List<Empresa> getAll(Boolean status)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Empresas.Where(r => r.bStatus == status).ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static Empresa getById(int pkEmpresa)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Empresas.Where(r => r.bStatus == true && r.pkEmpresa == pkEmpresa).FirstOrDefault();
+                    return ctx.Empresas
+                        .Where(r => r.bStatus == true && r.pkEmpresa == pkEmpresa).FirstOrDefault();
                 }
             }
             catch (Exception)

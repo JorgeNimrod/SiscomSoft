@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "ActualizarEmpresa";
+    SiscomSoft.Models.Empresa Dato = ViewBag.id;
+
+}
+
+<div class="container">
+    @using (Html.BeginForm("VerificarEmpresa", "Home", FormMethod.Get))
+    {
+        <input type="hidden" name="txtpkEmpresa" value="@Dato.pkEmpresa" />
+
+        <div class="form-group">
+            <label class="control-label col-xs-12">Razon Social</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sRazonSocial" value="@Dato.sRazonSocial" name="txtRazonSocial">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Nombre comercial</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sNomComercial" value="@Dato.sNomComercial" name="txtNomComercial">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Nombre contacto</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sNomContacto" value="@Dato.sNomContacto" name="txtNomContacto">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Regimen fiscal</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sRegFiscal" value="@Dato.sRegFiscal" name="txtRegSocial">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Teléfono</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sTelefono" value="@Dato.sTelefono" name="txtTelefono">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Correo</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sCorreo" value="@Dato.sCorreo" name="txtCorreo">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Pais</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sPais" value="@Dato.sPais" name="txtPais">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Estado</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sEstado" value="@Dato.sEstado" name="txtEstado">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Municipio</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sMunicipio" value="@Dato.sMunicipio" name="txtMunicipio">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Colonia</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sColonia" value="@Dato.sColonia" name="txtColonia">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Localidad</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sLocalidad" value="@Dato.sLocalidad" name="txtLocalidad">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Calle</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sCalle" value="@Dato.sCalle" name="txtCalle">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Numero exterior</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.iNumExterior" value="@Dato.iNumExterior" name="txtNumExterior">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Numero interior</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.iNumInterir" value="@Dato.iNumInterir" name="txtNumInterior">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12">Codigo postal</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.iCodPostal" value="@Dato.iCodPostal" name="txtCP">
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="submit" value="Actualizar" class="btn btn-primary" />
+                <input type="reset" value="Limpiar" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+

@@ -11,16 +11,26 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoProducto
     {
-        public static void RegistrarNuevoProducto(Producto nProducto, int pkImpuesto)
+        public static void RegistrarNuevoProducto(Producto nProducto, int pkImpuesto,int pkPrecio,int pkCatalogo, int pkCategoria)
         {
             Impuesto impuesto = ManejoImpuesto.getById(pkImpuesto);
+            Precio precio = ManejoPrecio.getById(pkImpuesto);
+            Catalogo catalogo = ManejoCatalogo.getById(pkCatalogo);
+            Categoria categoria = ManejoCategoria.getById(pkCategoria);
 
             try
             {
                 using (var ctx = new DataModel())
                 {
                     nProducto.fkImpuesto = impuesto;
+                    nProducto.fkPrecio = precio;
+                    nProducto.fkCatalogo = catalogo;
+                    nProducto.fkCategoria = categoria;
                     ctx.Productos.Add(nProducto);
+                    ctx.Impuestos.Attach(impuesto);
+                    ctx.Precios.Attach(precio);
+                    ctx.Catalogos.Attach(catalogo);
+                    ctx.Categorias.Attach(categoria);
                     ctx.SaveChanges();
                 }
             }
@@ -38,7 +48,7 @@ namespace SiscomSoft.Controller
                 {
                     return ctx.Productos.Include("fkImpuesto")
                         .Include("fkCategoria")
-                        .Include("fkCatalogoSAT")
+                        .Include("fkCatalogo")
                         .Include("fkPrecio")
                         .Where(r => r.bStatus == true && r.pkProducto == pkProducto)
                         .FirstOrDefault();
@@ -78,9 +88,9 @@ namespace SiscomSoft.Controller
                     return ctx.Productos
                         .Include("fkImpuesto")
                         .Include("fkCategoria")
-                        .Include("fkCatalogoSAT")
+                        .Include("fkCatalogo")
                         .Include("fkPrecio")
-                        .Where(r => r.bStatus == Status && r.sMarca.Contains(valor))
+                        .Where(r => r.bStatus == Status && r.sDescripcion.Contains(valor))
                         .ToList();
                 }
             }

@@ -41,8 +41,6 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<Factura> Facturas { get; set; }
-
         public Usuario()
         {
             this.bStatus = true;

@@ -11,6 +11,23 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoCertificado
     {
+        public static List<Certificado> Buscar(int pkSucursal, Boolean status)
+        {
+            Sucursal nSucursal = ManejoSucursal.getById(pkSucursal);
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Certificados.Where(r => r.bStatus == status && r.fkSucursal == nSucursal).ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static void RegistrarNuevoCertificado(Certificado nCertificado)
         {
             try
@@ -61,21 +78,21 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static List<Certificado> Buscar(string valor, Boolean Status)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    return ctx.Certificados.Where(r => r.sCertificado.Contains(valor)).ToList();
-                }
-            }
-            catch (Exception)
-            {
+        //public static List<Certificado> Buscar(string valor, Boolean Status)
+        //{
+        //    try
+        //    {
+        //        using (var ctx = new DataModel())
+        //        {
+        //            return //ctx.Certificados.Where(r => r..Contains(valor)).ToList();
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
         public static void Modificar(Certificado nCertificado)
         {
             try

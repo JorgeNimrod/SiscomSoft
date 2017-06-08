@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Empresas";
+    List<SiscomSoft.Models.Empresa> dato = ViewBag.dato;
+}
+
+<div class="col-xs-12">
+    <div class="col-xs-12">
+        <h2>Empresas</h2>
+        <h2 class="col-xs-9">&nbsp;</h2> <h2 class="col-xs-3"><a href="~/Home/AgregarEmpresa ">Agregar</a></h2>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table table-condensed col-xs-12">
+                    <thead>
+                        <tr>
+                            <td class="col-xs-1">Razon Social</td>
+                            <td class="col-xs-1">Nombre comercial</td>
+                            <td class="col-xs-1">Nombre contacto</td>
+                            <td class="col-xs-1">Regimen fiscal</td>
+                            <td class="col-xs-1">Telefono</td>
+                            <td class="col-xs-1">Correo</td>
+                            <td class="col-xs-1">Pais</td>
+                            <td class="col-xs-1">Estado</td>
+                            <td class="col-xs-1">Municipio</td>
+                            <td class="col-xs-1">Colonia</td>
+                            <td class="col-xs-1">Localidad</td>
+                            <td class="col-xs-1">Calle</td>
+                            <td class="col-xs-1">Numero Exterior</td>
+                            <td class="col-xs-1">Numero Interior</td>
+                            <td class="col-xs-1">C.P.</td>
+                        </tr>
+                    </thead>
+            </div>
+            <!--Aqui se utiliza el forech para rellenar el cuadro-->
+            @foreach (SiscomSoft.Models.Empresa item in dato)
+            {
+                <tr>
+                    
+                    <td>@item.sRazonSocial</td>
+                    <td>@item.sNomComercial</td>
+                    <td>@item.sNomContacto</td>
+                    <td>@item.sRegFiscal</td>
+                    <td>@item.sTelefono</td>
+                    <td>@item.sCorreo</td>
+                    <td>@item.sPais</td>
+                    <td>@item.sEstado</td>
+                    <td>@item.sMunicipio</td>
+                    <td>@item.sColonia</td>
+                    <td>@item.sLocalidad</td>
+                    <td>@item.sCalle</td>
+                    <td>@item.iNumExterior</td>
+                    <td>@item.iNumInterir</td>
+                    <td>@item.iCodPostal</td>
+                    <td>
+                        <a href="~/Home/ActualizarEmpresa/@item.pkEmpresa">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        </a>
+                        <a href="~/Home/BorrarEmpresa/@item.pkEmpresa">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+            </table>
+        </div>
+    </div>
+</div>
+
