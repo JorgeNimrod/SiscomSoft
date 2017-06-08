@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "BorrarImpuesto";
+    SiscomSoft.Models.Impuesto Dato = ViewBag.Dato;
+}
+
+<div class="container">
+    <h3> Datos a borrar </h3>
+    <div class="alert alert-success col-xs-12" role="alert">
+        <ul>
+            <li>Nombre: <strong>@Dato.sImpuesto</strong></li>
+            <li>Apellido: <strong>@Dato.sTipoImpuesto</strong></li>
+            <li>Apellido: <strong>@Dato.dTasaImpuesto</strong></li>
+        </ul>
+    </div>
+    @using (Html.BeginForm("EliminarImpuesto", "Home", FormMethod.Post))
+    {
+        <input type="hidden" value="@Dato.pkImpuesto" name="txtId" />
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <input type="submit" value="Borrar" class="btn btn-danger" />
+                    <a href="~/Home" class="btn btn-default"></a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

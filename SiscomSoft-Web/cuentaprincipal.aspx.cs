@@ -32,5 +32,10 @@ namespace SiscomSoft_Web
 
             }
         }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
     }
 }

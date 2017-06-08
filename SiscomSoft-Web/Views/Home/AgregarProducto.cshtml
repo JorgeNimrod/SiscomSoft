@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "AgregarProducto";
+}
+
+<div class="container">
+    @using (Html.BeginForm("GuardarProducto", "Home", FormMethod.Post))
+    {
+        <input type="hidden" name="txtID" />
+        <div class="form-group">
+            <label class="control-label col-xs-3">Clave: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtClaveProd" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Descripción: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtDescripcion" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Marca: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtMarca" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Costo: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtCosto" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Descuento: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtDescuento" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Foto: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtFoto" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Caducidad: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtCaducidad" class="form-control" placeholder="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Lote: </label>
+            <div class="col-xs-12">
+                <input type="text" name="txtLote" class="form-control" placeholder="" />
+            </div>
+            </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <input type="reset" value="Limpiar" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+

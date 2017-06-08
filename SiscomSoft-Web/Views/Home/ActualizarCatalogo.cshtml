@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "ActualizarCatalogo";
+    SiscomSoft.Models.Catalogo Dato = ViewBag.id;
+}
+
+<div class="container">
+    @using (Html.BeginForm("VerificarCatalogo", "Home", FormMethod.Get))
+    {
+        <input type="hidden" name="txtpkCatalogo" value="@Dato.pkCatalogo" />
+
+        <div class="form-group">
+            <label class="control-label col-xs-12">UDM</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sUDM" value="@Dato.sUDM" name="txtUDM">
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="submit" value="Actualizar" class="btn btn-primary" />
+                <input type="reset" value="Limpiar" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+
