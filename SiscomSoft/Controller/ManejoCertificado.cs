@@ -28,14 +28,12 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static void RegistrarNuevoCertificado(Certificado nCertificado, Sucursal nSucursal)
+        public static void RegistrarNuevoCertificado(Certificado nCertificado)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nCertificado.fkSucursal = nSucursal;
-                    ctx.Sucursales.Attach(nSucursal);
                     ctx.Entry(nCertificado).State = EntityState.Added;
                     ctx.SaveChanges();
                 }
@@ -86,9 +84,6 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nCertificado.fkSucursal = nSucursal;
-                    ctx.Sucursales.Attach(nSucursal);
-                    ctx.Certificados.Attach(nCertificado);
                     ctx.Entry(nCertificado).State = EntityState.Modified;
                     ctx.SaveChanges();
                 }

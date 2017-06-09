@@ -11,19 +11,18 @@ namespace SiscomSoft.Controller
 {
    public class ManejoSucursal
     {
-        public static void RegistrarNuevaSucursal(Sucursal nSucursal, int pkEmpresa, int pkPreferencia)
+        public static void RegistrarNuevaSucursal(Sucursal nSucursal, Empresa nEmpresa, Preferencia nPreferencia, Certificado nCertificado)
         {
-            Preferencia preferencia = ManejoPreferencia.getById(pkPreferencia);
-            Empresa empresa = ManejoEmpresa.getById(pkEmpresa);
-
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nSucursal.fkPreferencia = preferencia;
-                    nSucursal.fkEmpresa = empresa;
-                    ctx.Empresas.Attach(empresa);
-                    ctx.Preferencias.Attach(preferencia);
+                    nSucursal.fkPreferencia = nPreferencia;
+                    nSucursal.fkEmpresa = nEmpresa;
+                    nSucursal.fkCertificado = nCertificado;
+                    ctx.Empresas.Attach(nEmpresa);
+                    ctx.Preferencias.Attach(nPreferencia);
+                    ctx.Certificados.Attach(nCertificado);
                     ctx.Sucursales.Add(nSucursal);
                     ctx.SaveChanges();
                 }

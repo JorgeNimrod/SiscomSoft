@@ -94,12 +94,15 @@ namespace SiscomSoft.Migrations
                         iNumExterior = c.Int(nullable: false),
                         iNumInterior = c.Int(nullable: false),
                         iCodPostal = c.Int(nullable: false),
+                        fkCertificado_pkCertificado = c.Int(),
                         fkEmpresa_pkEmpresa = c.Int(),
                         fkPreferencia_pkPreferencia = c.Int(),
                     })
                 .PrimaryKey(t => t.pkSucursal)
+                .ForeignKey("dbo.Certificados", t => t.fkCertificado_pkCertificado)
                 .ForeignKey("dbo.Empresas", t => t.fkEmpresa_pkEmpresa)
                 .ForeignKey("dbo.Preferencias", t => t.fkPreferencia_pkPreferencia)
+                .Index(t => t.fkCertificado_pkCertificado)
                 .Index(t => t.fkEmpresa_pkEmpresa)
                 .Index(t => t.fkPreferencia_pkPreferencia);
             
@@ -116,11 +119,8 @@ namespace SiscomSoft.Migrations
                         sValidoHasta = c.String(unicode: false),
                         sRutaArch = c.String(unicode: false),
                         bStatus = c.Boolean(nullable: false),
-                        fkSucursal_pkSucursal = c.Int(),
                     })
-                .PrimaryKey(t => t.pkCertificado)
-                .ForeignKey("dbo.Sucursales", t => t.fkSucursal_pkSucursal)
-                .Index(t => t.fkSucursal_pkSucursal);
+                .PrimaryKey(t => t.pkCertificado);
             
             CreateTable(
                 "dbo.Preferencias",
@@ -330,7 +330,7 @@ namespace SiscomSoft.Migrations
             DropForeignKey("dbo.Facturas", "fkImpuestos_pkImpuesto", "dbo.Impuestos");
             DropForeignKey("dbo.Sucursales", "fkPreferencia_pkPreferencia", "dbo.Preferencias");
             DropForeignKey("dbo.Sucursales", "fkEmpresa_pkEmpresa", "dbo.Empresas");
-            DropForeignKey("dbo.Certificados", "fkSucursal_pkSucursal", "dbo.Sucursales");
+            DropForeignKey("dbo.Sucursales", "fkCertificado_pkCertificado", "dbo.Certificados");
             DropForeignKey("dbo.Facturas", "fkEmpresa_pkEmpresa", "dbo.Empresas");
             DropForeignKey("dbo.Facturas", "fkCatalogo_pkCatalogo", "dbo.Catalogos");
             DropIndex("dbo.Usuarios", new[] { "fkRol_pkRol" });
@@ -343,9 +343,9 @@ namespace SiscomSoft.Migrations
             DropIndex("dbo.Productos", new[] { "fkImpuesto_pkImpuesto" });
             DropIndex("dbo.Productos", new[] { "fkCategoria_pkCategoria" });
             DropIndex("dbo.Productos", new[] { "fkCatalogo_pkCatalogo" });
-            DropIndex("dbo.Certificados", new[] { "fkSucursal_pkSucursal" });
             DropIndex("dbo.Sucursales", new[] { "fkPreferencia_pkPreferencia" });
             DropIndex("dbo.Sucursales", new[] { "fkEmpresa_pkEmpresa" });
+            DropIndex("dbo.Sucursales", new[] { "fkCertificado_pkCertificado" });
             DropIndex("dbo.Facturas", new[] { "Cliente_pkCliente" });
             DropIndex("dbo.Facturas", new[] { "fkImpuestos_pkImpuesto" });
             DropIndex("dbo.Facturas", new[] { "fkEmpresa_pkEmpresa" });

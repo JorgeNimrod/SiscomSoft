@@ -41,13 +41,14 @@ namespace SiscomSoft.Models
 
         public int iCodPostal { get; set; }
 
-        // llave foranea de preferencias
-        public virtual Preferencia fkPreferencia { get; set; }
-
         // llave foranea de Empresa
         public virtual Empresa fkEmpresa { get; set; }
 
-        public ICollection<Certificado> Certificados { get; set; }
+        // llave foranea de preferencias
+        public virtual Preferencia fkPreferencia { get; set; }
+
+        // llave foranea de certificado
+        public virtual Certificado fkCertificado { get; set; }
 
         public Sucursal()
         {
