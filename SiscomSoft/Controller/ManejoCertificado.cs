@@ -78,7 +78,7 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static void Modificar(Certificado nCertificado, Sucursal nSucursal)
+        public static void Modificar(Certificado nCertificado)
         {
             try
             {

@@ -41,6 +41,7 @@ namespace SiscomSoft.Controller
                 {
                     return ctx.Sucursales.Include("fkPreferencia")
                         .Include("fkEmpresa")
+                        .Include("fkCertificado")
                         .Where(r => r.iStatus == 1 && r.pkSucursal == pkSucursal).FirstOrDefault();
                 }
             }
@@ -84,16 +85,13 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static void Modificar(Sucursal nSucursal)
+        public static void Modificar(Sucursal nSucursal, Empresa nEmpresa)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    Empresa nEmpresa = nSucursal.fkEmpresa;
-                    Preferencia nPreferencia = nSucursal.fkPreferencia;
-                    ctx.Sucursales.Attach(nSucursal);
-                    ctx.Preferencias.Attach(nPreferencia);
+                    nSucursal.fkEmpresa = nEmpresa;
                     ctx.Empresas.Attach(nEmpresa);
                     ctx.Entry(nSucursal).State = EntityState.Modified;
                     ctx.SaveChanges();
@@ -105,21 +103,7 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static Preferencia getById2(int pkPreferencia)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    return ctx.Preferencias.Where(r => r.bStatus == true && r.pkPreferencia == pkPreferencia).FirstOrDefault();
-                }
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
-        }
         public static List<Sucursal> getAll(int status)
         {
             try
