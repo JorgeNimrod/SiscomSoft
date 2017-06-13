@@ -110,29 +110,11 @@
     <Compile Include="Views\FrmAdministrador.Designer.cs">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmBuscarClientes.Designer.cs">
-      <DependentUpon>FrmBuscarClientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmBuscarProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmBuscarProductos.Designer.cs">
-      <DependentUpon>FrmBuscarProductos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmConfiguracionBD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FrmConfiguracionBD.Designer.cs">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmFacturacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmFacturacion.Designer.cs">
-      <DependentUpon>FrmFacturacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -172,17 +154,8 @@
     <EmbeddedResource Include="Views\FrmAdministrador.resx">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarClientes.resx">
-      <DependentUpon>FrmBuscarClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarProductos.resx">
-      <DependentUpon>FrmBuscarProductos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmConfiguracionBD.resx">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmFacturacion.resx">
-      <DependentUpon>FrmFacturacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

@@ -20,7 +20,6 @@ namespace SiscomSoft.Models
         // Estado de la sucursal(Abierta, Cerrada, etc)
         public int iStatus { get; set; }
         //TODO: Hacer que lo combos se actualicen cada vez que se registre algo
-        //TODO: Numero de certificado(CFDI) : Preguntar si es un llave foranea a la tabla de certificados
         public string sNoCertifi { get; set; }
 
         public string sPais { get; set; }

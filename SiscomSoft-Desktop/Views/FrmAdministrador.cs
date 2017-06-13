@@ -4014,19 +4014,6 @@ namespace SiscomSoft_Desktop.Views
             txtAddKey.Text = rutaArchivoKey;
         }
 
-        private void ActualizarCertificado()
-        {
-            Certificado nCertificado = ManejoCertificado.getById(PKCERTIFICADO);
-            txtUpdateFolderCertificados.Text = nCertificado.sRutaArch;
-            txtUpdateCertificado.Text = nCertificado.sArchCer;
-            txtUpdateKey.Text = nCertificado.sArchkey;
-            //txtUpdateContraseña.Text = nCertificado.sContrasena;
-            txtUpdateNoCertificado.Text = nCertificado.sNoCertifi;
-            txtUpdateValidoDe.Text = nCertificado.sValidoDe;
-            txtUpdateValidoHasta.Text = nCertificado.sValidoHasta;
-            //TODO: Hacer que se seleccionen los combos mediante la bd prro
-        }
-
         private void button2_Click_1(object sender, EventArgs e)
         {
             string rutaDirectorio = string.Empty;

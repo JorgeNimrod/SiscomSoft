@@ -56,7 +56,7 @@ namespace SiscomSoft_Desktop.Views
 
         public void cargarDetalleFactura()
         {
-            Producto nProducto = ManejoProducto.getById(FrmBuscarProductos.PKPRODUCTO);
+            Producto nProducto = ManejoProducto.getById(FrmBuscarATuPutaMadre.PKPRODUCTO);
             if (nProducto != null)
             {
                 DataGridViewRow row = (DataGridViewRow)dgvDatosProducto.Rows[0].Clone();
@@ -104,8 +104,7 @@ namespace SiscomSoft_Desktop.Views
                 decimal tems = Convert.ToDecimal(rItem.Cells[8].Value);
                 Subtotal += tems;
             }
-
-            //TODO: Cambiar los tipos de datos de double a decimal
+            
             Total = Subtotal;
 
             txtSubtotal.Text = Subtotal.ToString();
@@ -539,7 +538,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnBuscarProductos_Click(object sender, EventArgs e)
         {
-            FrmBuscarProductos v = new FrmBuscarProductos(this);
+            FrmBuscarATuPutaMadre v = new FrmBuscarATuPutaMadre(this);
             v.ShowDialog();
         }
 

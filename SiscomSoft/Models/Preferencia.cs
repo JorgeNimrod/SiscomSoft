@@ -12,7 +12,6 @@ namespace SiscomSoft.Models
     [Table("Preferencias")]
     public class Preferencia
     {
-        //TODO: Preguntar si las preferencias se guardaran en la bd
         [Key]
         public int pkPreferencia { get; set; }
 
