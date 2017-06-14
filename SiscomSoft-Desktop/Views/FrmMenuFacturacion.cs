@@ -26,12 +26,11 @@ namespace SiscomSoft_Desktop.Views
             this.dgvDatosProducto.AutoGenerateColumns = false;
         }
 
-        public void cargarEmpresas()
+        public void cargarSucursales()
         {
-            cmbEmpresas.DataSource = ManejoEmpresa.getAll(true);
-            cmbEmpresas.DisplayMember = "sNomComercial";
-            cmbEmpresas.ValueMember = "pkEmpresa";
-            cmbEmpresas.SelectedIndex = -1;
+            cmbSucursal.DataSource = ManejoSucursal.getAll(1);
+            cmbSucursal.DisplayMember = "sNombre";
+            cmbSucursal.ValueMember = "pkSucursal";
         }
 
         public void crearCarpetaRaiz()
@@ -57,15 +56,15 @@ namespace SiscomSoft_Desktop.Views
 
         public void cargarDetalleFactura()
         {
-            Producto nProducto = ManejoProducto.getById(FrmBuscarProductos.PKPRODUCTO);
+            Producto nProducto = ManejoProducto.getById(FrmLookingForProducts.PKPRODUCTO);
             if (nProducto != null)
             {
-                DataGridViewRow row = (DataGridViewRow)dgvDatosProducto.Rows[0].Clone();
+                DataGridViewRow row = (DataGridViewRow) dgvDatosProducto.Rows[0].Clone();
                 row.Cells[0].Value = nProducto.pkProducto;
                 row.Cells[1].Value = nProducto.sDescripcion;
                 row.Cells[2].Value = nProducto.sMarca;
-                row.Cells[3].Value = nProducto.fkCatalogo;
-                row.Cells[4].Value = nProducto.fkImpuesto;
+                row.Cells[3].Value = nProducto.fkCatalogo.sUDM;
+                row.Cells[4].Value = nProducto.fkImpuesto.dTasaImpuesto;
                 row.Cells[5].Value = nProducto.dCosto;
                 row.Cells[6].Value = 1;
                 row.Cells[7].Value = nProducto.iDescuento;
@@ -78,14 +77,13 @@ namespace SiscomSoft_Desktop.Views
 
         public void cargarCaliente()
         {
-            Cliente nCliente = ManejoCliente.getById(frmBuscarClientes.PKCLIENTE);
+            Cliente nCliente = ManejoCliente.getById(FrmLookingForCustoms.PKCLIENTE);
             this.txtRFC.Text = nCliente.sRfc;
             this.txtNombre.Text = nCliente.sNombre;
             this.txtDireccion.Text = nCliente.sCalle;
             this.txtTelefono.Text = nCliente.sTelMovil;
-            this.cmbMoneda.SelectedValue = nCliente.sTipoPago;
-            this.txtCondicionesDeVenta.Text = nCliente.sConPago;
-            //TODO: Preguntar como se manejara el tipo de cambio, si lo pongo o no: no es obligatorio
+            this.cmbFormaDePago.SelectedIndex = Convert.ToInt16(nCliente.sTipoPago)-1;
+            this.txtCondicionesDePago.Text = nCliente.sConPago;
         }
 
         public void CalcularTotales()
@@ -105,29 +103,31 @@ namespace SiscomSoft_Desktop.Views
                 decimal tems = Convert.ToDecimal(rItem.Cells[8].Value);
                 Subtotal += tems;
             }
-
-            //TODO: Cambiar los tipos de datos de double a decimal
+            
             Total = Subtotal;
 
             txtSubtotal.Text = Subtotal.ToString();
             txtTotal.Text = Total.ToString();
         }
 
-        public void GenerarXML()
+        public void GenerarFacturaIngreso()
         {
+            Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue));
+
             Comprobante cfdi = new Comprobante();
             #region Relacionados
             //TODO: Para esto se requiere validar siertas cosas que estan en el anexo 20: averiguar como sacar y poner el uuid.
             cfdi.CfdiRelacionados = new ComprobanteCfdiRelacionados();
             cfdi.CfdiRelacionados.TipoRelacion = c_TipoRelacion.Item01;
+            cfdi.CfdiRelacionados.CfdiRelacionado[0].UUID = ""; 
             #endregion
 
             #region Datos Generales
             cfdi.Version = "3.3";
-            cfdi.Serie = "AA";
+            //TODO: Poner la serie y el folio.
+            cfdi.Serie = "FA";
             cfdi.Folio = "458795";
             cfdi.Fecha = DateTime.Now;
-            cfdi.Sello = "";
 
             #region FormaPago
             if (this.cmbFormaDePago.SelectedIndex == 0)
@@ -212,25 +212,25 @@ namespace SiscomSoft_Desktop.Views
             }
             #endregion
 
-            //TODO: Poner el numero de certificado de las sucursales
-            cfdi.NoCertificado = "20202020202020202020";
-            cfdi.SubTotal = Convert.ToDecimal(txtSubtotal.Text);
-            //TODO: poner el certificado
-            cfdi.Certificado = "";
-
             #region ComdicionesDePago
-            cfdi.CondicionesDePago = txtCondicionesDeVenta.Text;
+            cfdi.CondicionesDePago = txtCondicionesDePago.Text;
             #endregion
 
-            #region Moneda
+            cfdi.SubTotal = Convert.ToDecimal(txtSubtotal.Text);
 
+            cfdi.Descuento = Convert.ToDecimal("0.00");
+
+            #region Moneda Y TIPO DE CAMBIO
             if (cmbMoneda.SelectedIndex == 0)
             {
                 cfdi.Moneda = c_Moneda.MXN;
+                cfdi.TipoCambio = Convert.ToDecimal("1.00");
             }
             else if (cmbMoneda.SelectedIndex == 1)
             {
                 cfdi.Moneda = c_Moneda.USD;
+                //TODO: Poner el tipo de cambio para dolar, pesos y asi.
+                cfdi.TipoCambio = Convert.ToDecimal("17.8637");
             }
             #endregion
 
@@ -277,8 +277,22 @@ namespace SiscomSoft_Desktop.Views
 
             #region LugarExpedicion
             //TOTO: Terminar la parte del codigo postal
-            //Empresa nEmpresa = ManejoEmpresa.getById(1);
-            cfdi.LugarExpedicion = c_CodigoPostal.Item83220;
+            if (nSucursal.iCodPostal == 1)
+            {
+                cfdi.LugarExpedicion = c_CodigoPostal.Item83220;
+            }
+            #endregion
+
+            #region Certificado
+            //TODO: Poner el numero de certificado de las sucursales
+            cfdi.NoCertificado = nSucursal.sNoCertifi;
+            //TODO: poner el certificado
+            cfdi.Certificado = "";
+
+            #endregion
+
+            #region Sello
+            cfdi.Sello = "";
             #endregion
 
             #endregion
@@ -293,9 +307,89 @@ namespace SiscomSoft_Desktop.Views
 
             #region RegimenFiscal
             //TODO: Terminar el regimen fiscal: el regimen fiscal se sacara de la tabla de empresa.
-            if (cmbRegimenFiscal.SelectedIndex == 0)
+            if (nSucursal.fkEmpresa.sRegFiscal == 1.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item601;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 2.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item603;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 3.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item605;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 4.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item606;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 5.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item608;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 6.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item609;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 7.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item610;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 8.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item611;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 9.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item612;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 10.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item614;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 11.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item616;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 12.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item620;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 13.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item621;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 14.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item622;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 15.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item623;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 16.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item624;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 17.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item628;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 18.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item607;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 19.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item629;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 20.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item630;
+            }
+            else if (nSucursal.fkEmpresa.sRegFiscal == 21.ToString())
+            {
+                cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item615;
             }
             #endregion
 
@@ -305,8 +399,6 @@ namespace SiscomSoft_Desktop.Views
             cfdi.Receptor = new ComprobanteReceptor();
             cfdi.Receptor.Rfc = txtRFC.Text;
             cfdi.Receptor.Nombre = txtNombre.Text;
-            //cfdi.Receptor.ResidenciaFiscal = c_Pais.MEX;
-            #endregion
 
             #region UsoCFDI
             if (this.cmbUsoCFDI.SelectedIndex == 0)
@@ -399,11 +491,14 @@ namespace SiscomSoft_Desktop.Views
             }
             #endregion
 
+            #endregion
+
             #region Conceptos
-            cfdi.Conceptos = new ComprobanteConcepto[this.dgvDatosProducto.Rows.Count - 1]; // Numero de Filas
+            cfdi.Conceptos = new ComprobanteConcepto[this.dgvDatosProducto.Rows.Count - 1];
             for (int i = 0; i < this.dgvDatosProducto.Rows.Count - 1; i++)
             {
-                cfdi.Conceptos[i] = new ComprobanteConcepto(); // Instancia de la Fila
+                cfdi.Conceptos[i] = new ComprobanteConcepto();
+                //TODO: poner en la vista para agregar pructos un combo para la clave del producto o servicio
                 cfdi.Conceptos[i].ClaveProdServ = c_ClaveProdServ.Item01010101;
                 //Opcional cfdi.Conceptos[0].NoIdentificacion = "1965193";
 
@@ -413,20 +508,20 @@ namespace SiscomSoft_Desktop.Views
                 cfdi.Conceptos[i].Descripcion = this.dgvDatosProducto.CurrentRow.Cells[1].Value.ToString(); ;
                 cfdi.Conceptos[i].ValorUnitario = Convert.ToDecimal(this.dgvDatosProducto.CurrentRow.Cells[5].Value);
                 cfdi.Conceptos[i].Importe = Convert.ToDecimal(this.dgvDatosProducto.CurrentRow.Cells[8].Value);
-                // [0] Debe aumentar para el siguiente Concepto
             }
             #endregion
 
+
             #region Impuestos
-            cfdi.Impuestos = new ComprobanteImpuestos();
-            cfdi.Impuestos.TotalImpuestosTrasladados = Convert.ToDecimal(3);
+            //cfdi.Impuestos = new ComprobanteImpuestos();
+            //cfdi.Impuestos.TotalImpuestosTrasladados = Convert.ToDecimal(3);
 
             #region Impuestos Traslados
-            cfdi.Impuestos.Traslados = new ComprobanteImpuestosTraslado[1];
-            cfdi.Impuestos.Traslados[0] = new ComprobanteImpuestosTraslado();
-            cfdi.Impuestos.Traslados[0].Importe = 001;
-            cfdi.Impuestos.Traslados[0].TipoFactor = c_TipoFactor.Tasa;
-            cfdi.Impuestos.Traslados[0].TasaOCuota = 0.0;
+            //cfdi.Impuestos.Traslados = new ComprobanteImpuestosTraslado[1];
+            //cfdi.Impuestos.Traslados[0] = new ComprobanteImpuestosTraslado();
+            //cfdi.Impuestos.Traslados[0].Importe = 001;
+            //cfdi.Impuestos.Traslados[0].TipoFactor = c_TipoFactor.Tasa;
+            //cfdi.Impuestos.Traslados[0].TasaOCuota = 0.0;
             #endregion
 
             #endregion
@@ -535,12 +630,12 @@ namespace SiscomSoft_Desktop.Views
         private void FrmMenuFacturacion_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
-            cargarEmpresas();
+            cargarSucursales();
         }
 
         private void btnBuscarProductos_Click(object sender, EventArgs e)
         {
-            FrmBuscarProductos v = new FrmBuscarProductos(this);
+            FrmLookingForProducts v = new FrmLookingForProducts(this);
             v.ShowDialog();
         }
 
@@ -551,13 +646,13 @@ namespace SiscomSoft_Desktop.Views
 
         private void cmbEmpresas_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            Empresa nEmpresa = ManejoEmpresa.getById(Convert.ToInt32(cmbEmpresas.SelectedValue));
-            txtCodigoPostal.Text = nEmpresa.iCodPostal.ToString();
-            if (Convert.ToInt32(nEmpresa.sRegFiscal) == cmbRegimenFiscal.SelectedIndex+1)
-            {
-                cmbRegimenFiscal.SelectedIndex = Convert.ToInt32(nEmpresa.sRegFiscal);
-            }
-            int x = 0;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmLookingForCustoms v = new FrmLookingForCustoms(this);
+            v.ShowDialog();
         }
     }
 }

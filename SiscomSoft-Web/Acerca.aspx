@@ -141,8 +141,8 @@
 										Emprendedores
 									</li><br />
                                     <img src="img/3.png" width="40" height="40"> Compras<br /><br />
-                                    <img src="img/Iconsmind-Outline-Cash-register-2.ico" width="40" height="40"> Punto de venta</i> <br /><br />
-                                    <img src="img/2.png" width="40" height="40"> Gastos</i><br /><br />
+                                    <img src="img/Iconsmind-Outline-Cash-register-2.ico" width="20" height="20"> Punto de venta</i> <br /><br />
+                                    <img src="img/2.png" > Gastos</i><br /><br />
                                     <img src="img/fac.png" width="40" height="40"> Facturación electrónica</i>
 								</ul>
 							</div>

@@ -11,13 +11,30 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoCertificado
     {
+        public static List<Certificado> Buscar(int pkSucursal, Boolean status)
+        {
+            Sucursal nSucursal = ManejoSucursal.getById(pkSucursal);
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Certificados.Where(r => r.bStatus == status).ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static void RegistrarNuevoCertificado(Certificado nCertificado)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    ctx.Certificados.Add(nCertificado);
+                    ctx.Entry(nCertificado).State = EntityState.Added;
                     ctx.SaveChanges();
                 }
             }
@@ -49,7 +66,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     Certificado nCertificado = ManejoCertificado.getById(pkCertificado);
-                   
+                    nCertificado.bStatus = false;
 
                     ctx.Entry(nCertificado).State = EntityState.Modified;
                     ctx.SaveChanges();
@@ -61,28 +78,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        //public static List<Certificado> Buscar(string valor, Boolean Status)
-        //{
-        //    try
-        //    {
-        //        using (var ctx = new DataModel())
-        //        {
-        //            return //ctx.Certificados.Where(r => r..Contains(valor)).ToList();
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
         public static void Modificar(Certificado nCertificado)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    ctx.Certificados.Attach(nCertificado);
                     ctx.Entry(nCertificado).State = EntityState.Modified;
                     ctx.SaveChanges();
                 }

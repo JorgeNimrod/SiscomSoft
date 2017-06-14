@@ -110,47 +110,29 @@
     <Compile Include="Views\FrmAdministrador.Designer.cs">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmBuscarClienteVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmBuscarClienteVenta.Designer.cs">
-      <DependentUpon>FrmBuscarClienteVenta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmBuscarProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmBuscarProductos.Designer.cs">
-      <DependentUpon>FrmBuscarProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\frmBuscarClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\frmBuscarClientes.Designer.cs">
-      <DependentUpon>frmBuscarClientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmCaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCaja.Designer.cs">
-      <DependentUpon>FrmCaja.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmConfiguracionBD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FrmConfiguracionBD.Designer.cs">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmFacturacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmFacturacion.Designer.cs">
-      <DependentUpon>FrmFacturacion.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmLookingForCustoms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmLookingForCustoms.Designer.cs">
+      <DependentUpon>FrmLookingForCustoms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmLookingForProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmLookingForProducts.Designer.cs">
+      <DependentUpon>FrmLookingForProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmMenu.cs">
       <SubType>Form</SubType>
@@ -176,24 +158,6 @@
     <Compile Include="Views\FrmMenuVentas.Designer.cs">
       <DependentUpon>FrmMenuVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmVenta.Designer.cs">
-      <DependentUpon>FrmVenta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UcPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\UcPanel.Designer.cs">
-      <DependentUpon>UcPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UcProducto.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\UcProducto.Designer.cs">
-      <DependentUpon>UcProducto.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -202,26 +166,17 @@
     <EmbeddedResource Include="Views\FrmAdministrador.resx">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarClienteVenta.resx">
-      <DependentUpon>FrmBuscarClienteVenta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmBuscarProductos.resx">
-      <DependentUpon>FrmBuscarProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmBuscarClientes.resx">
-      <DependentUpon>frmBuscarClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCaja.resx">
-      <DependentUpon>FrmCaja.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmConfiguracionBD.resx">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmFacturacion.resx">
-      <DependentUpon>FrmFacturacion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmLookingForCustoms.resx">
+      <DependentUpon>FrmLookingForCustoms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmLookingForProducts.resx">
+      <DependentUpon>FrmLookingForProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
@@ -234,15 +189,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmMenuVentas.resx">
       <DependentUpon>FrmMenuVentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmVenta.resx">
-      <DependentUpon>FrmVenta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\UcPanel.resx">
-      <DependentUpon>UcPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\UcProducto.resx">
-      <DependentUpon>UcProducto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

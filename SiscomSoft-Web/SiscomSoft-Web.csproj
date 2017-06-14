@@ -43,6 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -77,8 +85,12 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\MySql.Data.dll</HintPath>
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -121,6 +133,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assens\css\bootstrap-theme.css" />
+    <Content Include="Assens\css\bootstrap.min.css" />
+    <Content Include="Assens\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assens\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\custom.css" />
     <Content Include="css\font-awesome.min.css" />
@@ -139,6 +158,12 @@
     <Content Include="img\aber.png" />
     <Content Include="img\about-us.jpg" />
     <Content Include="img\acerca.png" />
+    <Content Include="img\b1.png" />
+    <Content Include="img\b2.png" />
+    <Content Include="img\b3.png" />
+    <Content Include="img\b4.png" />
+    <Content Include="img\b5.png" />
+    <Content Include="img\b6.png" />
     <Content Include="img\bars.png" />
     <Content Include="img\bx_loader.gif" />
     <Content Include="img\caja.png" />
@@ -157,6 +182,12 @@
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="img\icomoon-social.png" />
     <Content Include="img\Iconsmind-Outline-Cash-register-2.ico" />
+    <Content Include="img\ic_account_balance_wallet_white_36dp.png" />
+    <Content Include="img\ic_business_white_36dp.png" />
+    <Content Include="img\ic_exit_to_app_white_36dp.png" />
+    <Content Include="img\ic_insert_chart_white_36dp.png" />
+    <Content Include="img\ic_settings_white_36dp.png" />
+    <Content Include="img\ic_system_update_alt_white_36dp.png" />
     <Content Include="img\inv.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\logo2.png" />
@@ -165,6 +196,7 @@
     <Content Include="img\icons\rss.png" />
     <Content Include="img\icons\twitter.png" />
     <Content Include="img\nh.png" />
+    <Content Include="img\nuevo_logo.png" />
     <Content Include="img\punto.jpg" />
     <Content Include="img\puntodeventa.jpg" />
     <Content Include="img\slides\emprendedor.jpg" />
@@ -192,6 +224,12 @@
     <Content Include="preguntas.aspx" />
     <Content Include="Recuperar.aspx" />
     <Content Include="registro.aspx" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Servicios.aspx" />
     <Content Include="Verificacion.aspx" />
     <Content Include="WebForm1.aspx" />
@@ -200,6 +238,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Data\CCorreo.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="cuentaprincipal.aspx.cs">
       <DependentUpon>cuentaprincipal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -261,6 +300,24 @@
     <Compile Include="ejemplos.aspx.designer.cs">
       <DependentUpon>ejemplos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CatalogosViewModel.cs" />
+    <Compile Include="ViewModel\CatalogoViewModel.cs" />
+    <Compile Include="ViewModel\CategoriaViewModel.cs" />
+    <Compile Include="ViewModel\CategoriaViwModel.cs" />
+    <Compile Include="ViewModel\ClientesViewModel.cs" />
+    <Compile Include="ViewModel\ClienteViewModel.cs" />
+    <Compile Include="ViewModel\EmpresasViewModel.cs" />
+    <Compile Include="ViewModel\EmpresaViewModel.cs" />
+    <Compile Include="ViewModel\ImpuestosViewModel.cs" />
+    <Compile Include="ViewModel\ImpuestoViewModel.cs" />
+    <Compile Include="ViewModel\PermisosViewModel.cs" />
+    <Compile Include="ViewModel\PermisoViewModel.cs" />
+    <Compile Include="ViewModel\ProductosViewModel.cs" />
+    <Compile Include="ViewModel\ProductoViewModel.cs" />
+    <Compile Include="ViewModel\RolesViewModel.cs" />
+    <Compile Include="ViewModel\RolViewModel.cs" />
+    <Compile Include="ViewModel\UsuariosViewModel.cs" />
+    <Compile Include="ViewModel\UsuarioViewModel.cs" />
     <Compile Include="Views\Global.asax.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -322,9 +379,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -338,6 +392,75 @@
     <Content Include="less\main.less" />
     <Content Include="less\variables.less" />
     <Content Include="scss\style.scss" />
+    <Content Include="Assens\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assens\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assens\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assens\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Categorias.cshtml" />
+    <Content Include="Views\Home\VerDetalle.cshtml" />
+    <Content Include="Views\Home\ActualizarCat.cshtml" />
+    <Content Include="Views\Home\Actualizar.cshtml" />
+    <Content Include="Views\Home\Borrar.cshtml" />
+    <Content Include="Views\Home\Borrar2.cshtml" />
+    <Content Include="Views\Home\frmNuevo.cshtml" />
+    <Content Include="Views\Home\Guardar.cshtml" />
+    <Content Include="Views\Home\Catalogo.cshtml" />
+    <Content Include="Views\Home\ActualizarCatalogo.cshtml" />
+    <Content Include="Views\Home\VerificarCatalogo.cshtml" />
+    <Content Include="Views\Home\BorrarCatalogo.cshtml" />
+    <Content Include="Views\Home\EliminarCatalogo.cshtml" />
+    <Content Include="Views\Home\AgregarCatalogo.cshtml" />
+    <Content Include="Views\Home\GuardarCatalogo.cshtml" />
+    <Content Include="Views\Home\Clientes.cshtml" />
+    <Content Include="Views\Home\ActualizarCliente.cshtml" />
+    <Content Include="Views\Home\ActualizarEmpresa.cshtml" />
+    <Content Include="Views\Home\ActualizarImpuestos.cshtml" />
+    <Content Include="Views\Home\ActualizarPermiso.cshtml" />
+    <Content Include="Views\Home\ActualizarProductos.cshtml" />
+    <Content Include="Views\Home\ActualizarRol.cshtml" />
+    <Content Include="Views\Home\ActualizarUsuario.cshtml" />
+    <Content Include="Views\Home\AgregarEmpresa.cshtml" />
+    <Content Include="Views\Home\AgregarImpuesto.cshtml" />
+    <Content Include="Views\Home\AgregarPermiso.cshtml" />
+    <Content Include="Views\Home\AgregarProducto.cshtml" />
+    <Content Include="Views\Home\AgregarRol.cshtml" />
+    <Content Include="Views\Home\AgregarUsuario.cshtml" />
+    <Content Include="Views\Home\BorrarCliente.cshtml" />
+    <Content Include="Views\Home\BorrarEmpresa.cshtml" />
+    <Content Include="Views\Home\BorrarImpuesto.cshtml" />
+    <Content Include="Views\Home\BorrarPermiso.cshtml" />
+    <Content Include="Views\Home\BorrarProductos.cshtml" />
+    <Content Include="Views\Home\BorrarRol.cshtml" />
+    <Content Include="Views\Home\BorrarUsuario.cshtml" />
+    <Content Include="Views\Home\EliminarCliente.cshtml" />
+    <Content Include="Views\Home\EliminarEmpresa.cshtml" />
+    <Content Include="Views\Home\EliminarImpuesto.cshtml" />
+    <Content Include="Views\Home\EliminarPermiso.cshtml" />
+    <Content Include="Views\Home\EliminarProducto.cshtml" />
+    <Content Include="Views\Home\EliminarRol.cshtml" />
+    <Content Include="Views\Home\EliminarUsuario.cshtml" />
+    <Content Include="Views\Home\Empresas.cshtml" />
+    <Content Include="Views\Home\GuardarEmpresa.cshtml" />
+    <Content Include="Views\Home\GuardarImpuesto.cshtml" />
+    <Content Include="Views\Home\GuardarPermiso.cshtml" />
+    <Content Include="Views\Home\GuardarProducto.cshtml" />
+    <Content Include="Views\Home\GuardarRol.cshtml" />
+    <Content Include="Views\Home\GuardarUsuario.cshtml" />
+    <Content Include="Views\Home\Impuestos.cshtml" />
+    <Content Include="Views\Home\Permisos.cshtml" />
+    <Content Include="Views\Home\Productos.cshtml" />
+    <Content Include="Views\Home\Roles.cshtml" />
+    <Content Include="Views\Home\Usuario.cshtml" />
+    <Content Include="Views\Home\VerificarCliente.cshtml" />
+    <Content Include="Views\Home\VerificarEmpresa.cshtml" />
+    <Content Include="Views\Home\VerificarImpuestos.cshtml" />
+    <Content Include="Views\Home\VerificarPermiso.cshtml" />
+    <Content Include="Views\Home\VerificarProductos.cshtml" />
+    <Content Include="Views\Home\VerificarRol.cshtml" />
+    <Content Include="Views\Home\VerificarUsuario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -346,12 +469,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="img\blog\" />
     <Folder Include="img\logos\" />
     <Folder Include="img\portfolio\" />
     <Folder Include="img\team\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SiscomSoft\SiscomSoft.csproj">
+      <Project>{c2f363c5-084e-4d26-a326-f906eadce37a}</Project>
+      <Name>SiscomSoft</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

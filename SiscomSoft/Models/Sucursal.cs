@@ -19,9 +19,8 @@ namespace SiscomSoft.Models
 
         // Estado de la sucursal(Abierta, Cerrada, etc)
         public int iStatus { get; set; }
-
-        //TODO: Numero de certificado(CFDI) : Preguntar si es un llave foranea a la tabla de certificados
-        public int iNumCertifi { get; set; }
+        //TODO: Hacer que lo combos se actualicen cada vez que se registre algo
+        public string sNoCertifi { get; set; }
 
         public string sPais { get; set; }
 
@@ -41,20 +40,19 @@ namespace SiscomSoft.Models
 
         public int iCodPostal { get; set; }
 
-        public Boolean bStatus { get; set; }
+        // llave foranea de Empresa
+        public virtual Empresa fkEmpresa { get; set; }
 
         // llave foranea de preferencias
         public virtual Preferencia fkPreferencia { get; set; }
 
-        // llave foranea de Empresa
-        public virtual Empresa fkEmpresa { get; set; }
-
-        public ICollection<Certificado> Certificados { get; set; }
+        // llave foranea de certificado
+        public virtual Certificado fkCertificado { get; set; }
 
         public Sucursal()
         {
-            this.bStatus = true;
+            this.iCodPostal = 0;
+            this.iStatus = 1;
         }
-    
     }
 }

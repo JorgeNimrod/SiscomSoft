@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "ActualizarCat";
+    SiscomSoft.Models.Categoria Dato = ViewBag.id;
+}
+
+<div class="container">
+    @using (Html.BeginForm("Actualizar", "Home", FormMethod.Get))
+    {
+        <input type="hidden" name="txtpkCategoria" value="@Dato.pkCategoria" />
+
+        <div class="form-group">
+            <label class="control-label col-xs-12">Nombre</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sNombre" value="@Dato.sNombre" name="txtNombre">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-xs-12">Apellidos</label>
+            <div class="col-xs-12">
+                <input type="text" class="form-control" placeholder="@Dato.sNomSubCat" value="@Dato.sNomSubCat" name="txtSubCategoria">
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="submit" value="Actualizar" class="btn btn-primary" />
+                <input type="reset" value="Limpiar" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+ 
+

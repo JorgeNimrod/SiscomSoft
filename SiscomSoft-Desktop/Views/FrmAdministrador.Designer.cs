@@ -59,7 +59,6 @@
             this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fkCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -228,7 +227,7 @@
             this.label44 = new System.Windows.Forms.Label();
             this.btnExaImgProdu = new System.Windows.Forms.Button();
             this.pcbimgAddProd = new System.Windows.Forms.PictureBox();
-            this.cbxUMDAddProd = new System.Windows.Forms.ComboBox();
+            this.cbxCatalogoAddProd = new System.Windows.Forms.ComboBox();
             this.txtLoteAddProd = new System.Windows.Forms.TextBox();
             this.txtDescuentoProd = new System.Windows.Forms.TextBox();
             this.dtpFechaCaducidadProd = new System.Windows.Forms.DateTimePicker();
@@ -488,7 +487,7 @@
             this.txtRfcUpdateCli = new System.Windows.Forms.TextBox();
             this.label116 = new System.Windows.Forms.Label();
             this.tbpSucursal = new System.Windows.Forms.TabPage();
-            this.cmbEstadoSucursal = new System.Windows.Forms.ComboBox();
+            this.cmbStatusSucursal = new System.Windows.Forms.ComboBox();
             this.btnBorrarSucursal = new System.Windows.Forms.Button();
             this.btnActualizarSucursal = new System.Windows.Forms.Button();
             this.btnRegistrarSucursal = new System.Windows.Forms.Button();
@@ -496,27 +495,129 @@
             this.dgvDatosSucursal = new System.Windows.Forms.DataGridView();
             this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sEstSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iNumCertificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iNumExterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarSucursal = new System.Windows.Forms.TextBox();
             this.label148 = new System.Windows.Forms.Label();
             this.tbpRegistrarSucursal = new System.Windows.Forms.TabPage();
+            this.pnlAddCertificado = new System.Windows.Forms.Panel();
+            this.btnAddExaminarCarpetaCertificados = new System.Windows.Forms.Button();
+            this.txtAddFolcerCertificados = new System.Windows.Forms.TextBox();
+            this.label191 = new System.Windows.Forms.Label();
+            this.txtAddValidoHasta = new System.Windows.Forms.TextBox();
+            this.label192 = new System.Windows.Forms.Label();
+            this.txtAddValidoDe = new System.Windows.Forms.TextBox();
+            this.txtAddNoCertficado = new System.Windows.Forms.TextBox();
+            this.label193 = new System.Windows.Forms.Label();
+            this.label194 = new System.Windows.Forms.Label();
+            this.btnAddExaminarKey = new System.Windows.Forms.Button();
+            this.txtAddContraseña = new System.Windows.Forms.TextBox();
+            this.label196 = new System.Windows.Forms.Label();
+            this.btnAddExaminarCertificado = new System.Windows.Forms.Button();
+            this.txtAddKey = new System.Windows.Forms.TextBox();
+            this.txtAddCertificado = new System.Windows.Forms.TextBox();
+            this.label197 = new System.Windows.Forms.Label();
+            this.label198 = new System.Windows.Forms.Label();
+            this.pnlAddPreferencias = new System.Windows.Forms.Panel();
+            this.txtAddNumSerieSucursal = new System.Windows.Forms.TextBox();
+            this.ckbAddForImpreso = new System.Windows.Forms.CheckBox();
+            this.ckbAddEnvFactura = new System.Windows.Forms.CheckBox();
+            this.label189 = new System.Windows.Forms.Label();
+            this.label170 = new System.Windows.Forms.Label();
+            this.pcbAddLogo = new System.Windows.Forms.PictureBox();
+            this.btnAddExaminarLogo = new System.Windows.Forms.Button();
+            this.pnlAddSucursal = new System.Windows.Forms.Panel();
+            this.cmbEmpresasSucursales = new System.Windows.Forms.ComboBox();
+            this.label162 = new System.Windows.Forms.Label();
+            this.label159 = new System.Windows.Forms.Label();
+            this.label158 = new System.Windows.Forms.Label();
+            this.label157 = new System.Windows.Forms.Label();
+            this.label156 = new System.Windows.Forms.Label();
+            this.txtAddNombreSucursal = new System.Windows.Forms.TextBox();
+            this.txtAddPaiSucursal = new System.Windows.Forms.TextBox();
+            this.label150 = new System.Windows.Forms.Label();
+            this.txtAddMunicipioSucursal = new System.Windows.Forms.TextBox();
+            this.txtAddColoniaSucursal = new System.Windows.Forms.TextBox();
+            this.txtAddLocalidadSucursal = new System.Windows.Forms.TextBox();
+            this.cmbCodigoPostalSucursales = new System.Windows.Forms.ComboBox();
+            this.label155 = new System.Windows.Forms.Label();
+            this.txtAddEstadoSucursal = new System.Windows.Forms.TextBox();
+            this.txtAddCalleSucursal = new System.Windows.Forms.TextBox();
+            this.label149 = new System.Windows.Forms.Label();
+            this.label154 = new System.Windows.Forms.Label();
+            this.btnGuardarSucursales = new System.Windows.Forms.Button();
+            this.label153 = new System.Windows.Forms.Label();
+            this.label152 = new System.Windows.Forms.Label();
+            this.txtAddNumInteriorSucursal = new System.Windows.Forms.TextBox();
+            this.txtAddnumExteriorSucursal = new System.Windows.Forms.TextBox();
+            this.pnlAddSucursalPreferenciaCertificado = new System.Windows.Forms.Panel();
+            this.btnAddPnlCertificado = new System.Windows.Forms.Button();
+            this.btnAddPnlPreferencias = new System.Windows.Forms.Button();
+            this.btnAddPnlSucrusal = new System.Windows.Forms.Button();
             this.tbpActualizarSucursal = new System.Windows.Forms.TabPage();
-            this.tbpCertificado = new System.Windows.Forms.TabPage();
-            this.tbpRegistrarCertificado = new System.Windows.Forms.TabPage();
-            this.tbpActualizarCertificado = new System.Windows.Forms.TabPage();
+            this.pnlUpdateCertificado = new System.Windows.Forms.Panel();
+            this.btnUpdateExaminarFolderCertificados = new System.Windows.Forms.Button();
+            this.txtUpdateFolderCertificados = new System.Windows.Forms.TextBox();
+            this.txtUpdateValidoHasta = new System.Windows.Forms.TextBox();
+            this.txtUpdateValidoDe = new System.Windows.Forms.TextBox();
+            this.txtUpdateNoCertificado = new System.Windows.Forms.TextBox();
+            this.txtUpdateContraseñaCertificado = new System.Windows.Forms.TextBox();
+            this.txtUpdateKey = new System.Windows.Forms.TextBox();
+            this.txtUpdateCertificado = new System.Windows.Forms.TextBox();
+            this.label147 = new System.Windows.Forms.Label();
+            this.label151 = new System.Windows.Forms.Label();
+            this.label160 = new System.Windows.Forms.Label();
+            this.label161 = new System.Windows.Forms.Label();
+            this.btnUpdateExaminarKey = new System.Windows.Forms.Button();
+            this.label163 = new System.Windows.Forms.Label();
+            this.btnUpdateExaminarCertificado = new System.Windows.Forms.Button();
+            this.label164 = new System.Windows.Forms.Label();
+            this.label165 = new System.Windows.Forms.Label();
+            this.pnlUpdatePreferencias = new System.Windows.Forms.Panel();
+            this.txtUpdateNoSerie = new System.Windows.Forms.TextBox();
+            this.ckbUpdateForImpreso = new System.Windows.Forms.CheckBox();
+            this.ckbUpdateEnvFactura = new System.Windows.Forms.CheckBox();
+            this.label166 = new System.Windows.Forms.Label();
+            this.label167 = new System.Windows.Forms.Label();
+            this.pcbUpdateLogoSucursal = new System.Windows.Forms.PictureBox();
+            this.btnUpdateExaminarLogoSucursal = new System.Windows.Forms.Button();
+            this.pnlUpdateSucursal = new System.Windows.Forms.Panel();
+            this.cmbUpdateEmpresa = new System.Windows.Forms.ComboBox();
+            this.label168 = new System.Windows.Forms.Label();
+            this.label169 = new System.Windows.Forms.Label();
+            this.label171 = new System.Windows.Forms.Label();
+            this.label172 = new System.Windows.Forms.Label();
+            this.label173 = new System.Windows.Forms.Label();
+            this.txtUpdateNomSucursal = new System.Windows.Forms.TextBox();
+            this.txtUpdatePais = new System.Windows.Forms.TextBox();
+            this.label174 = new System.Windows.Forms.Label();
+            this.txtUpdateMunicipio = new System.Windows.Forms.TextBox();
+            this.txtUpdateColonia = new System.Windows.Forms.TextBox();
+            this.txtUpdateLocalidad = new System.Windows.Forms.TextBox();
+            this.cmbCodigoPostal = new System.Windows.Forms.ComboBox();
+            this.label175 = new System.Windows.Forms.Label();
+            this.txtUpdateEstado = new System.Windows.Forms.TextBox();
+            this.txtUpdateCalle = new System.Windows.Forms.TextBox();
+            this.label176 = new System.Windows.Forms.Label();
+            this.label177 = new System.Windows.Forms.Label();
+            this.btnUpdateSucursal = new System.Windows.Forms.Button();
+            this.label178 = new System.Windows.Forms.Label();
+            this.label179 = new System.Windows.Forms.Label();
+            this.txtUpdateNoInterior = new System.Windows.Forms.TextBox();
+            this.txtUpdateNoExterior = new System.Windows.Forms.TextBox();
+            this.pnlIUpdateSucursalPreferenciasCertificado = new System.Windows.Forms.Panel();
+            this.btnUpdatePnlCertificado = new System.Windows.Forms.Button();
+            this.btnUpdatePnlPreferencias = new System.Windows.Forms.Button();
+            this.btnUpdatePnlSucursal = new System.Windows.Forms.Button();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblFecha = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlEmpresas = new System.Windows.Forms.Panel();
-            this.btnCertificadosList = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSucursalesList = new System.Windows.Forms.Button();
             this.btnEmpresasList = new System.Windows.Forms.Button();
@@ -573,6 +674,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbImgUpdatCli)).BeginInit();
             this.tbpSucursal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).BeginInit();
+            this.tbpRegistrarSucursal.SuspendLayout();
+            this.pnlAddCertificado.SuspendLayout();
+            this.pnlAddPreferencias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbAddLogo)).BeginInit();
+            this.pnlAddSucursal.SuspendLayout();
+            this.pnlAddSucursalPreferenciaCertificado.SuspendLayout();
+            this.tbpActualizarSucursal.SuspendLayout();
+            this.pnlUpdateCertificado.SuspendLayout();
+            this.pnlUpdatePreferencias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbUpdateLogoSucursal)).BeginInit();
+            this.pnlUpdateSucursal.SuspendLayout();
+            this.pnlIUpdateSucursalPreferenciasCertificado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlEmpresas.SuspendLayout();
             this.pnlCliente.SuspendLayout();
@@ -849,9 +962,6 @@
             this.tbcGeneral.Controls.Add(this.tbpSucursal);
             this.tbcGeneral.Controls.Add(this.tbpRegistrarSucursal);
             this.tbcGeneral.Controls.Add(this.tbpActualizarSucursal);
-            this.tbcGeneral.Controls.Add(this.tbpCertificado);
-            this.tbcGeneral.Controls.Add(this.tbpRegistrarCertificado);
-            this.tbcGeneral.Controls.Add(this.tbpActualizarCertificado);
             this.tbcGeneral.Location = new System.Drawing.Point(179, 50);
             this.tbcGeneral.Name = "tbcGeneral";
             this.tbcGeneral.SelectedIndex = 0;
@@ -861,6 +971,7 @@
             // 
             // tbpProducto
             // 
+            this.tbpProducto.AllowDrop = true;
             this.tbpProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbpProducto.Controls.Add(this.btnRegistrarProducto);
             this.tbpProducto.Controls.Add(this.btnActualizarProducto);
@@ -924,8 +1035,7 @@
             this.sMarca,
             this.iDescuento,
             this.dCosto,
-            this.iLote,
-            this.fkCategoria});
+            this.iLote});
             this.dgvDatosProducto.Location = new System.Drawing.Point(6, 37);
             this.dgvDatosProducto.Name = "dgvDatosProducto";
             this.dgvDatosProducto.ReadOnly = true;
@@ -984,13 +1094,6 @@
             this.iLote.Name = "iLote";
             this.iLote.ReadOnly = true;
             // 
-            // fkCategoria
-            // 
-            this.fkCategoria.DataPropertyName = "fkCategoria";
-            this.fkCategoria.HeaderText = "Categoria";
-            this.fkCategoria.Name = "fkCategoria";
-            this.fkCategoria.ReadOnly = true;
-            // 
             // lblRegistroProducto
             // 
             this.lblRegistroProducto.AutoSize = true;
@@ -1041,7 +1144,7 @@
             this.tbpPrecio.Location = new System.Drawing.Point(4, 27);
             this.tbpPrecio.Name = "tbpPrecio";
             this.tbpPrecio.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpPrecio.Size = new System.Drawing.Size(1151, 546);
+            this.tbpPrecio.Size = new System.Drawing.Size(1151, 48);
             this.tbpPrecio.TabIndex = 1;
             this.tbpPrecio.Text = "Precios";
             this.tbpPrecio.UseVisualStyleBackColor = true;
@@ -1131,7 +1234,7 @@
             this.tbpImpuestos.Controls.Add(this.label14);
             this.tbpImpuestos.Location = new System.Drawing.Point(4, 27);
             this.tbpImpuestos.Name = "tbpImpuestos";
-            this.tbpImpuestos.Size = new System.Drawing.Size(1151, 546);
+            this.tbpImpuestos.Size = new System.Drawing.Size(1151, 48);
             this.tbpImpuestos.TabIndex = 2;
             this.tbpImpuestos.Text = "Impuestos";
             this.tbpImpuestos.UseVisualStyleBackColor = true;
@@ -1268,7 +1371,7 @@
             this.tbpCategoria.Controls.Add(this.label12);
             this.tbpCategoria.Location = new System.Drawing.Point(4, 27);
             this.tbpCategoria.Name = "tbpCategoria";
-            this.tbpCategoria.Size = new System.Drawing.Size(1151, 546);
+            this.tbpCategoria.Size = new System.Drawing.Size(1151, 48);
             this.tbpCategoria.TabIndex = 3;
             this.tbpCategoria.Text = "Categorias";
             this.tbpCategoria.UseVisualStyleBackColor = true;
@@ -1398,7 +1501,7 @@
             this.tbpUsuario.Controls.Add(this.label10);
             this.tbpUsuario.Location = new System.Drawing.Point(4, 27);
             this.tbpUsuario.Name = "tbpUsuario";
-            this.tbpUsuario.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUsuario.Size = new System.Drawing.Size(1151, 48);
             this.tbpUsuario.TabIndex = 4;
             this.tbpUsuario.Text = "Usuarios";
             this.tbpUsuario.UseVisualStyleBackColor = true;
@@ -1548,7 +1651,7 @@
             this.tbpRol.Controls.Add(this.pnlCatalogoRoles);
             this.tbpRol.Location = new System.Drawing.Point(4, 27);
             this.tbpRol.Name = "tbpRol";
-            this.tbpRol.Size = new System.Drawing.Size(1151, 546);
+            this.tbpRol.Size = new System.Drawing.Size(1151, 48);
             this.tbpRol.TabIndex = 5;
             this.tbpRol.Text = "Roles";
             this.tbpRol.UseVisualStyleBackColor = true;
@@ -1686,7 +1789,7 @@
             this.tbpAddRol.Controls.Add(this.pnlAddRolesPermisos);
             this.tbpAddRol.Location = new System.Drawing.Point(4, 27);
             this.tbpAddRol.Name = "tbpAddRol";
-            this.tbpAddRol.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddRol.Size = new System.Drawing.Size(1151, 48);
             this.tbpAddRol.TabIndex = 6;
             this.tbpAddRol.Text = "Registrar Rol";
             this.tbpAddRol.UseVisualStyleBackColor = true;
@@ -1825,7 +1928,7 @@
             this.tbpUpdateRol.Controls.Add(this.PnlUpdteRolesPermisos);
             this.tbpUpdateRol.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateRol.Name = "tbpUpdateRol";
-            this.tbpUpdateRol.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateRol.Size = new System.Drawing.Size(1151, 48);
             this.tbpUpdateRol.TabIndex = 7;
             this.tbpUpdateRol.Text = "Actualizar Rol";
             this.tbpUpdateRol.UseVisualStyleBackColor = true;
@@ -1966,7 +2069,7 @@
             this.tbpAddCategoria.Controls.Add(this.label19);
             this.tbpAddCategoria.Location = new System.Drawing.Point(4, 27);
             this.tbpAddCategoria.Name = "tbpAddCategoria";
-            this.tbpAddCategoria.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddCategoria.Size = new System.Drawing.Size(1151, 48);
             this.tbpAddCategoria.TabIndex = 8;
             this.tbpAddCategoria.Text = "Registrar Categoria";
             this.tbpAddCategoria.UseVisualStyleBackColor = true;
@@ -2026,7 +2129,7 @@
             this.tbpUpdateCategoria.Controls.Add(this.label21);
             this.tbpUpdateCategoria.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateCategoria.Name = "tbpUpdateCategoria";
-            this.tbpUpdateCategoria.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateCategoria.Size = new System.Drawing.Size(1151, 48);
             this.tbpUpdateCategoria.TabIndex = 9;
             this.tbpUpdateCategoria.Text = "Actualizar Categoria";
             this.tbpUpdateCategoria.UseVisualStyleBackColor = true;
@@ -2089,7 +2192,7 @@
             this.tbpAddImpuesto.Controls.Add(this.label15);
             this.tbpAddImpuesto.Location = new System.Drawing.Point(4, 27);
             this.tbpAddImpuesto.Name = "tbpAddImpuesto";
-            this.tbpAddImpuesto.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddImpuesto.Size = new System.Drawing.Size(1151, 48);
             this.tbpAddImpuesto.TabIndex = 10;
             this.tbpAddImpuesto.Text = "Registrar Impuesto";
             this.tbpAddImpuesto.UseVisualStyleBackColor = true;
@@ -2170,7 +2273,7 @@
             this.tbpUpdateImpuesto.Controls.Add(this.label23);
             this.tbpUpdateImpuesto.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateImpuesto.Name = "tbpUpdateImpuesto";
-            this.tbpUpdateImpuesto.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateImpuesto.Size = new System.Drawing.Size(1151, 48);
             this.tbpUpdateImpuesto.TabIndex = 11;
             this.tbpUpdateImpuesto.Text = "Actualizar Impuesto";
             this.tbpUpdateImpuesto.UseVisualStyleBackColor = true;
@@ -2260,7 +2363,7 @@
             this.tbpAddUsuario.Controls.Add(this.label31);
             this.tbpAddUsuario.Location = new System.Drawing.Point(4, 27);
             this.tbpAddUsuario.Name = "tbpAddUsuario";
-            this.tbpAddUsuario.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddUsuario.Size = new System.Drawing.Size(1151, 48);
             this.tbpAddUsuario.TabIndex = 12;
             this.tbpAddUsuario.Text = "Registrar Usuario";
             this.tbpAddUsuario.UseVisualStyleBackColor = true;
@@ -2377,7 +2480,6 @@
             this.txtNombreUsuario.Size = new System.Drawing.Size(172, 24);
             this.txtNombreUsuario.TabIndex = 19;
             this.txtNombreUsuario.TextChanged += new System.EventHandler(this.txtNombreUsuario_TextChanged);
-            this.txtNombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreUsuario_KeyPress);
             // 
             // label29
             // 
@@ -2458,7 +2560,7 @@
             this.tbpUpdateUser.Controls.Add(this.label39);
             this.tbpUpdateUser.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateUser.Name = "tbpUpdateUser";
-            this.tbpUpdateUser.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateUser.Size = new System.Drawing.Size(1151, 48);
             this.tbpUpdateUser.TabIndex = 13;
             this.tbpUpdateUser.Text = "Actualizar Usuario";
             this.tbpUpdateUser.UseVisualStyleBackColor = true;
@@ -2650,7 +2752,7 @@
             this.tbpAddProducto.Controls.Add(this.label44);
             this.tbpAddProducto.Controls.Add(this.btnExaImgProdu);
             this.tbpAddProducto.Controls.Add(this.pcbimgAddProd);
-            this.tbpAddProducto.Controls.Add(this.cbxUMDAddProd);
+            this.tbpAddProducto.Controls.Add(this.cbxCatalogoAddProd);
             this.tbpAddProducto.Controls.Add(this.txtLoteAddProd);
             this.tbpAddProducto.Controls.Add(this.txtDescuentoProd);
             this.tbpAddProducto.Controls.Add(this.dtpFechaCaducidadProd);
@@ -2668,7 +2770,7 @@
             this.tbpAddProducto.Controls.Add(this.label52);
             this.tbpAddProducto.Location = new System.Drawing.Point(4, 27);
             this.tbpAddProducto.Name = "tbpAddProducto";
-            this.tbpAddProducto.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddProducto.Size = new System.Drawing.Size(1151, 48);
             this.tbpAddProducto.TabIndex = 14;
             this.tbpAddProducto.Text = "Registrar Producto";
             this.tbpAddProducto.UseVisualStyleBackColor = true;
@@ -2788,14 +2890,14 @@
             this.pcbimgAddProd.TabStop = false;
             this.pcbimgAddProd.Tag = "2";
             // 
-            // cbxUMDAddProd
+            // cbxCatalogoAddProd
             // 
-            this.cbxUMDAddProd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxUMDAddProd.FormattingEnabled = true;
-            this.cbxUMDAddProd.Location = new System.Drawing.Point(163, 239);
-            this.cbxUMDAddProd.Name = "cbxUMDAddProd";
-            this.cbxUMDAddProd.Size = new System.Drawing.Size(209, 26);
-            this.cbxUMDAddProd.TabIndex = 121;
+            this.cbxCatalogoAddProd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCatalogoAddProd.FormattingEnabled = true;
+            this.cbxCatalogoAddProd.Location = new System.Drawing.Point(856, 110);
+            this.cbxCatalogoAddProd.Name = "cbxCatalogoAddProd";
+            this.cbxCatalogoAddProd.Size = new System.Drawing.Size(200, 26);
+            this.cbxCatalogoAddProd.TabIndex = 121;
             // 
             // txtLoteAddProd
             // 
@@ -2824,9 +2926,9 @@
             // 
             this.cbxCategoriaAddProd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategoriaAddProd.FormattingEnabled = true;
-            this.cbxCategoriaAddProd.Location = new System.Drawing.Point(856, 116);
+            this.cbxCategoriaAddProd.Location = new System.Drawing.Point(165, 242);
             this.cbxCategoriaAddProd.Name = "cbxCategoriaAddProd";
-            this.cbxCategoriaAddProd.Size = new System.Drawing.Size(200, 26);
+            this.cbxCategoriaAddProd.Size = new System.Drawing.Size(209, 26);
             this.cbxCategoriaAddProd.TabIndex = 126;
             // 
             // label45
@@ -2957,7 +3059,7 @@
             this.tbpUpdateProducto.Controls.Add(this.label67);
             this.tbpUpdateProducto.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateProducto.Name = "tbpUpdateProducto";
-            this.tbpUpdateProducto.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateProducto.Size = new System.Drawing.Size(1151, 48);
             this.tbpUpdateProducto.TabIndex = 15;
             this.tbpUpdateProducto.Text = "Actualizar Producto";
             this.tbpUpdateProducto.UseVisualStyleBackColor = true;
@@ -3220,7 +3322,7 @@
             this.tbpAddPrecio.Controls.Add(this.label53);
             this.tbpAddPrecio.Location = new System.Drawing.Point(4, 27);
             this.tbpAddPrecio.Name = "tbpAddPrecio";
-            this.tbpAddPrecio.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddPrecio.Size = new System.Drawing.Size(1151, 48);
             this.tbpAddPrecio.TabIndex = 16;
             this.tbpAddPrecio.Text = "Registrar Precio";
             this.tbpAddPrecio.UseVisualStyleBackColor = true;
@@ -3259,7 +3361,7 @@
             this.tbpUpdatePrecio.Controls.Add(this.label54);
             this.tbpUpdatePrecio.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdatePrecio.Name = "tbpUpdatePrecio";
-            this.tbpUpdatePrecio.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdatePrecio.Size = new System.Drawing.Size(1151, 48);
             this.tbpUpdatePrecio.TabIndex = 17;
             this.tbpUpdatePrecio.Text = "Actualizar Precio";
             this.tbpUpdatePrecio.UseVisualStyleBackColor = true;
@@ -3304,7 +3406,7 @@
             this.tbpEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpEmpresa.Name = "tbpEmpresa";
             this.tbpEmpresa.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpEmpresa.Size = new System.Drawing.Size(1151, 546);
+            this.tbpEmpresa.Size = new System.Drawing.Size(1151, 48);
             this.tbpEmpresa.TabIndex = 18;
             this.tbpEmpresa.Text = "Empresas";
             this.tbpEmpresa.UseVisualStyleBackColor = true;
@@ -3495,7 +3597,7 @@
             this.tbpAddEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbpAddEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpAddEmpresa.Name = "tbpAddEmpresa";
-            this.tbpAddEmpresa.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddEmpresa.Size = new System.Drawing.Size(1151, 48);
             this.tbpAddEmpresa.TabIndex = 19;
             this.tbpAddEmpresa.Text = "Registrar Empresa";
             this.tbpAddEmpresa.UseVisualStyleBackColor = true;
@@ -3504,7 +3606,7 @@
             // 
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(199, 222);
+            this.comboBox1.Location = new System.Drawing.Point(218, 238);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(159, 24);
             this.comboBox1.TabIndex = 89;
@@ -3536,7 +3638,7 @@
             "DE LOS REGÍMENES FISCALES PREFERENTES Y DE LAS EMPRESAS MULTINACIONALES",
             "ENAJENACIÓN DE ACCIONES EN BOLSA DE VALORES",
             "RÉGIMEN DE LOS INGRESOS POR OBTENCIÓN DE PREMIOS"});
-            this.cmbAddRegimenFiscalEmpresa.Location = new System.Drawing.Point(364, 110);
+            this.cmbAddRegimenFiscalEmpresa.Location = new System.Drawing.Point(383, 126);
             this.cmbAddRegimenFiscalEmpresa.Name = "cmbAddRegimenFiscalEmpresa";
             this.cmbAddRegimenFiscalEmpresa.Size = new System.Drawing.Size(300, 24);
             this.cmbAddRegimenFiscalEmpresa.TabIndex = 87;
@@ -3546,7 +3648,7 @@
             // 
             this.label134.AutoSize = true;
             this.label134.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label134.Location = new System.Drawing.Point(361, 89);
+            this.label134.Location = new System.Drawing.Point(380, 105);
             this.label134.Name = "label134";
             this.label134.Size = new System.Drawing.Size(110, 13);
             this.label134.TabIndex = 88;
@@ -3555,7 +3657,7 @@
             // txtAddRazonSocialEmpresa
             // 
             this.txtAddRazonSocialEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddRazonSocialEmpresa.Location = new System.Drawing.Point(645, 54);
+            this.txtAddRazonSocialEmpresa.Location = new System.Drawing.Point(664, 70);
             this.txtAddRazonSocialEmpresa.Name = "txtAddRazonSocialEmpresa";
             this.txtAddRazonSocialEmpresa.Size = new System.Drawing.Size(300, 24);
             this.txtAddRazonSocialEmpresa.TabIndex = 76;
@@ -3564,7 +3666,7 @@
             // txtAddEstadoEmpresa
             // 
             this.txtAddEstadoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddEstadoEmpresa.Location = new System.Drawing.Point(832, 110);
+            this.txtAddEstadoEmpresa.Location = new System.Drawing.Point(851, 126);
             this.txtAddEstadoEmpresa.Name = "txtAddEstadoEmpresa";
             this.txtAddEstadoEmpresa.Size = new System.Drawing.Size(113, 24);
             this.txtAddEstadoEmpresa.TabIndex = 55;
@@ -3574,7 +3676,7 @@
             // 
             this.label117.AutoSize = true;
             this.label117.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label117.Location = new System.Drawing.Point(829, 89);
+            this.label117.Location = new System.Drawing.Point(848, 105);
             this.label117.Name = "label117";
             this.label117.Size = new System.Drawing.Size(57, 13);
             this.label117.TabIndex = 75;
@@ -3583,7 +3685,7 @@
             // txtAddNombreContactoEmpresa
             // 
             this.txtAddNombreContactoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddNombreContactoEmpresa.Location = new System.Drawing.Point(339, 54);
+            this.txtAddNombreContactoEmpresa.Location = new System.Drawing.Point(358, 70);
             this.txtAddNombreContactoEmpresa.Name = "txtAddNombreContactoEmpresa";
             this.txtAddNombreContactoEmpresa.Size = new System.Drawing.Size(300, 24);
             this.txtAddNombreContactoEmpresa.TabIndex = 43;
@@ -3593,7 +3695,7 @@
             // 
             this.label119.AutoSize = true;
             this.label119.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label119.Location = new System.Drawing.Point(336, 33);
+            this.label119.Location = new System.Drawing.Point(355, 49);
             this.label119.Name = "label119";
             this.label119.Size = new System.Drawing.Size(152, 13);
             this.label119.TabIndex = 74;
@@ -3603,7 +3705,7 @@
             // 
             this.label120.AutoSize = true;
             this.label120.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label120.Location = new System.Drawing.Point(642, 33);
+            this.label120.Location = new System.Drawing.Point(661, 49);
             this.label120.Name = "label120";
             this.label120.Size = new System.Drawing.Size(98, 13);
             this.label120.TabIndex = 73;
@@ -3612,7 +3714,7 @@
             // btnGuardarEmpresa
             // 
             this.btnGuardarEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarEmpresa.Location = new System.Drawing.Point(832, 269);
+            this.btnGuardarEmpresa.Location = new System.Drawing.Point(851, 285);
             this.btnGuardarEmpresa.Name = "btnGuardarEmpresa";
             this.btnGuardarEmpresa.Size = new System.Drawing.Size(113, 36);
             this.btnGuardarEmpresa.TabIndex = 69;
@@ -3624,7 +3726,7 @@
             // 
             this.label123.AutoSize = true;
             this.label123.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label123.Location = new System.Drawing.Point(196, 201);
+            this.label123.Location = new System.Drawing.Point(215, 217);
             this.label123.Name = "label123";
             this.label123.Size = new System.Drawing.Size(107, 13);
             this.label123.TabIndex = 70;
@@ -3633,7 +3735,7 @@
             // txtAddNumExteriorEmpresa
             // 
             this.txtAddNumExteriorEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddNumExteriorEmpresa.Location = new System.Drawing.Point(34, 222);
+            this.txtAddNumExteriorEmpresa.Location = new System.Drawing.Point(53, 238);
             this.txtAddNumExteriorEmpresa.Name = "txtAddNumExteriorEmpresa";
             this.txtAddNumExteriorEmpresa.Size = new System.Drawing.Size(156, 24);
             this.txtAddNumExteriorEmpresa.TabIndex = 60;
@@ -3642,7 +3744,7 @@
             // txtAddNumInteriorEmpresa
             // 
             this.txtAddNumInteriorEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddNumInteriorEmpresa.Location = new System.Drawing.Point(832, 167);
+            this.txtAddNumInteriorEmpresa.Location = new System.Drawing.Point(851, 183);
             this.txtAddNumInteriorEmpresa.Name = "txtAddNumInteriorEmpresa";
             this.txtAddNumInteriorEmpresa.Size = new System.Drawing.Size(113, 24);
             this.txtAddNumInteriorEmpresa.TabIndex = 59;
@@ -3652,7 +3754,7 @@
             // 
             this.label124.AutoSize = true;
             this.label124.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label124.Location = new System.Drawing.Point(31, 201);
+            this.label124.Location = new System.Drawing.Point(50, 217);
             this.label124.Name = "label124";
             this.label124.Size = new System.Drawing.Size(106, 13);
             this.label124.TabIndex = 68;
@@ -3662,7 +3764,7 @@
             // 
             this.label125.AutoSize = true;
             this.label125.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label125.Location = new System.Drawing.Point(829, 146);
+            this.label125.Location = new System.Drawing.Point(848, 162);
             this.label125.Name = "label125";
             this.label125.Size = new System.Drawing.Size(103, 13);
             this.label125.TabIndex = 66;
@@ -3671,7 +3773,7 @@
             // txtAddCalleEmpresa
             // 
             this.txtAddCalleEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddCalleEmpresa.Location = new System.Drawing.Point(199, 167);
+            this.txtAddCalleEmpresa.Location = new System.Drawing.Point(218, 183);
             this.txtAddCalleEmpresa.Name = "txtAddCalleEmpresa";
             this.txtAddCalleEmpresa.Size = new System.Drawing.Size(241, 24);
             this.txtAddCalleEmpresa.TabIndex = 57;
@@ -3681,7 +3783,7 @@
             // 
             this.label126.AutoSize = true;
             this.label126.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label126.Location = new System.Drawing.Point(196, 146);
+            this.label126.Location = new System.Drawing.Point(215, 162);
             this.label126.Name = "label126";
             this.label126.Size = new System.Drawing.Size(45, 13);
             this.label126.TabIndex = 63;
@@ -3690,7 +3792,7 @@
             // txtAddLocalidadEmpresa
             // 
             this.txtAddLocalidadEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddLocalidadEmpresa.Location = new System.Drawing.Point(639, 167);
+            this.txtAddLocalidadEmpresa.Location = new System.Drawing.Point(658, 183);
             this.txtAddLocalidadEmpresa.Name = "txtAddLocalidadEmpresa";
             this.txtAddLocalidadEmpresa.Size = new System.Drawing.Size(187, 24);
             this.txtAddLocalidadEmpresa.TabIndex = 56;
@@ -3699,7 +3801,7 @@
             // txtAddColoniaEmpresa
             // 
             this.txtAddColoniaEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddColoniaEmpresa.Location = new System.Drawing.Point(446, 167);
+            this.txtAddColoniaEmpresa.Location = new System.Drawing.Point(465, 183);
             this.txtAddColoniaEmpresa.Name = "txtAddColoniaEmpresa";
             this.txtAddColoniaEmpresa.Size = new System.Drawing.Size(187, 24);
             this.txtAddColoniaEmpresa.TabIndex = 58;
@@ -3708,7 +3810,7 @@
             // txtAddMunicipioEmpresa
             // 
             this.txtAddMunicipioEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddMunicipioEmpresa.Location = new System.Drawing.Point(33, 167);
+            this.txtAddMunicipioEmpresa.Location = new System.Drawing.Point(52, 183);
             this.txtAddMunicipioEmpresa.Name = "txtAddMunicipioEmpresa";
             this.txtAddMunicipioEmpresa.Size = new System.Drawing.Size(157, 24);
             this.txtAddMunicipioEmpresa.TabIndex = 47;
@@ -3717,7 +3819,7 @@
             // txtAddPaisEmpresa
             // 
             this.txtAddPaisEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddPaisEmpresa.Location = new System.Drawing.Point(670, 110);
+            this.txtAddPaisEmpresa.Location = new System.Drawing.Point(689, 126);
             this.txtAddPaisEmpresa.Name = "txtAddPaisEmpresa";
             this.txtAddPaisEmpresa.Size = new System.Drawing.Size(156, 24);
             this.txtAddPaisEmpresa.TabIndex = 54;
@@ -3726,7 +3828,7 @@
             // txtAddCorreoElectronicoEmpresa
             // 
             this.txtAddCorreoElectronicoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddCorreoElectronicoEmpresa.Location = new System.Drawing.Point(135, 110);
+            this.txtAddCorreoElectronicoEmpresa.Location = new System.Drawing.Point(154, 126);
             this.txtAddCorreoElectronicoEmpresa.Name = "txtAddCorreoElectronicoEmpresa";
             this.txtAddCorreoElectronicoEmpresa.Size = new System.Drawing.Size(223, 24);
             this.txtAddCorreoElectronicoEmpresa.TabIndex = 53;
@@ -3735,7 +3837,7 @@
             // txtAddTelefonoEmpresa
             // 
             this.txtAddTelefonoEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddTelefonoEmpresa.Location = new System.Drawing.Point(33, 110);
+            this.txtAddTelefonoEmpresa.Location = new System.Drawing.Point(52, 126);
             this.txtAddTelefonoEmpresa.Name = "txtAddTelefonoEmpresa";
             this.txtAddTelefonoEmpresa.Size = new System.Drawing.Size(96, 24);
             this.txtAddTelefonoEmpresa.TabIndex = 51;
@@ -3744,7 +3846,7 @@
             // txtAddNombreComercialEmpresa
             // 
             this.txtAddNombreComercialEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddNombreComercialEmpresa.Location = new System.Drawing.Point(33, 54);
+            this.txtAddNombreComercialEmpresa.Location = new System.Drawing.Point(52, 70);
             this.txtAddNombreComercialEmpresa.Name = "txtAddNombreComercialEmpresa";
             this.txtAddNombreComercialEmpresa.Size = new System.Drawing.Size(300, 24);
             this.txtAddNombreComercialEmpresa.TabIndex = 40;
@@ -3754,7 +3856,7 @@
             // 
             this.lbllocalidad.AutoSize = true;
             this.lbllocalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllocalidad.Location = new System.Drawing.Point(636, 146);
+            this.lbllocalidad.Location = new System.Drawing.Point(655, 162);
             this.lbllocalidad.Name = "lbllocalidad";
             this.lbllocalidad.Size = new System.Drawing.Size(76, 13);
             this.lbllocalidad.TabIndex = 52;
@@ -3764,7 +3866,7 @@
             // 
             this.label127.AutoSize = true;
             this.label127.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label127.Location = new System.Drawing.Point(443, 146);
+            this.label127.Location = new System.Drawing.Point(462, 162);
             this.label127.Name = "label127";
             this.label127.Size = new System.Drawing.Size(61, 13);
             this.label127.TabIndex = 50;
@@ -3774,7 +3876,7 @@
             // 
             this.label128.AutoSize = true;
             this.label128.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label128.Location = new System.Drawing.Point(30, 146);
+            this.label128.Location = new System.Drawing.Point(49, 162);
             this.label128.Name = "label128";
             this.label128.Size = new System.Drawing.Size(72, 13);
             this.label128.TabIndex = 49;
@@ -3784,7 +3886,7 @@
             // 
             this.label129.AutoSize = true;
             this.label129.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label129.Location = new System.Drawing.Point(667, 89);
+            this.label129.Location = new System.Drawing.Point(686, 105);
             this.label129.Name = "label129";
             this.label129.Size = new System.Drawing.Size(35, 13);
             this.label129.TabIndex = 46;
@@ -3794,7 +3896,7 @@
             // 
             this.label130.AutoSize = true;
             this.label130.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label130.Location = new System.Drawing.Point(132, 89);
+            this.label130.Location = new System.Drawing.Point(151, 105);
             this.label130.Name = "label130";
             this.label130.Size = new System.Drawing.Size(150, 13);
             this.label130.TabIndex = 44;
@@ -3804,7 +3906,7 @@
             // 
             this.label131.AutoSize = true;
             this.label131.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label131.Location = new System.Drawing.Point(30, 89);
+            this.label131.Location = new System.Drawing.Point(49, 105);
             this.label131.Name = "label131";
             this.label131.Size = new System.Drawing.Size(72, 13);
             this.label131.TabIndex = 42;
@@ -3814,7 +3916,7 @@
             // 
             this.label133.AutoSize = true;
             this.label133.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label133.Location = new System.Drawing.Point(30, 33);
+            this.label133.Location = new System.Drawing.Point(49, 49);
             this.label133.Name = "label133";
             this.label133.Size = new System.Drawing.Size(135, 13);
             this.label133.TabIndex = 39;
@@ -3855,7 +3957,7 @@
             this.tbpUpdateEmpresa.Controls.Add(this.label146);
             this.tbpUpdateEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateEmpresa.Name = "tbpUpdateEmpresa";
-            this.tbpUpdateEmpresa.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateEmpresa.Size = new System.Drawing.Size(1151, 48);
             this.tbpUpdateEmpresa.TabIndex = 20;
             this.tbpUpdateEmpresa.Text = "Actualizar Empresa";
             this.tbpUpdateEmpresa.UseVisualStyleBackColor = true;
@@ -4193,7 +4295,7 @@
             this.tbpClientes.Controls.Add(this.label71);
             this.tbpClientes.Location = new System.Drawing.Point(4, 27);
             this.tbpClientes.Name = "tbpClientes";
-            this.tbpClientes.Size = new System.Drawing.Size(1151, 546);
+            this.tbpClientes.Size = new System.Drawing.Size(1151, 48);
             this.tbpClientes.TabIndex = 24;
             this.tbpClientes.Text = "Clientes";
             this.tbpClientes.UseVisualStyleBackColor = true;
@@ -4434,7 +4536,7 @@
             this.tbpAddCliente.Controls.Add(this.label93);
             this.tbpAddCliente.Location = new System.Drawing.Point(4, 27);
             this.tbpAddCliente.Name = "tbpAddCliente";
-            this.tbpAddCliente.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddCliente.Size = new System.Drawing.Size(1151, 48);
             this.tbpAddCliente.TabIndex = 25;
             this.tbpAddCliente.Text = "Registrar Cliente";
             this.tbpAddCliente.UseVisualStyleBackColor = true;
@@ -4892,7 +4994,6 @@
             this.txtRFCAddCli.Size = new System.Drawing.Size(236, 24);
             this.txtRFCAddCli.TabIndex = 56;
             this.txtRFCAddCli.TextChanged += new System.EventHandler(this.txtRFCAddCli_TextChanged);
-            this.txtRFCAddCli.Leave += new System.EventHandler(this.txtRFCAddCli_Leave);
             // 
             // label93
             // 
@@ -4956,7 +5057,7 @@
             this.tbpUpdateCliente.Controls.Add(this.label116);
             this.tbpUpdateCliente.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateCliente.Name = "tbpUpdateCliente";
-            this.tbpUpdateCliente.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateCliente.Size = new System.Drawing.Size(1151, 48);
             this.tbpUpdateCliente.TabIndex = 26;
             this.tbpUpdateCliente.Text = "Actualizar Cliente";
             this.tbpUpdateCliente.UseVisualStyleBackColor = true;
@@ -5424,7 +5525,7 @@
             // 
             // tbpSucursal
             // 
-            this.tbpSucursal.Controls.Add(this.cmbEstadoSucursal);
+            this.tbpSucursal.Controls.Add(this.cmbStatusSucursal);
             this.tbpSucursal.Controls.Add(this.btnBorrarSucursal);
             this.tbpSucursal.Controls.Add(this.btnActualizarSucursal);
             this.tbpSucursal.Controls.Add(this.btnRegistrarSucursal);
@@ -5434,22 +5535,25 @@
             this.tbpSucursal.Controls.Add(this.label148);
             this.tbpSucursal.Location = new System.Drawing.Point(4, 27);
             this.tbpSucursal.Name = "tbpSucursal";
-            this.tbpSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpSucursal.Size = new System.Drawing.Size(1151, 48);
             this.tbpSucursal.TabIndex = 27;
             this.tbpSucursal.Text = "Sucursales";
             this.tbpSucursal.UseVisualStyleBackColor = true;
+            this.tbpSucursal.Click += new System.EventHandler(this.tbpSucursal_Click);
             // 
-            // cmbEstadoSucursal
+            // cmbStatusSucursal
             // 
-            this.cmbEstadoSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEstadoSucursal.FormattingEnabled = true;
-            this.cmbEstadoSucursal.Items.AddRange(new object[] {
+            this.cmbStatusSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbStatusSucursal.FormattingEnabled = true;
+            this.cmbStatusSucursal.Items.AddRange(new object[] {
             "ABIERTA",
-            "CERRADA"});
-            this.cmbEstadoSucursal.Location = new System.Drawing.Point(896, 9);
-            this.cmbEstadoSucursal.Name = "cmbEstadoSucursal";
-            this.cmbEstadoSucursal.Size = new System.Drawing.Size(128, 24);
-            this.cmbEstadoSucursal.TabIndex = 26;
+            "CERRADA",
+            "OTRO(A)"});
+            this.cmbStatusSucursal.Location = new System.Drawing.Point(896, 7);
+            this.cmbStatusSucursal.Name = "cmbStatusSucursal";
+            this.cmbStatusSucursal.Size = new System.Drawing.Size(128, 24);
+            this.cmbStatusSucursal.TabIndex = 41;
+            this.cmbStatusSucursal.SelectedIndexChanged += new System.EventHandler(this.cmbStatusSucursal_SelectedIndexChanged);
             // 
             // btnBorrarSucursal
             // 
@@ -5459,6 +5563,7 @@
             this.btnBorrarSucursal.TabIndex = 33;
             this.btnBorrarSucursal.Text = "Borrar";
             this.btnBorrarSucursal.UseVisualStyleBackColor = true;
+            this.btnBorrarSucursal.Click += new System.EventHandler(this.btnBorrarSucursal_Click);
             // 
             // btnActualizarSucursal
             // 
@@ -5468,6 +5573,7 @@
             this.btnActualizarSucursal.TabIndex = 32;
             this.btnActualizarSucursal.Text = "Modificar";
             this.btnActualizarSucursal.UseVisualStyleBackColor = true;
+            this.btnActualizarSucursal.Click += new System.EventHandler(this.btnActualizarSucursal_Click);
             // 
             // btnRegistrarSucursal
             // 
@@ -5477,11 +5583,12 @@
             this.btnRegistrarSucursal.TabIndex = 34;
             this.btnRegistrarSucursal.Text = "Agregar nueva";
             this.btnRegistrarSucursal.UseVisualStyleBackColor = true;
+            this.btnRegistrarSucursal.Click += new System.EventHandler(this.btnRegistrarSucursal_Click);
             // 
             // lblCantidadSucursal
             // 
             this.lblCantidadSucursal.AutoSize = true;
-            this.lblCantidadSucursal.Location = new System.Drawing.Point(893, 519);
+            this.lblCantidadSucursal.Location = new System.Drawing.Point(3, 519);
             this.lblCantidadSucursal.Name = "lblCantidadSucursal";
             this.lblCantidadSucursal.Size = new System.Drawing.Size(70, 18);
             this.lblCantidadSucursal.TabIndex = 37;
@@ -5494,56 +5601,59 @@
             this.dgvDatosSucursal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sucursal,
             this.dataGridViewTextBoxColumn13,
-            this.sEstSucursal,
             this.iNumCertificado,
             this.sPais,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16,
             this.dataGridViewTextBoxColumn17,
-            this.iNumExterior,
             this.dataGridViewTextBoxColumn18});
             this.dgvDatosSucursal.Location = new System.Drawing.Point(3, 39);
             this.dgvDatosSucursal.Name = "dgvDatosSucursal";
+            this.dgvDatosSucursal.ReadOnly = true;
             this.dgvDatosSucursal.RowHeadersVisible = false;
+            this.dgvDatosSucursal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosSucursal.Size = new System.Drawing.Size(1021, 477);
             this.dgvDatosSucursal.TabIndex = 36;
+            this.dgvDatosSucursal.DataSourceChanged += new System.EventHandler(this.dgvDatosSucursal_DataSourceChanged);
             // 
             // Sucursal
             // 
             this.Sucursal.DataPropertyName = "pkSucursal";
             this.Sucursal.HeaderText = "No.";
             this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
+            this.Sucursal.Width = 80;
             // 
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "sNombre";
             this.dataGridViewTextBoxColumn13.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // sEstSucursal
-            // 
-            this.sEstSucursal.DataPropertyName = "sEstSucursal";
-            this.sEstSucursal.HeaderText = "Estado de Sucursal";
-            this.sEstSucursal.Name = "sEstSucursal";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 200;
             // 
             // iNumCertificado
             // 
-            this.iNumCertificado.DataPropertyName = "iNumCertificado";
+            this.iNumCertificado.DataPropertyName = "sNoCertifi";
             this.iNumCertificado.HeaderText = "No. Certificado";
             this.iNumCertificado.Name = "iNumCertificado";
+            this.iNumCertificado.ReadOnly = true;
+            this.iNumCertificado.Width = 150;
             // 
             // sPais
             // 
             this.sPais.DataPropertyName = "sPais";
             this.sPais.HeaderText = "Pais";
             this.sPais.Name = "sPais";
+            this.sPais.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "sEstado";
             this.dataGridViewTextBoxColumn14.HeaderText = "Estado";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             this.dataGridViewTextBoxColumn14.Width = 90;
             // 
             // dataGridViewTextBoxColumn15
@@ -5551,30 +5661,28 @@
             this.dataGridViewTextBoxColumn15.DataPropertyName = "sMunicipio";
             this.dataGridViewTextBoxColumn15.HeaderText = "Municipio";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "sColonia";
             this.dataGridViewTextBoxColumn16.HeaderText = "Colonia";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "sCalle";
             this.dataGridViewTextBoxColumn17.HeaderText = "Calle";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // iNumExterior
-            // 
-            this.iNumExterior.DataPropertyName = "iNumExterior";
-            this.iNumExterior.HeaderText = "No Exterior";
-            this.iNumExterior.Name = "iNumExterior";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "iCodPostal";
             this.dataGridViewTextBoxColumn18.HeaderText = "Codigo Postal";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // txtBuscarSucursal
             // 
@@ -5582,6 +5690,7 @@
             this.txtBuscarSucursal.Name = "txtBuscarSucursal";
             this.txtBuscarSucursal.Size = new System.Drawing.Size(822, 24);
             this.txtBuscarSucursal.TabIndex = 30;
+            this.txtBuscarSucursal.TextChanged += new System.EventHandler(this.txtBuscarSucursal_TextChanged);
             // 
             // label148
             // 
@@ -5594,6 +5703,10 @@
             // 
             // tbpRegistrarSucursal
             // 
+            this.tbpRegistrarSucursal.Controls.Add(this.pnlAddCertificado);
+            this.tbpRegistrarSucursal.Controls.Add(this.pnlAddPreferencias);
+            this.tbpRegistrarSucursal.Controls.Add(this.pnlAddSucursal);
+            this.tbpRegistrarSucursal.Controls.Add(this.pnlAddSucursalPreferenciaCertificado);
             this.tbpRegistrarSucursal.Location = new System.Drawing.Point(4, 27);
             this.tbpRegistrarSucursal.Name = "tbpRegistrarSucursal";
             this.tbpRegistrarSucursal.Size = new System.Drawing.Size(1151, 546);
@@ -5601,41 +5714,1237 @@
             this.tbpRegistrarSucursal.Text = "Registrar sucursal";
             this.tbpRegistrarSucursal.UseVisualStyleBackColor = true;
             // 
+            // pnlAddCertificado
+            // 
+            this.pnlAddCertificado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAddCertificado.Controls.Add(this.btnAddExaminarCarpetaCertificados);
+            this.pnlAddCertificado.Controls.Add(this.txtAddFolcerCertificados);
+            this.pnlAddCertificado.Controls.Add(this.label191);
+            this.pnlAddCertificado.Controls.Add(this.txtAddValidoHasta);
+            this.pnlAddCertificado.Controls.Add(this.label192);
+            this.pnlAddCertificado.Controls.Add(this.txtAddValidoDe);
+            this.pnlAddCertificado.Controls.Add(this.txtAddNoCertficado);
+            this.pnlAddCertificado.Controls.Add(this.label193);
+            this.pnlAddCertificado.Controls.Add(this.label194);
+            this.pnlAddCertificado.Controls.Add(this.btnAddExaminarKey);
+            this.pnlAddCertificado.Controls.Add(this.txtAddContraseña);
+            this.pnlAddCertificado.Controls.Add(this.label196);
+            this.pnlAddCertificado.Controls.Add(this.btnAddExaminarCertificado);
+            this.pnlAddCertificado.Controls.Add(this.txtAddKey);
+            this.pnlAddCertificado.Controls.Add(this.txtAddCertificado);
+            this.pnlAddCertificado.Controls.Add(this.label197);
+            this.pnlAddCertificado.Controls.Add(this.label198);
+            this.pnlAddCertificado.Location = new System.Drawing.Point(158, 0);
+            this.pnlAddCertificado.Name = "pnlAddCertificado";
+            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 546);
+            this.pnlAddCertificado.TabIndex = 136;
+            this.pnlAddCertificado.Visible = false;
+            // 
+            // btnAddExaminarCarpetaCertificados
+            // 
+            this.btnAddExaminarCarpetaCertificados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddExaminarCarpetaCertificados.Location = new System.Drawing.Point(369, 95);
+            this.btnAddExaminarCarpetaCertificados.Name = "btnAddExaminarCarpetaCertificados";
+            this.btnAddExaminarCarpetaCertificados.Size = new System.Drawing.Size(95, 24);
+            this.btnAddExaminarCarpetaCertificados.TabIndex = 163;
+            this.btnAddExaminarCarpetaCertificados.Text = "EXAMINAR";
+            this.btnAddExaminarCarpetaCertificados.UseVisualStyleBackColor = true;
+            this.btnAddExaminarCarpetaCertificados.Click += new System.EventHandler(this.button2_Click_2);
+            // 
+            // txtAddFolcerCertificados
+            // 
+            this.txtAddFolcerCertificados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddFolcerCertificados.Location = new System.Drawing.Point(63, 96);
+            this.txtAddFolcerCertificados.Name = "txtAddFolcerCertificados";
+            this.txtAddFolcerCertificados.Size = new System.Drawing.Size(300, 24);
+            this.txtAddFolcerCertificados.TabIndex = 162;
+            this.txtAddFolcerCertificados.TextChanged += new System.EventHandler(this.txtAddFolcerCertificados_TextChanged);
+            // 
+            // label191
+            // 
+            this.label191.AutoSize = true;
+            this.label191.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label191.Location = new System.Drawing.Point(60, 73);
+            this.label191.Name = "label191";
+            this.label191.Size = new System.Drawing.Size(156, 13);
+            this.label191.TabIndex = 161;
+            this.label191.Text = "CARPETA DE CERTIFICADOS";
+            // 
+            // txtAddValidoHasta
+            // 
+            this.txtAddValidoHasta.Enabled = false;
+            this.txtAddValidoHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddValidoHasta.Location = new System.Drawing.Point(467, 284);
+            this.txtAddValidoHasta.Name = "txtAddValidoHasta";
+            this.txtAddValidoHasta.Size = new System.Drawing.Size(303, 24);
+            this.txtAddValidoHasta.TabIndex = 159;
+            // 
+            // label192
+            // 
+            this.label192.AutoSize = true;
+            this.label192.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label192.Location = new System.Drawing.Point(464, 263);
+            this.label192.Name = "label192";
+            this.label192.Size = new System.Drawing.Size(85, 13);
+            this.label192.TabIndex = 160;
+            this.label192.Text = "VALIDO HASTA";
+            // 
+            // txtAddValidoDe
+            // 
+            this.txtAddValidoDe.Enabled = false;
+            this.txtAddValidoDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddValidoDe.Location = new System.Drawing.Point(470, 216);
+            this.txtAddValidoDe.Name = "txtAddValidoDe";
+            this.txtAddValidoDe.Size = new System.Drawing.Size(300, 24);
+            this.txtAddValidoDe.TabIndex = 158;
+            // 
+            // txtAddNoCertficado
+            // 
+            this.txtAddNoCertficado.Enabled = false;
+            this.txtAddNoCertficado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddNoCertficado.Location = new System.Drawing.Point(470, 155);
+            this.txtAddNoCertficado.Name = "txtAddNoCertficado";
+            this.txtAddNoCertficado.Size = new System.Drawing.Size(300, 24);
+            this.txtAddNoCertficado.TabIndex = 156;
+            // 
+            // label193
+            // 
+            this.label193.AutoSize = true;
+            this.label193.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label193.Location = new System.Drawing.Point(467, 195);
+            this.label193.Name = "label193";
+            this.label193.Size = new System.Drawing.Size(64, 13);
+            this.label193.TabIndex = 157;
+            this.label193.Text = "VALIDO DE";
+            // 
+            // label194
+            // 
+            this.label194.AutoSize = true;
+            this.label194.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label194.Location = new System.Drawing.Point(467, 134);
+            this.label194.Name = "label194";
+            this.label194.Size = new System.Drawing.Size(100, 13);
+            this.label194.TabIndex = 155;
+            this.label194.Text = "NO. CERTIFICADO";
+            // 
+            // btnAddExaminarKey
+            // 
+            this.btnAddExaminarKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddExaminarKey.Location = new System.Drawing.Point(369, 217);
+            this.btnAddExaminarKey.Name = "btnAddExaminarKey";
+            this.btnAddExaminarKey.Size = new System.Drawing.Size(95, 24);
+            this.btnAddExaminarKey.TabIndex = 154;
+            this.btnAddExaminarKey.Text = "EXAMINAR";
+            this.btnAddExaminarKey.UseVisualStyleBackColor = true;
+            this.btnAddExaminarKey.Click += new System.EventHandler(this.btnAddExaminarKey_Click_1);
+            // 
+            // txtAddContraseña
+            // 
+            this.txtAddContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddContraseña.Location = new System.Drawing.Point(60, 285);
+            this.txtAddContraseña.Name = "txtAddContraseña";
+            this.txtAddContraseña.Size = new System.Drawing.Size(303, 24);
+            this.txtAddContraseña.TabIndex = 148;
+            this.txtAddContraseña.Text = "12345678a";
+            this.txtAddContraseña.TextChanged += new System.EventHandler(this.txtAddContraseña_TextChanged);
+            // 
+            // label196
+            // 
+            this.label196.AutoSize = true;
+            this.label196.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label196.Location = new System.Drawing.Point(57, 264);
+            this.label196.Name = "label196";
+            this.label196.Size = new System.Drawing.Size(81, 13);
+            this.label196.TabIndex = 150;
+            this.label196.Text = "CONTRASEÑA";
+            // 
+            // btnAddExaminarCertificado
+            // 
+            this.btnAddExaminarCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddExaminarCertificado.Location = new System.Drawing.Point(369, 156);
+            this.btnAddExaminarCertificado.Name = "btnAddExaminarCertificado";
+            this.btnAddExaminarCertificado.Size = new System.Drawing.Size(95, 24);
+            this.btnAddExaminarCertificado.TabIndex = 149;
+            this.btnAddExaminarCertificado.Text = "EXAMINAR";
+            this.btnAddExaminarCertificado.UseVisualStyleBackColor = true;
+            this.btnAddExaminarCertificado.Click += new System.EventHandler(this.btnAddExaminarCertificado_Click_1);
+            // 
+            // txtAddKey
+            // 
+            this.txtAddKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddKey.Location = new System.Drawing.Point(63, 217);
+            this.txtAddKey.Name = "txtAddKey";
+            this.txtAddKey.Size = new System.Drawing.Size(300, 24);
+            this.txtAddKey.TabIndex = 147;
+            this.txtAddKey.TextChanged += new System.EventHandler(this.txtAddKey_TextChanged);
+            // 
+            // txtAddCertificado
+            // 
+            this.txtAddCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddCertificado.Location = new System.Drawing.Point(63, 156);
+            this.txtAddCertificado.Name = "txtAddCertificado";
+            this.txtAddCertificado.Size = new System.Drawing.Size(300, 24);
+            this.txtAddCertificado.TabIndex = 145;
+            this.txtAddCertificado.TextChanged += new System.EventHandler(this.txtAddCertificado_TextChanged);
+            // 
+            // label197
+            // 
+            this.label197.AutoSize = true;
+            this.label197.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label197.Location = new System.Drawing.Point(57, 195);
+            this.label197.Name = "label197";
+            this.label197.Size = new System.Drawing.Size(28, 13);
+            this.label197.TabIndex = 146;
+            this.label197.Text = "KEY";
+            // 
+            // label198
+            // 
+            this.label198.AutoSize = true;
+            this.label198.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label198.Location = new System.Drawing.Point(60, 135);
+            this.label198.Name = "label198";
+            this.label198.Size = new System.Drawing.Size(78, 13);
+            this.label198.TabIndex = 144;
+            this.label198.Text = "CERTIFICADO";
+            // 
+            // pnlAddPreferencias
+            // 
+            this.pnlAddPreferencias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAddPreferencias.Controls.Add(this.txtAddNumSerieSucursal);
+            this.pnlAddPreferencias.Controls.Add(this.ckbAddForImpreso);
+            this.pnlAddPreferencias.Controls.Add(this.ckbAddEnvFactura);
+            this.pnlAddPreferencias.Controls.Add(this.label189);
+            this.pnlAddPreferencias.Controls.Add(this.label170);
+            this.pnlAddPreferencias.Controls.Add(this.pcbAddLogo);
+            this.pnlAddPreferencias.Controls.Add(this.btnAddExaminarLogo);
+            this.pnlAddPreferencias.Location = new System.Drawing.Point(158, 0);
+            this.pnlAddPreferencias.Name = "pnlAddPreferencias";
+            this.pnlAddPreferencias.Size = new System.Drawing.Size(997, 546);
+            this.pnlAddPreferencias.TabIndex = 136;
+            this.pnlAddPreferencias.Visible = false;
+            // 
+            // txtAddNumSerieSucursal
+            // 
+            this.txtAddNumSerieSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddNumSerieSucursal.Location = new System.Drawing.Point(242, 122);
+            this.txtAddNumSerieSucursal.Name = "txtAddNumSerieSucursal";
+            this.txtAddNumSerieSucursal.Size = new System.Drawing.Size(151, 24);
+            this.txtAddNumSerieSucursal.TabIndex = 125;
+            this.txtAddNumSerieSucursal.Text = "SA";
+            this.txtAddNumSerieSucursal.TextChanged += new System.EventHandler(this.txtAddNumSerieSucursal_TextChanged);
+            // 
+            // ckbAddForImpreso
+            // 
+            this.ckbAddForImpreso.AutoSize = true;
+            this.ckbAddForImpreso.Location = new System.Drawing.Point(242, 152);
+            this.ckbAddForImpreso.Name = "ckbAddForImpreso";
+            this.ckbAddForImpreso.Size = new System.Drawing.Size(142, 22);
+            this.ckbAddForImpreso.TabIndex = 123;
+            this.ckbAddForImpreso.Text = "Formato Impreso";
+            this.ckbAddForImpreso.UseVisualStyleBackColor = true;
+            // 
+            // ckbAddEnvFactura
+            // 
+            this.ckbAddEnvFactura.AutoSize = true;
+            this.ckbAddEnvFactura.Location = new System.Drawing.Point(242, 180);
+            this.ckbAddEnvFactura.Name = "ckbAddEnvFactura";
+            this.ckbAddEnvFactura.Size = new System.Drawing.Size(122, 22);
+            this.ckbAddEnvFactura.TabIndex = 124;
+            this.ckbAddEnvFactura.Text = "Enviar Factura";
+            this.ckbAddEnvFactura.UseVisualStyleBackColor = true;
+            // 
+            // label189
+            // 
+            this.label189.AutoSize = true;
+            this.label189.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label189.Location = new System.Drawing.Point(41, 103);
+            this.label189.Name = "label189";
+            this.label189.Size = new System.Drawing.Size(37, 13);
+            this.label189.TabIndex = 135;
+            this.label189.Text = "LOGO";
+            // 
+            // label170
+            // 
+            this.label170.AutoSize = true;
+            this.label170.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label170.Location = new System.Drawing.Point(239, 101);
+            this.label170.Name = "label170";
+            this.label170.Size = new System.Drawing.Size(61, 13);
+            this.label170.TabIndex = 126;
+            this.label170.Text = "NO. SERIE";
+            // 
+            // pcbAddLogo
+            // 
+            this.pcbAddLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcbAddLogo.Location = new System.Drawing.Point(44, 124);
+            this.pcbAddLogo.Name = "pcbAddLogo";
+            this.pcbAddLogo.Size = new System.Drawing.Size(167, 113);
+            this.pcbAddLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbAddLogo.TabIndex = 134;
+            this.pcbAddLogo.TabStop = false;
+            this.pcbAddLogo.Tag = "2";
+            // 
+            // btnAddExaminarLogo
+            // 
+            this.btnAddExaminarLogo.Location = new System.Drawing.Point(44, 246);
+            this.btnAddExaminarLogo.Name = "btnAddExaminarLogo";
+            this.btnAddExaminarLogo.Size = new System.Drawing.Size(167, 27);
+            this.btnAddExaminarLogo.TabIndex = 133;
+            this.btnAddExaminarLogo.Tag = "2";
+            this.btnAddExaminarLogo.Text = "Examinar";
+            this.btnAddExaminarLogo.UseVisualStyleBackColor = true;
+            this.btnAddExaminarLogo.Click += new System.EventHandler(this.btnAddExaminarLogo_Click);
+            // 
+            // pnlAddSucursal
+            // 
+            this.pnlAddSucursal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAddSucursal.Controls.Add(this.cmbEmpresasSucursales);
+            this.pnlAddSucursal.Controls.Add(this.label162);
+            this.pnlAddSucursal.Controls.Add(this.label159);
+            this.pnlAddSucursal.Controls.Add(this.label158);
+            this.pnlAddSucursal.Controls.Add(this.label157);
+            this.pnlAddSucursal.Controls.Add(this.label156);
+            this.pnlAddSucursal.Controls.Add(this.txtAddNombreSucursal);
+            this.pnlAddSucursal.Controls.Add(this.txtAddPaiSucursal);
+            this.pnlAddSucursal.Controls.Add(this.label150);
+            this.pnlAddSucursal.Controls.Add(this.txtAddMunicipioSucursal);
+            this.pnlAddSucursal.Controls.Add(this.txtAddColoniaSucursal);
+            this.pnlAddSucursal.Controls.Add(this.txtAddLocalidadSucursal);
+            this.pnlAddSucursal.Controls.Add(this.cmbCodigoPostalSucursales);
+            this.pnlAddSucursal.Controls.Add(this.label155);
+            this.pnlAddSucursal.Controls.Add(this.txtAddEstadoSucursal);
+            this.pnlAddSucursal.Controls.Add(this.txtAddCalleSucursal);
+            this.pnlAddSucursal.Controls.Add(this.label149);
+            this.pnlAddSucursal.Controls.Add(this.label154);
+            this.pnlAddSucursal.Controls.Add(this.btnGuardarSucursales);
+            this.pnlAddSucursal.Controls.Add(this.label153);
+            this.pnlAddSucursal.Controls.Add(this.label152);
+            this.pnlAddSucursal.Controls.Add(this.txtAddNumInteriorSucursal);
+            this.pnlAddSucursal.Controls.Add(this.txtAddnumExteriorSucursal);
+            this.pnlAddSucursal.Location = new System.Drawing.Point(158, 0);
+            this.pnlAddSucursal.Name = "pnlAddSucursal";
+            this.pnlAddSucursal.Size = new System.Drawing.Size(993, 546);
+            this.pnlAddSucursal.TabIndex = 137;
+            // 
+            // cmbEmpresasSucursales
+            // 
+            this.cmbEmpresasSucursales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEmpresasSucursales.FormattingEnabled = true;
+            this.cmbEmpresasSucursales.Location = new System.Drawing.Point(30, 68);
+            this.cmbEmpresasSucursales.Name = "cmbEmpresasSucursales";
+            this.cmbEmpresasSucursales.Size = new System.Drawing.Size(227, 24);
+            this.cmbEmpresasSucursales.TabIndex = 121;
+            this.cmbEmpresasSucursales.Text = "Seleccione una opción";
+            // 
+            // label162
+            // 
+            this.label162.AutoSize = true;
+            this.label162.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label162.Location = new System.Drawing.Point(260, 47);
+            this.label162.Name = "label162";
+            this.label162.Size = new System.Drawing.Size(54, 13);
+            this.label162.TabIndex = 90;
+            this.label162.Text = "NOMBRE";
+            // 
+            // label159
+            // 
+            this.label159.AutoSize = true;
+            this.label159.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label159.Location = new System.Drawing.Point(616, 47);
+            this.label159.Name = "label159";
+            this.label159.Size = new System.Drawing.Size(31, 13);
+            this.label159.TabIndex = 95;
+            this.label159.Text = "PAIS";
+            // 
+            // label158
+            // 
+            this.label158.AutoSize = true;
+            this.label158.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label158.Location = new System.Drawing.Point(27, 106);
+            this.label158.Name = "label158";
+            this.label158.Size = new System.Drawing.Size(63, 13);
+            this.label158.TabIndex = 97;
+            this.label158.Text = "MUNICIPIO";
+            // 
+            // label157
+            // 
+            this.label157.AutoSize = true;
+            this.label157.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label157.Location = new System.Drawing.Point(440, 106);
+            this.label157.Name = "label157";
+            this.label157.Size = new System.Drawing.Size(54, 13);
+            this.label157.TabIndex = 98;
+            this.label157.Text = "COLONIA";
+            // 
+            // label156
+            // 
+            this.label156.AutoSize = true;
+            this.label156.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label156.Location = new System.Drawing.Point(633, 106);
+            this.label156.Name = "label156";
+            this.label156.Size = new System.Drawing.Size(67, 13);
+            this.label156.TabIndex = 100;
+            this.label156.Text = "LOCALIDAD";
+            // 
+            // txtAddNombreSucursal
+            // 
+            this.txtAddNombreSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddNombreSucursal.Location = new System.Drawing.Point(263, 68);
+            this.txtAddNombreSucursal.Name = "txtAddNombreSucursal";
+            this.txtAddNombreSucursal.Size = new System.Drawing.Size(350, 24);
+            this.txtAddNombreSucursal.TabIndex = 91;
+            this.txtAddNombreSucursal.Text = "EMPRESA COMERCIAL";
+            this.txtAddNombreSucursal.TextChanged += new System.EventHandler(this.txtAddNombreSucursal_TextChanged);
+            // 
+            // txtAddPaiSucursal
+            // 
+            this.txtAddPaiSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddPaiSucursal.Location = new System.Drawing.Point(619, 68);
+            this.txtAddPaiSucursal.Name = "txtAddPaiSucursal";
+            this.txtAddPaiSucursal.Size = new System.Drawing.Size(125, 24);
+            this.txtAddPaiSucursal.TabIndex = 102;
+            this.txtAddPaiSucursal.Text = "MEXICO";
+            this.txtAddPaiSucursal.TextChanged += new System.EventHandler(this.txtAddPaiSucursal_TextChanged);
+            // 
+            // label150
+            // 
+            this.label150.AutoSize = true;
+            this.label150.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label150.Location = new System.Drawing.Point(30, 47);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(59, 13);
+            this.label150.TabIndex = 122;
+            this.label150.Text = "EMPRESA";
+            // 
+            // txtAddMunicipioSucursal
+            // 
+            this.txtAddMunicipioSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddMunicipioSucursal.Location = new System.Drawing.Point(30, 127);
+            this.txtAddMunicipioSucursal.Name = "txtAddMunicipioSucursal";
+            this.txtAddMunicipioSucursal.Size = new System.Drawing.Size(157, 24);
+            this.txtAddMunicipioSucursal.TabIndex = 96;
+            this.txtAddMunicipioSucursal.Text = "HERMOSILLO";
+            this.txtAddMunicipioSucursal.TextChanged += new System.EventHandler(this.txtAddMunicipioSucursal_TextChanged);
+            // 
+            // txtAddColoniaSucursal
+            // 
+            this.txtAddColoniaSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddColoniaSucursal.Location = new System.Drawing.Point(443, 127);
+            this.txtAddColoniaSucursal.Name = "txtAddColoniaSucursal";
+            this.txtAddColoniaSucursal.Size = new System.Drawing.Size(187, 24);
+            this.txtAddColoniaSucursal.TabIndex = 106;
+            this.txtAddColoniaSucursal.Text = "SAN SEBASTIAN";
+            this.txtAddColoniaSucursal.TextChanged += new System.EventHandler(this.txtAddColoniaSucursal_TextChanged);
+            // 
+            // txtAddLocalidadSucursal
+            // 
+            this.txtAddLocalidadSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddLocalidadSucursal.Location = new System.Drawing.Point(636, 127);
+            this.txtAddLocalidadSucursal.Name = "txtAddLocalidadSucursal";
+            this.txtAddLocalidadSucursal.Size = new System.Drawing.Size(239, 24);
+            this.txtAddLocalidadSucursal.TabIndex = 104;
+            this.txtAddLocalidadSucursal.Text = "AVELARDO ZAMAROCOS";
+            this.txtAddLocalidadSucursal.TextChanged += new System.EventHandler(this.txtAddLocalidadSucursal_TextChanged);
+            // 
+            // cmbCodigoPostalSucursales
+            // 
+            this.cmbCodigoPostalSucursales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCodigoPostalSucursales.FormattingEnabled = true;
+            this.cmbCodigoPostalSucursales.Items.AddRange(new object[] {
+            "83220"});
+            this.cmbCodigoPostalSucursales.Location = new System.Drawing.Point(283, 184);
+            this.cmbCodigoPostalSucursales.Name = "cmbCodigoPostalSucursales";
+            this.cmbCodigoPostalSucursales.Size = new System.Drawing.Size(159, 24);
+            this.cmbCodigoPostalSucursales.TabIndex = 120;
+            this.cmbCodigoPostalSucursales.Text = "Seleccione una opción";
+            // 
+            // label155
+            // 
+            this.label155.AutoSize = true;
+            this.label155.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label155.Location = new System.Drawing.Point(193, 106);
+            this.label155.Name = "label155";
+            this.label155.Size = new System.Drawing.Size(40, 13);
+            this.label155.TabIndex = 109;
+            this.label155.Text = "CALLE";
+            // 
+            // txtAddEstadoSucursal
+            // 
+            this.txtAddEstadoSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddEstadoSucursal.Location = new System.Drawing.Point(750, 68);
+            this.txtAddEstadoSucursal.Name = "txtAddEstadoSucursal";
+            this.txtAddEstadoSucursal.Size = new System.Drawing.Size(125, 24);
+            this.txtAddEstadoSucursal.TabIndex = 103;
+            this.txtAddEstadoSucursal.Text = "SONORA";
+            this.txtAddEstadoSucursal.TextChanged += new System.EventHandler(this.txtAddEstadoSucursal_TextChanged);
+            // 
+            // txtAddCalleSucursal
+            // 
+            this.txtAddCalleSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddCalleSucursal.Location = new System.Drawing.Point(196, 127);
+            this.txtAddCalleSucursal.Name = "txtAddCalleSucursal";
+            this.txtAddCalleSucursal.Size = new System.Drawing.Size(241, 24);
+            this.txtAddCalleSucursal.TabIndex = 105;
+            this.txtAddCalleSucursal.Text = "AVELARDO ZAMAROCOS";
+            this.txtAddCalleSucursal.TextChanged += new System.EventHandler(this.txtAddCalleSucursal_TextChanged);
+            // 
+            // label149
+            // 
+            this.label149.AutoSize = true;
+            this.label149.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label149.Location = new System.Drawing.Point(747, 47);
+            this.label149.Name = "label149";
+            this.label149.Size = new System.Drawing.Size(51, 13);
+            this.label149.TabIndex = 116;
+            this.label149.Text = "ESTADO";
+            // 
+            // label154
+            // 
+            this.label154.AutoSize = true;
+            this.label154.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label154.Location = new System.Drawing.Point(27, 163);
+            this.label154.Name = "label154";
+            this.label154.Size = new System.Drawing.Size(81, 13);
+            this.label154.TabIndex = 110;
+            this.label154.Text = "NO. INTERIOR";
+            // 
+            // btnGuardarSucursales
+            // 
+            this.btnGuardarSucursales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarSucursales.Location = new System.Drawing.Point(762, 269);
+            this.btnGuardarSucursales.Name = "btnGuardarSucursales";
+            this.btnGuardarSucursales.Size = new System.Drawing.Size(113, 36);
+            this.btnGuardarSucursales.TabIndex = 112;
+            this.btnGuardarSucursales.Text = "GUARDAR";
+            this.btnGuardarSucursales.UseVisualStyleBackColor = true;
+            this.btnGuardarSucursales.Click += new System.EventHandler(this.btnGuardarSucursales_Click);
+            // 
+            // label153
+            // 
+            this.label153.AutoSize = true;
+            this.label153.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label153.Location = new System.Drawing.Point(146, 163);
+            this.label153.Name = "label153";
+            this.label153.Size = new System.Drawing.Size(84, 13);
+            this.label153.TabIndex = 111;
+            this.label153.Text = "NO. EXTERIOR";
+            // 
+            // label152
+            // 
+            this.label152.AutoSize = true;
+            this.label152.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label152.Location = new System.Drawing.Point(280, 163);
+            this.label152.Name = "label152";
+            this.label152.Size = new System.Drawing.Size(94, 13);
+            this.label152.TabIndex = 113;
+            this.label152.Text = "CODIGO POSTAL";
+            // 
+            // txtAddNumInteriorSucursal
+            // 
+            this.txtAddNumInteriorSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddNumInteriorSucursal.Location = new System.Drawing.Point(30, 184);
+            this.txtAddNumInteriorSucursal.Name = "txtAddNumInteriorSucursal";
+            this.txtAddNumInteriorSucursal.Size = new System.Drawing.Size(113, 24);
+            this.txtAddNumInteriorSucursal.TabIndex = 107;
+            this.txtAddNumInteriorSucursal.Text = "171";
+            this.txtAddNumInteriorSucursal.TextChanged += new System.EventHandler(this.txtAddNumInteriorSucursal_TextChanged);
+            // 
+            // txtAddnumExteriorSucursal
+            // 
+            this.txtAddnumExteriorSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddnumExteriorSucursal.Location = new System.Drawing.Point(149, 184);
+            this.txtAddnumExteriorSucursal.Name = "txtAddnumExteriorSucursal";
+            this.txtAddnumExteriorSucursal.Size = new System.Drawing.Size(128, 24);
+            this.txtAddnumExteriorSucursal.TabIndex = 108;
+            this.txtAddnumExteriorSucursal.Text = "0";
+            // 
+            // pnlAddSucursalPreferenciaCertificado
+            // 
+            this.pnlAddSucursalPreferenciaCertificado.BackColor = System.Drawing.Color.White;
+            this.pnlAddSucursalPreferenciaCertificado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAddSucursalPreferenciaCertificado.Controls.Add(this.btnAddPnlCertificado);
+            this.pnlAddSucursalPreferenciaCertificado.Controls.Add(this.btnAddPnlPreferencias);
+            this.pnlAddSucursalPreferenciaCertificado.Controls.Add(this.btnAddPnlSucrusal);
+            this.pnlAddSucursalPreferenciaCertificado.Location = new System.Drawing.Point(0, 0);
+            this.pnlAddSucursalPreferenciaCertificado.Name = "pnlAddSucursalPreferenciaCertificado";
+            this.pnlAddSucursalPreferenciaCertificado.Size = new System.Drawing.Size(159, 546);
+            this.pnlAddSucursalPreferenciaCertificado.TabIndex = 136;
+            // 
+            // btnAddPnlCertificado
+            // 
+            this.btnAddPnlCertificado.BackColor = System.Drawing.Color.White;
+            this.btnAddPnlCertificado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAddPnlCertificado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPnlCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPnlCertificado.ForeColor = System.Drawing.Color.Black;
+            this.btnAddPnlCertificado.Location = new System.Drawing.Point(-2, 84);
+            this.btnAddPnlCertificado.Name = "btnAddPnlCertificado";
+            this.btnAddPnlCertificado.Size = new System.Drawing.Size(160, 44);
+            this.btnAddPnlCertificado.TabIndex = 25;
+            this.btnAddPnlCertificado.Text = "Certificado";
+            this.btnAddPnlCertificado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddPnlCertificado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddPnlCertificado.UseVisualStyleBackColor = false;
+            this.btnAddPnlCertificado.Click += new System.EventHandler(this.btnAddPnlCertificado_Click);
+            this.btnAddPnlCertificado.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnAddPnlCertificado_MouseClick);
+            // 
+            // btnAddPnlPreferencias
+            // 
+            this.btnAddPnlPreferencias.BackColor = System.Drawing.Color.White;
+            this.btnAddPnlPreferencias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAddPnlPreferencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPnlPreferencias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPnlPreferencias.ForeColor = System.Drawing.Color.Black;
+            this.btnAddPnlPreferencias.Location = new System.Drawing.Point(-2, 41);
+            this.btnAddPnlPreferencias.Name = "btnAddPnlPreferencias";
+            this.btnAddPnlPreferencias.Size = new System.Drawing.Size(160, 44);
+            this.btnAddPnlPreferencias.TabIndex = 24;
+            this.btnAddPnlPreferencias.Text = "Preferencias";
+            this.btnAddPnlPreferencias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddPnlPreferencias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddPnlPreferencias.UseVisualStyleBackColor = false;
+            this.btnAddPnlPreferencias.Click += new System.EventHandler(this.btnAddPnlPreferencias_Click);
+            this.btnAddPnlPreferencias.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnAddPnlPreferencias_MouseClick);
+            // 
+            // btnAddPnlSucrusal
+            // 
+            this.btnAddPnlSucrusal.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnAddPnlSucrusal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAddPnlSucrusal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPnlSucrusal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPnlSucrusal.ForeColor = System.Drawing.Color.White;
+            this.btnAddPnlSucrusal.Location = new System.Drawing.Point(-1, -1);
+            this.btnAddPnlSucrusal.Name = "btnAddPnlSucrusal";
+            this.btnAddPnlSucrusal.Size = new System.Drawing.Size(159, 44);
+            this.btnAddPnlSucrusal.TabIndex = 24;
+            this.btnAddPnlSucrusal.Text = "Sucursal";
+            this.btnAddPnlSucrusal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddPnlSucrusal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddPnlSucrusal.UseVisualStyleBackColor = false;
+            this.btnAddPnlSucrusal.Click += new System.EventHandler(this.btnAddPnlSucrusal_Click);
+            this.btnAddPnlSucrusal.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnAddPnlSucrusal_MouseClick);
+            // 
             // tbpActualizarSucursal
             // 
+            this.tbpActualizarSucursal.Controls.Add(this.pnlUpdateCertificado);
+            this.tbpActualizarSucursal.Controls.Add(this.pnlUpdatePreferencias);
+            this.tbpActualizarSucursal.Controls.Add(this.pnlUpdateSucursal);
+            this.tbpActualizarSucursal.Controls.Add(this.pnlIUpdateSucursalPreferenciasCertificado);
             this.tbpActualizarSucursal.Location = new System.Drawing.Point(4, 27);
             this.tbpActualizarSucursal.Name = "tbpActualizarSucursal";
-            this.tbpActualizarSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpActualizarSucursal.Size = new System.Drawing.Size(1151, 48);
             this.tbpActualizarSucursal.TabIndex = 29;
             this.tbpActualizarSucursal.Text = "Actualizar Sucursal";
             this.tbpActualizarSucursal.UseVisualStyleBackColor = true;
             // 
-            // tbpCertificado
+            // pnlUpdateCertificado
             // 
-            this.tbpCertificado.Location = new System.Drawing.Point(4, 27);
-            this.tbpCertificado.Name = "tbpCertificado";
-            this.tbpCertificado.Size = new System.Drawing.Size(1151, 546);
-            this.tbpCertificado.TabIndex = 30;
-            this.tbpCertificado.Text = "Certificados";
-            this.tbpCertificado.UseVisualStyleBackColor = true;
+            this.pnlUpdateCertificado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlUpdateCertificado.Controls.Add(this.btnUpdateExaminarFolderCertificados);
+            this.pnlUpdateCertificado.Controls.Add(this.txtUpdateFolderCertificados);
+            this.pnlUpdateCertificado.Controls.Add(this.txtUpdateValidoHasta);
+            this.pnlUpdateCertificado.Controls.Add(this.txtUpdateValidoDe);
+            this.pnlUpdateCertificado.Controls.Add(this.txtUpdateNoCertificado);
+            this.pnlUpdateCertificado.Controls.Add(this.txtUpdateContraseñaCertificado);
+            this.pnlUpdateCertificado.Controls.Add(this.txtUpdateKey);
+            this.pnlUpdateCertificado.Controls.Add(this.txtUpdateCertificado);
+            this.pnlUpdateCertificado.Controls.Add(this.label147);
+            this.pnlUpdateCertificado.Controls.Add(this.label151);
+            this.pnlUpdateCertificado.Controls.Add(this.label160);
+            this.pnlUpdateCertificado.Controls.Add(this.label161);
+            this.pnlUpdateCertificado.Controls.Add(this.btnUpdateExaminarKey);
+            this.pnlUpdateCertificado.Controls.Add(this.label163);
+            this.pnlUpdateCertificado.Controls.Add(this.btnUpdateExaminarCertificado);
+            this.pnlUpdateCertificado.Controls.Add(this.label164);
+            this.pnlUpdateCertificado.Controls.Add(this.label165);
+            this.pnlUpdateCertificado.Location = new System.Drawing.Point(156, 0);
+            this.pnlUpdateCertificado.Name = "pnlUpdateCertificado";
+            this.pnlUpdateCertificado.Size = new System.Drawing.Size(993, 546);
+            this.pnlUpdateCertificado.TabIndex = 138;
+            this.pnlUpdateCertificado.Visible = false;
             // 
-            // tbpRegistrarCertificado
+            // btnUpdateExaminarFolderCertificados
             // 
-            this.tbpRegistrarCertificado.Location = new System.Drawing.Point(4, 27);
-            this.tbpRegistrarCertificado.Name = "tbpRegistrarCertificado";
-            this.tbpRegistrarCertificado.Size = new System.Drawing.Size(1151, 546);
-            this.tbpRegistrarCertificado.TabIndex = 31;
-            this.tbpRegistrarCertificado.Text = "Registrar Certificado";
-            this.tbpRegistrarCertificado.UseVisualStyleBackColor = true;
+            this.btnUpdateExaminarFolderCertificados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateExaminarFolderCertificados.Location = new System.Drawing.Point(369, 95);
+            this.btnUpdateExaminarFolderCertificados.Name = "btnUpdateExaminarFolderCertificados";
+            this.btnUpdateExaminarFolderCertificados.Size = new System.Drawing.Size(95, 24);
+            this.btnUpdateExaminarFolderCertificados.TabIndex = 163;
+            this.btnUpdateExaminarFolderCertificados.Text = "EXAMINAR";
+            this.btnUpdateExaminarFolderCertificados.UseVisualStyleBackColor = true;
+            this.btnUpdateExaminarFolderCertificados.Click += new System.EventHandler(this.btnUpdateExaminarFolderCertificados_Click);
             // 
-            // tbpActualizarCertificado
+            // txtUpdateFolderCertificados
             // 
-            this.tbpActualizarCertificado.Location = new System.Drawing.Point(4, 27);
-            this.tbpActualizarCertificado.Name = "tbpActualizarCertificado";
-            this.tbpActualizarCertificado.Size = new System.Drawing.Size(1151, 546);
-            this.tbpActualizarCertificado.TabIndex = 32;
-            this.tbpActualizarCertificado.Text = "Actualizar Certificado";
-            this.tbpActualizarCertificado.UseVisualStyleBackColor = true;
+            this.txtUpdateFolderCertificados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateFolderCertificados.Location = new System.Drawing.Point(63, 96);
+            this.txtUpdateFolderCertificados.Name = "txtUpdateFolderCertificados";
+            this.txtUpdateFolderCertificados.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateFolderCertificados.TabIndex = 162;
+            this.txtUpdateFolderCertificados.TextChanged += new System.EventHandler(this.txtUpdateFolderCertificados_TextChanged);
+            // 
+            // txtUpdateValidoHasta
+            // 
+            this.txtUpdateValidoHasta.Enabled = false;
+            this.txtUpdateValidoHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateValidoHasta.Location = new System.Drawing.Point(467, 284);
+            this.txtUpdateValidoHasta.Name = "txtUpdateValidoHasta";
+            this.txtUpdateValidoHasta.Size = new System.Drawing.Size(303, 24);
+            this.txtUpdateValidoHasta.TabIndex = 159;
+            // 
+            // txtUpdateValidoDe
+            // 
+            this.txtUpdateValidoDe.Enabled = false;
+            this.txtUpdateValidoDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateValidoDe.Location = new System.Drawing.Point(470, 216);
+            this.txtUpdateValidoDe.Name = "txtUpdateValidoDe";
+            this.txtUpdateValidoDe.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateValidoDe.TabIndex = 158;
+            // 
+            // txtUpdateNoCertificado
+            // 
+            this.txtUpdateNoCertificado.Enabled = false;
+            this.txtUpdateNoCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateNoCertificado.Location = new System.Drawing.Point(470, 155);
+            this.txtUpdateNoCertificado.Name = "txtUpdateNoCertificado";
+            this.txtUpdateNoCertificado.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateNoCertificado.TabIndex = 156;
+            // 
+            // txtUpdateContraseñaCertificado
+            // 
+            this.txtUpdateContraseñaCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateContraseñaCertificado.Location = new System.Drawing.Point(60, 285);
+            this.txtUpdateContraseñaCertificado.Name = "txtUpdateContraseñaCertificado";
+            this.txtUpdateContraseñaCertificado.Size = new System.Drawing.Size(303, 24);
+            this.txtUpdateContraseñaCertificado.TabIndex = 148;
+            this.txtUpdateContraseñaCertificado.Text = "12345678a";
+            this.txtUpdateContraseñaCertificado.TextChanged += new System.EventHandler(this.txtUpdateContraseñaCertificado_TextChanged);
+            // 
+            // txtUpdateKey
+            // 
+            this.txtUpdateKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateKey.Location = new System.Drawing.Point(63, 217);
+            this.txtUpdateKey.Name = "txtUpdateKey";
+            this.txtUpdateKey.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateKey.TabIndex = 147;
+            this.txtUpdateKey.TextChanged += new System.EventHandler(this.txtUpdateKey_TextChanged);
+            // 
+            // txtUpdateCertificado
+            // 
+            this.txtUpdateCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateCertificado.Location = new System.Drawing.Point(63, 156);
+            this.txtUpdateCertificado.Name = "txtUpdateCertificado";
+            this.txtUpdateCertificado.Size = new System.Drawing.Size(300, 24);
+            this.txtUpdateCertificado.TabIndex = 145;
+            this.txtUpdateCertificado.TextChanged += new System.EventHandler(this.txtUpdateCertificado_TextChanged);
+            // 
+            // label147
+            // 
+            this.label147.AutoSize = true;
+            this.label147.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label147.Location = new System.Drawing.Point(60, 73);
+            this.label147.Name = "label147";
+            this.label147.Size = new System.Drawing.Size(156, 13);
+            this.label147.TabIndex = 161;
+            this.label147.Text = "CARPETA DE CERTIFICADOS";
+            // 
+            // label151
+            // 
+            this.label151.AutoSize = true;
+            this.label151.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label151.Location = new System.Drawing.Point(464, 263);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(85, 13);
+            this.label151.TabIndex = 160;
+            this.label151.Text = "VALIDO HASTA";
+            // 
+            // label160
+            // 
+            this.label160.AutoSize = true;
+            this.label160.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label160.Location = new System.Drawing.Point(467, 195);
+            this.label160.Name = "label160";
+            this.label160.Size = new System.Drawing.Size(64, 13);
+            this.label160.TabIndex = 157;
+            this.label160.Text = "VALIDO DE";
+            // 
+            // label161
+            // 
+            this.label161.AutoSize = true;
+            this.label161.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label161.Location = new System.Drawing.Point(467, 134);
+            this.label161.Name = "label161";
+            this.label161.Size = new System.Drawing.Size(100, 13);
+            this.label161.TabIndex = 155;
+            this.label161.Text = "NO. CERTIFICADO";
+            // 
+            // btnUpdateExaminarKey
+            // 
+            this.btnUpdateExaminarKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateExaminarKey.Location = new System.Drawing.Point(369, 217);
+            this.btnUpdateExaminarKey.Name = "btnUpdateExaminarKey";
+            this.btnUpdateExaminarKey.Size = new System.Drawing.Size(95, 24);
+            this.btnUpdateExaminarKey.TabIndex = 154;
+            this.btnUpdateExaminarKey.Text = "EXAMINAR";
+            this.btnUpdateExaminarKey.UseVisualStyleBackColor = true;
+            this.btnUpdateExaminarKey.Click += new System.EventHandler(this.btnUpdateExaminarKey_Click_1);
+            // 
+            // label163
+            // 
+            this.label163.AutoSize = true;
+            this.label163.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label163.Location = new System.Drawing.Point(57, 264);
+            this.label163.Name = "label163";
+            this.label163.Size = new System.Drawing.Size(81, 13);
+            this.label163.TabIndex = 150;
+            this.label163.Text = "CONTRASEÑA";
+            // 
+            // btnUpdateExaminarCertificado
+            // 
+            this.btnUpdateExaminarCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateExaminarCertificado.Location = new System.Drawing.Point(369, 156);
+            this.btnUpdateExaminarCertificado.Name = "btnUpdateExaminarCertificado";
+            this.btnUpdateExaminarCertificado.Size = new System.Drawing.Size(95, 24);
+            this.btnUpdateExaminarCertificado.TabIndex = 149;
+            this.btnUpdateExaminarCertificado.Text = "EXAMINAR";
+            this.btnUpdateExaminarCertificado.UseVisualStyleBackColor = true;
+            this.btnUpdateExaminarCertificado.Click += new System.EventHandler(this.btnUpdateExaminarCertificado_Click_1);
+            // 
+            // label164
+            // 
+            this.label164.AutoSize = true;
+            this.label164.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label164.Location = new System.Drawing.Point(57, 195);
+            this.label164.Name = "label164";
+            this.label164.Size = new System.Drawing.Size(28, 13);
+            this.label164.TabIndex = 146;
+            this.label164.Text = "KEY";
+            // 
+            // label165
+            // 
+            this.label165.AutoSize = true;
+            this.label165.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label165.Location = new System.Drawing.Point(60, 135);
+            this.label165.Name = "label165";
+            this.label165.Size = new System.Drawing.Size(78, 13);
+            this.label165.TabIndex = 144;
+            this.label165.Text = "CERTIFICADO";
+            // 
+            // pnlUpdatePreferencias
+            // 
+            this.pnlUpdatePreferencias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlUpdatePreferencias.Controls.Add(this.txtUpdateNoSerie);
+            this.pnlUpdatePreferencias.Controls.Add(this.ckbUpdateForImpreso);
+            this.pnlUpdatePreferencias.Controls.Add(this.ckbUpdateEnvFactura);
+            this.pnlUpdatePreferencias.Controls.Add(this.label166);
+            this.pnlUpdatePreferencias.Controls.Add(this.label167);
+            this.pnlUpdatePreferencias.Controls.Add(this.pcbUpdateLogoSucursal);
+            this.pnlUpdatePreferencias.Controls.Add(this.btnUpdateExaminarLogoSucursal);
+            this.pnlUpdatePreferencias.Location = new System.Drawing.Point(156, 0);
+            this.pnlUpdatePreferencias.Name = "pnlUpdatePreferencias";
+            this.pnlUpdatePreferencias.Size = new System.Drawing.Size(997, 546);
+            this.pnlUpdatePreferencias.TabIndex = 139;
+            this.pnlUpdatePreferencias.Visible = false;
+            // 
+            // txtUpdateNoSerie
+            // 
+            this.txtUpdateNoSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateNoSerie.Location = new System.Drawing.Point(242, 122);
+            this.txtUpdateNoSerie.Name = "txtUpdateNoSerie";
+            this.txtUpdateNoSerie.Size = new System.Drawing.Size(151, 24);
+            this.txtUpdateNoSerie.TabIndex = 125;
+            this.txtUpdateNoSerie.Text = "SA";
+            this.txtUpdateNoSerie.TextChanged += new System.EventHandler(this.txtUpdateNoSerie_TextChanged);
+            // 
+            // ckbUpdateForImpreso
+            // 
+            this.ckbUpdateForImpreso.AutoSize = true;
+            this.ckbUpdateForImpreso.Location = new System.Drawing.Point(242, 152);
+            this.ckbUpdateForImpreso.Name = "ckbUpdateForImpreso";
+            this.ckbUpdateForImpreso.Size = new System.Drawing.Size(142, 22);
+            this.ckbUpdateForImpreso.TabIndex = 123;
+            this.ckbUpdateForImpreso.Text = "Formato Impreso";
+            this.ckbUpdateForImpreso.UseVisualStyleBackColor = true;
+            // 
+            // ckbUpdateEnvFactura
+            // 
+            this.ckbUpdateEnvFactura.AutoSize = true;
+            this.ckbUpdateEnvFactura.Location = new System.Drawing.Point(242, 180);
+            this.ckbUpdateEnvFactura.Name = "ckbUpdateEnvFactura";
+            this.ckbUpdateEnvFactura.Size = new System.Drawing.Size(122, 22);
+            this.ckbUpdateEnvFactura.TabIndex = 124;
+            this.ckbUpdateEnvFactura.Text = "Enviar Factura";
+            this.ckbUpdateEnvFactura.UseVisualStyleBackColor = true;
+            // 
+            // label166
+            // 
+            this.label166.AutoSize = true;
+            this.label166.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label166.Location = new System.Drawing.Point(41, 103);
+            this.label166.Name = "label166";
+            this.label166.Size = new System.Drawing.Size(37, 13);
+            this.label166.TabIndex = 135;
+            this.label166.Text = "LOGO";
+            // 
+            // label167
+            // 
+            this.label167.AutoSize = true;
+            this.label167.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label167.Location = new System.Drawing.Point(239, 101);
+            this.label167.Name = "label167";
+            this.label167.Size = new System.Drawing.Size(61, 13);
+            this.label167.TabIndex = 126;
+            this.label167.Text = "NO. SERIE";
+            // 
+            // pcbUpdateLogoSucursal
+            // 
+            this.pcbUpdateLogoSucursal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcbUpdateLogoSucursal.Location = new System.Drawing.Point(44, 124);
+            this.pcbUpdateLogoSucursal.Name = "pcbUpdateLogoSucursal";
+            this.pcbUpdateLogoSucursal.Size = new System.Drawing.Size(167, 113);
+            this.pcbUpdateLogoSucursal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbUpdateLogoSucursal.TabIndex = 134;
+            this.pcbUpdateLogoSucursal.TabStop = false;
+            this.pcbUpdateLogoSucursal.Tag = "2";
+            // 
+            // btnUpdateExaminarLogoSucursal
+            // 
+            this.btnUpdateExaminarLogoSucursal.Location = new System.Drawing.Point(44, 246);
+            this.btnUpdateExaminarLogoSucursal.Name = "btnUpdateExaminarLogoSucursal";
+            this.btnUpdateExaminarLogoSucursal.Size = new System.Drawing.Size(167, 27);
+            this.btnUpdateExaminarLogoSucursal.TabIndex = 133;
+            this.btnUpdateExaminarLogoSucursal.Tag = "2";
+            this.btnUpdateExaminarLogoSucursal.Text = "Examinar";
+            this.btnUpdateExaminarLogoSucursal.UseVisualStyleBackColor = true;
+            this.btnUpdateExaminarLogoSucursal.Click += new System.EventHandler(this.btnUpdateExaminarLogoSucursal_Click);
+            // 
+            // pnlUpdateSucursal
+            // 
+            this.pnlUpdateSucursal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlUpdateSucursal.Controls.Add(this.cmbUpdateEmpresa);
+            this.pnlUpdateSucursal.Controls.Add(this.label168);
+            this.pnlUpdateSucursal.Controls.Add(this.label169);
+            this.pnlUpdateSucursal.Controls.Add(this.label171);
+            this.pnlUpdateSucursal.Controls.Add(this.label172);
+            this.pnlUpdateSucursal.Controls.Add(this.label173);
+            this.pnlUpdateSucursal.Controls.Add(this.txtUpdateNomSucursal);
+            this.pnlUpdateSucursal.Controls.Add(this.txtUpdatePais);
+            this.pnlUpdateSucursal.Controls.Add(this.label174);
+            this.pnlUpdateSucursal.Controls.Add(this.txtUpdateMunicipio);
+            this.pnlUpdateSucursal.Controls.Add(this.txtUpdateColonia);
+            this.pnlUpdateSucursal.Controls.Add(this.txtUpdateLocalidad);
+            this.pnlUpdateSucursal.Controls.Add(this.cmbCodigoPostal);
+            this.pnlUpdateSucursal.Controls.Add(this.label175);
+            this.pnlUpdateSucursal.Controls.Add(this.txtUpdateEstado);
+            this.pnlUpdateSucursal.Controls.Add(this.txtUpdateCalle);
+            this.pnlUpdateSucursal.Controls.Add(this.label176);
+            this.pnlUpdateSucursal.Controls.Add(this.label177);
+            this.pnlUpdateSucursal.Controls.Add(this.btnUpdateSucursal);
+            this.pnlUpdateSucursal.Controls.Add(this.label178);
+            this.pnlUpdateSucursal.Controls.Add(this.label179);
+            this.pnlUpdateSucursal.Controls.Add(this.txtUpdateNoInterior);
+            this.pnlUpdateSucursal.Controls.Add(this.txtUpdateNoExterior);
+            this.pnlUpdateSucursal.Location = new System.Drawing.Point(156, 0);
+            this.pnlUpdateSucursal.Name = "pnlUpdateSucursal";
+            this.pnlUpdateSucursal.Size = new System.Drawing.Size(993, 546);
+            this.pnlUpdateSucursal.TabIndex = 141;
+            // 
+            // cmbUpdateEmpresa
+            // 
+            this.cmbUpdateEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUpdateEmpresa.FormattingEnabled = true;
+            this.cmbUpdateEmpresa.Location = new System.Drawing.Point(30, 68);
+            this.cmbUpdateEmpresa.Name = "cmbUpdateEmpresa";
+            this.cmbUpdateEmpresa.Size = new System.Drawing.Size(227, 24);
+            this.cmbUpdateEmpresa.TabIndex = 121;
+            this.cmbUpdateEmpresa.Text = "Seleccione una opción";
+            // 
+            // label168
+            // 
+            this.label168.AutoSize = true;
+            this.label168.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label168.Location = new System.Drawing.Point(260, 47);
+            this.label168.Name = "label168";
+            this.label168.Size = new System.Drawing.Size(54, 13);
+            this.label168.TabIndex = 90;
+            this.label168.Text = "NOMBRE";
+            // 
+            // label169
+            // 
+            this.label169.AutoSize = true;
+            this.label169.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label169.Location = new System.Drawing.Point(616, 47);
+            this.label169.Name = "label169";
+            this.label169.Size = new System.Drawing.Size(31, 13);
+            this.label169.TabIndex = 95;
+            this.label169.Text = "PAIS";
+            // 
+            // label171
+            // 
+            this.label171.AutoSize = true;
+            this.label171.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label171.Location = new System.Drawing.Point(27, 106);
+            this.label171.Name = "label171";
+            this.label171.Size = new System.Drawing.Size(63, 13);
+            this.label171.TabIndex = 97;
+            this.label171.Text = "MUNICIPIO";
+            // 
+            // label172
+            // 
+            this.label172.AutoSize = true;
+            this.label172.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label172.Location = new System.Drawing.Point(440, 106);
+            this.label172.Name = "label172";
+            this.label172.Size = new System.Drawing.Size(54, 13);
+            this.label172.TabIndex = 98;
+            this.label172.Text = "COLONIA";
+            // 
+            // label173
+            // 
+            this.label173.AutoSize = true;
+            this.label173.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label173.Location = new System.Drawing.Point(633, 106);
+            this.label173.Name = "label173";
+            this.label173.Size = new System.Drawing.Size(67, 13);
+            this.label173.TabIndex = 100;
+            this.label173.Text = "LOCALIDAD";
+            // 
+            // txtUpdateNomSucursal
+            // 
+            this.txtUpdateNomSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateNomSucursal.Location = new System.Drawing.Point(263, 68);
+            this.txtUpdateNomSucursal.Name = "txtUpdateNomSucursal";
+            this.txtUpdateNomSucursal.Size = new System.Drawing.Size(350, 24);
+            this.txtUpdateNomSucursal.TabIndex = 91;
+            this.txtUpdateNomSucursal.Text = "EMPRESA COMERCIAL";
+            this.txtUpdateNomSucursal.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            // 
+            // txtUpdatePais
+            // 
+            this.txtUpdatePais.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdatePais.Location = new System.Drawing.Point(619, 68);
+            this.txtUpdatePais.Name = "txtUpdatePais";
+            this.txtUpdatePais.Size = new System.Drawing.Size(125, 24);
+            this.txtUpdatePais.TabIndex = 102;
+            this.txtUpdatePais.Text = "MEXICO";
+            this.txtUpdatePais.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            // 
+            // label174
+            // 
+            this.label174.AutoSize = true;
+            this.label174.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label174.Location = new System.Drawing.Point(30, 47);
+            this.label174.Name = "label174";
+            this.label174.Size = new System.Drawing.Size(59, 13);
+            this.label174.TabIndex = 122;
+            this.label174.Text = "EMPRESA";
+            // 
+            // txtUpdateMunicipio
+            // 
+            this.txtUpdateMunicipio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateMunicipio.Location = new System.Drawing.Point(30, 127);
+            this.txtUpdateMunicipio.Name = "txtUpdateMunicipio";
+            this.txtUpdateMunicipio.Size = new System.Drawing.Size(157, 24);
+            this.txtUpdateMunicipio.TabIndex = 96;
+            this.txtUpdateMunicipio.Text = "HERMOSILLO";
+            this.txtUpdateMunicipio.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
+            // 
+            // txtUpdateColonia
+            // 
+            this.txtUpdateColonia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateColonia.Location = new System.Drawing.Point(443, 127);
+            this.txtUpdateColonia.Name = "txtUpdateColonia";
+            this.txtUpdateColonia.Size = new System.Drawing.Size(187, 24);
+            this.txtUpdateColonia.TabIndex = 106;
+            this.txtUpdateColonia.Text = "SAN SEBASTIAN";
+            this.txtUpdateColonia.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
+            // 
+            // txtUpdateLocalidad
+            // 
+            this.txtUpdateLocalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateLocalidad.Location = new System.Drawing.Point(636, 127);
+            this.txtUpdateLocalidad.Name = "txtUpdateLocalidad";
+            this.txtUpdateLocalidad.Size = new System.Drawing.Size(239, 24);
+            this.txtUpdateLocalidad.TabIndex = 104;
+            this.txtUpdateLocalidad.Text = "AVELARDO ZAMAROCOS";
+            this.txtUpdateLocalidad.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
+            // 
+            // cmbCodigoPostal
+            // 
+            this.cmbCodigoPostal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCodigoPostal.FormattingEnabled = true;
+            this.cmbCodigoPostal.Location = new System.Drawing.Point(283, 184);
+            this.cmbCodigoPostal.Name = "cmbCodigoPostal";
+            this.cmbCodigoPostal.Size = new System.Drawing.Size(159, 24);
+            this.cmbCodigoPostal.TabIndex = 120;
+            this.cmbCodigoPostal.Text = "Seleccione una opción";
+            // 
+            // label175
+            // 
+            this.label175.AutoSize = true;
+            this.label175.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label175.Location = new System.Drawing.Point(193, 106);
+            this.label175.Name = "label175";
+            this.label175.Size = new System.Drawing.Size(40, 13);
+            this.label175.TabIndex = 109;
+            this.label175.Text = "CALLE";
+            // 
+            // txtUpdateEstado
+            // 
+            this.txtUpdateEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateEstado.Location = new System.Drawing.Point(750, 68);
+            this.txtUpdateEstado.Name = "txtUpdateEstado";
+            this.txtUpdateEstado.Size = new System.Drawing.Size(125, 24);
+            this.txtUpdateEstado.TabIndex = 103;
+            this.txtUpdateEstado.Text = "SONORA";
+            this.txtUpdateEstado.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
+            // 
+            // txtUpdateCalle
+            // 
+            this.txtUpdateCalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateCalle.Location = new System.Drawing.Point(196, 127);
+            this.txtUpdateCalle.Name = "txtUpdateCalle";
+            this.txtUpdateCalle.Size = new System.Drawing.Size(241, 24);
+            this.txtUpdateCalle.TabIndex = 105;
+            this.txtUpdateCalle.Text = "AVELARDO ZAMAROCOS";
+            this.txtUpdateCalle.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
+            // 
+            // label176
+            // 
+            this.label176.AutoSize = true;
+            this.label176.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label176.Location = new System.Drawing.Point(747, 47);
+            this.label176.Name = "label176";
+            this.label176.Size = new System.Drawing.Size(51, 13);
+            this.label176.TabIndex = 116;
+            this.label176.Text = "ESTADO";
+            // 
+            // label177
+            // 
+            this.label177.AutoSize = true;
+            this.label177.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label177.Location = new System.Drawing.Point(27, 163);
+            this.label177.Name = "label177";
+            this.label177.Size = new System.Drawing.Size(81, 13);
+            this.label177.TabIndex = 110;
+            this.label177.Text = "NO. INTERIOR";
+            // 
+            // btnUpdateSucursal
+            // 
+            this.btnUpdateSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateSucursal.Location = new System.Drawing.Point(762, 269);
+            this.btnUpdateSucursal.Name = "btnUpdateSucursal";
+            this.btnUpdateSucursal.Size = new System.Drawing.Size(113, 36);
+            this.btnUpdateSucursal.TabIndex = 112;
+            this.btnUpdateSucursal.Text = "GUARDAR";
+            this.btnUpdateSucursal.UseVisualStyleBackColor = true;
+            this.btnUpdateSucursal.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label178
+            // 
+            this.label178.AutoSize = true;
+            this.label178.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label178.Location = new System.Drawing.Point(146, 163);
+            this.label178.Name = "label178";
+            this.label178.Size = new System.Drawing.Size(84, 13);
+            this.label178.TabIndex = 111;
+            this.label178.Text = "NO. EXTERIOR";
+            // 
+            // label179
+            // 
+            this.label179.AutoSize = true;
+            this.label179.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label179.Location = new System.Drawing.Point(280, 163);
+            this.label179.Name = "label179";
+            this.label179.Size = new System.Drawing.Size(94, 13);
+            this.label179.TabIndex = 113;
+            this.label179.Text = "CODIGO POSTAL";
+            // 
+            // txtUpdateNoInterior
+            // 
+            this.txtUpdateNoInterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateNoInterior.Location = new System.Drawing.Point(30, 184);
+            this.txtUpdateNoInterior.Name = "txtUpdateNoInterior";
+            this.txtUpdateNoInterior.Size = new System.Drawing.Size(113, 24);
+            this.txtUpdateNoInterior.TabIndex = 107;
+            this.txtUpdateNoInterior.Text = "171";
+            this.txtUpdateNoInterior.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
+            // 
+            // txtUpdateNoExterior
+            // 
+            this.txtUpdateNoExterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateNoExterior.Location = new System.Drawing.Point(149, 184);
+            this.txtUpdateNoExterior.Name = "txtUpdateNoExterior";
+            this.txtUpdateNoExterior.Size = new System.Drawing.Size(128, 24);
+            this.txtUpdateNoExterior.TabIndex = 108;
+            this.txtUpdateNoExterior.Text = "0";
+            this.txtUpdateNoExterior.TextChanged += new System.EventHandler(this.textBox17_TextChanged);
+            // 
+            // pnlIUpdateSucursalPreferenciasCertificado
+            // 
+            this.pnlIUpdateSucursalPreferenciasCertificado.BackColor = System.Drawing.Color.White;
+            this.pnlIUpdateSucursalPreferenciasCertificado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlIUpdateSucursalPreferenciasCertificado.Controls.Add(this.btnUpdatePnlCertificado);
+            this.pnlIUpdateSucursalPreferenciasCertificado.Controls.Add(this.btnUpdatePnlPreferencias);
+            this.pnlIUpdateSucursalPreferenciasCertificado.Controls.Add(this.btnUpdatePnlSucursal);
+            this.pnlIUpdateSucursalPreferenciasCertificado.Location = new System.Drawing.Point(0, 0);
+            this.pnlIUpdateSucursalPreferenciasCertificado.Name = "pnlIUpdateSucursalPreferenciasCertificado";
+            this.pnlIUpdateSucursalPreferenciasCertificado.Size = new System.Drawing.Size(157, 546);
+            this.pnlIUpdateSucursalPreferenciasCertificado.TabIndex = 140;
+            // 
+            // btnUpdatePnlCertificado
+            // 
+            this.btnUpdatePnlCertificado.BackColor = System.Drawing.Color.White;
+            this.btnUpdatePnlCertificado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnUpdatePnlCertificado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdatePnlCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdatePnlCertificado.ForeColor = System.Drawing.Color.Black;
+            this.btnUpdatePnlCertificado.Location = new System.Drawing.Point(-2, 84);
+            this.btnUpdatePnlCertificado.Name = "btnUpdatePnlCertificado";
+            this.btnUpdatePnlCertificado.Size = new System.Drawing.Size(160, 44);
+            this.btnUpdatePnlCertificado.TabIndex = 25;
+            this.btnUpdatePnlCertificado.Text = "Certificado";
+            this.btnUpdatePnlCertificado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdatePnlCertificado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpdatePnlCertificado.UseVisualStyleBackColor = false;
+            this.btnUpdatePnlCertificado.Click += new System.EventHandler(this.btnUpdatePnlCertificado_Click);
+            this.btnUpdatePnlCertificado.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnUpdatePnlCertificado_MouseClick);
+            // 
+            // btnUpdatePnlPreferencias
+            // 
+            this.btnUpdatePnlPreferencias.BackColor = System.Drawing.Color.White;
+            this.btnUpdatePnlPreferencias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnUpdatePnlPreferencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdatePnlPreferencias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdatePnlPreferencias.ForeColor = System.Drawing.Color.Black;
+            this.btnUpdatePnlPreferencias.Location = new System.Drawing.Point(-2, 41);
+            this.btnUpdatePnlPreferencias.Name = "btnUpdatePnlPreferencias";
+            this.btnUpdatePnlPreferencias.Size = new System.Drawing.Size(160, 44);
+            this.btnUpdatePnlPreferencias.TabIndex = 24;
+            this.btnUpdatePnlPreferencias.Text = "Preferencias";
+            this.btnUpdatePnlPreferencias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdatePnlPreferencias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpdatePnlPreferencias.UseVisualStyleBackColor = false;
+            this.btnUpdatePnlPreferencias.Click += new System.EventHandler(this.btnUpdatePnlPreferencias_Click);
+            this.btnUpdatePnlPreferencias.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnUpdatePnlPreferencias_MouseClick);
+            // 
+            // btnUpdatePnlSucursal
+            // 
+            this.btnUpdatePnlSucursal.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnUpdatePnlSucursal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnUpdatePnlSucursal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdatePnlSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdatePnlSucursal.ForeColor = System.Drawing.Color.White;
+            this.btnUpdatePnlSucursal.Location = new System.Drawing.Point(-1, -1);
+            this.btnUpdatePnlSucursal.Name = "btnUpdatePnlSucursal";
+            this.btnUpdatePnlSucursal.Size = new System.Drawing.Size(159, 44);
+            this.btnUpdatePnlSucursal.TabIndex = 24;
+            this.btnUpdatePnlSucursal.Text = "Sucursal";
+            this.btnUpdatePnlSucursal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdatePnlSucursal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpdatePnlSucursal.UseVisualStyleBackColor = false;
+            this.btnUpdatePnlSucursal.Click += new System.EventHandler(this.btnUpdatePnlSucursal_Click);
+            this.btnUpdatePnlSucursal.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnUpdatePnlSucursal_MouseClick);
             // 
             // ErrorProvider
             // 
@@ -5672,32 +6981,14 @@
             // 
             this.pnlEmpresas.BackColor = System.Drawing.Color.White;
             this.pnlEmpresas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlEmpresas.Controls.Add(this.btnCertificadosList);
             this.pnlEmpresas.Controls.Add(this.label9);
             this.pnlEmpresas.Controls.Add(this.btnSucursalesList);
             this.pnlEmpresas.Controls.Add(this.btnEmpresasList);
             this.pnlEmpresas.Location = new System.Drawing.Point(12, 50);
             this.pnlEmpresas.Name = "pnlEmpresas";
-            this.pnlEmpresas.Size = new System.Drawing.Size(159, 162);
+            this.pnlEmpresas.Size = new System.Drawing.Size(159, 120);
             this.pnlEmpresas.TabIndex = 12;
             this.pnlEmpresas.Visible = false;
-            // 
-            // btnCertificadosList
-            // 
-            this.btnCertificadosList.BackColor = System.Drawing.Color.White;
-            this.btnCertificadosList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnCertificadosList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCertificadosList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCertificadosList.ForeColor = System.Drawing.Color.Black;
-            this.btnCertificadosList.Location = new System.Drawing.Point(-2, 118);
-            this.btnCertificadosList.Name = "btnCertificadosList";
-            this.btnCertificadosList.Size = new System.Drawing.Size(160, 44);
-            this.btnCertificadosList.TabIndex = 11;
-            this.btnCertificadosList.Text = "Lista de Certificados";
-            this.btnCertificadosList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCertificadosList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCertificadosList.UseVisualStyleBackColor = false;
-            this.btnCertificadosList.Click += new System.EventHandler(this.button2_Click);
             // 
             // label9
             // 
@@ -5889,6 +7180,24 @@
             this.tbpSucursal.ResumeLayout(false);
             this.tbpSucursal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSucursal)).EndInit();
+            this.tbpRegistrarSucursal.ResumeLayout(false);
+            this.pnlAddCertificado.ResumeLayout(false);
+            this.pnlAddCertificado.PerformLayout();
+            this.pnlAddPreferencias.ResumeLayout(false);
+            this.pnlAddPreferencias.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbAddLogo)).EndInit();
+            this.pnlAddSucursal.ResumeLayout(false);
+            this.pnlAddSucursal.PerformLayout();
+            this.pnlAddSucursalPreferenciaCertificado.ResumeLayout(false);
+            this.tbpActualizarSucursal.ResumeLayout(false);
+            this.pnlUpdateCertificado.ResumeLayout(false);
+            this.pnlUpdateCertificado.PerformLayout();
+            this.pnlUpdatePreferencias.ResumeLayout(false);
+            this.pnlUpdatePreferencias.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbUpdateLogoSucursal)).EndInit();
+            this.pnlUpdateSucursal.ResumeLayout(false);
+            this.pnlUpdateSucursal.PerformLayout();
+            this.pnlIUpdateSucursalPreferenciasCertificado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.pnlEmpresas.ResumeLayout(false);
             this.pnlEmpresas.PerformLayout();
@@ -6089,7 +7398,7 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Button btnExaImgProdu;
         private System.Windows.Forms.PictureBox pcbimgAddProd;
-        private System.Windows.Forms.ComboBox cbxUMDAddProd;
+        private System.Windows.Forms.ComboBox cbxCatalogoAddProd;
         private System.Windows.Forms.TextBox txtLoteAddProd;
         private System.Windows.Forms.TextBox txtDescuentoProd;
         private System.Windows.Forms.DateTimePicker dtpFechaCaducidadProd;
@@ -6281,6 +7590,13 @@
         private System.Windows.Forms.Label label115;
         private System.Windows.Forms.TextBox txtRfcUpdateCli;
         private System.Windows.Forms.Label label116;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
         private System.Windows.Forms.Button btnActualizarEmpresa;
         private System.Windows.Forms.Button btnBorrarEmpresa;
         private System.Windows.Forms.Button btnRegistrarEmpresa;
@@ -6363,36 +7679,130 @@
         private System.Windows.Forms.TabPage tbpSucursal;
         private System.Windows.Forms.TabPage tbpRegistrarSucursal;
         private System.Windows.Forms.TabPage tbpActualizarSucursal;
-        private System.Windows.Forms.Button btnCertificadosList;
-        private System.Windows.Forms.TabPage tbpCertificado;
-        private System.Windows.Forms.TabPage tbpRegistrarCertificado;
-        private System.Windows.Forms.TabPage tbpActualizarCertificado;
         private System.Windows.Forms.Button btnBorrarSucursal;
         private System.Windows.Forms.Button btnActualizarSucursal;
         private System.Windows.Forms.Button btnRegistrarSucursal;
         private System.Windows.Forms.Label lblCantidadSucursal;
         private System.Windows.Forms.DataGridView dgvDatosSucursal;
+        private System.Windows.Forms.TextBox txtBuscarSucursal;
+        private System.Windows.Forms.Label label148;
+        private System.Windows.Forms.ComboBox cmbStatusSucursal;
+        private System.Windows.Forms.ComboBox cmbCodigoPostalSucursales;
+        private System.Windows.Forms.TextBox txtAddEstadoSucursal;
+        private System.Windows.Forms.Label label149;
+        private System.Windows.Forms.Button btnGuardarSucursales;
+        private System.Windows.Forms.Label label152;
+        private System.Windows.Forms.TextBox txtAddnumExteriorSucursal;
+        private System.Windows.Forms.TextBox txtAddNumInteriorSucursal;
+        private System.Windows.Forms.Label label153;
+        private System.Windows.Forms.Label label154;
+        private System.Windows.Forms.TextBox txtAddCalleSucursal;
+        private System.Windows.Forms.Label label155;
+        private System.Windows.Forms.TextBox txtAddLocalidadSucursal;
+        private System.Windows.Forms.TextBox txtAddColoniaSucursal;
+        private System.Windows.Forms.TextBox txtAddMunicipioSucursal;
+        private System.Windows.Forms.TextBox txtAddPaiSucursal;
+        private System.Windows.Forms.TextBox txtAddNombreSucursal;
+        private System.Windows.Forms.Label label156;
+        private System.Windows.Forms.Label label157;
+        private System.Windows.Forms.Label label158;
+        private System.Windows.Forms.Label label159;
+        private System.Windows.Forms.Label label162;
+        private System.Windows.Forms.Label label150;
+        private System.Windows.Forms.ComboBox cmbEmpresasSucursales;
+        private System.Windows.Forms.TextBox txtAddNumSerieSucursal;
+        private System.Windows.Forms.Label label170;
+        private System.Windows.Forms.CheckBox ckbAddEnvFactura;
+        private System.Windows.Forms.CheckBox ckbAddForImpreso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sEstSucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn iNumCertificado;
         private System.Windows.Forms.DataGridViewTextBoxColumn sPais;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iNumExterior;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.TextBox txtBuscarSucursal;
-        private System.Windows.Forms.Label label148;
-        private System.Windows.Forms.ComboBox cmbEstadoSucursal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fkCategoria;
+        private System.Windows.Forms.Label label189;
+        private System.Windows.Forms.Button btnAddExaminarLogo;
+        private System.Windows.Forms.PictureBox pcbAddLogo;
+        private System.Windows.Forms.Panel pnlAddSucursal;
+        private System.Windows.Forms.Panel pnlAddSucursalPreferenciaCertificado;
+        private System.Windows.Forms.Button btnAddPnlCertificado;
+        private System.Windows.Forms.Button btnAddPnlPreferencias;
+        private System.Windows.Forms.Button btnAddPnlSucrusal;
+        private System.Windows.Forms.Panel pnlAddPreferencias;
+        private System.Windows.Forms.Panel pnlAddCertificado;
+        private System.Windows.Forms.Button btnAddExaminarCarpetaCertificados;
+        private System.Windows.Forms.TextBox txtAddFolcerCertificados;
+        private System.Windows.Forms.Label label191;
+        private System.Windows.Forms.TextBox txtAddValidoHasta;
+        private System.Windows.Forms.Label label192;
+        private System.Windows.Forms.TextBox txtAddValidoDe;
+        private System.Windows.Forms.TextBox txtAddNoCertficado;
+        private System.Windows.Forms.Label label193;
+        private System.Windows.Forms.Label label194;
+        private System.Windows.Forms.Button btnAddExaminarKey;
+        private System.Windows.Forms.TextBox txtAddContraseña;
+        private System.Windows.Forms.Label label196;
+        private System.Windows.Forms.Button btnAddExaminarCertificado;
+        private System.Windows.Forms.TextBox txtAddKey;
+        private System.Windows.Forms.TextBox txtAddCertificado;
+        private System.Windows.Forms.Label label197;
+        private System.Windows.Forms.Label label198;
+        private System.Windows.Forms.Panel pnlUpdateCertificado;
+        private System.Windows.Forms.Button btnUpdateExaminarFolderCertificados;
+        private System.Windows.Forms.TextBox txtUpdateFolderCertificados;
+        private System.Windows.Forms.TextBox txtUpdateValidoHasta;
+        private System.Windows.Forms.TextBox txtUpdateValidoDe;
+        private System.Windows.Forms.TextBox txtUpdateNoCertificado;
+        private System.Windows.Forms.TextBox txtUpdateContraseñaCertificado;
+        private System.Windows.Forms.TextBox txtUpdateKey;
+        private System.Windows.Forms.TextBox txtUpdateCertificado;
+        private System.Windows.Forms.Label label147;
+        private System.Windows.Forms.Label label151;
+        private System.Windows.Forms.Label label160;
+        private System.Windows.Forms.Label label161;
+        private System.Windows.Forms.Button btnUpdateExaminarKey;
+        private System.Windows.Forms.Label label163;
+        private System.Windows.Forms.Button btnUpdateExaminarCertificado;
+        private System.Windows.Forms.Label label164;
+        private System.Windows.Forms.Label label165;
+        private System.Windows.Forms.Panel pnlUpdatePreferencias;
+        private System.Windows.Forms.TextBox txtUpdateNoSerie;
+        private System.Windows.Forms.CheckBox ckbUpdateForImpreso;
+        private System.Windows.Forms.CheckBox ckbUpdateEnvFactura;
+        private System.Windows.Forms.Label label166;
+        private System.Windows.Forms.Label label167;
+        private System.Windows.Forms.PictureBox pcbUpdateLogoSucursal;
+        private System.Windows.Forms.Button btnUpdateExaminarLogoSucursal;
+        private System.Windows.Forms.Panel pnlUpdateSucursal;
+        private System.Windows.Forms.ComboBox cmbUpdateEmpresa;
+        private System.Windows.Forms.Label label168;
+        private System.Windows.Forms.Label label169;
+        private System.Windows.Forms.Label label171;
+        private System.Windows.Forms.Label label172;
+        private System.Windows.Forms.Label label173;
+        private System.Windows.Forms.TextBox txtUpdateNomSucursal;
+        private System.Windows.Forms.TextBox txtUpdatePais;
+        private System.Windows.Forms.Label label174;
+        private System.Windows.Forms.TextBox txtUpdateMunicipio;
+        private System.Windows.Forms.TextBox txtUpdateColonia;
+        private System.Windows.Forms.TextBox txtUpdateLocalidad;
+        private System.Windows.Forms.ComboBox cmbCodigoPostal;
+        private System.Windows.Forms.Label label175;
+        private System.Windows.Forms.TextBox txtUpdateEstado;
+        private System.Windows.Forms.TextBox txtUpdateCalle;
+        private System.Windows.Forms.Label label176;
+        private System.Windows.Forms.Label label177;
+        private System.Windows.Forms.Button btnUpdateSucursal;
+        private System.Windows.Forms.Label label178;
+        private System.Windows.Forms.Label label179;
+        private System.Windows.Forms.TextBox txtUpdateNoInterior;
+        private System.Windows.Forms.TextBox txtUpdateNoExterior;
+        private System.Windows.Forms.Panel pnlIUpdateSucursalPreferenciasCertificado;
+        private System.Windows.Forms.Button btnUpdatePnlCertificado;
+        private System.Windows.Forms.Button btnUpdatePnlPreferencias;
+        private System.Windows.Forms.Button btnUpdatePnlSucursal;
     }
 }

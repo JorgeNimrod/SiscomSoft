@@ -13,6 +13,8 @@ using SiscomSoft.Models;
 using System.Globalization;
 using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -50,6 +52,7 @@ namespace SiscomSoft_Desktop.Views
         public static int PKEMPRESA;
         public static int PKSUCURSAL;
         public static int PKCERTIFICADO;
+        public static int PKPREFERENCIA;
 
         public FrmAdministrador()
         {
@@ -62,6 +65,7 @@ namespace SiscomSoft_Desktop.Views
             this.dgvDatosPrecio.AutoGenerateColumns = false;
             this.dgvDatosCliente.AutoGenerateColumns = false;
             this.dgvDatosEmpresa.AutoGenerateColumns = false;
+            this.dgvDatosSucursal.AutoGenerateColumns = false;
             CargarTablas();
             cargarCombos();
         }
@@ -78,14 +82,27 @@ namespace SiscomSoft_Desktop.Views
             cargarProductos();
             cargarClientes();
             cargarEmpresas();
+            cargarSucursal();
         }
+
         public void cargarCombos()
         {
+
+            //ComboBox de Registrar sucursales
+            cmbEmpresasSucursales.DataSource = ManejoEmpresa.getAll(true);
+            cmbEmpresasSucursales.DisplayMember = "sNomComercial";
+            cmbEmpresasSucursales.ValueMember = "pkEmpresa";
+
+            //ComboBox de Actualizar sucursales
+            cmbUpdateEmpresa.DataSource = ManejoEmpresa.getAll(true);
+            cmbUpdateEmpresa.DisplayMember = "sNomComercial";
+            cmbUpdateEmpresa.ValueMember = "pkEmpresa";
+
             //ComboBox de Registrar Usuarios
             cbxRol.DataSource = ManejoRol.getAll(true);
             cbxRol.DisplayMember = "sNombre";
             cbxRol.ValueMember = "pkRol";
-          
+
             //ComboBox de Actualizar Usuarios
             cbxUpdateProfile.DataSource = ManejoRol.getAll(true);
             cbxUpdateProfile.DisplayMember = "sNombre";
@@ -96,9 +113,9 @@ namespace SiscomSoft_Desktop.Views
             cbxPrecioAddProd.DisplayMember = "iPrePorcen";
             cbxPrecioAddProd.ValueMember = "pkPrecios";
 
-            cbxUMDAddProd.DataSource = ManejoCatalogo.getAll(true);
-            cbxUMDAddProd.DisplayMember = "sUDM";
-            cbxUMDAddProd.ValueMember = "pkCatalogo";
+            cbxCatalogoAddProd.DataSource = ManejoCatalogo.getAll(true);
+            cbxCatalogoAddProd.DisplayMember = "sUDM";
+            cbxCatalogoAddProd.ValueMember = "pkCatalogo";
 
             cbxCategoriaAddProd.DataSource = ManejoCategoria.getAll(true);
             cbxCategoriaAddProd.DisplayMember = "sNombre";
@@ -160,6 +177,11 @@ namespace SiscomSoft_Desktop.Views
             this.dgvDatosCliente.DataSource = ManejoCliente.Buscar(txtBuscarCliente.Text, cbxSearchStatusCli.SelectedIndex + 1);
         }
 
+        public void cargarSucursal()
+        {
+            dgvDatosSucursal.DataSource = ManejoSucursal.Buscar(txtBuscarSucursal.Text, cmbStatusSucursal.SelectedIndex + 1);
+        }
+
 
         private void btnUser_Click(object sender, EventArgs e)
         {
@@ -191,11 +213,6 @@ namespace SiscomSoft_Desktop.Views
             btnUserlist.ForeColor = Color.Black;
             btnRollist.BackColor = Color.DarkCyan;
             btnRollist.ForeColor = Color.White;
-        }
-        public void AlternarColor(DataGridView dgv)
-        {
-          
-         
         }
 
         private void btnProductolist_MouseClick(object sender, MouseEventArgs e)
@@ -282,7 +299,6 @@ namespace SiscomSoft_Desktop.Views
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
-            AlternarColor(dgvDatosProducto);
             cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
@@ -312,10 +328,8 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpClientes);
             tbcGeneral.TabPages.Remove(tbpAddCliente);
             tbcGeneral.TabPages.Remove(tbpUpdateCliente);
-            tbcGeneral.TabPages.Remove(tbpCertificado);
-            tbcGeneral.TabPages.Remove(tbpActualizarCertificado);
-            tbcGeneral.TabPages.Remove(tbpRegistrarCertificado);
-
+            cmbStatusSucursal.SelectedIndex = 0;
+            CargarTablas();
         }
 
         private void btnRollist_Click(object sender, EventArgs e)
@@ -413,12 +427,12 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.TabPages.Remove(tbpUpdateRol);
                 PKROL = Convert.ToInt32(this.dgvDatosRol.CurrentRow.Cells[0].Value);
-              
-                
-                    tbcGeneral.TabPages.Add(tbpUpdateRol);
-                    ActualizarRol();
-                    tbcGeneral.SelectedTab = tbpUpdateRol;
-             
+
+
+                tbcGeneral.TabPages.Add(tbpUpdateRol);
+                ActualizarRol();
+                tbcGeneral.SelectedTab = tbpUpdateRol;
+
             }
         }
 
@@ -630,7 +644,7 @@ namespace SiscomSoft_Desktop.Views
             Producto nProducto = ManejoProducto.getById(PKPRODUCTO);
 
             Categoria nCategoria = ManejoCategoria.getById(nProducto.fkCategoria.pkCategoria);
-            txtUpdateClavProd.Text =  nProducto.iClaveProd.ToString();
+            txtUpdateClavProd.Text = nProducto.iClaveProd.ToString();
             txtUpdateMarcProd.Text = nProducto.sMarca;
             dtpUpdateFechaProd.Value = nProducto.dtCaducidad;
             txtUpdateCostoProd.Text = nProducto.dCosto.ToString();
@@ -641,17 +655,17 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateLineaProd.Text = nCategoria.sNombre;
             txtUpdateSubProd.Text = nCategoria.sNomSubCat;
 
-            cbxUpdateImpuProd.SelectedIndex = nProducto.fkImpuesto.pkImpuesto-1;
-            cbxUpdateCataProd.SelectedIndex = nProducto.fkCatalogo.pkCatalogo-1;
-            cbxUpdateUMDProd.SelectedIndex = nProducto.fkCategoria.pkCategoria -1 ; 
-      
+            cbxUpdateImpuProd.SelectedIndex = nProducto.fkImpuesto.pkImpuesto - 1;
+            cbxUpdateCataProd.SelectedIndex = nProducto.fkCatalogo.pkCatalogo - 1;
+            cbxUpdateUMDProd.SelectedIndex = nProducto.fkCategoria.pkCategoria - 1;
+
             pcbUpdateImgProd.Image = ToolImagen.Base64StringToBitmap(nProducto.sFoto);
         }
         public void ActualizarPrecio()
         {
             Precio nPrecio = ManejoPrecio.getById(PKPRECIO);
             txtUpdatePrecio.Text = nPrecio.iPrePorcen.ToString();
-           
+
         }
         public void ActualizarCategoria()
         {
@@ -731,12 +745,12 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.TabPages.Remove(tbpUpdateUsuario);
                 PKUSUARIO = Convert.ToInt32(this.dgvDatosUsuario.CurrentRow.Cells[0].Value);
-               
-                    tbcGeneral.TabPages.Add(tbpUpdateUser);
-                    ActualizarUsuario();
-                    tbcGeneral.SelectedTab = tbpUpdateUser;
-                   
-             
+
+                tbcGeneral.TabPages.Add(tbpUpdateUser);
+                ActualizarUsuario();
+                tbcGeneral.SelectedTab = tbpUpdateUser;
+
+
             }
         }
 
@@ -866,11 +880,11 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.TabPages.Remove(tbpUpdateCategoria);
                 PKCATEGORIA = Convert.ToInt32(this.dgvDatosCategoria.CurrentRow.Cells[0].Value);
-              
-                    tbcGeneral.TabPages.Add(tbpUpdateCategoria);
-                    ActualizarCategoria();
-                    tbcGeneral.SelectedTab = tbpUpdateCategoria;
-             
+
+                tbcGeneral.TabPages.Add(tbpUpdateCategoria);
+                ActualizarCategoria();
+                tbcGeneral.SelectedTab = tbpUpdateCategoria;
+
             }
         }
 
@@ -1055,11 +1069,11 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.TabPages.Remove(tbpUpdateImpuesto);
                 PKIMPUESTO = Convert.ToInt32(this.dgvDatosImpuesto.CurrentRow.Cells[0].Value);
-              
-                    tbcGeneral.TabPages.Add(tbpUpdateImpuesto);
-                    ActualizarImpuesto();
-                    tbcGeneral.SelectedTab = tbpUpdateImpuesto;
-              
+
+                tbcGeneral.TabPages.Add(tbpUpdateImpuesto);
+                ActualizarImpuesto();
+                tbcGeneral.SelectedTab = tbpUpdateImpuesto;
+
             }
         }
 
@@ -1069,11 +1083,11 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.TabPages.Remove(tbpUpdateImpuesto);
                 PKIMPUESTO = Convert.ToInt32(this.dgvDatosImpuesto.CurrentRow.Cells[0].Value);
-              
-                    tbcGeneral.TabPages.Add(tbpUpdateImpuesto);
-                    ActualizarImpuesto();
-                    tbcGeneral.SelectedTab = tbpUpdateImpuesto;
-             
+
+                tbcGeneral.TabPages.Add(tbpUpdateImpuesto);
+                ActualizarImpuesto();
+                tbcGeneral.SelectedTab = tbpUpdateImpuesto;
+
             }
         }
 
@@ -1083,11 +1097,11 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.TabPages.Remove(tbpUpdateRol);
                 PKCATEGORIA = Convert.ToInt32(this.dgvDatosCategoria.CurrentRow.Cells[0].Value);
-               
-                    tbcGeneral.TabPages.Add(tbpUpdateCategoria);
-                    ActualizarCategoria();
-                    tbcGeneral.SelectedTab = tbpUpdateCategoria;
-             
+
+                tbcGeneral.TabPages.Add(tbpUpdateCategoria);
+                ActualizarCategoria();
+                tbcGeneral.SelectedTab = tbpUpdateCategoria;
+
             }
         }
 
@@ -1235,7 +1249,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtUsuario, "Campo necesario");
                 this.txtUsuario.Focus();
             }
-       
+
             else if (this.txtContraseña.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtContraseña, ErrorIconAlignment.MiddleRight);
@@ -1285,7 +1299,7 @@ namespace SiscomSoft_Desktop.Views
 
 
                 ManejoUsuario.RegistrarNuevoUsuario(nUsuario, fkRol);
-              
+
                 MessageBox.Show("¡Usuario Registrado!");
                 txtRFC.Clear();
                 txtUsuario.Clear();
@@ -1296,6 +1310,11 @@ namespace SiscomSoft_Desktop.Views
                 txtCorreo.Clear();
                 txtComentUsua.Clear();
                 cargarUsuarios();
+
+
+
+
+
 
             }
         }
@@ -1358,10 +1377,8 @@ namespace SiscomSoft_Desktop.Views
                 nUsuario.sComentario = txtUpdateComment.Text;
                 int fkRol = Convert.ToInt32(cbxUpdateProfile.SelectedValue.ToString());
                 ManejoUsuario.Modificar(nUsuario);
-                 MessageBox.Show("¡Usuario Actualizado!");
+                MessageBox.Show("¡Usuario Actualizado!");
                 cargarUsuarios();
-
-
             }
         }
 
@@ -1405,14 +1422,14 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtDescuentoProd, "Campo necesario");
                 this.txtDescuentoProd.Focus();
             }
-        
+
             else if (this.txtLoteAddProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtLoteAddProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtLoteAddProd, "Campo necesario");
                 this.txtLoteAddProd.Focus();
             }
-       
+
             else if (this.txtLineaAddProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtLineaAddProd, ErrorIconAlignment.MiddleRight);
@@ -1431,54 +1448,54 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtSublineaAddProd, "Campo necesario");
                 this.txtSublineaAddProd.Focus();
             }
-
-        
             else if (this.pcbimgAddProd == null)
             {
                 this.ErrorProvider.SetIconAlignment(this.pcbimgAddProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.pcbimgAddProd, "Debe agregar una imagen del producto en Examinar ");
                 btnExaImgProdu.Focus();
             }
-            Categoria nCategoria = new Categoria();
-            nCategoria.sNombre = txtLineaAddProd.Text;
-            nCategoria.sNomSubCat = txtLineaAddProd.Text;
+            else
+            { 
+                Categoria nCategoria = new Categoria();
+                nCategoria.sNombre = txtLineaAddProd.Text;
+                nCategoria.sNomSubCat = txtLineaAddProd.Text;
 
 
-            Producto nProducto = new Producto();
-            nProducto.iClaveProd = Convert.ToInt32(txtClaveaddprod.Text.ToString());
-            nProducto.sMarca = txtMarcaaddProd.Text;
-            nProducto.dtCaducidad = dtpFechaCaducidadProd.Value.Date;
-            nProducto.dCosto = Convert.ToDecimal(txtCostoAddProd.Text);
-            nProducto.iDescuento = Convert.ToInt32(txtDescuentoProd.Text.ToString());
-            nProducto.sFoto = ImagenString;
-            nProducto.iLote = Convert.ToInt32(txtLoteAddProd.Text.ToString());
+                Producto nProducto = new Producto();
+                nProducto.iClaveProd = Convert.ToInt32(txtClaveaddprod.Text.ToString());
+                nProducto.sMarca = txtMarcaaddProd.Text;
+                nProducto.dtCaducidad = dtpFechaCaducidadProd.Value.Date;
+                nProducto.dCosto = Convert.ToDecimal(txtCostoAddProd.Text);
+                nProducto.iDescuento = Convert.ToInt32(txtDescuentoProd.Text.ToString());
+                nProducto.sFoto = ImagenString;
+                nProducto.iLote = Convert.ToInt32(txtLoteAddProd.Text.ToString());
 
-            nProducto.sDescripcion = txtDescripcionAddProd.Text;
+                nProducto.sDescripcion = txtDescripcionAddProd.Text;
 
-            int fkImpuesto = Convert.ToInt32(cbxImpuestoAddProd.SelectedValue.ToString());
-            int fkPrecio = Convert.ToInt32(cbxPrecioAddProd.SelectedValue.ToString());
-            
-            int fkCategoria = Convert.ToInt32(cbxCategoriaAddProd.SelectedValue.ToString());
-            int fkCatalogo = Convert.ToInt32(cbxUMDAddProd.SelectedValue.ToString());
-       
+                int fkImpuesto = Convert.ToInt32(cbxImpuestoAddProd.SelectedValue.ToString());
+                int fkPrecio = Convert.ToInt32(cbxPrecioAddProd.SelectedValue.ToString());
 
-            ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
-            ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, fkCategoria, fkCatalogo);
+                int fkCategoria = Convert.ToInt32(cbxCategoriaAddProd.SelectedValue.ToString());
+                int fkCatalogo = Convert.ToInt32(cbxCatalogoAddProd.SelectedValue.ToString());
 
-            MessageBox.Show("¡Producto Registrado!");
-            txtDescripcionAddProd.Clear();
-            txtCostoAddProd.Clear();
-            txtClaveaddprod.Clear();
-            txtMarcaaddProd.Clear();
-            dtpFechaCaducidadProd.ResetText();
-            txtDescuentoProd.Clear();
-            pcbimgAddProd.Image = null;
-            txtLineaAddProd.Clear();
-            txtSublineaAddProd.Clear();
-            txtLoteAddProd.Clear();
-            txtClaveaddprod.Focus();
-            cargarProductos();
 
+                ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
+                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, fkCategoria, fkCatalogo);
+
+                MessageBox.Show("¡Producto Registrado!");
+                txtDescripcionAddProd.Clear();
+                txtCostoAddProd.Clear();
+                txtClaveaddprod.Clear();
+                txtMarcaaddProd.Clear();
+                dtpFechaCaducidadProd.ResetText();
+                txtDescuentoProd.Clear();
+                pcbimgAddProd.Image = null;
+                txtLineaAddProd.Clear();
+                txtSublineaAddProd.Clear();
+                txtLoteAddProd.Clear();
+                txtClaveaddprod.Focus();
+                cargarProductos();
+            }
         }
 
         private void btnExaImgProdu_Click(object sender, EventArgs e)
@@ -1566,12 +1583,12 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.TabPages.Remove(tbpUpdatePrecio);
                 PKPRECIO = Convert.ToInt32(this.dgvDatosPrecio.CurrentRow.Cells[0].Value);
-              
-                    tbcGeneral.TabPages.Add(tbpUpdatePrecio);
-                    ActualizarPrecio();
-                    tbcGeneral.SelectedTab = tbpUpdatePrecio;
-                 
-             
+
+                tbcGeneral.TabPages.Add(tbpUpdatePrecio);
+                ActualizarPrecio();
+                tbcGeneral.SelectedTab = tbpUpdatePrecio;
+
+
             }
 
         }
@@ -1591,7 +1608,7 @@ namespace SiscomSoft_Desktop.Views
                 Precio nPrecio = new Precio();
                 nPrecio.pkPrecios = PKPRECIO;
                 nPrecio.iPrePorcen = Convert.ToInt32(txtUpdatePrecio.Text);
-              
+
 
                 ManejoPrecio.Modificar(nPrecio);
                 MessageBox.Show("¡Precio Actualizado!");
@@ -1663,14 +1680,14 @@ namespace SiscomSoft_Desktop.Views
                 PKPRODUCTO = Convert.ToInt32(this.dgvDatosProducto.CurrentRow.Cells[0].Value);
                 tbcGeneral.TabPages.Add(tbpUpdateProducto);
                 ActualizarProducto();
-          
+
                 tbcGeneral.SelectedTab = tbpUpdateProducto;
             }
         }
 
         private void btnActualizarProd_Click(object sender, EventArgs e)
         {
-             if (this.txtUpdateClavProd.Text == "")
+            if (this.txtUpdateClavProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtUpdateClavProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtUpdateClavProd, "Campo necesario");
@@ -1761,7 +1778,7 @@ namespace SiscomSoft_Desktop.Views
                 cargarProductos();
 
             }
-            }
+        }
 
         private void btnUpdateExamProd_Click(object sender, EventArgs e)
         {
@@ -1797,7 +1814,7 @@ namespace SiscomSoft_Desktop.Views
                 }
 
                 if (e.KeyChar == '\b')
-                       {
+                {
                     e.Handled = false;
                 }
             }
@@ -1808,8 +1825,8 @@ namespace SiscomSoft_Desktop.Views
                     e.Handled = true;
                 }
 
-                if (e.KeyChar =='.' || e.KeyChar =='\b')
-                          {
+                if (e.KeyChar == '.' || e.KeyChar == '\b')
+                {
                     e.Handled = false;
                 }
             }
@@ -2140,7 +2157,7 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-    
+
 
         private void btnCustomersList_MouseClick(object sender, MouseEventArgs e)
         {
@@ -2198,68 +2215,6 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.SelectedTab = tbpAddCliente;
             }
-        }
-        private bool Validador(String direccion)
-        {
-            String expresion;
-            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(direccion, expresion))
-            {
-                if (Regex.Replace(direccion, expresion, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public int ValidarRFC(string cadena)
-        {
-            int i = 0;
-            bool confirmacion = true;
-            if (cadena.Length > 11 && cadena.Length < 14)
-            {
-                if (cadena.Length == 12)
-                {
-                    cadena = "-" + cadena;
-                    i = 1;
-                }
-                for (int j = i; j <= 3; j++)
-                {
-                    if (!char.IsLetter(cadena[j]))
-                        confirmacion = false;
-                }
-                for (int j = 4; j <= 9; j++)
-                {
-                    if (!char.IsDigit(cadena[j]))
-                        confirmacion = false;
-                }
-                for (int j = 9; j < 13; j++)
-                {
-                    if (!char.IsLetterOrDigit(cadena[j]))
-                        confirmacion = false;
-                }
-                if (!confirmacion)
-                {
-                    MessageBox.Show("El formato del RFC no es valido.", "RFC", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return 1;
-                }
-            }
-            else
-            {
-                MessageBox.Show("La longitud del RFC no es valido.", "RFC", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return 1;
-            }
-            if (confirmacion)
-                return 0;
-            else
-                return 1;
         }
 
         private void btnExaminar_Click(object sender, EventArgs e)
@@ -2502,7 +2457,7 @@ namespace SiscomSoft_Desktop.Views
                 txtTelFijoAddCli.Clear();
                 txtTelMvilAddCli.Clear();
                 txtCorreoAddCli.Clear();
-                
+
                 txtReferenciaAddCli.Clear();
                 txtNumCuentaAddCli.Clear();
                 txtCondicionesPagoAddCli.Clear();
@@ -2663,7 +2618,7 @@ namespace SiscomSoft_Desktop.Views
             else if (this.txtNumInteUpdateCli.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtNumInteUpdateCli, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtNumInteUpdateCli,("Campo necesario"));
+                this.ErrorProvider.SetError(this.txtNumInteUpdateCli, ("Campo necesario"));
                 this.txtNumCuentaAddCli.Focus();
             }
             else if (this.txtCondicionesUpdateCli.Text == "")
@@ -2743,11 +2698,11 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.TabPages.Remove(tbpUpdateCliente);
                 PKCLIENTE = Convert.ToInt32(this.dgvDatosCliente.CurrentRow.Cells[0].Value);
-              
-                    tbcGeneral.TabPages.Add(tbpUpdateCliente);
-                    ActualizarCliente();
-                    tbcGeneral.SelectedTab = tbpUpdateCliente;
-             
+
+                tbcGeneral.TabPages.Add(tbpUpdateCliente);
+                ActualizarCliente();
+                tbcGeneral.SelectedTab = tbpUpdateCliente;
+
             }
         }
 
@@ -3359,7 +3314,7 @@ namespace SiscomSoft_Desktop.Views
                 MessageBox.Show("Curp No Valida Debe de tener el formato : BOMC870421HDGRLS05, " +
                     "Favor Sellecione Un Curp Valido", "Validacion De Curp", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtCurpUpdateCli.SelectAll();
-               txtCurpUpdateCli.Focus();
+                txtCurpUpdateCli.Focus();
             }
         }
 
@@ -3458,7 +3413,7 @@ namespace SiscomSoft_Desktop.Views
                 nEmpresa.sRazonSocial = txtAddRazonSocialEmpresa.Text;
                 nEmpresa.sTelefono = txtAddTelefonoEmpresa.Text;
                 nEmpresa.sCorreo = txtAddCorreoElectronicoEmpresa.Text;
-                //nEmpresa.sRegFiscal =
+                nEmpresa.sRegFiscal = cmbAddRegimenFiscalEmpresa.SelectedIndex.ToString() + 1.ToString();
                 nEmpresa.sPais = txtAddPaisEmpresa.Text;
                 nEmpresa.sEstado = txtAddEstadoEmpresa.Text;
                 nEmpresa.sMunicipio = txtAddMunicipioEmpresa.Text;
@@ -3467,7 +3422,7 @@ namespace SiscomSoft_Desktop.Views
                 nEmpresa.sCalle = txtAddCalleEmpresa.Text;
                 nEmpresa.iNumInterir = Convert.ToInt32(txtAddNumInteriorEmpresa.Text);
                 nEmpresa.iNumExterior = Convert.ToInt32(txtAddNumExteriorEmpresa.Text);
-                //nEmpresa.iCodPostal = 
+                nEmpresa.iCodPostal = cmbCodigoPostal.SelectedIndex + 1;
                 ManejoEmpresa.registrarnuevaempresa(nEmpresa);
                 cargarEmpresas();
                 MessageBox.Show("¡Empresa Registrada!");
@@ -3683,21 +3638,6 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (flagCertificado == false)
-            {
-                tbcGeneral.Visible = true;
-                tbcGeneral.TabPages.Add(tbpCertificado);
-                tbcGeneral.SelectedTab = tbpCertificado;
-                flagCertificado = true;
-            }
-            else
-            {
-                tbcGeneral.SelectedTab = tbpCertificado;
-            }
-        }
-
         private void btnSucursalesList_Click(object sender, EventArgs e)
         {
             if (flagSucursal == false)
@@ -3791,16 +3731,812 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        private void txtRFCAddCli_Leave(object sender, EventArgs e)
+        private void txtBuscarSucursal_TextChanged(object sender, EventArgs e)
         {
-          
+            cargarSucursal();
+        }
+
+        private void dgvDatosSucursal_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblCantidadSucursal.Text = "Registros: " + dgvDatosSucursal.Rows.Count;
+        }
+
+        private void btnRegistrarSucursal_Click(object sender, EventArgs e)
+        {
+            if (flagAddSucursal == false)
+            {
+                tbcGeneral.TabPages.Add(tbpRegistrarSucursal);
+                tbcGeneral.SelectedTab = tbpRegistrarSucursal;
+                flagAddSucursal = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpRegistrarSucursal;
+            }
+        }
+
+        private void btnActualizarSucursal_Click(object sender, EventArgs e)
+        {
+            if (this.dgvDatosSucursal.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpActualizarSucursal);
+                PKSUCURSAL = Convert.ToInt32(this.dgvDatosSucursal.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpActualizarSucursal);
+                ActualizarSucursales();
+                tbcGeneral.SelectedTab = tbpActualizarSucursal;
+
+            }
+        }
+
+        private void ActualizarSucursales()
+        {
+            Sucursal nSucursal = ManejoSucursal.getById(PKSUCURSAL);
+            Preferencia nPreferencia = ManejoPreferencia.getById(nSucursal.fkPreferencia.pkPreferencia);
+            Certificado nCertificado = ManejoCertificado.getById(nSucursal.fkCertificado.pkCertificado);
+            txtUpdateNombre.Text = nSucursal.sNombre;
+            txtUpdatePais.Text = nSucursal.sPais;
+            txtUpdateEstado.Text = nSucursal.sEstado;
+            txtUpdateMunicipio.Text = nSucursal.sMunicipio;
+            txtUpdateCalle.Text = nSucursal.sCalle;
+            txtUpdateColonia.Text = nSucursal.sColonia;
+            txtUpdateLocalidad.Text = nSucursal.sLocalidad;
+            txtUpdateNoInterior.Text = nSucursal.iNumInterior.ToString();
+            txtUpdateNoExterior.Text = nSucursal.iNumExterior.ToString();
+            txtUpdateNoSerie.Text = nPreferencia.sNumSerie;
+            ckbUpdateForImpreso.Checked = nPreferencia.bForImpreso;
+            ckbUpdateEnvFactura.Checked = nPreferencia.bEnvFactura;
+            pcbUpdateLogoSucursal.Image = ToolImagen.Base64StringToBitmap(nPreferencia.sLogotipo);
+
+            cmbUpdateEmpresa.SelectedItem = nSucursal.fkEmpresa.pkEmpresa;
+
+            txtUpdateFolderCertificados.Text = nCertificado.sRutaArch;
+            txtUpdateCertificado.Text = nCertificado.sArchCer;
+            txtUpdateKey.Text = nCertificado.sArchkey;
+            txtUpdateContrasena.Text = nCertificado.sContrasena;
+            txtUpdateNoCertificado.Text = nCertificado.sNoCertifi;
+            txtUpdateValidoDe.Text = nCertificado.sValidoDe;
+            txtUpdateValidoHasta.Text = nCertificado.sValidoHasta;
+
+            PKPREFERENCIA = nSucursal.fkPreferencia.pkPreferencia;
+            PKCERTIFICADO = nSucursal.fkCertificado.pkCertificado;
+            PKEMPRESA = nSucursal.fkEmpresa.pkEmpresa;
+        }
+
+        private void btnBorrarSucursal_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosSucursal.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoSucursal.Eliminar(Convert.ToInt32(dgvDatosSucursal.CurrentRow.Cells[0].Value));
+                    cargarSucursal();
+                }
+            }
+        }
+
+        private void tbpSucursal_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void txtNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        private void cmbStatusSucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
-             && e.KeyChar != 8) e.Handled = true;
+            cargarSucursal();
+        }
+
+        private void btnGuardarSucursales_Click(object sender, EventArgs e)
+        {
+            if (this.txtAddNombreSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddNombreSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddNombreSucursal, "Campo necesario");
+                this.txtAddNombreSucursal.Focus();
+            }
+            else if (this.txtAddPaiSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddPaiSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddPaiSucursal, "Campo necesario");
+                this.txtAddPaiSucursal.Focus();
+            }
+            else if (this.txtAddEstadoSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddEstadoSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddEstadoSucursal, "Campo necesario");
+                this.txtAddEstadoSucursal.Focus();
+            }
+            else if (this.txtAddMunicipioSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddMunicipioSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddMunicipioSucursal, "Campo necesario");
+                this.txtAddMunicipioSucursal.Focus();
+            }
+            else if (this.txtAddCalleSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddCalleSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddCalleSucursal, "Campo necesario");
+                this.txtAddCalleSucursal.Focus();
+            }
+            else if (this.txtAddColoniaSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddColoniaSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddColoniaSucursal, "Campo necesario");
+                this.txtAddColoniaSucursal.Focus();
+            }
+            else if (this.txtAddLocalidadSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddLocalidadSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddLocalidadSucursal, "Campo necesario");
+                this.txtAddLocalidadSucursal.Focus();
+            }
+            else if (this.txtAddNumInteriorEmpresa.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddNumInteriorEmpresa, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddNumInteriorEmpresa, "Campo necesario");
+                this.txtAddNumInteriorEmpresa.Focus();
+            }
+            else if (this.txtAddnumExteriorSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddnumExteriorSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddnumExteriorSucursal, "Campo necesario");
+                this.txtAddnumExteriorSucursal.Focus();
+            }
+            else if (this.txtAddNumSerieSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddNumSerieSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddNumSerieSucursal, "Campo necesario");
+                this.pnlAddSucursal.Visible = false;
+                this.pnlAddCertificado.Visible = false;
+                this.pnlAddPreferencias.Visible = true;
+                this.txtAddNumSerieSucursal.Focus();
+            }
+            else if (this.pcbAddLogo == null)
+            {
+                this.ErrorProvider.SetIconAlignment(this.pcbAddLogo, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.pcbAddLogo, "Campo necesario");
+                btnAddExaminarLogo.Focus();
+                this.pnlAddSucursal.Visible = false;
+                this.pnlAddCertificado.Visible = false;
+                this.pnlAddPreferencias.Visible = true;
+            }
+            else
+            {
+                //Preferencias
+                Preferencia nPreferencia = new Preferencia();
+                nPreferencia.sLogotipo = ImagenString;
+                nPreferencia.sNumSerie = txtAddNumSerieSucursal.Text;
+                nPreferencia.bForImpreso = ckbAddForImpreso.Checked;
+                nPreferencia.bEnvFactura = ckbAddEnvFactura.Checked;
+
+                //Certificado
+                Certificado nCertificado = new Certificado();
+                nCertificado.sRutaArch = txtAddFolcerCertificados.Text;
+                nCertificado.sArchCer = txtAddCertificado.Text;
+                nCertificado.sContrasena = txtAddContraseña.Text;
+                nCertificado.sArchkey = txtAddKey.Text;
+                nCertificado.sNoCertifi = txtAddNoCertficado.Text;
+                nCertificado.sValidoDe = txtAddValidoDe.Text;
+                nCertificado.sValidoHasta = txtAddValidoHasta.Text;
+
+                //Sucursales
+                Sucursal nSucursal = new Sucursal();
+                Empresa nEmpresa = ManejoEmpresa.getById(Convert.ToInt32(cmbEmpresasSucursales.SelectedValue));
+
+                nSucursal.sNombre = txtAddNombreSucursal.Text;
+                nSucursal.sPais = txtAddPaiSucursal.Text;
+                nSucursal.sEstado = txtAddEstadoSucursal.Text;
+                nSucursal.sMunicipio = txtAddMunicipioSucursal.Text;
+                nSucursal.sCalle = txtAddCalleSucursal.Text;
+                nSucursal.sColonia = txtAddColoniaSucursal.Text;
+                nSucursal.sLocalidad = txtAddLocalidadSucursal.Text;
+                nSucursal.iNumExterior = Convert.ToInt32(txtAddnumExteriorSucursal.Text);
+                nSucursal.iNumInterior = Convert.ToInt32(txtAddNumInteriorSucursal.Text);
+                nSucursal.sNoCertifi = txtAddNoCertficado.Text;
+                nSucursal.iCodPostal = cmbCodigoPostalSucursales.SelectedIndex + 1;
+
+                ManejoPreferencia.RegistrarNuevaPreferencia(nPreferencia);
+                ManejoCertificado.RegistrarNuevoCertificado(nCertificado);
+                ManejoSucursal.RegistrarNuevaSucursal(nSucursal, nEmpresa, nPreferencia, nCertificado);
+
+                MessageBox.Show("¡Sucursal Registrada!");
+
+                txtAddNumSerieSucursal.Clear();
+                txtAddNombreSucursal.Clear();
+                txtAddPaiSucursal.Clear();
+                txtAddEstadoSucursal.Clear();
+                txtAddMunicipioSucursal.Clear();
+                txtAddCalleSucursal.Clear();
+                txtAddColoniaSucursal.Clear();
+                txtAddLocalidadSucursal.Clear();
+                txtAddNumInteriorSucursal.Clear();
+                txtAddnumExteriorSucursal.Clear();
+                txtAddFolcerCertificados.Clear();
+                txtAddCertificado.Clear();
+                txtAddKey.Clear();
+                txtAddContraseña.Clear();
+                txtAddNoCertficado.Clear();
+                txtAddValidoDe.Clear();
+                txtAddValidoHasta.Clear();
+                cargarSucursal();
+            }
+        }
+
+        private void btnAddExaminarKey_Click(object sender, EventArgs e)
+        {
+            string rutaArchivoKey = string.Empty;
+            //Asi se busca un archivo
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Archivos .key|*.key;";
+            ofd.Title = "Seleccione un archivo key";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                rutaArchivoKey = ofd.SafeFileName;
+            }
+
+            txtAddKey.Text = rutaArchivoKey;
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            string rutaDirectorio = string.Empty;
+
+            //Asi se busca en un directorio una carpeta
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                rutaDirectorio = fbd.SelectedPath;
+            }
+
+            txtUpdateFolderCertificados.Text = @rutaDirectorio;
+        }
+
+        private void btnUpdateExaminarKey_Click(object sender, EventArgs e)
+        {
+            string rutaArchivoKey = string.Empty;
+            //Asi se busca un archivo
+            OpenFileDialog opf = new OpenFileDialog();
+
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                rutaArchivoKey = opf.SafeFileName;
+            }
+
+            txtUpdateKey.Text = rutaArchivoKey;
+        }
+
+        private void btnAddExaminarLogo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Archivos .jpg|*.jpg;";
+                //Aquí incluiremos los filtros que queramos.
+                ofd.FileName = "";
+                ofd.Title = "Seleccione una imagen";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string logo = ofd.FileName;
+                    pcbAddLogo.ImageLocation = logo;
+                    ImagenBitmap = new System.Drawing.Bitmap(logo);
+                    ImagenString = ToolImagen.ToBase64String(ImagenBitmap, ImageFormat.Jpeg);
+                    pcbAddLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
+            }
+        }
+
+        private void btnAddPnlSucrusal_Click(object sender, EventArgs e)
+        {
+            pnlAddCertificado.Visible = false;
+            pnlAddPreferencias.Visible = false;
+            pnlAddSucursal.Visible = true;
+        }
+
+        private void btnAddPnlPreferencias_Click(object sender, EventArgs e)
+        {
+            pnlAddCertificado.Visible = false;
+            pnlAddSucursal.Visible = false;
+            pnlAddPreferencias.Visible = true;
+        }
+
+        private void btnAddPnlCertificado_Click(object sender, EventArgs e)
+        {
+            pnlAddSucursal.Visible = false;
+            pnlAddPreferencias.Visible = false;
+            pnlAddCertificado.Visible = true;
+        }
+
+        private void btnAddPnlSucrusal_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnAddPnlPreferencias.ForeColor = Color.Black;
+            btnAddPnlPreferencias.BackColor = Color.White;
+            btnAddPnlCertificado.ForeColor = Color.Black;
+            btnAddPnlCertificado.BackColor = Color.White;
+            btnAddPnlSucrusal.ForeColor = Color.White;
+            btnAddPnlSucrusal.BackColor = Color.DarkCyan;
+        }
+
+        private void btnAddPnlPreferencias_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnAddPnlCertificado.ForeColor = Color.Black;
+            btnAddPnlCertificado.BackColor = Color.White;
+            btnAddPnlSucrusal.ForeColor = Color.Black;
+            btnAddPnlSucrusal.BackColor = Color.White;
+            btnAddPnlPreferencias.ForeColor = Color.White;
+            btnAddPnlPreferencias.BackColor = Color.DarkCyan;
+        }
+
+        private void btnAddPnlCertificado_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnAddPnlPreferencias.ForeColor = Color.Black;
+            btnAddPnlPreferencias.BackColor = Color.White;
+            btnAddPnlSucrusal.ForeColor = Color.Black;
+            btnAddPnlSucrusal.BackColor = Color.White;
+            btnAddPnlCertificado.ForeColor = Color.White;
+            btnAddPnlCertificado.BackColor = Color.DarkCyan;
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            string rutaDirectorio = string.Empty;
+
+            //Asi se busca en un directorio una carpeta
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                rutaDirectorio = fbd.SelectedPath;
+            }
+
+            txtAddFolcerCertificados.Text = @rutaDirectorio;
+        }
+
+        private void btnAddExaminarCertificado_Click_1(object sender, EventArgs e)
+        {
+            string rutaArchivoCer = string.Empty;
+            //Asi se busca un archivo
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Archivos .cer|*.cer;";
+            ofd.Title = "Seleccione un certificado";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                @rutaArchivoCer = ofd.SafeFileName;
+
+                X509Certificate2 m_cer = new X509Certificate2(ofd.FileName);
+
+                if (m_cer != null)
+                {
+                    txtAddNoCertficado.Text = Encoding.Default.GetString(m_cer.GetSerialNumber());
+                    //txtEmpresa.Text = m_cer.SubjectName.Name;
+                    //txtEmisor.Text = m_cer.IssuerName.Name;
+                    txtAddValidoDe.Text = m_cer.GetEffectiveDateString();
+                    txtAddValidoHasta.Text = m_cer.GetExpirationDateString();
+                }
+            }
+
+            txtAddCertificado.Text = rutaArchivoCer;
+        }
+
+        private void txtAddFolcerCertificados_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddCertificado_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddKey_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddContraseña_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddNumSerieSucursal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddNombreSucursal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddPaiSucursal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddEstadoSucursal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddMunicipioSucursal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddCalleSucursal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddColoniaSucursal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddLocalidadSucursal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddNumInteriorSucursal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void btnAddExaminarKey_Click_1(object sender, EventArgs e)
+        {
+            string rutaArchivoKey = string.Empty;
+            //Asi se busca un archivo
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Archivos .key|*.key;";
+            ofd.Title = "Seleccione un archivo";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                rutaArchivoKey = ofd.SafeFileName;
+            }
+
+            txtAddKey.Text = rutaArchivoKey;
+        }
+
+        private void btnUpdateExaminarFolderCertificados_Click(object sender, EventArgs e)
+        {
+            string rutaDirectorio = string.Empty;
+
+            //Asi se busca en un directorio una carpeta
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                rutaDirectorio = fbd.SelectedPath;
+            }
+
+            txtUpdateFolderCertificados.Text = @rutaDirectorio;
+        }
+
+        private void btnUpdateExaminarCertificado_Click_1(object sender, EventArgs e)
+        {
+            string rutaArchivoCer = string.Empty;
+            //Asi se busca un archivo
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Archivos .cer|*.cer;";
+            ofd.Title = "Seleccione un certificado";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                @rutaArchivoCer = ofd.SafeFileName;
+
+                X509Certificate2 m_cer = new X509Certificate2(ofd.FileName);
+
+                if (m_cer != null)
+                {
+                    txtUpdateNoCertificado.Text = Encoding.Default.GetString(m_cer.GetSerialNumber());
+                    //txtEmpresa.Text = m_cer.SubjectName.Name;
+                    //txtEmisor.Text = m_cer.IssuerName.Name;
+                    txtUpdateValidoDe.Text = m_cer.GetEffectiveDateString();
+                    txtUpdateValidoHasta.Text = m_cer.GetExpirationDateString();
+                }
+            }
+
+            txtUpdateCertificado.Text = rutaArchivoCer;
+        }
+
+        private void btnUpdateExaminarKey_Click_1(object sender, EventArgs e)
+        {
+            string rutaArchivoKey = string.Empty;
+            //Asi se busca un archivo
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Archivos .key|*.key;";
+            ofd.Title = "Seleccione un archivo";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                rutaArchivoKey = ofd.SafeFileName;
+            }
+
+            txtUpdateKey.Text = rutaArchivoKey;
+        }
+
+        private void txtUpdateNoSerie_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void btnUpdateExaminarLogoSucursal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Archivos .jpg|*.jpg;";
+                ofd.Title = "Seleccione una imagen";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string logo = ofd.FileName;
+                    pcbUpdateLogoSucursal.ImageLocation = logo;
+                    ImagenBitmap = new System.Drawing.Bitmap(logo);
+                    ImagenString = ToolImagen.ToBase64String(ImagenBitmap, ImageFormat.Jpeg);
+                    pcbUpdateLogoSucursal.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
+            }
+        }
+
+        private void btnUpdatePnlPreferencias_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnUpdatePnlCertificado.ForeColor = Color.Black;
+            btnUpdatePnlCertificado.BackColor = Color.White;
+            btnUpdatePnlSucursal.ForeColor = Color.Black;
+            btnUpdatePnlSucursal.BackColor = Color.White;
+            btnUpdatePnlPreferencias.ForeColor = Color.White;
+            btnUpdatePnlPreferencias.BackColor = Color.DarkCyan;
+        }
+
+        private void btnUpdatePnlCertificado_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnUpdatePnlPreferencias.ForeColor = Color.Black;
+            btnUpdatePnlPreferencias.BackColor = Color.White;
+            btnUpdatePnlSucursal.ForeColor = Color.Black;
+            btnUpdatePnlSucursal.BackColor = Color.White;
+            btnUpdatePnlCertificado.ForeColor = Color.White;
+            btnUpdatePnlCertificado.BackColor = Color.DarkCyan;
+        }
+
+        private void btnUpdatePnlSucursal_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnUpdatePnlPreferencias.ForeColor = Color.Black;
+            btnUpdatePnlPreferencias.BackColor = Color.White;
+            btnUpdatePnlCertificado.ForeColor = Color.Black;
+            btnUpdatePnlCertificado.BackColor = Color.White;
+            btnUpdatePnlSucursal.ForeColor = Color.White;
+            btnUpdatePnlSucursal.BackColor = Color.DarkCyan;
+        }
+
+        private void btnUpdatePnlSucursal_Click(object sender, EventArgs e)
+        {
+            pnlUpdateCertificado.Visible = false;
+            pnlUpdatePreferencias.Visible = false;
+            pnlUpdateSucursal.Visible = true;
+        }
+
+        private void btnUpdatePnlPreferencias_Click(object sender, EventArgs e)
+        {
+            pnlUpdateCertificado.Visible = false;
+            pnlUpdateSucursal.Visible = false;
+            pnlUpdatePreferencias.Visible = true;
+        }
+
+        private void btnUpdatePnlCertificado_Click(object sender, EventArgs e)
+        {
+            pnlUpdateSucursal.Visible = false;
+            pnlUpdatePreferencias.Visible = false;
+            pnlUpdateCertificado.Visible = true;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (this.txtUpdateNomSucursal.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateNomSucursal, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateNomSucursal, "Campo necesario");
+                this.txtUpdateNomSucursal.Focus();
+            }
+            else if (this.txtUpdatePais.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdatePais, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdatePais, "Campo necesario");
+                this.txtUpdatePais.Focus();
+            }
+            else if (this.txtUpdateEstado.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateEstado, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateEstado, "Campo necesario");
+                this.txtUpdateEstado.Focus();
+            }
+            else if (this.txtUpdateMunicipio.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateMunicipio, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateMunicipio, "Campo necesario");
+                this.txtUpdateMunicipio.Focus();
+            }
+            else if (this.txtUpdateCalle.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateCalle, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateCalle, "Campo necesario");
+                this.txtUpdateCalle.Focus();
+            }
+            else if (this.txtUpdateColonia.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateColonia, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateColonia, "Campo necesario");
+                this.txtUpdateColonia.Focus();
+            }
+            else if (this.txtUpdateLocalidad.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateLocalidad, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateLocalidad, "Campo necesario");
+                this.txtUpdateLocalidad.Focus();
+            }
+            else if (this.txtUpdateNoInterior.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateNoInterior, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateNoInterior, "Campo necesario");
+                this.txtUpdateNoInterior.Focus();
+            }
+            else if (this.txtUpdateNoExterior.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateNoExterior, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateNoExterior, "Campo necesario");
+                this.txtUpdateNoExterior.Focus();
+            }else if(this.txtUpdateNoSerie.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateNoSerie, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateNoSerie, "Campo necesario");
+                pnlUpdatePreferencias.Visible = true;
+                this.txtUpdateNoSerie.Focus();
+            }
+            //else if (this.pcbUpdateLogo == null)
+            //{
+            //    this.ErrorProvider.SetIconAlignment(this.pcbUpdateLogo, ErrorIconAlignment.MiddleRight);
+            //    this.ErrorProvider.SetError(this.pcbUpdateLogo, "Campo necesario");
+            //    btnUpdateExaminarLogo.Focus();
+            //}
+            else
+            {
+                Preferencia nPreferencia = new Preferencia();
+                nPreferencia.pkPreferencia = PKPREFERENCIA;
+                nPreferencia.sLogotipo = ImagenString;
+                nPreferencia.sNumSerie = txtUpdateNoSerie.Text;
+                nPreferencia.bForImpreso = ckbUpdateForImpreso.Checked;
+                nPreferencia.bEnvFactura = ckbUpdateEnvFactura.Checked;
+
+                Certificado nCertificado = new Certificado();
+                nCertificado.pkCertificado = PKCERTIFICADO;
+                nCertificado.sArchCer = txtUpdateCertificado.Text;
+                nCertificado.sArchkey = txtUpdateKey.Text;
+                nCertificado.sContrasena = txtUpdateContrasena.Text;
+                nCertificado.sRutaArch = txtUpdateFolderCertificados.Text;
+                nCertificado.sNoCertifi = txtUpdateNoCertificado.Text;
+                nCertificado.sValidoDe = txtUpdateValidoDe.Text;
+                nCertificado.sValidoHasta = txtUpdateValidoHasta.Text;
+
+                Sucursal nSucursal = new Sucursal();
+                nSucursal.pkSucursal = PKSUCURSAL;
+                //TODO: Con selectedValue se puede sacar la pk del combo: awebo :D
+                nSucursal.sNombre = txtUpdateNombre.Text;
+                nSucursal.sPais = txtUpdatePais.Text;
+                nSucursal.sEstado = txtUpdateEstado.Text;
+                nSucursal.sMunicipio = txtUpdateMunicipio.Text;
+                nSucursal.sCalle = txtUpdateCalle.Text;
+                nSucursal.sColonia = txtUpdateColonia.Text;
+                nSucursal.sLocalidad = txtUpdateLocalidad.Text;
+                nSucursal.iNumExterior = Convert.ToInt32(txtUpdateNoExterior.Text);
+                nSucursal.iNumInterior = Convert.ToInt32(txtUpdateNoInterior.Text);
+                Empresa nEmpresa = ManejoEmpresa.getById(Convert.ToInt32(cmbUpdateEmpresa.SelectedValue));
+
+                ManejoCertificado.Modificar(nCertificado);
+                ManejoPreferencia.Modificar(nPreferencia);
+                ManejoSucursal.Modificar(nSucursal, nEmpresa);
+
+                MessageBox.Show("¡Sucursal Actualizada!");
+                txtUpdateNomSucursal.Clear();
+                txtUpdatePais.Clear();
+                txtUpdateEstado.Clear();
+                txtUpdateMunicipio.Clear();
+                txtUpdateCalle.Clear();
+                txtUpdateColonia.Clear();
+                txtUpdateLocalidad.Clear();
+                txtUpdateNoInterior.Clear();
+                txtUpdateNoExterior.Clear();
+                txtUpdateNoSerie.Clear();
+                pcbUpdateLogoSucursal.Image = null;
+                ImagenString = "";
+                txtUpdateFolderCertificados.Clear();
+                txtUpdateCertificado.Clear();
+                txtUpdateKey.Clear();
+                txtUpdateContraseñaCertificado.Clear();
+                txtUpdateNoCertificado.Clear();
+                txtUpdateValidoDe.Clear();
+                txtUpdateValidoHasta.Clear();
+                ckbUpdateEnvFactura.Checked = false;
+                ckbUpdateForImpreso.Checked = false;
+                cargarSucursal();
+            }
+        }
+
+        private void txtUpdateFolderCertificados_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateCertificado_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateKey_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateContraseñaCertificado_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void textBox15_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void textBox16_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void textBox17_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
         }
     }
 }
+

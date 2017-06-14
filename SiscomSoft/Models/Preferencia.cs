@@ -12,17 +12,16 @@ namespace SiscomSoft.Models
     [Table("Preferencias")]
     public class Preferencia
     {
-        //TODO: Preguntar si las preferencias se guardaran en la bd
         [Key]
         public int pkPreferencia { get; set; }
 
         public string sLogotipo { get; set; }
 
-        public string sForImpreso { get; set; }
+        public Boolean bForImpreso { get; set; }
 
         public string sNumSerie { get; set; }
 
-        public string sEnvFactura { get; set; }
+        public Boolean bEnvFactura { get; set; }
 
         public Boolean bStatus { get; set; }
 
