@@ -52,7 +52,7 @@ namespace SiscomSoft.Models
 
         public string sReferencia { get; set; }
 
-        //TIPO DE PAGO(CATCFDI)
+        //TODO: CAMBIAR TIPO DE PAGO POR FORMA DE PAGO(CATCFDI)
         public string sTipoPago { get; set; }
 
         public string sNumCuenta { get; set; }

@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuFacturacion));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMenu = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
@@ -47,15 +57,10 @@
             this.btnCreateBill = new System.Windows.Forms.Button();
             this.pnlCreateFactura = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cmbRegimenFiscal = new System.Windows.Forms.ComboBox();
-            this.txtCodigoPostal = new System.Windows.Forms.TextBox();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbEmpresas = new System.Windows.Forms.ComboBox();
+            this.cmbSucursal = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtCondicionesDeVenta = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbTipoDeComprobante = new System.Windows.Forms.ComboBox();
             this.cmbFormaDePago = new System.Windows.Forms.ComboBox();
@@ -96,6 +101,8 @@
             this.btnTimFactura = new System.Windows.Forms.Button();
             this.btnGenPdf = new System.Windows.Forms.Button();
             this.tbnEnvCorreo = new System.Windows.Forms.Button();
+            this.txtCondicionesDePago = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlCreditNotes.SuspendLayout();
@@ -348,68 +355,28 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.cmbRegimenFiscal);
-            this.groupBox2.Controls.Add(this.txtCodigoPostal);
+            this.groupBox2.Controls.Add(this.btnBuscarCliente);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.cmbEmpresas);
+            this.groupBox2.Controls.Add(this.cmbSucursal);
             this.groupBox2.Location = new System.Drawing.Point(3, 7);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1164, 81);
             this.groupBox2.TabIndex = 88;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "EMPRESA";
+            this.groupBox2.Text = "SUCURSAL";
             // 
-            // label12
+            // btnBuscarCliente
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(518, 21);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(94, 13);
-            this.label12.TabIndex = 86;
-            this.label12.Text = "CODIGO POSTAL";
-            // 
-            // cmbRegimenFiscal
-            // 
-            this.cmbRegimenFiscal.FormattingEnabled = true;
-            this.cmbRegimenFiscal.Items.AddRange(new object[] {
-            "GENERAL DE LEY PERSONAS MORALES",
-            "PERSONAS MORALES CON FINES NO LUCRATIVOS",
-            "SUELDOS Y SALARIOS E INGRESOS ASIMILADOS A SALARIOS",
-            "ARRENDAMIENTO",
-            "DEMÁS INGRESOS",
-            "CONSOLIDACIÓN",
-            "RESIDENTES EN EL EXTRANJERO SIN ESTABLECIMIENTO PERMANENTE EN MÉXICO",
-            "INGRESOS POR DIVIDENDOS (SOCIOS Y ACCIONISTAS)",
-            "PERSONAS FÍSICAS CON ACTIVIDADES EMPRESARIALES Y PROFESIONALES",
-            "INGRESOS POR INTERESES",
-            "SIN OBLIGACIONES FISCALES",
-            "SOCIEDADES COOPERATIVAS DE PRODUCCIÓN QUE OPTAN POR DIFERIR SUS INGRESOS",
-            "INCORPORACIÓN FISCAL",
-            "ACTIVIDADES AGRÍCOLAS, GANADERAS, SILVÍCOLAS Y PESQUERAS",
-            "OPCIONAL PARA GRUPOS DE SOCIEDADES",
-            "COORDINADOS",
-            "HIDROCARBUROS",
-            "RÉGIMEN DE ENAJENACIÓN O ADQUISICIÓN DE BIENES",
-            "DE LOS REGÍMENES FISCALES PREFERENTES Y DE LAS EMPRESAS MULTINACIONALES",
-            "ENAJENACIÓN DE ACCIONES EN BOLSA DE VALORES",
-            "RÉGIMEN DE LOS INGRESOS POR OBTENCIÓN DE PREMIOS"});
-            this.cmbRegimenFiscal.Location = new System.Drawing.Point(235, 41);
-            this.cmbRegimenFiscal.Name = "cmbRegimenFiscal";
-            this.cmbRegimenFiscal.Size = new System.Drawing.Size(279, 26);
-            this.cmbRegimenFiscal.TabIndex = 85;
-            this.cmbRegimenFiscal.Text = "Seleccione una opción";
-            // 
-            // txtCodigoPostal
-            // 
-            this.txtCodigoPostal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoPostal.Location = new System.Drawing.Point(521, 41);
-            this.txtCodigoPostal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCodigoPostal.Name = "txtCodigoPostal";
-            this.txtCodigoPostal.Size = new System.Drawing.Size(103, 24);
-            this.txtCodigoPostal.TabIndex = 85;
+            this.btnBuscarCliente.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(1083, 13);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(75, 27);
+            this.btnBuscarCliente.TabIndex = 73;
+            this.btnBuscarCliente.Text = "Buscar";
+            this.btnBuscarCliente.UseVisualStyleBackColor = false;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.button1_Click);
             // 
             // label9
             // 
@@ -421,30 +388,20 @@
             this.label9.TabIndex = 87;
             this.label9.Text = "NOMBRE";
             // 
-            // label7
+            // cmbSucursal
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(235, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 13);
-            this.label7.TabIndex = 86;
-            this.label7.Text = "REGIMEN FISCAL";
-            // 
-            // cmbEmpresas
-            // 
-            this.cmbEmpresas.FormattingEnabled = true;
-            this.cmbEmpresas.Location = new System.Drawing.Point(7, 41);
-            this.cmbEmpresas.Name = "cmbEmpresas";
-            this.cmbEmpresas.Size = new System.Drawing.Size(222, 26);
-            this.cmbEmpresas.TabIndex = 27;
-            this.cmbEmpresas.Text = "Seleccione una opción";
-            this.cmbEmpresas.SelectionChangeCommitted += new System.EventHandler(this.cmbEmpresas_SelectionChangeCommitted);
+            this.cmbSucursal.FormattingEnabled = true;
+            this.cmbSucursal.Location = new System.Drawing.Point(7, 41);
+            this.cmbSucursal.Name = "cmbSucursal";
+            this.cmbSucursal.Size = new System.Drawing.Size(222, 26);
+            this.cmbSucursal.TabIndex = 27;
+            this.cmbSucursal.Text = "Seleccione una opción";
+            this.cmbSucursal.SelectionChangeCommitted += new System.EventHandler(this.cmbEmpresas_SelectionChangeCommitted);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtCondicionesDeVenta);
+            this.groupBox1.Controls.Add(this.txtCondicionesDePago);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cmbTipoDeComprobante);
             this.groupBox1.Controls.Add(this.cmbFormaDePago);
@@ -469,25 +426,6 @@
             this.groupBox1.TabIndex = 82;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CLIENTE";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(965, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(132, 13);
-            this.label6.TabIndex = 84;
-            this.label6.Text = "CONDICIONES DE PAGO";
-            // 
-            // txtCondicionesDeVenta
-            // 
-            this.txtCondicionesDeVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCondicionesDeVenta.Location = new System.Drawing.Point(968, 40);
-            this.txtCondicionesDeVenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCondicionesDeVenta.Name = "txtCondicionesDeVenta";
-            this.txtCondicionesDeVenta.Size = new System.Drawing.Size(178, 24);
-            this.txtCondicionesDeVenta.TabIndex = 83;
             // 
             // label3
             // 
@@ -763,7 +701,12 @@
             // dgvDatosProducto
             // 
             this.dgvDatosProducto.AllowUserToDeleteRows = false;
+            this.dgvDatosProducto.AllowUserToResizeColumns = false;
+            this.dgvDatosProducto.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvDatosProducto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDatosProducto.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDatosProducto.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvDatosProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDatosProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pkProductos,
@@ -778,13 +721,21 @@
             this.sClaveProd});
             this.dgvDatosProducto.Location = new System.Drawing.Point(8, 45);
             this.dgvDatosProducto.Name = "dgvDatosProducto";
+            this.dgvDatosProducto.ReadOnly = true;
             this.dgvDatosProducto.RowHeadersVisible = false;
+            this.dgvDatosProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatosProducto.ShowCellErrors = false;
+            this.dgvDatosProducto.ShowCellToolTips = false;
+            this.dgvDatosProducto.ShowEditingIcon = false;
+            this.dgvDatosProducto.ShowRowErrors = false;
             this.dgvDatosProducto.Size = new System.Drawing.Size(1150, 161);
             this.dgvDatosProducto.TabIndex = 72;
             // 
             // pkProductos
             // 
             this.pkProductos.DataPropertyName = "pkProducto";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.pkProductos.DefaultCellStyle = dataGridViewCellStyle2;
             this.pkProductos.HeaderText = "No.";
             this.pkProductos.Name = "pkProductos";
             this.pkProductos.ReadOnly = true;
@@ -792,6 +743,8 @@
             // sDescripcion
             // 
             this.sDescripcion.DataPropertyName = "sDescripcion";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle3;
             this.sDescripcion.HeaderText = "Descripcion";
             this.sDescripcion.Name = "sDescripcion";
             this.sDescripcion.ReadOnly = true;
@@ -800,6 +753,8 @@
             // sMarca
             // 
             this.sMarca.DataPropertyName = "sMarca";
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sMarca.DefaultCellStyle = dataGridViewCellStyle4;
             this.sMarca.HeaderText = "Marca";
             this.sMarca.Name = "sMarca";
             this.sMarca.ReadOnly = true;
@@ -808,6 +763,8 @@
             // sUnidadMed
             // 
             this.sUnidadMed.DataPropertyName = "sUnidadMed";
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sUnidadMed.DefaultCellStyle = dataGridViewCellStyle5;
             this.sUnidadMed.HeaderText = "UDM";
             this.sUnidadMed.Name = "sUnidadMed";
             this.sUnidadMed.ReadOnly = true;
@@ -816,6 +773,8 @@
             // fkImpuesto
             // 
             this.fkImpuesto.DataPropertyName = "fkImpuesto_pkImpuesto";
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.fkImpuesto.DefaultCellStyle = dataGridViewCellStyle6;
             this.fkImpuesto.HeaderText = "Impuesto";
             this.fkImpuesto.Name = "fkImpuesto";
             this.fkImpuesto.ReadOnly = true;
@@ -823,24 +782,42 @@
             // dCosto
             // 
             this.dCosto.DataPropertyName = "dCosto";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dCosto.DefaultCellStyle = dataGridViewCellStyle7;
             this.dCosto.HeaderText = "Costo";
             this.dCosto.Name = "dCosto";
             this.dCosto.ReadOnly = true;
             // 
             // sCantidad
             // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sCantidad.DefaultCellStyle = dataGridViewCellStyle8;
             this.sCantidad.HeaderText = "Cantidad";
             this.sCantidad.Name = "sCantidad";
+            this.sCantidad.ReadOnly = true;
             // 
             // sDescuento
             // 
             this.sDescuento.DataPropertyName = "sDescuento";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sDescuento.DefaultCellStyle = dataGridViewCellStyle9;
             this.sDescuento.HeaderText = "Descuento";
             this.sDescuento.Name = "sDescuento";
             this.sDescuento.ReadOnly = true;
             // 
             // sTotal
             // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N2";
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sTotal.DefaultCellStyle = dataGridViewCellStyle10;
             this.sTotal.HeaderText = "Total";
             this.sTotal.Name = "sTotal";
             this.sTotal.ReadOnly = true;
@@ -963,12 +940,31 @@
             this.tbnEnvCorreo.UseVisualStyleBackColor = true;
             this.tbnEnvCorreo.Click += new System.EventHandler(this.tbnEnvCorreo_Click);
             // 
+            // txtCondicionesDePago
+            // 
+            this.txtCondicionesDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCondicionesDePago.Location = new System.Drawing.Point(968, 40);
+            this.txtCondicionesDePago.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCondicionesDePago.Name = "txtCondicionesDePago";
+            this.txtCondicionesDePago.Size = new System.Drawing.Size(178, 24);
+            this.txtCondicionesDePago.TabIndex = 83;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(965, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 13);
+            this.label6.TabIndex = 84;
+            this.label6.Text = "CONDICIONES DE PAGO";
+            // 
             // FrmMenuFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1358, 737);
+            this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.pnlCreateFactura);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.lblFecha);
@@ -1021,10 +1017,6 @@
         private System.Windows.Forms.Button btnCreateBill;
         private System.Windows.Forms.Panel pnlCreateFactura;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cmbRegimenFiscal;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtCondicionesDeVenta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbTipoDeComprobante;
         private System.Windows.Forms.ComboBox cmbFormaDePago;
@@ -1055,11 +1047,9 @@
         private System.Windows.Forms.Button btnTimFactura;
         private System.Windows.Forms.Button btnGenPdf;
         private System.Windows.Forms.Button tbnEnvCorreo;
-        private System.Windows.Forms.ComboBox cmbEmpresas;
+        private System.Windows.Forms.ComboBox cmbSucursal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtCodigoPostal;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
@@ -1070,5 +1060,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sDescuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn sTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn sClaveProd;
+        private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCondicionesDePago;
     }
 }

@@ -3413,7 +3413,7 @@ namespace SiscomSoft_Desktop.Views
                 nEmpresa.sRazonSocial = txtAddRazonSocialEmpresa.Text;
                 nEmpresa.sTelefono = txtAddTelefonoEmpresa.Text;
                 nEmpresa.sCorreo = txtAddCorreoElectronicoEmpresa.Text;
-                //nEmpresa.sRegFiscal =
+                nEmpresa.sRegFiscal = cmbAddRegimenFiscalEmpresa.SelectedIndex.ToString() + 1.ToString();
                 nEmpresa.sPais = txtAddPaisEmpresa.Text;
                 nEmpresa.sEstado = txtAddEstadoEmpresa.Text;
                 nEmpresa.sMunicipio = txtAddMunicipioEmpresa.Text;
@@ -3422,7 +3422,7 @@ namespace SiscomSoft_Desktop.Views
                 nEmpresa.sCalle = txtAddCalleEmpresa.Text;
                 nEmpresa.iNumInterir = Convert.ToInt32(txtAddNumInteriorEmpresa.Text);
                 nEmpresa.iNumExterior = Convert.ToInt32(txtAddNumExteriorEmpresa.Text);
-                //nEmpresa.iCodPostal = 
+                nEmpresa.iCodPostal = cmbCodigoPostal.SelectedIndex + 1;
                 ManejoEmpresa.registrarnuevaempresa(nEmpresa);
                 cargarEmpresas();
                 MessageBox.Show("¡Empresa Registrada!");
@@ -3901,43 +3901,6 @@ namespace SiscomSoft_Desktop.Views
                 this.pnlAddCertificado.Visible = false;
                 this.pnlAddPreferencias.Visible = true;
             }
-            //if (this.txtadd.Text == "")
-            //{
-            //    this.ErrorProvider.SetIconAlignment(this.lololo, ErrorIconAlignment.MiddleRight);
-            //    this.ErrorProvider.SetError(this.lololo, "Campo necesario");
-            //    this.lololo.Focus();
-            //}
-            //else if (this.lolololo.Text == "")
-            //{
-            //    this.ErrorProvider.SetIconAlignment(this.lolololo, ErrorIconAlignment.MiddleRight);
-            //    this.ErrorProvider.SetError(this.lolololo, "Campo necesario");
-            //    this.lolololo.Focus();
-            //}
-
-            //else if (this.loll.Text == "")
-            //{
-            //    this.ErrorProvider.SetIconAlignment(this.loll, ErrorIconAlignment.MiddleRight);
-            //    this.ErrorProvider.SetError(this.loll, "Campo necesario");
-            //    this.loll.Focus();
-            //}
-            //else if (this.lolol.Text == "")
-            //{
-            //    this.ErrorProvider.SetIconAlignment(this.lolol, ErrorIconAlignment.MiddleRight);
-            //    this.ErrorProvider.SetError(this.lolol, "Campo necesario");
-            //    this.lolol.Focus();
-            //}
-            //else if (this.lololl.Text == "")
-            //{
-            //    this.ErrorProvider.SetIconAlignment(this.lololl, ErrorIconAlignment.MiddleRight);
-            //    this.ErrorProvider.SetError(this.lololl, "Campo necesario");
-            //    this.lololl.Focus();
-            //}
-            //else if (this.hjh.Text == "")
-            //{
-            //    this.ErrorProvider.SetIconAlignment(this.hjh, ErrorIconAlignment.MiddleRight);
-            //    this.ErrorProvider.SetError(this.hjh, "Campo necesario");
-            //    this.hjh.Focus();
-            //}
             else
             {
                 //Preferencias
@@ -3971,6 +3934,7 @@ namespace SiscomSoft_Desktop.Views
                 nSucursal.iNumExterior = Convert.ToInt32(txtAddnumExteriorSucursal.Text);
                 nSucursal.iNumInterior = Convert.ToInt32(txtAddNumInteriorSucursal.Text);
                 nSucursal.sNoCertifi = txtAddNoCertficado.Text;
+                nSucursal.iCodPostal = cmbCodigoPostalSucursales.SelectedIndex + 1;
 
                 ManejoPreferencia.RegistrarNuevaPreferencia(nPreferencia);
                 ManejoCertificado.RegistrarNuevoCertificado(nCertificado);

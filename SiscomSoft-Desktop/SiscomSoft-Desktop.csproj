@@ -122,6 +122,18 @@
     <Compile Include="Views\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmLookingForCustoms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmLookingForCustoms.Designer.cs">
+      <DependentUpon>FrmLookingForCustoms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmLookingForProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmLookingForProducts.Designer.cs">
+      <DependentUpon>FrmLookingForProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmLookingForCustoms.resx">
+      <DependentUpon>FrmLookingForCustoms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmLookingForProducts.resx">
+      <DependentUpon>FrmLookingForProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
