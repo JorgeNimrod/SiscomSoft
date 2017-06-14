@@ -96,9 +96,9 @@ namespace SiscomSoft_Desktop.Views
             cbxPrecioAddProd.DisplayMember = "iPrePorcen";
             cbxPrecioAddProd.ValueMember = "pkPrecios";
 
-            cbxCatalogoAddProd.DataSource = ManejoCatalogo.getAll(true);
-            cbxCatalogoAddProd.DisplayMember = "sUDM";
-            cbxCatalogoAddProd.ValueMember = "pkCatalogo";
+            cbxUMDAddProd.DataSource = ManejoCatalogo.getAll(true);
+            cbxUMDAddProd.DisplayMember = "sUDM";
+            cbxUMDAddProd.ValueMember = "pkCatalogo";
 
             cbxCategoriaAddProd.DataSource = ManejoCategoria.getAll(true);
             cbxCategoriaAddProd.DisplayMember = "sNombre";
@@ -192,6 +192,11 @@ namespace SiscomSoft_Desktop.Views
             btnRollist.BackColor = Color.DarkCyan;
             btnRollist.ForeColor = Color.White;
         }
+        public void AlternarColor(DataGridView dgv)
+        {
+          
+         
+        }
 
         private void btnProductolist_MouseClick(object sender, MouseEventArgs e)
         {
@@ -277,6 +282,7 @@ namespace SiscomSoft_Desktop.Views
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
+            AlternarColor(dgvDatosProducto);
             cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
@@ -1291,11 +1297,6 @@ namespace SiscomSoft_Desktop.Views
                 txtComentUsua.Clear();
                 cargarUsuarios();
 
-
-
-
-
-
             }
         }
 
@@ -1359,17 +1360,6 @@ namespace SiscomSoft_Desktop.Views
                 ManejoUsuario.Modificar(nUsuario);
                  MessageBox.Show("¡Usuario Actualizado!");
                 cargarUsuarios();
-
-
-
-
-
-
-
-
-
-            
-
 
 
             }
@@ -1469,7 +1459,7 @@ namespace SiscomSoft_Desktop.Views
             int fkPrecio = Convert.ToInt32(cbxPrecioAddProd.SelectedValue.ToString());
             
             int fkCategoria = Convert.ToInt32(cbxCategoriaAddProd.SelectedValue.ToString());
-            int fkCatalogo = Convert.ToInt32(cbxCatalogoAddProd.SelectedValue.ToString());
+            int fkCatalogo = Convert.ToInt32(cbxUMDAddProd.SelectedValue.ToString());
        
 
             ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
@@ -1488,12 +1478,6 @@ namespace SiscomSoft_Desktop.Views
             txtLoteAddProd.Clear();
             txtClaveaddprod.Focus();
             cargarProductos();
-
-
-
-
-
-           
 
         }
 
@@ -2214,6 +2198,68 @@ namespace SiscomSoft_Desktop.Views
             {
                 tbcGeneral.SelectedTab = tbpAddCliente;
             }
+        }
+        private bool Validador(String direccion)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(direccion, expresion))
+            {
+                if (Regex.Replace(direccion, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public int ValidarRFC(string cadena)
+        {
+            int i = 0;
+            bool confirmacion = true;
+            if (cadena.Length > 11 && cadena.Length < 14)
+            {
+                if (cadena.Length == 12)
+                {
+                    cadena = "-" + cadena;
+                    i = 1;
+                }
+                for (int j = i; j <= 3; j++)
+                {
+                    if (!char.IsLetter(cadena[j]))
+                        confirmacion = false;
+                }
+                for (int j = 4; j <= 9; j++)
+                {
+                    if (!char.IsDigit(cadena[j]))
+                        confirmacion = false;
+                }
+                for (int j = 9; j < 13; j++)
+                {
+                    if (!char.IsLetterOrDigit(cadena[j]))
+                        confirmacion = false;
+                }
+                if (!confirmacion)
+                {
+                    MessageBox.Show("El formato del RFC no es valido.", "RFC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return 1;
+                }
+            }
+            else
+            {
+                MessageBox.Show("La longitud del RFC no es valido.", "RFC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 1;
+            }
+            if (confirmacion)
+                return 0;
+            else
+                return 1;
         }
 
         private void btnExaminar_Click(object sender, EventArgs e)
@@ -3743,6 +3789,18 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.SelectedTab = tbpUpdateUsuario;
 
             }
+        }
+
+        private void txtRFCAddCli_Leave(object sender, EventArgs e)
+        {
+          
+
+        }
+
+        private void txtNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
         }
     }
 }

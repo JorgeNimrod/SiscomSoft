@@ -28,5 +28,19 @@ namespace SiscomSoft_Desktop.Views
             FrmMenu v = new FrmMenu();
             v.Show();
         }
+
+        private void btnBuno_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmVenta v = new FrmVenta();
+            v.Show();
+        }
+
+        private void btnb11_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmCaja v = new FrmCaja();
+            v.Show();
+        }
     }
 }
