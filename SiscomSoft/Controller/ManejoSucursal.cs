@@ -33,13 +33,15 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
         public static Sucursal getById(int pkSucursal)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Sucursales.Include("fkPreferencia")
+                    return ctx.Sucursales
+                        .Include("fkPreferencia")
                         .Include("fkEmpresa")
                         .Include("fkCertificado")
                         .Where(r => r.iStatus == 1 && r.pkSucursal == pkSucursal).FirstOrDefault();
@@ -51,6 +53,7 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
         public static void Eliminar(int pkSucursal)
         {
             try
@@ -70,6 +73,7 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
         public static List<Sucursal> Buscar(string valor, int Status)
         {
             try
@@ -85,6 +89,7 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
         public static void Modificar(Sucursal nSucursal, Empresa nEmpresa)
         {
             try
