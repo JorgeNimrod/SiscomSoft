@@ -394,31 +394,64 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnVales_Click(object sender, EventArgs e)
         {
-            pago = pago - total;
+            totalventa = pago - total;
+            lblCambio.Text = String.Format("{0:00.00}", "Cambio: $" + (totalventa));
 
-            lblCambio.Text = String.Format("{0:00.00}", (pago));
-            lblCambio.Visible = true;
-            lble.Visible = false;
-            lblTotal.Visible = false;
-            label4.Visible = false;
-            label7.Visible = false;
-            label5.Visible = false;
-            label6.Visible = false;
+            if (Convert.ToDecimal(total) > Convert.ToDecimal(pago))
+            {
+                MessageBox.Show("¡Saldo Insuficiente!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
-            InventarioEntrada nEntrada = new InventarioEntrada();
+            else
+            {
 
-            nEntrada.dtFecha = DateTime.Now;
-            nEntrada.dtCaducidad = DateTime.Now;
-            nEntrada.iCantidad = 4;
-            nEntrada.iDescuento = 4;
-            nEntrada.iLote = 4;
-            nEntrada.dPrecio = Convert.ToDecimal(total);
-            nEntrada.sTipoPago = "Vales";
-            int fkCliente = Convert.ToInt32(1);
 
-            ManejoEntrada.RegistrarNuevaEntrada(nEntrada, fkCliente);
+                InventarioEntrada nEntrada = new InventarioEntrada();
+                Producto nProducto = new Producto();
 
-            MessageBox.Show("¡Venta Realizada!");
+                foreach (DataGridViewRow row in dgvProductos.Rows)
+                {
+                    cantidad += Convert.ToInt32(row.Cells["pkProducto"].Value);
+                }
+                foreach (DataGridViewRow row in dgvProductos.Rows)
+                {
+                    NameProducto += Convert.ToString(row.Cells["sDescripcion"].Value);
+                }
+
+                nEntrada.sNomProducto = NameProducto;
+                nEntrada.dtFecha = DateTime.Now;
+                nEntrada.dtCaducidad = DateTime.Now;
+                nEntrada.iCantidad = cantidad;
+                nEntrada.iDescuento = 4;
+                nEntrada.iLote = 4;
+                nEntrada.dPrecio = Convert.ToDecimal(total);
+                nEntrada.sTipoPago = "Vales";
+                int fkCliente = Convert.ToInt32(1);
+
+                ManejoEntrada.RegistrarNuevaEntrada(nEntrada, fkCliente);
+                lblCambio.Visible = true;
+                lblCambio.ForeColor = Color.White;
+                lblCambio.BackColor = Color.DarkCyan;
+                lble.Visible = false;
+                lblTotal.Visible = false;
+                label4.Visible = false;
+                label7.Visible = false;
+                label5.Visible = false;
+                label6.Visible = false;
+
+                MessageBox.Show("¡Venta Realizada!");
+
+                if (flagPago == false)
+                {
+                    tbcGeneral.TabPages.Add(tbpVenta);
+                    tbcGeneral.SelectedTab = tbpVenta;
+                    flagPago = true;
+                }
+                else
+                {
+                    tbcGeneral.SelectedTab = tbpVenta;
+                }
+            }
 
         }
 
@@ -443,6 +476,13 @@ namespace SiscomSoft_Desktop.Views
             pago = 0;
             label5.Text = String.Format("{0:00.00}", "$" + (00.00));
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmMenuVentas v = new FrmMenuVentas();
+            v.Show();
         }
     }
 }
