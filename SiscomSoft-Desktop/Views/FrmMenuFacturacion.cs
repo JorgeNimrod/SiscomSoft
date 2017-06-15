@@ -15,11 +15,14 @@ using System.Xml.Xsl;
 using System.Xml.Serialization;
 using SiscomSoft.Models;
 using SiscomSoft.Controller;
+using System.Security.Cryptography;
 
 namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmMenuFacturacion : Form
     {
+        string strSello = string.Empty;
+
         public FrmMenuFacturacion()
         {
             InitializeComponent();
@@ -38,13 +41,22 @@ namespace SiscomSoft_Desktop.Views
             try
             {
                 string path = @"C:\SiscomSoft";
-                if (Directory.Exists(path))
-                {
-                    MessageBox.Show("La carpeta SiscomSoft ya existe");
-                    return;
-                }
+                string subpath = @"C:\SiscomSoft\Facturas";
+                //if (Directory.Exists(path))
+                //{
+                //    MessageBox.Show("La carpeta SiscomSoft ya existe");
+                //    return;
+                //}
 
                 Directory.CreateDirectory(path);
+
+                //if (Directory.Exists(subpath))
+                //{
+                //    MessageBox.Show("La carpeta Facturas ya existe");
+                //    return;
+                //}
+
+                Directory.CreateDirectory(subpath);
 
             }
             catch (Exception e)
@@ -119,7 +131,7 @@ namespace SiscomSoft_Desktop.Views
             //TODO: Para esto se requiere validar siertas cosas que estan en el anexo 20: averiguar como sacar y poner el uuid.
             cfdi.CfdiRelacionados = new ComprobanteCfdiRelacionados();
             cfdi.CfdiRelacionados.TipoRelacion = c_TipoRelacion.Item01;
-            cfdi.CfdiRelacionados.CfdiRelacionado[0].UUID = ""; 
+            //cfdi.CfdiRelacionados.CfdiRelacionado[0].UUID = "5FB2822E-396D-4725-8521-CDC4BDD20CCF"; 
             #endregion
 
             #region Datos Generales
@@ -129,7 +141,8 @@ namespace SiscomSoft_Desktop.Views
             cfdi.Folio = "458795";
             cfdi.Fecha = DateTime.Now;
 
-            #region FormaPago
+            //No se muestra
+            #region FormaPago 
             if (this.cmbFormaDePago.SelectedIndex == 0)
             {
                 cfdi.FormaPago = c_FormaPago.Item01;
@@ -210,7 +223,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 cfdi.FormaPago = c_FormaPago.Item99;
             }
-            #endregion
+            #endregion 
 
             #region ComdicionesDePago
             cfdi.CondicionesDePago = txtCondicionesDePago.Text;
@@ -218,12 +231,14 @@ namespace SiscomSoft_Desktop.Views
 
             cfdi.SubTotal = Convert.ToDecimal(txtSubtotal.Text);
 
+            //No se muestra
             cfdi.Descuento = Convert.ToDecimal("0.00");
 
             #region Moneda Y TIPO DE CAMBIO
             if (cmbMoneda.SelectedIndex == 0)
             {
                 cfdi.Moneda = c_Moneda.MXN;
+                //No se muestra
                 cfdi.TipoCambio = Convert.ToDecimal("1.00");
             }
             else if (cmbMoneda.SelectedIndex == 1)
@@ -259,6 +274,7 @@ namespace SiscomSoft_Desktop.Views
             }
             #endregion
 
+            //No se muestra
             #region MetodoPago
             //TODO: Poner el metodo de pago que el cliente tiene guardado.
             if (cmbMetodoDePago.SelectedIndex == 0)
@@ -284,7 +300,7 @@ namespace SiscomSoft_Desktop.Views
             #endregion
 
             #region Certificado
-            //TODO: Poner el numero de certificado de las sucursales
+            //No se muestra
             cfdi.NoCertificado = nSucursal.sNoCertifi;
             //TODO: poner el certificado
             cfdi.Certificado = "";
@@ -292,7 +308,7 @@ namespace SiscomSoft_Desktop.Views
             #endregion
 
             #region Sello
-            cfdi.Sello = "";
+            cfdi.Sello = strSello;
             #endregion
 
             #endregion
@@ -500,9 +516,7 @@ namespace SiscomSoft_Desktop.Views
                 cfdi.Conceptos[i] = new ComprobanteConcepto();
                 //TODO: poner en la vista para agregar pructos un combo para la clave del producto o servicio
                 cfdi.Conceptos[i].ClaveProdServ = c_ClaveProdServ.Item01010101;
-                //Opcional cfdi.Conceptos[0].NoIdentificacion = "1965193";
-
-                cfdi.Conceptos[i].Cantidad = Convert.ToInt32(this.dgvDatosProducto.CurrentRow.Cells[7].Value);
+                cfdi.Conceptos[i].Cantidad = Convert.ToInt32(this.dgvDatosProducto.CurrentRow.Cells[6].Value);
                 cfdi.Conceptos[i].ClaveUnidad = c_ClaveUnidad.KGM;
                 cfdi.Conceptos[i].Unidad = "KILO";
                 cfdi.Conceptos[i].Descripcion = this.dgvDatosProducto.CurrentRow.Cells[1].Value.ToString(); ;
@@ -512,6 +526,7 @@ namespace SiscomSoft_Desktop.Views
             #endregion
 
 
+            //Nose qp aun
             #region Impuestos
             //cfdi.Impuestos = new ComprobanteImpuestos();
             //cfdi.Impuestos.TotalImpuestosTrasladados = Convert.ToDecimal(3);
@@ -526,9 +541,11 @@ namespace SiscomSoft_Desktop.Views
 
             #endregion
 
+            //Nose qp aun
             #region Complemento
             // cfdi.Complemento = new ComprobanteComplemento();
             #endregion
+
 
             #region Creas los namespaces requeridos
             XmlSerializerNamespaces xmlNameSpace = new XmlSerializerNamespaces();
@@ -545,7 +562,7 @@ namespace SiscomSoft_Desktop.Views
             #endregion
 
             #region Creas una instancia de XmlTextWriter donde se va a guardar el resultado de la serialización
-            XmlTextWriter xmlTextWriter = new XmlTextWriter(@"C:\xml\comprobanteSinTimbrar.xml", Encoding.UTF8);
+            XmlTextWriter xmlTextWriter = new XmlTextWriter(@"C:\SiscomSoft\Facturas\comprobanteSinTimbrar.xml", Encoding.UTF8);
             xmlTextWriter.Formatting = Formatting.Indented;
 
 
@@ -558,15 +575,16 @@ namespace SiscomSoft_Desktop.Views
             //TODO: Preguntar cuales son los datos fiscales del cliente
         }
 
-        public void CrearCadenaOriginal()
+        public void CrearCadenaOriginalSello()
         {
-            //Cargar el XML
-            StreamReader reader = new StreamReader(@"C:/xml/comprobanteSinTimbrar.xml");
+            Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue));
+            /* Creacion de la cadena original*/
+            StreamReader reader = new StreamReader(@"C:\SiscomSoft\Facturas\comprobanteSinTimbrar.xml");
             XPathDocument myXPathDoc = new XPathDocument(reader);
 
             //Cargando el XSLT
             XslCompiledTransform myXslTrans = new XslCompiledTransform();
-            myXslTrans.Load(@"C:/xml/cadenaoriginal_3_3.xslt");
+            myXslTrans.Load(@"C:\SiscomSoft\cadenaoriginal_3_3.xslt");
 
             StringWriter str = new StringWriter();
             XmlTextWriter myWriter = new XmlTextWriter(str);
@@ -575,12 +593,25 @@ namespace SiscomSoft_Desktop.Views
             myXslTrans.Transform(myXPathDoc, null, myWriter);
 
             //Resultado
-            string result = str.ToString();
+            string cadenaOriginal = str.ToString();
 
-            MessageBox.Show(result);
-            //Fin del programa.
+            /* Creacion del sello */
+            string strPathLlave = nSucursal.fkCertificado.sRutaArch + @"\" + nSucursal.fkCertificado.sArchkey;
+            string strLlavePwd = nSucursal.fkCertificado.sContrasena;
+            string strCadenaOriginal = cadenaOriginal; // Aquí ya haber generado la cadena original //simon
+
+            System.Security.SecureString passwordSeguro = new System.Security.SecureString();
+            passwordSeguro.Clear();
+            foreach (char c in strLlavePwd.ToCharArray())
+                passwordSeguro.AppendChar(c);
+            byte[] llavePrivadaBytes = System.IO.File.ReadAllBytes(strPathLlave);
+            RSACryptoServiceProvider rsa = opensslkey.DecodeEncryptedPrivateKeyInfo(llavePrivadaBytes, passwordSeguro);
+            SHA1CryptoServiceProvider hasher = new SHA1CryptoServiceProvider();
+            byte[] bytesFirmados = rsa.SignData(System.Text.Encoding.UTF8.GetBytes(strCadenaOriginal), hasher);
+            strSello = Convert.ToBase64String(bytesFirmados);  // Y aquí está el sello
         }
 
+        #region Botones estorbosos
         private void btnBussines_Click(object sender, EventArgs e)
         {
             pnlCreditNotes.Visible = false;
@@ -627,12 +658,6 @@ namespace SiscomSoft_Desktop.Views
             pnlCreateFactura.Visible = false;
         }
 
-        private void FrmMenuFacturacion_Load(object sender, EventArgs e)
-        {
-            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
-            cargarSucursales();
-        }
-
         private void btnBuscarProductos_Click(object sender, EventArgs e)
         {
             FrmLookingForProducts v = new FrmLookingForProducts(this);
@@ -644,15 +669,26 @@ namespace SiscomSoft_Desktop.Views
             crearCarpetaRaiz();
         }
 
-        private void cmbEmpresas_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             FrmLookingForCustoms v = new FrmLookingForCustoms(this);
             v.ShowDialog();
+        }
+
+        private void btnTimFactura_Click(object sender, EventArgs e)
+        {
+            crearCarpetaRaiz();
+            GenerarFacturaIngreso();
+            CrearCadenaOriginalSello();
+            GenerarFacturaIngreso();
+            MessageBox.Show("Exito");
+        }
+#endregion
+
+        private void FrmMenuFacturacion_Load(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+            cargarSucursales();
         }
     }
 }

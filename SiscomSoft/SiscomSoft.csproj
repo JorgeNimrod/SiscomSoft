@@ -66,6 +66,7 @@
     <Compile Include="Controller\ManejoCliente.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
     <Compile Include="Controller\ManejoEntrada.cs" />
+    <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Migrations\201706091826365_INICIAL.cs" />
     <Compile Include="Migrations\201706091826365_INICIAL.Designer.cs">
       <DependentUpon>201706091826365_INICIAL.cs</DependentUpon>
