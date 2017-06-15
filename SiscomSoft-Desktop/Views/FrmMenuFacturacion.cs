@@ -683,7 +683,7 @@ namespace SiscomSoft_Desktop.Views
             GenerarFacturaIngreso();
             MessageBox.Show("Exito");
         }
-#endregion
+        #endregion
 
         private void FrmMenuFacturacion_Load(object sender, EventArgs e)
         {
