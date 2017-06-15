@@ -130,5 +130,22 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+        public static List<Cliente> BuscarPorRFC(String valor)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Clientes
+                        .Where(r => r.sRfc.Contains(valor)
+                        && r.iStatus == 1)
+                        .ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
