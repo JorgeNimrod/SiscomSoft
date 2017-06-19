@@ -110,12 +110,6 @@
     <Compile Include="Views\FrmAdministrador.Designer.cs">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmCaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmCaja.Designer.cs">
-      <DependentUpon>FrmCaja.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmConfiguracionBD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,9 +183,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmAdministrador.resx">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmCaja.resx">
-      <DependentUpon>FrmCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmConfiguracionBD.resx">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
