@@ -17,6 +17,13 @@ namespace SiscomSoft_Desktop.Views
             InitializeComponent();
         }
 
+        public void venta()
+        {
+            this.Close();
+            FrmCaja v = new FrmCaja();
+            v.Show();
+        }
+
         private void FrmVentas_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
@@ -31,16 +38,32 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnBuno_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmVenta v = new FrmVenta();
-            v.Show();
+            venta();
         }
 
         private void btnb11_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmCaja v = new FrmCaja();
-            v.Show();
+            venta();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            venta();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            venta();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            venta();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            venta();
         }
     }
 }

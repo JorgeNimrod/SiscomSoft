@@ -92,7 +92,7 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpVenta);
 
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
-
+            /*
             int left = 550;
             int top = 60;
             List<Producto> productos = ManejoProducto.getAll(true);
@@ -134,7 +134,7 @@ namespace SiscomSoft_Desktop.Views
 
             }
 
-
+    */
 
         }
 
