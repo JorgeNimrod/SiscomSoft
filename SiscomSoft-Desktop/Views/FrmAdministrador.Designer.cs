@@ -3587,6 +3587,7 @@
             this.comboBox1.Size = new System.Drawing.Size(159, 24);
             this.comboBox1.TabIndex = 89;
             this.comboBox1.Text = "Seleccione una opción";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // cmbAddRegimenFiscalEmpresa
             // 
@@ -3619,6 +3620,7 @@
             this.cmbAddRegimenFiscalEmpresa.Size = new System.Drawing.Size(300, 24);
             this.cmbAddRegimenFiscalEmpresa.TabIndex = 87;
             this.cmbAddRegimenFiscalEmpresa.Text = "Seleccione una opción";
+            this.cmbAddRegimenFiscalEmpresa.SelectedIndexChanged += new System.EventHandler(this.cmbAddRegimenFiscalEmpresa_SelectedIndexChanged);
             // 
             // label134
             // 
@@ -3638,6 +3640,7 @@
             this.txtAddRazonSocialEmpresa.Size = new System.Drawing.Size(300, 24);
             this.txtAddRazonSocialEmpresa.TabIndex = 76;
             this.txtAddRazonSocialEmpresa.Text = "EMPRESA SA DE CV";
+            this.txtAddRazonSocialEmpresa.TextChanged += new System.EventHandler(this.txtAddRazonSocialEmpresa_TextChanged);
             // 
             // txtAddEstadoEmpresa
             // 
@@ -3647,6 +3650,8 @@
             this.txtAddEstadoEmpresa.Size = new System.Drawing.Size(113, 24);
             this.txtAddEstadoEmpresa.TabIndex = 55;
             this.txtAddEstadoEmpresa.Text = "SONORA";
+            this.txtAddEstadoEmpresa.TextChanged += new System.EventHandler(this.txtAddEstadoEmpresa_TextChanged);
+            this.txtAddEstadoEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddEstadoEmpresa_KeyPress);
             // 
             // label117
             // 
@@ -3666,6 +3671,7 @@
             this.txtAddNombreContactoEmpresa.Size = new System.Drawing.Size(300, 24);
             this.txtAddNombreContactoEmpresa.TabIndex = 43;
             this.txtAddNombreContactoEmpresa.Text = "EMPRESA CONTACTO";
+            this.txtAddNombreContactoEmpresa.TextChanged += new System.EventHandler(this.txtAddNombreContactoEmpresa_TextChanged);
             // 
             // label119
             // 
@@ -3716,6 +3722,8 @@
             this.txtAddNumExteriorEmpresa.Size = new System.Drawing.Size(156, 24);
             this.txtAddNumExteriorEmpresa.TabIndex = 60;
             this.txtAddNumExteriorEmpresa.Text = "0";
+            this.txtAddNumExteriorEmpresa.TextChanged += new System.EventHandler(this.txtAddNumExteriorEmpresa_TextChanged);
+            this.txtAddNumExteriorEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddNumExteriorEmpresa_KeyPress);
             // 
             // txtAddNumInteriorEmpresa
             // 
@@ -3725,6 +3733,8 @@
             this.txtAddNumInteriorEmpresa.Size = new System.Drawing.Size(113, 24);
             this.txtAddNumInteriorEmpresa.TabIndex = 59;
             this.txtAddNumInteriorEmpresa.Text = "171";
+            this.txtAddNumInteriorEmpresa.TextChanged += new System.EventHandler(this.txtAddNumInteriorEmpresa_TextChanged);
+            this.txtAddNumInteriorEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddNumInteriorEmpresa_KeyPress);
             // 
             // label124
             // 
@@ -3754,6 +3764,7 @@
             this.txtAddCalleEmpresa.Size = new System.Drawing.Size(241, 24);
             this.txtAddCalleEmpresa.TabIndex = 57;
             this.txtAddCalleEmpresa.Text = "AVELARDO ZAMAROCOS";
+            this.txtAddCalleEmpresa.TextChanged += new System.EventHandler(this.txtAddCalleEmpresa_TextChanged);
             // 
             // label126
             // 
@@ -3773,6 +3784,7 @@
             this.txtAddLocalidadEmpresa.Size = new System.Drawing.Size(187, 24);
             this.txtAddLocalidadEmpresa.TabIndex = 56;
             this.txtAddLocalidadEmpresa.Text = "AVELARDO ZAMAROCOS";
+            this.txtAddLocalidadEmpresa.TextChanged += new System.EventHandler(this.txtAddLocalidadEmpresa_TextChanged);
             // 
             // txtAddColoniaEmpresa
             // 
@@ -3782,6 +3794,7 @@
             this.txtAddColoniaEmpresa.Size = new System.Drawing.Size(187, 24);
             this.txtAddColoniaEmpresa.TabIndex = 58;
             this.txtAddColoniaEmpresa.Text = "SAN SEBASTIAN";
+            this.txtAddColoniaEmpresa.TextChanged += new System.EventHandler(this.txtAddColoniaEmpresa_TextChanged);
             // 
             // txtAddMunicipioEmpresa
             // 
@@ -3791,6 +3804,8 @@
             this.txtAddMunicipioEmpresa.Size = new System.Drawing.Size(157, 24);
             this.txtAddMunicipioEmpresa.TabIndex = 47;
             this.txtAddMunicipioEmpresa.Text = "HERMOSILLO";
+            this.txtAddMunicipioEmpresa.TextChanged += new System.EventHandler(this.txtAddMunicipioEmpresa_TextChanged);
+            this.txtAddMunicipioEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddMunicipioEmpresa_KeyPress);
             // 
             // txtAddPaisEmpresa
             // 
@@ -3800,6 +3815,8 @@
             this.txtAddPaisEmpresa.Size = new System.Drawing.Size(156, 24);
             this.txtAddPaisEmpresa.TabIndex = 54;
             this.txtAddPaisEmpresa.Text = "MEXICO";
+            this.txtAddPaisEmpresa.TextChanged += new System.EventHandler(this.txtAddPaisEmpresa_TextChanged);
+            this.txtAddPaisEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddPaisEmpresa_KeyPress);
             // 
             // txtAddCorreoElectronicoEmpresa
             // 
@@ -3809,6 +3826,8 @@
             this.txtAddCorreoElectronicoEmpresa.Size = new System.Drawing.Size(223, 24);
             this.txtAddCorreoElectronicoEmpresa.TabIndex = 53;
             this.txtAddCorreoElectronicoEmpresa.Text = "EMPRESA@EMPRESA.COM";
+            this.txtAddCorreoElectronicoEmpresa.TextChanged += new System.EventHandler(this.txtAddCorreoElectronicoEmpresa_TextChanged);
+            this.txtAddCorreoElectronicoEmpresa.Leave += new System.EventHandler(this.txtAddCorreoElectronicoEmpresa_Leave);
             // 
             // txtAddTelefonoEmpresa
             // 
@@ -3818,6 +3837,8 @@
             this.txtAddTelefonoEmpresa.Size = new System.Drawing.Size(96, 24);
             this.txtAddTelefonoEmpresa.TabIndex = 51;
             this.txtAddTelefonoEmpresa.Text = "6623502340";
+            this.txtAddTelefonoEmpresa.TextChanged += new System.EventHandler(this.txtAddTelefonoEmpresa_TextChanged);
+            this.txtAddTelefonoEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddTelefonoEmpresa_KeyPress);
             // 
             // txtAddNombreComercialEmpresa
             // 
@@ -3827,6 +3848,7 @@
             this.txtAddNombreComercialEmpresa.Size = new System.Drawing.Size(300, 24);
             this.txtAddNombreComercialEmpresa.TabIndex = 40;
             this.txtAddNombreComercialEmpresa.Text = "EMPRESA COMERCIAL";
+            this.txtAddNombreComercialEmpresa.TextChanged += new System.EventHandler(this.txtAddNombreComercialEmpresa_TextChanged);
             // 
             // lbllocalidad
             // 
@@ -3947,6 +3969,7 @@
             this.cmbUpdateCodigoPostalEmpresa.Size = new System.Drawing.Size(159, 24);
             this.cmbUpdateCodigoPostalEmpresa.TabIndex = 120;
             this.cmbUpdateCodigoPostalEmpresa.Text = "Seleccione una opción";
+            this.cmbUpdateCodigoPostalEmpresa.SelectedIndexChanged += new System.EventHandler(this.cmbUpdateCodigoPostalEmpresa_SelectedIndexChanged);
             // 
             // cmbUpdateRegimenFiscalEmpresa
             // 
@@ -3979,6 +4002,7 @@
             this.cmbUpdateRegimenFiscalEmpresa.Size = new System.Drawing.Size(300, 24);
             this.cmbUpdateRegimenFiscalEmpresa.TabIndex = 118;
             this.cmbUpdateRegimenFiscalEmpresa.Text = "Seleccione una opción";
+            this.cmbUpdateRegimenFiscalEmpresa.SelectedIndexChanged += new System.EventHandler(this.cmbUpdateRegimenFiscalEmpresa_SelectedIndexChanged);
             // 
             // label121
             // 
@@ -3998,6 +4022,7 @@
             this.txtUpdateRazonSocialEmpresa.Size = new System.Drawing.Size(300, 24);
             this.txtUpdateRazonSocialEmpresa.TabIndex = 117;
             this.txtUpdateRazonSocialEmpresa.Text = "EMPRESA SA DE CV";
+            this.txtUpdateRazonSocialEmpresa.TextChanged += new System.EventHandler(this.txtUpdateRazonSocialEmpresa_TextChanged);
             // 
             // txtUpdateEstadoEmpresa
             // 
@@ -4007,6 +4032,8 @@
             this.txtUpdateEstadoEmpresa.Size = new System.Drawing.Size(113, 24);
             this.txtUpdateEstadoEmpresa.TabIndex = 103;
             this.txtUpdateEstadoEmpresa.Text = "SONORA";
+            this.txtUpdateEstadoEmpresa.TextChanged += new System.EventHandler(this.txtUpdateEstadoEmpresa_TextChanged);
+            this.txtUpdateEstadoEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateEstadoEmpresa_KeyPress);
             // 
             // label122
             // 
@@ -4026,6 +4053,7 @@
             this.txtUpdateNombContactoEmpresa.Size = new System.Drawing.Size(300, 24);
             this.txtUpdateNombContactoEmpresa.TabIndex = 93;
             this.txtUpdateNombContactoEmpresa.Text = "EMPRESA CONTACTO";
+            this.txtUpdateNombContactoEmpresa.TextChanged += new System.EventHandler(this.txtUpdateNombContactoEmpresa_TextChanged);
             // 
             // label132
             // 
@@ -4076,6 +4104,8 @@
             this.txtUpdateNumExteriorEmpresa.Size = new System.Drawing.Size(156, 24);
             this.txtUpdateNumExteriorEmpresa.TabIndex = 108;
             this.txtUpdateNumExteriorEmpresa.Text = "0";
+            this.txtUpdateNumExteriorEmpresa.TextChanged += new System.EventHandler(this.txtUpdateNumExteriorEmpresa_TextChanged);
+            this.txtUpdateNumExteriorEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateNumExteriorEmpresa_KeyPress);
             // 
             // txtUpdateNumInteriorEmpresa
             // 
@@ -4085,6 +4115,8 @@
             this.txtUpdateNumInteriorEmpresa.Size = new System.Drawing.Size(113, 24);
             this.txtUpdateNumInteriorEmpresa.TabIndex = 107;
             this.txtUpdateNumInteriorEmpresa.Text = "171";
+            this.txtUpdateNumInteriorEmpresa.TextChanged += new System.EventHandler(this.txtUpdateNumInteriorEmpresa_TextChanged);
+            this.txtUpdateNumInteriorEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateNumInteriorEmpresa_KeyPress);
             // 
             // label137
             // 
@@ -4114,6 +4146,7 @@
             this.txtUpdateCalleEmpresa.Size = new System.Drawing.Size(241, 24);
             this.txtUpdateCalleEmpresa.TabIndex = 105;
             this.txtUpdateCalleEmpresa.Text = "AVELARDO ZAMAROCOS";
+            this.txtUpdateCalleEmpresa.TextChanged += new System.EventHandler(this.txtUpdateCalleEmpresa_TextChanged);
             // 
             // label139
             // 
@@ -4133,6 +4166,7 @@
             this.txtUpdateLocalidadEmpresa.Size = new System.Drawing.Size(187, 24);
             this.txtUpdateLocalidadEmpresa.TabIndex = 104;
             this.txtUpdateLocalidadEmpresa.Text = "AVELARDO ZAMAROCOS";
+            this.txtUpdateLocalidadEmpresa.TextChanged += new System.EventHandler(this.txtUpdateLocalidadEmpresa_TextChanged);
             // 
             // txtUpdateColoniaEmpresa
             // 
@@ -4142,6 +4176,7 @@
             this.txtUpdateColoniaEmpresa.Size = new System.Drawing.Size(187, 24);
             this.txtUpdateColoniaEmpresa.TabIndex = 106;
             this.txtUpdateColoniaEmpresa.Text = "SAN SEBASTIAN";
+            this.txtUpdateColoniaEmpresa.TextChanged += new System.EventHandler(this.txtUpdateColoniaEmpresa_TextChanged);
             this.txtUpdateColoniaEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateColoniaEmpresa_KeyPress);
             // 
             // txtUpdateMunicipioEmpresa
@@ -4152,6 +4187,7 @@
             this.txtUpdateMunicipioEmpresa.Size = new System.Drawing.Size(157, 24);
             this.txtUpdateMunicipioEmpresa.TabIndex = 96;
             this.txtUpdateMunicipioEmpresa.Text = "HERMOSILLO";
+            this.txtUpdateMunicipioEmpresa.TextChanged += new System.EventHandler(this.txtUpdateMunicipioEmpresa_TextChanged);
             this.txtUpdateMunicipioEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateMunicipioEmpresa_KeyPress);
             // 
             // txtUpdatePaisEmpresa
@@ -4162,6 +4198,8 @@
             this.txtUpdatePaisEmpresa.Size = new System.Drawing.Size(156, 24);
             this.txtUpdatePaisEmpresa.TabIndex = 102;
             this.txtUpdatePaisEmpresa.Text = "MEXICO";
+            this.txtUpdatePaisEmpresa.TextChanged += new System.EventHandler(this.txtUpdatePaisEmpresa_TextChanged);
+            this.txtUpdatePaisEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdatePaisEmpresa_KeyPress);
             // 
             // txtUpdateCorreoEmpresa
             // 
@@ -4171,6 +4209,8 @@
             this.txtUpdateCorreoEmpresa.Size = new System.Drawing.Size(223, 24);
             this.txtUpdateCorreoEmpresa.TabIndex = 101;
             this.txtUpdateCorreoEmpresa.Text = "EMPRESA@EMPRESA.COM";
+            this.txtUpdateCorreoEmpresa.TextChanged += new System.EventHandler(this.txtUpdateCorreoEmpresa_TextChanged);
+            this.txtUpdateCorreoEmpresa.Leave += new System.EventHandler(this.txtUpdateCorreoEmpresa_Leave);
             // 
             // txtUpdateTelefonoEmpresa
             // 
@@ -4180,6 +4220,8 @@
             this.txtUpdateTelefonoEmpresa.Size = new System.Drawing.Size(96, 24);
             this.txtUpdateTelefonoEmpresa.TabIndex = 99;
             this.txtUpdateTelefonoEmpresa.Text = "6623502340";
+            this.txtUpdateTelefonoEmpresa.TextChanged += new System.EventHandler(this.txtUpdateTelefonoEmpresa_TextChanged);
+            this.txtUpdateTelefonoEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateTelefonoEmpresa_KeyPress);
             // 
             // txtUpdateNomComercialEmpresa
             // 
@@ -4189,6 +4231,7 @@
             this.txtUpdateNomComercialEmpresa.Size = new System.Drawing.Size(300, 24);
             this.txtUpdateNomComercialEmpresa.TabIndex = 91;
             this.txtUpdateNomComercialEmpresa.Text = "EMPRESA COMERCIAL";
+            this.txtUpdateNomComercialEmpresa.TextChanged += new System.EventHandler(this.txtUpdateNomComercialEmpresa_TextChanged);
             // 
             // label140
             // 
