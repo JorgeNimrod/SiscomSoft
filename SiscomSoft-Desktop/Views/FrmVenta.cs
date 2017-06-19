@@ -15,28 +15,71 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmVenta : Form
     {
+        
         private String Nombre;
         string NameProducto;
         decimal sumatoria = 0;
         decimal totalventa = 0;
         decimal iva = 16;
         decimal res = 0;
-        decimal pago = 0;
+        int pago = 0;
         decimal total = 0;
+        int acumulado = 0;
         int cantidad = 0;
+        int  Numeros =0;
+        long codigos = 0;
 
         Boolean flagVenta = false;
         Boolean flagPago = false;
-
+        public char KeyChar { get; set; }
 
 
         public FrmVenta()
         {
             InitializeComponent();
             dgvProductos.AutoGenerateColumns = false;
+            KeyPress += new KeyPressEventHandler(keypressed);
 
         }
-  
+        private void keypressed(Object o, KeyPressEventArgs e)
+        {
+            // The keypressed method uses the KeyChar property to check 
+            // whether the ENTER key is pressed. 
+
+            // If the ENTER key is pressed, the Handled property is set to true, 
+            // to indicate the event is handled.
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                e.Handled = true;
+            }
+        }
+        public void enter()
+        {
+            dgvProductos.DataSource = null;
+            dgvProductos.Rows.Add(txtBuscarProducto.Text);
+            dgvProductos.DataSource = ManejoProducto.BuscarporCodigo(Int32.Parse(txtBuscarProducto.Text));
+
+
+            txtBuscarProducto.Clear();
+
+                    foreach (DataGridViewRow row in dgvProductos.Rows)
+                    {
+                sumatoria += Convert.ToDecimal(row.Cells["dCosto"].Value);
+            }
+
+
+            total = sumatoria;
+            // iva = total * iva;
+
+            //   total = sumatoria;
+            //   iva = total * iva;
+            res = total;
+            label2.Text = String.Format("{0:00.00}","$" +(res));
+            //   label2.Text = Convert.ToString(res);
+
+
+        }
+
         private void dgvDatosProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -44,6 +87,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmVenta_Load(object sender, EventArgs e)
         {
+           
             tbcGeneral.TabPages.Remove(tbpPagar);
             tbcGeneral.TabPages.Remove(tbpVenta);
 
@@ -103,17 +147,20 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnCuenta_Click(object sender, EventArgs e)
         {
-          
+           
             if (flagVenta == false)
             {
                 tbcGeneral.Visible = true;
                 tbcGeneral.TabPages.Add(tbpVenta);
                 tbcGeneral.SelectedTab = tbpVenta;
                 flagVenta = true;
+                txtBuscarProducto.Focus();
             }
             else
             {
                 tbcGeneral.SelectedTab = tbpVenta;
+                txtBuscarProducto.Focus();
+
             }
         }
         public void RealizarBusqueda(string pkCodigo)
@@ -123,10 +170,11 @@ namespace SiscomSoft_Desktop.Views
             {
                 DataGridViewRow nRen = (DataGridViewRow)dgvProductos.Rows[0].Clone();
                 nRen.Cells[0].Value = nProducto.pkProducto;
-                nRen.Cells[1].Value = nProducto.sDescripcion;
-                nRen.Cells[2].Value = nProducto.sMarca;
-                nRen.Cells[3].Value = 1;
-                nRen.Cells[4].Value = nProducto.dCosto;
+                nRen.Cells[1].Value = nProducto.iClaveProd;
+                nRen.Cells[2].Value = nProducto.sDescripcion;
+                nRen.Cells[3].Value = nProducto.sMarca;
+               
+                nRen.Cells[5].Value = nProducto.dCosto;
                 dgvProductos.Rows.Add(nRen);
             }
             else
@@ -185,13 +233,13 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.TabPages.Add(tbpPagar);
                 tbcGeneral.SelectedTab = tbpPagar;
                 flagPago = true;
-            }
+            } 
             else
             {
                 tbcGeneral.SelectedTab = tbpPagar;
             }
             lblTotal.Text = String.Format("{0:00.00}", "$"+(res));
-          //  lblTotal.Text = Convert.ToString(res);
+          //lblTotal.Text = Convert.ToString(res);
         }
 
         private void txtBuscarProducto_BackColorChanged(object sender, EventArgs e)
@@ -207,48 +255,60 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnCantidad1_Click(object sender, EventArgs e)
         {
-            pago = Convert.ToDecimal(1.00);
-        
-          //  label5.Text = String.Format("{0.00}", (1.00));
-            label5.Text = String.Format("{0:00.00}", "$" + (01.00));
+            pago = 1;
+          
+            acumulado +=  pago;
+            //  label5.Text = String.Format("{0.00}", (1.00));
+         //   acumulado += Convert.ToInt32(label5.Text);
+            label5.Text = String.Format("{0:00.00}", "$" + (acumulado));
 
         }
 
         private void btnCantidad5_Click(object sender, EventArgs e)
         {
-            pago = Convert.ToDecimal(5.00);
-         //   label5.Text = Convert.ToString(5.00);
-            label5.Text = String.Format("{0:00.00}","$"+(05.00));
+            pago = 5;
+            acumulado += pago;
+            //   label5.Text = Convert.ToString(5.00);
+          //  acumulado += Convert.ToInt32(label5.Text);
+            label5.Text = String.Format("{0:00.00}", "$" + (acumulado));
         }
 
         private void btnCantidad10_Click(object sender, EventArgs e)
         {
-            pago = Convert.ToDecimal(10.00);
-           // label5.Text = Convert.ToString(10.00);
-            label5.Text = String.Format("{0:00.00}", "$" + (10.00));
+            pago = 10;
+            acumulado += pago;
+            // label5.Text = Convert.ToString(10.00);
+           
+            label5.Text = String.Format("{0:00.00}", "$" + (acumulado));
         }
 
         private void btnCantidad20_Click(object sender, EventArgs e)
         {
-            pago = Convert.ToDecimal(20.00);
-           // label5.Text = Convert.ToString(20.00);
-            label5.Text = String.Format("{0:00.00}", "$" + (20.00));
+            pago = 20;
+            acumulado += pago;
+            // label5.Text = Convert.ToString(20.00);
+           
+            label5.Text = String.Format("{0:00.00}","$"+  (acumulado));
         }
 
         private void btnCantidad50_Click(object sender, EventArgs e)
         {
-            pago = Convert.ToDecimal(50.00);
-           // label5.Text = Convert.ToString(50.00);
-            label5.Text = String.Format("{0:00.00}", "$" + (50.00));
+            pago = 50;
+            acumulado += pago;
+            // label5.Text = Convert.ToString(50.00);
+           
+            label5.Text = String.Format("{0:00.00}","$"+ (acumulado));
         }
 
         private void btnCantidad100_Click(object sender, EventArgs e)
         {
-            
 
-            pago = Convert.ToDecimal(100.00);
-         //   label5.Text = Convert.ToString(100.00);
-            label5.Text = String.Format("{0:00.00}", "$" + (100.00));
+
+            pago = 100;
+            acumulado += pago;
+            //   label5.Text = Convert.ToString(100.00);
+      //      acumulado += Convert.ToInt32(label5.Text);
+            label5.Text = String.Format("{0:00.00}", "$" + (acumulado));
         }
 
         private void btnNum1Pagar_Click(object sender, EventArgs e)
@@ -258,10 +318,10 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnEfectivo_Click(object sender, EventArgs e)
         {
-            totalventa =  pago - total;
+            totalventa =  acumulado - total;
                 lblCambio.Text = String.Format("{0:00.00}","Cambio: $" + (totalventa));
 
-            if (Convert.ToDecimal(total) > Convert.ToDecimal( pago))
+            if (Convert.ToDecimal(total) > Convert.ToDecimal( acumulado))
             {
                  MessageBox.Show("¡Saldo Insuficiente!","Error",MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -321,11 +381,18 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnNum1_Click(object sender, EventArgs e)
         {
-            txtBuscarProducto.Text = Convert.ToString(1);
+            codigos = Convert.ToInt64(txtBuscarProducto.Text + 1);
+            txtBuscarProducto.Text = codigos.ToString();
+
+
+
         }
 
         private void btnNum2_Click(object sender, EventArgs e)
         {
+            codigos = Convert.ToInt64(txtBuscarProducto.Text + 2);
+            txtBuscarProducto.Text = codigos.ToString();
+
 
         }
 
@@ -457,24 +524,28 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnNum5_Click(object sender, EventArgs e)
         {
-            txtBuscarProducto.Text = Convert.ToString(5);
+            codigos = Convert.ToInt64(txtBuscarProducto.Text + 5);
+            txtBuscarProducto.Text = codigos.ToString();
+
         }
 
-        private void btnPunto_Click(object sender, EventArgs e)
+        private void btnPunto_Click(object sender,  EventArgs e)
         {
-
-
+         
+            
         }
 
         private void btnNum0_Click(object sender, EventArgs e)
         {
-
+            codigos = Convert.ToInt64(txtBuscarProducto.Text + 0);
+            txtBuscarProducto.Text = codigos.ToString();
         }
 
         private void button26_Click(object sender, EventArgs e)
         {
             pago = 0;
-            label5.Text = String.Format("{0:00.00}", "$" + (00.00));
+            Numeros = 0;
+            label5.Text = String.Format("{0:00.00}", "$" + (pago));
 
         }
 
@@ -483,6 +554,141 @@ namespace SiscomSoft_Desktop.Views
             this.Close();
             FrmMenuVentas v = new FrmMenuVentas();
             v.Show();
+        }
+
+        private void btnNum1Pagar_Click_1(object sender, EventArgs e)
+        {
+            Numeros = Convert.ToInt32( label5.Text +1);
+            label5.Text =  Numeros.ToString();
+            
+        }
+
+        private void btnNum2Pagar_Click(object sender, EventArgs e)
+        {
+            Numeros = Convert.ToInt32(label5.Text + 2);
+
+            label5.Text =  Numeros.ToString();
+        }
+
+        private void btnNum3Pagar_Click(object sender, EventArgs e)
+        {
+            Numeros += 3;
+            label5.Text = Numeros.ToString();
+        }
+
+        private void btnNum4Pagar_Click(object sender, EventArgs e)
+        {
+            Numeros += 4;
+            label5.Text = Numeros.ToString();
+        }
+
+        private void btnNum5Pagar_Click(object sender, EventArgs e)
+        {
+            Numeros += 5;
+            label5.Text = Numeros.ToString();
+
+        }
+
+        private void btnNum6Pagar_Click(object sender, EventArgs e)
+        {
+            Numeros += 6;
+            label5.Text = Numeros.ToString();
+        }
+
+        private void btnNum7Pagar_Click(object sender, EventArgs e)
+        {
+            Numeros += 7;
+            label5.Text = Numeros.ToString();
+        }
+
+        private void btnNum8Pagar_Click(object sender, EventArgs e)
+        {
+            Numeros += 8;
+            label5.Text = Numeros.ToString();
+        }
+
+        private void btnNum9Pagar_Click(object sender, EventArgs e)
+        {
+            Numeros += 9;
+            label5.Text = Numeros.ToString();
+        }
+
+        private void btnNum0Pagar_Click(object sender, EventArgs e)
+        {
+            Numeros += 2;
+            label5.Text = Numeros.ToString();
+        }
+
+        private void btnPuntoPagar_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNum3_Click(object sender, EventArgs e)
+        {
+            codigos = Convert.ToInt64(txtBuscarProducto.Text + 3);
+            txtBuscarProducto.Text = codigos.ToString();
+        }
+
+        private void btnNum4_Click(object sender, EventArgs e)
+        {
+            codigos = Convert.ToInt64(txtBuscarProducto.Text + 4);
+            txtBuscarProducto.Text = codigos.ToString();
+        }
+
+        private void btnNum6_Click(object sender, EventArgs e)
+        {
+            codigos = Convert.ToInt64(txtBuscarProducto.Text + 6);
+            txtBuscarProducto.Text = codigos.ToString();
+        }
+
+        private void btnNum7_Click(object sender, EventArgs e)
+        {
+            codigos = Convert.ToInt64(txtBuscarProducto.Text + 7);
+            txtBuscarProducto.Text = codigos.ToString();
+        }
+
+        private void btnNum8_Click(object sender, EventArgs e)
+        {
+            codigos = Convert.ToInt64(txtBuscarProducto.Text + 8);
+            txtBuscarProducto.Text = codigos.ToString();
+        }
+
+        private void btnNum9_Click(object sender, EventArgs e)
+        {
+            codigos = Convert.ToInt64(txtBuscarProducto.Text + 9);
+            txtBuscarProducto.Text = codigos.ToString();
+
+        }
+
+        private void btnX_Click(object sender, EventArgs e)
+        {
+            codigos = Convert.ToInt64(txtBuscarProducto.Text + 1);
+        }
+
+        private void txtBuscarProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

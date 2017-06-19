@@ -691,4 +691,4 @@ namespace SiscomSoft_Desktop.Views
             cargarSucursales();
         }
     }
-}
+} 

@@ -11,10 +11,10 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoProducto
     {
-        public static void RegistrarNuevoProducto(Producto nProducto, int pkImpuesto,int pkPrecio,int pkCatalogo, int pkCategoria)
+        public static void RegistrarNuevoProducto(Producto nProducto, int pkImpuesto,int pkPrecio, int pkCategoria,int pkCatalogo)
         {
             Impuesto impuesto = ManejoImpuesto.getById(pkImpuesto);
-            Precio precio = ManejoPrecio.getById(pkImpuesto);
+            Precio precio = ManejoPrecio.getById(pkPrecio);
             Catalogo catalogo = ManejoCatalogo.getById(pkCatalogo);
             Categoria categoria = ManejoCategoria.getById(pkCategoria);
 

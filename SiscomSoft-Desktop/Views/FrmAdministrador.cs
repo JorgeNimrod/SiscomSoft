@@ -117,9 +117,7 @@ namespace SiscomSoft_Desktop.Views
             cbxCatalogoAddProd.DisplayMember = "sUDM";
             cbxCatalogoAddProd.ValueMember = "pkCatalogo";
 
-            cbxCategoriaAddProd.DataSource = ManejoCategoria.getAll(true);
-            cbxCategoriaAddProd.DisplayMember = "sNombre";
-            cbxCategoriaAddProd.ValueMember = "pkCategoria";
+        
 
             cbxImpuestoAddProd.DataSource = ManejoImpuesto.getAll(true);
             cbxImpuestoAddProd.DisplayMember = "dTasaImpuesto";
@@ -130,13 +128,11 @@ namespace SiscomSoft_Desktop.Views
             cbxUpdatePrecioProd.DisplayMember = "iPrePorcen";
             cbxUpdatePrecioProd.ValueMember = "pkPrecios";
 
-            cbxUpdateCataProd.DataSource = ManejoCatalogo.getAll(true);
-            cbxUpdateCataProd.DisplayMember = "sUDM";
-            cbxUpdateCataProd.ValueMember = "pkCatalogo";
+        
 
-            cbxUpdateUMDProd.DataSource = ManejoCategoria.getAll(true);
-            cbxUpdateUMDProd.DisplayMember = "sNombre";
-            cbxUpdateUMDProd.ValueMember = "pkCategoria";
+            cbxUpdateUMDProd.DataSource = ManejoCatalogo.getAll(true);
+            cbxUpdateUMDProd.DisplayMember = "sUDM";
+            cbxUpdateUMDProd.ValueMember = "pkCatalogo";
 
             cbxUpdateImpuProd.DataSource = ManejoImpuesto.getAll(true);
             cbxUpdateImpuProd.DisplayMember = "dTasaImpuesto";
@@ -299,6 +295,7 @@ namespace SiscomSoft_Desktop.Views
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
+            
             cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
@@ -642,8 +639,8 @@ namespace SiscomSoft_Desktop.Views
         public void ActualizarProducto()
         {
             Producto nProducto = ManejoProducto.getById(PKPRODUCTO);
-
             Categoria nCategoria = ManejoCategoria.getById(nProducto.fkCategoria.pkCategoria);
+            PKCATEGORIA = nCategoria.pkCategoria;
             txtUpdateClavProd.Text = nProducto.iClaveProd.ToString();
             txtUpdateMarcProd.Text = nProducto.sMarca;
             dtpUpdateFechaProd.Value = nProducto.dtCaducidad;
@@ -655,11 +652,13 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateLineaProd.Text = nCategoria.sNombre;
             txtUpdateSubProd.Text = nCategoria.sNomSubCat;
 
-            cbxUpdateImpuProd.SelectedIndex = nProducto.fkImpuesto.pkImpuesto - 1;
-            cbxUpdateCataProd.SelectedIndex = nProducto.fkCatalogo.pkCatalogo - 1;
-            cbxUpdateUMDProd.SelectedIndex = nProducto.fkCategoria.pkCategoria - 1;
+            cbxUpdateImpuProd.SelectedItem = nProducto.fkImpuesto.pkImpuesto;
+          
+            cbxUpdateUMDProd.SelectedItem = nProducto.fkCatalogo.pkCatalogo;
+            cbxUpdatePrecioProd.SelectedItem = nProducto.fkPrecio.pkPrecios;
 
             pcbUpdateImgProd.Image = ToolImagen.Base64StringToBitmap(nProducto.sFoto);
+            int x = 0;
         }
         public void ActualizarPrecio()
         {
@@ -1460,6 +1459,7 @@ namespace SiscomSoft_Desktop.Views
                 nCategoria.sNombre = txtLineaAddProd.Text;
                 nCategoria.sNomSubCat = txtLineaAddProd.Text;
 
+                ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
 
                 Producto nProducto = new Producto();
                 nProducto.iClaveProd = Convert.ToInt32(txtClaveaddprod.Text.ToString());
@@ -1475,12 +1475,11 @@ namespace SiscomSoft_Desktop.Views
                 int fkImpuesto = Convert.ToInt32(cbxImpuestoAddProd.SelectedValue.ToString());
                 int fkPrecio = Convert.ToInt32(cbxPrecioAddProd.SelectedValue.ToString());
 
-                int fkCategoria = Convert.ToInt32(cbxCategoriaAddProd.SelectedValue.ToString());
+            
                 int fkCatalogo = Convert.ToInt32(cbxCatalogoAddProd.SelectedValue.ToString());
 
 
-                ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
-                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, fkCategoria, fkCatalogo);
+                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, nCategoria.pkCategoria, fkCatalogo);
 
                 MessageBox.Show("¡Producto Registrado!");
                 txtDescripcionAddProd.Clear();
@@ -1748,10 +1747,11 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Categoria nCategoria = new Categoria();
-                nCategoria.pkCategoria = PKPRODUCTO;
+                nCategoria.pkCategoria = PKCATEGORIA;
                 nCategoria.sNombre = txtUpdateLineaProd.Text;
                 nCategoria.sNomSubCat = txtUpdateSubProd.Text;
 
+                ManejoCategoria.Modificar(nCategoria);
 
                 Producto nProducto = new Producto();
                 nProducto.pkProducto = PKPRODUCTO;
@@ -1767,12 +1767,11 @@ namespace SiscomSoft_Desktop.Views
 
 
                 int fkImpuesto = cbxUpdateImpuProd.SelectedIndex + 1;
-                int fkCatalogo = cbxUpdateCataProd.SelectedIndex + 1;
+              
                 int fkPrecio = cbxUpdatePrecioProd.SelectedIndex + 1;
                 int fkCategoria = cbxUpdateUMDProd.SelectedIndex + 1;
 
 
-                ManejoCategoria.Modificar(nCategoria);
                 ManejoProducto.Modificar(nProducto);
                 MessageBox.Show("¡Producto Actualizado!");
                 cargarProductos();
@@ -4536,6 +4535,275 @@ namespace SiscomSoft_Desktop.Views
         private void textBox17_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
+        }
+
+        private void cbxCatalogoAddProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtClaveaddprod_TextChanged_1(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtClaveaddprod_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCostoAddProd_TextChanged_1(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtMarcaaddProd_TextChanged_1(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtDescuentoProd_TextChanged_1(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtLoteAddProd_TextChanged_1(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtDescripcionAddProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtSublineaAddProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtLineaAddProd_TextChanged_1(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateClavProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateClavProd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtUpdateMarcProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateDescProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateLoteProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateLineaProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateDesProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateSubProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddPrecio_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdatePrecio_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateNoInterior_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtUpdateNoExterior_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void pnlUpdateSucursal_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtUpdateMunicipio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+           && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtUpdatePais_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+           && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtUpdateEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+           && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtAddNumInteriorSucursal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtAddnumExteriorSucursal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtAddMunicipioSucursal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+          && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtAddCalleSucursal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+          && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtAddPaiSucursal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+          && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtAddEstadoSucursal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+          && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtUpdateMunicipioEmpresa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+          && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtUpdateColoniaEmpresa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+          && e.KeyChar != 8) e.Handled = true;
         }
     }
 }

@@ -231,11 +231,9 @@
             this.txtLoteAddProd = new System.Windows.Forms.TextBox();
             this.txtDescuentoProd = new System.Windows.Forms.TextBox();
             this.dtpFechaCaducidadProd = new System.Windows.Forms.DateTimePicker();
-            this.cbxCategoriaAddProd = new System.Windows.Forms.ComboBox();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
             this.txtCostoAddProd = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
             this.txtMarcaaddProd = new System.Windows.Forms.TextBox();
@@ -257,7 +255,6 @@
             this.label59 = new System.Windows.Forms.Label();
             this.btnUpdateExamProd = new System.Windows.Forms.Button();
             this.pcbUpdateImgProd = new System.Windows.Forms.PictureBox();
-            this.cbxUpdateCataProd = new System.Windows.Forms.ComboBox();
             this.txtUpdateLoteProd = new System.Windows.Forms.TextBox();
             this.txtUpdateDescProd = new System.Windows.Forms.TextBox();
             this.dtpUpdateFechaProd = new System.Windows.Forms.DateTimePicker();
@@ -265,7 +262,6 @@
             this.label60 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
             this.txtUpdateCostoProd = new System.Windows.Forms.TextBox();
             this.label64 = new System.Windows.Forms.Label();
             this.txtUpdateMarcProd = new System.Windows.Forms.TextBox();
@@ -1144,7 +1140,7 @@
             this.tbpPrecio.Location = new System.Drawing.Point(4, 27);
             this.tbpPrecio.Name = "tbpPrecio";
             this.tbpPrecio.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpPrecio.Size = new System.Drawing.Size(1151, 48);
+            this.tbpPrecio.Size = new System.Drawing.Size(1151, 546);
             this.tbpPrecio.TabIndex = 1;
             this.tbpPrecio.Text = "Precios";
             this.tbpPrecio.UseVisualStyleBackColor = true;
@@ -1234,7 +1230,7 @@
             this.tbpImpuestos.Controls.Add(this.label14);
             this.tbpImpuestos.Location = new System.Drawing.Point(4, 27);
             this.tbpImpuestos.Name = "tbpImpuestos";
-            this.tbpImpuestos.Size = new System.Drawing.Size(1151, 48);
+            this.tbpImpuestos.Size = new System.Drawing.Size(1151, 546);
             this.tbpImpuestos.TabIndex = 2;
             this.tbpImpuestos.Text = "Impuestos";
             this.tbpImpuestos.UseVisualStyleBackColor = true;
@@ -1371,7 +1367,7 @@
             this.tbpCategoria.Controls.Add(this.label12);
             this.tbpCategoria.Location = new System.Drawing.Point(4, 27);
             this.tbpCategoria.Name = "tbpCategoria";
-            this.tbpCategoria.Size = new System.Drawing.Size(1151, 48);
+            this.tbpCategoria.Size = new System.Drawing.Size(1151, 546);
             this.tbpCategoria.TabIndex = 3;
             this.tbpCategoria.Text = "Categorias";
             this.tbpCategoria.UseVisualStyleBackColor = true;
@@ -1501,7 +1497,7 @@
             this.tbpUsuario.Controls.Add(this.label10);
             this.tbpUsuario.Location = new System.Drawing.Point(4, 27);
             this.tbpUsuario.Name = "tbpUsuario";
-            this.tbpUsuario.Size = new System.Drawing.Size(1151, 48);
+            this.tbpUsuario.Size = new System.Drawing.Size(1151, 546);
             this.tbpUsuario.TabIndex = 4;
             this.tbpUsuario.Text = "Usuarios";
             this.tbpUsuario.UseVisualStyleBackColor = true;
@@ -1651,7 +1647,7 @@
             this.tbpRol.Controls.Add(this.pnlCatalogoRoles);
             this.tbpRol.Location = new System.Drawing.Point(4, 27);
             this.tbpRol.Name = "tbpRol";
-            this.tbpRol.Size = new System.Drawing.Size(1151, 48);
+            this.tbpRol.Size = new System.Drawing.Size(1151, 546);
             this.tbpRol.TabIndex = 5;
             this.tbpRol.Text = "Roles";
             this.tbpRol.UseVisualStyleBackColor = true;
@@ -1789,7 +1785,7 @@
             this.tbpAddRol.Controls.Add(this.pnlAddRolesPermisos);
             this.tbpAddRol.Location = new System.Drawing.Point(4, 27);
             this.tbpAddRol.Name = "tbpAddRol";
-            this.tbpAddRol.Size = new System.Drawing.Size(1151, 48);
+            this.tbpAddRol.Size = new System.Drawing.Size(1151, 546);
             this.tbpAddRol.TabIndex = 6;
             this.tbpAddRol.Text = "Registrar Rol";
             this.tbpAddRol.UseVisualStyleBackColor = true;
@@ -1928,7 +1924,7 @@
             this.tbpUpdateRol.Controls.Add(this.PnlUpdteRolesPermisos);
             this.tbpUpdateRol.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateRol.Name = "tbpUpdateRol";
-            this.tbpUpdateRol.Size = new System.Drawing.Size(1151, 48);
+            this.tbpUpdateRol.Size = new System.Drawing.Size(1151, 546);
             this.tbpUpdateRol.TabIndex = 7;
             this.tbpUpdateRol.Text = "Actualizar Rol";
             this.tbpUpdateRol.UseVisualStyleBackColor = true;
@@ -2069,7 +2065,7 @@
             this.tbpAddCategoria.Controls.Add(this.label19);
             this.tbpAddCategoria.Location = new System.Drawing.Point(4, 27);
             this.tbpAddCategoria.Name = "tbpAddCategoria";
-            this.tbpAddCategoria.Size = new System.Drawing.Size(1151, 48);
+            this.tbpAddCategoria.Size = new System.Drawing.Size(1151, 546);
             this.tbpAddCategoria.TabIndex = 8;
             this.tbpAddCategoria.Text = "Registrar Categoria";
             this.tbpAddCategoria.UseVisualStyleBackColor = true;
@@ -2129,7 +2125,7 @@
             this.tbpUpdateCategoria.Controls.Add(this.label21);
             this.tbpUpdateCategoria.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateCategoria.Name = "tbpUpdateCategoria";
-            this.tbpUpdateCategoria.Size = new System.Drawing.Size(1151, 48);
+            this.tbpUpdateCategoria.Size = new System.Drawing.Size(1151, 546);
             this.tbpUpdateCategoria.TabIndex = 9;
             this.tbpUpdateCategoria.Text = "Actualizar Categoria";
             this.tbpUpdateCategoria.UseVisualStyleBackColor = true;
@@ -2192,7 +2188,7 @@
             this.tbpAddImpuesto.Controls.Add(this.label15);
             this.tbpAddImpuesto.Location = new System.Drawing.Point(4, 27);
             this.tbpAddImpuesto.Name = "tbpAddImpuesto";
-            this.tbpAddImpuesto.Size = new System.Drawing.Size(1151, 48);
+            this.tbpAddImpuesto.Size = new System.Drawing.Size(1151, 546);
             this.tbpAddImpuesto.TabIndex = 10;
             this.tbpAddImpuesto.Text = "Registrar Impuesto";
             this.tbpAddImpuesto.UseVisualStyleBackColor = true;
@@ -2273,7 +2269,7 @@
             this.tbpUpdateImpuesto.Controls.Add(this.label23);
             this.tbpUpdateImpuesto.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateImpuesto.Name = "tbpUpdateImpuesto";
-            this.tbpUpdateImpuesto.Size = new System.Drawing.Size(1151, 48);
+            this.tbpUpdateImpuesto.Size = new System.Drawing.Size(1151, 546);
             this.tbpUpdateImpuesto.TabIndex = 11;
             this.tbpUpdateImpuesto.Text = "Actualizar Impuesto";
             this.tbpUpdateImpuesto.UseVisualStyleBackColor = true;
@@ -2363,7 +2359,7 @@
             this.tbpAddUsuario.Controls.Add(this.label31);
             this.tbpAddUsuario.Location = new System.Drawing.Point(4, 27);
             this.tbpAddUsuario.Name = "tbpAddUsuario";
-            this.tbpAddUsuario.Size = new System.Drawing.Size(1151, 48);
+            this.tbpAddUsuario.Size = new System.Drawing.Size(1151, 546);
             this.tbpAddUsuario.TabIndex = 12;
             this.tbpAddUsuario.Text = "Registrar Usuario";
             this.tbpAddUsuario.UseVisualStyleBackColor = true;
@@ -2560,7 +2556,7 @@
             this.tbpUpdateUser.Controls.Add(this.label39);
             this.tbpUpdateUser.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateUser.Name = "tbpUpdateUser";
-            this.tbpUpdateUser.Size = new System.Drawing.Size(1151, 48);
+            this.tbpUpdateUser.Size = new System.Drawing.Size(1151, 546);
             this.tbpUpdateUser.TabIndex = 13;
             this.tbpUpdateUser.Text = "Actualizar Usuario";
             this.tbpUpdateUser.UseVisualStyleBackColor = true;
@@ -2756,11 +2752,9 @@
             this.tbpAddProducto.Controls.Add(this.txtLoteAddProd);
             this.tbpAddProducto.Controls.Add(this.txtDescuentoProd);
             this.tbpAddProducto.Controls.Add(this.dtpFechaCaducidadProd);
-            this.tbpAddProducto.Controls.Add(this.cbxCategoriaAddProd);
             this.tbpAddProducto.Controls.Add(this.label45);
             this.tbpAddProducto.Controls.Add(this.label46);
             this.tbpAddProducto.Controls.Add(this.label47);
-            this.tbpAddProducto.Controls.Add(this.label48);
             this.tbpAddProducto.Controls.Add(this.txtCostoAddProd);
             this.tbpAddProducto.Controls.Add(this.label49);
             this.tbpAddProducto.Controls.Add(this.txtMarcaaddProd);
@@ -2770,7 +2764,7 @@
             this.tbpAddProducto.Controls.Add(this.label52);
             this.tbpAddProducto.Location = new System.Drawing.Point(4, 27);
             this.tbpAddProducto.Name = "tbpAddProducto";
-            this.tbpAddProducto.Size = new System.Drawing.Size(1151, 48);
+            this.tbpAddProducto.Size = new System.Drawing.Size(1151, 546);
             this.tbpAddProducto.TabIndex = 14;
             this.tbpAddProducto.Text = "Registrar Producto";
             this.tbpAddProducto.UseVisualStyleBackColor = true;
@@ -2791,6 +2785,7 @@
             this.txtSublineaAddProd.Name = "txtSublineaAddProd";
             this.txtSublineaAddProd.Size = new System.Drawing.Size(209, 24);
             this.txtSublineaAddProd.TabIndex = 125;
+            this.txtSublineaAddProd.TextChanged += new System.EventHandler(this.txtSublineaAddProd_TextChanged);
             // 
             // label40
             // 
@@ -2807,6 +2802,7 @@
             this.txtLineaAddProd.Name = "txtLineaAddProd";
             this.txtLineaAddProd.Size = new System.Drawing.Size(211, 24);
             this.txtLineaAddProd.TabIndex = 122;
+            this.txtLineaAddProd.TextChanged += new System.EventHandler(this.txtLineaAddProd_TextChanged_1);
             // 
             // label41
             // 
@@ -2823,6 +2819,8 @@
             this.txtClaveaddprod.Name = "txtClaveaddprod";
             this.txtClaveaddprod.Size = new System.Drawing.Size(213, 24);
             this.txtClaveaddprod.TabIndex = 111;
+            this.txtClaveaddprod.TextChanged += new System.EventHandler(this.txtClaveaddprod_TextChanged_1);
+            this.txtClaveaddprod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClaveaddprod_KeyPress_1);
             // 
             // label42
             // 
@@ -2894,10 +2892,11 @@
             // 
             this.cbxCatalogoAddProd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCatalogoAddProd.FormattingEnabled = true;
-            this.cbxCatalogoAddProd.Location = new System.Drawing.Point(856, 110);
+            this.cbxCatalogoAddProd.Location = new System.Drawing.Point(163, 234);
             this.cbxCatalogoAddProd.Name = "cbxCatalogoAddProd";
-            this.cbxCatalogoAddProd.Size = new System.Drawing.Size(200, 26);
+            this.cbxCatalogoAddProd.Size = new System.Drawing.Size(211, 26);
             this.cbxCatalogoAddProd.TabIndex = 121;
+            this.cbxCatalogoAddProd.SelectedIndexChanged += new System.EventHandler(this.cbxCatalogoAddProd_SelectedIndexChanged);
             // 
             // txtLoteAddProd
             // 
@@ -2905,6 +2904,7 @@
             this.txtLoteAddProd.Name = "txtLoteAddProd";
             this.txtLoteAddProd.Size = new System.Drawing.Size(213, 24);
             this.txtLoteAddProd.TabIndex = 119;
+            this.txtLoteAddProd.TextChanged += new System.EventHandler(this.txtLoteAddProd_TextChanged_1);
             this.txtLoteAddProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLoteAddProd_KeyPress);
             // 
             // txtDescuentoProd
@@ -2913,6 +2913,7 @@
             this.txtDescuentoProd.Name = "txtDescuentoProd";
             this.txtDescuentoProd.Size = new System.Drawing.Size(206, 24);
             this.txtDescuentoProd.TabIndex = 117;
+            this.txtDescuentoProd.TextChanged += new System.EventHandler(this.txtDescuentoProd_TextChanged_1);
             this.txtDescuentoProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuentoProd_KeyPress);
             // 
             // dtpFechaCaducidadProd
@@ -2921,15 +2922,6 @@
             this.dtpFechaCaducidadProd.Name = "dtpFechaCaducidadProd";
             this.dtpFechaCaducidadProd.Size = new System.Drawing.Size(200, 24);
             this.dtpFechaCaducidadProd.TabIndex = 114;
-            // 
-            // cbxCategoriaAddProd
-            // 
-            this.cbxCategoriaAddProd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxCategoriaAddProd.FormattingEnabled = true;
-            this.cbxCategoriaAddProd.Location = new System.Drawing.Point(165, 242);
-            this.cbxCategoriaAddProd.Name = "cbxCategoriaAddProd";
-            this.cbxCategoriaAddProd.Size = new System.Drawing.Size(209, 26);
-            this.cbxCategoriaAddProd.TabIndex = 126;
             // 
             // label45
             // 
@@ -2958,21 +2950,13 @@
             this.label47.TabIndex = 129;
             this.label47.Text = "Lote :";
             // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(774, 116);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(76, 18);
-            this.label48.TabIndex = 128;
-            this.label48.Text = "Catalogo :";
-            // 
             // txtCostoAddProd
             // 
             this.txtCostoAddProd.Location = new System.Drawing.Point(161, 60);
             this.txtCostoAddProd.Name = "txtCostoAddProd";
             this.txtCostoAddProd.Size = new System.Drawing.Size(213, 24);
             this.txtCostoAddProd.TabIndex = 116;
+            this.txtCostoAddProd.TextChanged += new System.EventHandler(this.txtCostoAddProd_TextChanged_1);
             this.txtCostoAddProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCostoAddProd_KeyPress);
             // 
             // label49
@@ -2990,6 +2974,7 @@
             this.txtMarcaaddProd.Name = "txtMarcaaddProd";
             this.txtMarcaaddProd.Size = new System.Drawing.Size(236, 24);
             this.txtMarcaaddProd.TabIndex = 113;
+            this.txtMarcaaddProd.TextChanged += new System.EventHandler(this.txtMarcaaddProd_TextChanged_1);
             // 
             // label50
             // 
@@ -3016,6 +3001,7 @@
             this.txtDescripcionAddProd.Name = "txtDescripcionAddProd";
             this.txtDescripcionAddProd.Size = new System.Drawing.Size(206, 105);
             this.txtDescripcionAddProd.TabIndex = 124;
+            this.txtDescripcionAddProd.TextChanged += new System.EventHandler(this.txtDescripcionAddProd_TextChanged);
             // 
             // label52
             // 
@@ -3041,7 +3027,6 @@
             this.tbpUpdateProducto.Controls.Add(this.label59);
             this.tbpUpdateProducto.Controls.Add(this.btnUpdateExamProd);
             this.tbpUpdateProducto.Controls.Add(this.pcbUpdateImgProd);
-            this.tbpUpdateProducto.Controls.Add(this.cbxUpdateCataProd);
             this.tbpUpdateProducto.Controls.Add(this.txtUpdateLoteProd);
             this.tbpUpdateProducto.Controls.Add(this.txtUpdateDescProd);
             this.tbpUpdateProducto.Controls.Add(this.dtpUpdateFechaProd);
@@ -3049,7 +3034,6 @@
             this.tbpUpdateProducto.Controls.Add(this.label60);
             this.tbpUpdateProducto.Controls.Add(this.label61);
             this.tbpUpdateProducto.Controls.Add(this.label62);
-            this.tbpUpdateProducto.Controls.Add(this.label63);
             this.tbpUpdateProducto.Controls.Add(this.txtUpdateCostoProd);
             this.tbpUpdateProducto.Controls.Add(this.label64);
             this.tbpUpdateProducto.Controls.Add(this.txtUpdateMarcProd);
@@ -3059,7 +3043,7 @@
             this.tbpUpdateProducto.Controls.Add(this.label67);
             this.tbpUpdateProducto.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateProducto.Name = "tbpUpdateProducto";
-            this.tbpUpdateProducto.Size = new System.Drawing.Size(1151, 48);
+            this.tbpUpdateProducto.Size = new System.Drawing.Size(1151, 546);
             this.tbpUpdateProducto.TabIndex = 15;
             this.tbpUpdateProducto.Text = "Actualizar Producto";
             this.tbpUpdateProducto.UseVisualStyleBackColor = true;
@@ -3080,6 +3064,7 @@
             this.txtUpdateSubProd.Name = "txtUpdateSubProd";
             this.txtUpdateSubProd.Size = new System.Drawing.Size(209, 24);
             this.txtUpdateSubProd.TabIndex = 154;
+            this.txtUpdateSubProd.TextChanged += new System.EventHandler(this.txtUpdateSubProd_TextChanged);
             // 
             // label55
             // 
@@ -3096,6 +3081,7 @@
             this.txtUpdateLineaProd.Name = "txtUpdateLineaProd";
             this.txtUpdateLineaProd.Size = new System.Drawing.Size(211, 24);
             this.txtUpdateLineaProd.TabIndex = 151;
+            this.txtUpdateLineaProd.TextChanged += new System.EventHandler(this.txtUpdateLineaProd_TextChanged);
             // 
             // label56
             // 
@@ -3112,6 +3098,8 @@
             this.txtUpdateClavProd.Name = "txtUpdateClavProd";
             this.txtUpdateClavProd.Size = new System.Drawing.Size(213, 24);
             this.txtUpdateClavProd.TabIndex = 140;
+            this.txtUpdateClavProd.TextChanged += new System.EventHandler(this.txtUpdateClavProd_TextChanged);
+            this.txtUpdateClavProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateClavProd_KeyPress);
             // 
             // label57
             // 
@@ -3179,21 +3167,13 @@
             this.pcbUpdateImgProd.TabStop = false;
             this.pcbUpdateImgProd.Tag = "2";
             // 
-            // cbxUpdateCataProd
-            // 
-            this.cbxUpdateCataProd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxUpdateCataProd.FormattingEnabled = true;
-            this.cbxUpdateCataProd.Location = new System.Drawing.Point(854, 109);
-            this.cbxUpdateCataProd.Name = "cbxUpdateCataProd";
-            this.cbxUpdateCataProd.Size = new System.Drawing.Size(200, 26);
-            this.cbxUpdateCataProd.TabIndex = 150;
-            // 
             // txtUpdateLoteProd
             // 
             this.txtUpdateLoteProd.Location = new System.Drawing.Point(159, 103);
             this.txtUpdateLoteProd.Name = "txtUpdateLoteProd";
             this.txtUpdateLoteProd.Size = new System.Drawing.Size(213, 24);
             this.txtUpdateLoteProd.TabIndex = 148;
+            this.txtUpdateLoteProd.TextChanged += new System.EventHandler(this.txtUpdateLoteProd_TextChanged);
             this.txtUpdateLoteProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateLoteProd_KeyPress);
             // 
             // txtUpdateDescProd
@@ -3202,6 +3182,7 @@
             this.txtUpdateDescProd.Name = "txtUpdateDescProd";
             this.txtUpdateDescProd.Size = new System.Drawing.Size(206, 24);
             this.txtUpdateDescProd.TabIndex = 146;
+            this.txtUpdateDescProd.TextChanged += new System.EventHandler(this.txtUpdateDescProd_TextChanged);
             this.txtUpdateDescProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateDescProd_KeyPress);
             // 
             // dtpUpdateFechaProd
@@ -3247,15 +3228,6 @@
             this.label62.TabIndex = 158;
             this.label62.Text = "Lote :";
             // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(772, 115);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(76, 18);
-            this.label63.TabIndex = 157;
-            this.label63.Text = "Catalogo :";
-            // 
             // txtUpdateCostoProd
             // 
             this.txtUpdateCostoProd.Location = new System.Drawing.Point(159, 59);
@@ -3279,6 +3251,7 @@
             this.txtUpdateMarcProd.Name = "txtUpdateMarcProd";
             this.txtUpdateMarcProd.Size = new System.Drawing.Size(236, 24);
             this.txtUpdateMarcProd.TabIndex = 142;
+            this.txtUpdateMarcProd.TextChanged += new System.EventHandler(this.txtUpdateMarcProd_TextChanged);
             // 
             // label65
             // 
@@ -3305,6 +3278,7 @@
             this.txtUpdateDesProd.Name = "txtUpdateDesProd";
             this.txtUpdateDesProd.Size = new System.Drawing.Size(206, 105);
             this.txtUpdateDesProd.TabIndex = 153;
+            this.txtUpdateDesProd.TextChanged += new System.EventHandler(this.txtUpdateDesProd_TextChanged);
             // 
             // label67
             // 
@@ -3322,7 +3296,7 @@
             this.tbpAddPrecio.Controls.Add(this.label53);
             this.tbpAddPrecio.Location = new System.Drawing.Point(4, 27);
             this.tbpAddPrecio.Name = "tbpAddPrecio";
-            this.tbpAddPrecio.Size = new System.Drawing.Size(1151, 48);
+            this.tbpAddPrecio.Size = new System.Drawing.Size(1151, 546);
             this.tbpAddPrecio.TabIndex = 16;
             this.tbpAddPrecio.Text = "Registrar Precio";
             this.tbpAddPrecio.UseVisualStyleBackColor = true;
@@ -3343,6 +3317,7 @@
             this.txtAddPrecio.Name = "txtAddPrecio";
             this.txtAddPrecio.Size = new System.Drawing.Size(390, 24);
             this.txtAddPrecio.TabIndex = 105;
+            this.txtAddPrecio.TextChanged += new System.EventHandler(this.txtAddPrecio_TextChanged);
             this.txtAddPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddPrecio_KeyPress);
             // 
             // label53
@@ -3361,7 +3336,7 @@
             this.tbpUpdatePrecio.Controls.Add(this.label54);
             this.tbpUpdatePrecio.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdatePrecio.Name = "tbpUpdatePrecio";
-            this.tbpUpdatePrecio.Size = new System.Drawing.Size(1151, 48);
+            this.tbpUpdatePrecio.Size = new System.Drawing.Size(1151, 546);
             this.tbpUpdatePrecio.TabIndex = 17;
             this.tbpUpdatePrecio.Text = "Actualizar Precio";
             this.tbpUpdatePrecio.UseVisualStyleBackColor = true;
@@ -3382,6 +3357,7 @@
             this.txtUpdatePrecio.Name = "txtUpdatePrecio";
             this.txtUpdatePrecio.Size = new System.Drawing.Size(390, 24);
             this.txtUpdatePrecio.TabIndex = 108;
+            this.txtUpdatePrecio.TextChanged += new System.EventHandler(this.txtUpdatePrecio_TextChanged);
             this.txtUpdatePrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdatePrecio_KeyPress);
             // 
             // label54
@@ -3406,7 +3382,7 @@
             this.tbpEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpEmpresa.Name = "tbpEmpresa";
             this.tbpEmpresa.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpEmpresa.Size = new System.Drawing.Size(1151, 48);
+            this.tbpEmpresa.Size = new System.Drawing.Size(1151, 546);
             this.tbpEmpresa.TabIndex = 18;
             this.tbpEmpresa.Text = "Empresas";
             this.tbpEmpresa.UseVisualStyleBackColor = true;
@@ -3597,7 +3573,7 @@
             this.tbpAddEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbpAddEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpAddEmpresa.Name = "tbpAddEmpresa";
-            this.tbpAddEmpresa.Size = new System.Drawing.Size(1151, 48);
+            this.tbpAddEmpresa.Size = new System.Drawing.Size(1151, 546);
             this.tbpAddEmpresa.TabIndex = 19;
             this.tbpAddEmpresa.Text = "Registrar Empresa";
             this.tbpAddEmpresa.UseVisualStyleBackColor = true;
@@ -3957,7 +3933,7 @@
             this.tbpUpdateEmpresa.Controls.Add(this.label146);
             this.tbpUpdateEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateEmpresa.Name = "tbpUpdateEmpresa";
-            this.tbpUpdateEmpresa.Size = new System.Drawing.Size(1151, 48);
+            this.tbpUpdateEmpresa.Size = new System.Drawing.Size(1151, 546);
             this.tbpUpdateEmpresa.TabIndex = 20;
             this.tbpUpdateEmpresa.Text = "Actualizar Empresa";
             this.tbpUpdateEmpresa.UseVisualStyleBackColor = true;
@@ -4166,6 +4142,7 @@
             this.txtUpdateColoniaEmpresa.Size = new System.Drawing.Size(187, 24);
             this.txtUpdateColoniaEmpresa.TabIndex = 106;
             this.txtUpdateColoniaEmpresa.Text = "SAN SEBASTIAN";
+            this.txtUpdateColoniaEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateColoniaEmpresa_KeyPress);
             // 
             // txtUpdateMunicipioEmpresa
             // 
@@ -4175,6 +4152,7 @@
             this.txtUpdateMunicipioEmpresa.Size = new System.Drawing.Size(157, 24);
             this.txtUpdateMunicipioEmpresa.TabIndex = 96;
             this.txtUpdateMunicipioEmpresa.Text = "HERMOSILLO";
+            this.txtUpdateMunicipioEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateMunicipioEmpresa_KeyPress);
             // 
             // txtUpdatePaisEmpresa
             // 
@@ -4295,7 +4273,7 @@
             this.tbpClientes.Controls.Add(this.label71);
             this.tbpClientes.Location = new System.Drawing.Point(4, 27);
             this.tbpClientes.Name = "tbpClientes";
-            this.tbpClientes.Size = new System.Drawing.Size(1151, 48);
+            this.tbpClientes.Size = new System.Drawing.Size(1151, 546);
             this.tbpClientes.TabIndex = 24;
             this.tbpClientes.Text = "Clientes";
             this.tbpClientes.UseVisualStyleBackColor = true;
@@ -4364,6 +4342,7 @@
             // 
             // dgvDatosCliente
             // 
+            this.dgvDatosCliente.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pkClientes,
@@ -4536,7 +4515,7 @@
             this.tbpAddCliente.Controls.Add(this.label93);
             this.tbpAddCliente.Location = new System.Drawing.Point(4, 27);
             this.tbpAddCliente.Name = "tbpAddCliente";
-            this.tbpAddCliente.Size = new System.Drawing.Size(1151, 48);
+            this.tbpAddCliente.Size = new System.Drawing.Size(1151, 546);
             this.tbpAddCliente.TabIndex = 25;
             this.tbpAddCliente.Text = "Registrar Cliente";
             this.tbpAddCliente.UseVisualStyleBackColor = true;
@@ -5057,7 +5036,7 @@
             this.tbpUpdateCliente.Controls.Add(this.label116);
             this.tbpUpdateCliente.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateCliente.Name = "tbpUpdateCliente";
-            this.tbpUpdateCliente.Size = new System.Drawing.Size(1151, 48);
+            this.tbpUpdateCliente.Size = new System.Drawing.Size(1151, 546);
             this.tbpUpdateCliente.TabIndex = 26;
             this.tbpUpdateCliente.Text = "Actualizar Cliente";
             this.tbpUpdateCliente.UseVisualStyleBackColor = true;
@@ -5535,7 +5514,7 @@
             this.tbpSucursal.Controls.Add(this.label148);
             this.tbpSucursal.Location = new System.Drawing.Point(4, 27);
             this.tbpSucursal.Name = "tbpSucursal";
-            this.tbpSucursal.Size = new System.Drawing.Size(1151, 48);
+            this.tbpSucursal.Size = new System.Drawing.Size(1151, 546);
             this.tbpSucursal.TabIndex = 27;
             this.tbpSucursal.Text = "Sucursales";
             this.tbpSucursal.UseVisualStyleBackColor = true;
@@ -5736,7 +5715,7 @@
             this.pnlAddCertificado.Controls.Add(this.label198);
             this.pnlAddCertificado.Location = new System.Drawing.Point(158, 0);
             this.pnlAddCertificado.Name = "pnlAddCertificado";
-            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 546);
+            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 543);
             this.pnlAddCertificado.TabIndex = 136;
             this.pnlAddCertificado.Visible = false;
             // 
@@ -5753,6 +5732,7 @@
             // 
             // txtAddFolcerCertificados
             // 
+            this.txtAddFolcerCertificados.Enabled = false;
             this.txtAddFolcerCertificados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddFolcerCertificados.Location = new System.Drawing.Point(63, 96);
             this.txtAddFolcerCertificados.Name = "txtAddFolcerCertificados";
@@ -5871,6 +5851,7 @@
             // 
             // txtAddKey
             // 
+            this.txtAddKey.Enabled = false;
             this.txtAddKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddKey.Location = new System.Drawing.Point(63, 217);
             this.txtAddKey.Name = "txtAddKey";
@@ -5880,6 +5861,7 @@
             // 
             // txtAddCertificado
             // 
+            this.txtAddCertificado.Enabled = false;
             this.txtAddCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddCertificado.Location = new System.Drawing.Point(63, 156);
             this.txtAddCertificado.Name = "txtAddCertificado";
@@ -6105,6 +6087,7 @@
             this.txtAddPaiSucursal.TabIndex = 102;
             this.txtAddPaiSucursal.Text = "MEXICO";
             this.txtAddPaiSucursal.TextChanged += new System.EventHandler(this.txtAddPaiSucursal_TextChanged);
+            this.txtAddPaiSucursal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddPaiSucursal_KeyPress);
             // 
             // label150
             // 
@@ -6125,6 +6108,7 @@
             this.txtAddMunicipioSucursal.TabIndex = 96;
             this.txtAddMunicipioSucursal.Text = "HERMOSILLO";
             this.txtAddMunicipioSucursal.TextChanged += new System.EventHandler(this.txtAddMunicipioSucursal_TextChanged);
+            this.txtAddMunicipioSucursal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddMunicipioSucursal_KeyPress);
             // 
             // txtAddColoniaSucursal
             // 
@@ -6177,6 +6161,7 @@
             this.txtAddEstadoSucursal.TabIndex = 103;
             this.txtAddEstadoSucursal.Text = "SONORA";
             this.txtAddEstadoSucursal.TextChanged += new System.EventHandler(this.txtAddEstadoSucursal_TextChanged);
+            this.txtAddEstadoSucursal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddEstadoSucursal_KeyPress);
             // 
             // txtAddCalleSucursal
             // 
@@ -6187,6 +6172,7 @@
             this.txtAddCalleSucursal.TabIndex = 105;
             this.txtAddCalleSucursal.Text = "AVELARDO ZAMAROCOS";
             this.txtAddCalleSucursal.TextChanged += new System.EventHandler(this.txtAddCalleSucursal_TextChanged);
+            this.txtAddCalleSucursal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddCalleSucursal_KeyPress);
             // 
             // label149
             // 
@@ -6248,6 +6234,7 @@
             this.txtAddNumInteriorSucursal.TabIndex = 107;
             this.txtAddNumInteriorSucursal.Text = "171";
             this.txtAddNumInteriorSucursal.TextChanged += new System.EventHandler(this.txtAddNumInteriorSucursal_TextChanged);
+            this.txtAddNumInteriorSucursal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddNumInteriorSucursal_KeyPress);
             // 
             // txtAddnumExteriorSucursal
             // 
@@ -6257,6 +6244,7 @@
             this.txtAddnumExteriorSucursal.Size = new System.Drawing.Size(128, 24);
             this.txtAddnumExteriorSucursal.TabIndex = 108;
             this.txtAddnumExteriorSucursal.Text = "0";
+            this.txtAddnumExteriorSucursal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddnumExteriorSucursal_KeyPress);
             // 
             // pnlAddSucursalPreferenciaCertificado
             // 
@@ -6332,7 +6320,7 @@
             this.tbpActualizarSucursal.Controls.Add(this.pnlIUpdateSucursalPreferenciasCertificado);
             this.tbpActualizarSucursal.Location = new System.Drawing.Point(4, 27);
             this.tbpActualizarSucursal.Name = "tbpActualizarSucursal";
-            this.tbpActualizarSucursal.Size = new System.Drawing.Size(1151, 48);
+            this.tbpActualizarSucursal.Size = new System.Drawing.Size(1151, 546);
             this.tbpActualizarSucursal.TabIndex = 29;
             this.tbpActualizarSucursal.Text = "Actualizar Sucursal";
             this.tbpActualizarSucursal.UseVisualStyleBackColor = true;
@@ -6376,6 +6364,7 @@
             // 
             // txtUpdateFolderCertificados
             // 
+            this.txtUpdateFolderCertificados.Enabled = false;
             this.txtUpdateFolderCertificados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUpdateFolderCertificados.Location = new System.Drawing.Point(63, 96);
             this.txtUpdateFolderCertificados.Name = "txtUpdateFolderCertificados";
@@ -6422,6 +6411,7 @@
             // 
             // txtUpdateKey
             // 
+            this.txtUpdateKey.Enabled = false;
             this.txtUpdateKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUpdateKey.Location = new System.Drawing.Point(63, 217);
             this.txtUpdateKey.Name = "txtUpdateKey";
@@ -6431,6 +6421,7 @@
             // 
             // txtUpdateCertificado
             // 
+            this.txtUpdateCertificado.Enabled = false;
             this.txtUpdateCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUpdateCertificado.Location = new System.Drawing.Point(63, 156);
             this.txtUpdateCertificado.Name = "txtUpdateCertificado";
@@ -6542,7 +6533,7 @@
             this.pnlUpdatePreferencias.Controls.Add(this.btnUpdateExaminarLogoSucursal);
             this.pnlUpdatePreferencias.Location = new System.Drawing.Point(156, 0);
             this.pnlUpdatePreferencias.Name = "pnlUpdatePreferencias";
-            this.pnlUpdatePreferencias.Size = new System.Drawing.Size(997, 546);
+            this.pnlUpdatePreferencias.Size = new System.Drawing.Size(997, 550);
             this.pnlUpdatePreferencias.TabIndex = 139;
             this.pnlUpdatePreferencias.Visible = false;
             // 
@@ -6648,6 +6639,7 @@
             this.pnlUpdateSucursal.Name = "pnlUpdateSucursal";
             this.pnlUpdateSucursal.Size = new System.Drawing.Size(993, 546);
             this.pnlUpdateSucursal.TabIndex = 141;
+            this.pnlUpdateSucursal.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlUpdateSucursal_Paint);
             // 
             // cmbUpdateEmpresa
             // 
@@ -6728,6 +6720,7 @@
             this.txtUpdatePais.TabIndex = 102;
             this.txtUpdatePais.Text = "MEXICO";
             this.txtUpdatePais.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            this.txtUpdatePais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdatePais_KeyPress);
             // 
             // label174
             // 
@@ -6748,6 +6741,7 @@
             this.txtUpdateMunicipio.TabIndex = 96;
             this.txtUpdateMunicipio.Text = "HERMOSILLO";
             this.txtUpdateMunicipio.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
+            this.txtUpdateMunicipio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateMunicipio_KeyPress);
             // 
             // txtUpdateColonia
             // 
@@ -6798,6 +6792,7 @@
             this.txtUpdateEstado.TabIndex = 103;
             this.txtUpdateEstado.Text = "SONORA";
             this.txtUpdateEstado.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
+            this.txtUpdateEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateEstado_KeyPress);
             // 
             // txtUpdateCalle
             // 
@@ -6869,6 +6864,7 @@
             this.txtUpdateNoInterior.TabIndex = 107;
             this.txtUpdateNoInterior.Text = "171";
             this.txtUpdateNoInterior.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
+            this.txtUpdateNoInterior.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateNoInterior_KeyPress);
             // 
             // txtUpdateNoExterior
             // 
@@ -6879,6 +6875,7 @@
             this.txtUpdateNoExterior.TabIndex = 108;
             this.txtUpdateNoExterior.Text = "0";
             this.txtUpdateNoExterior.TextChanged += new System.EventHandler(this.textBox17_TextChanged);
+            this.txtUpdateNoExterior.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateNoExterior_KeyPress);
             // 
             // pnlIUpdateSucursalPreferenciasCertificado
             // 
@@ -7091,6 +7088,7 @@
             this.Controls.Add(this.tbcGeneral);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pictureBox1);
+            this.Enabled = false;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -7402,11 +7400,9 @@
         private System.Windows.Forms.TextBox txtLoteAddProd;
         private System.Windows.Forms.TextBox txtDescuentoProd;
         private System.Windows.Forms.DateTimePicker dtpFechaCaducidadProd;
-        private System.Windows.Forms.ComboBox cbxCategoriaAddProd;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox txtCostoAddProd;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.TextBox txtMarcaaddProd;
@@ -7437,7 +7433,6 @@
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Button btnUpdateExamProd;
         private System.Windows.Forms.PictureBox pcbUpdateImgProd;
-        private System.Windows.Forms.ComboBox cbxUpdateCataProd;
         private System.Windows.Forms.TextBox txtUpdateLoteProd;
         private System.Windows.Forms.TextBox txtUpdateDescProd;
         private System.Windows.Forms.DateTimePicker dtpUpdateFechaProd;
@@ -7445,7 +7440,6 @@
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.Label label63;
         private System.Windows.Forms.TextBox txtUpdateCostoProd;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.TextBox txtUpdateMarcProd;
