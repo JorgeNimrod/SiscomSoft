@@ -59,10 +59,11 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmCaja_Load(object sender, EventArgs e)
         {
+            
           //  pnlVenta.Visible = true;
-            //comotuquieras();
+          //comotuquieras();
 
-
+            /*
             int left = 550;
             int top = 60;
             List<Producto> productos  = ManejoProducto.getAll(true);
@@ -79,7 +80,7 @@ namespace SiscomSoft_Desktop.Views
                 }
                 this.Controls.Add(nControl);
                 
-            }
+            }*/
         }
     }
 }

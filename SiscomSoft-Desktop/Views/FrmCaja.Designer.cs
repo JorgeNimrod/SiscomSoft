@@ -56,7 +56,23 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMenu = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.pnlVenta.SuspendLayout();
+            this.pnlProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +80,15 @@
             // pnlVenta
             // 
             this.pnlVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlVenta.Controls.Add(this.button9);
+            this.pnlVenta.Controls.Add(this.button8);
+            this.pnlVenta.Controls.Add(this.button7);
+            this.pnlVenta.Controls.Add(this.button6);
+            this.pnlVenta.Controls.Add(this.button5);
+            this.pnlVenta.Controls.Add(this.button4);
+            this.pnlVenta.Controls.Add(this.button3);
+            this.pnlVenta.Controls.Add(this.button2);
+            this.pnlVenta.Controls.Add(this.button1);
             this.pnlVenta.Controls.Add(this.btnCancelar);
             this.pnlVenta.Controls.Add(this.btnPagar);
             this.pnlVenta.Controls.Add(this.label2);
@@ -84,9 +109,9 @@
             this.pnlVenta.Controls.Add(this.pnlProductos);
             this.pnlVenta.Controls.Add(this.dgvProductos);
             this.pnlVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlVenta.Location = new System.Drawing.Point(186, 50);
+            this.pnlVenta.Location = new System.Drawing.Point(12, 50);
             this.pnlVenta.Name = "pnlVenta";
-            this.pnlVenta.Size = new System.Drawing.Size(1172, 640);
+            this.pnlVenta.Size = new System.Drawing.Size(1346, 640);
             this.pnlVenta.TabIndex = 37;
             this.pnlVenta.Visible = false;
             this.pnlVenta.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCreateFactura_Paint);
@@ -129,14 +154,14 @@
             // 
             // txtBuscarProducto
             // 
-            this.txtBuscarProducto.Location = new System.Drawing.Point(546, 415);
+            this.txtBuscarProducto.Location = new System.Drawing.Point(839, 413);
             this.txtBuscarProducto.Name = "txtBuscarProducto";
-            this.txtBuscarProducto.Size = new System.Drawing.Size(501, 24);
+            this.txtBuscarProducto.Size = new System.Drawing.Size(498, 24);
             this.txtBuscarProducto.TabIndex = 20;
             // 
             // btnX
             // 
-            this.btnX.Location = new System.Drawing.Point(885, 582);
+            this.btnX.Location = new System.Drawing.Point(1175, 580);
             this.btnX.Name = "btnX";
             this.btnX.Size = new System.Drawing.Size(162, 40);
             this.btnX.TabIndex = 19;
@@ -145,7 +170,7 @@
             // 
             // btnNum9
             // 
-            this.btnNum9.Location = new System.Drawing.Point(885, 536);
+            this.btnNum9.Location = new System.Drawing.Point(1175, 534);
             this.btnNum9.Name = "btnNum9";
             this.btnNum9.Size = new System.Drawing.Size(162, 40);
             this.btnNum9.TabIndex = 18;
@@ -154,7 +179,7 @@
             // 
             // btnNum6
             // 
-            this.btnNum6.Location = new System.Drawing.Point(885, 490);
+            this.btnNum6.Location = new System.Drawing.Point(1175, 488);
             this.btnNum6.Name = "btnNum6";
             this.btnNum6.Size = new System.Drawing.Size(162, 40);
             this.btnNum6.TabIndex = 17;
@@ -163,7 +188,7 @@
             // 
             // btnNum3
             // 
-            this.btnNum3.Location = new System.Drawing.Point(885, 444);
+            this.btnNum3.Location = new System.Drawing.Point(1175, 442);
             this.btnNum3.Name = "btnNum3";
             this.btnNum3.Size = new System.Drawing.Size(162, 40);
             this.btnNum3.TabIndex = 16;
@@ -172,7 +197,7 @@
             // 
             // btnNum0
             // 
-            this.btnNum0.Location = new System.Drawing.Point(717, 582);
+            this.btnNum0.Location = new System.Drawing.Point(1007, 580);
             this.btnNum0.Name = "btnNum0";
             this.btnNum0.Size = new System.Drawing.Size(162, 40);
             this.btnNum0.TabIndex = 15;
@@ -181,7 +206,7 @@
             // 
             // btnNum8
             // 
-            this.btnNum8.Location = new System.Drawing.Point(717, 536);
+            this.btnNum8.Location = new System.Drawing.Point(1007, 534);
             this.btnNum8.Name = "btnNum8";
             this.btnNum8.Size = new System.Drawing.Size(162, 40);
             this.btnNum8.TabIndex = 14;
@@ -190,7 +215,7 @@
             // 
             // btnNum5
             // 
-            this.btnNum5.Location = new System.Drawing.Point(717, 490);
+            this.btnNum5.Location = new System.Drawing.Point(1007, 488);
             this.btnNum5.Name = "btnNum5";
             this.btnNum5.Size = new System.Drawing.Size(162, 42);
             this.btnNum5.TabIndex = 13;
@@ -199,7 +224,7 @@
             // 
             // btnNum2
             // 
-            this.btnNum2.Location = new System.Drawing.Point(717, 444);
+            this.btnNum2.Location = new System.Drawing.Point(1007, 442);
             this.btnNum2.Name = "btnNum2";
             this.btnNum2.Size = new System.Drawing.Size(162, 40);
             this.btnNum2.TabIndex = 12;
@@ -208,7 +233,7 @@
             // 
             // btnPunto
             // 
-            this.btnPunto.Location = new System.Drawing.Point(549, 582);
+            this.btnPunto.Location = new System.Drawing.Point(839, 580);
             this.btnPunto.Name = "btnPunto";
             this.btnPunto.Size = new System.Drawing.Size(162, 40);
             this.btnPunto.TabIndex = 11;
@@ -217,7 +242,7 @@
             // 
             // btnNum7
             // 
-            this.btnNum7.Location = new System.Drawing.Point(549, 536);
+            this.btnNum7.Location = new System.Drawing.Point(839, 534);
             this.btnNum7.Name = "btnNum7";
             this.btnNum7.Size = new System.Drawing.Size(162, 40);
             this.btnNum7.TabIndex = 10;
@@ -226,7 +251,7 @@
             // 
             // btnNum4
             // 
-            this.btnNum4.Location = new System.Drawing.Point(549, 490);
+            this.btnNum4.Location = new System.Drawing.Point(839, 488);
             this.btnNum4.Name = "btnNum4";
             this.btnNum4.Size = new System.Drawing.Size(162, 40);
             this.btnNum4.TabIndex = 9;
@@ -236,7 +261,7 @@
             // btnNum1
             // 
             this.btnNum1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnNum1.Location = new System.Drawing.Point(549, 444);
+            this.btnNum1.Location = new System.Drawing.Point(839, 442);
             this.btnNum1.Name = "btnNum1";
             this.btnNum1.Size = new System.Drawing.Size(162, 40);
             this.btnNum1.TabIndex = 3;
@@ -245,9 +270,15 @@
             // 
             // pnlProductos
             // 
-            this.pnlProductos.Location = new System.Drawing.Point(504, 7);
+            this.pnlProductos.Controls.Add(this.button15);
+            this.pnlProductos.Controls.Add(this.button14);
+            this.pnlProductos.Controls.Add(this.button13);
+            this.pnlProductos.Controls.Add(this.button12);
+            this.pnlProductos.Controls.Add(this.button11);
+            this.pnlProductos.Controls.Add(this.button10);
+            this.pnlProductos.Location = new System.Drawing.Point(839, 3);
             this.pnlProductos.Name = "pnlProductos";
-            this.pnlProductos.Size = new System.Drawing.Size(663, 384);
+            this.pnlProductos.Size = new System.Drawing.Size(498, 404);
             this.pnlProductos.TabIndex = 2;
             // 
             // dgvProductos
@@ -328,11 +359,146 @@
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(611, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(222, 60);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Pagar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(611, 73);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(222, 60);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Pagar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(611, 139);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(222, 60);
+            this.button3.TabIndex = 27;
+            this.button3.Text = "Pagar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(611, 205);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(222, 60);
+            this.button4.TabIndex = 28;
+            this.button4.Text = "Pagar";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(611, 271);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(222, 60);
+            this.button5.TabIndex = 29;
+            this.button5.Text = "Pagar";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(611, 337);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(222, 60);
+            this.button6.TabIndex = 30;
+            this.button6.Text = "Pagar";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(611, 403);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(222, 60);
+            this.button7.TabIndex = 31;
+            this.button7.Text = "Pagar";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(611, 469);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(222, 60);
+            this.button8.TabIndex = 32;
+            this.button8.Text = "Pagar";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(611, 535);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(222, 60);
+            this.button9.TabIndex = 33;
+            this.button9.Text = "Pagar";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(3, 4);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(222, 126);
+            this.button10.TabIndex = 34;
+            this.button10.Text = "Pagar";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(3, 136);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(222, 126);
+            this.button11.TabIndex = 35;
+            this.button11.Text = "Pagar";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(231, 4);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(222, 126);
+            this.button12.TabIndex = 36;
+            this.button12.Text = "Pagar";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(3, 268);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(222, 126);
+            this.button13.TabIndex = 37;
+            this.button13.Text = "Pagar";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(231, 136);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(222, 126);
+            this.button14.TabIndex = 38;
+            this.button14.Text = "Pagar";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(231, 268);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(222, 126);
+            this.button15.TabIndex = 39;
+            this.button15.Text = "Pagar";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
             // FrmCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 750);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.pnlVenta);
             this.Controls.Add(this.lblFecha);
@@ -344,6 +510,7 @@
             this.Load += new System.EventHandler(this.FrmCaja_Load);
             this.pnlVenta.ResumeLayout(false);
             this.pnlVenta.PerformLayout();
+            this.pnlProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -379,5 +546,20 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button10;
     }
 }
