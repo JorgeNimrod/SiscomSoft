@@ -21,6 +21,10 @@ namespace SiscomSoft_Desktop.Views
 
     public partial class FrmAdministrador : Form
     {
+   
+
+
+
         Boolean flagRol = false;
         Boolean flagUsuario = false;
         Boolean flagProducto = false;
@@ -1477,9 +1481,7 @@ namespace SiscomSoft_Desktop.Views
 
             
                 int fkCatalogo = Convert.ToInt32(cbxCatalogoAddProd.SelectedValue.ToString());
-
-
-                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, nCategoria.pkCategoria, fkCatalogo);
+ ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, nCategoria.pkCategoria, fkCatalogo);
 
                 MessageBox.Show("¡Producto Registrado!");
                 txtDescripcionAddProd.Clear();
@@ -2752,7 +2754,7 @@ namespace SiscomSoft_Desktop.Views
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoCliente.Eliminar(Convert.ToInt32(dgvDatosCliente.CurrentRow.Cells[0].Value));
-                    cargarRoles();
+                    cargarClientes();
                 }
             }
         }
@@ -5136,6 +5138,43 @@ namespace SiscomSoft_Desktop.Views
         private void cmbUpdateCodigoPostalEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
+        }
+
+        private void txtUpdateNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+             && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void cbxRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateCostoProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void tbpAddProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvDatosCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

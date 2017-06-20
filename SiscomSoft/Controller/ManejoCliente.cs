@@ -49,7 +49,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     Cliente nCliente = ManejoCliente.getById(pkCliente);
-                    nCliente.iStatus = 1;
+                    nCliente.iStatus = 2;
 
                     ctx.Entry(nCliente).State = EntityState.Modified;
                     ctx.SaveChanges();
