@@ -29,21 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleVenta));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlGeneral = new System.Windows.Forms.Panel();
+            this.PnlCategorias = new System.Windows.Forms.Panel();
             this.btnPagar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDetalleProductos = new System.Windows.Forms.DataGridView();
-            this.pkProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlProductos = new System.Windows.Forms.Panel();
-            this.txtBuscarProducto = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.btnX = new System.Windows.Forms.Button();
             this.btnNum9 = new System.Windows.Forms.Button();
             this.btnNum6 = new System.Windows.Forms.Button();
@@ -58,7 +60,13 @@
             this.btnNum1 = new System.Windows.Forms.Button();
             this.btnMainMenu = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.PnlCategorias = new System.Windows.Forms.Panel();
+            this.pkProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleProductos)).BeginInit();
@@ -85,7 +93,7 @@
             this.pnlGeneral.Controls.Add(this.label1);
             this.pnlGeneral.Controls.Add(this.dgvDetalleProductos);
             this.pnlGeneral.Controls.Add(this.pnlProductos);
-            this.pnlGeneral.Controls.Add(this.txtBuscarProducto);
+            this.pnlGeneral.Controls.Add(this.txtCantidad);
             this.pnlGeneral.Controls.Add(this.btnX);
             this.pnlGeneral.Controls.Add(this.btnNum9);
             this.pnlGeneral.Controls.Add(this.btnNum6);
@@ -102,6 +110,14 @@
             this.pnlGeneral.Name = "pnlGeneral";
             this.pnlGeneral.Size = new System.Drawing.Size(1326, 624);
             this.pnlGeneral.TabIndex = 35;
+            // 
+            // PnlCategorias
+            // 
+            this.PnlCategorias.AutoScroll = true;
+            this.PnlCategorias.Location = new System.Drawing.Point(563, 3);
+            this.PnlCategorias.Name = "PnlCategorias";
+            this.PnlCategorias.Size = new System.Drawing.Size(254, 613);
+            this.PnlCategorias.TabIndex = 66;
             // 
             // btnPagar
             // 
@@ -166,6 +182,7 @@
             this.sMarca,
             this.sDescripcion,
             this.iCantidad,
+            this.Subtotal,
             this.dCosto});
             this.dgvDetalleProductos.Location = new System.Drawing.Point(3, 3);
             this.dgvDetalleProductos.Name = "dgvDetalleProductos";
@@ -175,64 +192,23 @@
             this.dgvDetalleProductos.Size = new System.Drawing.Size(554, 478);
             this.dgvDetalleProductos.TabIndex = 61;
             // 
-            // pkProducto
-            // 
-            this.pkProducto.DataPropertyName = "pkProducto";
-            this.pkProducto.HeaderText = "No.";
-            this.pkProducto.Name = "pkProducto";
-            this.pkProducto.ReadOnly = true;
-            this.pkProducto.Visible = false;
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Codigo";
-            this.iClaveProd.Name = "iClaveProd";
-            this.iClaveProd.ReadOnly = true;
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            this.sMarca.ReadOnly = true;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            this.sDescripcion.Width = 150;
-            // 
-            // iCantidad
-            // 
-            this.iCantidad.HeaderText = "Cantidad";
-            this.iCantidad.Name = "iCantidad";
-            this.iCantidad.ReadOnly = true;
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
-            // 
             // pnlProductos
             // 
+            this.pnlProductos.AccessibleDescription = "a";
+            this.pnlProductos.AccessibleName = "b";
             this.pnlProductos.AutoScroll = true;
             this.pnlProductos.Location = new System.Drawing.Point(823, 3);
             this.pnlProductos.Name = "pnlProductos";
             this.pnlProductos.Size = new System.Drawing.Size(498, 395);
             this.pnlProductos.TabIndex = 59;
             // 
-            // txtBuscarProducto
+            // txtCantidad
             // 
-            this.txtBuscarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarProducto.Location = new System.Drawing.Point(823, 404);
-            this.txtBuscarProducto.Name = "txtBuscarProducto";
-            this.txtBuscarProducto.Size = new System.Drawing.Size(498, 31);
-            this.txtBuscarProducto.TabIndex = 58;
+            this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidad.Location = new System.Drawing.Point(823, 404);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(498, 31);
+            this.txtCantidad.TabIndex = 58;
             // 
             // btnX
             // 
@@ -259,6 +235,7 @@
             this.btnNum9.TabIndex = 56;
             this.btnNum9.Text = "9";
             this.btnNum9.UseVisualStyleBackColor = false;
+            this.btnNum9.Click += new System.EventHandler(this.btnNum9_Click);
             // 
             // btnNum6
             // 
@@ -272,6 +249,7 @@
             this.btnNum6.TabIndex = 55;
             this.btnNum6.Text = "6";
             this.btnNum6.UseVisualStyleBackColor = false;
+            this.btnNum6.Click += new System.EventHandler(this.btnNum6_Click);
             // 
             // btnNum3
             // 
@@ -285,6 +263,7 @@
             this.btnNum3.TabIndex = 54;
             this.btnNum3.Text = "3";
             this.btnNum3.UseVisualStyleBackColor = false;
+            this.btnNum3.Click += new System.EventHandler(this.btnNum3_Click);
             // 
             // btnNum0
             // 
@@ -298,6 +277,7 @@
             this.btnNum0.TabIndex = 53;
             this.btnNum0.Text = "0";
             this.btnNum0.UseVisualStyleBackColor = false;
+            this.btnNum0.Click += new System.EventHandler(this.btnNum0_Click);
             // 
             // btnNum8
             // 
@@ -311,6 +291,7 @@
             this.btnNum8.TabIndex = 52;
             this.btnNum8.Text = "8";
             this.btnNum8.UseVisualStyleBackColor = false;
+            this.btnNum8.Click += new System.EventHandler(this.btnNum8_Click);
             // 
             // btnNum5
             // 
@@ -324,6 +305,7 @@
             this.btnNum5.TabIndex = 51;
             this.btnNum5.Text = "5";
             this.btnNum5.UseVisualStyleBackColor = false;
+            this.btnNum5.Click += new System.EventHandler(this.btnNum5_Click);
             // 
             // btnNum2
             // 
@@ -337,6 +319,7 @@
             this.btnNum2.TabIndex = 50;
             this.btnNum2.Text = "2";
             this.btnNum2.UseVisualStyleBackColor = false;
+            this.btnNum2.Click += new System.EventHandler(this.btnNum2_Click);
             // 
             // btnPunto
             // 
@@ -363,6 +346,7 @@
             this.btnNum7.TabIndex = 48;
             this.btnNum7.Text = "7";
             this.btnNum7.UseVisualStyleBackColor = false;
+            this.btnNum7.Click += new System.EventHandler(this.btnNum7_Click);
             // 
             // btnNum4
             // 
@@ -376,6 +360,7 @@
             this.btnNum4.TabIndex = 47;
             this.btnNum4.Text = "4";
             this.btnNum4.UseVisualStyleBackColor = false;
+            this.btnNum4.Click += new System.EventHandler(this.btnNum4_Click);
             // 
             // btnNum1
             // 
@@ -390,6 +375,7 @@
             this.btnNum1.TabIndex = 46;
             this.btnNum1.Text = "1";
             this.btnNum1.UseVisualStyleBackColor = false;
+            this.btnNum1.Click += new System.EventHandler(this.btnNum1_Click);
             // 
             // btnMainMenu
             // 
@@ -418,13 +404,69 @@
             this.lblFecha.TabIndex = 37;
             this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
             // 
-            // PnlCategorias
+            // pkProducto
             // 
-            this.PnlCategorias.AutoScroll = true;
-            this.PnlCategorias.Location = new System.Drawing.Point(563, 3);
-            this.PnlCategorias.Name = "PnlCategorias";
-            this.PnlCategorias.Size = new System.Drawing.Size(254, 613);
-            this.PnlCategorias.TabIndex = 66;
+            this.pkProducto.DataPropertyName = "pkProducto";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.pkProducto.DefaultCellStyle = dataGridViewCellStyle1;
+            this.pkProducto.HeaderText = "No.";
+            this.pkProducto.Name = "pkProducto";
+            this.pkProducto.ReadOnly = true;
+            this.pkProducto.Visible = false;
+            // 
+            // iClaveProd
+            // 
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.iClaveProd.DefaultCellStyle = dataGridViewCellStyle2;
+            this.iClaveProd.HeaderText = "Codigo";
+            this.iClaveProd.Name = "iClaveProd";
+            this.iClaveProd.ReadOnly = true;
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sMarca.DefaultCellStyle = dataGridViewCellStyle3;
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            this.sMarca.ReadOnly = true;
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle4;
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
+            this.sDescripcion.Width = 150;
+            // 
+            // iCantidad
+            // 
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.iCantidad.DefaultCellStyle = dataGridViewCellStyle5;
+            this.iCantidad.HeaderText = "Cantidad";
+            this.iCantidad.Name = "iCantidad";
+            this.iCantidad.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.Subtotal.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dCosto.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
+            this.dCosto.Visible = false;
             // 
             // FrmDetalleVenta
             // 
@@ -457,8 +499,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlGeneral;
         private System.Windows.Forms.Button btnMainMenu;
-        private System.Windows.Forms.Panel pnlProductos;
-        private System.Windows.Forms.TextBox txtBuscarProducto;
+        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Button btnX;
         private System.Windows.Forms.Button btnNum9;
         private System.Windows.Forms.Button btnNum6;
@@ -474,15 +515,17 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvDetalleProductos;
+        private System.Windows.Forms.Button btnPagar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Panel PnlCategorias;
+        public System.Windows.Forms.Panel pnlProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
         private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn iCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.Button btnPagar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Panel PnlCategorias;
     }
 }

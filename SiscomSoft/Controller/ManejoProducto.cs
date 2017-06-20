@@ -167,7 +167,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Productos.Where(r=>r.fkCategoria.pkCategoria == nCategoria.pkCategoria).ToList();
+                    return ctx.Productos.Where(r=>r.fkCategoria.pkCategoria == nCategoria.pkCategoria && r.bStatus == true).ToList();
                 }
             }
             catch (Exception)

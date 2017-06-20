@@ -18,16 +18,23 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
     {
         Producto nProducto;
         public static int pkProductoUI;
-        public ucImagenProducto(Producto ucProducto)
+        FrmDetalleVenta vMain;
+        public ucImagenProducto(Producto ucProducto, FrmDetalleVenta vmain)
         {
             InitializeComponent();
             nProducto = ucProducto;
+            vMain = vmain;
         }
 
         private void ucImagenProducto_Load(object sender, EventArgs e)
         {
             pcbImagen.Image = ToolImagen.Base64StringToBitmap(nProducto.sFoto);
+        }
+
+        private void pcbImagen_Click(object sender, EventArgs e)
+        {
             pkProductoUI = nProducto.pkProducto;
+            vMain.cargarDetalleVenta(pkProductoUI);
         }
     }
 }

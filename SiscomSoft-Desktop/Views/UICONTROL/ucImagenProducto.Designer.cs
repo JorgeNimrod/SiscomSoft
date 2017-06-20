@@ -34,13 +34,15 @@
             // 
             // pcbImagen
             // 
+            this.pcbImagen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcbImagen.Location = new System.Drawing.Point(0, 0);
             this.pcbImagen.Name = "pcbImagen";
-            this.pcbImagen.Size = new System.Drawing.Size(120, 120);
+            this.pcbImagen.Size = new System.Drawing.Size(110, 110);
             this.pcbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbImagen.TabIndex = 0;
             this.pcbImagen.TabStop = false;
             this.pcbImagen.WaitOnLoad = true;
+            this.pcbImagen.Click += new System.EventHandler(this.pcbImagen_Click);
             // 
             // ucImagenProducto
             // 
@@ -48,7 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pcbImagen);
             this.Name = "ucImagenProducto";
-            this.Size = new System.Drawing.Size(120, 120);
+            this.Size = new System.Drawing.Size(110, 110);
             this.Load += new System.EventHandler(this.ucImagenProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbImagen)).EndInit();
             this.ResumeLayout(false);
