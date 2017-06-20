@@ -33,13 +33,13 @@
             // 
             // btnCategoria
             // 
-            this.btnCategoria.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnCategoria.BackColor = System.Drawing.Color.DarkOrange;
             this.btnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategoria.ForeColor = System.Drawing.Color.White;
             this.btnCategoria.Location = new System.Drawing.Point(0, 0);
             this.btnCategoria.Name = "btnCategoria";
-            this.btnCategoria.Size = new System.Drawing.Size(181, 87);
+            this.btnCategoria.Size = new System.Drawing.Size(254, 87);
             this.btnCategoria.TabIndex = 40;
             this.btnCategoria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCategoria.UseVisualStyleBackColor = false;
@@ -50,7 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnCategoria);
             this.Name = "ucListaCategoria";
-            this.Size = new System.Drawing.Size(181, 87);
+            this.Size = new System.Drawing.Size(254, 87);
             this.Load += new System.EventHandler(this.ucListaCategoria_Load);
             this.ResumeLayout(false);
 
