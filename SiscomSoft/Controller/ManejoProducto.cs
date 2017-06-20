@@ -161,7 +161,21 @@ namespace SiscomSoft.Controller
             }
         }
 
+        public static List<Producto> BuscarProductoCategoria(Categoria nCategoria)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Productos.Where(r=>r.fkCategoria.pkCategoria == nCategoria.pkCategoria).ToList();
+                }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
 
     }
 }

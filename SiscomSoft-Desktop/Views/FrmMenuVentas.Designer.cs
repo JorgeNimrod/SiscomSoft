@@ -111,6 +111,7 @@
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(125, 37);
             this.btnMenu.TabIndex = 23;
+            this.btnMenu.Text = "Menu principal";
             this.btnMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);

@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCategoria = new System.Windows.Forms.Button();
+            this.btnCategorias = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnCategoria
+            // btnCategorias
             // 
-            this.btnCategoria.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategoria.ForeColor = System.Drawing.Color.White;
-            this.btnCategoria.Location = new System.Drawing.Point(0, 0);
-            this.btnCategoria.Name = "btnCategoria";
-            this.btnCategoria.Size = new System.Drawing.Size(254, 87);
-            this.btnCategoria.TabIndex = 40;
-            this.btnCategoria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCategoria.UseVisualStyleBackColor = false;
+            this.btnCategorias.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategorias.ForeColor = System.Drawing.Color.White;
+            this.btnCategorias.Location = new System.Drawing.Point(0, 0);
+            this.btnCategorias.Name = "btnCategorias";
+            this.btnCategorias.Size = new System.Drawing.Size(231, 67);
+            this.btnCategorias.TabIndex = 0;
+            this.btnCategorias.UseVisualStyleBackColor = false;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
             // ucListaCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnCategoria);
+            this.Controls.Add(this.btnCategorias);
             this.Name = "ucListaCategoria";
-            this.Size = new System.Drawing.Size(254, 87);
+            this.Size = new System.Drawing.Size(232, 67);
             this.Load += new System.EventHandler(this.ucListaCategoria_Load);
             this.ResumeLayout(false);
 
@@ -58,6 +58,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnCategoria;
+        private System.Windows.Forms.Button btnCategorias;
     }
 }
