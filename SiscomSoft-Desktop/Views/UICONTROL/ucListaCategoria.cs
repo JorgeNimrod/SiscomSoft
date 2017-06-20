@@ -15,19 +15,23 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 {
     public partial class ucListaCategoria : UserControl
     {
-        Categoria nCategoria;
         public static int pkCategoriaUI;
+        Categoria vCategoria;
 
-        public ucListaCategoria(Categoria uiCategoria)
+        public ucListaCategoria(Categoria ucCategoria)
         {
             InitializeComponent();
-            nCategoria = uiCategoria;
+            vCategoria = ucCategoria;
         }
 
         private void ucListaCategoria_Load(object sender, EventArgs e)
         {
-            btnCategoria.Text = nCategoria.sNombre;
-            pkCategoriaUI = nCategoria.pkCategoria;
+            btnCategorias.Text = vCategoria.sNombre;
+            pkCategoriaUI = vCategoria.pkCategoria;
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
         }
     }
 }

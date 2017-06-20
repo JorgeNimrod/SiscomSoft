@@ -1,6 +1,6 @@
-﻿namespace SiscomSoft_Desktop.Views
+﻿namespace SiscomSoft_Desktop.Views.UICONTROL
 {
-    partial class UcProducto
+    partial class ucImagenProducto
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,36 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pcbImgProducto = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbImgProducto)).BeginInit();
+            this.pcbImagen = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImagen)).BeginInit();
             this.SuspendLayout();
             // 
-            // pcbImgProducto
+            // pcbImagen
             // 
-            this.pcbImgProducto.Location = new System.Drawing.Point(0, 0);
-            this.pcbImgProducto.Name = "pcbImgProducto";
-            this.pcbImgProducto.Size = new System.Drawing.Size(101, 86);
-            this.pcbImgProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbImgProducto.TabIndex = 0;
-            this.pcbImgProducto.TabStop = false;
-            this.pcbImgProducto.Click += new System.EventHandler(this.pcbImgProducto_Click);
-            this.pcbImgProducto.DoubleClick += new System.EventHandler(this.pcbImgProducto_DoubleClick);
+            this.pcbImagen.Location = new System.Drawing.Point(0, 0);
+            this.pcbImagen.Name = "pcbImagen";
+            this.pcbImagen.Size = new System.Drawing.Size(120, 120);
+            this.pcbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbImagen.TabIndex = 0;
+            this.pcbImagen.TabStop = false;
+            this.pcbImagen.WaitOnLoad = true;
             // 
-            // UcProducto
+            // ucImagenProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pcbImgProducto);
-            this.Name = "UcProducto";
-            this.Size = new System.Drawing.Size(102, 87);
-            this.Load += new System.EventHandler(this.UcProducto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pcbImgProducto)).EndInit();
+            this.Controls.Add(this.pcbImagen);
+            this.Name = "ucImagenProducto";
+            this.Size = new System.Drawing.Size(120, 120);
+            this.Load += new System.EventHandler(this.ucImagenProducto_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImagen)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pcbImgProducto;
+        private System.Windows.Forms.PictureBox pcbImagen;
     }
 }

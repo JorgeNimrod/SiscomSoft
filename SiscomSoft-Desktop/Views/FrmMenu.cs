@@ -94,9 +94,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmMenuVentas sale = new FrmMenuVentas();
-            sale.ShowDialog();
+            
         }
     }
 }

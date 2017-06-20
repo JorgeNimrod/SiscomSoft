@@ -92,49 +92,7 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpVenta);
 
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
-            /*
-            int left = 550;
-            int top = 60;
-            List<Producto> productos = ManejoProducto.getAll(true);
-            foreach (Producto item in productos)
-            {
-               
-                Views.UcProducto nControl = new Views.UcProducto(item);
-                nControl.Left = left;
-                nControl.Top = top;
-                left += nControl.Width + 10;
-                if ((left + nControl.Width) > this.Width)
-                {
-                    top += 10 + nControl.Height;
-                    left = 10;
-                }
-                this.Controls.Add(nControl);
-                UcPanel nPanel = new UcPanel();
-                nPanel.Left = left;
-                nPanel.Top = top;
-                left += nPanel.Width + 10;
-                if ((left + nPanel.Width) > this.Width)
-                {
-                    top += 10 + nPanel.Height;
-                    left = 10;
-                }
-                this.Controls.Add(nControl);
-                UcPanel nPanele = new UcPanel();
-                nPanele.Left = left;
-                nPanele.Top = top;
-                left += nPanele.Width + 10;
-                if ((left + nPanele.Width) > this.Width)
-                {
-                    top += 10 + nPanele.Height;
-                    left = 10;
-                }
-              
-
-
-
-            }
-
-    */
+            
 
         }
 
@@ -163,6 +121,7 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
+
         public void RealizarBusqueda(string pkCodigo)
         {
             Producto nProducto = ManejoProducto.getById(Convert.ToInt32(pkCodigo));
@@ -183,7 +142,6 @@ namespace SiscomSoft_Desktop.Views
             }
             txtBuscarProducto.Clear();
         }
-
 
         private void txtBuscarProducto_KeyDown(object sender, KeyEventArgs e)
         {

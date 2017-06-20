@@ -20,7 +20,7 @@ namespace SiscomSoft_Desktop.Views
         public void venta()
         {
             this.Close();
-            FrmVenta v = new FrmVenta();
+            FrmDetalleVenta v = new FrmDetalleVenta();
             v.Show();
         }
 
