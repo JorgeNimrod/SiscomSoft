@@ -94,5 +94,19 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+        public static List<Precio> BuscarporPrecio(int pkPrecio)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Precios.Where(r => r.iPrePorcen  == pkPrecio).ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

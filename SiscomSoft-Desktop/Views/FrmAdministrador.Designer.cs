@@ -1238,32 +1238,38 @@
             // 
             // btnRegistrarImpuesto
             // 
-            this.btnRegistrarImpuesto.Location = new System.Drawing.Point(563, 30);
+            this.btnRegistrarImpuesto.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnRegistrarImpuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarImpuesto.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_note_add_white_24dp_2x;
+            this.btnRegistrarImpuesto.Location = new System.Drawing.Point(563, 32);
             this.btnRegistrarImpuesto.Name = "btnRegistrarImpuesto";
-            this.btnRegistrarImpuesto.Size = new System.Drawing.Size(143, 41);
+            this.btnRegistrarImpuesto.Size = new System.Drawing.Size(143, 59);
             this.btnRegistrarImpuesto.TabIndex = 87;
-            this.btnRegistrarImpuesto.Text = "Registrar Impuesto";
-            this.btnRegistrarImpuesto.UseVisualStyleBackColor = true;
+            this.btnRegistrarImpuesto.UseVisualStyleBackColor = false;
             this.btnRegistrarImpuesto.Click += new System.EventHandler(this.btnRegistrarImpuesto_Click);
             // 
             // btnActualizarImpuesto
             // 
-            this.btnActualizarImpuesto.Location = new System.Drawing.Point(563, 77);
+            this.btnActualizarImpuesto.BackColor = System.Drawing.Color.Gold;
+            this.btnActualizarImpuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarImpuesto.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_update_white_24dp_2x;
+            this.btnActualizarImpuesto.Location = new System.Drawing.Point(563, 100);
             this.btnActualizarImpuesto.Name = "btnActualizarImpuesto";
-            this.btnActualizarImpuesto.Size = new System.Drawing.Size(143, 41);
+            this.btnActualizarImpuesto.Size = new System.Drawing.Size(143, 59);
             this.btnActualizarImpuesto.TabIndex = 85;
-            this.btnActualizarImpuesto.Text = "Actualizar Impuesto";
-            this.btnActualizarImpuesto.UseVisualStyleBackColor = true;
+            this.btnActualizarImpuesto.UseVisualStyleBackColor = false;
             this.btnActualizarImpuesto.Click += new System.EventHandler(this.btnActualizarImpuesto_Click);
             // 
             // btnBorrarImpuesto
             // 
-            this.btnBorrarImpuesto.Location = new System.Drawing.Point(563, 124);
+            this.btnBorrarImpuesto.BackColor = System.Drawing.Color.DarkRed;
+            this.btnBorrarImpuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrarImpuesto.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_delete_forever_white_24dp_2x;
+            this.btnBorrarImpuesto.Location = new System.Drawing.Point(563, 165);
             this.btnBorrarImpuesto.Name = "btnBorrarImpuesto";
-            this.btnBorrarImpuesto.Size = new System.Drawing.Size(143, 41);
+            this.btnBorrarImpuesto.Size = new System.Drawing.Size(143, 59);
             this.btnBorrarImpuesto.TabIndex = 86;
-            this.btnBorrarImpuesto.Text = "Borrar Impuesto";
-            this.btnBorrarImpuesto.UseVisualStyleBackColor = true;
+            this.btnBorrarImpuesto.UseVisualStyleBackColor = false;
             this.btnBorrarImpuesto.Click += new System.EventHandler(this.btnBorrarImpuesto_Click);
             // 
             // dgvDatosImpuesto
@@ -1375,32 +1381,38 @@
             // 
             // btnRegistrarCategoria
             // 
+            this.btnRegistrarCategoria.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnRegistrarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarCategoria.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_note_add_white_24dp_2x;
             this.btnRegistrarCategoria.Location = new System.Drawing.Point(613, 32);
             this.btnRegistrarCategoria.Name = "btnRegistrarCategoria";
-            this.btnRegistrarCategoria.Size = new System.Drawing.Size(143, 41);
+            this.btnRegistrarCategoria.Size = new System.Drawing.Size(143, 60);
             this.btnRegistrarCategoria.TabIndex = 84;
-            this.btnRegistrarCategoria.Text = "Registrar Categoria";
-            this.btnRegistrarCategoria.UseVisualStyleBackColor = true;
+            this.btnRegistrarCategoria.UseVisualStyleBackColor = false;
             this.btnRegistrarCategoria.Click += new System.EventHandler(this.btnRegistrarCategoria_Click);
             // 
             // btnActualizarCategoria
             // 
-            this.btnActualizarCategoria.Location = new System.Drawing.Point(613, 79);
+            this.btnActualizarCategoria.BackColor = System.Drawing.Color.Gold;
+            this.btnActualizarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarCategoria.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_update_white_24dp_2x;
+            this.btnActualizarCategoria.Location = new System.Drawing.Point(613, 98);
             this.btnActualizarCategoria.Name = "btnActualizarCategoria";
-            this.btnActualizarCategoria.Size = new System.Drawing.Size(143, 41);
+            this.btnActualizarCategoria.Size = new System.Drawing.Size(143, 60);
             this.btnActualizarCategoria.TabIndex = 82;
-            this.btnActualizarCategoria.Text = "Actualizar Categoria";
-            this.btnActualizarCategoria.UseVisualStyleBackColor = true;
+            this.btnActualizarCategoria.UseVisualStyleBackColor = false;
             this.btnActualizarCategoria.Click += new System.EventHandler(this.btnActualizarCategoria_Click);
             // 
             // btnBorrarCategoria
             // 
-            this.btnBorrarCategoria.Location = new System.Drawing.Point(613, 126);
+            this.btnBorrarCategoria.BackColor = System.Drawing.Color.DarkRed;
+            this.btnBorrarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrarCategoria.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_delete_forever_white_24dp_2x;
+            this.btnBorrarCategoria.Location = new System.Drawing.Point(613, 164);
             this.btnBorrarCategoria.Name = "btnBorrarCategoria";
-            this.btnBorrarCategoria.Size = new System.Drawing.Size(143, 41);
+            this.btnBorrarCategoria.Size = new System.Drawing.Size(143, 60);
             this.btnBorrarCategoria.TabIndex = 83;
-            this.btnBorrarCategoria.Text = "Borrar Categoria";
-            this.btnBorrarCategoria.UseVisualStyleBackColor = true;
+            this.btnBorrarCategoria.UseVisualStyleBackColor = false;
             this.btnBorrarCategoria.Click += new System.EventHandler(this.btnBorrarCategoria_Click);
             // 
             // lblRegistroCat
@@ -1505,32 +1517,38 @@
             // 
             // btnRegistrarUsuario
             // 
-            this.btnRegistrarUsuario.Location = new System.Drawing.Point(715, 33);
+            this.btnRegistrarUsuario.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnRegistrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarUsuario.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_note_add_white_24dp_2x;
+            this.btnRegistrarUsuario.Location = new System.Drawing.Point(715, 35);
             this.btnRegistrarUsuario.Name = "btnRegistrarUsuario";
-            this.btnRegistrarUsuario.Size = new System.Drawing.Size(143, 41);
+            this.btnRegistrarUsuario.Size = new System.Drawing.Size(143, 57);
             this.btnRegistrarUsuario.TabIndex = 81;
-            this.btnRegistrarUsuario.Text = "Registrar Usuario";
-            this.btnRegistrarUsuario.UseVisualStyleBackColor = true;
+            this.btnRegistrarUsuario.UseVisualStyleBackColor = false;
             this.btnRegistrarUsuario.Click += new System.EventHandler(this.btnRegistrarUsuario_Click);
             // 
             // btnActualizarUsuario
             // 
-            this.btnActualizarUsuario.Location = new System.Drawing.Point(715, 80);
+            this.btnActualizarUsuario.BackColor = System.Drawing.Color.Gold;
+            this.btnActualizarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarUsuario.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_update_white_24dp_2x;
+            this.btnActualizarUsuario.Location = new System.Drawing.Point(715, 98);
             this.btnActualizarUsuario.Name = "btnActualizarUsuario";
-            this.btnActualizarUsuario.Size = new System.Drawing.Size(143, 41);
+            this.btnActualizarUsuario.Size = new System.Drawing.Size(143, 57);
             this.btnActualizarUsuario.TabIndex = 79;
-            this.btnActualizarUsuario.Text = "Actualizar Usuario";
-            this.btnActualizarUsuario.UseVisualStyleBackColor = true;
+            this.btnActualizarUsuario.UseVisualStyleBackColor = false;
             this.btnActualizarUsuario.Click += new System.EventHandler(this.btnActualizarUsuario_Click);
             // 
             // btnBorrarUsuario
             // 
-            this.btnBorrarUsuario.Location = new System.Drawing.Point(715, 127);
+            this.btnBorrarUsuario.BackColor = System.Drawing.Color.DarkRed;
+            this.btnBorrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrarUsuario.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_delete_forever_white_24dp_2x;
+            this.btnBorrarUsuario.Location = new System.Drawing.Point(715, 161);
             this.btnBorrarUsuario.Name = "btnBorrarUsuario";
-            this.btnBorrarUsuario.Size = new System.Drawing.Size(143, 41);
+            this.btnBorrarUsuario.Size = new System.Drawing.Size(143, 57);
             this.btnBorrarUsuario.TabIndex = 80;
-            this.btnBorrarUsuario.Text = "Borrar Usuario";
-            this.btnBorrarUsuario.UseVisualStyleBackColor = true;
+            this.btnBorrarUsuario.UseVisualStyleBackColor = false;
             // 
             // dgvDatosUsuario
             // 
@@ -1670,12 +1688,14 @@
             // 
             // btnRegistrarRol
             // 
-            this.btnRegistrarRol.Location = new System.Drawing.Point(802, 32);
+            this.btnRegistrarRol.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnRegistrarRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarRol.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_note_add_white_24dp_2x;
+            this.btnRegistrarRol.Location = new System.Drawing.Point(802, 34);
             this.btnRegistrarRol.Name = "btnRegistrarRol";
-            this.btnRegistrarRol.Size = new System.Drawing.Size(120, 41);
+            this.btnRegistrarRol.Size = new System.Drawing.Size(120, 56);
             this.btnRegistrarRol.TabIndex = 78;
-            this.btnRegistrarRol.Text = "Registrar rol";
-            this.btnRegistrarRol.UseVisualStyleBackColor = true;
+            this.btnRegistrarRol.UseVisualStyleBackColor = false;
             this.btnRegistrarRol.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvDatosRol
@@ -1723,22 +1743,26 @@
             // 
             // btnActualizarRol
             // 
-            this.btnActualizarRol.Location = new System.Drawing.Point(802, 79);
+            this.btnActualizarRol.BackColor = System.Drawing.Color.Gold;
+            this.btnActualizarRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarRol.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_update_white_24dp_2x;
+            this.btnActualizarRol.Location = new System.Drawing.Point(802, 96);
             this.btnActualizarRol.Name = "btnActualizarRol";
-            this.btnActualizarRol.Size = new System.Drawing.Size(120, 41);
+            this.btnActualizarRol.Size = new System.Drawing.Size(120, 56);
             this.btnActualizarRol.TabIndex = 75;
-            this.btnActualizarRol.Text = "Actualizar rol";
-            this.btnActualizarRol.UseVisualStyleBackColor = true;
+            this.btnActualizarRol.UseVisualStyleBackColor = false;
             this.btnActualizarRol.Click += new System.EventHandler(this.btnActualizarRol_Click);
             // 
             // btnBorrarRol
             // 
-            this.btnBorrarRol.Location = new System.Drawing.Point(802, 126);
+            this.btnBorrarRol.BackColor = System.Drawing.Color.DarkRed;
+            this.btnBorrarRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrarRol.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_delete_forever_white_24dp_2x;
+            this.btnBorrarRol.Location = new System.Drawing.Point(802, 158);
             this.btnBorrarRol.Name = "btnBorrarRol";
-            this.btnBorrarRol.Size = new System.Drawing.Size(120, 41);
+            this.btnBorrarRol.Size = new System.Drawing.Size(120, 56);
             this.btnBorrarRol.TabIndex = 76;
-            this.btnBorrarRol.Text = "Borrar Rol";
-            this.btnBorrarRol.UseVisualStyleBackColor = true;
+            this.btnBorrarRol.UseVisualStyleBackColor = false;
             this.btnBorrarRol.Click += new System.EventHandler(this.btnBorrarRol_Click);
             // 
             // lblRegistros
@@ -1811,9 +1835,9 @@
             // 
             this.pnlAddPermisos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlAddPermisos.Controls.Add(this.label5);
-            this.pnlAddPermisos.Location = new System.Drawing.Point(85, 90);
+            this.pnlAddPermisos.Location = new System.Drawing.Point(-1, -1);
             this.pnlAddPermisos.Name = "pnlAddPermisos";
-            this.pnlAddPermisos.Size = new System.Drawing.Size(993, 550);
+            this.pnlAddPermisos.Size = new System.Drawing.Size(990, 546);
             this.pnlAddPermisos.TabIndex = 8;
             this.pnlAddPermisos.Visible = false;
             // 
@@ -1828,12 +1852,14 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(39, 202);
+            this.btnRegistrar.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_save_white_24dp_2x1;
+            this.btnRegistrar.Location = new System.Drawing.Point(830, 496);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(116, 32);
+            this.btnRegistrar.Size = new System.Drawing.Size(158, 45);
             this.btnRegistrar.TabIndex = 7;
-            this.btnRegistrar.Text = "Guardar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // txtComentario
@@ -1950,9 +1976,9 @@
             // 
             this.pnlUpdatePermisos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlUpdatePermisos.Controls.Add(this.label6);
-            this.pnlUpdatePermisos.Location = new System.Drawing.Point(85, 90);
+            this.pnlUpdatePermisos.Location = new System.Drawing.Point(-1, 2);
             this.pnlUpdatePermisos.Name = "pnlUpdatePermisos";
-            this.pnlUpdatePermisos.Size = new System.Drawing.Size(993, 550);
+            this.pnlUpdatePermisos.Size = new System.Drawing.Size(990, 539);
             this.pnlUpdatePermisos.TabIndex = 8;
             this.pnlUpdatePermisos.Visible = false;
             // 
@@ -1967,12 +1993,15 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(39, 202);
+            this.btnUpdate.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_save_white_24dp_2x1;
+            this.btnUpdate.Location = new System.Drawing.Point(826, 491);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(116, 32);
+            this.btnUpdate.Size = new System.Drawing.Size(163, 50);
             this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Guardar";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtUpdateComentario
