@@ -39,7 +39,7 @@
             this.btnCategorias.ForeColor = System.Drawing.Color.White;
             this.btnCategorias.Location = new System.Drawing.Point(0, 0);
             this.btnCategorias.Name = "btnCategorias";
-            this.btnCategorias.Size = new System.Drawing.Size(231, 67);
+            this.btnCategorias.Size = new System.Drawing.Size(225, 67);
             this.btnCategorias.TabIndex = 0;
             this.btnCategorias.UseVisualStyleBackColor = false;
             this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
@@ -50,7 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnCategorias);
             this.Name = "ucListaCategoria";
-            this.Size = new System.Drawing.Size(232, 67);
+            this.Size = new System.Drawing.Size(225, 67);
             this.Load += new System.EventHandler(this.ucListaCategoria_Load);
             this.ResumeLayout(false);
 

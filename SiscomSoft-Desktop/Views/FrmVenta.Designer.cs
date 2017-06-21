@@ -29,13 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVenta));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.tbcGeneral = new System.Windows.Forms.TabControl();
             this.tbpVenta = new System.Windows.Forms.TabPage();
+            this.pnlCategoria = new System.Windows.Forms.Panel();
+            this.pnlProductos = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnPagar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -52,12 +57,6 @@
             this.btnNum4 = new System.Windows.Forms.Button();
             this.btnNum1 = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.pkProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpPagar = new System.Windows.Forms.TabPage();
             this.dgvProductosVenta = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,8 +102,13 @@
             this.btnEfectivo = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lble = new System.Windows.Forms.Label();
-            this.pnlProductos = new System.Windows.Forms.Panel();
-            this.pnlCategoria = new System.Windows.Forms.Panel();
+            this.btnPagar = new System.Windows.Forms.Button();
+            this.pkProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tbcGeneral.SuspendLayout();
             this.tbpVenta.SuspendLayout();
@@ -130,11 +134,11 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1217, 684);
+            this.button1.Location = new System.Drawing.Point(1184, 684);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 37);
+            this.button1.Size = new System.Drawing.Size(158, 37);
             this.button1.TabIndex = 29;
-            this.button1.Text = "Menu principal";
+            this.button1.Text = "MENU PRINCIPAL";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -162,10 +166,10 @@
             // tbpVenta
             // 
             this.tbpVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbpVenta.Controls.Add(this.btnPagar);
             this.tbpVenta.Controls.Add(this.pnlCategoria);
             this.tbpVenta.Controls.Add(this.pnlProductos);
             this.tbpVenta.Controls.Add(this.btnCancelar);
-            this.tbpVenta.Controls.Add(this.btnPagar);
             this.tbpVenta.Controls.Add(this.label2);
             this.tbpVenta.Controls.Add(this.label1);
             this.tbpVenta.Controls.Add(this.txtBuscarProducto);
@@ -190,43 +194,55 @@
             this.tbpVenta.Text = "Venta";
             this.tbpVenta.UseVisualStyleBackColor = true;
             // 
+            // pnlCategoria
+            // 
+            this.pnlCategoria.Location = new System.Drawing.Point(565, 7);
+            this.pnlCategoria.Name = "pnlCategoria";
+            this.pnlCategoria.Size = new System.Drawing.Size(248, 572);
+            this.pnlCategoria.TabIndex = 45;
+            // 
+            // pnlProductos
+            // 
+            this.pnlProductos.Location = new System.Drawing.Point(819, 7);
+            this.pnlProductos.Name = "pnlProductos";
+            this.pnlProductos.Size = new System.Drawing.Size(498, 351);
+            this.pnlProductos.TabIndex = 44;
+            // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(234, 494);
+            this.btnCancelar.BackColor = System.Drawing.Color.Crimson;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(288, 494);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(225, 48);
+            this.btnCancelar.Size = new System.Drawing.Size(271, 85);
             this.btnCancelar.TabIndex = 43;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnPagar
-            // 
-            this.btnPagar.Location = new System.Drawing.Point(6, 494);
-            this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(222, 48);
-            this.btnPagar.TabIndex = 42;
-            this.btnPagar.Text = "Pagar";
-            this.btnPagar.UseVisualStyleBackColor = true;
-            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(351, 464);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkRed;
+            this.label2.Location = new System.Drawing.Point(519, 466);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 18);
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(40, 24);
             this.label2.TabIndex = 41;
             this.label2.Text = "$$$";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 462);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.Location = new System.Drawing.Point(6, 466);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 18);
+            this.label1.Size = new System.Drawing.Size(77, 24);
             this.label1.TabIndex = 40;
-            this.label1.Text = "TOTAL :";
+            this.label1.Text = "TOTAL:";
             // 
             // txtBuscarProducto
             // 
@@ -243,6 +259,7 @@
             // btnX
             // 
             this.btnX.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnX.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnX.ForeColor = System.Drawing.Color.White;
             this.btnX.Location = new System.Drawing.Point(1155, 539);
@@ -256,6 +273,7 @@
             // btnNum9
             // 
             this.btnNum9.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnNum9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum9.ForeColor = System.Drawing.Color.White;
             this.btnNum9.Location = new System.Drawing.Point(1155, 493);
@@ -269,6 +287,7 @@
             // btnNum6
             // 
             this.btnNum6.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnNum6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum6.ForeColor = System.Drawing.Color.White;
             this.btnNum6.Location = new System.Drawing.Point(1155, 447);
@@ -282,6 +301,7 @@
             // btnNum3
             // 
             this.btnNum3.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnNum3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum3.ForeColor = System.Drawing.Color.White;
             this.btnNum3.Location = new System.Drawing.Point(1155, 401);
@@ -295,6 +315,7 @@
             // btnNum0
             // 
             this.btnNum0.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnNum0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum0.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum0.ForeColor = System.Drawing.Color.White;
             this.btnNum0.Location = new System.Drawing.Point(987, 539);
@@ -308,6 +329,7 @@
             // btnNum8
             // 
             this.btnNum8.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnNum8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum8.ForeColor = System.Drawing.Color.White;
             this.btnNum8.Location = new System.Drawing.Point(987, 493);
@@ -321,6 +343,7 @@
             // btnNum5
             // 
             this.btnNum5.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnNum5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum5.ForeColor = System.Drawing.Color.White;
             this.btnNum5.Location = new System.Drawing.Point(987, 445);
@@ -334,6 +357,7 @@
             // btnNum2
             // 
             this.btnNum2.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnNum2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum2.ForeColor = System.Drawing.Color.White;
             this.btnNum2.Location = new System.Drawing.Point(987, 401);
@@ -347,6 +371,7 @@
             // btnPunto
             // 
             this.btnPunto.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnPunto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPunto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPunto.ForeColor = System.Drawing.Color.White;
             this.btnPunto.Location = new System.Drawing.Point(819, 539);
@@ -360,6 +385,7 @@
             // btnNum7
             // 
             this.btnNum7.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnNum7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum7.ForeColor = System.Drawing.Color.White;
             this.btnNum7.Location = new System.Drawing.Point(819, 493);
@@ -373,6 +399,7 @@
             // btnNum4
             // 
             this.btnNum4.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnNum4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum4.ForeColor = System.Drawing.Color.White;
             this.btnNum4.Location = new System.Drawing.Point(819, 447);
@@ -386,6 +413,7 @@
             // btnNum1
             // 
             this.btnNum1.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnNum1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum1.ForeColor = System.Drawing.Color.White;
             this.btnNum1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -405,60 +433,17 @@
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pkProducto,
             this.iClaveProd,
-            this.sMarca,
             this.sDescripcion,
             this.iCantidad,
+            this.dTotal,
             this.dCosto});
             this.dgvProductos.Location = new System.Drawing.Point(6, 7);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(553, 443);
+            this.dgvProductos.Size = new System.Drawing.Size(553, 456);
             this.dgvProductos.TabIndex = 25;
-            // 
-            // pkProducto
-            // 
-            this.pkProducto.DataPropertyName = "pkProducto";
-            this.pkProducto.HeaderText = "No.";
-            this.pkProducto.Name = "pkProducto";
-            this.pkProducto.ReadOnly = true;
-            this.pkProducto.Visible = false;
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Codigo";
-            this.iClaveProd.Name = "iClaveProd";
-            this.iClaveProd.ReadOnly = true;
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            this.sMarca.ReadOnly = true;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            this.sDescripcion.Width = 150;
-            // 
-            // iCantidad
-            // 
-            this.iCantidad.HeaderText = "Cantidad";
-            this.iCantidad.Name = "iCantidad";
-            this.iCantidad.ReadOnly = true;
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
             // 
             // tbpPagar
             // 
@@ -506,7 +491,7 @@
             this.tbpPagar.Location = new System.Drawing.Point(4, 27);
             this.tbpPagar.Name = "tbpPagar";
             this.tbpPagar.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpPagar.Size = new System.Drawing.Size(1151, 614);
+            this.tbpPagar.Size = new System.Drawing.Size(1325, 587);
             this.tbpPagar.TabIndex = 1;
             this.tbpPagar.Text = "Pagar";
             // 
@@ -601,7 +586,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(3, 3);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 606);
+            this.splitter1.Size = new System.Drawing.Size(3, 579);
             this.splitter1.TabIndex = 54;
             this.splitter1.TabStop = false;
             // 
@@ -1004,19 +989,68 @@
             this.lble.TabIndex = 1;
             this.lble.Text = "TOTAL :";
             // 
-            // pnlProductos
+            // btnPagar
             // 
-            this.pnlProductos.Location = new System.Drawing.Point(819, 7);
-            this.pnlProductos.Name = "pnlProductos";
-            this.pnlProductos.Size = new System.Drawing.Size(498, 351);
-            this.pnlProductos.TabIndex = 44;
+            this.btnPagar.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagar.ForeColor = System.Drawing.Color.White;
+            this.btnPagar.Location = new System.Drawing.Point(6, 493);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(276, 85);
+            this.btnPagar.TabIndex = 46;
+            this.btnPagar.Text = "PAGAR";
+            this.btnPagar.UseVisualStyleBackColor = false;
             // 
-            // pnlCategoria
+            // pkProducto
             // 
-            this.pnlCategoria.Location = new System.Drawing.Point(565, 7);
-            this.pnlCategoria.Name = "pnlCategoria";
-            this.pnlCategoria.Size = new System.Drawing.Size(248, 572);
-            this.pnlCategoria.TabIndex = 45;
+            this.pkProducto.DataPropertyName = "pkProducto";
+            this.pkProducto.HeaderText = "No.";
+            this.pkProducto.Name = "pkProducto";
+            this.pkProducto.ReadOnly = true;
+            this.pkProducto.Visible = false;
+            // 
+            // iClaveProd
+            // 
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.iClaveProd.DefaultCellStyle = dataGridViewCellStyle1;
+            this.iClaveProd.HeaderText = "CODIGO";
+            this.iClaveProd.Name = "iClaveProd";
+            this.iClaveProd.ReadOnly = true;
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
+            this.sDescripcion.HeaderText = "DESCRIPCION";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
+            this.sDescripcion.Width = 250;
+            // 
+            // iCantidad
+            // 
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.iCantidad.DefaultCellStyle = dataGridViewCellStyle3;
+            this.iCantidad.HeaderText = "CANTIDAD";
+            this.iCantidad.Name = "iCantidad";
+            this.iCantidad.ReadOnly = true;
+            // 
+            // dTotal
+            // 
+            this.dTotal.HeaderText = "TOTAL";
+            this.dTotal.Name = "dTotal";
+            this.dTotal.ReadOnly = true;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dCosto.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
+            this.dCosto.Visible = false;
             // 
             // FrmVenta
             // 
@@ -1056,7 +1090,6 @@
         private System.Windows.Forms.TabPage tbpVenta;
         private System.Windows.Forms.TabPage tbpPagar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnPagar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBuscarProducto;
@@ -1117,13 +1150,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
         private System.Windows.Forms.Panel pnlCategoria;
         private System.Windows.Forms.Panel pnlProductos;
+        private System.Windows.Forms.Button btnPagar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
     }
 }

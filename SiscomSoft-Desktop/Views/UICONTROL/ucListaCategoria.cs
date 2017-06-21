@@ -18,11 +18,11 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         public static int pkCategoriaUI;
         Categoria nCategoria;
         FrmDetalleVenta vMain;
-        public ucListaCategoria(Categoria ucCategoria, FrmDetalleVenta vmain)
+        public ucListaCategoria() //Categoria ucCategoria, FrmDetalleVenta vmain
         {
             InitializeComponent();
-            nCategoria = ucCategoria;
-            vMain = vmain;
+            //nCategoria = ucCategoria;
+            //vMain = vmain;
         }
 
         private void ucListaCategoria_Load(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         private void btnCategorias_Click(object sender, EventArgs e)
         {
             pkCategoriaUI = nCategoria.pkCategoria;
-            vMain.CargarProductos(pkCategoriaUI);
+            //vMain.CargarProductos(pkCategoriaUI);
         }
     }
 }

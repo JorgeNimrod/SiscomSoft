@@ -19,11 +19,11 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         Producto nProducto;
         public static int pkProductoUI;
         FrmDetalleVenta vMain;
-        public ucImagenProducto(Producto ucProducto, FrmDetalleVenta vmain)
+        public ucImagenProducto() //Producto ucProducto, FrmDetalleVenta vmain
         {
             InitializeComponent();
-            nProducto = ucProducto;
-            vMain = vmain;
+            //nProducto = ucProducto;
+            //vMain = vmain;
         }
 
         private void ucImagenProducto_Load(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         private void pcbImagen_Click(object sender, EventArgs e)
         {
             pkProductoUI = nProducto.pkProducto;
-            vMain.cargarDetalleVenta(pkProductoUI);
+            //vMain.cargarDetalleVenta(pkProductoUI);
         }
     }
 }

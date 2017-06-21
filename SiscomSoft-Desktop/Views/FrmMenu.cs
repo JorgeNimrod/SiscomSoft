@@ -76,8 +76,6 @@ namespace SiscomSoft_Desktop.Views
         private void FrmMenu_MdiChildActivate(object sender, EventArgs e)
         {
 
-          
-
         }
 
         private void button4_Click(object sender, EventArgs e)

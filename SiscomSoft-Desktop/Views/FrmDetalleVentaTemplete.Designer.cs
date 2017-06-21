@@ -1,6 +1,6 @@
 ﻿namespace SiscomSoft_Desktop.Views
 {
-    partial class FrmDetalleVenta
+    partial class FrmDetalleVentaTemplete
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleVenta));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleVentaTemplete));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.pnlAccionesProductos = new System.Windows.Forms.Panel();
+            this.btnRemoveRow = new System.Windows.Forms.Button();
+            this.btnMenosCantidad = new System.Windows.Forms.Button();
+            this.btnMasCantidad = new System.Windows.Forms.Button();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnMenuPrincipal = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnPagar = new System.Windows.Forms.Button();
             this.pnlCategoria = new System.Windows.Forms.Panel();
             this.pnlProductos = new System.Windows.Forms.Panel();
@@ -54,24 +62,117 @@
             this.btnNum4 = new System.Windows.Forms.Button();
             this.btnNum1 = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnMenuPrincipal = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
             this.pkProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlAccionesProductos = new System.Windows.Forms.Panel();
-            this.btnMasCantidad = new System.Windows.Forms.Button();
-            this.btnMenosCantidad = new System.Windows.Forms.Button();
-            this.btnRemoveRow = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlAccionesProductos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pnlAccionesProductos
+            // 
+            this.pnlAccionesProductos.Controls.Add(this.btnRemoveRow);
+            this.pnlAccionesProductos.Controls.Add(this.btnMenosCantidad);
+            this.pnlAccionesProductos.Controls.Add(this.btnMasCantidad);
+            this.pnlAccionesProductos.Location = new System.Drawing.Point(12, 62);
+            this.pnlAccionesProductos.Name = "pnlAccionesProductos";
+            this.pnlAccionesProductos.Size = new System.Drawing.Size(73, 484);
+            this.pnlAccionesProductos.TabIndex = 97;
+            this.pnlAccionesProductos.Visible = false;
+            // 
+            // btnRemoveRow
+            // 
+            this.btnRemoveRow.BackColor = System.Drawing.Color.Indigo;
+            this.btnRemoveRow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemoveRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveRow.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveRow.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveRow.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveRow.Image")));
+            this.btnRemoveRow.Location = new System.Drawing.Point(0, 112);
+            this.btnRemoveRow.Name = "btnRemoveRow";
+            this.btnRemoveRow.Size = new System.Drawing.Size(73, 50);
+            this.btnRemoveRow.TabIndex = 75;
+            this.btnRemoveRow.UseVisualStyleBackColor = false;
+            // 
+            // btnMenosCantidad
+            // 
+            this.btnMenosCantidad.BackColor = System.Drawing.Color.Indigo;
+            this.btnMenosCantidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenosCantidad.Enabled = false;
+            this.btnMenosCantidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenosCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenosCantidad.ForeColor = System.Drawing.Color.White;
+            this.btnMenosCantidad.Image = ((System.Drawing.Image)(resources.GetObject("btnMenosCantidad.Image")));
+            this.btnMenosCantidad.Location = new System.Drawing.Point(0, 56);
+            this.btnMenosCantidad.Name = "btnMenosCantidad";
+            this.btnMenosCantidad.Size = new System.Drawing.Size(73, 50);
+            this.btnMenosCantidad.TabIndex = 74;
+            this.btnMenosCantidad.UseVisualStyleBackColor = false;
+            // 
+            // btnMasCantidad
+            // 
+            this.btnMasCantidad.BackColor = System.Drawing.Color.Indigo;
+            this.btnMasCantidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMasCantidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMasCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMasCantidad.ForeColor = System.Drawing.Color.White;
+            this.btnMasCantidad.Image = ((System.Drawing.Image)(resources.GetObject("btnMasCantidad.Image")));
+            this.btnMasCantidad.Location = new System.Drawing.Point(0, 0);
+            this.btnMasCantidad.Name = "btnMasCantidad";
+            this.btnMasCantidad.Size = new System.Drawing.Size(73, 50);
+            this.btnMasCantidad.TabIndex = 73;
+            this.btnMasCantidad.UseVisualStyleBackColor = false;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblFecha.Location = new System.Drawing.Point(1016, 26);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblFecha.Size = new System.Drawing.Size(333, 18);
+            this.lblFecha.TabIndex = 96;
+            this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Silver;
+            this.label3.Location = new System.Drawing.Point(14, 674);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(1336, 13);
+            this.label3.TabIndex = 95;
+            this.label3.Text = resources.GetString("label3.Text");
+            // 
+            // btnMenuPrincipal
+            // 
+            this.btnMenuPrincipal.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnMenuPrincipal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuPrincipal.ForeColor = System.Drawing.Color.White;
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(1192, 692);
+            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
+            this.btnMenuPrincipal.Size = new System.Drawing.Size(158, 37);
+            this.btnMenuPrincipal.TabIndex = 94;
+            this.btnMenuPrincipal.Text = "MENU PRINCIPAL";
+            this.btnMenuPrincipal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMenuPrincipal.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(181, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 93;
+            this.pictureBox1.TabStop = false;
             // 
             // btnPagar
             // 
@@ -81,7 +182,7 @@
             this.btnPagar.Location = new System.Drawing.Point(91, 588);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.Size = new System.Drawing.Size(235, 83);
-            this.btnPagar.TabIndex = 66;
+            this.btnPagar.TabIndex = 92;
             this.btnPagar.Text = "PAGAR";
             this.btnPagar.UseVisualStyleBackColor = false;
             // 
@@ -91,7 +192,7 @@
             this.pnlCategoria.Location = new System.Drawing.Point(571, 62);
             this.pnlCategoria.Name = "pnlCategoria";
             this.pnlCategoria.Size = new System.Drawing.Size(248, 609);
-            this.pnlCategoria.TabIndex = 65;
+            this.pnlCategoria.TabIndex = 91;
             // 
             // pnlProductos
             // 
@@ -99,7 +200,7 @@
             this.pnlProductos.Location = new System.Drawing.Point(825, 62);
             this.pnlProductos.Name = "pnlProductos";
             this.pnlProductos.Size = new System.Drawing.Size(525, 351);
-            this.pnlProductos.TabIndex = 64;
+            this.pnlProductos.TabIndex = 90;
             // 
             // btnCancelar
             // 
@@ -109,10 +210,9 @@
             this.btnCancelar.Location = new System.Drawing.Point(332, 588);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(233, 83);
-            this.btnCancelar.TabIndex = 63;
+            this.btnCancelar.TabIndex = 89;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblSubTotal
             // 
@@ -122,7 +222,7 @@
             this.lblSubTotal.Name = "lblSubTotal";
             this.lblSubTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblSubTotal.Size = new System.Drawing.Size(395, 24);
-            this.lblSubTotal.TabIndex = 62;
+            this.lblSubTotal.TabIndex = 88;
             this.lblSubTotal.Text = "$0";
             // 
             // label1
@@ -133,7 +233,7 @@
             this.label1.Location = new System.Drawing.Point(87, 557);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 24);
-            this.label1.TabIndex = 61;
+            this.label1.TabIndex = 87;
             this.label1.Text = "TOTAL:";
             // 
             // txtCantidad
@@ -143,7 +243,7 @@
             this.txtCantidad.Location = new System.Drawing.Point(825, 419);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(525, 31);
-            this.txtCantidad.TabIndex = 60;
+            this.txtCantidad.TabIndex = 86;
             // 
             // btnX
             // 
@@ -154,7 +254,7 @@
             this.btnX.Location = new System.Drawing.Point(1178, 621);
             this.btnX.Name = "btnX";
             this.btnX.Size = new System.Drawing.Size(172, 50);
-            this.btnX.TabIndex = 59;
+            this.btnX.TabIndex = 85;
             this.btnX.Text = "x";
             this.btnX.UseVisualStyleBackColor = false;
             // 
@@ -167,10 +267,9 @@
             this.btnNum9.Location = new System.Drawing.Point(1178, 568);
             this.btnNum9.Name = "btnNum9";
             this.btnNum9.Size = new System.Drawing.Size(172, 50);
-            this.btnNum9.TabIndex = 58;
+            this.btnNum9.TabIndex = 84;
             this.btnNum9.Text = "9";
             this.btnNum9.UseVisualStyleBackColor = false;
-            this.btnNum9.Click += new System.EventHandler(this.btnNum9_Click);
             // 
             // btnNum6
             // 
@@ -181,10 +280,9 @@
             this.btnNum6.Location = new System.Drawing.Point(1178, 512);
             this.btnNum6.Name = "btnNum6";
             this.btnNum6.Size = new System.Drawing.Size(172, 50);
-            this.btnNum6.TabIndex = 57;
+            this.btnNum6.TabIndex = 83;
             this.btnNum6.Text = "6";
             this.btnNum6.UseVisualStyleBackColor = false;
-            this.btnNum6.Click += new System.EventHandler(this.btnNum6_Click);
             // 
             // btnNum3
             // 
@@ -195,10 +293,9 @@
             this.btnNum3.Location = new System.Drawing.Point(1178, 456);
             this.btnNum3.Name = "btnNum3";
             this.btnNum3.Size = new System.Drawing.Size(172, 50);
-            this.btnNum3.TabIndex = 56;
+            this.btnNum3.TabIndex = 82;
             this.btnNum3.Text = "3";
             this.btnNum3.UseVisualStyleBackColor = false;
-            this.btnNum3.Click += new System.EventHandler(this.btnNum3_Click);
             // 
             // btnNum0
             // 
@@ -209,10 +306,9 @@
             this.btnNum0.Location = new System.Drawing.Point(1003, 621);
             this.btnNum0.Name = "btnNum0";
             this.btnNum0.Size = new System.Drawing.Size(172, 50);
-            this.btnNum0.TabIndex = 55;
+            this.btnNum0.TabIndex = 81;
             this.btnNum0.Text = "0";
             this.btnNum0.UseVisualStyleBackColor = false;
-            this.btnNum0.Click += new System.EventHandler(this.btnNum0_Click);
             // 
             // btnNum8
             // 
@@ -223,10 +319,9 @@
             this.btnNum8.Location = new System.Drawing.Point(1003, 568);
             this.btnNum8.Name = "btnNum8";
             this.btnNum8.Size = new System.Drawing.Size(172, 50);
-            this.btnNum8.TabIndex = 54;
+            this.btnNum8.TabIndex = 80;
             this.btnNum8.Text = "8";
             this.btnNum8.UseVisualStyleBackColor = false;
-            this.btnNum8.Click += new System.EventHandler(this.btnNum8_Click);
             // 
             // btnNum5
             // 
@@ -237,10 +332,9 @@
             this.btnNum5.Location = new System.Drawing.Point(1003, 512);
             this.btnNum5.Name = "btnNum5";
             this.btnNum5.Size = new System.Drawing.Size(172, 50);
-            this.btnNum5.TabIndex = 53;
+            this.btnNum5.TabIndex = 79;
             this.btnNum5.Text = "5";
             this.btnNum5.UseVisualStyleBackColor = false;
-            this.btnNum5.Click += new System.EventHandler(this.btnNum5_Click);
             // 
             // btnNum2
             // 
@@ -251,10 +345,9 @@
             this.btnNum2.Location = new System.Drawing.Point(1003, 456);
             this.btnNum2.Name = "btnNum2";
             this.btnNum2.Size = new System.Drawing.Size(172, 50);
-            this.btnNum2.TabIndex = 52;
+            this.btnNum2.TabIndex = 78;
             this.btnNum2.Text = "2";
             this.btnNum2.UseVisualStyleBackColor = false;
-            this.btnNum2.Click += new System.EventHandler(this.btnNum2_Click);
             // 
             // btnPunto
             // 
@@ -265,7 +358,7 @@
             this.btnPunto.Location = new System.Drawing.Point(825, 621);
             this.btnPunto.Name = "btnPunto";
             this.btnPunto.Size = new System.Drawing.Size(172, 50);
-            this.btnPunto.TabIndex = 51;
+            this.btnPunto.TabIndex = 77;
             this.btnPunto.Text = "x";
             this.btnPunto.UseVisualStyleBackColor = false;
             // 
@@ -278,10 +371,9 @@
             this.btnNum7.Location = new System.Drawing.Point(825, 565);
             this.btnNum7.Name = "btnNum7";
             this.btnNum7.Size = new System.Drawing.Size(172, 50);
-            this.btnNum7.TabIndex = 50;
+            this.btnNum7.TabIndex = 76;
             this.btnNum7.Text = "7";
             this.btnNum7.UseVisualStyleBackColor = false;
-            this.btnNum7.Click += new System.EventHandler(this.btnNum7_Click);
             // 
             // btnNum4
             // 
@@ -292,10 +384,9 @@
             this.btnNum4.Location = new System.Drawing.Point(825, 512);
             this.btnNum4.Name = "btnNum4";
             this.btnNum4.Size = new System.Drawing.Size(172, 50);
-            this.btnNum4.TabIndex = 49;
+            this.btnNum4.TabIndex = 75;
             this.btnNum4.Text = "4";
             this.btnNum4.UseVisualStyleBackColor = false;
-            this.btnNum4.Click += new System.EventHandler(this.btnNum4_Click);
             // 
             // btnNum1
             // 
@@ -307,10 +398,9 @@
             this.btnNum1.Location = new System.Drawing.Point(825, 456);
             this.btnNum1.Name = "btnNum1";
             this.btnNum1.Size = new System.Drawing.Size(172, 50);
-            this.btnNum1.TabIndex = 48;
+            this.btnNum1.TabIndex = 74;
             this.btnNum1.Text = "1";
             this.btnNum1.UseVisualStyleBackColor = false;
-            this.btnNum1.Click += new System.EventHandler(this.btnNum1_Click);
             // 
             // dgvProductos
             // 
@@ -330,56 +420,7 @@
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(474, 484);
-            this.dgvProductos.TabIndex = 47;
-            this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(181, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 67;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnMenuPrincipal
-            // 
-            this.btnMenuPrincipal.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnMenuPrincipal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuPrincipal.ForeColor = System.Drawing.Color.White;
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(1192, 692);
-            this.btnMenuPrincipal.Name = "btnMenuPrincipal";
-            this.btnMenuPrincipal.Size = new System.Drawing.Size(158, 37);
-            this.btnMenuPrincipal.TabIndex = 69;
-            this.btnMenuPrincipal.Text = "MENU PRINCIPAL";
-            this.btnMenuPrincipal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMenuPrincipal.UseVisualStyleBackColor = false;
-            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(14, 674);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1336, 13);
-            this.label3.TabIndex = 70;
-            this.label3.Text = resources.GetString("label3.Text");
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblFecha.Location = new System.Drawing.Point(1016, 26);
-            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblFecha.Size = new System.Drawing.Size(333, 18);
-            this.lblFecha.TabIndex = 71;
-            this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
+            this.dgvProductos.TabIndex = 73;
             // 
             // pkProducto
             // 
@@ -392,8 +433,8 @@
             // iClaveProd
             // 
             this.iClaveProd.DataPropertyName = "iClaveProd";
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.iClaveProd.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.iClaveProd.DefaultCellStyle = dataGridViewCellStyle1;
             this.iClaveProd.HeaderText = "CODIGO";
             this.iClaveProd.Name = "iClaveProd";
             this.iClaveProd.ReadOnly = true;
@@ -401,8 +442,8 @@
             // sDescripcion
             // 
             this.sDescripcion.DataPropertyName = "sDescripcion";
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
             this.sDescripcion.HeaderText = "DESCRIPCION";
             this.sDescripcion.Name = "sDescripcion";
             this.sDescripcion.ReadOnly = true;
@@ -410,9 +451,9 @@
             // 
             // iCantidad
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.iCantidad.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.iCantidad.DefaultCellStyle = dataGridViewCellStyle3;
             this.iCantidad.HeaderText = "CANTIDAD";
             this.iCantidad.Name = "iCantidad";
             this.iCantidad.ReadOnly = true;
@@ -420,86 +461,28 @@
             // 
             // dTotal
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "C2";
-            dataGridViewCellStyle9.NullValue = null;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dTotal.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dTotal.DefaultCellStyle = dataGridViewCellStyle4;
             this.dTotal.HeaderText = "TOTAL";
             this.dTotal.Name = "dTotal";
             this.dTotal.ReadOnly = true;
             // 
             // dCosto
             // 
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dCosto.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dCosto.DefaultCellStyle = dataGridViewCellStyle5;
             this.dCosto.HeaderText = "Costo";
             this.dCosto.Name = "dCosto";
             this.dCosto.ReadOnly = true;
             this.dCosto.Visible = false;
             // 
-            // pnlAccionesProductos
-            // 
-            this.pnlAccionesProductos.Controls.Add(this.btnRemoveRow);
-            this.pnlAccionesProductos.Controls.Add(this.btnMenosCantidad);
-            this.pnlAccionesProductos.Controls.Add(this.btnMasCantidad);
-            this.pnlAccionesProductos.Location = new System.Drawing.Point(12, 62);
-            this.pnlAccionesProductos.Name = "pnlAccionesProductos";
-            this.pnlAccionesProductos.Size = new System.Drawing.Size(73, 484);
-            this.pnlAccionesProductos.TabIndex = 72;
-            this.pnlAccionesProductos.Visible = false;
-            // 
-            // btnMasCantidad
-            // 
-            this.btnMasCantidad.BackColor = System.Drawing.Color.Indigo;
-            this.btnMasCantidad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMasCantidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMasCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMasCantidad.ForeColor = System.Drawing.Color.White;
-            this.btnMasCantidad.Image = ((System.Drawing.Image)(resources.GetObject("btnMasCantidad.Image")));
-            this.btnMasCantidad.Location = new System.Drawing.Point(0, 0);
-            this.btnMasCantidad.Name = "btnMasCantidad";
-            this.btnMasCantidad.Size = new System.Drawing.Size(73, 50);
-            this.btnMasCantidad.TabIndex = 73;
-            this.btnMasCantidad.UseVisualStyleBackColor = false;
-            this.btnMasCantidad.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnMenosCantidad
-            // 
-            this.btnMenosCantidad.BackColor = System.Drawing.Color.Indigo;
-            this.btnMenosCantidad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenosCantidad.Enabled = false;
-            this.btnMenosCantidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenosCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenosCantidad.ForeColor = System.Drawing.Color.White;
-            this.btnMenosCantidad.Image = ((System.Drawing.Image)(resources.GetObject("btnMenosCantidad.Image")));
-            this.btnMenosCantidad.Location = new System.Drawing.Point(0, 56);
-            this.btnMenosCantidad.Name = "btnMenosCantidad";
-            this.btnMenosCantidad.Size = new System.Drawing.Size(73, 50);
-            this.btnMenosCantidad.TabIndex = 74;
-            this.btnMenosCantidad.UseVisualStyleBackColor = false;
-            this.btnMenosCantidad.Click += new System.EventHandler(this.btnMenosCantidad_Click);
-            // 
-            // btnRemoveRow
-            // 
-            this.btnRemoveRow.BackColor = System.Drawing.Color.Indigo;
-            this.btnRemoveRow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRemoveRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveRow.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveRow.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveRow.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveRow.Image")));
-            this.btnRemoveRow.Location = new System.Drawing.Point(0, 112);
-            this.btnRemoveRow.Name = "btnRemoveRow";
-            this.btnRemoveRow.Size = new System.Drawing.Size(73, 50);
-            this.btnRemoveRow.TabIndex = 75;
-            this.btnRemoveRow.UseVisualStyleBackColor = false;
-            this.btnRemoveRow.Click += new System.EventHandler(this.btnRemoveRow_Click);
-            // 
-            // FrmDetalleVenta
+            // FrmDetalleVentaTemplete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.pnlAccionesProductos);
             this.Controls.Add(this.lblFecha);
@@ -526,17 +509,11 @@
             this.Controls.Add(this.btnNum4);
             this.Controls.Add(this.btnNum1);
             this.Controls.Add(this.dgvProductos);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FrmDetalleVenta";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmdetalleVenta_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Name = "FrmDetalleVentaTemplete";
+            this.Text = "FrmDetalleVentaTemplete";
             this.pnlAccionesProductos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -544,6 +521,14 @@
 
         #endregion
 
+        private System.Windows.Forms.Panel pnlAccionesProductos;
+        private System.Windows.Forms.Button btnRemoveRow;
+        private System.Windows.Forms.Button btnMenosCantidad;
+        private System.Windows.Forms.Button btnMasCantidad;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnMenuPrincipal;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnPagar;
         private System.Windows.Forms.Panel pnlCategoria;
         private System.Windows.Forms.Panel pnlProductos;
@@ -564,19 +549,11 @@
         private System.Windows.Forms.Button btnNum4;
         private System.Windows.Forms.Button btnNum1;
         private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnMenuPrincipal;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn iCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn dTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.Panel pnlAccionesProductos;
-        private System.Windows.Forms.Button btnRemoveRow;
-        private System.Windows.Forms.Button btnMenosCantidad;
-        private System.Windows.Forms.Button btnMasCantidad;
     }
 }
