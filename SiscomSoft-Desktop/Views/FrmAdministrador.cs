@@ -1458,7 +1458,7 @@ namespace SiscomSoft_Desktop.Views
                 btnExaImgProdu.Focus();
             }
             else
-            { 
+            {
                 Categoria nCategoria = new Categoria();
                 nCategoria.sNombre = txtLineaAddProd.Text;
                 nCategoria.sNomSubCat = txtLineaAddProd.Text;
@@ -1479,9 +1479,9 @@ namespace SiscomSoft_Desktop.Views
                 int fkImpuesto = Convert.ToInt32(cbxImpuestoAddProd.SelectedValue.ToString());
                 int fkPrecio = Convert.ToInt32(cbxPrecioAddProd.SelectedValue.ToString());
 
-            
+
                 int fkCatalogo = Convert.ToInt32(cbxCatalogoAddProd.SelectedValue.ToString());
- ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, nCategoria.pkCategoria, fkCatalogo);
+                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, nCategoria.pkCategoria, fkCatalogo);
 
                 MessageBox.Show("¡Producto Registrado!");
                 txtDescripcionAddProd.Clear();
@@ -1491,6 +1491,7 @@ namespace SiscomSoft_Desktop.Views
                 dtpFechaCaducidadProd.ResetText();
                 txtDescuentoProd.Clear();
                 pcbimgAddProd.Image = null;
+                ImagenString = null;
                 txtLineaAddProd.Clear();
                 txtSublineaAddProd.Clear();
                 txtLoteAddProd.Clear();
@@ -1762,7 +1763,13 @@ namespace SiscomSoft_Desktop.Views
                 nProducto.sMarca = txtUpdateMarcProd.Text;
                 nProducto.dCosto = Convert.ToDecimal(txtUpdateCostoProd.Text);
                 nProducto.iDescuento = Convert.ToInt32(txtUpdateDescProd.Text);
+
+                ImagenBitmap = new System.Drawing.Bitmap(pcbUpdateImgProd.Image);
+                ImagenString = ToolImagen.ToBase64String(ImagenBitmap, ImageFormat.Jpeg);
+
                 nProducto.sFoto = ImagenString;
+                
+               
                 nProducto.dtCaducidad = dtpUpdateFechaProd.Value;
                 nProducto.iLote = Convert.ToInt32(txtUpdateLoteProd.Text);
 
@@ -5173,6 +5180,11 @@ namespace SiscomSoft_Desktop.Views
         }
 
         private void dgvDatosCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tbpUpdateProducto_Click(object sender, EventArgs e)
         {
 
         }

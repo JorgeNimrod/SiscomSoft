@@ -22,7 +22,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            FrmMenu v = new FrmMenu();
+            FrmLogin v = new FrmLogin();
             while (pb.Value < pb.Minimum)
             {
                 pb.Value += 1;
