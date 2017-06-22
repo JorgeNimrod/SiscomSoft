@@ -63,6 +63,16 @@ namespace SiscomSoft_Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _12417932_928536453867230_3155055822074292918_n {
+            get {
+                object obj = ResourceManager.GetObject("12417932_928536453867230_3155055822074292918_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_delete_forever_white_24dp_2x {
             get {
                 object obj = ResourceManager.GetObject("ic_delete_forever_white_24dp_2x", resourceCulture);
@@ -73,9 +83,39 @@ namespace SiscomSoft_Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_highlight_off_black_24dp_2x {
+            get {
+                object obj = ResourceManager.GetObject("ic_highlight_off_black_24dp_2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_keyboard_tab_black_24dp_2x {
+            get {
+                object obj = ResourceManager.GetObject("ic_keyboard_tab_black_24dp_2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_note_add_white_24dp_2x {
             get {
                 object obj = ResourceManager.GetObject("ic_note_add_white_24dp_2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_power_settings_new_black_24dp_2x {
+            get {
+                object obj = ResourceManager.GetObject("ic_power_settings_new_black_24dp_2x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

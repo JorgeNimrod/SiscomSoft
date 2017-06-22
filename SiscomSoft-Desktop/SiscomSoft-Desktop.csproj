@@ -276,6 +276,18 @@
   <ItemGroup>
     <None Include="Resources\ic_update_white_24dp_2x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12417932_928536453867230_3155055822074292918_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_power_settings_new_black_24dp_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_highlight_off_black_24dp_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_keyboard_tab_black_24dp_2x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
