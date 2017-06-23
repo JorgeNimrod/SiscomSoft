@@ -18,6 +18,7 @@ namespace SiscomSoft.Models
         //rfc unico por empresa
         public string sRfc { get; set; }
 
+
         [Required(ErrorMessage = "Este campo es necesario")]
         public string sUsuario { get; set; }
 
@@ -26,6 +27,10 @@ namespace SiscomSoft.Models
 
         [Required(ErrorMessage = "Este campo es necesario")]
         public string sContrasena { get; set; }
+
+        [Required(ErrorMessage = "Este campo es necesario")]
+        public int iPin { get; set; }
+
 
         [Required(ErrorMessage = "Este campo es necesario")]
         public string sNumero { get; set; }

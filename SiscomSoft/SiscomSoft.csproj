@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201706091826365_INICIAL.Designer.cs">
       <DependentUpon>201706091826365_INICIAL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706231442112_pin.cs" />
+    <Compile Include="Migrations\201706231442112_pin.Designer.cs">
+      <DependentUpon>201706231442112_pin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManejoImpuesto.cs" />
     <Compile Include="Controller\ManejoPermiso.cs" />
     <Compile Include="Controller\ManejoPrecio.cs" />
@@ -106,6 +110,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706091826365_INICIAL.resx">
       <DependentUpon>201706091826365_INICIAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706231442112_pin.resx">
+      <DependentUpon>201706231442112_pin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
