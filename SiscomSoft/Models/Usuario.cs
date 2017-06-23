@@ -29,7 +29,7 @@ namespace SiscomSoft.Models
         public string sContrasena { get; set; }
 
         [Required(ErrorMessage = "Este campo es necesario")]
-        public int iPin { get; set; }
+        public string sPin { get; set; }
 
 
         [Required(ErrorMessage = "Este campo es necesario")]

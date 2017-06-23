@@ -1259,17 +1259,23 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtContraseña, "Campo necesario");
                 this.txtContraseña.Focus();
             }
+            else if (this.txtCorreo.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCorreo, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCorreo, "Campo necesario");
+                this.txtCorreo.Focus();
+            }
             else if (this.txtTelefono.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtTelefono, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtTelefono, "Campo necesario");
                 this.txtTelefono.Focus();
             }
-            else if (this.txtCorreo.Text == "")
+            else if (this.txtPin.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtCorreo, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtCorreo, "Campo necesario");
-                this.txtCorreo.Focus();
+                this.ErrorProvider.SetIconAlignment(this.txtPin, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtPin, "Campo necesario");
+                this.txtPin.Focus();
             }
             else if (this.txtComentUsua.Text == "")
             {
@@ -1296,6 +1302,7 @@ namespace SiscomSoft_Desktop.Views
                 nUsuario.sContrasena = LoginTool.GetMD5(txtContraseña.Text);
                 nUsuario.sNumero = txtTelefono.Text;
                 nUsuario.sCorreo = txtCorreo.Text;
+                nUsuario.sPin = LoginTool.GetMD5(txtPin.Text);
                 nUsuario.sComentario = txtComentUsua.Text;
                 int fkRol = Convert.ToInt32(cbxRol.SelectedValue.ToString());
 
@@ -1311,6 +1318,7 @@ namespace SiscomSoft_Desktop.Views
                 txtContraseña.Clear();
                 txtTelefono.Clear();
                 txtCorreo.Clear();
+                txtPin.Clear();
                 txtComentUsua.Clear();
                 cargarUsuarios();
 
@@ -1360,6 +1368,12 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtUpdatePhone, "Campo necesario");
                 this.txtUpdatePhone.Focus();
             }
+            else if (this.txtUpdatePin.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdatePin, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdatePin, "Campo necesario");
+                this.txtUpdatePin.Focus();
+            }
             else if (this.txtUpdateComment.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtUpdateComment, ErrorIconAlignment.MiddleRight);
@@ -1377,6 +1391,7 @@ namespace SiscomSoft_Desktop.Views
                 nUsuario.sUsuario = txtUpdateUser.Text;
                 nUsuario.sCorreo = txtUpdateCorreo.Text;
                 nUsuario.sNumero = txtUpdatePhone.Text;
+                nUsuario.sPin = LoginTool.GetMD5(txtUpdatePin.Text);
                 nUsuario.sComentario = txtUpdateComment.Text;
                 int fkRol = Convert.ToInt32(cbxUpdateProfile.SelectedValue.ToString());
                 ManejoUsuario.Modificar(nUsuario);
@@ -5187,6 +5202,56 @@ namespace SiscomSoft_Desktop.Views
         private void tbpUpdateProducto_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtUpdatePin_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdatePin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPin_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtPin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

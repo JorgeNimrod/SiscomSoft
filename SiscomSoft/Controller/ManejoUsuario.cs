@@ -11,15 +11,16 @@ using SiscomSoft.Comun;
 
 namespace SiscomSoft.Controller
 {
-   public class ManejoUsuario
+    public class ManejoUsuario
     {
-        public static UsuarioHelper Autentificar(string rfc, String sPassword)
+        public static UsuarioHelper Autentificar(String sPin)
         {
             UsuarioHelper uHelper = new UsuarioHelper();
-            Usuario user = BuscarPorRFC(rfc);
+            Usuario user = BuscarPorPIN(LoginTool.GetMD5(sPin));
+           
             if (user != null)
             {
-                if (user.sContrasena == LoginTool.GetMD5(sPassword))
+                if (user.sPin == LoginTool.GetMD5(sPin))
                 {
                     uHelper.usuario = user;
                     uHelper.esValido = true;
@@ -41,7 +42,24 @@ namespace SiscomSoft.Controller
                     return ctx.Usuarios.Include("fkRol")
                         .Include("fkRol.PermisosNegadosRol")
                         .Include("fkRol.PermisosNegadosRol.fkPermiso")
-                        .Where(r => r.sRfc == empleado).FirstOrDefault();
+                        .Where(r => r.sRfc == empleado && r.bStatus == true).FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        private static Usuario BuscarPorPIN(string empleado)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Usuarios.Include("fkRol")
+                        .Include("fkRol.PermisosNegadosRol")
+                        .Include("fkRol.PermisosNegadosRol.fkPermiso")
+                        .Where(r => r.sPin == empleado && r.bStatus == true).FirstOrDefault();
                 }
             }
             catch (Exception)

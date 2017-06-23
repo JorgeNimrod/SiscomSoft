@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SiscomSoft.Controller;
 using SiscomSoft.Controller.Helpers;
+using SiscomSoft.Comun;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -177,9 +178,32 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnJoin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-           FrmMenu admin = new FrmMenu();
-            admin.ShowDialog();
+            if (this.txtPin.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtPin, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtPin, "Campo necesario");
+                this.txtPin.Focus();
+            }
+           
+            else
+            {
+
+                uHelper = ManejoUsuario.Autentificar(txtPin.Text);
+                    int x = 0;
+                if (uHelper.esValido)
+                {
+                    FrmMenu.uHelper = uHelper;
+                    this.Close();
+                }
+                else
+                {
+                   
+                    this.ErrorProvider.SetError(this.txtPin, uHelper.sMensaje);
+                    txtPin.Clear();
+                    
+                    this.txtPin.Focus();
+                }
+            }
         }
 
         private void btnJoin_MouseLeave(object sender, EventArgs e)
