@@ -216,8 +216,6 @@ namespace SiscomSoft_Desktop.Views
             pago = 1;
           
             acumulado +=  pago;
-            //  label5.Text = String.Format("{0.00}", (1.00));
-         //   acumulado += Convert.ToInt32(label5.Text);
             label5.Text = String.Format("{0:00.00}", "$" + (acumulado));
 
         }

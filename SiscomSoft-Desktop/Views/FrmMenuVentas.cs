@@ -8,10 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using SiscomSoft.Models;
+
 namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmMenuVentas : Form
     {
+        public static InventarioEntrada nVentaM1;
         public FrmMenuVentas()
         {
             InitializeComponent();
@@ -20,13 +23,18 @@ namespace SiscomSoft_Desktop.Views
         public void venta()
         {
             this.Close();
-            FrmDetalleVenta v = new FrmDetalleVenta();
+            FrmDetalleVentaTemplete v = new FrmDetalleVentaTemplete();
             v.Show();
         }
 
         private void FrmVentas_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+            if (nVentaM1!=null)
+            {
+                btnBuno.BackColor = Color.RoyalBlue;
+                btnBuno.ForeColor = Color.White;
+            }
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
