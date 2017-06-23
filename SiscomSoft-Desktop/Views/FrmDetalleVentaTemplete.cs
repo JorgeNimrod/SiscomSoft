@@ -25,6 +25,7 @@ namespace SiscomSoft_Desktop.Views
             pnlPagar.Visible = true;
         }
 
+        #region botones
         private void btnNo1_Click(object sender, EventArgs e)
         {
             Concat = 0;
@@ -141,6 +142,7 @@ namespace SiscomSoft_Desktop.Views
         {
             lblMonto.Text = lblTotal2.Text;
         }
+        #endregion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -148,12 +150,12 @@ namespace SiscomSoft_Desktop.Views
             {
                 for (int i = 0; i < dgvProductos.RowCount - 1; i++)
                 {
-                    FrmMenuVentas.nVentaM1 = new SiscomSoft.Models.InventarioEntrada();
+                    FrmMenuVentas.nVentaB10 = new SiscomSoft.Models.InventarioEntrada();
                     SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value));
-                    FrmMenuVentas.nVentaM1.fkProducto = nProducto;
-                    FrmMenuVentas.nVentaM1.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                    FrmMenuVentas.nVentaM1.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[3].Value);
-                    FrmMenuVentas.nVentaM1.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                    FrmMenuVentas.nVentaB10.fkProducto = nProducto;
+                    FrmMenuVentas.nVentaB10.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
+                    FrmMenuVentas.nVentaB10.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[3].Value);
+                    FrmMenuVentas.nVentaB10.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
                 }
             }
             FrmMenuVentas v = new FrmMenuVentas();
@@ -168,31 +170,30 @@ namespace SiscomSoft_Desktop.Views
             {
                 DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
                 row.Cells[0].Value = nProducto.pkProducto;
-                row.Cells[1].Value = nProducto.iClaveProd;
-                row.Cells[2].Value = nProducto.sDescripcion;
                 if (txtCantidad.Text == "")
                 {
-                    row.Cells[3].Value = 1;
+                    row.Cells[1].Value = 1;
                 }
                 else
                 {
-                    row.Cells[3].Value = txtCantidad.Text;
+                    row.Cells[1].Value = txtCantidad.Text;
                 }
-                row.Cells[5].Value = nProducto.dCosto;
+                row.Cells[2].Value = nProducto.sDescripcion;
+                row.Cells[4].Value = nProducto.dCosto;
 
                 txtCantidad.Clear();
                 decimal Subtotal = 0;
-                decimal dgvCosto = nProducto.dCosto;
-                int dgvCantidad = Convert.ToInt32(row.Cells[3].Value);
+                decimal dgvCosto = Convert.ToDecimal(row.Cells[4].Value);
+                int dgvCantidad = Convert.ToInt32(row.Cells[1].Value);
 
-                decimal total = dgvCosto * dgvCantidad;
+                decimal total = dgvCantidad * dgvCosto;
 
-                row.Cells[4].Value = total;
+                row.Cells[3].Value = total;
                 dgvProductos.Rows.Add(row);
 
                 foreach (DataGridViewRow rItem in dgvProductos.Rows)
                 {
-                    Subtotal += Convert.ToDecimal(rItem.Cells[4].Value);
+                    Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
                 }
 
                 lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
@@ -202,32 +203,45 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmDetalleVentaTemplete_Load(object sender, EventArgs e)
         {
-            if (FrmMenuVentas.nVentaM1!=null)
+            if (FrmMenuVentas.nVentaB10!=null)
             {
                 DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
-                row.Cells[0].Value = FrmMenuVentas.nVentaM1.fkProducto.pkProducto;
-                row.Cells[1].Value = 1;
-                row.Cells[2].Value = FrmMenuVentas.nVentaM1.sNomProducto;
-                row.Cells[3].Value = FrmMenuVentas.nVentaM1.iCantidad;
-                row.Cells[4].Value = FrmMenuVentas.nVentaM1.dPrecio;
+                row.Cells[0].Value = FrmMenuVentas.nVentaB10.fkProducto.pkProducto;
+                row.Cells[1].Value = FrmMenuVentas.nVentaB10.iCantidad;
+                row.Cells[2].Value = FrmMenuVentas.nVentaB10.sNomProducto;
+                row.Cells[4].Value = FrmMenuVentas.nVentaB10.dPrecio;
 
                 txtCantidad.Clear();
                 decimal Subtotal = 0;
                 decimal dgvCosto = Convert.ToDecimal(row.Cells[4].Value);
-                int dgvCantidad = Convert.ToInt32(row.Cells[3].Value);
+                int dgvCantidad = Convert.ToInt32(row.Cells[1].Value);
 
                 decimal total = dgvCosto * dgvCantidad;
 
-                row.Cells[4].Value = total;
+                row.Cells[3].Value = total;
                 dgvProductos.Rows.Add(row);
 
                 foreach (DataGridViewRow rItem in dgvProductos.Rows)
                 {
-                    Subtotal += Convert.ToDecimal(rItem.Cells[4].Value);
+                    Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
                 }
 
                 lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
                 int x = 0;
+            }
+        }
+
+        private void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPagarCancelar_Click(object sender, EventArgs e)
+        {
+            if (lblMonto.Text == "0")
+            {
+                pnlPagar.Visible = false;
+                pnlDetalleVenta.Visible = true;
             }
         }
     }
