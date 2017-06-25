@@ -11,6 +11,7 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoProducto
     {
+
         public static void RegistrarNuevoProducto(Producto nProducto, int pkImpuesto,int pkPrecio, int pkCategoria,int pkCatalogo)
         {
             Impuesto impuesto = ManejoImpuesto.getById(pkImpuesto);
@@ -100,15 +101,27 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static void Modificar(Producto nProducto)
+        public static void Modificar(Producto nProducto,Impuesto nImpuesto,Precio nPrecio,Catalogo nCatalogo,Categoria nCategoria)
         {
+          
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    ctx.Productos.Attach(nProducto);
+
+
+                    int X = 0;
+                    nProducto.fkImpuesto = nImpuesto;
+                    nProducto.fkPrecio = nPrecio;
+                    nProducto.fkCatalogo = nCatalogo;
+                    nProducto.fkCategoria = nCategoria;
+                    ctx.Impuestos.Attach(nImpuesto);
+                    ctx.Precios.Attach(nPrecio);
+                    ctx.Catalogos.Attach(nCatalogo);
+                    ctx.Categorias.Attach(nCategoria);
                     ctx.Entry(nProducto).State = EntityState.Modified;
                     ctx.SaveChanges();
+                    int x = 0;
                 }
             }
             catch (Exception)

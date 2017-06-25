@@ -121,7 +121,9 @@ namespace SiscomSoft_Desktop.Views
             cbxCatalogoAddProd.DisplayMember = "sUDM";
             cbxCatalogoAddProd.ValueMember = "pkCatalogo";
 
-        
+           cbxaddCategoria.DataSource = ManejoCategoria.getAll(true);
+           cbxaddCategoria.DisplayMember = "sNombre";
+            cbxaddCategoria.ValueMember = "pkCategoria";
 
             cbxImpuestoAddProd.DataSource = ManejoImpuesto.getAll(true);
             cbxImpuestoAddProd.DisplayMember = "dTasaImpuesto";
@@ -132,7 +134,9 @@ namespace SiscomSoft_Desktop.Views
             cbxUpdatePrecioProd.DisplayMember = "iPrePorcen";
             cbxUpdatePrecioProd.ValueMember = "pkPrecios";
 
-        
+            cbxUpdateCategoria.DataSource = ManejoCategoria.getAll(true);
+            cbxUpdateCategoria.DisplayMember = "sNombre";
+            cbxUpdateCategoria.ValueMember = "pkCategoria";
 
             cbxUpdateUMDProd.DataSource = ManejoCatalogo.getAll(true);
             cbxUpdateUMDProd.DisplayMember = "sUDM";
@@ -447,6 +451,7 @@ namespace SiscomSoft_Desktop.Views
                 {
                     ManejoRol.Eliminar(Convert.ToInt32(dgvDatosRol.CurrentRow.Cells[0].Value));
                     cargarRoles();
+                    cargarCombos();
                 }
             }
         }
@@ -489,6 +494,7 @@ namespace SiscomSoft_Desktop.Views
                 txtNombre.Clear();
                 txtComentario.Clear();
                 cargarRoles();
+                cargarCombos();
             }
         }
 
@@ -580,7 +586,9 @@ namespace SiscomSoft_Desktop.Views
 
                 ManejoRol.Modificar(nRol);
                 MessageBox.Show("¡Rol Actualizado!");
+
                 cargarRoles();
+                cargarCombos();
             }
         }
 
@@ -634,6 +642,7 @@ namespace SiscomSoft_Desktop.Views
             cbxMetodoPagoUpdateCli.Text = nCliente.sTipoPago;
             txtCorreoUpdateCli.Text = nCliente.sCorreo;
             txtCondicionesUpdateCli.Text = nCliente.sConPago;
+         
             pcbImgUpdatCli.Image = ToolImagen.Base64StringToBitmap(nCliente.sLogo);
 
 
@@ -643,8 +652,7 @@ namespace SiscomSoft_Desktop.Views
         public void ActualizarProducto()
         {
             Producto nProducto = ManejoProducto.getById(PKPRODUCTO);
-            Categoria nCategoria = ManejoCategoria.getById(nProducto.fkCategoria.pkCategoria);
-            PKCATEGORIA = nCategoria.pkCategoria;
+         
             txtUpdateClavProd.Text = nProducto.iClaveProd.ToString();
             txtUpdateMarcProd.Text = nProducto.sMarca;
             dtpUpdateFechaProd.Value = nProducto.dtCaducidad;
@@ -653,13 +661,13 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateDesProd.Text = nProducto.sDescripcion;
             cbxUpdatePrecioProd.Text = nProducto.fkPrecio.ToString();
             txtUpdateLoteProd.Text = nProducto.iLote.ToString();
-            txtUpdateLineaProd.Text = nCategoria.sNombre;
-            txtUpdateSubProd.Text = nCategoria.sNomSubCat;
+           
 
-            cbxUpdateImpuProd.SelectedItem = nProducto.fkImpuesto.pkImpuesto;
+            cbxUpdateImpuProd.SelectedValue = nProducto.fkImpuesto.pkImpuesto;
           
-            cbxUpdateUMDProd.SelectedItem = nProducto.fkCatalogo.pkCatalogo;
-            cbxUpdatePrecioProd.SelectedItem = nProducto.fkPrecio.pkPrecios;
+            cbxUpdateUMDProd.SelectedValue = nProducto.fkCatalogo.pkCatalogo;
+            cbxUpdatePrecioProd.SelectedValue = nProducto.fkPrecio.pkPrecios;
+            cbxUpdateCategoria.SelectedValue = nProducto.fkCategoria.pkCategoria;
 
             pcbUpdateImgProd.Image = ToolImagen.Base64StringToBitmap(nProducto.sFoto);
             int x = 0;
@@ -686,6 +694,7 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateContrasena.Text = nUsuario.sContrasena;
             txtUpdatePhone.Text = nUsuario.sNumero;
             txtUpdateCorreo.Text = nUsuario.sCorreo;
+            txtUpdatePin.Text = nUsuario.sPin;
             txtUpdateComment.Text = nUsuario.sComentario;
         }
         public void ActualizarImpuesto()
@@ -746,13 +755,12 @@ namespace SiscomSoft_Desktop.Views
         {
             if (this.dgvDatosUsuario.RowCount >= 1)
             {
-                tbcGeneral.TabPages.Remove(tbpUpdateUsuario);
+                tbcGeneral.TabPages.Remove(tbpUpdateUser);
                 PKUSUARIO = Convert.ToInt32(this.dgvDatosUsuario.CurrentRow.Cells[0].Value);
 
                 tbcGeneral.TabPages.Add(tbpUpdateUser);
                 ActualizarUsuario();
                 tbcGeneral.SelectedTab = tbpUpdateUser;
-
 
             }
         }
@@ -859,6 +867,7 @@ namespace SiscomSoft_Desktop.Views
                 txtNombreCategoria.Clear();
                 txtSubcategoria.Clear();
                 cargarCategorias();
+                cargarCombos();
 
             }
         }
@@ -916,6 +925,7 @@ namespace SiscomSoft_Desktop.Views
                 ManejoCategoria.Modificar(nCategoria);
                 MessageBox.Show("¡Categoria Actualizada!");
                 cargarCategorias();
+                cargarCombos();
 
 
 
@@ -976,6 +986,7 @@ namespace SiscomSoft_Desktop.Views
                 {
                     ManejoCategoria.Eliminar(Convert.ToInt32(dgvDatosCategoria.CurrentRow.Cells[0].Value));
                     cargarCategorias();
+                    cargarCombos();
                 }
             }
         }
@@ -1034,7 +1045,7 @@ namespace SiscomSoft_Desktop.Views
                 txtTipoImpuesto.Clear();
                 txtTasaImpuesto.Clear();
                 cargarImpuestos();
-
+                cargarCombos();
 
 
             }
@@ -1153,6 +1164,7 @@ namespace SiscomSoft_Desktop.Views
                 ManejoImpuesto.Modificar(nImpuesto);
 
                 cargarImpuestos();
+                cargarCombos();
 
 
             }
@@ -1218,6 +1230,7 @@ namespace SiscomSoft_Desktop.Views
                 {
                     ManejoImpuesto.Eliminar(Convert.ToInt32(dgvDatosImpuesto.CurrentRow.Cells[0].Value));
                     cargarImpuestos();
+                    cargarCombos();
                 }
             }
         }
@@ -1321,6 +1334,7 @@ namespace SiscomSoft_Desktop.Views
                 txtPin.Clear();
                 txtComentUsua.Clear();
                 cargarUsuarios();
+                cargarCombos();
 
 
 
@@ -1397,6 +1411,7 @@ namespace SiscomSoft_Desktop.Views
                 ManejoUsuario.Modificar(nUsuario);
                 MessageBox.Show("¡Usuario Actualizado!");
                 cargarUsuarios();
+                cargarCombos();
             }
         }
 
@@ -1448,23 +1463,18 @@ namespace SiscomSoft_Desktop.Views
                 this.txtLoteAddProd.Focus();
             }
 
-            else if (this.txtLineaAddProd.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtLineaAddProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtLineaAddProd, "Campo necesario");
-                this.txtLineaAddProd.Focus();
-            }
+           
             else if (this.txtDescripcionAddProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtDescripcionAddProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtDescripcionAddProd, "Campo necesario");
                 this.txtDescripcionAddProd.Focus();
             }
-            else if (this.txtSublineaAddProd.Text == "")
+            else if (this.cbxaddCategoria.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtSublineaAddProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtSublineaAddProd, "Campo necesario");
-                this.txtSublineaAddProd.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxaddCategoria, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxaddCategoria, "Debes Agregar Una Categoria Primero");
+                this.cbxaddCategoria.Focus();
             }
             else if (this.pcbimgAddProd == null)
             {
@@ -1474,11 +1484,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                Categoria nCategoria = new Categoria();
-                nCategoria.sNombre = txtLineaAddProd.Text;
-                nCategoria.sNomSubCat = txtLineaAddProd.Text;
-
-                ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
+            
 
                 Producto nProducto = new Producto();
                 nProducto.iClaveProd = Convert.ToInt32(txtClaveaddprod.Text.ToString());
@@ -1493,10 +1499,10 @@ namespace SiscomSoft_Desktop.Views
 
                 int fkImpuesto = Convert.ToInt32(cbxImpuestoAddProd.SelectedValue.ToString());
                 int fkPrecio = Convert.ToInt32(cbxPrecioAddProd.SelectedValue.ToString());
-
-
+                int fkCategoria = Convert.ToInt32(cbxaddCategoria.SelectedValue.ToString());
                 int fkCatalogo = Convert.ToInt32(cbxCatalogoAddProd.SelectedValue.ToString());
-                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, nCategoria.pkCategoria, fkCatalogo);
+
+                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, fkCategoria, fkCatalogo);
 
                 MessageBox.Show("¡Producto Registrado!");
                 txtDescripcionAddProd.Clear();
@@ -1507,11 +1513,12 @@ namespace SiscomSoft_Desktop.Views
                 txtDescuentoProd.Clear();
                 pcbimgAddProd.Image = null;
                 ImagenString = null;
-                txtLineaAddProd.Clear();
-                txtSublineaAddProd.Clear();
+               
+
                 txtLoteAddProd.Clear();
                 txtClaveaddprod.Focus();
                 cargarProductos();
+                cargarCombos();
             }
         }
 
@@ -1549,6 +1556,7 @@ namespace SiscomSoft_Desktop.Views
                 {
                     ManejoProducto.Eliminar(Convert.ToInt32(dgvDatosProducto.CurrentRow.Cells[0].Value));
                     cargarProductos();
+                    cargarCombos();
                 }
             }
         }
@@ -1589,6 +1597,7 @@ namespace SiscomSoft_Desktop.Views
                 txtAddPrecio.Clear();
                 txtAddPrecio.Focus();
                 cargarPrecios();
+                cargarCombos();
 
 
             }
@@ -1630,6 +1639,7 @@ namespace SiscomSoft_Desktop.Views
                 ManejoPrecio.Modificar(nPrecio);
                 MessageBox.Show("¡Precio Actualizado!");
                 cargarPrecios();
+                cargarCombos();
             }
         }
 
@@ -1643,6 +1653,7 @@ namespace SiscomSoft_Desktop.Views
                 {
                     ManejoPrecio.Eliminar(Convert.ToInt32(dgvDatosPrecio.CurrentRow.Cells[0].Value));
                     cargarPrecios();
+                    cargarCombos();
                 }
             }
 
@@ -1736,11 +1747,11 @@ namespace SiscomSoft_Desktop.Views
                 this.txtUpdateLoteProd.Focus();
             }
 
-            else if (this.txtUpdateLineaProd.Text == "")
+            else if (this.cbxUpdateCategoria.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtUpdateLineaProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtUpdateLineaProd, "Campo necesario");
-                this.txtUpdateLineaProd.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxUpdateCategoria, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxUpdateCategoria, "Agregar Categoria Primero");
+                this.cbxUpdateCategoria.Focus();
             }
             else if (this.txtUpdateDesProd.Text == "")
             {
@@ -1748,12 +1759,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtUpdateDesProd, "Campo necesario");
                 this.txtUpdateDesProd.Focus();
             }
-            else if (this.txtUpdateSubProd.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtUpdateSubProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtUpdateSubProd, "Campo necesario");
-                this.txtUpdateSubProd.Focus();
-            }
+          
 
 
             else if (this.pcbUpdateImgProd == null)
@@ -1764,12 +1770,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                Categoria nCategoria = new Categoria();
-                nCategoria.pkCategoria = PKCATEGORIA;
-                nCategoria.sNombre = txtUpdateLineaProd.Text;
-                nCategoria.sNomSubCat = txtUpdateSubProd.Text;
-
-                ManejoCategoria.Modificar(nCategoria);
+             
 
                 Producto nProducto = new Producto();
                 nProducto.pkProducto = PKPRODUCTO;
@@ -1788,18 +1789,21 @@ namespace SiscomSoft_Desktop.Views
                 nProducto.dtCaducidad = dtpUpdateFechaProd.Value;
                 nProducto.iLote = Convert.ToInt32(txtUpdateLoteProd.Text);
 
-
-
-                int fkImpuesto = cbxUpdateImpuProd.SelectedIndex + 1;
               
-                int fkPrecio = cbxUpdatePrecioProd.SelectedIndex + 1;
-                int fkCategoria = cbxUpdateUMDProd.SelectedIndex + 1;
+
+                Impuesto nImpuesto = ManejoImpuesto.getById( Convert.ToInt32(cbxUpdateImpuProd.SelectedValue));
+                Precio nPrecio = ManejoPrecio.getById(Convert.ToInt32(cbxUpdatePrecioProd.SelectedValue));
+                Catalogo nCatalogo = ManejoCatalogo.getById(Convert.ToInt32(cbxUpdateUMDProd.SelectedValue));
+                Categoria nCategoria = ManejoCategoria.getById(Convert.ToInt32(cbxUpdateCategoria.SelectedValue));
+              
 
 
-                ManejoProducto.Modificar(nProducto);
+                ManejoProducto.Modificar(nProducto, nImpuesto, nPrecio, nCatalogo,nCategoria);
                 MessageBox.Show("¡Producto Actualizado!");
                 cargarProductos();
-
+             
+            //    ActualizarProducto();
+                int x = 0;
             }
         }
 
@@ -2369,7 +2373,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtCorreoAddCli, "Campo necesario");
                 this.txtCorreoAddCli.Focus();
             }
-            else if (this.cbxEstadoCliAddCli.Text == "Seleccione Una Opcion")
+            else if (this.cbxEstadoCliAddCli.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.cbxEstadoCliAddCli, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.cbxEstadoCliAddCli, "Favor de Seleccionar una Opcion");
@@ -2381,7 +2385,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtReferenciaAddCli, "Campo necesario");
                 this.txtReferenciaAddCli.Focus();
             }
-            else if (this.cbxMetodoPagoAddCli.Text == "Seleccione Una Opcion")
+            else if (this.cbxMetodoPagoAddCli.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.cbxMetodoPagoAddCli, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.cbxMetodoPagoAddCli, "Favor de Seleccionar una opcion");
@@ -2399,7 +2403,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtCondicionesPagoAddCli, "Campo necesario");
                 this.txtCondicionesPagoAddCli.Focus();
             }
-            else if (this.cbxTipoClienteAddCli.Text == "Seleccione Una Opcion")
+            else if (this.cbxTipoClienteAddCli.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.cbxTipoClienteAddCli, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.cbxTipoClienteAddCli, "Favor de Seleccionar Una Opcion");
@@ -2488,6 +2492,7 @@ namespace SiscomSoft_Desktop.Views
 
                 pcbimgAddCli.Image = null;
                 cargarClientes();
+                cargarCombos();
             }
         }
 
@@ -2620,7 +2625,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtCorreoUpdateCli, "Campo necesario");
                 this.txtCorreoUpdateCli.Focus();
             }
-            else if (this.cbxEstadoCliUpdateCli.Text == "Seleccione Una Opcion")
+            else if (this.cbxEstadoCliUpdateCli.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.cbxEstadoCliUpdateCli, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.cbxEstadoCliUpdateCli, "Favor de Seleccionar una Opcion");
@@ -2632,7 +2637,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtReferenciaUpdateCli, "Campo necesario");
                 this.txtReferenciaUpdateCli.Focus();
             }
-            else if (this.cbxMetodoPagoUpdateCli.Text == "Seleccione Una Opcion")
+            else if (this.cbxMetodoPagoUpdateCli.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.cbxMetodoPagoUpdateCli, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.cbxMetodoPagoUpdateCli, "Favor de Seleccionar una opcion");
@@ -2650,7 +2655,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtCondicionesUpdateCli, "Campo necesario");
                 this.txtCondicionesUpdateCli.Focus();
             }
-            else if (this.cbxTipoCliUpdateCli.Text == "Seleccione Una Opcion")
+            else if (this.cbxTipoCliUpdateCli.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.cbxTipoCliUpdateCli, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.cbxTipoCliUpdateCli, "Favor de Seleccionar Una Opcion");
@@ -2705,13 +2710,14 @@ namespace SiscomSoft_Desktop.Views
                     nCliente.iStatus = 4;
                 }
 
+                ImagenBitmap = new System.Drawing.Bitmap(pcbImgUpdatCli.Image);
+                ImagenString = ToolImagen.ToBase64String(ImagenBitmap, ImageFormat.Jpeg);
                 nCliente.sLogo = ImagenString;
-
-
 
                 ManejoCliente.Modificar(nCliente);
                 MessageBox.Show("¡Cliente Actualizado!");
                 cargarClientes();
+                cargarCombos();
             }
         }
 
@@ -2777,6 +2783,7 @@ namespace SiscomSoft_Desktop.Views
                 {
                     ManejoCliente.Eliminar(Convert.ToInt32(dgvDatosCliente.CurrentRow.Cells[0].Value));
                     cargarClientes();
+                    cargarCombos();
                 }
             }
         }
@@ -3462,6 +3469,7 @@ namespace SiscomSoft_Desktop.Views
                 txtAddLocalidadEmpresa.Clear();
                 txtAddNumExteriorEmpresa.Clear();
                 txtAddNumInteriorEmpresa.Clear();
+                cargarCombos();
             }
         }
 
@@ -3504,6 +3512,7 @@ namespace SiscomSoft_Desktop.Views
                 {
                     ManejoEmpresa.Eliminar(Convert.ToInt32(dgvDatosEmpresa.CurrentRow.Cells[0].Value));
                     cargarEmpresas();
+                    cargarCombos();
                 }
             }
         }
@@ -3658,6 +3667,7 @@ namespace SiscomSoft_Desktop.Views
                 MessageBox.Show("¡Empresa Actualizada!");
                 tbcGeneral.TabPages.Remove(tbpUpdateEmpresa);
                 cargarEmpresas();
+                cargarCombos();
             }
         }
 
@@ -3811,7 +3821,7 @@ namespace SiscomSoft_Desktop.Views
             ckbUpdateEnvFactura.Checked = nPreferencia.bEnvFactura;
             pcbUpdateLogoSucursal.Image = ToolImagen.Base64StringToBitmap(nPreferencia.sLogotipo);
 
-            cmbUpdateEmpresa.SelectedItem = nSucursal.fkEmpresa.pkEmpresa;
+            cmbUpdateEmpresa.SelectedValue = nSucursal.fkEmpresa.pkEmpresa;
 
             txtUpdateFolderCertificados.Text = nCertificado.sRutaArch;
             txtUpdateCertificado.Text = nCertificado.sArchCer;
@@ -3836,6 +3846,7 @@ namespace SiscomSoft_Desktop.Views
                 {
                     ManejoSucursal.Eliminar(Convert.ToInt32(dgvDatosSucursal.CurrentRow.Cells[0].Value));
                     cargarSucursal();
+                    cargarCombos();
                 }
             }
         }
@@ -3983,6 +3994,7 @@ namespace SiscomSoft_Desktop.Views
                 txtAddValidoDe.Clear();
                 txtAddValidoHasta.Clear();
                 cargarSucursal();
+                cargarCombos();
             }
         }
 
@@ -4454,7 +4466,6 @@ namespace SiscomSoft_Desktop.Views
 
                 Sucursal nSucursal = new Sucursal();
                 nSucursal.pkSucursal = PKSUCURSAL;
-                //TODO: Con selectedValue se puede sacar la pk del combo: awebo :D
                 nSucursal.sNombre = txtUpdateNombre.Text;
                 nSucursal.sPais = txtUpdatePais.Text;
                 nSucursal.sEstado = txtUpdateEstado.Text;
@@ -4493,6 +4504,7 @@ namespace SiscomSoft_Desktop.Views
                 ckbUpdateEnvFactura.Checked = false;
                 ckbUpdateForImpreso.Checked = false;
                 cargarSucursal();
+                cargarCombos();
             }
         }
 
@@ -5251,6 +5263,78 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 e.Handled = true;
+            }
+        }
+
+        private void dgvDatosCliente_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.dgvDatosCliente.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateCliente);
+                PKCLIENTE = Convert.ToInt32(this.dgvDatosCliente.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateCliente);
+                ActualizarCliente();
+                tbcGeneral.SelectedTab = tbpUpdateCliente;
+
+            }
+        }
+
+        private void dgvDatosProducto_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.dgvDatosProducto.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateProducto);
+                PKPRODUCTO = Convert.ToInt32(this.dgvDatosProducto.CurrentRow.Cells[0].Value);
+                tbcGeneral.TabPages.Add(tbpUpdateProducto);
+                ActualizarProducto();
+
+                tbcGeneral.SelectedTab = tbpUpdateProducto;
+            }
+        }
+
+        private void dgvDatosPrecio_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.dgvDatosPrecio.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdatePrecio);
+                PKPRECIO = Convert.ToInt32(this.dgvDatosPrecio.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdatePrecio);
+                ActualizarPrecio();
+                tbcGeneral.SelectedTab = tbpUpdatePrecio;
+
+
+            }
+        }
+
+        private void dgvDatosImpuesto_DoubleClick(object sender, EventArgs e)
+        {
+
+            if (this.dgvDatosImpuesto.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateImpuesto);
+                PKIMPUESTO = Convert.ToInt32(this.dgvDatosImpuesto.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateImpuesto);
+                ActualizarImpuesto();
+                tbcGeneral.SelectedTab = tbpUpdateImpuesto;
+
+            }
+        }
+
+        private void btnBorrarUsuario_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosUsuario.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoUsuario.Eliminar(Convert.ToInt32(dgvDatosUsuario.CurrentRow.Cells[0].Value));
+                    cargarUsuarios();
+                    cargarCombos();
+                }
             }
         }
     }

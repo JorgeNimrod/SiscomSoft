@@ -47,6 +47,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 //TODO: ACTIVAR TODOS LOS CONTROLES SEGUN EL PERMISO
                 //ProcesarPermisos();
+                lblNombre.Text = uHelper.usuario.sNombre;
             }
             else
             {
@@ -94,5 +95,13 @@ namespace SiscomSoft_Desktop.Views
         {
             
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            uHelper = null;
+            this.Hide();
+            FrmMenu popo = new FrmMenu();
+            popo.Show();
+         }       
     }
 }
