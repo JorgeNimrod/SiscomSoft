@@ -24,7 +24,8 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            
+
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)

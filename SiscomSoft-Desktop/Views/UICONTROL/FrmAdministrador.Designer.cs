@@ -51,13 +51,6 @@
             this.btnActualizarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -177,6 +170,8 @@
             this.txtActualiTipoImpues = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.tbpAddUsuario = new System.Windows.Forms.TabPage();
+            this.txtPin = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
             this.btnRegistrarUsu = new System.Windows.Forms.Button();
             this.cbxRol = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -195,6 +190,8 @@
             this.txtRFC = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.tbpUpdateUser = new System.Windows.Forms.TabPage();
+            this.txtUpdatePin = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
             this.btnUpdateGuardar = new System.Windows.Forms.Button();
             this.cbxUpdateProfile = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -213,11 +210,9 @@
             this.txtUpdateRFCUser = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.tbpAddProducto = new System.Windows.Forms.TabPage();
+            this.cbxaddCategoria = new System.Windows.Forms.ComboBox();
             this.btnAddProducto = new System.Windows.Forms.Button();
-            this.txtSublineaAddProd = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
-            this.txtLineaAddProd = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
             this.txtClaveaddprod = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.cbxImpuestoAddProd = new System.Windows.Forms.ComboBox();
@@ -241,11 +236,9 @@
             this.label52 = new System.Windows.Forms.Label();
             this.pcbimgAddProd = new System.Windows.Forms.PictureBox();
             this.tbpUpdateProducto = new System.Windows.Forms.TabPage();
+            this.cbxUpdateCategoria = new System.Windows.Forms.ComboBox();
             this.btnActualizarProd = new System.Windows.Forms.Button();
-            this.txtUpdateSubProd = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
-            this.txtUpdateLineaProd = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
             this.txtUpdateClavProd = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
             this.cbxUpdateImpuProd = new System.Windows.Forms.ComboBox();
@@ -620,10 +613,15 @@
             this.label68 = new System.Windows.Forms.Label();
             this.btnCustomersList = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtPin = new System.Windows.Forms.TextBox();
-            this.label48 = new System.Windows.Forms.Label();
-            this.txtUpdatePin = new System.Windows.Forms.TextBox();
-            this.label63 = new System.Windows.Forms.Label();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sFoto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fkCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
             this.pnlProducto.SuspendLayout();
@@ -1030,7 +1028,9 @@
             this.sMarca,
             this.iDescuento,
             this.dCosto,
-            this.iLote});
+            this.iLote,
+            this.sFoto,
+            this.fkCategoria});
             this.dgvDatosProducto.Location = new System.Drawing.Point(6, 37);
             this.dgvDatosProducto.Name = "dgvDatosProducto";
             this.dgvDatosProducto.ReadOnly = true;
@@ -1039,55 +1039,9 @@
             this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
-            // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "pkProducto";
-            this.pkProductos.HeaderText = "Producto";
-            this.pkProductos.Name = "pkProductos";
-            this.pkProductos.ReadOnly = true;
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Clave";
-            this.iClaveProd.Name = "iClaveProd";
-            this.iClaveProd.ReadOnly = true;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            this.sMarca.ReadOnly = true;
-            // 
-            // iDescuento
-            // 
-            this.iDescuento.DataPropertyName = "iDescuento";
-            this.iDescuento.HeaderText = "Descuento";
-            this.iDescuento.Name = "iDescuento";
-            this.iDescuento.ReadOnly = true;
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
-            // 
-            // iLote
-            // 
-            this.iLote.DataPropertyName = "iLote";
-            this.iLote.HeaderText = "Lote";
-            this.iLote.Name = "iLote";
-            this.iLote.ReadOnly = true;
+            this.dgvDatosProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosProducto_CellContentClick);
+            this.dgvDatosProducto.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDatosProducto_CellFormatting);
+            this.dgvDatosProducto.DoubleClick += new System.EventHandler(this.dgvDatosProducto_DoubleClick);
             // 
             // lblRegistroProducto
             // 
@@ -1205,6 +1159,7 @@
             this.dgvDatosPrecio.Size = new System.Drawing.Size(505, 501);
             this.dgvDatosPrecio.TabIndex = 54;
             this.dgvDatosPrecio.DataSourceChanged += new System.EventHandler(this.dgvDatosPrecio_DataSourceChanged);
+            this.dgvDatosPrecio.DoubleClick += new System.EventHandler(this.dgvDatosPrecio_DoubleClick);
             // 
             // pkPrecios
             // 
@@ -1295,6 +1250,7 @@
             this.dgvDatosImpuesto.TabIndex = 48;
             this.dgvDatosImpuesto.DataSourceChanged += new System.EventHandler(this.dgvDatosImpuesto_DataSourceChanged);
             this.dgvDatosImpuesto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosImpuesto_CellDoubleClick);
+            this.dgvDatosImpuesto.DoubleClick += new System.EventHandler(this.dgvDatosImpuesto_DoubleClick);
             // 
             // s
             // 
@@ -1553,6 +1509,7 @@
             this.btnBorrarUsuario.Size = new System.Drawing.Size(143, 57);
             this.btnBorrarUsuario.TabIndex = 80;
             this.btnBorrarUsuario.UseVisualStyleBackColor = false;
+            this.btnBorrarUsuario.Click += new System.EventHandler(this.btnBorrarUsuario_Click);
             // 
             // dgvDatosUsuario
             // 
@@ -1839,9 +1796,9 @@
             // 
             this.pnlAddPermisos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlAddPermisos.Controls.Add(this.label5);
-            this.pnlAddPermisos.Location = new System.Drawing.Point(-1, -1);
+            this.pnlAddPermisos.Location = new System.Drawing.Point(-1, 2);
             this.pnlAddPermisos.Name = "pnlAddPermisos";
-            this.pnlAddPermisos.Size = new System.Drawing.Size(990, 546);
+            this.pnlAddPermisos.Size = new System.Drawing.Size(990, 539);
             this.pnlAddPermisos.TabIndex = 8;
             this.pnlAddPermisos.Visible = false;
             // 
@@ -1980,9 +1937,9 @@
             // 
             this.pnlUpdatePermisos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlUpdatePermisos.Controls.Add(this.label6);
-            this.pnlUpdatePermisos.Location = new System.Drawing.Point(-1, 2);
+            this.pnlUpdatePermisos.Location = new System.Drawing.Point(-1, 3);
             this.pnlUpdatePermisos.Name = "pnlUpdatePermisos";
-            this.pnlUpdatePermisos.Size = new System.Drawing.Size(990, 539);
+            this.pnlUpdatePermisos.Size = new System.Drawing.Size(989, 538);
             this.pnlUpdatePermisos.TabIndex = 8;
             this.pnlUpdatePermisos.Visible = false;
             // 
@@ -2412,6 +2369,26 @@
             this.tbpAddUsuario.UseVisualStyleBackColor = true;
             this.tbpAddUsuario.Click += new System.EventHandler(this.tbpAddUsuario_Click);
             // 
+            // txtPin
+            // 
+            this.txtPin.Location = new System.Drawing.Point(23, 238);
+            this.txtPin.MaxLength = 4;
+            this.txtPin.Name = "txtPin";
+            this.txtPin.PasswordChar = '*';
+            this.txtPin.Size = new System.Drawing.Size(202, 24);
+            this.txtPin.TabIndex = 34;
+            this.txtPin.TextChanged += new System.EventHandler(this.txtPin_TextChanged);
+            this.txtPin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPin_KeyPress);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(24, 213);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(37, 18);
+            this.label48.TabIndex = 35;
+            this.label48.Text = "Pin :";
+            // 
             // btnRegistrarUsu
             // 
             this.btnRegistrarUsu.BackColor = System.Drawing.Color.DarkCyan;
@@ -2488,7 +2465,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTelefono.Location = new System.Drawing.Point(333, 180);
+            this.txtTelefono.Location = new System.Drawing.Point(331, 165);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(172, 24);
             this.txtTelefono.TabIndex = 25;
@@ -2498,7 +2475,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(330, 159);
+            this.label27.Location = new System.Drawing.Point(328, 144);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(74, 18);
             this.label27.TabIndex = 29;
@@ -2545,7 +2522,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsuario.Location = new System.Drawing.Point(331, 119);
+            this.txtUsuario.Location = new System.Drawing.Point(331, 111);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(172, 24);
             this.txtUsuario.TabIndex = 23;
@@ -2618,6 +2595,26 @@
             this.tbpUpdateUser.TabIndex = 13;
             this.tbpUpdateUser.Text = "Actualizar Usuario";
             this.tbpUpdateUser.UseVisualStyleBackColor = true;
+            // 
+            // txtUpdatePin
+            // 
+            this.txtUpdatePin.Location = new System.Drawing.Point(22, 238);
+            this.txtUpdatePin.MaxLength = 4;
+            this.txtUpdatePin.Name = "txtUpdatePin";
+            this.txtUpdatePin.PasswordChar = '*';
+            this.txtUpdatePin.Size = new System.Drawing.Size(202, 24);
+            this.txtUpdatePin.TabIndex = 51;
+            this.txtUpdatePin.TextChanged += new System.EventHandler(this.txtUpdatePin_TextChanged);
+            this.txtUpdatePin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdatePin_KeyPress);
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(23, 213);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(37, 18);
+            this.label63.TabIndex = 52;
+            this.label63.Text = "Pin :";
             // 
             // btnUpdateGuardar
             // 
@@ -2693,7 +2690,7 @@
             // txtUpdatePhone
             // 
             this.txtUpdatePhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUpdatePhone.Location = new System.Drawing.Point(332, 180);
+            this.txtUpdatePhone.Location = new System.Drawing.Point(330, 169);
             this.txtUpdatePhone.Name = "txtUpdatePhone";
             this.txtUpdatePhone.Size = new System.Drawing.Size(172, 24);
             this.txtUpdatePhone.TabIndex = 42;
@@ -2703,7 +2700,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(329, 159);
+            this.label35.Location = new System.Drawing.Point(327, 146);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(74, 18);
             this.label35.TabIndex = 46;
@@ -2750,7 +2747,7 @@
             // txtUpdateUser
             // 
             this.txtUpdateUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUpdateUser.Location = new System.Drawing.Point(330, 119);
+            this.txtUpdateUser.Location = new System.Drawing.Point(330, 110);
             this.txtUpdateUser.Name = "txtUpdateUser";
             this.txtUpdateUser.Size = new System.Drawing.Size(172, 24);
             this.txtUpdateUser.TabIndex = 40;
@@ -2759,7 +2756,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(327, 90);
+            this.label38.Location = new System.Drawing.Point(327, 82);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(68, 18);
             this.label38.TabIndex = 37;
@@ -2798,11 +2795,9 @@
             // 
             // tbpAddProducto
             // 
+            this.tbpAddProducto.Controls.Add(this.cbxaddCategoria);
             this.tbpAddProducto.Controls.Add(this.btnAddProducto);
-            this.tbpAddProducto.Controls.Add(this.txtSublineaAddProd);
             this.tbpAddProducto.Controls.Add(this.label40);
-            this.tbpAddProducto.Controls.Add(this.txtLineaAddProd);
-            this.tbpAddProducto.Controls.Add(this.label41);
             this.tbpAddProducto.Controls.Add(this.txtClaveaddprod);
             this.tbpAddProducto.Controls.Add(this.label42);
             this.tbpAddProducto.Controls.Add(this.cbxImpuestoAddProd);
@@ -2833,6 +2828,18 @@
             this.tbpAddProducto.UseVisualStyleBackColor = true;
             this.tbpAddProducto.Click += new System.EventHandler(this.tbpAddProducto_Click);
             // 
+            // cbxaddCategoria
+            // 
+            this.cbxaddCategoria.BackColor = System.Drawing.Color.DarkCyan;
+            this.cbxaddCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxaddCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxaddCategoria.ForeColor = System.Drawing.Color.White;
+            this.cbxaddCategoria.FormattingEnabled = true;
+            this.cbxaddCategoria.Location = new System.Drawing.Point(161, 143);
+            this.cbxaddCategoria.Name = "cbxaddCategoria";
+            this.cbxaddCategoria.Size = new System.Drawing.Size(213, 26);
+            this.cbxaddCategoria.TabIndex = 139;
+            // 
             // btnAddProducto
             // 
             this.btnAddProducto.BackColor = System.Drawing.Color.DarkCyan;
@@ -2845,41 +2852,14 @@
             this.btnAddProducto.UseVisualStyleBackColor = false;
             this.btnAddProducto.Click += new System.EventHandler(this.btnAddProducto_Click);
             // 
-            // txtSublineaAddProd
-            // 
-            this.txtSublineaAddProd.Location = new System.Drawing.Point(163, 189);
-            this.txtSublineaAddProd.Name = "txtSublineaAddProd";
-            this.txtSublineaAddProd.Size = new System.Drawing.Size(209, 24);
-            this.txtSublineaAddProd.TabIndex = 125;
-            this.txtSublineaAddProd.Text = "knj";
-            this.txtSublineaAddProd.TextChanged += new System.EventHandler(this.txtSublineaAddProd_TextChanged);
-            // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(72, 195);
+            this.label40.Location = new System.Drawing.Point(68, 151);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(76, 18);
+            this.label40.Size = new System.Drawing.Size(80, 18);
             this.label40.TabIndex = 137;
-            this.label40.Text = "Sub linea :";
-            // 
-            // txtLineaAddProd
-            // 
-            this.txtLineaAddProd.Location = new System.Drawing.Point(163, 145);
-            this.txtLineaAddProd.Name = "txtLineaAddProd";
-            this.txtLineaAddProd.Size = new System.Drawing.Size(211, 24);
-            this.txtLineaAddProd.TabIndex = 122;
-            this.txtLineaAddProd.Text = "unj";
-            this.txtLineaAddProd.TextChanged += new System.EventHandler(this.txtLineaAddProd_TextChanged_1);
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(97, 146);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(51, 18);
-            this.label41.TabIndex = 136;
-            this.label41.Text = "Linea :";
+            this.label40.Text = "Categoria :";
             // 
             // txtClaveaddprod
             // 
@@ -2944,6 +2924,7 @@
             // 
             // btnExaImgProdu
             // 
+            this.btnExaImgProdu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExaImgProdu.Location = new System.Drawing.Point(889, 287);
             this.btnExaImgProdu.Name = "btnExaImgProdu";
             this.btnExaImgProdu.Size = new System.Drawing.Size(167, 27);
@@ -2960,7 +2941,7 @@
             this.cbxCatalogoAddProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxCatalogoAddProd.ForeColor = System.Drawing.Color.White;
             this.cbxCatalogoAddProd.FormattingEnabled = true;
-            this.cbxCatalogoAddProd.Location = new System.Drawing.Point(163, 234);
+            this.cbxCatalogoAddProd.Location = new System.Drawing.Point(161, 191);
             this.cbxCatalogoAddProd.Name = "cbxCatalogoAddProd";
             this.cbxCatalogoAddProd.Size = new System.Drawing.Size(211, 26);
             this.cbxCatalogoAddProd.TabIndex = 121;
@@ -3061,7 +3042,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(89, 242);
+            this.label51.Location = new System.Drawing.Point(87, 199);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(51, 18);
             this.label51.TabIndex = 112;
@@ -3098,11 +3079,9 @@
             // 
             // tbpUpdateProducto
             // 
+            this.tbpUpdateProducto.Controls.Add(this.cbxUpdateCategoria);
             this.tbpUpdateProducto.Controls.Add(this.btnActualizarProd);
-            this.tbpUpdateProducto.Controls.Add(this.txtUpdateSubProd);
             this.tbpUpdateProducto.Controls.Add(this.label55);
-            this.tbpUpdateProducto.Controls.Add(this.txtUpdateLineaProd);
-            this.tbpUpdateProducto.Controls.Add(this.label56);
             this.tbpUpdateProducto.Controls.Add(this.txtUpdateClavProd);
             this.tbpUpdateProducto.Controls.Add(this.label57);
             this.tbpUpdateProducto.Controls.Add(this.cbxUpdateImpuProd);
@@ -3133,6 +3112,19 @@
             this.tbpUpdateProducto.UseVisualStyleBackColor = true;
             this.tbpUpdateProducto.Click += new System.EventHandler(this.tbpUpdateProducto_Click);
             // 
+            // cbxUpdateCategoria
+            // 
+            this.cbxUpdateCategoria.BackColor = System.Drawing.Color.DarkCyan;
+            this.cbxUpdateCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxUpdateCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxUpdateCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxUpdateCategoria.ForeColor = System.Drawing.Color.White;
+            this.cbxUpdateCategoria.FormattingEnabled = true;
+            this.cbxUpdateCategoria.Location = new System.Drawing.Point(159, 147);
+            this.cbxUpdateCategoria.Name = "cbxUpdateCategoria";
+            this.cbxUpdateCategoria.Size = new System.Drawing.Size(213, 26);
+            this.cbxUpdateCategoria.TabIndex = 168;
+            // 
             // btnActualizarProd
             // 
             this.btnActualizarProd.BackColor = System.Drawing.Color.DarkCyan;
@@ -3145,39 +3137,14 @@
             this.btnActualizarProd.UseVisualStyleBackColor = false;
             this.btnActualizarProd.Click += new System.EventHandler(this.btnActualizarProd_Click);
             // 
-            // txtUpdateSubProd
-            // 
-            this.txtUpdateSubProd.Location = new System.Drawing.Point(161, 188);
-            this.txtUpdateSubProd.Name = "txtUpdateSubProd";
-            this.txtUpdateSubProd.Size = new System.Drawing.Size(209, 24);
-            this.txtUpdateSubProd.TabIndex = 154;
-            this.txtUpdateSubProd.TextChanged += new System.EventHandler(this.txtUpdateSubProd_TextChanged);
-            // 
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(70, 194);
+            this.label55.Location = new System.Drawing.Point(68, 150);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(76, 18);
+            this.label55.Size = new System.Drawing.Size(80, 18);
             this.label55.TabIndex = 166;
-            this.label55.Text = "Sub linea :";
-            // 
-            // txtUpdateLineaProd
-            // 
-            this.txtUpdateLineaProd.Location = new System.Drawing.Point(161, 144);
-            this.txtUpdateLineaProd.Name = "txtUpdateLineaProd";
-            this.txtUpdateLineaProd.Size = new System.Drawing.Size(211, 24);
-            this.txtUpdateLineaProd.TabIndex = 151;
-            this.txtUpdateLineaProd.TextChanged += new System.EventHandler(this.txtUpdateLineaProd_TextChanged);
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(95, 145);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(51, 18);
-            this.label56.TabIndex = 165;
-            this.label56.Text = "Linea :";
+            this.label55.Text = "Categoria :";
             // 
             // txtUpdateClavProd
             // 
@@ -3243,6 +3210,7 @@
             // 
             // btnUpdateExamProd
             // 
+            this.btnUpdateExamProd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateExamProd.Location = new System.Drawing.Point(887, 286);
             this.btnUpdateExamProd.Name = "btnUpdateExamProd";
             this.btnUpdateExamProd.Size = new System.Drawing.Size(167, 27);
@@ -3287,7 +3255,7 @@
             this.cbxUpdateUMDProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxUpdateUMDProd.ForeColor = System.Drawing.Color.White;
             this.cbxUpdateUMDProd.FormattingEnabled = true;
-            this.cbxUpdateUMDProd.Location = new System.Drawing.Point(163, 241);
+            this.cbxUpdateUMDProd.Location = new System.Drawing.Point(159, 195);
             this.cbxUpdateUMDProd.Name = "cbxUpdateUMDProd";
             this.cbxUpdateUMDProd.Size = new System.Drawing.Size(209, 26);
             this.cbxUpdateUMDProd.TabIndex = 155;
@@ -3357,7 +3325,7 @@
             // label66
             // 
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(87, 241);
+            this.label66.Location = new System.Drawing.Point(83, 195);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(51, 18);
             this.label66.TabIndex = 141;
@@ -4497,6 +4465,7 @@
             this.dgvDatosCliente.TabIndex = 37;
             this.dgvDatosCliente.DataSourceChanged += new System.EventHandler(this.dgvDatosCliente_DataSourceChanged);
             this.dgvDatosCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCliente_CellContentClick);
+            this.dgvDatosCliente.DoubleClick += new System.EventHandler(this.dgvDatosCliente_DoubleClick);
             // 
             // pkClientes
             // 
@@ -4701,6 +4670,7 @@
             // 
             this.cbxEstadoCliAddCli.BackColor = System.Drawing.Color.DarkCyan;
             this.cbxEstadoCliAddCli.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxEstadoCliAddCli.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEstadoCliAddCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxEstadoCliAddCli.ForeColor = System.Drawing.Color.White;
             this.cbxEstadoCliAddCli.FormattingEnabled = true;
@@ -4713,13 +4683,14 @@
             this.cbxEstadoCliAddCli.Name = "cbxEstadoCliAddCli";
             this.cbxEstadoCliAddCli.Size = new System.Drawing.Size(183, 26);
             this.cbxEstadoCliAddCli.TabIndex = 83;
-            this.cbxEstadoCliAddCli.Text = "Seleccione Una Opcion";
             this.cbxEstadoCliAddCli.SelectedIndexChanged += new System.EventHandler(this.cbxEstadoCliAddCli_SelectedIndexChanged);
             // 
             // cbxTipoClienteAddCli
             // 
             this.cbxTipoClienteAddCli.BackColor = System.Drawing.Color.DarkCyan;
             this.cbxTipoClienteAddCli.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxTipoClienteAddCli.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoClienteAddCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxTipoClienteAddCli.ForeColor = System.Drawing.Color.White;
             this.cbxTipoClienteAddCli.FormattingEnabled = true;
             this.cbxTipoClienteAddCli.Items.AddRange(new object[] {
@@ -4729,7 +4700,6 @@
             this.cbxTipoClienteAddCli.Name = "cbxTipoClienteAddCli";
             this.cbxTipoClienteAddCli.Size = new System.Drawing.Size(204, 26);
             this.cbxTipoClienteAddCli.TabIndex = 81;
-            this.cbxTipoClienteAddCli.Text = "Seleccione Una Opcion";
             this.cbxTipoClienteAddCli.SelectedIndexChanged += new System.EventHandler(this.cbxTipoClienteAddCli_SelectedIndexChanged);
             // 
             // label70
@@ -4761,6 +4731,7 @@
             // 
             // btnExaminar
             // 
+            this.btnExaminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExaminar.Location = new System.Drawing.Point(957, 436);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(167, 27);
@@ -4791,6 +4762,8 @@
             // 
             this.cbxMetodoPagoAddCli.BackColor = System.Drawing.Color.DarkCyan;
             this.cbxMetodoPagoAddCli.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxMetodoPagoAddCli.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMetodoPagoAddCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxMetodoPagoAddCli.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.cbxMetodoPagoAddCli.FormattingEnabled = true;
             this.cbxMetodoPagoAddCli.Items.AddRange(new object[] {
@@ -4811,7 +4784,6 @@
             this.cbxMetodoPagoAddCli.Name = "cbxMetodoPagoAddCli";
             this.cbxMetodoPagoAddCli.Size = new System.Drawing.Size(186, 26);
             this.cbxMetodoPagoAddCli.TabIndex = 86;
-            this.cbxMetodoPagoAddCli.Text = "Seleccione Una Opcion";
             this.cbxMetodoPagoAddCli.SelectedIndexChanged += new System.EventHandler(this.cbxMetodoPagoAddCli_SelectedIndexChanged);
             // 
             // txtNumCuentaAddCli
@@ -5234,6 +5206,7 @@
             // cbxEstadoCliUpdateCli
             // 
             this.cbxEstadoCliUpdateCli.BackColor = System.Drawing.Color.DarkCyan;
+            this.cbxEstadoCliUpdateCli.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEstadoCliUpdateCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxEstadoCliUpdateCli.ForeColor = System.Drawing.Color.White;
             this.cbxEstadoCliUpdateCli.FormattingEnabled = true;
@@ -5246,12 +5219,12 @@
             this.cbxEstadoCliUpdateCli.Name = "cbxEstadoCliUpdateCli";
             this.cbxEstadoCliUpdateCli.Size = new System.Drawing.Size(183, 26);
             this.cbxEstadoCliUpdateCli.TabIndex = 134;
-            this.cbxEstadoCliUpdateCli.Text = "Seleccione Una Opcion";
             this.cbxEstadoCliUpdateCli.SelectedIndexChanged += new System.EventHandler(this.cbxEstadoCliUpdateCli_SelectedIndexChanged);
             // 
             // cbxTipoCliUpdateCli
             // 
             this.cbxTipoCliUpdateCli.BackColor = System.Drawing.Color.DarkCyan;
+            this.cbxTipoCliUpdateCli.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTipoCliUpdateCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxTipoCliUpdateCli.ForeColor = System.Drawing.Color.White;
             this.cbxTipoCliUpdateCli.FormattingEnabled = true;
@@ -5262,7 +5235,6 @@
             this.cbxTipoCliUpdateCli.Name = "cbxTipoCliUpdateCli";
             this.cbxTipoCliUpdateCli.Size = new System.Drawing.Size(204, 26);
             this.cbxTipoCliUpdateCli.TabIndex = 132;
-            this.cbxTipoCliUpdateCli.Text = "Seleccione Una Opcion";
             this.cbxTipoCliUpdateCli.SelectedIndexChanged += new System.EventHandler(this.cbxTipoCliUpdateCli_SelectedIndexChanged);
             // 
             // label94
@@ -5294,6 +5266,7 @@
             // 
             // btnExaminarUpdateCli
             // 
+            this.btnExaminarUpdateCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExaminarUpdateCli.Location = new System.Drawing.Point(957, 435);
             this.btnExaminarUpdateCli.Name = "btnExaminarUpdateCli";
             this.btnExaminarUpdateCli.Size = new System.Drawing.Size(167, 27);
@@ -5323,6 +5296,7 @@
             // cbxMetodoPagoUpdateCli
             // 
             this.cbxMetodoPagoUpdateCli.BackColor = System.Drawing.Color.DarkCyan;
+            this.cbxMetodoPagoUpdateCli.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMetodoPagoUpdateCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxMetodoPagoUpdateCli.ForeColor = System.Drawing.Color.White;
             this.cbxMetodoPagoUpdateCli.FormattingEnabled = true;
@@ -5344,7 +5318,6 @@
             this.cbxMetodoPagoUpdateCli.Name = "cbxMetodoPagoUpdateCli";
             this.cbxMetodoPagoUpdateCli.Size = new System.Drawing.Size(186, 26);
             this.cbxMetodoPagoUpdateCli.TabIndex = 137;
-            this.cbxMetodoPagoUpdateCli.Text = "Seleccione Una Opcion";
             this.cbxMetodoPagoUpdateCli.SelectedIndexChanged += new System.EventHandler(this.cbxMetodoPagoUpdateCli_SelectedIndexChanged);
             // 
             // txtNumCuentaUpdateCli
@@ -5914,7 +5887,7 @@
             this.pnlAddCertificado.Controls.Add(this.label198);
             this.pnlAddCertificado.Location = new System.Drawing.Point(158, 0);
             this.pnlAddCertificado.Name = "pnlAddCertificado";
-            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 546);
+            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 550);
             this.pnlAddCertificado.TabIndex = 136;
             this.pnlAddCertificado.Visible = false;
             // 
@@ -6732,7 +6705,7 @@
             this.pnlUpdatePreferencias.Controls.Add(this.btnUpdateExaminarLogoSucursal);
             this.pnlUpdatePreferencias.Location = new System.Drawing.Point(156, 0);
             this.pnlUpdatePreferencias.Name = "pnlUpdatePreferencias";
-            this.pnlUpdatePreferencias.Size = new System.Drawing.Size(997, 550);
+            this.pnlUpdatePreferencias.Size = new System.Drawing.Size(997, 543);
             this.pnlUpdatePreferencias.TabIndex = 139;
             this.pnlUpdatePreferencias.Visible = false;
             // 
@@ -7283,45 +7256,68 @@
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
-            // txtPin
+            // pkProductos
             // 
-            this.txtPin.Location = new System.Drawing.Point(23, 238);
-            this.txtPin.MaxLength = 4;
-            this.txtPin.Name = "txtPin";
-            this.txtPin.PasswordChar = '*';
-            this.txtPin.Size = new System.Drawing.Size(202, 24);
-            this.txtPin.TabIndex = 34;
-            this.txtPin.TextChanged += new System.EventHandler(this.txtPin_TextChanged);
-            this.txtPin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPin_KeyPress);
+            this.pkProductos.DataPropertyName = "pkProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            this.pkProductos.ReadOnly = true;
             // 
-            // label48
+            // iClaveProd
             // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(24, 213);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(37, 18);
-            this.label48.TabIndex = 35;
-            this.label48.Text = "Pin :";
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            this.iClaveProd.HeaderText = "Clave";
+            this.iClaveProd.Name = "iClaveProd";
+            this.iClaveProd.ReadOnly = true;
             // 
-            // txtUpdatePin
+            // sDescripcion
             // 
-            this.txtUpdatePin.Location = new System.Drawing.Point(22, 238);
-            this.txtUpdatePin.MaxLength = 4;
-            this.txtUpdatePin.Name = "txtUpdatePin";
-            this.txtUpdatePin.PasswordChar = '*';
-            this.txtUpdatePin.Size = new System.Drawing.Size(202, 24);
-            this.txtUpdatePin.TabIndex = 51;
-            this.txtUpdatePin.TextChanged += new System.EventHandler(this.txtUpdatePin_TextChanged);
-            this.txtUpdatePin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdatePin_KeyPress);
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
             // 
-            // label63
+            // sMarca
             // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(23, 213);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(37, 18);
-            this.label63.TabIndex = 52;
-            this.label63.Text = "Pin :";
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            this.sMarca.ReadOnly = true;
+            // 
+            // iDescuento
+            // 
+            this.iDescuento.DataPropertyName = "iDescuento";
+            this.iDescuento.HeaderText = "Descuento";
+            this.iDescuento.Name = "iDescuento";
+            this.iDescuento.ReadOnly = true;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
+            // 
+            // iLote
+            // 
+            this.iLote.DataPropertyName = "iLote";
+            this.iLote.HeaderText = "Lote";
+            this.iLote.Name = "iLote";
+            this.iLote.ReadOnly = true;
+            // 
+            // sFoto
+            // 
+            this.sFoto.DataPropertyName = "sFoto";
+            this.sFoto.HeaderText = "Imagen";
+            this.sFoto.Name = "sFoto";
+            this.sFoto.ReadOnly = true;
+            // 
+            // fkCategoria
+            // 
+            this.fkCategoria.DataPropertyName = "fkCategoria";
+            this.fkCategoria.HeaderText = "Categoria";
+            this.fkCategoria.Name = "fkCategoria";
+            this.fkCategoria.ReadOnly = true;
             // 
             // FrmAdministrador
             // 
@@ -7633,10 +7629,7 @@
         private System.Windows.Forms.TextBox txtUpdateRFCUser;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TabPage tbpAddProducto;
-        private System.Windows.Forms.TextBox txtSublineaAddProd;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.TextBox txtLineaAddProd;
-        private System.Windows.Forms.Label label41;
         private System.Windows.Forms.TextBox txtClaveaddprod;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.ComboBox cbxImpuestoAddProd;
@@ -7670,10 +7663,7 @@
         private System.Windows.Forms.TextBox txtUpdatePrecio;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Button btnActualizarProd;
-        private System.Windows.Forms.TextBox txtUpdateSubProd;
         private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.TextBox txtUpdateLineaProd;
-        private System.Windows.Forms.Label label56;
         private System.Windows.Forms.TextBox txtUpdateClavProd;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.ComboBox cbxUpdateImpuProd;
@@ -7833,13 +7823,6 @@
         private System.Windows.Forms.Label label115;
         private System.Windows.Forms.TextBox txtRfcUpdateCli;
         private System.Windows.Forms.Label label116;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
         private System.Windows.Forms.Button btnActualizarEmpresa;
         private System.Windows.Forms.Button btnBorrarEmpresa;
         private System.Windows.Forms.Button btnRegistrarEmpresa;
@@ -8051,5 +8034,16 @@
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox txtUpdatePin;
         private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.ComboBox cbxaddCategoria;
+        private System.Windows.Forms.ComboBox cbxUpdateCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sFoto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fkCategoria;
     }
 }

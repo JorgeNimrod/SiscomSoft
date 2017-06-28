@@ -169,7 +169,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmConfiguracionBD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Configuracion";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.FrmConfiguracionBD_Load);
             this.ResizeEnd += new System.EventHandler(this.FrmConfiguracionBD_ResizeEnd);
             this.ResumeLayout(false);

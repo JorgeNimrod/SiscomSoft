@@ -302,6 +302,7 @@ namespace SiscomSoft.Migrations
                         sUsuario = c.String(nullable: false, unicode: false),
                         sNombre = c.String(nullable: false, unicode: false),
                         sContrasena = c.String(nullable: false, unicode: false),
+                        sPin = c.String(nullable: false, unicode: false),
                         sNumero = c.String(nullable: false, unicode: false),
                         sCorreo = c.String(nullable: false, unicode: false),
                         sComentario = c.String(nullable: false, unicode: false),
