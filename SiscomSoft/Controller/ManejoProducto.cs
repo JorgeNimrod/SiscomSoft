@@ -11,6 +11,22 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoProducto
     {
+        public static List<Producto> getByIDList(int pkProducto)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Productos.Where(r => r.pkProducto == pkProducto).ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static void RegistrarNuevoProducto(Producto nProducto, int pkImpuesto,int pkPrecio, int pkCategoria,int pkCatalogo)
         {
             Impuesto impuesto = ManejoImpuesto.getById(pkImpuesto);
