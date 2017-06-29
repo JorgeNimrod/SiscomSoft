@@ -51,13 +51,6 @@
             this.btnActualizarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -177,6 +170,8 @@
             this.txtActualiTipoImpues = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.tbpAddUsuario = new System.Windows.Forms.TabPage();
+            this.txtPin = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
             this.btnRegistrarUsu = new System.Windows.Forms.Button();
             this.cbxRol = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -195,6 +190,8 @@
             this.txtRFC = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.tbpUpdateUser = new System.Windows.Forms.TabPage();
+            this.txtUpdatePin = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
             this.btnUpdateGuardar = new System.Windows.Forms.Button();
             this.cbxUpdateProfile = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -620,10 +617,14 @@
             this.label68 = new System.Windows.Forms.Label();
             this.btnCustomersList = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtPin = new System.Windows.Forms.TextBox();
-            this.label48 = new System.Windows.Forms.Label();
-            this.txtUpdatePin = new System.Windows.Forms.TextBox();
-            this.label63 = new System.Windows.Forms.Label();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTeclado = new System.Windows.Forms.Button();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
             this.pnlProducto.SuspendLayout();
@@ -1039,55 +1040,6 @@
             this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
-            // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "pkProducto";
-            this.pkProductos.HeaderText = "Producto";
-            this.pkProductos.Name = "pkProductos";
-            this.pkProductos.ReadOnly = true;
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Clave";
-            this.iClaveProd.Name = "iClaveProd";
-            this.iClaveProd.ReadOnly = true;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            this.sMarca.ReadOnly = true;
-            // 
-            // iDescuento
-            // 
-            this.iDescuento.DataPropertyName = "iDescuento";
-            this.iDescuento.HeaderText = "Descuento";
-            this.iDescuento.Name = "iDescuento";
-            this.iDescuento.ReadOnly = true;
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
-            // 
-            // iLote
-            // 
-            this.iLote.DataPropertyName = "iLote";
-            this.iLote.HeaderText = "Lote";
-            this.iLote.Name = "iLote";
-            this.iLote.ReadOnly = true;
             // 
             // lblRegistroProducto
             // 
@@ -2412,6 +2364,26 @@
             this.tbpAddUsuario.UseVisualStyleBackColor = true;
             this.tbpAddUsuario.Click += new System.EventHandler(this.tbpAddUsuario_Click);
             // 
+            // txtPin
+            // 
+            this.txtPin.Location = new System.Drawing.Point(23, 238);
+            this.txtPin.MaxLength = 4;
+            this.txtPin.Name = "txtPin";
+            this.txtPin.PasswordChar = '*';
+            this.txtPin.Size = new System.Drawing.Size(202, 24);
+            this.txtPin.TabIndex = 34;
+            this.txtPin.TextChanged += new System.EventHandler(this.txtPin_TextChanged);
+            this.txtPin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPin_KeyPress);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(24, 213);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(37, 18);
+            this.label48.TabIndex = 35;
+            this.label48.Text = "Pin :";
+            // 
             // btnRegistrarUsu
             // 
             this.btnRegistrarUsu.BackColor = System.Drawing.Color.DarkCyan;
@@ -2618,6 +2590,26 @@
             this.tbpUpdateUser.TabIndex = 13;
             this.tbpUpdateUser.Text = "Actualizar Usuario";
             this.tbpUpdateUser.UseVisualStyleBackColor = true;
+            // 
+            // txtUpdatePin
+            // 
+            this.txtUpdatePin.Location = new System.Drawing.Point(22, 238);
+            this.txtUpdatePin.MaxLength = 4;
+            this.txtUpdatePin.Name = "txtUpdatePin";
+            this.txtUpdatePin.PasswordChar = '*';
+            this.txtUpdatePin.Size = new System.Drawing.Size(202, 24);
+            this.txtUpdatePin.TabIndex = 51;
+            this.txtUpdatePin.TextChanged += new System.EventHandler(this.txtUpdatePin_TextChanged);
+            this.txtUpdatePin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdatePin_KeyPress);
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(23, 213);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(37, 18);
+            this.label63.TabIndex = 52;
+            this.label63.Text = "Pin :";
             // 
             // btnUpdateGuardar
             // 
@@ -7283,45 +7275,68 @@
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
-            // txtPin
+            // pkProductos
             // 
-            this.txtPin.Location = new System.Drawing.Point(23, 238);
-            this.txtPin.MaxLength = 4;
-            this.txtPin.Name = "txtPin";
-            this.txtPin.PasswordChar = '*';
-            this.txtPin.Size = new System.Drawing.Size(202, 24);
-            this.txtPin.TabIndex = 34;
-            this.txtPin.TextChanged += new System.EventHandler(this.txtPin_TextChanged);
-            this.txtPin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPin_KeyPress);
+            this.pkProductos.DataPropertyName = "pkProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            this.pkProductos.ReadOnly = true;
             // 
-            // label48
+            // iClaveProd
             // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(24, 213);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(37, 18);
-            this.label48.TabIndex = 35;
-            this.label48.Text = "Pin :";
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            this.iClaveProd.HeaderText = "Clave";
+            this.iClaveProd.Name = "iClaveProd";
+            this.iClaveProd.ReadOnly = true;
             // 
-            // txtUpdatePin
+            // sDescripcion
             // 
-            this.txtUpdatePin.Location = new System.Drawing.Point(22, 238);
-            this.txtUpdatePin.MaxLength = 4;
-            this.txtUpdatePin.Name = "txtUpdatePin";
-            this.txtUpdatePin.PasswordChar = '*';
-            this.txtUpdatePin.Size = new System.Drawing.Size(202, 24);
-            this.txtUpdatePin.TabIndex = 51;
-            this.txtUpdatePin.TextChanged += new System.EventHandler(this.txtUpdatePin_TextChanged);
-            this.txtUpdatePin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdatePin_KeyPress);
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
             // 
-            // label63
+            // sMarca
             // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(23, 213);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(37, 18);
-            this.label63.TabIndex = 52;
-            this.label63.Text = "Pin :";
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            this.sMarca.ReadOnly = true;
+            // 
+            // iDescuento
+            // 
+            this.iDescuento.DataPropertyName = "iDescuento";
+            this.iDescuento.HeaderText = "Descuento";
+            this.iDescuento.Name = "iDescuento";
+            this.iDescuento.ReadOnly = true;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
+            // 
+            // iLote
+            // 
+            this.iLote.DataPropertyName = "iLote";
+            this.iLote.HeaderText = "Lote";
+            this.iLote.Name = "iLote";
+            this.iLote.ReadOnly = true;
+            // 
+            // btnTeclado
+            // 
+            this.btnTeclado.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnTeclado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTeclado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTeclado.ForeColor = System.Drawing.Color.White;
+            this.btnTeclado.Location = new System.Drawing.Point(10, 680);
+            this.btnTeclado.Name = "btnTeclado";
+            this.btnTeclado.Size = new System.Drawing.Size(125, 37);
+            this.btnTeclado.TabIndex = 26;
+            this.btnTeclado.Text = "Teclado";
+            this.btnTeclado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnTeclado.UseVisualStyleBackColor = false;
             // 
             // FrmAdministrador
             // 
@@ -7329,6 +7344,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.btnTeclado);
             this.Controls.Add(this.pnlCliente);
             this.Controls.Add(this.pnlEmpresas);
             this.Controls.Add(this.lblFecha);
@@ -7833,13 +7849,6 @@
         private System.Windows.Forms.Label label115;
         private System.Windows.Forms.TextBox txtRfcUpdateCli;
         private System.Windows.Forms.Label label116;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
         private System.Windows.Forms.Button btnActualizarEmpresa;
         private System.Windows.Forms.Button btnBorrarEmpresa;
         private System.Windows.Forms.Button btnRegistrarEmpresa;
@@ -8051,5 +8060,13 @@
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox txtUpdatePin;
         private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
+        private System.Windows.Forms.Button btnTeclado;
     }
 }

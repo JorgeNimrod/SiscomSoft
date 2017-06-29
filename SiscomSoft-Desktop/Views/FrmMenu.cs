@@ -83,5 +83,13 @@ namespace SiscomSoft_Desktop.Views
             FrmMenu v = new FrmMenu();
             v.ShowDialog();
         }
+
+        private void btnMenuInventario_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmAlmacen v = new FrmAlmacen();
+            v.ShowDialog();
+
+        }
     }
 }

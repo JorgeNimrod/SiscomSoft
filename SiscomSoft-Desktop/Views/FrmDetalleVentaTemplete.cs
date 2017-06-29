@@ -62,7 +62,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[3].Value = total;
                     row.Height = 50;
                     dgvDetalleProductos.Rows.Add(row);
-
+                       
                     foreach (DataGridViewRow rItem in dgvDetalleProductos.Rows)
                     {
                         Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);

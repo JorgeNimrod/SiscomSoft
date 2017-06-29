@@ -299,7 +299,9 @@ namespace SiscomSoft_Desktop.Views
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
-            
+          
+
+
             cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
