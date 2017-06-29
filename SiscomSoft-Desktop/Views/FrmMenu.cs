@@ -38,70 +38,50 @@ namespace SiscomSoft_Desktop.Views
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
-            if (uHelper == null)
-            {
-                FrmLogin vLogin = new FrmLogin();
-                vLogin.ShowDialog();
-            }
-            if (uHelper.esValido && uHelper != null)
-            {
-                //TODO: ACTIVAR TODOS LOS CONTROLES SEGUN EL PERMISO
-                //ProcesarPermisos();
-                lblNombre.Text = uHelper.usuario.sNombre;
-            }
-            else
-            {
-                MessageBox.Show("Se require se autentifique", "Eror..", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //if (uHelper == null)
+            //{
+            //    FrmLogin vLogin = new FrmLogin();
+            //    vLogin.ShowDialog();
+            //}
+            //if (uHelper.esValido && uHelper != null)
+            //{
+            //    //TODO: ACTIVAR TODOS LOS CONTROLES SEGUN EL PERMISO
+            //    //ProcesarPermisos();
+            //lblNombre.Text = "Bienvenido " + uHelper.usuario.sNombre;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Se require se autentifique", "Eror..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
-        private void btnFacturacion_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FrmMenuFacturacion v = new FrmMenuFacturacion();
-            v.ShowDialog();
-        }
-
-        private void btnConfig_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FrmAdministrador admin = new FrmAdministrador();
-            admin.ShowDialog();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmMenu_MdiChildActivate(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void btnMenuVentas_Click(object sender, EventArgs e)
         {
             this.Hide();
             FrmMenuVentas v = new FrmMenuVentas();
             v.ShowDialog();
         }
 
-        private void btnReportes_Click(object sender, EventArgs e)
+        private void btnMenuFacturacion_Click(object sender, EventArgs e)
         {
-           
+            this.Hide();
+            FrmMenuFacturacion v = new FrmMenuFacturacion();
+            v.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnMenuAdmin_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            FrmAdministrador v = new FrmAdministrador();
+            v.ShowDialog();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
             uHelper = null;
             this.Hide();
-            FrmMenu popo = new FrmMenu();
-            popo.Show();
-         }       
+            FrmMenu v = new FrmMenu();
+            v.ShowDialog();
+        }
     }
 }
