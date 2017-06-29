@@ -59,7 +59,7 @@ namespace SiscomSoft.Controller
                     return ctx.Usuarios.Include("fkRol")
                         .Include("fkRol.PermisosNegadosRol")
                         .Include("fkRol.PermisosNegadosRol.fkPermiso")
-                        .Where(r => r.sPin == empleado && r.bStatus == true).FirstOrDefault();
+                         .Where(r => r.sPin == empleado && r.bStatus == true).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -154,6 +154,7 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
         public static Rol getById2(int pkrol)
         {
             try

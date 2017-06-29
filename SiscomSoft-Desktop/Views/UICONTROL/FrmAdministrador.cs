@@ -174,7 +174,17 @@ namespace SiscomSoft_Desktop.Views
         }
         public void cargarProductos()
         {
-            this.dgvDatosProducto.DataSource = ManejoProducto.Buscar(txtBuscarProducto.Text, ckbStatusProducto.Checked);
+          //List<Producto> nProducto = ManejoProducto.Buscar(txtBuscarProducto.Text, ckbStatusProducto.Checked);
+          //  this.dgvDatosProducto.DataSource = nProducto;
+          //  foreach (Producto Producto in nProducto)
+          //  {
+          //      dgvDatosProducto.CurrentRow.Cells["fkCategoria"].Value = Producto.fkCategoria.sNombre;
+
+          //  }
+
+          
+
+
         }
         public void cargarClientes()
         {
@@ -303,7 +313,10 @@ namespace SiscomSoft_Desktop.Views
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
-            
+
+         
+
+
             cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
@@ -334,6 +347,7 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpAddCliente);
             tbcGeneral.TabPages.Remove(tbpUpdateCliente);
             cmbStatusSucursal.SelectedIndex = 0;
+           
             CargarTablas();
         }
 
@@ -1476,7 +1490,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.cbxaddCategoria, "Debes Agregar Una Categoria Primero");
                 this.cbxaddCategoria.Focus();
             }
-            else if (this.pcbimgAddProd == null)
+            else if (this.pcbimgAddProd.Image == null)
             {
                 this.ErrorProvider.SetIconAlignment(this.pcbimgAddProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.pcbimgAddProd, "Debe agregar una imagen del producto en Examinar ");
@@ -1762,7 +1776,7 @@ namespace SiscomSoft_Desktop.Views
           
 
 
-            else if (this.pcbUpdateImgProd == null)
+            else if (this.pcbUpdateImgProd.Image == null)
             {
                 this.ErrorProvider.SetIconAlignment(this.pcbUpdateImgProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.pcbUpdateImgProd, "Debe agregar una imagen del producto en Examinar ");
@@ -2661,7 +2675,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.cbxTipoCliUpdateCli, "Favor de Seleccionar Una Opcion");
                 this.cbxTipoCliUpdateCli.Focus();
             }
-            else if (this.pcbUpdateImgProd.Text == null)
+            else if (this.pcbUpdateImgProd.Image == null)
             {
                 this.ErrorProvider.SetIconAlignment(this.pcbUpdateImgProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.pcbUpdateImgProd, "Favor de Seleccionar Una Imagen");
@@ -3926,7 +3940,7 @@ namespace SiscomSoft_Desktop.Views
                 this.pnlAddPreferencias.Visible = true;
                 this.txtAddNumSerieSucursal.Focus();
             }
-            else if (this.pcbAddLogo == null)
+            else if (this.pcbAddLogo.Image == null)
             {
                 this.ErrorProvider.SetIconAlignment(this.pcbAddLogo, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.pcbAddLogo, "Campo necesario");
@@ -5337,6 +5351,18 @@ namespace SiscomSoft_Desktop.Views
                 }
             }
         }
+
+        private void dgvDatosProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDatosProducto_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+          
+
+        }
+
     }
 }
 

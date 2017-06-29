@@ -19,5 +19,15 @@ namespace SiscomSoft_Desktop.Views
         {
             InitializeComponent();
         }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void FrmVenta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -51,13 +51,6 @@
             this.btnActualizarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -217,6 +210,7 @@
             this.txtUpdateRFCUser = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.tbpAddProducto = new System.Windows.Forms.TabPage();
+            this.cbxaddCategoria = new System.Windows.Forms.ComboBox();
             this.btnAddProducto = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
             this.txtClaveaddprod = new System.Windows.Forms.TextBox();
@@ -242,6 +236,7 @@
             this.label52 = new System.Windows.Forms.Label();
             this.pcbimgAddProd = new System.Windows.Forms.PictureBox();
             this.tbpUpdateProducto = new System.Windows.Forms.TabPage();
+            this.cbxUpdateCategoria = new System.Windows.Forms.ComboBox();
             this.btnActualizarProd = new System.Windows.Forms.Button();
             this.label55 = new System.Windows.Forms.Label();
             this.txtUpdateClavProd = new System.Windows.Forms.TextBox();
@@ -618,8 +613,15 @@
             this.label68 = new System.Windows.Forms.Label();
             this.btnCustomersList = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cbxUpdateCategoria = new System.Windows.Forms.ComboBox();
-            this.cbxaddCategoria = new System.Windows.Forms.ComboBox();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sFoto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fkCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
             this.pnlProducto.SuspendLayout();
@@ -1026,7 +1028,9 @@
             this.sMarca,
             this.iDescuento,
             this.dCosto,
-            this.iLote});
+            this.iLote,
+            this.sFoto,
+            this.fkCategoria});
             this.dgvDatosProducto.Location = new System.Drawing.Point(6, 37);
             this.dgvDatosProducto.Name = "dgvDatosProducto";
             this.dgvDatosProducto.ReadOnly = true;
@@ -1035,56 +1039,9 @@
             this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
+            this.dgvDatosProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosProducto_CellContentClick);
+            this.dgvDatosProducto.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDatosProducto_CellFormatting);
             this.dgvDatosProducto.DoubleClick += new System.EventHandler(this.dgvDatosProducto_DoubleClick);
-            // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "pkProducto";
-            this.pkProductos.HeaderText = "Producto";
-            this.pkProductos.Name = "pkProductos";
-            this.pkProductos.ReadOnly = true;
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Clave";
-            this.iClaveProd.Name = "iClaveProd";
-            this.iClaveProd.ReadOnly = true;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            this.sMarca.ReadOnly = true;
-            // 
-            // iDescuento
-            // 
-            this.iDescuento.DataPropertyName = "iDescuento";
-            this.iDescuento.HeaderText = "Descuento";
-            this.iDescuento.Name = "iDescuento";
-            this.iDescuento.ReadOnly = true;
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
-            // 
-            // iLote
-            // 
-            this.iLote.DataPropertyName = "iLote";
-            this.iLote.HeaderText = "Lote";
-            this.iLote.Name = "iLote";
-            this.iLote.ReadOnly = true;
             // 
             // lblRegistroProducto
             // 
@@ -1136,7 +1093,7 @@
             this.tbpPrecio.Location = new System.Drawing.Point(4, 27);
             this.tbpPrecio.Name = "tbpPrecio";
             this.tbpPrecio.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpPrecio.Size = new System.Drawing.Size(1151, 396);
+            this.tbpPrecio.Size = new System.Drawing.Size(1151, 546);
             this.tbpPrecio.TabIndex = 1;
             this.tbpPrecio.Text = "Precios";
             this.tbpPrecio.UseVisualStyleBackColor = true;
@@ -1233,7 +1190,7 @@
             this.tbpImpuestos.Controls.Add(this.label14);
             this.tbpImpuestos.Location = new System.Drawing.Point(4, 27);
             this.tbpImpuestos.Name = "tbpImpuestos";
-            this.tbpImpuestos.Size = new System.Drawing.Size(1151, 396);
+            this.tbpImpuestos.Size = new System.Drawing.Size(1151, 546);
             this.tbpImpuestos.TabIndex = 2;
             this.tbpImpuestos.Text = "Impuestos";
             this.tbpImpuestos.UseVisualStyleBackColor = true;
@@ -1377,7 +1334,7 @@
             this.tbpCategoria.Controls.Add(this.label12);
             this.tbpCategoria.Location = new System.Drawing.Point(4, 27);
             this.tbpCategoria.Name = "tbpCategoria";
-            this.tbpCategoria.Size = new System.Drawing.Size(1151, 396);
+            this.tbpCategoria.Size = new System.Drawing.Size(1151, 546);
             this.tbpCategoria.TabIndex = 3;
             this.tbpCategoria.Text = "Categorias";
             this.tbpCategoria.UseVisualStyleBackColor = true;
@@ -1513,7 +1470,7 @@
             this.tbpUsuario.Controls.Add(this.label10);
             this.tbpUsuario.Location = new System.Drawing.Point(4, 27);
             this.tbpUsuario.Name = "tbpUsuario";
-            this.tbpUsuario.Size = new System.Drawing.Size(1151, 396);
+            this.tbpUsuario.Size = new System.Drawing.Size(1151, 546);
             this.tbpUsuario.TabIndex = 4;
             this.tbpUsuario.Text = "Usuarios";
             this.tbpUsuario.UseVisualStyleBackColor = true;
@@ -1670,7 +1627,7 @@
             this.tbpRol.Controls.Add(this.pnlCatalogoRoles);
             this.tbpRol.Location = new System.Drawing.Point(4, 27);
             this.tbpRol.Name = "tbpRol";
-            this.tbpRol.Size = new System.Drawing.Size(1151, 396);
+            this.tbpRol.Size = new System.Drawing.Size(1151, 546);
             this.tbpRol.TabIndex = 5;
             this.tbpRol.Text = "Roles";
             this.tbpRol.UseVisualStyleBackColor = true;
@@ -1980,9 +1937,9 @@
             // 
             this.pnlUpdatePermisos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlUpdatePermisos.Controls.Add(this.label6);
-            this.pnlUpdatePermisos.Location = new System.Drawing.Point(-1, 2);
+            this.pnlUpdatePermisos.Location = new System.Drawing.Point(-1, 3);
             this.pnlUpdatePermisos.Name = "pnlUpdatePermisos";
-            this.pnlUpdatePermisos.Size = new System.Drawing.Size(990, 470);
+            this.pnlUpdatePermisos.Size = new System.Drawing.Size(989, 538);
             this.pnlUpdatePermisos.TabIndex = 8;
             this.pnlUpdatePermisos.Visible = false;
             // 
@@ -2871,6 +2828,18 @@
             this.tbpAddProducto.UseVisualStyleBackColor = true;
             this.tbpAddProducto.Click += new System.EventHandler(this.tbpAddProducto_Click);
             // 
+            // cbxaddCategoria
+            // 
+            this.cbxaddCategoria.BackColor = System.Drawing.Color.DarkCyan;
+            this.cbxaddCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxaddCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxaddCategoria.ForeColor = System.Drawing.Color.White;
+            this.cbxaddCategoria.FormattingEnabled = true;
+            this.cbxaddCategoria.Location = new System.Drawing.Point(161, 143);
+            this.cbxaddCategoria.Name = "cbxaddCategoria";
+            this.cbxaddCategoria.Size = new System.Drawing.Size(213, 26);
+            this.cbxaddCategoria.TabIndex = 139;
+            // 
             // btnAddProducto
             // 
             this.btnAddProducto.BackColor = System.Drawing.Color.DarkCyan;
@@ -3142,6 +3111,19 @@
             this.tbpUpdateProducto.Text = "Actualizar Producto";
             this.tbpUpdateProducto.UseVisualStyleBackColor = true;
             this.tbpUpdateProducto.Click += new System.EventHandler(this.tbpUpdateProducto_Click);
+            // 
+            // cbxUpdateCategoria
+            // 
+            this.cbxUpdateCategoria.BackColor = System.Drawing.Color.DarkCyan;
+            this.cbxUpdateCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxUpdateCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxUpdateCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxUpdateCategoria.ForeColor = System.Drawing.Color.White;
+            this.cbxUpdateCategoria.FormattingEnabled = true;
+            this.cbxUpdateCategoria.Location = new System.Drawing.Point(159, 147);
+            this.cbxUpdateCategoria.Name = "cbxUpdateCategoria";
+            this.cbxUpdateCategoria.Size = new System.Drawing.Size(213, 26);
+            this.cbxUpdateCategoria.TabIndex = 168;
             // 
             // btnActualizarProd
             // 
@@ -5905,7 +5887,7 @@
             this.pnlAddCertificado.Controls.Add(this.label198);
             this.pnlAddCertificado.Location = new System.Drawing.Point(158, 0);
             this.pnlAddCertificado.Name = "pnlAddCertificado";
-            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 27);
+            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 550);
             this.pnlAddCertificado.TabIndex = 136;
             this.pnlAddCertificado.Visible = false;
             // 
@@ -6091,7 +6073,7 @@
             this.pnlAddPreferencias.Controls.Add(this.btnAddExaminarLogo);
             this.pnlAddPreferencias.Location = new System.Drawing.Point(158, 0);
             this.pnlAddPreferencias.Name = "pnlAddPreferencias";
-            this.pnlAddPreferencias.Size = new System.Drawing.Size(997, 36);
+            this.pnlAddPreferencias.Size = new System.Drawing.Size(997, 546);
             this.pnlAddPreferencias.TabIndex = 136;
             this.pnlAddPreferencias.Visible = false;
             // 
@@ -7274,30 +7256,68 @@
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
-            // cbxUpdateCategoria
+            // pkProductos
             // 
-            this.cbxUpdateCategoria.BackColor = System.Drawing.Color.DarkCyan;
-            this.cbxUpdateCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbxUpdateCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxUpdateCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxUpdateCategoria.ForeColor = System.Drawing.Color.White;
-            this.cbxUpdateCategoria.FormattingEnabled = true;
-            this.cbxUpdateCategoria.Location = new System.Drawing.Point(159, 147);
-            this.cbxUpdateCategoria.Name = "cbxUpdateCategoria";
-            this.cbxUpdateCategoria.Size = new System.Drawing.Size(213, 26);
-            this.cbxUpdateCategoria.TabIndex = 168;
+            this.pkProductos.DataPropertyName = "pkProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            this.pkProductos.ReadOnly = true;
             // 
-            // cbxaddCategoria
+            // iClaveProd
             // 
-            this.cbxaddCategoria.BackColor = System.Drawing.Color.DarkCyan;
-            this.cbxaddCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxaddCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxaddCategoria.ForeColor = System.Drawing.Color.White;
-            this.cbxaddCategoria.FormattingEnabled = true;
-            this.cbxaddCategoria.Location = new System.Drawing.Point(161, 143);
-            this.cbxaddCategoria.Name = "cbxaddCategoria";
-            this.cbxaddCategoria.Size = new System.Drawing.Size(213, 26);
-            this.cbxaddCategoria.TabIndex = 139;
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            this.iClaveProd.HeaderText = "Clave";
+            this.iClaveProd.Name = "iClaveProd";
+            this.iClaveProd.ReadOnly = true;
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            this.sMarca.ReadOnly = true;
+            // 
+            // iDescuento
+            // 
+            this.iDescuento.DataPropertyName = "iDescuento";
+            this.iDescuento.HeaderText = "Descuento";
+            this.iDescuento.Name = "iDescuento";
+            this.iDescuento.ReadOnly = true;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
+            // 
+            // iLote
+            // 
+            this.iLote.DataPropertyName = "iLote";
+            this.iLote.HeaderText = "Lote";
+            this.iLote.Name = "iLote";
+            this.iLote.ReadOnly = true;
+            // 
+            // sFoto
+            // 
+            this.sFoto.DataPropertyName = "sFoto";
+            this.sFoto.HeaderText = "Imagen";
+            this.sFoto.Name = "sFoto";
+            this.sFoto.ReadOnly = true;
+            // 
+            // fkCategoria
+            // 
+            this.fkCategoria.DataPropertyName = "fkCategoria";
+            this.fkCategoria.HeaderText = "Categoria";
+            this.fkCategoria.Name = "fkCategoria";
+            this.fkCategoria.ReadOnly = true;
             // 
             // FrmAdministrador
             // 
@@ -7803,13 +7823,6 @@
         private System.Windows.Forms.Label label115;
         private System.Windows.Forms.TextBox txtRfcUpdateCli;
         private System.Windows.Forms.Label label116;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
         private System.Windows.Forms.Button btnActualizarEmpresa;
         private System.Windows.Forms.Button btnBorrarEmpresa;
         private System.Windows.Forms.Button btnRegistrarEmpresa;
@@ -8023,5 +8036,14 @@
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.ComboBox cbxaddCategoria;
         private System.Windows.Forms.ComboBox cbxUpdateCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDescuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sFoto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fkCategoria;
     }
 }
