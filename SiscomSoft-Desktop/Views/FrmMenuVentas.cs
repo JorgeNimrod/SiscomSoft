@@ -15,89 +15,89 @@ namespace SiscomSoft_Desktop.Views
     public partial class FrmMenuVentas : Form
     {
         #region variables staticas
-        public static InventarioEntrada nVentaB10;
+        public static List<InventarioEntrada> nVentaB10;
         public static Boolean bBtnB10 = false;
-        public static InventarioEntrada nVentaB11;
+        public static List<InventarioEntrada> nVentaB11;
         public static Boolean bBtnB11 = false;
-        public static InventarioEntrada nVentaB12;
+        public static List<InventarioEntrada> nVentaB12;
         public static Boolean bBtnB12 = false;
-        public static InventarioEntrada nVentaB13;
+        public static List<InventarioEntrada> nVentaB13;
         public static Boolean bBtnB13 = false;
-        public static InventarioEntrada nVentaB14;
+        public static List<InventarioEntrada> nVentaB14;
         public static Boolean bBtnB14 = false;
-        public static InventarioEntrada nVentaB15;
+        public static List<InventarioEntrada> nVentaB15;
         public static Boolean bBtnB15 = false;
-        public static InventarioEntrada nVentaB16;
+        public static List<InventarioEntrada> nVentaB16;
         public static Boolean bBtnB16 = false;
-        public static InventarioEntrada nVentaB17;
+        public static List<InventarioEntrada> nVentaB17;
         public static Boolean bBtnB17 = false;
-        public static InventarioEntrada nVentaB18;
+        public static List<InventarioEntrada> nVentaB18;
         public static Boolean bBtnB18 = false;
-        public static InventarioEntrada nVentaB19;
+        public static List<InventarioEntrada> nVentaB19;
         public static Boolean bBtnB19 = false;
-        public static InventarioEntrada nVentaB20;
+        public static List<InventarioEntrada> nVentaB20;
         public static Boolean bBtnB20 = false;
-        public static InventarioEntrada nVentaB21;
+        public static List<InventarioEntrada> nVentaB21;
         public static Boolean bBtnB21 = false;
-        public static InventarioEntrada nVentaB22;
+        public static List<InventarioEntrada> nVentaB22;
         public static Boolean bBtnB22 = false;
-        public static InventarioEntrada nVentaB23;
+        public static List<InventarioEntrada> nVentaB23;
         public static Boolean bBtnB23 = false;
-        public static InventarioEntrada nVentaB24;
+        public static List<InventarioEntrada> nVentaB24;
         public static Boolean bBtnB24 = false;
-        public static InventarioEntrada nVentaB25;
+        public static List<InventarioEntrada> nVentaB25;
         public static Boolean bBtnB25 = false;
-        public static InventarioEntrada nVentaB26;
+        public static List<InventarioEntrada> nVentaB26;
         public static Boolean bBtnB26 = false;
-        public static InventarioEntrada nVentaB27;
+        public static List<InventarioEntrada> nVentaB27;
         public static Boolean bBtnB27 = false;
-        public static InventarioEntrada nVentaB28;
+        public static List<InventarioEntrada> nVentaB28;
         public static Boolean bBtnB28 = false;
-        public static InventarioEntrada nVentaB29;
+        public static List<InventarioEntrada> nVentaB29;
         public static Boolean bBtnB29 = false;
-        public static InventarioEntrada nVentaB30;
+        public static List<InventarioEntrada> nVentaB30;
         public static Boolean bBtnB30 = false;
-        public static InventarioEntrada nVentaM10;
+        public static List<InventarioEntrada> nVentaM10;
         public static Boolean bBtnM10 = false;
-        public static InventarioEntrada nVentaM11;
+        public static List<InventarioEntrada> nVentaM11;
         public static Boolean bBtnM11 = false;
-        public static InventarioEntrada nVentaM12;
+        public static List<InventarioEntrada> nVentaM12;
         public static Boolean bBtnM12 = false;
-        public static InventarioEntrada nVentaM13;
+        public static List<InventarioEntrada> nVentaM13;
         public static Boolean bBtnM13 = false;
-        public static InventarioEntrada nVentaM14;
+        public static List<InventarioEntrada> nVentaM14;
         public static Boolean bBtnM14 = false;
-        public static InventarioEntrada nVentaM15;
+        public static List<InventarioEntrada> nVentaM15;
         public static Boolean bBtnM15 = false;
-        public static InventarioEntrada nVentaM16;
+        public static List<InventarioEntrada> nVentaM16;
         public static Boolean bBtnM16 = false;
-        public static InventarioEntrada nVentaM17;
+        public static List<InventarioEntrada> nVentaM17;
         public static Boolean bBtnM17 = false;
-        public static InventarioEntrada nVentaM18;
+        public static List<InventarioEntrada> nVentaM18;
         public static Boolean bBtnM18 = false;
-        public static InventarioEntrada nVentaM19;
+        public static List<InventarioEntrada> nVentaM19;
         public static Boolean bBtnM19 = false;
-        public static InventarioEntrada nVentaM20;
+        public static List<InventarioEntrada> nVentaM20;
         public static Boolean bBtnM20 = false;
-        public static InventarioEntrada nVentaM21;
+        public static List<InventarioEntrada> nVentaM21;
         public static Boolean bBtnM21 = false;
-        public static InventarioEntrada nVentaM22;
+        public static List<InventarioEntrada> nVentaM22;
         public static Boolean bBtnM22 = false;
-        public static InventarioEntrada nVentaM23;
+        public static List<InventarioEntrada> nVentaM23;
         public static Boolean bBtnM23 = false;
-        public static InventarioEntrada nVentaM24;
+        public static List<InventarioEntrada> nVentaM24;
         public static Boolean bBtnM24 = false;
-        public static InventarioEntrada nVentaM25;
+        public static List<InventarioEntrada> nVentaM25;
         public static Boolean bBtnM25 = false;
-        public static InventarioEntrada nVentaM26;
+        public static List<InventarioEntrada> nVentaM26;
         public static Boolean bBtnM26 = false;
-        public static InventarioEntrada nVentaM27;
+        public static List<InventarioEntrada> nVentaM27;
         public static Boolean bBtnM27 = false;
-        public static InventarioEntrada nVentaM28;
+        public static List<InventarioEntrada> nVentaM28;
         public static Boolean bBtnM28 = false;
-        public static InventarioEntrada nVentaM29;
+        public static List<InventarioEntrada> nVentaM29;
         public static Boolean bBtnM29 = false;
-        public static InventarioEntrada nVentaM30;
+        public static List<InventarioEntrada> nVentaM30;
         public static Boolean bBtnM30 = false;
         #endregion
 
@@ -117,215 +117,215 @@ namespace SiscomSoft_Desktop.Views
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             #region color botones
-            if (nVentaB10!=null)
+            if (nVentaB10!=null && bBtnB10 == false)
             {
                 btnB10.BackColor = Color.RoyalBlue;
                 btnB10.ForeColor = Color.White;
             }
-            if (nVentaB11 != null)
+            if (nVentaB11 != null && bBtnB11 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB11.BackColor = Color.RoyalBlue;
+                btnB11.ForeColor = Color.White;
             }
-            if (nVentaB12 != null)
+            if (nVentaB12 != null && bBtnB12 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB12.BackColor = Color.RoyalBlue;
+                btnB12.ForeColor = Color.White;
             }
-            if (nVentaB13 != null)
+            if (nVentaB13 != null && bBtnB13 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB13.BackColor = Color.RoyalBlue;
+                btnB13.ForeColor = Color.White;
             }
-            if (nVentaB14 != null)
+            if (nVentaB14 != null && bBtnB14 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB14.BackColor = Color.RoyalBlue;
+                btnB14.ForeColor = Color.White;
             }
-            if (nVentaB15 != null)
+            if (nVentaB15 != null && bBtnB15 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB15.BackColor = Color.RoyalBlue;
+                btnB15.ForeColor = Color.White;
             }
-            if (nVentaB16 != null)
+            if (nVentaB16 != null && bBtnB16 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB16.BackColor = Color.RoyalBlue;
+                btnB16.ForeColor = Color.White;
             }
-            if (nVentaB17 != null)
+            if (nVentaB17 != null && bBtnB17 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB17.BackColor = Color.RoyalBlue;
+                btnB17.ForeColor = Color.White;
             }
-            if (nVentaB18 != null)
+            if (nVentaB18 != null && bBtnB18 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB18.BackColor = Color.RoyalBlue;
+                btnB18.ForeColor = Color.White;
             }
-            if (nVentaB19 != null)
+            if (nVentaB19 != null && bBtnB19 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB19.BackColor = Color.RoyalBlue;
+                btnB19.ForeColor = Color.White;
             }
-            if (nVentaB20 != null)
+            if (nVentaB20 != null && bBtnB20 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB20.BackColor = Color.RoyalBlue;
+                btnB20.ForeColor = Color.White;
             }
-            if (nVentaB21 != null)
+            if (nVentaB21 != null && bBtnB21 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB21.BackColor = Color.RoyalBlue;
+                btnB21.ForeColor = Color.White;
             }
-            if (nVentaB22 != null)
+            if (nVentaB22 != null && bBtnB22 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB22.BackColor = Color.RoyalBlue;
+                btnB22.ForeColor = Color.White;
             }
-            if (nVentaB23 != null)
+            if (nVentaB23 != null && bBtnB23 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB23.BackColor = Color.RoyalBlue;
+                btnB23.ForeColor = Color.White;
             }
-            if (nVentaB24 != null)
+            if (nVentaB24 != null && bBtnB24 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB24.BackColor = Color.RoyalBlue;
+                btnB24.ForeColor = Color.White;
             }
-            if (nVentaB25 != null)
+            if (nVentaB25 != null && bBtnB25 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB25.BackColor = Color.RoyalBlue;
+                btnB25.ForeColor = Color.White;
             }
-            if (nVentaB26 != null)
+            if (nVentaB26 != null && bBtnB26 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB26.BackColor = Color.RoyalBlue;
+                btnB26.ForeColor = Color.White;
             }
-            if (nVentaB27 != null)
+            if (nVentaB27 != null && bBtnB27 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB27.BackColor = Color.RoyalBlue;
+                btnB27.ForeColor = Color.White;
             }
-            if (nVentaB28 != null)
+            if (nVentaB28 != null && bBtnB28 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB28.BackColor = Color.RoyalBlue;
+                btnB28.ForeColor = Color.White;
             }
-            if (nVentaB29 != null)
+            if (nVentaB29 != null && bBtnB29 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB29.BackColor = Color.RoyalBlue;
+                btnB29.ForeColor = Color.White;
             }
-            if (nVentaB30 != null)
+            if (nVentaB30 != null && bBtnB30 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnB30.BackColor = Color.RoyalBlue;
+                btnB30.ForeColor = Color.White;
             }
-            if (nVentaM10 != null)
+            if (nVentaM10 != null && bBtnM10 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM10.BackColor = Color.RoyalBlue;
+                btnM10.ForeColor = Color.White;
             }
-            if (nVentaM11 != null)
+            if (nVentaM11 != null && bBtnM11 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM11.BackColor = Color.RoyalBlue;
+                btnM11.ForeColor = Color.White;
             }
-            if (nVentaM12 != null)
+            if (nVentaM12 != null && bBtnM12 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM12.BackColor = Color.RoyalBlue;
+                btnM12.ForeColor = Color.White;
             }
-            if (nVentaM13 != null)
+            if (nVentaM13 != null && bBtnM13 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM13.BackColor = Color.RoyalBlue;
+                btnM13.ForeColor = Color.White;
             }
-            if (nVentaM14 != null)
+            if (nVentaM14 != null && bBtnM14 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM14.BackColor = Color.RoyalBlue;
+                btnM14.ForeColor = Color.White;
             }
-            if (nVentaM15 != null)
+            if (nVentaM15 != null && bBtnM15 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM15.BackColor = Color.RoyalBlue;
+                btnM15.ForeColor = Color.White;
             }
-            if (nVentaM16 != null)
+            if (nVentaM16 != null && bBtnM16 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM16.BackColor = Color.RoyalBlue;
+                btnM16.ForeColor = Color.White;
             }
-            if (nVentaM17 != null)
+            if (nVentaM17 != null && bBtnM17 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM17.BackColor = Color.RoyalBlue;
+                btnM17.ForeColor = Color.White;
             }
-            if (nVentaM18 != null)
+            if (nVentaM18 != null && bBtnM18 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM18.BackColor = Color.RoyalBlue;
+                btnM18.ForeColor = Color.White;
             }
-            if (nVentaM19 != null)
+            if (nVentaM19 != null && bBtnM19 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM19.BackColor = Color.RoyalBlue;
+                btnM19.ForeColor = Color.White;
             }
-            if (nVentaM20 != null)
+            if (nVentaM20 != null && bBtnM20 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM20.BackColor = Color.RoyalBlue;
+                btnM20.ForeColor = Color.White;
             }
-            if (nVentaM21 != null)
+            if (nVentaM21 != null && bBtnM21 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM21.BackColor = Color.RoyalBlue;
+                btnM21.ForeColor = Color.White;
             }
-            if (nVentaM22 != null)
+            if (nVentaM22 != null && bBtnM22 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM22.BackColor = Color.RoyalBlue;
+                btnM22.ForeColor = Color.White;
             }
-            if (nVentaM23 != null)
+            if (nVentaM23 != null && bBtnM23 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM23.BackColor = Color.RoyalBlue;
+                btnM23.ForeColor = Color.White;
             }
-            if (nVentaM24 != null)
+            if (nVentaM24 != null && bBtnM24 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM24.BackColor = Color.RoyalBlue;
+                btnM24.ForeColor = Color.White;
             }
-            if (nVentaM25 != null)
+            if (nVentaM25 != null && bBtnM25 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM25.BackColor = Color.RoyalBlue;
+                btnM25.ForeColor = Color.White;
             }
-            if (nVentaM26 != null)
+            if (nVentaM26 != null && bBtnM26 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM26.BackColor = Color.RoyalBlue;
+                btnM26.ForeColor = Color.White;
             }
-            if (nVentaM27 != null)
+            if (nVentaM27 != null && bBtnM27 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM27.BackColor = Color.RoyalBlue;
+                btnM27.ForeColor = Color.White;
             }
-            if (nVentaM28 != null)
+            if (nVentaM28 != null && bBtnM28 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM28.BackColor = Color.RoyalBlue;
+                btnM28.ForeColor = Color.White;
             }
-            if (nVentaM29 != null)
+            if (nVentaM29 != null && bBtnM29 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM29.BackColor = Color.RoyalBlue;
+                btnM29.ForeColor = Color.White;
             }
-            if (nVentaM30 != null)
+            if (nVentaM30 != null && bBtnM30 == false)
             {
-                btnB10.BackColor = Color.RoyalBlue;
-                btnB10.ForeColor = Color.White;
+                btnM30.BackColor = Color.RoyalBlue;
+                btnM30.ForeColor = Color.White;
             }
             #endregion
         }
@@ -339,8 +339,254 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnB10_Click(object sender, EventArgs e)
         {
-            venta();
             bBtnB10 = true;
+            venta();
+        }
+
+        private void btnB11_Click(object sender, EventArgs e)
+        {
+            bBtnB11 = true;
+            venta();
+        }
+
+        private void btnB12_Click(object sender, EventArgs e)
+        {
+            bBtnB12 = true;
+            venta();
+        }
+
+        private void btnB13_Click(object sender, EventArgs e)
+        {
+            bBtnB13 = true;
+            venta();
+        }
+
+        private void btnB14_Click(object sender, EventArgs e)
+        {
+            bBtnB14 = true;
+            venta();
+        }
+
+        private void btnB15_Click(object sender, EventArgs e)
+        {
+            bBtnB15 = true;
+            venta();
+        }
+
+        private void btnB16_Click(object sender, EventArgs e)
+        {
+            bBtnB16 = true;
+            venta();
+        }
+
+        private void btnB17_Click(object sender, EventArgs e)
+        {
+            bBtnB17 = true;
+            venta();
+        }
+
+        private void btnB18_Click(object sender, EventArgs e)
+        {
+            bBtnB18 = true;
+            venta();
+        }
+
+        private void btnB19_Click(object sender, EventArgs e)
+        {
+            bBtnB19 = true;
+            venta();
+        }
+
+        private void btnB20_Click(object sender, EventArgs e)
+        {
+            bBtnB20 = true;
+            venta();
+        }
+
+        private void btnB21_Click(object sender, EventArgs e)
+        {
+            bBtnB21 = true;
+            venta();
+        }
+
+        private void btnB22_Click(object sender, EventArgs e)
+        {
+            bBtnB22 = true;
+            venta();
+        }
+
+        private void btnB23_Click(object sender, EventArgs e)
+        {
+            bBtnB23 = true;
+            venta();
+        }
+
+        private void btnB24_Click(object sender, EventArgs e)
+        {
+            bBtnB24 = true;
+            venta();
+        }
+
+        private void btnB25_Click(object sender, EventArgs e)
+        {
+            bBtnB25 = true;
+            venta();
+        }
+
+        private void btnB26_Click(object sender, EventArgs e)
+        {
+            bBtnB26 = true;
+            venta();
+        }
+
+        private void btnB27_Click(object sender, EventArgs e)
+        {
+            bBtnB27 = true;
+            venta();
+        }
+
+        private void btnB28_Click(object sender, EventArgs e)
+        {
+            bBtnB28 = true;
+            venta();
+        }
+
+        private void btnB29_Click(object sender, EventArgs e)
+        {
+            bBtnB29 = true;
+            venta();
+        }
+
+        private void btnB30_Click(object sender, EventArgs e)
+        {
+            bBtnB30 = true;
+            venta();
+        }
+
+        private void btnM10_Click(object sender, EventArgs e)
+        {
+            bBtnM10 = true;
+            venta();
+        }
+
+        private void btnM11_Click(object sender, EventArgs e)
+        {
+            bBtnM11 = true;
+            venta();
+        }
+
+        private void btnM12_Click(object sender, EventArgs e)
+        {
+            bBtnM12 = true;
+            venta();
+        }
+
+        private void btnM13_Click(object sender, EventArgs e)
+        {
+            bBtnM13 = true;
+            venta();
+        }
+
+        private void btnM14_Click(object sender, EventArgs e)
+        {
+            bBtnM14 = true;
+            venta();
+        }
+
+        private void btnM15_Click(object sender, EventArgs e)
+        {
+            bBtnM15 = true;
+            venta();
+        }
+
+        private void btnM16_Click(object sender, EventArgs e)
+        {
+            bBtnM16 = true;
+            venta();
+        }
+
+        private void btnM17_Click(object sender, EventArgs e)
+        {
+            bBtnM17 = true;
+            venta();
+        }
+
+        private void btnM18_Click(object sender, EventArgs e)
+        {
+            bBtnM18 = true;
+            venta();
+        }
+
+        private void btnM19_Click(object sender, EventArgs e)
+        {
+            bBtnM19 = true;
+            venta();
+        }
+
+        private void btnM20_Click(object sender, EventArgs e)
+        {
+            bBtnM20 = true;
+            venta();
+        }
+
+        private void btnM21_Click(object sender, EventArgs e)
+        {
+            bBtnM21 = true;
+            venta();
+        }
+
+        private void btnM22_Click(object sender, EventArgs e)
+        {
+            bBtnM22 = true;
+            venta();
+        }
+
+        private void btnM23_Click(object sender, EventArgs e)
+        {
+            bBtnM23 = true;
+            venta();
+        }
+
+        private void btnM24_Click(object sender, EventArgs e)
+        {
+            bBtnM24 = true;
+            venta();
+        }
+
+        private void btnM25_Click(object sender, EventArgs e)
+        {
+            bBtnM25 = true;
+            venta();
+        }
+
+        private void btnM26_Click(object sender, EventArgs e)
+        {
+            bBtnM26 = true;
+            venta();
+        }
+
+        private void btnM27_Click(object sender, EventArgs e)
+        {
+            bBtnM27 = true;
+            venta();
+        }
+
+        private void btnM28_Click(object sender, EventArgs e)
+        {
+            bBtnM28 = true;
+            venta();
+        }
+
+        private void btnM29_Click(object sender, EventArgs e)
+        {
+            bBtnM29 = true;
+            venta();
+        }
+
+        private void btnM30_Click(object sender, EventArgs e)
+        {
+            bBtnM30 = true;
+            venta();
         }
     }
 }
