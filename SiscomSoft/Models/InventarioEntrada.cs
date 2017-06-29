@@ -21,6 +21,9 @@ namespace SiscomSoft.Models
 
         public string sMoneda { get; set; }
 
+        // tipo de cambio del dolar
+        public string sTipoCambio { get; set; }
+
         public int iCantidad { get; set; }
 
         // llave foranea de producto
@@ -28,7 +31,9 @@ namespace SiscomSoft.Models
 
         public string sNomProducto { get; set; }
 
-        public decimal dPrecio { get; set; }
+        public decimal dPreUnitario { get; set; }
+
+        public decimal dTotal { get; set; }
 
         public int iDescuento { get; set; }
 

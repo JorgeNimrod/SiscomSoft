@@ -60,6 +60,7 @@ namespace SiscomSoft_Desktop.Views
                     decimal total = dgvCosto * dgvCantidad;
 
                     row.Cells[3].Value = total;
+                    row.Height = 50;
                     dgvDetalleProductos.Rows.Add(row);
 
                     foreach (DataGridViewRow rItem in dgvDetalleProductos.Rows)
@@ -1111,6 +1112,7 @@ namespace SiscomSoft_Desktop.Views
                 decimal total = dgvCantidad * dgvCosto;
 
                 row.Cells[3].Value = total;
+                row.Height = 50;
                 dgvProductos.Rows.Add(row);
 
                 foreach (DataGridViewRow rItem in dgvProductos.Rows)
@@ -1410,7 +1412,7 @@ namespace SiscomSoft_Desktop.Views
                     }
 
                     lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
-                }
+                };
             }
             else if (FrmMenuVentas.nVentaB20 != null && FrmMenuVentas.bBtnB20 == true)
             {
@@ -2251,6 +2253,176 @@ namespace SiscomSoft_Desktop.Views
 
                     lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
                 }
+            }
+            #endregion
+            #region NOMBRE MESAS
+            if (FrmMenuVentas.bBtnB10 == true)
+            {
+                lblMesa.Text = "Table: B10";
+            }
+            else if (FrmMenuVentas.bBtnB11 == true)
+            {
+                lblMesa.Text = "Table: B11";
+            }
+            else if (FrmMenuVentas.bBtnB12 == true)
+            {
+                lblMesa.Text = "Table: B12";
+            }
+            else if (FrmMenuVentas.bBtnB13 == true)
+            {
+                lblMesa.Text = "Table: B13";
+            }
+            else if (FrmMenuVentas.bBtnB14 == true)
+            {
+                lblMesa.Text = "Table: B14";
+            }
+            else if (FrmMenuVentas.bBtnB15 == true)
+            {
+                lblMesa.Text = "Table: B15";
+            }
+            else if (FrmMenuVentas.bBtnB16 == true)
+            {
+                lblMesa.Text = "Table: B16";
+            }
+            else if (FrmMenuVentas.bBtnB17 == true)
+            {
+                lblMesa.Text = "Table: B17";
+            }
+            else if (FrmMenuVentas.bBtnB18 == true)
+            {
+                lblMesa.Text = "Table: B18";
+            }
+            else if (FrmMenuVentas.bBtnB19 == true)
+            {
+                lblMesa.Text = "Table: B19";
+            }
+            else if (FrmMenuVentas.bBtnB20 == true)
+            {
+                lblMesa.Text = "Table: B20";
+            }
+            else if (FrmMenuVentas.bBtnB21 == true)
+            {
+                lblMesa.Text = "Table: B21";
+            }
+            else if (FrmMenuVentas.bBtnB22 == true)
+            {
+                lblMesa.Text = "Table: B22";
+            }
+            else if (FrmMenuVentas.bBtnB23 == true)
+            {
+                lblMesa.Text = "Table: B23";
+            }
+            else if (FrmMenuVentas.bBtnB24 == true)
+            {
+                lblMesa.Text = "Table: B24";
+            }
+            else if (FrmMenuVentas.bBtnB25 == true)
+            {
+                lblMesa.Text = "Table: B25";
+            }
+            else if (FrmMenuVentas.bBtnB26 == true)
+            {
+                lblMesa.Text = "Table: B26";
+            }
+            else if (FrmMenuVentas.bBtnB27 == true)
+            {
+                lblMesa.Text = "Table: B27";
+            }
+            else if (FrmMenuVentas.bBtnB28 == true)
+            {
+                lblMesa.Text = "Table: B28";
+            }
+            else if (FrmMenuVentas.bBtnB29 == true)
+            {
+                lblMesa.Text = "Table: B29";
+            }
+            else if (FrmMenuVentas.bBtnB30 == true)
+            {
+                lblMesa.Text = "Table: B30";
+            }
+            else if (FrmMenuVentas.bBtnM10 == true)
+            {
+                lblMesa.Text = "Table: M10";
+            }
+            else if (FrmMenuVentas.bBtnM11 == true)
+            {
+                lblMesa.Text = "Table: M11";
+            }
+            else if (FrmMenuVentas.bBtnM12 == true)
+            {
+                lblMesa.Text = "Table: M12";
+            }
+            else if (FrmMenuVentas.bBtnM13 == true)
+            {
+                lblMesa.Text = "Table: M13";
+            }
+            else if (FrmMenuVentas.bBtnM14 == true)
+            {
+                lblMesa.Text = "Table: M14";
+            }
+            else if (FrmMenuVentas.bBtnM15 == true)
+            {
+                lblMesa.Text = "Table: M15";
+            }
+            else if (FrmMenuVentas.bBtnM16 == true)
+            {
+                lblMesa.Text = "Table: M16";
+            }
+            else if (FrmMenuVentas.bBtnM17 == true)
+            {
+                lblMesa.Text = "Table: M17";
+            }
+            else if (FrmMenuVentas.bBtnM18 == true)
+            {
+                lblMesa.Text = "Table: M18";
+            }
+            else if (FrmMenuVentas.bBtnM19 == true)
+            {
+                lblMesa.Text = "Table: M19";
+            }
+            else if (FrmMenuVentas.bBtnM20 == true)
+            {
+                lblMesa.Text = "Table: M20";
+            }
+            else if (FrmMenuVentas.bBtnM21 == true)
+            {
+                lblMesa.Text = "Table: M21";
+            }
+            else if (FrmMenuVentas.bBtnM22 == true)
+            {
+                lblMesa.Text = "Table: M22";
+            }
+            else if (FrmMenuVentas.bBtnM23 == true)
+            {
+                lblMesa.Text = "Table: M23";
+            }
+            else if (FrmMenuVentas.bBtnM24 == true)
+            {
+                lblMesa.Text = "Table: M24";
+            }
+            else if (FrmMenuVentas.bBtnM25 == true)
+            {
+                lblMesa.Text = "Table: M25";
+            }
+            else if (FrmMenuVentas.bBtnM26 == true)
+            {
+                lblMesa.Text = "Table: M26";
+            }
+            else if (FrmMenuVentas.bBtnM27 == true)
+            {
+                lblMesa.Text = "Table: M27";
+            }
+            else if (FrmMenuVentas.bBtnM28 == true)
+            {
+                lblMesa.Text = "Table: M28";
+            }
+            else if (FrmMenuVentas.bBtnM29 == true)
+            {
+                lblMesa.Text = "Table: M29";
+            }
+            else if (FrmMenuVentas.bBtnM30 == true)
+            {
+                lblMesa.Text = "Table: M30";
             }
             #endregion
         }
