@@ -358,18 +358,6 @@
   <metadata name="dataGridViewTextBoxColumn5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="btnClear.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAWFJREFUaEPt
-        mItqwzAMRQP7yD72dV3H2EcO0qOhW7wRkzRWGwd0QND6IR2loRgPSZIkSZLshXEc34hP4uBDYZDznfiw
-        Gj4UiyUmvgnjhwhrglwmbzmNLyK+CZLaky+xgkefXg05Snlx9ek4SHok/hdqaoK9U/L2PfwV/YXEYU2w
-        57XyggK1Jk6+ZBbWbiMvKHTygiWLmmDNtvKCgg83wVwf8oLCtSbOvuQOY33JCwTOLlLypwk+9ykvEKk2
-        QfQtLxCqNdG/vEBs6mmX9CsvEKw10b+8geR+G0Bwv68QYrV/m6mx5lNsKAjV5A9E+Ck2FESq8r7E1vTZ
-        BAKz8oKx5lNsKBReLC+YW32KDYWCD8sL1mzbBIVWywvWLj7FhkKBZnnBntlTbCgkDpMX7H1dEyS1S6eS
-        JnlBjqkmLj4dB0ntYssunYwQeUGu8te1+6en3s4982rxYjV8KEmSJEmSzhmGG3XsBL0sEc3bAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
   <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -385,6 +373,18 @@
   <metadata name="dataGridViewTextBoxColumn5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="btnClear.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAWFJREFUaEPt
+        mItqwzAMRQP7yD72dV3H2EcO0qOhW7wRkzRWGwd0QND6IR2loRgPSZIkSZLshXEc34hP4uBDYZDznfiw
+        Gj4UiyUmvgnjhwhrglwmbzmNLyK+CZLaky+xgkefXg05Snlx9ek4SHok/hdqaoK9U/L2PfwV/YXEYU2w
+        57XyggK1Jk6+ZBbWbiMvKHTygiWLmmDNtvKCgg83wVwf8oLCtSbOvuQOY33JCwTOLlLypwk+9ykvEKk2
+        QfQtLxCqNdG/vEBs6mmX9CsvEKw10b+8geR+G0Bwv68QYrV/m6mx5lNsKAjV5A9E+Ck2FESq8r7E1vTZ
+        BAKz8oKx5lNsKBReLC+YW32KDYWCD8sL1mzbBIVWywvWLj7FhkKBZnnBntlTbCgkDpMX7H1dEyS1S6eS
+        JnlBjqkmLj4dB0ntYssunYwQeUGu8te1+6en3s4982rxYjV8KEmSJEmSzhmGG3XsBL0sEc3bAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
   <data name="label3.Text" xml:space="preserve">
     <value>_____________________________________________________________________________________________________________________________________________________________________________________________________________________________-</value>
   </data>

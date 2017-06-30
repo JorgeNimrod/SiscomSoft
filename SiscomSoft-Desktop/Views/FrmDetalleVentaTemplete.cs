@@ -14,7 +14,9 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmDetalleVentaTemplete : Form
     {
-        double Concat = 0;
+        double noDetalle = 0;
+        double noPagar = 0;
+        Boolean pesos = false;
 
         public FrmDetalleVentaTemplete()
         {
@@ -24,6 +26,8 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
+            noDetalle = 0;
+            noPagar = 0;
             if (dgvProductos.RowCount > 1 && dgvProductos.CurrentRow.Index != 1)
             {
                 InventarioEntrada nEntrada = new InventarioEntrada();
@@ -72,123 +76,327 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        #region BOTONES NUMERICOS
+        #region BOTONES NUMERICOS 
         private void btnNo1_Click(object sender, EventArgs e)
         {
-            Concat = 0;
-            Concat = Convert.ToDouble(lblMonto.Text + 1);
-            lblMonto.Text = Concat.ToString();
+            if (pesos!=true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 1);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noDetalle = 0;
+                lblMonto.Text = "1";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btnNo2_Click(object sender, EventArgs e)
         {
-            Concat = 0;
-            Concat = Convert.ToDouble(lblMonto.Text + 2);
-            lblMonto.Text = Concat.ToString();
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 2);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noDetalle = 0;
+                lblMonto.Text = "2";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btnNo3_Click(object sender, EventArgs e)
         {
-            Concat = 0;
-            Concat = Convert.ToDouble(lblMonto.Text + 3);
-            lblMonto.Text = Concat.ToString();
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 3);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noDetalle = 0;
+                lblMonto.Text = "3";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btnNo4_Click(object sender, EventArgs e)
         {
-            Concat = 0;
-            Concat = Convert.ToDouble(lblMonto.Text + 4);
-            lblMonto.Text = Concat.ToString();
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 4);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noDetalle = 0;
+                lblMonto.Text = "4";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btnNo5_Click(object sender, EventArgs e)
         {
-            Concat = 0;
-            Concat = Convert.ToDouble(lblMonto.Text + 5);
-            lblMonto.Text = Concat.ToString();
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 5);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noDetalle = 0;
+                lblMonto.Text = "5";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btnNo6_Click(object sender, EventArgs e)
         {
-            Concat = 0;
-            Concat = Convert.ToDouble(lblMonto.Text + 6);
-            lblMonto.Text = Concat.ToString();
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 6);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noDetalle = 0;
+                lblMonto.Text = "6";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btnNo7_Click(object sender, EventArgs e)
         {
-            Concat = 0;
-            Concat = Convert.ToDouble(lblMonto.Text + 7);
-            lblMonto.Text = Concat.ToString();
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 7);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noDetalle = 0;
+                lblMonto.Text = "7";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btnNo8_Click(object sender, EventArgs e)
         {
-            Concat = 0;
-            Concat = Convert.ToDouble(lblMonto.Text + 8);
-            lblMonto.Text = Concat.ToString();
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 8);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noDetalle = 0;
+                lblMonto.Text = "8";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btnNo9_Click(object sender, EventArgs e)
         {
-            Concat = 0;
-            Concat = Convert.ToDouble(lblMonto.Text + 9);
-            lblMonto.Text = Concat.ToString();
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 9);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noDetalle = 0;
+                lblMonto.Text = "9";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btnNo0_Click(object sender, EventArgs e)
         {
-            Concat = 0;
-            Concat = Convert.ToDouble(lblMonto.Text + 0);
-            lblMonto.Text = Concat.ToString();
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 0);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noDetalle = 0;
+                lblMonto.Text = "0";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btn1Peso_Click(object sender, EventArgs e)
         {
-            Concat += 1;
-            lblMonto.Text = String.Format("{0:0.00}", (Concat));
+            pesos = true;
+            noDetalle += 1;
+            noDetalle += Convert.ToDouble(lblMonto.Text);
+            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
+            lblMonto.Text = noDetalle.ToString("#,###.#0#");
+            noDetalle = 0;
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btn5Peso_Click(object sender, EventArgs e)
         {
-            Concat += 5;
-            lblMonto.Text = String.Format("{0:0.00}", (Concat));
+            pesos = true;
+            noDetalle += 5;
+            noDetalle += Convert.ToDouble(lblMonto.Text);
+            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
+            lblMonto.Text = noDetalle.ToString("#,###.#0#");
+            noDetalle = 0;
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btn10Peso_Click(object sender, EventArgs e)
         {
-            Concat += 10;
-            lblMonto.Text = String.Format("{0:0.00}", (Concat));
+            pesos = true;
+            noDetalle += 10;
+            noDetalle += Convert.ToDouble(lblMonto.Text);
+            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
+            lblMonto.Text = noDetalle.ToString("#,###.#0#");
+            noDetalle = 0;
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btn20Peso_Click(object sender, EventArgs e)
         {
-            Concat += 20;
-            lblMonto.Text = String.Format("{0:0.00}", (Concat));
+            pesos = true;
+            noDetalle += 20;
+            noDetalle += Convert.ToDouble(lblMonto.Text);
+            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
+            lblMonto.Text = noDetalle.ToString("#,###.#0#");
+            noDetalle = 0;
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btn50Peso_Click(object sender, EventArgs e)
         {
-            Concat += 50;
-            lblMonto.Text = String.Format("{0:0.00}", (Concat));
+            pesos = true;
+            noDetalle += 50;
+            noDetalle += Convert.ToDouble(lblMonto.Text);
+            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
+            lblMonto.Text = noDetalle.ToString("#,###.#0#");
+            noDetalle = 0;
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btn100Peso_Click(object sender, EventArgs e)
         {
-            Concat += 100;
-            lblMonto.Text = String.Format("{0:0.00}", (Concat));
+            pesos = true;
+            noDetalle += 100;
+            noDetalle += Convert.ToDouble(lblMonto.Text);
+            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
+            lblMonto.Text = noDetalle.ToString("#,###.#0#");
+            noDetalle = 0;
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            noPagar = 0;
+            noDetalle = 0;
             lblMonto.Text = "0";
-            Concat = 0;
+            btnEfectivo.Enabled = false;
+            btnCredito.Enabled = false;
+            btnVouncher.Enabled = false;
+            btn.Enabled = false;
         }
 
         private void btnAll_Click(object sender, EventArgs e)
         {
-            Concat = 0;
+            noPagar = 0;
+            noDetalle = 0;
             lblMonto.Text = lblTotal2.Text;
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (pesos != true)
+            {
+                lblMonto.Text = ".";
+            }
+            else
+            {
+                noDetalle = 0;
+                noPagar = Convert.ToDouble(lblMonto.Text + "0.");
+                lblMonto.Text = noPagar.ToString();
+                pesos = false;
+            }
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
         }
         #endregion
 
@@ -2047,11 +2255,6 @@ namespace SiscomSoft_Desktop.Views
             #endregion
         }
 
-        private void btnMenuPrincipal_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnPagarCancelar_Click(object sender, EventArgs e)
         {
             if (lblMonto.Text == "0")
@@ -2064,9 +2267,13 @@ namespace SiscomSoft_Desktop.Views
 
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvProductos.RowCount > 1)
+            if (dgvProductos.CurrentRow.Index != 1)
             {
                 pnlAccionesProductos.Visible = true;
+            }
+            else
+            {
+                pnlAccionesProductos.Visible = false;
             }
         }
 
@@ -2156,63 +2363,85 @@ namespace SiscomSoft_Desktop.Views
         #region BOTONES NUMERICOS DE CANTIDAD
         private void btnNum1_Click(object sender, EventArgs e)
         {
-            Concat = Convert.ToInt64(txtCantidad.Text + 1);
-            txtCantidad.Text = Concat.ToString();
+            noDetalle = Convert.ToInt64(txtCantidad.Text + 1);
+            txtCantidad.Text = noDetalle.ToString();
         }
 
         private void btnNum2_Click(object sender, EventArgs e)
         {
-            Concat = Convert.ToInt64(txtCantidad.Text + 2);
-            txtCantidad.Text = Concat.ToString();
+            noDetalle = Convert.ToInt64(txtCantidad.Text + 2);
+            txtCantidad.Text = noDetalle.ToString();
         }
 
         private void btnNum3_Click(object sender, EventArgs e)
         {
-            Concat = Convert.ToInt64(txtCantidad.Text + 3);
-            txtCantidad.Text = Concat.ToString();
+            noDetalle = Convert.ToInt64(txtCantidad.Text + 3);
+            txtCantidad.Text = noDetalle.ToString();
         }
 
         private void btnNum4_Click(object sender, EventArgs e)
         {
-            Concat = Convert.ToInt64(txtCantidad.Text + 4);
-            txtCantidad.Text = Concat.ToString();
+            noDetalle = Convert.ToInt64(txtCantidad.Text + 4);
+            txtCantidad.Text = noDetalle.ToString();
         }
 
         private void btnNum5_Click(object sender, EventArgs e)
         {
-            Concat = Convert.ToInt64(txtCantidad.Text + 5);
-            txtCantidad.Text = Concat.ToString();
+            noDetalle = Convert.ToInt64(txtCantidad.Text + 5);
+            txtCantidad.Text = noDetalle.ToString();
         }
 
         private void btnNum6_Click(object sender, EventArgs e)
         {
-            Concat = Convert.ToInt64(txtCantidad.Text + 6);
-            txtCantidad.Text = Concat.ToString();
+            noDetalle = Convert.ToInt64(txtCantidad.Text + 6);
+            txtCantidad.Text = noDetalle.ToString();
         }
 
         private void btnNum7_Click(object sender, EventArgs e)
         {
-            Concat = Convert.ToInt64(txtCantidad.Text + 7);
-            txtCantidad.Text = Concat.ToString();
+            noDetalle = Convert.ToInt64(txtCantidad.Text + 7);
+            txtCantidad.Text = noDetalle.ToString();
         }
 
         private void btnNum8_Click(object sender, EventArgs e)
         {
-            Concat = Convert.ToInt64(txtCantidad.Text + 8);
-            txtCantidad.Text = Concat.ToString();
+            noDetalle = Convert.ToInt64(txtCantidad.Text + 8);
+            txtCantidad.Text = noDetalle.ToString();
         }
 
         private void btnNum9_Click(object sender, EventArgs e)
         {
-            Concat = Convert.ToInt64(txtCantidad.Text + 9);
-            txtCantidad.Text = Concat.ToString();
+            noDetalle = Convert.ToInt64(txtCantidad.Text + 9);
+            txtCantidad.Text = noDetalle.ToString();
         }
 
         private void btnNum0_Click(object sender, EventArgs e)
         {
-            Concat = Convert.ToInt64(txtCantidad.Text + 0);
-            txtCantidad.Text = Concat.ToString();
+            noDetalle = Convert.ToInt64(txtCantidad.Text + 0);
+            txtCantidad.Text = noDetalle.ToString();
         }
         #endregion
+
+        private void btnEfectivo_Click(object sender, EventArgs e)
+        {
+            double cambio = 0;
+            double total = 0;
+            double monto = 0;
+
+            cambio = total - monto;
+            if (cambio==0 && FrmMenuVentas.bBtnB10==true)
+            {
+                FrmMenuVentas.nVentaB10 = null;
+                FrmMenuVentas.bBtnB10 = false;
+                FrmMenuVentas v = new FrmMenuVentas();
+                this.Close();
+                v.ShowDialog();
+            }
+            else
+            {
+                lblCambio.Text = cambio.ToString();
+                pnlCambio.Visible = true;
+            }
+        }
     }
 }
