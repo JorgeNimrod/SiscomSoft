@@ -125,17 +125,29 @@
     <Compile Include="Views\FrmConfiguracionBD.Designer.cs">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmCustomCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmCustomCliente.Designer.cs">
+      <DependentUpon>FrmCustomCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmDetalleVenta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FrmDetalleVenta.Designer.cs">
       <DependentUpon>FrmDetalleVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmDetalleVentaTemplete.cs">
+    <Compile Include="Views\FrmDetalleVentasOneToOne.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmDetalleVentaTemplete.Designer.cs">
-      <DependentUpon>FrmDetalleVentaTemplete.cs</DependentUpon>
+    <Compile Include="Views\FrmDetalleVentasOneToOne.Designer.cs">
+      <DependentUpon>FrmDetalleVentasOneToOne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmDetalleVentaComandera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmDetalleVentaComandera.Designer.cs">
+      <DependentUpon>FrmDetalleVentaComandera.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -217,11 +229,17 @@
     <EmbeddedResource Include="Views\FrmConfiguracionBD.resx">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmCustomCliente.resx">
+      <DependentUpon>FrmCustomCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmDetalleVenta.resx">
       <DependentUpon>FrmDetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmDetalleVentaTemplete.resx">
-      <DependentUpon>FrmDetalleVentaTemplete.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmDetalleVentasOneToOne.resx">
+      <DependentUpon>FrmDetalleVentasOneToOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmDetalleVentaComandera.resx">
+      <DependentUpon>FrmDetalleVentaComandera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
