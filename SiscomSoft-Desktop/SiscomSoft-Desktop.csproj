@@ -113,6 +113,12 @@
     <Compile Include="Views\FrmAdministrador.Designer.cs">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmAlmacen.Designer.cs">
+      <DependentUpon>FrmAlmacen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmConfiguracionBD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,12 @@
     <Compile Include="Views\UICONTROL\ucImagenProducto.Designer.cs">
       <DependentUpon>ucImagenProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UICONTROL\ucKeyboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UICONTROL\ucKeyboard.Designer.cs">
+      <DependentUpon>ucKeyboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UICONTROL\ucListaCategoria.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -198,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmAdministrador.resx">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmAlmacen.resx">
+      <DependentUpon>FrmAlmacen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmConfiguracionBD.resx">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
@@ -234,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UICONTROL\ucImagenProducto.resx">
       <DependentUpon>ucImagenProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UICONTROL\ucKeyboard.resx">
+      <DependentUpon>ucKeyboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UICONTROL\ucListaCategoria.resx">
       <DependentUpon>ucListaCategoria.cs</DependentUpon>
@@ -296,6 +314,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_keyboard_tab_black_24dp_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_developer_board_white_24dp_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_developer_board_white_36dp_2x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

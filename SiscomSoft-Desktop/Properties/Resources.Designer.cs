@@ -83,6 +83,26 @@ namespace SiscomSoft_Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_developer_board_white_24dp_2x {
+            get {
+                object obj = ResourceManager.GetObject("ic_developer_board_white_24dp_2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_developer_board_white_36dp_2x {
+            get {
+                object obj = ResourceManager.GetObject("ic_developer_board_white_36dp_2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_highlight_off_black_24dp_2x {
             get {
                 object obj = ResourceManager.GetObject("ic_highlight_off_black_24dp_2x", resourceCulture);
