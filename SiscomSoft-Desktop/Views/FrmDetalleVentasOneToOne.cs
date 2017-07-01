@@ -19,6 +19,7 @@ namespace SiscomSoft_Desktop.Views
         double noPagar = 0;
         Boolean pesos = false;
         public static string NOMCLIENTE;
+        public static List<InventarioEntrada> nVenta;
 
         public FrmDetalleVentasOneToOne()
         {
@@ -29,6 +30,46 @@ namespace SiscomSoft_Desktop.Views
         private void FrmDetalleVentasOneToOne_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+            #region LABELS 
+            if (NOMCLIENTE!=null)
+            {
+                lblNomCliente.Text = "Cliente: " + NOMCLIENTE;
+            }
+            else
+            {
+                lblNomCliente.Visible = false;
+            }
+            #endregion
+
+            if (nVenta != null)
+            {
+                foreach (InventarioEntrada rEntrada in nVenta)
+                {
+                    DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
+                    row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
+                    row.Cells[1].Value = rEntrada.iCantidad;
+                    row.Cells[2].Value = rEntrada.sNomProducto;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
+
+                    txtCantidad.Clear();
+                    decimal Subtotal = 0;
+                    decimal dgvCosto = Convert.ToDecimal(row.Cells[4].Value);
+                    int dgvCantidad = Convert.ToInt32(row.Cells[1].Value);
+
+                    decimal total = dgvCosto * dgvCantidad;
+
+                    row.Cells[3].Value = total;
+                    row.Height = 50;
+                    dgvProductos.Rows.Add(row);
+
+                    foreach (DataGridViewRow rItem in dgvProductos.Rows)
+                    {
+                        Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
+                    }
+
+                    lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
+                }
+            }
         }
 
         #region BOTONES NUMERICOS DE CANTIDAD
@@ -114,7 +155,6 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[1].Value = txtCantidad.Text;
                 }
                 row.Cells[2].Value = nProducto.sDescripcion;
-                row.Cells[4].Value = nProducto.dCosto;
 
                 txtCantidad.Clear();
                 decimal Subtotal = 0;
@@ -124,6 +164,7 @@ namespace SiscomSoft_Desktop.Views
                 decimal total = dgvCantidad * dgvCosto;
 
                 row.Cells[3].Value = total;
+                row.Cells[4].Value = nProducto.dCosto;
                 row.Height = 50;
                 dgvProductos.Rows.Add(row);
 
@@ -234,6 +275,23 @@ namespace SiscomSoft_Desktop.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int x = 0;
+            if (dgvProductos.RowCount > 1)
+            {
+                InventarioEntrada nEntrada = new InventarioEntrada();
+                nVenta = new List<InventarioEntrada>();
+                for (int i = 0; i < dgvProductos.RowCount-1; i++)
+                {
+                    SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value));
+                    nEntrada.fkProducto = nProducto;
+                    nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
+                    nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
+                    nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+
+                    nVenta.Add(nEntrada);
+                }
+            }
+            this.Close();
             FrmCustomCliente v = new FrmCustomCliente();
             v.ShowDialog();
         }

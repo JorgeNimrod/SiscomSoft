@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleVentasOneToOne));
             this.label3 = new System.Windows.Forms.Label();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.pnlDetalleVenta = new System.Windows.Forms.Panel();
-            this.lblTable = new System.Windows.Forms.Label();
+            this.lblNomCliente = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlAccionesProductos = new System.Windows.Forms.Panel();
             this.btnRemoveRow = new System.Windows.Forms.Button();
@@ -69,7 +69,7 @@
             this.btnNum1 = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.pnlAccionesGenerales = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSeleccionarCliente = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlDetalleVenta.SuspendLayout();
@@ -107,7 +107,7 @@
             // 
             // pnlDetalleVenta
             // 
-            this.pnlDetalleVenta.Controls.Add(this.lblTable);
+            this.pnlDetalleVenta.Controls.Add(this.lblNomCliente);
             this.pnlDetalleVenta.Controls.Add(this.label2);
             this.pnlDetalleVenta.Controls.Add(this.pnlAccionesProductos);
             this.pnlDetalleVenta.Controls.Add(this.btnPagar);
@@ -134,16 +134,16 @@
             this.pnlDetalleVenta.Size = new System.Drawing.Size(1338, 654);
             this.pnlDetalleVenta.TabIndex = 126;
             // 
-            // lblTable
+            // lblNomCliente
             // 
-            this.lblTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTable.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblTable.Location = new System.Drawing.Point(106, 24);
-            this.lblTable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTable.Name = "lblTable";
-            this.lblTable.Size = new System.Drawing.Size(443, 18);
-            this.lblTable.TabIndex = 129;
-            this.lblTable.Text = "Cliente: Luis Felix";
+            this.lblNomCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomCliente.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblNomCliente.Location = new System.Drawing.Point(106, 24);
+            this.lblNomCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNomCliente.Name = "lblNomCliente";
+            this.lblNomCliente.Size = new System.Drawing.Size(443, 18);
+            this.lblNomCliente.TabIndex = 129;
+            this.lblNomCliente.Text = "Cliente: Luis Felix";
             // 
             // label2
             // 
@@ -258,8 +258,8 @@
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.RowHeadersWidth = 45;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvProductos.RowTemplate.DividerHeight = 5;
             this.dgvProductos.RowTemplate.Height = 80;
             this.dgvProductos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -282,9 +282,9 @@
             // 
             // iCantidad
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.iCantidad.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.iCantidad.DefaultCellStyle = dataGridViewCellStyle1;
             this.iCantidad.HeaderText = "CANTIDAD";
             this.iCantidad.Name = "iCantidad";
             this.iCantidad.ReadOnly = true;
@@ -293,8 +293,8 @@
             // sDescripcion
             // 
             this.sDescripcion.DataPropertyName = "sDescripcion";
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
             this.sDescripcion.HeaderText = "DESCRIPCION";
             this.sDescripcion.Name = "sDescripcion";
             this.sDescripcion.ReadOnly = true;
@@ -302,19 +302,19 @@
             // 
             // dTotal
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "C2";
-            dataGridViewCellStyle8.NullValue = null;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dTotal.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dTotal.DefaultCellStyle = dataGridViewCellStyle3;
             this.dTotal.HeaderText = "TOTAL";
             this.dTotal.Name = "dTotal";
             this.dTotal.ReadOnly = true;
             // 
             // dCosto
             // 
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dCosto.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dCosto.DefaultCellStyle = dataGridViewCellStyle4;
             this.dCosto.HeaderText = "Costo";
             this.dCosto.Name = "dCosto";
             this.dCosto.ReadOnly = true;
@@ -541,28 +541,27 @@
             // 
             // pnlAccionesGenerales
             // 
-            this.pnlAccionesGenerales.Controls.Add(this.button2);
+            this.pnlAccionesGenerales.Controls.Add(this.btnSeleccionarCliente);
             this.pnlAccionesGenerales.Controls.Add(this.button3);
             this.pnlAccionesGenerales.Location = new System.Drawing.Point(12, 42);
             this.pnlAccionesGenerales.Name = "pnlAccionesGenerales";
             this.pnlAccionesGenerales.Size = new System.Drawing.Size(104, 654);
             this.pnlAccionesGenerales.TabIndex = 121;
             // 
-            // button2
+            // btnSeleccionarCliente
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Enabled = false;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.DimGray;
-            this.button2.Location = new System.Drawing.Point(0, 66);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 60);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Seleccionar Cliente";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSeleccionarCliente.BackColor = System.Drawing.Color.White;
+            this.btnSeleccionarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionarCliente.ForeColor = System.Drawing.Color.DimGray;
+            this.btnSeleccionarCliente.Location = new System.Drawing.Point(0, 66);
+            this.btnSeleccionarCliente.Name = "btnSeleccionarCliente";
+            this.btnSeleccionarCliente.Size = new System.Drawing.Size(104, 60);
+            this.btnSeleccionarCliente.TabIndex = 18;
+            this.btnSeleccionarCliente.Text = "Seleccionar Cliente";
+            this.btnSeleccionarCliente.UseVisualStyleBackColor = false;
+            this.btnSeleccionarCliente.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -594,7 +593,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1370, 772);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.pnlAccionesGenerales);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnMenuPrincipal);
@@ -651,10 +650,10 @@
         private System.Windows.Forms.Button btnNum1;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblTable;
+        private System.Windows.Forms.Label lblNomCliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlAccionesGenerales;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSeleccionarCliente;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn iCantidad;

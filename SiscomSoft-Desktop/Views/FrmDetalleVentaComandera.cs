@@ -1086,50 +1086,6 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        private void btnPunto_Click(object sender, EventArgs e)
-        {
-            if (txtCantidad.Text != "0")
-            {
-                Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(2);
-                DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
-                row.Cells[0].Value = nProducto.pkProducto;
-                if (txtCantidad.Text == "")
-                {
-                    row.Cells[1].Value = 1;
-                }
-                else
-                {
-                    row.Cells[1].Value = txtCantidad.Text;
-                }
-                row.Cells[2].Value = nProducto.sDescripcion;
-                row.Cells[4].Value = nProducto.dCosto;
-
-                txtCantidad.Clear();
-                decimal Subtotal = 0;
-                decimal dgvCosto = Convert.ToDecimal(row.Cells[4].Value);
-                int dgvCantidad = Convert.ToInt32(row.Cells[1].Value);
-
-                decimal total = dgvCantidad * dgvCosto;
-
-                row.Cells[3].Value = total;
-                row.Height = 50;
-                dgvProductos.Rows.Add(row);
-
-                foreach (DataGridViewRow rItem in dgvProductos.Rows)
-                {
-                    Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
-                }
-
-                lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
-                //dgvProductos.ClearSelection();
-            }
-            else
-            {
-                txtCantidad.Clear();
-            }
-        }
-
-
         private void FrmDetalleVentaTemplete_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
@@ -2591,6 +2547,49 @@ namespace SiscomSoft_Desktop.Views
         {
             noCantidad = Convert.ToInt64(txtCantidad.Text + 0);
             txtCantidad.Text = noCantidad.ToString();
+        }
+
+        private void btnPunto_Click(object sender, EventArgs e)
+        {
+            if (txtCantidad.Text != "0")
+            {
+                Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(2);
+                DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
+                row.Cells[0].Value = nProducto.pkProducto;
+                if (txtCantidad.Text == "")
+                {
+                    row.Cells[1].Value = 1;
+                }
+                else
+                {
+                    row.Cells[1].Value = txtCantidad.Text;
+                }
+                row.Cells[2].Value = nProducto.sDescripcion;
+                row.Cells[4].Value = nProducto.dCosto;
+
+                txtCantidad.Clear();
+                decimal Subtotal = 0;
+                decimal dgvCosto = Convert.ToDecimal(row.Cells[4].Value);
+                int dgvCantidad = Convert.ToInt32(row.Cells[1].Value);
+
+                decimal total = dgvCantidad * dgvCosto;
+
+                row.Cells[3].Value = total;
+                row.Height = 50;
+                dgvProductos.Rows.Add(row);
+
+                foreach (DataGridViewRow rItem in dgvProductos.Rows)
+                {
+                    Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
+                }
+
+                lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
+                //dgvProductos.ClearSelection();
+            }
+            else
+            {
+                txtCantidad.Clear();
+            }
         }
         #endregion
 

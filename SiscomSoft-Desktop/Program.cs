@@ -16,7 +16,7 @@ namespace SiscomSoft_Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.FrmDetalleVentasOneToOne());
+            Application.Run(new Views.FrmMenu());
         }
     }
 }

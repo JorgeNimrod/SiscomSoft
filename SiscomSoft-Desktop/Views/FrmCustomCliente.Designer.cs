@@ -34,19 +34,21 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlAllClientes = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnSeleccionarCliente = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1btnEditarCliente = new System.Windows.Forms.Button();
             this.btnNuevoCliente = new System.Windows.Forms.Button();
+            this.button1btnEditarCliente = new System.Windows.Forms.Button();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionarCliente = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pkCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sCalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iNumExterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sColonia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlAllClientes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFecha
@@ -76,7 +78,7 @@
             // 
             this.pnlAllClientes.Controls.Add(this.btnNuevoCliente);
             this.pnlAllClientes.Controls.Add(this.button1btnEditarCliente);
-            this.pnlAllClientes.Controls.Add(this.dataGridView1);
+            this.pnlAllClientes.Controls.Add(this.dgvClientes);
             this.pnlAllClientes.Controls.Add(this.btnSeleccionarCliente);
             this.pnlAllClientes.Controls.Add(this.txtBuscar);
             this.pnlAllClientes.Controls.Add(this.label1);
@@ -84,94 +86,6 @@
             this.pnlAllClientes.Name = "pnlAllClientes";
             this.pnlAllClientes.Size = new System.Drawing.Size(1346, 710);
             this.pnlAllClientes.TabIndex = 128;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "BUSCAR:";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(142, 0);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(1064, 38);
-            this.txtBuscar.TabIndex = 1;
-            // 
-            // btnSeleccionarCliente
-            // 
-            this.btnSeleccionarCliente.BackColor = System.Drawing.Color.White;
-            this.btnSeleccionarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSeleccionarCliente.Enabled = false;
-            this.btnSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeleccionarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionarCliente.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSeleccionarCliente.Location = new System.Drawing.Point(1215, 0);
-            this.btnSeleccionarCliente.Name = "btnSeleccionarCliente";
-            this.btnSeleccionarCliente.Size = new System.Drawing.Size(131, 84);
-            this.btnSeleccionarCliente.TabIndex = 19;
-            this.btnSeleccionarCliente.Text = "Seleccionar Cliente";
-            this.btnSeleccionarCliente.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pkCliente,
-            this.sNombre,
-            this.sTelefono,
-            this.sCalle});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.GridColor = System.Drawing.Color.DarkGray;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 44);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.ShowCellErrors = false;
-            this.dataGridView1.ShowCellToolTips = false;
-            this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1206, 666);
-            this.dataGridView1.TabIndex = 20;
-            // 
-            // button1btnEditarCliente
-            // 
-            this.button1btnEditarCliente.BackColor = System.Drawing.Color.White;
-            this.button1btnEditarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1btnEditarCliente.Enabled = false;
-            this.button1btnEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1btnEditarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1btnEditarCliente.ForeColor = System.Drawing.Color.DimGray;
-            this.button1btnEditarCliente.Location = new System.Drawing.Point(1215, 90);
-            this.button1btnEditarCliente.Name = "button1btnEditarCliente";
-            this.button1btnEditarCliente.Size = new System.Drawing.Size(131, 84);
-            this.button1btnEditarCliente.TabIndex = 21;
-            this.button1btnEditarCliente.Text = "Editar Cliente";
-            this.button1btnEditarCliente.UseVisualStyleBackColor = false;
             // 
             // btnNuevoCliente
             // 
@@ -188,6 +102,100 @@
             this.btnNuevoCliente.Text = "Nuevo Cliente";
             this.btnNuevoCliente.UseVisualStyleBackColor = false;
             // 
+            // button1btnEditarCliente
+            // 
+            this.button1btnEditarCliente.BackColor = System.Drawing.Color.White;
+            this.button1btnEditarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1btnEditarCliente.Enabled = false;
+            this.button1btnEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1btnEditarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1btnEditarCliente.ForeColor = System.Drawing.Color.DimGray;
+            this.button1btnEditarCliente.Location = new System.Drawing.Point(1215, 90);
+            this.button1btnEditarCliente.Name = "button1btnEditarCliente";
+            this.button1btnEditarCliente.Size = new System.Drawing.Size(131, 84);
+            this.button1btnEditarCliente.TabIndex = 21;
+            this.button1btnEditarCliente.Text = "Editar Cliente";
+            this.button1btnEditarCliente.UseVisualStyleBackColor = false;
+            // 
+            // dgvClientes
+            // 
+            this.dgvClientes.AllowUserToDeleteRows = false;
+            this.dgvClientes.AllowUserToResizeColumns = false;
+            this.dgvClientes.AllowUserToResizeRows = false;
+            this.dgvClientes.BackgroundColor = System.Drawing.Color.White;
+            this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pkCliente,
+            this.sNombre,
+            this.sTelefono,
+            this.sCalle,
+            this.iNumExterior,
+            this.sColonia});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvClientes.GridColor = System.Drawing.Color.DarkGray;
+            this.dgvClientes.Location = new System.Drawing.Point(0, 44);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.RowHeadersVisible = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvClientes.RowTemplate.Height = 50;
+            this.dgvClientes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClientes.ShowCellErrors = false;
+            this.dgvClientes.ShowCellToolTips = false;
+            this.dgvClientes.ShowEditingIcon = false;
+            this.dgvClientes.ShowRowErrors = false;
+            this.dgvClientes.Size = new System.Drawing.Size(1206, 666);
+            this.dgvClientes.TabIndex = 20;
+            this.dgvClientes.DataSourceChanged += new System.EventHandler(this.dgvClientes_DataSourceChanged);
+            // 
+            // btnSeleccionarCliente
+            // 
+            this.btnSeleccionarCliente.BackColor = System.Drawing.Color.White;
+            this.btnSeleccionarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSeleccionarCliente.Enabled = false;
+            this.btnSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionarCliente.ForeColor = System.Drawing.Color.DimGray;
+            this.btnSeleccionarCliente.Location = new System.Drawing.Point(1215, 0);
+            this.btnSeleccionarCliente.Name = "btnSeleccionarCliente";
+            this.btnSeleccionarCliente.Size = new System.Drawing.Size(131, 84);
+            this.btnSeleccionarCliente.TabIndex = 19;
+            this.btnSeleccionarCliente.Text = "Seleccionar Cliente";
+            this.btnSeleccionarCliente.UseVisualStyleBackColor = false;
+            this.btnSeleccionarCliente.Click += new System.EventHandler(this.btnSeleccionarCliente_Click);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(142, 0);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(1064, 38);
+            this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "BUSCAR:";
+            // 
             // pkCliente
             // 
             this.pkCliente.HeaderText = "No.";
@@ -196,41 +204,62 @@
             // 
             // sNombre
             // 
+            this.sNombre.DataPropertyName = "sNombre";
             this.sNombre.HeaderText = "Nombre";
             this.sNombre.Name = "sNombre";
+            this.sNombre.Width = 402;
             // 
             // sTelefono
             // 
+            this.sTelefono.DataPropertyName = "sTelMovil";
             this.sTelefono.HeaderText = "Telefono";
             this.sTelefono.Name = "sTelefono";
+            this.sTelefono.Width = 150;
             // 
             // sCalle
             // 
-            this.sCalle.HeaderText = "Direccion";
+            this.sCalle.DataPropertyName = "sCalle";
+            this.sCalle.HeaderText = "Calle";
             this.sCalle.Name = "sCalle";
+            this.sCalle.Width = 250;
+            // 
+            // iNumExterior
+            // 
+            this.iNumExterior.DataPropertyName = "iNumExterior";
+            this.iNumExterior.HeaderText = "No. Exterior";
+            this.iNumExterior.Name = "iNumExterior";
+            this.iNumExterior.Width = 120;
+            // 
+            // sColonia
+            // 
+            this.sColonia.DataPropertyName = "sColonia";
+            this.sColonia.HeaderText = "Colonia";
+            this.sColonia.Name = "sColonia";
+            this.sColonia.Width = 150;
             // 
             // FrmCustomCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1370, 772);
+            this.ClientSize = new System.Drawing.Size(1378, 780);
             this.Controls.Add(this.pnlAllClientes);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.DimGray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmCustomCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmCustomCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlAllClientes.ResumeLayout(false);
             this.pnlAllClientes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,11 +274,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnNuevoCliente;
         private System.Windows.Forms.Button button1btnEditarCliente;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.Button btnSeleccionarCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn sNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn sTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn sCalle;
-        private System.Windows.Forms.Button btnSeleccionarCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iNumExterior;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sColonia;
     }
 }
