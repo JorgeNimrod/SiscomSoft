@@ -19,7 +19,7 @@ namespace SiscomSoft.Models
 
         // Estado de la sucursal(Abierta, Cerrada, etc)
         public int iStatus { get; set; }
-        //TODO: Hacer que lo combos se actualicen cada vez que se registre algo
+
         public string sNoCertifi { get; set; }
 
         public string sPais { get; set; }
@@ -39,6 +39,11 @@ namespace SiscomSoft.Models
         public int iNumInterior { get; set; }
 
         public int iCodPostal { get; set; }
+
+        public string sMoneda { get; set; }
+
+        // tipo de cambio del dolar
+        public string sTipoCambio { get; set; }
 
         // llave foranea de Empresa
         public virtual Empresa fkEmpresa { get; set; }

@@ -108,7 +108,7 @@
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Location = new System.Drawing.Point(1213, 680);
+            this.btnMenu.Location = new System.Drawing.Point(1211, 715);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(125, 37);
             this.btnMenu.TabIndex = 23;
@@ -119,13 +119,13 @@
             // 
             // btnB10
             // 
-            this.btnB10.BackColor = System.Drawing.Color.Snow;
+            this.btnB10.BackColor = System.Drawing.Color.White;
             this.btnB10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB10.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB10.ForeColor = System.Drawing.Color.DimGray;
             this.btnB10.Location = new System.Drawing.Point(12, 56);
             this.btnB10.Name = "btnB10";
-            this.btnB10.Size = new System.Drawing.Size(184, 94);
+            this.btnB10.Size = new System.Drawing.Size(184, 100);
             this.btnB10.TabIndex = 38;
             this.btnB10.Text = "B 10";
             this.btnB10.UseVisualStyleBackColor = false;
@@ -133,13 +133,13 @@
             // 
             // btnB17
             // 
-            this.btnB17.BackColor = System.Drawing.Color.Snow;
+            this.btnB17.BackColor = System.Drawing.Color.White;
             this.btnB17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB17.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB17.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB17.Location = new System.Drawing.Point(12, 156);
+            this.btnB17.Location = new System.Drawing.Point(12, 162);
             this.btnB17.Name = "btnB17";
-            this.btnB17.Size = new System.Drawing.Size(184, 94);
+            this.btnB17.Size = new System.Drawing.Size(184, 100);
             this.btnB17.TabIndex = 45;
             this.btnB17.Text = "B 17";
             this.btnB17.UseVisualStyleBackColor = false;
@@ -147,13 +147,13 @@
             // 
             // btnB24
             // 
-            this.btnB24.BackColor = System.Drawing.Color.Snow;
+            this.btnB24.BackColor = System.Drawing.Color.White;
             this.btnB24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB24.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB24.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB24.Location = new System.Drawing.Point(12, 256);
+            this.btnB24.Location = new System.Drawing.Point(12, 268);
             this.btnB24.Name = "btnB24";
-            this.btnB24.Size = new System.Drawing.Size(184, 94);
+            this.btnB24.Size = new System.Drawing.Size(184, 100);
             this.btnB24.TabIndex = 46;
             this.btnB24.Text = "B 24";
             this.btnB24.UseVisualStyleBackColor = false;
@@ -161,13 +161,13 @@
             // 
             // btnM10
             // 
-            this.btnM10.BackColor = System.Drawing.Color.Snow;
+            this.btnM10.BackColor = System.Drawing.Color.White;
             this.btnM10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM10.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM10.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM10.Location = new System.Drawing.Point(12, 356);
+            this.btnM10.Location = new System.Drawing.Point(12, 374);
             this.btnM10.Name = "btnM10";
-            this.btnM10.Size = new System.Drawing.Size(184, 94);
+            this.btnM10.Size = new System.Drawing.Size(184, 100);
             this.btnM10.TabIndex = 47;
             this.btnM10.Text = "M 10";
             this.btnM10.UseVisualStyleBackColor = false;
@@ -175,13 +175,13 @@
             // 
             // btnM17
             // 
-            this.btnM17.BackColor = System.Drawing.Color.Snow;
+            this.btnM17.BackColor = System.Drawing.Color.White;
             this.btnM17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM17.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM17.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM17.Location = new System.Drawing.Point(12, 456);
+            this.btnM17.Location = new System.Drawing.Point(12, 480);
             this.btnM17.Name = "btnM17";
-            this.btnM17.Size = new System.Drawing.Size(184, 94);
+            this.btnM17.Size = new System.Drawing.Size(184, 100);
             this.btnM17.TabIndex = 48;
             this.btnM17.Text = "M 17";
             this.btnM17.UseVisualStyleBackColor = false;
@@ -189,13 +189,13 @@
             // 
             // btnM24
             // 
-            this.btnM24.BackColor = System.Drawing.Color.Snow;
+            this.btnM24.BackColor = System.Drawing.Color.White;
             this.btnM24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM24.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM24.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM24.Location = new System.Drawing.Point(12, 556);
+            this.btnM24.Location = new System.Drawing.Point(12, 586);
             this.btnM24.Name = "btnM24";
-            this.btnM24.Size = new System.Drawing.Size(184, 94);
+            this.btnM24.Size = new System.Drawing.Size(184, 100);
             this.btnM24.TabIndex = 49;
             this.btnM24.Text = "M 24";
             this.btnM24.UseVisualStyleBackColor = false;
@@ -203,13 +203,13 @@
             // 
             // btnB11
             // 
-            this.btnB11.BackColor = System.Drawing.Color.Snow;
+            this.btnB11.BackColor = System.Drawing.Color.White;
             this.btnB11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB11.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB11.ForeColor = System.Drawing.Color.DimGray;
             this.btnB11.Location = new System.Drawing.Point(202, 56);
             this.btnB11.Name = "btnB11";
-            this.btnB11.Size = new System.Drawing.Size(184, 94);
+            this.btnB11.Size = new System.Drawing.Size(184, 100);
             this.btnB11.TabIndex = 50;
             this.btnB11.Text = "B 11";
             this.btnB11.UseVisualStyleBackColor = false;
@@ -217,13 +217,13 @@
             // 
             // btnB12
             // 
-            this.btnB12.BackColor = System.Drawing.Color.Snow;
+            this.btnB12.BackColor = System.Drawing.Color.White;
             this.btnB12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB12.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB12.ForeColor = System.Drawing.Color.DimGray;
             this.btnB12.Location = new System.Drawing.Point(392, 56);
             this.btnB12.Name = "btnB12";
-            this.btnB12.Size = new System.Drawing.Size(184, 94);
+            this.btnB12.Size = new System.Drawing.Size(184, 100);
             this.btnB12.TabIndex = 51;
             this.btnB12.Text = "B 12";
             this.btnB12.UseVisualStyleBackColor = false;
@@ -231,13 +231,13 @@
             // 
             // btnB13
             // 
-            this.btnB13.BackColor = System.Drawing.Color.Snow;
+            this.btnB13.BackColor = System.Drawing.Color.White;
             this.btnB13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB13.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB13.ForeColor = System.Drawing.Color.DimGray;
             this.btnB13.Location = new System.Drawing.Point(582, 56);
             this.btnB13.Name = "btnB13";
-            this.btnB13.Size = new System.Drawing.Size(184, 94);
+            this.btnB13.Size = new System.Drawing.Size(184, 100);
             this.btnB13.TabIndex = 52;
             this.btnB13.Text = "B 13";
             this.btnB13.UseVisualStyleBackColor = false;
@@ -245,13 +245,13 @@
             // 
             // btnB14
             // 
-            this.btnB14.BackColor = System.Drawing.Color.Snow;
+            this.btnB14.BackColor = System.Drawing.Color.White;
             this.btnB14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB14.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB14.ForeColor = System.Drawing.Color.DimGray;
             this.btnB14.Location = new System.Drawing.Point(772, 56);
             this.btnB14.Name = "btnB14";
-            this.btnB14.Size = new System.Drawing.Size(184, 94);
+            this.btnB14.Size = new System.Drawing.Size(184, 100);
             this.btnB14.TabIndex = 53;
             this.btnB14.Text = "B 14";
             this.btnB14.UseVisualStyleBackColor = false;
@@ -259,13 +259,13 @@
             // 
             // btnB15
             // 
-            this.btnB15.BackColor = System.Drawing.Color.Snow;
+            this.btnB15.BackColor = System.Drawing.Color.White;
             this.btnB15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB15.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB15.ForeColor = System.Drawing.Color.DimGray;
             this.btnB15.Location = new System.Drawing.Point(962, 56);
             this.btnB15.Name = "btnB15";
-            this.btnB15.Size = new System.Drawing.Size(184, 94);
+            this.btnB15.Size = new System.Drawing.Size(184, 100);
             this.btnB15.TabIndex = 54;
             this.btnB15.Text = "B 15";
             this.btnB15.UseVisualStyleBackColor = false;
@@ -273,13 +273,13 @@
             // 
             // btnB16
             // 
-            this.btnB16.BackColor = System.Drawing.Color.Snow;
+            this.btnB16.BackColor = System.Drawing.Color.White;
             this.btnB16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB16.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB16.ForeColor = System.Drawing.Color.DimGray;
             this.btnB16.Location = new System.Drawing.Point(1152, 56);
             this.btnB16.Name = "btnB16";
-            this.btnB16.Size = new System.Drawing.Size(184, 94);
+            this.btnB16.Size = new System.Drawing.Size(184, 100);
             this.btnB16.TabIndex = 55;
             this.btnB16.Text = "B 16";
             this.btnB16.UseVisualStyleBackColor = false;
@@ -287,13 +287,13 @@
             // 
             // btnB18
             // 
-            this.btnB18.BackColor = System.Drawing.Color.Snow;
+            this.btnB18.BackColor = System.Drawing.Color.White;
             this.btnB18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB18.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB18.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB18.Location = new System.Drawing.Point(202, 156);
+            this.btnB18.Location = new System.Drawing.Point(202, 162);
             this.btnB18.Name = "btnB18";
-            this.btnB18.Size = new System.Drawing.Size(184, 94);
+            this.btnB18.Size = new System.Drawing.Size(184, 100);
             this.btnB18.TabIndex = 56;
             this.btnB18.Text = "B 18";
             this.btnB18.UseVisualStyleBackColor = false;
@@ -301,13 +301,13 @@
             // 
             // btnB19
             // 
-            this.btnB19.BackColor = System.Drawing.Color.Snow;
+            this.btnB19.BackColor = System.Drawing.Color.White;
             this.btnB19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB19.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB19.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB19.Location = new System.Drawing.Point(392, 156);
+            this.btnB19.Location = new System.Drawing.Point(392, 162);
             this.btnB19.Name = "btnB19";
-            this.btnB19.Size = new System.Drawing.Size(184, 94);
+            this.btnB19.Size = new System.Drawing.Size(184, 100);
             this.btnB19.TabIndex = 57;
             this.btnB19.Text = "B 19";
             this.btnB19.UseVisualStyleBackColor = false;
@@ -315,13 +315,13 @@
             // 
             // btnB20
             // 
-            this.btnB20.BackColor = System.Drawing.Color.Snow;
+            this.btnB20.BackColor = System.Drawing.Color.White;
             this.btnB20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB20.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB20.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB20.Location = new System.Drawing.Point(582, 156);
+            this.btnB20.Location = new System.Drawing.Point(582, 162);
             this.btnB20.Name = "btnB20";
-            this.btnB20.Size = new System.Drawing.Size(184, 94);
+            this.btnB20.Size = new System.Drawing.Size(184, 100);
             this.btnB20.TabIndex = 58;
             this.btnB20.Text = "B 20";
             this.btnB20.UseVisualStyleBackColor = false;
@@ -329,13 +329,13 @@
             // 
             // btnB21
             // 
-            this.btnB21.BackColor = System.Drawing.Color.Snow;
+            this.btnB21.BackColor = System.Drawing.Color.White;
             this.btnB21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB21.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB21.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB21.Location = new System.Drawing.Point(772, 156);
+            this.btnB21.Location = new System.Drawing.Point(772, 162);
             this.btnB21.Name = "btnB21";
-            this.btnB21.Size = new System.Drawing.Size(184, 94);
+            this.btnB21.Size = new System.Drawing.Size(184, 100);
             this.btnB21.TabIndex = 59;
             this.btnB21.Text = "B 21";
             this.btnB21.UseVisualStyleBackColor = false;
@@ -343,13 +343,13 @@
             // 
             // btnB22
             // 
-            this.btnB22.BackColor = System.Drawing.Color.Snow;
+            this.btnB22.BackColor = System.Drawing.Color.White;
             this.btnB22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB22.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB22.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB22.Location = new System.Drawing.Point(962, 156);
+            this.btnB22.Location = new System.Drawing.Point(962, 162);
             this.btnB22.Name = "btnB22";
-            this.btnB22.Size = new System.Drawing.Size(184, 94);
+            this.btnB22.Size = new System.Drawing.Size(184, 100);
             this.btnB22.TabIndex = 60;
             this.btnB22.Text = "B 22";
             this.btnB22.UseVisualStyleBackColor = false;
@@ -357,13 +357,13 @@
             // 
             // btnB23
             // 
-            this.btnB23.BackColor = System.Drawing.Color.Snow;
+            this.btnB23.BackColor = System.Drawing.Color.White;
             this.btnB23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB23.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB23.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB23.Location = new System.Drawing.Point(1152, 156);
+            this.btnB23.Location = new System.Drawing.Point(1152, 162);
             this.btnB23.Name = "btnB23";
-            this.btnB23.Size = new System.Drawing.Size(184, 94);
+            this.btnB23.Size = new System.Drawing.Size(184, 100);
             this.btnB23.TabIndex = 61;
             this.btnB23.Text = "B 23";
             this.btnB23.UseVisualStyleBackColor = false;
@@ -371,13 +371,13 @@
             // 
             // btnB25
             // 
-            this.btnB25.BackColor = System.Drawing.Color.Snow;
+            this.btnB25.BackColor = System.Drawing.Color.White;
             this.btnB25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB25.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB25.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB25.Location = new System.Drawing.Point(202, 256);
+            this.btnB25.Location = new System.Drawing.Point(202, 268);
             this.btnB25.Name = "btnB25";
-            this.btnB25.Size = new System.Drawing.Size(184, 94);
+            this.btnB25.Size = new System.Drawing.Size(184, 100);
             this.btnB25.TabIndex = 62;
             this.btnB25.Text = "B 25";
             this.btnB25.UseVisualStyleBackColor = false;
@@ -385,13 +385,13 @@
             // 
             // btnB26
             // 
-            this.btnB26.BackColor = System.Drawing.Color.Snow;
+            this.btnB26.BackColor = System.Drawing.Color.White;
             this.btnB26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB26.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB26.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB26.Location = new System.Drawing.Point(392, 256);
+            this.btnB26.Location = new System.Drawing.Point(392, 268);
             this.btnB26.Name = "btnB26";
-            this.btnB26.Size = new System.Drawing.Size(184, 94);
+            this.btnB26.Size = new System.Drawing.Size(184, 100);
             this.btnB26.TabIndex = 63;
             this.btnB26.Text = "B 26";
             this.btnB26.UseVisualStyleBackColor = false;
@@ -399,13 +399,13 @@
             // 
             // btnB27
             // 
-            this.btnB27.BackColor = System.Drawing.Color.Snow;
+            this.btnB27.BackColor = System.Drawing.Color.White;
             this.btnB27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB27.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB27.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB27.Location = new System.Drawing.Point(582, 256);
+            this.btnB27.Location = new System.Drawing.Point(582, 268);
             this.btnB27.Name = "btnB27";
-            this.btnB27.Size = new System.Drawing.Size(184, 94);
+            this.btnB27.Size = new System.Drawing.Size(184, 100);
             this.btnB27.TabIndex = 64;
             this.btnB27.Text = "B 27";
             this.btnB27.UseVisualStyleBackColor = false;
@@ -413,13 +413,13 @@
             // 
             // btnB28
             // 
-            this.btnB28.BackColor = System.Drawing.Color.Snow;
+            this.btnB28.BackColor = System.Drawing.Color.White;
             this.btnB28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB28.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB28.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB28.Location = new System.Drawing.Point(772, 256);
+            this.btnB28.Location = new System.Drawing.Point(772, 268);
             this.btnB28.Name = "btnB28";
-            this.btnB28.Size = new System.Drawing.Size(184, 94);
+            this.btnB28.Size = new System.Drawing.Size(184, 100);
             this.btnB28.TabIndex = 65;
             this.btnB28.Text = "B 28";
             this.btnB28.UseVisualStyleBackColor = false;
@@ -427,13 +427,13 @@
             // 
             // btnB29
             // 
-            this.btnB29.BackColor = System.Drawing.Color.Snow;
+            this.btnB29.BackColor = System.Drawing.Color.White;
             this.btnB29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB29.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB29.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB29.Location = new System.Drawing.Point(962, 256);
+            this.btnB29.Location = new System.Drawing.Point(962, 268);
             this.btnB29.Name = "btnB29";
-            this.btnB29.Size = new System.Drawing.Size(184, 94);
+            this.btnB29.Size = new System.Drawing.Size(184, 100);
             this.btnB29.TabIndex = 66;
             this.btnB29.Text = "B 29";
             this.btnB29.UseVisualStyleBackColor = false;
@@ -441,13 +441,13 @@
             // 
             // btnB30
             // 
-            this.btnB30.BackColor = System.Drawing.Color.Snow;
+            this.btnB30.BackColor = System.Drawing.Color.White;
             this.btnB30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB30.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB30.ForeColor = System.Drawing.Color.DimGray;
-            this.btnB30.Location = new System.Drawing.Point(1152, 256);
+            this.btnB30.Location = new System.Drawing.Point(1152, 268);
             this.btnB30.Name = "btnB30";
-            this.btnB30.Size = new System.Drawing.Size(184, 94);
+            this.btnB30.Size = new System.Drawing.Size(184, 100);
             this.btnB30.TabIndex = 67;
             this.btnB30.Text = "B 30";
             this.btnB30.UseVisualStyleBackColor = false;
@@ -455,13 +455,13 @@
             // 
             // btnM11
             // 
-            this.btnM11.BackColor = System.Drawing.Color.Snow;
+            this.btnM11.BackColor = System.Drawing.Color.White;
             this.btnM11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM11.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM11.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM11.Location = new System.Drawing.Point(202, 356);
+            this.btnM11.Location = new System.Drawing.Point(202, 374);
             this.btnM11.Name = "btnM11";
-            this.btnM11.Size = new System.Drawing.Size(184, 94);
+            this.btnM11.Size = new System.Drawing.Size(184, 100);
             this.btnM11.TabIndex = 68;
             this.btnM11.Text = "M 11";
             this.btnM11.UseVisualStyleBackColor = false;
@@ -469,13 +469,13 @@
             // 
             // btnM12
             // 
-            this.btnM12.BackColor = System.Drawing.Color.Snow;
+            this.btnM12.BackColor = System.Drawing.Color.White;
             this.btnM12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM12.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM12.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM12.Location = new System.Drawing.Point(392, 356);
+            this.btnM12.Location = new System.Drawing.Point(392, 374);
             this.btnM12.Name = "btnM12";
-            this.btnM12.Size = new System.Drawing.Size(184, 94);
+            this.btnM12.Size = new System.Drawing.Size(184, 100);
             this.btnM12.TabIndex = 69;
             this.btnM12.Text = "M 12";
             this.btnM12.UseVisualStyleBackColor = false;
@@ -483,13 +483,13 @@
             // 
             // btnM25
             // 
-            this.btnM25.BackColor = System.Drawing.Color.Snow;
+            this.btnM25.BackColor = System.Drawing.Color.White;
             this.btnM25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM25.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM25.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM25.Location = new System.Drawing.Point(202, 556);
+            this.btnM25.Location = new System.Drawing.Point(202, 586);
             this.btnM25.Name = "btnM25";
-            this.btnM25.Size = new System.Drawing.Size(184, 94);
+            this.btnM25.Size = new System.Drawing.Size(184, 100);
             this.btnM25.TabIndex = 70;
             this.btnM25.Text = "M 25";
             this.btnM25.UseVisualStyleBackColor = false;
@@ -497,13 +497,13 @@
             // 
             // btnM18
             // 
-            this.btnM18.BackColor = System.Drawing.Color.Snow;
+            this.btnM18.BackColor = System.Drawing.Color.White;
             this.btnM18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM18.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM18.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM18.Location = new System.Drawing.Point(202, 456);
+            this.btnM18.Location = new System.Drawing.Point(202, 480);
             this.btnM18.Name = "btnM18";
-            this.btnM18.Size = new System.Drawing.Size(184, 94);
+            this.btnM18.Size = new System.Drawing.Size(184, 100);
             this.btnM18.TabIndex = 71;
             this.btnM18.Text = "M 18";
             this.btnM18.UseVisualStyleBackColor = false;
@@ -511,13 +511,13 @@
             // 
             // btnM13
             // 
-            this.btnM13.BackColor = System.Drawing.Color.Snow;
+            this.btnM13.BackColor = System.Drawing.Color.White;
             this.btnM13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM13.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM13.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM13.Location = new System.Drawing.Point(582, 356);
+            this.btnM13.Location = new System.Drawing.Point(582, 374);
             this.btnM13.Name = "btnM13";
-            this.btnM13.Size = new System.Drawing.Size(184, 94);
+            this.btnM13.Size = new System.Drawing.Size(184, 100);
             this.btnM13.TabIndex = 72;
             this.btnM13.Text = "M 13";
             this.btnM13.UseVisualStyleBackColor = false;
@@ -525,13 +525,13 @@
             // 
             // btnM19
             // 
-            this.btnM19.BackColor = System.Drawing.Color.Snow;
+            this.btnM19.BackColor = System.Drawing.Color.White;
             this.btnM19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM19.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM19.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM19.Location = new System.Drawing.Point(392, 456);
+            this.btnM19.Location = new System.Drawing.Point(392, 480);
             this.btnM19.Name = "btnM19";
-            this.btnM19.Size = new System.Drawing.Size(184, 94);
+            this.btnM19.Size = new System.Drawing.Size(184, 100);
             this.btnM19.TabIndex = 73;
             this.btnM19.Text = "M 19";
             this.btnM19.UseVisualStyleBackColor = false;
@@ -539,13 +539,13 @@
             // 
             // btnM20
             // 
-            this.btnM20.BackColor = System.Drawing.Color.Snow;
+            this.btnM20.BackColor = System.Drawing.Color.White;
             this.btnM20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM20.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM20.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM20.Location = new System.Drawing.Point(582, 456);
+            this.btnM20.Location = new System.Drawing.Point(582, 480);
             this.btnM20.Name = "btnM20";
-            this.btnM20.Size = new System.Drawing.Size(184, 94);
+            this.btnM20.Size = new System.Drawing.Size(184, 100);
             this.btnM20.TabIndex = 74;
             this.btnM20.Text = "M 20";
             this.btnM20.UseVisualStyleBackColor = false;
@@ -553,13 +553,13 @@
             // 
             // btnM14
             // 
-            this.btnM14.BackColor = System.Drawing.Color.Snow;
+            this.btnM14.BackColor = System.Drawing.Color.White;
             this.btnM14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM14.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM14.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM14.Location = new System.Drawing.Point(772, 356);
+            this.btnM14.Location = new System.Drawing.Point(772, 374);
             this.btnM14.Name = "btnM14";
-            this.btnM14.Size = new System.Drawing.Size(184, 94);
+            this.btnM14.Size = new System.Drawing.Size(184, 100);
             this.btnM14.TabIndex = 75;
             this.btnM14.Text = "M 14";
             this.btnM14.UseVisualStyleBackColor = false;
@@ -567,13 +567,13 @@
             // 
             // btnM15
             // 
-            this.btnM15.BackColor = System.Drawing.Color.Snow;
+            this.btnM15.BackColor = System.Drawing.Color.White;
             this.btnM15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM15.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM15.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM15.Location = new System.Drawing.Point(962, 356);
+            this.btnM15.Location = new System.Drawing.Point(962, 374);
             this.btnM15.Name = "btnM15";
-            this.btnM15.Size = new System.Drawing.Size(184, 94);
+            this.btnM15.Size = new System.Drawing.Size(184, 100);
             this.btnM15.TabIndex = 76;
             this.btnM15.Text = "M 15";
             this.btnM15.UseVisualStyleBackColor = false;
@@ -581,13 +581,13 @@
             // 
             // btnM16
             // 
-            this.btnM16.BackColor = System.Drawing.Color.Snow;
+            this.btnM16.BackColor = System.Drawing.Color.White;
             this.btnM16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM16.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM16.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM16.Location = new System.Drawing.Point(1152, 356);
+            this.btnM16.Location = new System.Drawing.Point(1152, 374);
             this.btnM16.Name = "btnM16";
-            this.btnM16.Size = new System.Drawing.Size(184, 94);
+            this.btnM16.Size = new System.Drawing.Size(184, 100);
             this.btnM16.TabIndex = 77;
             this.btnM16.Text = "M 16";
             this.btnM16.UseVisualStyleBackColor = false;
@@ -595,13 +595,13 @@
             // 
             // btnM21
             // 
-            this.btnM21.BackColor = System.Drawing.Color.Snow;
+            this.btnM21.BackColor = System.Drawing.Color.White;
             this.btnM21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM21.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM21.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM21.Location = new System.Drawing.Point(772, 456);
+            this.btnM21.Location = new System.Drawing.Point(772, 480);
             this.btnM21.Name = "btnM21";
-            this.btnM21.Size = new System.Drawing.Size(184, 94);
+            this.btnM21.Size = new System.Drawing.Size(184, 100);
             this.btnM21.TabIndex = 78;
             this.btnM21.Text = "M 21";
             this.btnM21.UseVisualStyleBackColor = false;
@@ -609,13 +609,13 @@
             // 
             // btnM22
             // 
-            this.btnM22.BackColor = System.Drawing.Color.Snow;
+            this.btnM22.BackColor = System.Drawing.Color.White;
             this.btnM22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM22.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM22.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM22.Location = new System.Drawing.Point(962, 456);
+            this.btnM22.Location = new System.Drawing.Point(962, 480);
             this.btnM22.Name = "btnM22";
-            this.btnM22.Size = new System.Drawing.Size(184, 94);
+            this.btnM22.Size = new System.Drawing.Size(184, 100);
             this.btnM22.TabIndex = 79;
             this.btnM22.Text = "M 22";
             this.btnM22.UseVisualStyleBackColor = false;
@@ -623,13 +623,13 @@
             // 
             // btnM23
             // 
-            this.btnM23.BackColor = System.Drawing.Color.Snow;
+            this.btnM23.BackColor = System.Drawing.Color.White;
             this.btnM23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM23.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM23.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM23.Location = new System.Drawing.Point(1152, 456);
+            this.btnM23.Location = new System.Drawing.Point(1152, 480);
             this.btnM23.Name = "btnM23";
-            this.btnM23.Size = new System.Drawing.Size(184, 94);
+            this.btnM23.Size = new System.Drawing.Size(184, 100);
             this.btnM23.TabIndex = 80;
             this.btnM23.Text = "M 23";
             this.btnM23.UseVisualStyleBackColor = false;
@@ -637,13 +637,13 @@
             // 
             // btnM26
             // 
-            this.btnM26.BackColor = System.Drawing.Color.Snow;
+            this.btnM26.BackColor = System.Drawing.Color.White;
             this.btnM26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM26.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM26.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM26.Location = new System.Drawing.Point(392, 556);
+            this.btnM26.Location = new System.Drawing.Point(392, 586);
             this.btnM26.Name = "btnM26";
-            this.btnM26.Size = new System.Drawing.Size(184, 94);
+            this.btnM26.Size = new System.Drawing.Size(184, 100);
             this.btnM26.TabIndex = 81;
             this.btnM26.Text = "M 26";
             this.btnM26.UseVisualStyleBackColor = false;
@@ -651,13 +651,13 @@
             // 
             // btnM27
             // 
-            this.btnM27.BackColor = System.Drawing.Color.Snow;
+            this.btnM27.BackColor = System.Drawing.Color.White;
             this.btnM27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM27.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM27.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM27.Location = new System.Drawing.Point(582, 556);
+            this.btnM27.Location = new System.Drawing.Point(582, 586);
             this.btnM27.Name = "btnM27";
-            this.btnM27.Size = new System.Drawing.Size(184, 94);
+            this.btnM27.Size = new System.Drawing.Size(184, 100);
             this.btnM27.TabIndex = 82;
             this.btnM27.Text = "M 27";
             this.btnM27.UseVisualStyleBackColor = false;
@@ -665,13 +665,13 @@
             // 
             // btnM28
             // 
-            this.btnM28.BackColor = System.Drawing.Color.Snow;
+            this.btnM28.BackColor = System.Drawing.Color.White;
             this.btnM28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM28.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM28.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM28.Location = new System.Drawing.Point(772, 556);
+            this.btnM28.Location = new System.Drawing.Point(772, 586);
             this.btnM28.Name = "btnM28";
-            this.btnM28.Size = new System.Drawing.Size(184, 94);
+            this.btnM28.Size = new System.Drawing.Size(184, 100);
             this.btnM28.TabIndex = 83;
             this.btnM28.Text = "M 28";
             this.btnM28.UseVisualStyleBackColor = false;
@@ -679,13 +679,13 @@
             // 
             // btnM29
             // 
-            this.btnM29.BackColor = System.Drawing.Color.Snow;
+            this.btnM29.BackColor = System.Drawing.Color.White;
             this.btnM29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM29.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM29.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM29.Location = new System.Drawing.Point(962, 556);
+            this.btnM29.Location = new System.Drawing.Point(962, 586);
             this.btnM29.Name = "btnM29";
-            this.btnM29.Size = new System.Drawing.Size(184, 94);
+            this.btnM29.Size = new System.Drawing.Size(184, 100);
             this.btnM29.TabIndex = 84;
             this.btnM29.Text = "M 29";
             this.btnM29.UseVisualStyleBackColor = false;
@@ -693,13 +693,13 @@
             // 
             // btnM30
             // 
-            this.btnM30.BackColor = System.Drawing.Color.Snow;
+            this.btnM30.BackColor = System.Drawing.Color.White;
             this.btnM30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnM30.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnM30.ForeColor = System.Drawing.Color.DimGray;
-            this.btnM30.Location = new System.Drawing.Point(1152, 556);
+            this.btnM30.Location = new System.Drawing.Point(1152, 586);
             this.btnM30.Name = "btnM30";
-            this.btnM30.Size = new System.Drawing.Size(184, 94);
+            this.btnM30.Size = new System.Drawing.Size(184, 100);
             this.btnM30.TabIndex = 85;
             this.btnM30.Text = "M 30";
             this.btnM30.UseVisualStyleBackColor = false;
@@ -709,7 +709,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(18, 659);
+            this.label3.Location = new System.Drawing.Point(16, 694);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label3.Size = new System.Drawing.Size(1320, 18);
@@ -722,8 +722,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(1378, 780);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnM30);
             this.Controls.Add(this.btnM29);
@@ -771,7 +771,7 @@
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;

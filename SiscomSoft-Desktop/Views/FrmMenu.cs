@@ -58,7 +58,7 @@ namespace SiscomSoft_Desktop.Views
         private void btnMenuVentas_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmMenuVentas v = new FrmMenuVentas();
+            FrmDetalleVentasOneToOne v = new FrmDetalleVentasOneToOne();
             v.ShowDialog();
         }
 

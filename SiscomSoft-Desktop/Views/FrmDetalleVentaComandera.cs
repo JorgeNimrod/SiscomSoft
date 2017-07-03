@@ -12,13 +12,13 @@ using SiscomSoft.Models;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class FrmDetalleVentaTemplete : Form
+    public partial class FrmDetalleVentaComandera : Form
     {
-        double noDetalle = 0;
+        double noCantidad = 0;
         double noPagar = 0;
         Boolean pesos = false;
 
-        public FrmDetalleVentaTemplete()
+        public FrmDetalleVentaComandera()
         {
             InitializeComponent();
             txtCantidad.Focus();
@@ -26,7 +26,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            noDetalle = 0;
+            noCantidad = 0;
             noPagar = 0;
             if (dgvProductos.RowCount > 1 && dgvProductos.CurrentRow.Index != 1)
             {
@@ -38,7 +38,7 @@ namespace SiscomSoft_Desktop.Views
                     nEntrada.fkProducto = nProducto;
                     nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                     nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                    nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                    nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                     FrmMenuVentas.nVentaB10.Add(nEntrada);
                 }
@@ -50,7 +50,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -60,6 +60,7 @@ namespace SiscomSoft_Desktop.Views
                     decimal total = dgvCosto * dgvCantidad;
 
                     row.Cells[3].Value = total;
+                    row.Height = 50;
                     dgvDetalleProductos.Rows.Add(row);
                        
                     foreach (DataGridViewRow rItem in dgvDetalleProductos.Rows)
@@ -86,7 +87,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noDetalle = 0;
+                noCantidad = 0;
                 lblMonto.Text = "1";
                 pesos = false;
             }
@@ -105,7 +106,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noDetalle = 0;
+                noCantidad = 0;
                 lblMonto.Text = "2";
                 pesos = false;
             }
@@ -124,7 +125,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noDetalle = 0;
+                noCantidad = 0;
                 lblMonto.Text = "3";
                 pesos = false;
             }
@@ -143,7 +144,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noDetalle = 0;
+                noCantidad = 0;
                 lblMonto.Text = "4";
                 pesos = false;
             }
@@ -162,7 +163,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noDetalle = 0;
+                noCantidad = 0;
                 lblMonto.Text = "5";
                 pesos = false;
             }
@@ -181,7 +182,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noDetalle = 0;
+                noCantidad = 0;
                 lblMonto.Text = "6";
                 pesos = false;
             }
@@ -200,7 +201,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noDetalle = 0;
+                noCantidad = 0;
                 lblMonto.Text = "7";
                 pesos = false;
             }
@@ -219,7 +220,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noDetalle = 0;
+                noCantidad = 0;
                 lblMonto.Text = "8";
                 pesos = false;
             }
@@ -238,7 +239,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noDetalle = 0;
+                noCantidad = 0;
                 lblMonto.Text = "9";
                 pesos = false;
             }
@@ -257,7 +258,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noDetalle = 0;
+                noCantidad = 0;
                 lblMonto.Text = "0";
                 pesos = false;
             }
@@ -270,11 +271,11 @@ namespace SiscomSoft_Desktop.Views
         private void btn1Peso_Click(object sender, EventArgs e)
         {
             pesos = true;
-            noDetalle += 1;
-            noDetalle += Convert.ToDouble(lblMonto.Text);
+            noCantidad += 1;
+            noCantidad += Convert.ToDouble(lblMonto.Text);
             //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
-            lblMonto.Text = noDetalle.ToString("#,###.#0#");
-            noDetalle = 0;
+            lblMonto.Text = noCantidad.ToString("#,###.#0#");
+            noCantidad = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -285,11 +286,11 @@ namespace SiscomSoft_Desktop.Views
         private void btn5Peso_Click(object sender, EventArgs e)
         {
             pesos = true;
-            noDetalle += 5;
-            noDetalle += Convert.ToDouble(lblMonto.Text);
+            noCantidad += 5;
+            noCantidad += Convert.ToDouble(lblMonto.Text);
             //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
-            lblMonto.Text = noDetalle.ToString("#,###.#0#");
-            noDetalle = 0;
+            lblMonto.Text = noCantidad.ToString("#,###.#0#");
+            noCantidad = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -300,11 +301,11 @@ namespace SiscomSoft_Desktop.Views
         private void btn10Peso_Click(object sender, EventArgs e)
         {
             pesos = true;
-            noDetalle += 10;
-            noDetalle += Convert.ToDouble(lblMonto.Text);
+            noCantidad += 10;
+            noCantidad += Convert.ToDouble(lblMonto.Text);
             //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
-            lblMonto.Text = noDetalle.ToString("#,###.#0#");
-            noDetalle = 0;
+            lblMonto.Text = noCantidad.ToString("#,###.#0#");
+            noCantidad = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -315,11 +316,11 @@ namespace SiscomSoft_Desktop.Views
         private void btn20Peso_Click(object sender, EventArgs e)
         {
             pesos = true;
-            noDetalle += 20;
-            noDetalle += Convert.ToDouble(lblMonto.Text);
+            noCantidad += 20;
+            noCantidad += Convert.ToDouble(lblMonto.Text);
             //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
-            lblMonto.Text = noDetalle.ToString("#,###.#0#");
-            noDetalle = 0;
+            lblMonto.Text = noCantidad.ToString("#,###.#0#");
+            noCantidad = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -330,11 +331,11 @@ namespace SiscomSoft_Desktop.Views
         private void btn50Peso_Click(object sender, EventArgs e)
         {
             pesos = true;
-            noDetalle += 50;
-            noDetalle += Convert.ToDouble(lblMonto.Text);
+            noCantidad += 50;
+            noCantidad += Convert.ToDouble(lblMonto.Text);
             //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
-            lblMonto.Text = noDetalle.ToString("#,###.#0#");
-            noDetalle = 0;
+            lblMonto.Text = noCantidad.ToString("#,###.#0#");
+            noCantidad = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -345,11 +346,11 @@ namespace SiscomSoft_Desktop.Views
         private void btn100Peso_Click(object sender, EventArgs e)
         {
             pesos = true;
-            noDetalle += 100;
-            noDetalle += Convert.ToDouble(lblMonto.Text);
+            noCantidad += 100;
+            noCantidad += Convert.ToDouble(lblMonto.Text);
             //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
-            lblMonto.Text = noDetalle.ToString("#,###.#0#");
-            noDetalle = 0;
+            lblMonto.Text = noCantidad.ToString("#,###.#0#");
+            noCantidad = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -360,7 +361,7 @@ namespace SiscomSoft_Desktop.Views
         private void btnClear_Click(object sender, EventArgs e)
         {
             noPagar = 0;
-            noDetalle = 0;
+            noCantidad = 0;
             lblMonto.Text = "0";
             btnEfectivo.Enabled = false;
             btnCredito.Enabled = false;
@@ -371,7 +372,7 @@ namespace SiscomSoft_Desktop.Views
         private void btnAll_Click(object sender, EventArgs e)
         {
             noPagar = 0;
-            noDetalle = 0;
+            noCantidad = 0;
             lblMonto.Text = lblTotal2.Text;
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -387,7 +388,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noDetalle = 0;
+                noCantidad = 0;
                 noPagar = Convert.ToDouble(lblMonto.Text + "0.");
                 lblMonto.Text = noPagar.ToString();
                 pesos = false;
@@ -415,7 +416,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB10.Add(nEntrada);
                     }
@@ -431,7 +432,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB11.Add(nEntrada);
                     }
@@ -447,7 +448,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB12.Add(nEntrada);
                     }
@@ -463,7 +464,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB13.Add(nEntrada);
                     }
@@ -479,7 +480,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB14.Add(nEntrada);
                     }
@@ -495,7 +496,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB15.Add(nEntrada);
                     }
@@ -511,7 +512,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB16.Add(nEntrada);
                     }
@@ -527,7 +528,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB17.Add(nEntrada);
                     }
@@ -543,7 +544,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB18.Add(nEntrada);
                     }
@@ -559,7 +560,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB19.Add(nEntrada);
                     }
@@ -575,7 +576,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB20.Add(nEntrada);
                     }
@@ -591,7 +592,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB21.Add(nEntrada);
                     }
@@ -607,7 +608,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB22.Add(nEntrada);
                     }
@@ -623,7 +624,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB23.Add(nEntrada);
                     }
@@ -639,7 +640,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB24.Add(nEntrada);
                     }
@@ -655,7 +656,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB25.Add(nEntrada);
                     }
@@ -671,7 +672,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB26.Add(nEntrada);
                     }
@@ -687,7 +688,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB27.Add(nEntrada);
                     }
@@ -703,7 +704,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB28.Add(nEntrada);
                     }
@@ -719,7 +720,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB29.Add(nEntrada);
                     }
@@ -735,7 +736,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaB30.Add(nEntrada);
                     }
@@ -751,7 +752,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM10.Add(nEntrada);
                     }
@@ -767,7 +768,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM11.Add(nEntrada);
                     }
@@ -783,7 +784,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM12.Add(nEntrada);
                     }
@@ -799,7 +800,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM13.Add(nEntrada);
                     }
@@ -815,7 +816,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM14.Add(nEntrada);
                     }
@@ -831,7 +832,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM15.Add(nEntrada);
                     }
@@ -847,7 +848,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM16.Add(nEntrada);
                     }
@@ -863,7 +864,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM17.Add(nEntrada);
                     }
@@ -879,7 +880,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM18.Add(nEntrada);
                     }
@@ -895,7 +896,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM19.Add(nEntrada);
                     }
@@ -911,7 +912,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM20.Add(nEntrada);
                     }
@@ -927,7 +928,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM21.Add(nEntrada);
                     }
@@ -943,7 +944,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM22.Add(nEntrada);
                     }
@@ -959,7 +960,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM23.Add(nEntrada);
                     }
@@ -975,7 +976,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM24.Add(nEntrada);
                     }
@@ -991,7 +992,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM25.Add(nEntrada);
                     }
@@ -1007,7 +1008,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM26.Add(nEntrada);
                     }
@@ -1023,7 +1024,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM27.Add(nEntrada);
                     }
@@ -1039,7 +1040,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM28.Add(nEntrada);
                     }
@@ -1055,7 +1056,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM29.Add(nEntrada);
                     }
@@ -1071,7 +1072,7 @@ namespace SiscomSoft_Desktop.Views
                         nEntrada.fkProducto = nProducto;
                         nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                         nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                        nEntrada.dPrecio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                        nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
 
                         FrmMenuVentas.nVentaM30.Add(nEntrada);
                     }
@@ -1085,53 +1086,10 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        private void btnPunto_Click(object sender, EventArgs e)
-        {
-            if (txtCantidad.Text != "0")
-            {
-                Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(2);
-                DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
-                row.Cells[0].Value = nProducto.pkProducto;
-                if (txtCantidad.Text == "")
-                {
-                    row.Cells[1].Value = 1;
-                }
-                else
-                {
-                    row.Cells[1].Value = txtCantidad.Text;
-                }
-                row.Cells[2].Value = nProducto.sDescripcion;
-                row.Cells[4].Value = nProducto.dCosto;
-
-                txtCantidad.Clear();
-                decimal Subtotal = 0;
-                decimal dgvCosto = Convert.ToDecimal(row.Cells[4].Value);
-                int dgvCantidad = Convert.ToInt32(row.Cells[1].Value);
-
-                decimal total = dgvCantidad * dgvCosto;
-
-                row.Cells[3].Value = total;
-                dgvProductos.Rows.Add(row);
-
-                foreach (DataGridViewRow rItem in dgvProductos.Rows)
-                {
-                    Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
-                }
-
-                lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
-                //dgvProductos.ClearSelection();
-            }
-            else
-            {
-                txtCantidad.Clear();
-            }
-        }
-
-
         private void FrmDetalleVentaTemplete_Load(object sender, EventArgs e)
         {
-            #region CARGAR DATOS EN MEMORIA
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+            #region CARGAR DATOS EN MEMORIA
             if (FrmMenuVentas.nVentaB10 != null && FrmMenuVentas.bBtnB10 == true)
             {
                 foreach (InventarioEntrada rEntrada in FrmMenuVentas.nVentaB10)
@@ -1140,7 +1098,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1168,7 +1126,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1196,7 +1154,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1224,7 +1182,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1252,7 +1210,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1280,7 +1238,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1308,7 +1266,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1336,7 +1294,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1364,7 +1322,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1392,7 +1350,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1410,7 +1368,7 @@ namespace SiscomSoft_Desktop.Views
                     }
 
                     lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
-                }
+                };
             }
             else if (FrmMenuVentas.nVentaB20 != null && FrmMenuVentas.bBtnB20 == true)
             {
@@ -1420,7 +1378,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1448,7 +1406,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1476,7 +1434,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1504,7 +1462,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1532,7 +1490,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1560,7 +1518,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1588,7 +1546,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1616,7 +1574,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1644,7 +1602,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1672,7 +1630,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1700,7 +1658,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1728,7 +1686,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1756,7 +1714,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1784,7 +1742,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1812,7 +1770,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1840,7 +1798,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1868,7 +1826,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1896,7 +1854,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1924,7 +1882,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1952,7 +1910,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -1980,7 +1938,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -2008,7 +1966,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -2036,7 +1994,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -2064,7 +2022,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -2092,7 +2050,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -2120,7 +2078,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -2148,7 +2106,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -2176,7 +2134,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -2204,7 +2162,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -2232,7 +2190,7 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[4].Value = rEntrada.dPrecio;
+                    row.Cells[4].Value = rEntrada.dPreUnitario;
 
                     txtCantidad.Clear();
                     decimal Subtotal = 0;
@@ -2251,6 +2209,176 @@ namespace SiscomSoft_Desktop.Views
 
                     lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
                 }
+            }
+            #endregion
+            #region NOMBRE MESAS
+            if (FrmMenuVentas.bBtnB10 == true)
+            {
+                lblTable.Text = "Table: B10";
+            }
+            else if (FrmMenuVentas.bBtnB11 == true)
+            {
+                lblTable.Text = "Table: B11";
+            }
+            else if (FrmMenuVentas.bBtnB12 == true)
+            {
+                lblTable.Text = "Table: B12";
+            }
+            else if (FrmMenuVentas.bBtnB13 == true)
+            {
+                lblTable.Text = "Table: B13";
+            }
+            else if (FrmMenuVentas.bBtnB14 == true)
+            {
+                lblTable.Text = "Table: B14";
+            }
+            else if (FrmMenuVentas.bBtnB15 == true)
+            {
+                lblTable.Text = "Table: B15";
+            }
+            else if (FrmMenuVentas.bBtnB16 == true)
+            {
+                lblTable.Text = "Table: B16";
+            }
+            else if (FrmMenuVentas.bBtnB17 == true)
+            {
+                lblTable.Text = "Table: B17";
+            }
+            else if (FrmMenuVentas.bBtnB18 == true)
+            {
+                lblTable.Text = "Table: B18";
+            }
+            else if (FrmMenuVentas.bBtnB19 == true)
+            {
+                lblTable.Text = "Table: B19";
+            }
+            else if (FrmMenuVentas.bBtnB20 == true)
+            {
+                lblTable.Text = "Table: B20";
+            }
+            else if (FrmMenuVentas.bBtnB21 == true)
+            {
+                lblTable.Text = "Table: B21";
+            }
+            else if (FrmMenuVentas.bBtnB22 == true)
+            {
+                lblTable.Text = "Table: B22";
+            }
+            else if (FrmMenuVentas.bBtnB23 == true)
+            {
+                lblTable.Text = "Table: B23";
+            }
+            else if (FrmMenuVentas.bBtnB24 == true)
+            {
+                lblTable.Text = "Table: B24";
+            }
+            else if (FrmMenuVentas.bBtnB25 == true)
+            {
+                lblTable.Text = "Table: B25";
+            }
+            else if (FrmMenuVentas.bBtnB26 == true)
+            {
+                lblTable.Text = "Table: B26";
+            }
+            else if (FrmMenuVentas.bBtnB27 == true)
+            {
+                lblTable.Text = "Table: B27";
+            }
+            else if (FrmMenuVentas.bBtnB28 == true)
+            {
+                lblTable.Text = "Table: B28";
+            }
+            else if (FrmMenuVentas.bBtnB29 == true)
+            {
+                lblTable.Text = "Table: B29";
+            }
+            else if (FrmMenuVentas.bBtnB30 == true)
+            {
+                lblTable.Text = "Table: B30";
+            }
+            else if (FrmMenuVentas.bBtnM10 == true)
+            {
+                lblTable.Text = "Table: M10";
+            }
+            else if (FrmMenuVentas.bBtnM11 == true)
+            {
+                lblTable.Text = "Table: M11";
+            }
+            else if (FrmMenuVentas.bBtnM12 == true)
+            {
+                lblTable.Text = "Table: M12";
+            }
+            else if (FrmMenuVentas.bBtnM13 == true)
+            {
+                lblTable.Text = "Table: M13";
+            }
+            else if (FrmMenuVentas.bBtnM14 == true)
+            {
+                lblTable.Text = "Table: M14";
+            }
+            else if (FrmMenuVentas.bBtnM15 == true)
+            {
+                lblTable.Text = "Table: M15";
+            }
+            else if (FrmMenuVentas.bBtnM16 == true)
+            {
+                lblTable.Text = "Table: M16";
+            }
+            else if (FrmMenuVentas.bBtnM17 == true)
+            {
+                lblTable.Text = "Table: M17";
+            }
+            else if (FrmMenuVentas.bBtnM18 == true)
+            {
+                lblTable.Text = "Table: M18";
+            }
+            else if (FrmMenuVentas.bBtnM19 == true)
+            {
+                lblTable.Text = "Table: M19";
+            }
+            else if (FrmMenuVentas.bBtnM20 == true)
+            {
+                lblTable.Text = "Table: M20";
+            }
+            else if (FrmMenuVentas.bBtnM21 == true)
+            {
+                lblTable.Text = "Table: M21";
+            }
+            else if (FrmMenuVentas.bBtnM22 == true)
+            {
+                lblTable.Text = "Table: M22";
+            }
+            else if (FrmMenuVentas.bBtnM23 == true)
+            {
+                lblTable.Text = "Table: M23";
+            }
+            else if (FrmMenuVentas.bBtnM24 == true)
+            {
+                lblTable.Text = "Table: M24";
+            }
+            else if (FrmMenuVentas.bBtnM25 == true)
+            {
+                lblTable.Text = "Table: M25";
+            }
+            else if (FrmMenuVentas.bBtnM26 == true)
+            {
+                lblTable.Text = "Table: M26";
+            }
+            else if (FrmMenuVentas.bBtnM27 == true)
+            {
+                lblTable.Text = "Table: M27";
+            }
+            else if (FrmMenuVentas.bBtnM28 == true)
+            {
+                lblTable.Text = "Table: M28";
+            }
+            else if (FrmMenuVentas.bBtnM29 == true)
+            {
+                lblTable.Text = "Table: M29";
+            }
+            else if (FrmMenuVentas.bBtnM30 == true)
+            {
+                lblTable.Text = "Table: M30";
             }
             #endregion
         }
@@ -2363,62 +2491,105 @@ namespace SiscomSoft_Desktop.Views
         #region BOTONES NUMERICOS DE CANTIDAD
         private void btnNum1_Click(object sender, EventArgs e)
         {
-            noDetalle = Convert.ToInt64(txtCantidad.Text + 1);
-            txtCantidad.Text = noDetalle.ToString();
+            noCantidad = Convert.ToInt64(txtCantidad.Text + 1);
+            txtCantidad.Text = noCantidad.ToString();
         }
 
         private void btnNum2_Click(object sender, EventArgs e)
         {
-            noDetalle = Convert.ToInt64(txtCantidad.Text + 2);
-            txtCantidad.Text = noDetalle.ToString();
+            noCantidad = Convert.ToInt64(txtCantidad.Text + 2);
+            txtCantidad.Text = noCantidad.ToString();
         }
 
         private void btnNum3_Click(object sender, EventArgs e)
         {
-            noDetalle = Convert.ToInt64(txtCantidad.Text + 3);
-            txtCantidad.Text = noDetalle.ToString();
+            noCantidad = Convert.ToInt64(txtCantidad.Text + 3);
+            txtCantidad.Text = noCantidad.ToString();
         }
 
         private void btnNum4_Click(object sender, EventArgs e)
         {
-            noDetalle = Convert.ToInt64(txtCantidad.Text + 4);
-            txtCantidad.Text = noDetalle.ToString();
+            noCantidad = Convert.ToInt64(txtCantidad.Text + 4);
+            txtCantidad.Text = noCantidad.ToString();
         }
 
         private void btnNum5_Click(object sender, EventArgs e)
         {
-            noDetalle = Convert.ToInt64(txtCantidad.Text + 5);
-            txtCantidad.Text = noDetalle.ToString();
+            noCantidad = Convert.ToInt64(txtCantidad.Text + 5);
+            txtCantidad.Text = noCantidad.ToString();
         }
 
         private void btnNum6_Click(object sender, EventArgs e)
         {
-            noDetalle = Convert.ToInt64(txtCantidad.Text + 6);
-            txtCantidad.Text = noDetalle.ToString();
+            noCantidad = Convert.ToInt64(txtCantidad.Text + 6);
+            txtCantidad.Text = noCantidad.ToString();
         }
 
         private void btnNum7_Click(object sender, EventArgs e)
         {
-            noDetalle = Convert.ToInt64(txtCantidad.Text + 7);
-            txtCantidad.Text = noDetalle.ToString();
+            noCantidad = Convert.ToInt64(txtCantidad.Text + 7);
+            txtCantidad.Text = noCantidad.ToString();
         }
 
         private void btnNum8_Click(object sender, EventArgs e)
         {
-            noDetalle = Convert.ToInt64(txtCantidad.Text + 8);
-            txtCantidad.Text = noDetalle.ToString();
+            noCantidad = Convert.ToInt64(txtCantidad.Text + 8);
+            txtCantidad.Text = noCantidad.ToString();
         }
 
         private void btnNum9_Click(object sender, EventArgs e)
         {
-            noDetalle = Convert.ToInt64(txtCantidad.Text + 9);
-            txtCantidad.Text = noDetalle.ToString();
+            noCantidad = Convert.ToInt64(txtCantidad.Text + 9);
+            txtCantidad.Text = noCantidad.ToString();
         }
 
         private void btnNum0_Click(object sender, EventArgs e)
         {
-            noDetalle = Convert.ToInt64(txtCantidad.Text + 0);
-            txtCantidad.Text = noDetalle.ToString();
+            noCantidad = Convert.ToInt64(txtCantidad.Text + 0);
+            txtCantidad.Text = noCantidad.ToString();
+        }
+
+        private void btnPunto_Click(object sender, EventArgs e)
+        {
+            if (txtCantidad.Text != "0")
+            {
+                Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(2);
+                DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
+                row.Cells[0].Value = nProducto.pkProducto;
+                if (txtCantidad.Text == "")
+                {
+                    row.Cells[1].Value = 1;
+                }
+                else
+                {
+                    row.Cells[1].Value = txtCantidad.Text;
+                }
+                row.Cells[2].Value = nProducto.sDescripcion;
+                row.Cells[4].Value = nProducto.dCosto;
+
+                txtCantidad.Clear();
+                decimal Subtotal = 0;
+                decimal dgvCosto = Convert.ToDecimal(row.Cells[4].Value);
+                int dgvCantidad = Convert.ToInt32(row.Cells[1].Value);
+
+                decimal total = dgvCantidad * dgvCosto;
+
+                row.Cells[3].Value = total;
+                row.Height = 50;
+                dgvProductos.Rows.Add(row);
+
+                foreach (DataGridViewRow rItem in dgvProductos.Rows)
+                {
+                    Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
+                }
+
+                lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
+                //dgvProductos.ClearSelection();
+            }
+            else
+            {
+                txtCantidad.Clear();
+            }
         }
         #endregion
 
