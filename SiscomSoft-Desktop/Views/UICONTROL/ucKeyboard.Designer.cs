@@ -103,6 +103,7 @@
             this.btnCloseKeyboard.TabIndex = 0;
             this.btnCloseKeyboard.Text = "X";
             this.btnCloseKeyboard.UseVisualStyleBackColor = false;
+            this.btnCloseKeyboard.Click += new System.EventHandler(this.btnCloseKeyboard_Click);
             // 
             // textBox1
             // 
@@ -116,7 +117,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 12);
+            this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 20);
@@ -311,6 +312,7 @@
             this.btnQ.TabIndex = 30;
             this.btnQ.Text = "Q";
             this.btnQ.UseVisualStyleBackColor = false;
+            this.btnQ.MouseLeave += new System.EventHandler(this.btnQ_MouseLeave);
             this.btnQ.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnQ_MouseMove);
             // 
             // btnW
@@ -441,6 +443,7 @@
             this.btnComilla.TabIndex = 20;
             this.btnComilla.Text = "\'";
             this.btnComilla.UseVisualStyleBackColor = false;
+            this.btnComilla.MouseLeave += new System.EventHandler(this.btnComilla_MouseLeave);
             this.btnComilla.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnComilla_MouseMove);
             // 
             // btnInterrogacionabajo

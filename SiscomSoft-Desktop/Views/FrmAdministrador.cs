@@ -5255,6 +5255,29 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
+
+        private void btnTeclado_Click(object sender, EventArgs e)
+        {
+            int left = 10;
+            int top = 50;
+
+            FrmKeyboard ojo = new FrmKeyboard();
+            ojo.Show();
+       
+           
+               //Views.FrmKeyboard nControl = new Views.FrmKeyboard();
+               // nControl.Left = left;
+               // nControl.Top = top;
+               // left += nControl.Width + 10;
+               // if ((left + nControl.Width) > this.Width)
+               // {
+               //     top += 10 + nControl.Height;
+               //     left = 10;
+               // }
+               // this.Controls.Add(nControl);
+
+            
+        }
     }
 }
 

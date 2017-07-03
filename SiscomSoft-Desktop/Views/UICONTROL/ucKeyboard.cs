@@ -12,6 +12,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 {
     public partial class ucKeyboard : UserControl
     {
+        
         public ucKeyboard()
         {
             InitializeComponent();
@@ -588,6 +589,21 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         private void btnAltGr_MouseLeave(object sender, EventArgs e)
         {
             btnAltGr.BackColor = Color.White;
+        }
+
+        private void btnQ_MouseLeave(object sender, EventArgs e)
+        {
+            btnQ.BackColor = Color.White;
+        }
+
+        private void btnCloseKeyboard_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnComilla_MouseLeave(object sender, EventArgs e)
+        {
+            btnComilla.BackColor = Color.White;
         }
     }
 }       

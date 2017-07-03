@@ -137,6 +137,12 @@
     <Compile Include="Views\FrmDetalleVentaTemplete.Designer.cs">
       <DependentUpon>FrmDetalleVentaTemplete.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmKeyboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmKeyboard.Designer.cs">
+      <DependentUpon>FrmKeyboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmDetalleVentaTemplete.resx">
       <DependentUpon>FrmDetalleVentaTemplete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmKeyboard.resx">
+      <DependentUpon>FrmKeyboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
