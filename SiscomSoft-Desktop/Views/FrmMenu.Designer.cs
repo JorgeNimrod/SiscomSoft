@@ -96,6 +96,7 @@
             this.lblFecha.Size = new System.Drawing.Size(439, 18);
             this.lblFecha.TabIndex = 26;
             this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
+            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
             // label3
             // 

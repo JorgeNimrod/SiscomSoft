@@ -91,5 +91,10 @@ namespace SiscomSoft_Desktop.Views
             v.ShowDialog();
 
         }
+
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

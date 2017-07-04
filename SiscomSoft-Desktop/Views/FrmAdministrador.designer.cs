@@ -625,6 +625,19 @@
             this.btnCustomersList = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnTeclado = new System.Windows.Forms.Button();
+            this.tbtaddUMD = new System.Windows.Forms.TabPage();
+            this.tbtUpdateUMD = new System.Windows.Forms.TabPage();
+            this.tbpUMD = new System.Windows.Forms.TabPage();
+            this.lblCantidadUMD = new System.Windows.Forms.Label();
+            this.dgrDatosUMD = new System.Windows.Forms.DataGridView();
+            this.txtBuscarUMD = new System.Windows.Forms.TextBox();
+            this.label181 = new System.Windows.Forms.Label();
+            this.btnDeleteUMD = new System.Windows.Forms.Button();
+            this.btnUpdateUMD = new System.Windows.Forms.Button();
+            this.btnAddUMD = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ckbStatusUMD = new System.Windows.Forms.CheckBox();
             this.pnlPrincipal.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
             this.pnlProducto.SuspendLayout();
@@ -690,6 +703,8 @@
             this.pnlEmpresas.SuspendLayout();
             this.pnlCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tbpUMD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrDatosUMD)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlPrincipal
@@ -952,6 +967,9 @@
             this.tbcGeneral.Controls.Add(this.tbpSucursal);
             this.tbcGeneral.Controls.Add(this.tbpRegistrarSucursal);
             this.tbcGeneral.Controls.Add(this.tbpActualizarSucursal);
+            this.tbcGeneral.Controls.Add(this.tbpUMD);
+            this.tbcGeneral.Controls.Add(this.tbtaddUMD);
+            this.tbcGeneral.Controls.Add(this.tbtUpdateUMD);
             this.tbcGeneral.Location = new System.Drawing.Point(179, 50);
             this.tbcGeneral.Name = "tbcGeneral";
             this.tbcGeneral.SelectedIndex = 0;
@@ -7339,12 +7357,151 @@
             this.btnTeclado.UseVisualStyleBackColor = false;
             this.btnTeclado.Click += new System.EventHandler(this.btnTeclado_Click);
             // 
+            // tbtaddUMD
+            // 
+            this.tbtaddUMD.Location = new System.Drawing.Point(4, 27);
+            this.tbtaddUMD.Name = "tbtaddUMD";
+            this.tbtaddUMD.Padding = new System.Windows.Forms.Padding(3);
+            this.tbtaddUMD.Size = new System.Drawing.Size(1151, 546);
+            this.tbtaddUMD.TabIndex = 30;
+            this.tbtaddUMD.Text = "Registrar Unidad de Medida";
+            this.tbtaddUMD.UseVisualStyleBackColor = true;
+            // 
+            // tbtUpdateUMD
+            // 
+            this.tbtUpdateUMD.Location = new System.Drawing.Point(4, 27);
+            this.tbtUpdateUMD.Name = "tbtUpdateUMD";
+            this.tbtUpdateUMD.Padding = new System.Windows.Forms.Padding(3);
+            this.tbtUpdateUMD.Size = new System.Drawing.Size(1151, 546);
+            this.tbtUpdateUMD.TabIndex = 31;
+            this.tbtUpdateUMD.Text = "Actualizar Unidad de Medida";
+            this.tbtUpdateUMD.UseVisualStyleBackColor = true;
+            // 
+            // tbpUMD
+            // 
+            this.tbpUMD.Controls.Add(this.ckbStatusUMD);
+            this.tbpUMD.Controls.Add(this.lblCantidadUMD);
+            this.tbpUMD.Controls.Add(this.dgrDatosUMD);
+            this.tbpUMD.Controls.Add(this.txtBuscarUMD);
+            this.tbpUMD.Controls.Add(this.label181);
+            this.tbpUMD.Controls.Add(this.btnDeleteUMD);
+            this.tbpUMD.Controls.Add(this.btnUpdateUMD);
+            this.tbpUMD.Controls.Add(this.btnAddUMD);
+            this.tbpUMD.Location = new System.Drawing.Point(4, 27);
+            this.tbpUMD.Name = "tbpUMD";
+            this.tbpUMD.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpUMD.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUMD.TabIndex = 32;
+            this.tbpUMD.Text = "Unidades de Medida";
+            this.tbpUMD.UseVisualStyleBackColor = true;
+            // 
+            // lblCantidadUMD
+            // 
+            this.lblCantidadUMD.AutoSize = true;
+            this.lblCantidadUMD.Location = new System.Drawing.Point(4, 520);
+            this.lblCantidadUMD.Name = "lblCantidadUMD";
+            this.lblCantidadUMD.Size = new System.Drawing.Size(70, 18);
+            this.lblCantidadUMD.TabIndex = 48;
+            this.lblCantidadUMD.Text = "Cantidad:";
+            // 
+            // dgrDatosUMD
+            // 
+            this.dgrDatosUMD.BackgroundColor = System.Drawing.Color.White;
+            this.dgrDatosUMD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrDatosUMD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20});
+            this.dgrDatosUMD.Location = new System.Drawing.Point(4, 40);
+            this.dgrDatosUMD.Name = "dgrDatosUMD";
+            this.dgrDatosUMD.ReadOnly = true;
+            this.dgrDatosUMD.RowHeadersVisible = false;
+            this.dgrDatosUMD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgrDatosUMD.Size = new System.Drawing.Size(1021, 477);
+            this.dgrDatosUMD.TabIndex = 47;
+            // 
+            // txtBuscarUMD
+            // 
+            this.txtBuscarUMD.Location = new System.Drawing.Point(69, 10);
+            this.txtBuscarUMD.Name = "txtBuscarUMD";
+            this.txtBuscarUMD.Size = new System.Drawing.Size(822, 24);
+            this.txtBuscarUMD.TabIndex = 42;
+            // 
+            // label181
+            // 
+            this.label181.AutoSize = true;
+            this.label181.Location = new System.Drawing.Point(4, 13);
+            this.label181.Name = "label181";
+            this.label181.Size = new System.Drawing.Size(59, 18);
+            this.label181.TabIndex = 46;
+            this.label181.Text = "Buscar:";
+            // 
+            // btnDeleteUMD
+            // 
+            this.btnDeleteUMD.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_delete_forever_white_24dp_2x;
+            this.btnDeleteUMD.Location = new System.Drawing.Point(1031, 158);
+            this.btnDeleteUMD.Name = "btnDeleteUMD";
+            this.btnDeleteUMD.Size = new System.Drawing.Size(116, 53);
+            this.btnDeleteUMD.TabIndex = 44;
+            this.btnDeleteUMD.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdateUMD
+            // 
+            this.btnUpdateUMD.BackColor = System.Drawing.Color.Gold;
+            this.btnUpdateUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_update_white_24dp_2x;
+            this.btnUpdateUMD.Location = new System.Drawing.Point(1031, 101);
+            this.btnUpdateUMD.Name = "btnUpdateUMD";
+            this.btnUpdateUMD.Size = new System.Drawing.Size(116, 51);
+            this.btnUpdateUMD.TabIndex = 43;
+            this.btnUpdateUMD.UseVisualStyleBackColor = false;
+            // 
+            // btnAddUMD
+            // 
+            this.btnAddUMD.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnAddUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_note_add_white_24dp_2x;
+            this.btnAddUMD.Location = new System.Drawing.Point(1031, 40);
+            this.btnAddUMD.Name = "btnAddUMD";
+            this.btnAddUMD.Size = new System.Drawing.Size(116, 54);
+            this.btnAddUMD.TabIndex = 45;
+            this.btnAddUMD.UseVisualStyleBackColor = false;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "pkCatalogo";
+            this.dataGridViewTextBoxColumn19.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "sUMD";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Unidad de Medida";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Width = 800;
+            // 
+            // ckbStatusUMD
+            // 
+            this.ckbStatusUMD.AutoSize = true;
+            this.ckbStatusUMD.Checked = true;
+            this.ckbStatusUMD.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbStatusUMD.Location = new System.Drawing.Point(897, 12);
+            this.ckbStatusUMD.Name = "ckbStatusUMD";
+            this.ckbStatusUMD.Size = new System.Drawing.Size(69, 22);
+            this.ckbStatusUMD.TabIndex = 72;
+            this.ckbStatusUMD.Text = "Status";
+            this.ckbStatusUMD.UseVisualStyleBackColor = true;
+            // 
             // FrmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.ClientSize = new System.Drawing.Size(1350, 746);
             this.Controls.Add(this.btnTeclado);
             this.Controls.Add(this.pnlCliente);
             this.Controls.Add(this.pnlEmpresas);
@@ -7467,6 +7624,9 @@
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tbpUMD.ResumeLayout(false);
+            this.tbpUMD.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrDatosUMD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -8069,5 +8229,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
         private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
         private System.Windows.Forms.Button btnTeclado;
+        private System.Windows.Forms.TabPage tbpUMD;
+        private System.Windows.Forms.Label lblCantidadUMD;
+        private System.Windows.Forms.DataGridView dgrDatosUMD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.TextBox txtBuscarUMD;
+        private System.Windows.Forms.Label label181;
+        private System.Windows.Forms.Button btnDeleteUMD;
+        private System.Windows.Forms.Button btnUpdateUMD;
+        private System.Windows.Forms.Button btnAddUMD;
+        private System.Windows.Forms.TabPage tbtaddUMD;
+        private System.Windows.Forms.TabPage tbtUpdateUMD;
+        private System.Windows.Forms.CheckBox ckbStatusUMD;
     }
 }

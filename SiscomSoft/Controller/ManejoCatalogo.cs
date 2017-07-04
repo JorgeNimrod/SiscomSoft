@@ -11,6 +11,58 @@ namespace SiscomSoft.Controller
 {
    public class ManejoCatalogo
     {
+        public static void RegistrarNuevaUMD(Catalogo nUMD)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    ctx.Catalogos.Add(nUMD);
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static void Modificar(Catalogo nUMD)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    ctx.Catalogos.Attach(nUMD);
+                    ctx.Entry(nUMD).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static void Eliminar(int pkUMD)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    Catalogo nUMD = ManejoCatalogo.getById(pkUMD);
+                    nUMD.bStatus = false;
+
+                    ctx.Entry(nUMD).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public static List<Catalogo> getAll(Boolean status)
         {
             try
@@ -22,6 +74,21 @@ namespace SiscomSoft.Controller
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+        public static List<Catalogo> Buscar(string valor, Boolean Status)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Catalogos.Where(r => r.bStatus == Status && r.sUDM.Contains(valor)).ToList();
+                }
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

@@ -12,16 +12,22 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmKeyboard : Form
     {
+       
+
+
+        public static string informacion;
+      
         Boolean mayus = false;
         string teclado;
         public FrmKeyboard()
         {
             InitializeComponent();
         }
+     
 
         private void FrmKeyboard_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btnCloseKeyboard_Click_1(object sender, EventArgs e)
@@ -611,13 +617,15 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "!");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
             teclado = Convert.ToString(txtTeclado.Text + 1);
-            txtTeclado.Text = teclado; 
-               
+            txtTeclado.Text = teclado;
+                informacion = teclado;   
             }
+
 
 
         }
@@ -627,14 +635,15 @@ namespace SiscomSoft_Desktop.Views
             if (mayus == true)
             {
 
-                teclado = Convert.ToString(txtTeclado.Text + "");
+                teclado = Convert.ToString(txtTeclado.Text + "\"");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + 2);
                 txtTeclado.Text = teclado;
-
+                informacion = teclado;
             }
 
         }
@@ -646,11 +655,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "#");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + 3);
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -692,7 +703,7 @@ namespace SiscomSoft_Desktop.Views
             if (mayus == true)
             {
 
-                teclado = Convert.ToString(txtTeclado.Text + "");
+                teclado = Convert.ToString(txtTeclado.Text + "&");
                 txtTeclado.Text = teclado;
             }
             else
@@ -769,23 +780,43 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-          
-          teclado.Remove(teclado.Length - 1);
-            txtTeclado.Text = teclado;
+
+            //txtTeclado.Text = txtTeclado.Text.Substring(0, txtTeclado.Text.Count() - 1);
+            //teclado = txtTeclado.Text;
+
+            if (txtTeclado.Text.Substring(txtTeclado.Text.Count() - 1) == null)
+            {
+               
+            }
+            else
+            {
+                txtTeclado.Text = txtTeclado.Text.Substring(0, txtTeclado.Text.Count() - 1);
+            }
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            teclado = Convert.ToString(txtTeclado.Text + "-");
-            txtTeclado.Text = teclado;
+            if (mayus == true)
+            {
+
+                teclado = Convert.ToString(txtTeclado.Text + "_");
+                txtTeclado.Text = teclado;
+            }
+            else
+            {
+                teclado = Convert.ToString(txtTeclado.Text + "-");
+                txtTeclado.Text = teclado;
+
+            }
         }
 
         private void btnQ_Click(object sender, EventArgs e)
         {
             if (mayus == true)
             {
-
-                teclado = Convert.ToString(txtTeclado.Text + "q");
+                SendKeys.Send("q");
+                //teclado = Convert.ToString(txtTeclado.Text + "q");
                 txtTeclado.Text = teclado;
             }
             else
@@ -932,20 +963,50 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnComilla_Click(object sender, EventArgs e)
         {
-            teclado = Convert.ToString(txtTeclado.Text + "'");
-            txtTeclado.Text = teclado;
+            if (mayus == true)
+            {
+
+                teclado = Convert.ToString(txtTeclado.Text + "?");
+                txtTeclado.Text = teclado;
+            }
+            else
+            {
+                teclado = Convert.ToString(txtTeclado.Text + "'");
+                txtTeclado.Text = teclado;
+
+            }
         }
 
         private void btnInterrogacionabajo_Click(object sender, EventArgs e)
         {
-            teclado = Convert.ToString(txtTeclado.Text + "¿");
-            txtTeclado.Text = teclado;
+            if (mayus == true)
+            {
+
+                teclado = Convert.ToString(txtTeclado.Text + "¡");
+                txtTeclado.Text = teclado;
+            }
+            else
+            {
+                teclado = Convert.ToString(txtTeclado.Text + "¿");
+                txtTeclado.Text = teclado;
+
+            }
         }
 
         private void btnArroba_Click(object sender, EventArgs e)
         {
-            teclado = Convert.ToString(txtTeclado.Text + "@");
-            txtTeclado.Text = teclado;
+            if (mayus == true)
+            {
+
+                teclado = Convert.ToString(txtTeclado.Text + "$");
+                txtTeclado.Text = teclado;
+            }
+            else
+            {
+                teclado = Convert.ToString(txtTeclado.Text + "@");
+                txtTeclado.Text = teclado;
+
+            }
         }
 
         private void btnA_Click(object sender, EventArgs e)
@@ -995,6 +1056,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnF_Click(object sender, EventArgs e)
         {
+
             if (mayus == true)
             {
 
@@ -1100,8 +1162,18 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnCorcheteizq_Click(object sender, EventArgs e)
         {
-            teclado = Convert.ToString(txtTeclado.Text + "{");
-            txtTeclado.Text = teclado;
+            if (mayus == true)
+            {
+
+                teclado = Convert.ToString(txtTeclado.Text + "[");
+                txtTeclado.Text = teclado;
+            }
+            else
+            {
+                teclado = Convert.ToString(txtTeclado.Text + "{");
+                txtTeclado.Text = teclado;
+
+            }
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
@@ -1216,26 +1288,66 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnCorcheteDerech_Click(object sender, EventArgs e)
         {
-            teclado = Convert.ToString(txtTeclado.Text + "}");
-            txtTeclado.Text = teclado;
+            if (mayus == true)
+            {
+
+                teclado = Convert.ToString(txtTeclado.Text + "]");
+                txtTeclado.Text = teclado;
+            }
+            else
+            {
+                teclado = Convert.ToString(txtTeclado.Text + "}");
+                txtTeclado.Text = teclado;
+
+            }
         }
 
         private void button50_Click(object sender, EventArgs e)
         {
-            teclado = Convert.ToString(txtTeclado.Text + "|");
-            txtTeclado.Text = teclado;
+            if (mayus == true)
+            {
+
+                teclado = Convert.ToString(txtTeclado.Text + "°");
+                txtTeclado.Text = teclado;
+            }
+            else
+            {
+                teclado = Convert.ToString(txtTeclado.Text + "|");
+                txtTeclado.Text = teclado;
+
+            }
         }
 
         private void btncoma_Click(object sender, EventArgs e)
         {
-            teclado = Convert.ToString(txtTeclado.Text + ",");
-            txtTeclado.Text = teclado;
+            if (mayus == true)
+            {
+
+                teclado = Convert.ToString(txtTeclado.Text + ":");
+                txtTeclado.Text = teclado;
+            }
+            else
+            {
+                teclado = Convert.ToString(txtTeclado.Text + ",");
+                txtTeclado.Text = teclado;
+
+            }
         }
 
         private void btnPunto_Click(object sender, EventArgs e)
         {
-            teclado = Convert.ToString(txtTeclado.Text + ".");
-            txtTeclado.Text = teclado;
+            if (mayus == true)
+            {
+
+                teclado = Convert.ToString(txtTeclado.Text + ";");
+                txtTeclado.Text = teclado;
+            }
+            else
+            {
+                teclado = Convert.ToString(txtTeclado.Text + ".");
+                txtTeclado.Text = teclado;
+
+            }
         }
 
         private void btnEspacio_Click(object sender, EventArgs e)
@@ -1248,8 +1360,11 @@ namespace SiscomSoft_Desktop.Views
         {
             if (mayus == false)
             {
+              
+
                 btnNumero1.Text = "!";
-                btnNumero2.Text = "¨";
+
+                btnNumero2.Text = "\"";
                 btnNumero3.Text = "#";
                 btnNumero4.Text = "$";
                 btnNumero5.Text = "%";
@@ -1266,6 +1381,7 @@ namespace SiscomSoft_Desktop.Views
                 btnPunto.Text = ";";
                 btnCorcheteizq.Text = "[";
                 btnCorcheteDerech.Text = "]";
+                button3.Text = "_";
                 btnQ.Text = "q"; btnG.Text = "g";
                 btnW.Text = "w"; btnH.Text = "h";
                 btnE.Text = "e"; btnJ.Text = "j";
@@ -1304,6 +1420,7 @@ namespace SiscomSoft_Desktop.Views
                 btnPunto.Text = ".";
                 btnCorcheteizq.Text = "{";
                 btnCorcheteDerech.Text = "}";
+                button3.Text = "-";
                 btnQ.Text = "Q"; btnG.Text = "G";
                 btnW.Text = "W"; btnH.Text = "H";
                 btnE.Text = "E"; btnJ.Text = "J";
@@ -1322,6 +1439,98 @@ namespace SiscomSoft_Desktop.Views
                 mayus = false;
 
             }
+        }
+
+        private void btnMayusDere_Click(object sender, EventArgs e)
+        {
+            if (mayus == false)
+            {
+                btnNumero1.Text = "!";
+                btnNumero2.Text = "¨";
+                btnNumero3.Text = "#";
+                btnNumero4.Text = "$";
+                btnNumero5.Text = "%";
+                btnNumero6.Text = @"&";
+                btnNumero7.Text = "/";
+                btnNumero8.Text = "(";
+                btnNumero9.Text = ")";
+                btnNumero0.Text = "=";
+                btnComilla.Text = "?";
+                btnInterrogacionabajo.Text = "¡";
+                btnArroba.Text = "$";
+                button50.Text = "°";
+                btncoma.Text = ":";
+                btnPunto.Text = ";";
+                btnCorcheteizq.Text = "[";
+                btnCorcheteDerech.Text = "]";
+                button3.Text = "_";
+                btnQ.Text = "q"; btnG.Text = "g";
+                btnW.Text = "w"; btnH.Text = "h";
+                btnE.Text = "e"; btnJ.Text = "j";
+                btnR.Text = "r"; btnK.Text = "k";
+                btnT.Text = "t"; btnL.Text = "l";
+                btnY.Text = "y"; btnÑ.Text = "ñ";
+                btnZ.Text = "z"; btnO.Text = "o";
+                btnU.Text = "u"; btnX.Text = "x";
+                btnI.Text = "i"; btnC.Text = "c";
+                btnP.Text = "p"; btnV.Text = "v";
+                btnA.Text = "a"; btnB.Text = "b";
+                btnS.Text = "s"; btnN.Text = "n";
+                btnD.Text = "d"; btnM.Text = "m";
+                btnF.Text = "f";
+
+                mayus = true;
+
+            }
+            else
+            {
+                btnNumero1.Text = "1";
+                btnNumero2.Text = "2";
+                btnNumero3.Text = "3";
+                btnNumero4.Text = "4";
+                btnNumero5.Text = "5";
+                btnNumero6.Text = "6";
+                btnNumero7.Text = "7";
+                btnNumero8.Text = "8";
+                btnNumero9.Text = "9";
+                btnNumero0.Text = "0";
+                btnComilla.Text = "'";
+                btnInterrogacionabajo.Text = "¿";
+                btnArroba.Text = "@";
+                button50.Text = "|";
+                btncoma.Text = ",";
+                btnPunto.Text = ".";
+                btnCorcheteizq.Text = "{";
+                btnCorcheteDerech.Text = "}";
+                button3.Text = "-";
+                btnQ.Text = "Q"; btnG.Text = "G";
+                btnW.Text = "W"; btnH.Text = "H";
+                btnE.Text = "E"; btnJ.Text = "J";
+                btnR.Text = "R"; btnK.Text = "K";
+                btnT.Text = "T"; btnL.Text = "L";
+                btnY.Text = "Y"; btnÑ.Text = "Ñ";
+                btnO.Text = "O"; btnZ.Text = "Z";
+                btnU.Text = "U"; btnX.Text = "X";
+                btnI.Text = "I"; btnC.Text = "C";
+                btnP.Text = "P"; btnV.Text = "V";
+                btnA.Text = "A"; btnB.Text = "B";
+                btnS.Text = "S"; btnN.Text = "N";
+                btnD.Text = "D"; btnM.Text = "M";
+                btnF.Text = "F";
+
+                mayus = false;
+
+            }
+        }
+
+        private void btnEscape_Click(object sender, EventArgs e)
+        {
+            label1.Text = teclado;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

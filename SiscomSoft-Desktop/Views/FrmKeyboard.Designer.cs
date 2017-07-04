@@ -291,6 +291,7 @@
             this.btnMayusDere.TabIndex = 107;
             this.btnMayusDere.Text = "MAYUS";
             this.btnMayusDere.UseVisualStyleBackColor = false;
+            this.btnMayusDere.Click += new System.EventHandler(this.btnMayusDere_Click);
             this.btnMayusDere.MouseLeave += new System.EventHandler(this.btnMayusDere_MouseLeave);
             this.btnMayusDere.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnMayusDere_MouseMove);
             // 
@@ -443,6 +444,7 @@
             this.btnEscape.Size = new System.Drawing.Size(75, 53);
             this.btnEscape.TabIndex = 96;
             this.btnEscape.UseVisualStyleBackColor = false;
+            this.btnEscape.Click += new System.EventHandler(this.btnEscape_Click);
             this.btnEscape.MouseLeave += new System.EventHandler(this.btnEscape_MouseLeave);
             this.btnEscape.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEscape_MouseMove);
             // 
@@ -831,6 +833,7 @@
             this.button4.Size = new System.Drawing.Size(75, 53);
             this.button4.TabIndex = 68;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             this.button4.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
             this.button4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button4_MouseMove);
             // 

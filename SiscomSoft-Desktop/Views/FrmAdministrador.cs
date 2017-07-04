@@ -45,6 +45,9 @@ namespace SiscomSoft_Desktop.Views
         Boolean flagAddSucursal = false;
         Boolean flagCertificado = false;
         Boolean flagAddCertificado = false;
+        Boolean flagUMD = false;
+        Boolean flagAddUMD = false;
+        Boolean flagUpdateUMD = false;
 
         public static int PKROL;
         public static int PKUSUARIO;
@@ -53,6 +56,7 @@ namespace SiscomSoft_Desktop.Views
         public static int PKPRECIO;
         public static int PKPRODUCTO;
         public static int PKCLIENTE;
+        public static int PKUMD;
         public static int PKEMPRESA;
         public static int PKSUCURSAL;
         public static int PKCERTIFICADO;
@@ -61,6 +65,7 @@ namespace SiscomSoft_Desktop.Views
         public FrmAdministrador()
         {
             InitializeComponent();
+            this.dgrDatosUMD.AutoGenerateColumns = false;
             this.dgvDatosRol.AutoGenerateColumns = false;
             this.dgvDatosUsuario.AutoGenerateColumns = false;
             this.dgvDatosCategoria.AutoGenerateColumns = false;
@@ -87,6 +92,7 @@ namespace SiscomSoft_Desktop.Views
             cargarClientes();
             cargarEmpresas();
             cargarSucursal();
+            cargarUMD();
         }
 
         public void cargarCombos()
@@ -147,6 +153,11 @@ namespace SiscomSoft_Desktop.Views
         {
             this.dgvDatosEmpresa.DataSource = ManejoEmpresa.Buscar(txtBuscarEmpresa.Text, ckbStatusEmpresa.Checked);
         }
+        public void cargarUMD()
+        {
+            this.dgrDatosUMD.DataSource = ManejoCatalogo.Buscar(txtBuscarUMD.Text, ckbStatusUMD.Checked);
+        }
+
 
         public void cargarRoles()
         {
@@ -299,9 +310,7 @@ namespace SiscomSoft_Desktop.Views
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
-          
-
-
+     
             cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
@@ -330,7 +339,10 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpRegistrarSucursal);
             tbcGeneral.TabPages.Remove(tbpClientes);
             tbcGeneral.TabPages.Remove(tbpAddCliente);
-            tbcGeneral.TabPages.Remove(tbpUpdateCliente);
+            tbcGeneral.TabPages.Remove(tbpUpdateCliente); 
+            tbcGeneral.TabPages.Remove(tbpUMD);
+            tbcGeneral.TabPages.Remove(tbtUpdateUMD);
+            tbcGeneral.TabPages.Remove(tbtUpdateUMD);
             cmbStatusSucursal.SelectedIndex = 0;
             CargarTablas();
         }
@@ -1442,12 +1454,24 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtDescuentoProd, "Campo necesario");
                 this.txtDescuentoProd.Focus();
             }
+            else if (this.cbxPrecioAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxPrecioAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxPrecioAddProd, "Debe agregar un precio primero");
+                this.cbxPrecioAddProd.Focus();
+            }
 
             else if (this.txtLoteAddProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtLoteAddProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtLoteAddProd, "Campo necesario");
                 this.txtLoteAddProd.Focus();
+            }
+            else if (this.cbxImpuestoAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxImpuestoAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxImpuestoAddProd, "Debe agregar un impuesto primero");
+                this.cbxImpuestoAddProd.Focus();
             }
 
             else if (this.txtLineaAddProd.Text == "")
@@ -1468,7 +1492,13 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtSublineaAddProd, "Campo necesario");
                 this.txtSublineaAddProd.Focus();
             }
-            else if (this.pcbimgAddProd == null)
+            else if (this.cbxCatalogoAddProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.cbxCatalogoAddProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxCatalogoAddProd, "Debe agregar una Unidad de Medida");
+                this.cbxCatalogoAddProd.Focus();
+            }
+            else if (this.pcbimgAddProd.Image == null)
             {
                 this.ErrorProvider.SetIconAlignment(this.pcbimgAddProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.pcbimgAddProd, "Debe agregar una imagen del producto en Examinar ");
