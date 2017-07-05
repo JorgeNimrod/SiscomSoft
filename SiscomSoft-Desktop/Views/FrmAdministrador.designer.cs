@@ -35,16 +35,17 @@
             this.btnCustomers = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
-            this.pnlUsuario = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnRollist = new System.Windows.Forms.Button();
-            this.btnUserlist = new System.Windows.Forms.Button();
             this.pnlProducto = new System.Windows.Forms.Panel();
+            this.btnUMD = new System.Windows.Forms.Button();
             this.btnCategorialist = new System.Windows.Forms.Button();
             this.btnImpuestolist = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnPreciolist = new System.Windows.Forms.Button();
             this.btnProductolist = new System.Windows.Forms.Button();
+            this.pnlUsuario = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnRollist = new System.Windows.Forms.Button();
+            this.btnUserlist = new System.Windows.Forms.Button();
             this.tbcGeneral = new System.Windows.Forms.TabControl();
             this.tbpProducto = new System.Windows.Forms.TabPage();
             this.btnRegistrarProducto = new System.Windows.Forms.Button();
@@ -613,6 +614,25 @@
             this.btnUpdatePnlCertificado = new System.Windows.Forms.Button();
             this.btnUpdatePnlPreferencias = new System.Windows.Forms.Button();
             this.btnUpdatePnlSucursal = new System.Windows.Forms.Button();
+            this.tbpUMD = new System.Windows.Forms.TabPage();
+            this.ckbStatusUMD = new System.Windows.Forms.CheckBox();
+            this.lblCantidadUMD = new System.Windows.Forms.Label();
+            this.dgrDatosUMD = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtBuscarUMD = new System.Windows.Forms.TextBox();
+            this.label181 = new System.Windows.Forms.Label();
+            this.btnDeleteUMD = new System.Windows.Forms.Button();
+            this.btnUpdateUMD = new System.Windows.Forms.Button();
+            this.btnAddUMD = new System.Windows.Forms.Button();
+            this.tbtaddUMD = new System.Windows.Forms.TabPage();
+            this.btnSaveUMD = new System.Windows.Forms.Button();
+            this.txtAddUMD = new System.Windows.Forms.TextBox();
+            this.label182 = new System.Windows.Forms.Label();
+            this.tbtUpdateUMD = new System.Windows.Forms.TabPage();
+            this.btnActualizarUDM = new System.Windows.Forms.Button();
+            this.txtUpdateUMD = new System.Windows.Forms.TextBox();
+            this.label184 = new System.Windows.Forms.Label();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblFecha = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -625,22 +645,9 @@
             this.btnCustomersList = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnTeclado = new System.Windows.Forms.Button();
-            this.tbtaddUMD = new System.Windows.Forms.TabPage();
-            this.tbtUpdateUMD = new System.Windows.Forms.TabPage();
-            this.tbpUMD = new System.Windows.Forms.TabPage();
-            this.lblCantidadUMD = new System.Windows.Forms.Label();
-            this.dgrDatosUMD = new System.Windows.Forms.DataGridView();
-            this.txtBuscarUMD = new System.Windows.Forms.TextBox();
-            this.label181 = new System.Windows.Forms.Label();
-            this.btnDeleteUMD = new System.Windows.Forms.Button();
-            this.btnUpdateUMD = new System.Windows.Forms.Button();
-            this.btnAddUMD = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ckbStatusUMD = new System.Windows.Forms.CheckBox();
             this.pnlPrincipal.SuspendLayout();
-            this.pnlUsuario.SuspendLayout();
             this.pnlProducto.SuspendLayout();
+            this.pnlUsuario.SuspendLayout();
             this.tbcGeneral.SuspendLayout();
             this.tbpProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosProducto)).BeginInit();
@@ -699,12 +706,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbUpdateLogoSucursal)).BeginInit();
             this.pnlUpdateSucursal.SuspendLayout();
             this.pnlIUpdateSucursalPreferenciasCertificado.SuspendLayout();
+            this.tbpUMD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrDatosUMD)).BeginInit();
+            this.tbtaddUMD.SuspendLayout();
+            this.tbtUpdateUMD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlEmpresas.SuspendLayout();
             this.pnlCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tbpUMD.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrDatosUMD)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlPrincipal
@@ -715,6 +724,7 @@
             this.pnlPrincipal.Controls.Add(this.btnCustomers);
             this.pnlPrincipal.Controls.Add(this.btnProductos);
             this.pnlPrincipal.Controls.Add(this.btnUser);
+            this.pnlPrincipal.Controls.Add(this.pnlProducto);
             this.pnlPrincipal.Location = new System.Drawing.Point(12, 50);
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(159, 577);
@@ -784,6 +794,119 @@
             this.btnUser.UseVisualStyleBackColor = false;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
+            // pnlProducto
+            // 
+            this.pnlProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlProducto.Controls.Add(this.btnUMD);
+            this.pnlProducto.Controls.Add(this.btnCategorialist);
+            this.pnlProducto.Controls.Add(this.btnImpuestolist);
+            this.pnlProducto.Controls.Add(this.lblNombre);
+            this.pnlProducto.Controls.Add(this.btnPreciolist);
+            this.pnlProducto.Controls.Add(this.btnProductolist);
+            this.pnlProducto.Location = new System.Drawing.Point(-2, -1);
+            this.pnlProducto.Name = "pnlProducto";
+            this.pnlProducto.Size = new System.Drawing.Size(161, 246);
+            this.pnlProducto.TabIndex = 4;
+            // 
+            // btnUMD
+            // 
+            this.btnUMD.BackColor = System.Drawing.Color.White;
+            this.btnUMD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUMD.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUMD.ForeColor = System.Drawing.Color.Black;
+            this.btnUMD.Location = new System.Drawing.Point(-3, 201);
+            this.btnUMD.Name = "btnUMD";
+            this.btnUMD.Size = new System.Drawing.Size(163, 44);
+            this.btnUMD.TabIndex = 94;
+            this.btnUMD.Text = "Lista de Unidades";
+            this.btnUMD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUMD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUMD.UseVisualStyleBackColor = false;
+            this.btnUMD.Click += new System.EventHandler(this.btnUMD_Click);
+            // 
+            // btnCategorialist
+            // 
+            this.btnCategorialist.BackColor = System.Drawing.Color.White;
+            this.btnCategorialist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCategorialist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategorialist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategorialist.ForeColor = System.Drawing.Color.Black;
+            this.btnCategorialist.Location = new System.Drawing.Point(-2, 159);
+            this.btnCategorialist.Name = "btnCategorialist";
+            this.btnCategorialist.Size = new System.Drawing.Size(161, 44);
+            this.btnCategorialist.TabIndex = 8;
+            this.btnCategorialist.Text = "Lista de Categorias";
+            this.btnCategorialist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCategorialist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCategorialist.UseVisualStyleBackColor = false;
+            this.btnCategorialist.Click += new System.EventHandler(this.btnCategorialist_Click);
+            this.btnCategorialist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCategorialist_MouseClick);
+            // 
+            // btnImpuestolist
+            // 
+            this.btnImpuestolist.BackColor = System.Drawing.Color.White;
+            this.btnImpuestolist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnImpuestolist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImpuestolist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImpuestolist.ForeColor = System.Drawing.Color.Black;
+            this.btnImpuestolist.Location = new System.Drawing.Point(-2, 116);
+            this.btnImpuestolist.Name = "btnImpuestolist";
+            this.btnImpuestolist.Size = new System.Drawing.Size(161, 44);
+            this.btnImpuestolist.TabIndex = 7;
+            this.btnImpuestolist.Text = "Lista de Impuestos";
+            this.btnImpuestolist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImpuestolist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnImpuestolist.UseVisualStyleBackColor = false;
+            this.btnImpuestolist.Click += new System.EventHandler(this.btnImpuestolist_Click);
+            this.btnImpuestolist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnImpuestolist_MouseClick);
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(3, 9);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(77, 18);
+            this.lblNombre.TabIndex = 10;
+            this.lblNombre.Text = "Productos";
+            // 
+            // btnPreciolist
+            // 
+            this.btnPreciolist.BackColor = System.Drawing.Color.White;
+            this.btnPreciolist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnPreciolist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreciolist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreciolist.ForeColor = System.Drawing.Color.Black;
+            this.btnPreciolist.Location = new System.Drawing.Point(-2, 75);
+            this.btnPreciolist.Name = "btnPreciolist";
+            this.btnPreciolist.Size = new System.Drawing.Size(161, 44);
+            this.btnPreciolist.TabIndex = 6;
+            this.btnPreciolist.Text = "Lista de Precios";
+            this.btnPreciolist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPreciolist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPreciolist.UseVisualStyleBackColor = false;
+            this.btnPreciolist.Click += new System.EventHandler(this.btnPreciolist_Click);
+            this.btnPreciolist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnPreciolist_MouseClick);
+            // 
+            // btnProductolist
+            // 
+            this.btnProductolist.BackColor = System.Drawing.Color.White;
+            this.btnProductolist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnProductolist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductolist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductolist.ForeColor = System.Drawing.Color.Black;
+            this.btnProductolist.Location = new System.Drawing.Point(-2, 34);
+            this.btnProductolist.Name = "btnProductolist";
+            this.btnProductolist.Size = new System.Drawing.Size(163, 44);
+            this.btnProductolist.TabIndex = 5;
+            this.btnProductolist.Text = "Lista de Productos";
+            this.btnProductolist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductolist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProductolist.UseVisualStyleBackColor = false;
+            this.btnProductolist.Click += new System.EventHandler(this.btnProductolist_Click);
+            this.btnProductolist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnProductolist_MouseClick);
+            // 
             // pnlUsuario
             // 
             this.pnlUsuario.BackColor = System.Drawing.Color.White;
@@ -842,101 +965,6 @@
             this.btnUserlist.UseVisualStyleBackColor = false;
             this.btnUserlist.Click += new System.EventHandler(this.btnUserlist_Click);
             this.btnUserlist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnUserlist_MouseClick);
-            // 
-            // pnlProducto
-            // 
-            this.pnlProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlProducto.Controls.Add(this.btnCategorialist);
-            this.pnlProducto.Controls.Add(this.btnImpuestolist);
-            this.pnlProducto.Controls.Add(this.lblNombre);
-            this.pnlProducto.Controls.Add(this.btnPreciolist);
-            this.pnlProducto.Controls.Add(this.btnProductolist);
-            this.pnlProducto.Location = new System.Drawing.Point(12, 50);
-            this.pnlProducto.Name = "pnlProducto";
-            this.pnlProducto.Size = new System.Drawing.Size(159, 204);
-            this.pnlProducto.TabIndex = 4;
-            // 
-            // btnCategorialist
-            // 
-            this.btnCategorialist.BackColor = System.Drawing.Color.White;
-            this.btnCategorialist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnCategorialist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategorialist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategorialist.ForeColor = System.Drawing.Color.Black;
-            this.btnCategorialist.Location = new System.Drawing.Point(-2, 159);
-            this.btnCategorialist.Name = "btnCategorialist";
-            this.btnCategorialist.Size = new System.Drawing.Size(161, 44);
-            this.btnCategorialist.TabIndex = 8;
-            this.btnCategorialist.Text = "Lista de Categorias";
-            this.btnCategorialist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategorialist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCategorialist.UseVisualStyleBackColor = false;
-            this.btnCategorialist.Click += new System.EventHandler(this.btnCategorialist_Click);
-            this.btnCategorialist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCategorialist_MouseClick);
-            // 
-            // btnImpuestolist
-            // 
-            this.btnImpuestolist.BackColor = System.Drawing.Color.White;
-            this.btnImpuestolist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnImpuestolist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImpuestolist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImpuestolist.ForeColor = System.Drawing.Color.Black;
-            this.btnImpuestolist.Location = new System.Drawing.Point(-2, 116);
-            this.btnImpuestolist.Name = "btnImpuestolist";
-            this.btnImpuestolist.Size = new System.Drawing.Size(161, 44);
-            this.btnImpuestolist.TabIndex = 7;
-            this.btnImpuestolist.Text = "Lista de Impuestos";
-            this.btnImpuestolist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImpuestolist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnImpuestolist.UseVisualStyleBackColor = false;
-            this.btnImpuestolist.Click += new System.EventHandler(this.btnImpuestolist_Click);
-            this.btnImpuestolist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnImpuestolist_MouseClick);
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(3, 7);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(77, 18);
-            this.lblNombre.TabIndex = 10;
-            this.lblNombre.Text = "Productos";
-            // 
-            // btnPreciolist
-            // 
-            this.btnPreciolist.BackColor = System.Drawing.Color.White;
-            this.btnPreciolist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnPreciolist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPreciolist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPreciolist.ForeColor = System.Drawing.Color.Black;
-            this.btnPreciolist.Location = new System.Drawing.Point(-2, 75);
-            this.btnPreciolist.Name = "btnPreciolist";
-            this.btnPreciolist.Size = new System.Drawing.Size(161, 44);
-            this.btnPreciolist.TabIndex = 6;
-            this.btnPreciolist.Text = "Lista de Precios";
-            this.btnPreciolist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPreciolist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPreciolist.UseVisualStyleBackColor = false;
-            this.btnPreciolist.Click += new System.EventHandler(this.btnPreciolist_Click);
-            this.btnPreciolist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnPreciolist_MouseClick);
-            // 
-            // btnProductolist
-            // 
-            this.btnProductolist.BackColor = System.Drawing.Color.White;
-            this.btnProductolist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnProductolist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductolist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductolist.ForeColor = System.Drawing.Color.Black;
-            this.btnProductolist.Location = new System.Drawing.Point(-2, 34);
-            this.btnProductolist.Name = "btnProductolist";
-            this.btnProductolist.Size = new System.Drawing.Size(160, 44);
-            this.btnProductolist.TabIndex = 5;
-            this.btnProductolist.Text = "Lista de Productos";
-            this.btnProductolist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductolist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProductolist.UseVisualStyleBackColor = false;
-            this.btnProductolist.Click += new System.EventHandler(this.btnProductolist_Click);
-            this.btnProductolist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnProductolist_MouseClick);
             // 
             // tbcGeneral
             // 
@@ -7201,6 +7229,215 @@
             this.btnUpdatePnlSucursal.Click += new System.EventHandler(this.btnUpdatePnlSucursal_Click);
             this.btnUpdatePnlSucursal.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnUpdatePnlSucursal_MouseClick);
             // 
+            // tbpUMD
+            // 
+            this.tbpUMD.Controls.Add(this.ckbStatusUMD);
+            this.tbpUMD.Controls.Add(this.lblCantidadUMD);
+            this.tbpUMD.Controls.Add(this.dgrDatosUMD);
+            this.tbpUMD.Controls.Add(this.txtBuscarUMD);
+            this.tbpUMD.Controls.Add(this.label181);
+            this.tbpUMD.Controls.Add(this.btnDeleteUMD);
+            this.tbpUMD.Controls.Add(this.btnUpdateUMD);
+            this.tbpUMD.Controls.Add(this.btnAddUMD);
+            this.tbpUMD.Location = new System.Drawing.Point(4, 27);
+            this.tbpUMD.Name = "tbpUMD";
+            this.tbpUMD.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpUMD.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUMD.TabIndex = 32;
+            this.tbpUMD.Text = "Unidades de Medida";
+            this.tbpUMD.UseVisualStyleBackColor = true;
+            // 
+            // ckbStatusUMD
+            // 
+            this.ckbStatusUMD.AutoSize = true;
+            this.ckbStatusUMD.Checked = true;
+            this.ckbStatusUMD.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbStatusUMD.Location = new System.Drawing.Point(897, 12);
+            this.ckbStatusUMD.Name = "ckbStatusUMD";
+            this.ckbStatusUMD.Size = new System.Drawing.Size(69, 22);
+            this.ckbStatusUMD.TabIndex = 72;
+            this.ckbStatusUMD.Text = "Status";
+            this.ckbStatusUMD.UseVisualStyleBackColor = true;
+            this.ckbStatusUMD.CheckedChanged += new System.EventHandler(this.ckbStatusUMD_CheckedChanged);
+            // 
+            // lblCantidadUMD
+            // 
+            this.lblCantidadUMD.AutoSize = true;
+            this.lblCantidadUMD.Location = new System.Drawing.Point(4, 520);
+            this.lblCantidadUMD.Name = "lblCantidadUMD";
+            this.lblCantidadUMD.Size = new System.Drawing.Size(70, 18);
+            this.lblCantidadUMD.TabIndex = 48;
+            this.lblCantidadUMD.Text = "Cantidad:";
+            // 
+            // dgrDatosUMD
+            // 
+            this.dgrDatosUMD.BackgroundColor = System.Drawing.Color.White;
+            this.dgrDatosUMD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrDatosUMD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20});
+            this.dgrDatosUMD.Location = new System.Drawing.Point(4, 40);
+            this.dgrDatosUMD.Name = "dgrDatosUMD";
+            this.dgrDatosUMD.ReadOnly = true;
+            this.dgrDatosUMD.RowHeadersVisible = false;
+            this.dgrDatosUMD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgrDatosUMD.Size = new System.Drawing.Size(1021, 477);
+            this.dgrDatosUMD.TabIndex = 47;
+            this.dgrDatosUMD.DataSourceChanged += new System.EventHandler(this.dgrDatosUMD_DataSourceChanged);
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "pkCatalogo";
+            this.dataGridViewTextBoxColumn19.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "sUDM";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Unidad de Medida";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Width = 800;
+            // 
+            // txtBuscarUMD
+            // 
+            this.txtBuscarUMD.Location = new System.Drawing.Point(69, 10);
+            this.txtBuscarUMD.Name = "txtBuscarUMD";
+            this.txtBuscarUMD.Size = new System.Drawing.Size(822, 24);
+            this.txtBuscarUMD.TabIndex = 42;
+            this.txtBuscarUMD.TextChanged += new System.EventHandler(this.txtBuscarUMD_TextChanged);
+            // 
+            // label181
+            // 
+            this.label181.AutoSize = true;
+            this.label181.Location = new System.Drawing.Point(4, 13);
+            this.label181.Name = "label181";
+            this.label181.Size = new System.Drawing.Size(59, 18);
+            this.label181.TabIndex = 46;
+            this.label181.Text = "Buscar:";
+            // 
+            // btnDeleteUMD
+            // 
+            this.btnDeleteUMD.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_delete_forever_white_24dp_2x;
+            this.btnDeleteUMD.Location = new System.Drawing.Point(1031, 158);
+            this.btnDeleteUMD.Name = "btnDeleteUMD";
+            this.btnDeleteUMD.Size = new System.Drawing.Size(116, 53);
+            this.btnDeleteUMD.TabIndex = 44;
+            this.btnDeleteUMD.UseVisualStyleBackColor = false;
+            this.btnDeleteUMD.Click += new System.EventHandler(this.btnDeleteUMD_Click);
+            // 
+            // btnUpdateUMD
+            // 
+            this.btnUpdateUMD.BackColor = System.Drawing.Color.Gold;
+            this.btnUpdateUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_update_white_24dp_2x;
+            this.btnUpdateUMD.Location = new System.Drawing.Point(1031, 101);
+            this.btnUpdateUMD.Name = "btnUpdateUMD";
+            this.btnUpdateUMD.Size = new System.Drawing.Size(116, 51);
+            this.btnUpdateUMD.TabIndex = 43;
+            this.btnUpdateUMD.UseVisualStyleBackColor = false;
+            this.btnUpdateUMD.Click += new System.EventHandler(this.btnUpdateUMD_Click);
+            // 
+            // btnAddUMD
+            // 
+            this.btnAddUMD.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnAddUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_note_add_white_24dp_2x;
+            this.btnAddUMD.Location = new System.Drawing.Point(1031, 40);
+            this.btnAddUMD.Name = "btnAddUMD";
+            this.btnAddUMD.Size = new System.Drawing.Size(116, 54);
+            this.btnAddUMD.TabIndex = 45;
+            this.btnAddUMD.UseVisualStyleBackColor = false;
+            this.btnAddUMD.Click += new System.EventHandler(this.btnAddUMD_Click);
+            // 
+            // tbtaddUMD
+            // 
+            this.tbtaddUMD.Controls.Add(this.btnSaveUMD);
+            this.tbtaddUMD.Controls.Add(this.txtAddUMD);
+            this.tbtaddUMD.Controls.Add(this.label182);
+            this.tbtaddUMD.Location = new System.Drawing.Point(4, 27);
+            this.tbtaddUMD.Name = "tbtaddUMD";
+            this.tbtaddUMD.Padding = new System.Windows.Forms.Padding(3);
+            this.tbtaddUMD.Size = new System.Drawing.Size(1151, 546);
+            this.tbtaddUMD.TabIndex = 30;
+            this.tbtaddUMD.Text = "Registrar Unidad de Medida";
+            this.tbtaddUMD.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveUMD
+            // 
+            this.btnSaveUMD.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnSaveUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveUMD.ForeColor = System.Drawing.Color.White;
+            this.btnSaveUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_save_white_24dp_2x;
+            this.btnSaveUMD.Location = new System.Drawing.Point(986, 480);
+            this.btnSaveUMD.Name = "btnSaveUMD";
+            this.btnSaveUMD.Size = new System.Drawing.Size(157, 55);
+            this.btnSaveUMD.TabIndex = 13;
+            this.btnSaveUMD.UseVisualStyleBackColor = false;
+            this.btnSaveUMD.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtAddUMD
+            // 
+            this.txtAddUMD.Location = new System.Drawing.Point(11, 41);
+            this.txtAddUMD.Name = "txtAddUMD";
+            this.txtAddUMD.Size = new System.Drawing.Size(342, 24);
+            this.txtAddUMD.TabIndex = 10;
+            // 
+            // label182
+            // 
+            this.label182.AutoSize = true;
+            this.label182.Location = new System.Drawing.Point(8, 12);
+            this.label182.Name = "label182";
+            this.label182.Size = new System.Drawing.Size(70, 18);
+            this.label182.TabIndex = 9;
+            this.label182.Text = "Nombre :";
+            // 
+            // tbtUpdateUMD
+            // 
+            this.tbtUpdateUMD.Controls.Add(this.btnActualizarUDM);
+            this.tbtUpdateUMD.Controls.Add(this.txtUpdateUMD);
+            this.tbtUpdateUMD.Controls.Add(this.label184);
+            this.tbtUpdateUMD.Location = new System.Drawing.Point(4, 27);
+            this.tbtUpdateUMD.Name = "tbtUpdateUMD";
+            this.tbtUpdateUMD.Padding = new System.Windows.Forms.Padding(3);
+            this.tbtUpdateUMD.Size = new System.Drawing.Size(1151, 546);
+            this.tbtUpdateUMD.TabIndex = 31;
+            this.tbtUpdateUMD.Text = "Actualizar Unidad de Medida";
+            this.tbtUpdateUMD.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizarUDM
+            // 
+            this.btnActualizarUDM.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnActualizarUDM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarUDM.ForeColor = System.Drawing.Color.White;
+            this.btnActualizarUDM.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_save_white_24dp_2x;
+            this.btnActualizarUDM.Location = new System.Drawing.Point(986, 480);
+            this.btnActualizarUDM.Name = "btnActualizarUDM";
+            this.btnActualizarUDM.Size = new System.Drawing.Size(157, 55);
+            this.btnActualizarUDM.TabIndex = 13;
+            this.btnActualizarUDM.UseVisualStyleBackColor = false;
+            this.btnActualizarUDM.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // txtUpdateUMD
+            // 
+            this.txtUpdateUMD.Location = new System.Drawing.Point(11, 41);
+            this.txtUpdateUMD.Name = "txtUpdateUMD";
+            this.txtUpdateUMD.Size = new System.Drawing.Size(342, 24);
+            this.txtUpdateUMD.TabIndex = 10;
+            // 
+            // label184
+            // 
+            this.label184.AutoSize = true;
+            this.label184.Location = new System.Drawing.Point(8, 12);
+            this.label184.Name = "label184";
+            this.label184.Size = new System.Drawing.Size(70, 18);
+            this.label184.TabIndex = 9;
+            this.label184.Text = "Nombre :";
+            // 
             // ErrorProvider
             // 
             this.ErrorProvider.ContainerControl = this;
@@ -7357,145 +7594,6 @@
             this.btnTeclado.UseVisualStyleBackColor = false;
             this.btnTeclado.Click += new System.EventHandler(this.btnTeclado_Click);
             // 
-            // tbtaddUMD
-            // 
-            this.tbtaddUMD.Location = new System.Drawing.Point(4, 27);
-            this.tbtaddUMD.Name = "tbtaddUMD";
-            this.tbtaddUMD.Padding = new System.Windows.Forms.Padding(3);
-            this.tbtaddUMD.Size = new System.Drawing.Size(1151, 546);
-            this.tbtaddUMD.TabIndex = 30;
-            this.tbtaddUMD.Text = "Registrar Unidad de Medida";
-            this.tbtaddUMD.UseVisualStyleBackColor = true;
-            // 
-            // tbtUpdateUMD
-            // 
-            this.tbtUpdateUMD.Location = new System.Drawing.Point(4, 27);
-            this.tbtUpdateUMD.Name = "tbtUpdateUMD";
-            this.tbtUpdateUMD.Padding = new System.Windows.Forms.Padding(3);
-            this.tbtUpdateUMD.Size = new System.Drawing.Size(1151, 546);
-            this.tbtUpdateUMD.TabIndex = 31;
-            this.tbtUpdateUMD.Text = "Actualizar Unidad de Medida";
-            this.tbtUpdateUMD.UseVisualStyleBackColor = true;
-            // 
-            // tbpUMD
-            // 
-            this.tbpUMD.Controls.Add(this.ckbStatusUMD);
-            this.tbpUMD.Controls.Add(this.lblCantidadUMD);
-            this.tbpUMD.Controls.Add(this.dgrDatosUMD);
-            this.tbpUMD.Controls.Add(this.txtBuscarUMD);
-            this.tbpUMD.Controls.Add(this.label181);
-            this.tbpUMD.Controls.Add(this.btnDeleteUMD);
-            this.tbpUMD.Controls.Add(this.btnUpdateUMD);
-            this.tbpUMD.Controls.Add(this.btnAddUMD);
-            this.tbpUMD.Location = new System.Drawing.Point(4, 27);
-            this.tbpUMD.Name = "tbpUMD";
-            this.tbpUMD.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpUMD.Size = new System.Drawing.Size(1151, 546);
-            this.tbpUMD.TabIndex = 32;
-            this.tbpUMD.Text = "Unidades de Medida";
-            this.tbpUMD.UseVisualStyleBackColor = true;
-            // 
-            // lblCantidadUMD
-            // 
-            this.lblCantidadUMD.AutoSize = true;
-            this.lblCantidadUMD.Location = new System.Drawing.Point(4, 520);
-            this.lblCantidadUMD.Name = "lblCantidadUMD";
-            this.lblCantidadUMD.Size = new System.Drawing.Size(70, 18);
-            this.lblCantidadUMD.TabIndex = 48;
-            this.lblCantidadUMD.Text = "Cantidad:";
-            // 
-            // dgrDatosUMD
-            // 
-            this.dgrDatosUMD.BackgroundColor = System.Drawing.Color.White;
-            this.dgrDatosUMD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrDatosUMD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20});
-            this.dgrDatosUMD.Location = new System.Drawing.Point(4, 40);
-            this.dgrDatosUMD.Name = "dgrDatosUMD";
-            this.dgrDatosUMD.ReadOnly = true;
-            this.dgrDatosUMD.RowHeadersVisible = false;
-            this.dgrDatosUMD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrDatosUMD.Size = new System.Drawing.Size(1021, 477);
-            this.dgrDatosUMD.TabIndex = 47;
-            // 
-            // txtBuscarUMD
-            // 
-            this.txtBuscarUMD.Location = new System.Drawing.Point(69, 10);
-            this.txtBuscarUMD.Name = "txtBuscarUMD";
-            this.txtBuscarUMD.Size = new System.Drawing.Size(822, 24);
-            this.txtBuscarUMD.TabIndex = 42;
-            // 
-            // label181
-            // 
-            this.label181.AutoSize = true;
-            this.label181.Location = new System.Drawing.Point(4, 13);
-            this.label181.Name = "label181";
-            this.label181.Size = new System.Drawing.Size(59, 18);
-            this.label181.TabIndex = 46;
-            this.label181.Text = "Buscar:";
-            // 
-            // btnDeleteUMD
-            // 
-            this.btnDeleteUMD.BackColor = System.Drawing.Color.DarkRed;
-            this.btnDeleteUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_delete_forever_white_24dp_2x;
-            this.btnDeleteUMD.Location = new System.Drawing.Point(1031, 158);
-            this.btnDeleteUMD.Name = "btnDeleteUMD";
-            this.btnDeleteUMD.Size = new System.Drawing.Size(116, 53);
-            this.btnDeleteUMD.TabIndex = 44;
-            this.btnDeleteUMD.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdateUMD
-            // 
-            this.btnUpdateUMD.BackColor = System.Drawing.Color.Gold;
-            this.btnUpdateUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_update_white_24dp_2x;
-            this.btnUpdateUMD.Location = new System.Drawing.Point(1031, 101);
-            this.btnUpdateUMD.Name = "btnUpdateUMD";
-            this.btnUpdateUMD.Size = new System.Drawing.Size(116, 51);
-            this.btnUpdateUMD.TabIndex = 43;
-            this.btnUpdateUMD.UseVisualStyleBackColor = false;
-            // 
-            // btnAddUMD
-            // 
-            this.btnAddUMD.BackColor = System.Drawing.Color.DarkGreen;
-            this.btnAddUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_note_add_white_24dp_2x;
-            this.btnAddUMD.Location = new System.Drawing.Point(1031, 40);
-            this.btnAddUMD.Name = "btnAddUMD";
-            this.btnAddUMD.Size = new System.Drawing.Size(116, 54);
-            this.btnAddUMD.TabIndex = 45;
-            this.btnAddUMD.UseVisualStyleBackColor = false;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "pkCatalogo";
-            this.dataGridViewTextBoxColumn19.HeaderText = "No.";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "sUMD";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Unidad de Medida";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Width = 800;
-            // 
-            // ckbStatusUMD
-            // 
-            this.ckbStatusUMD.AutoSize = true;
-            this.ckbStatusUMD.Checked = true;
-            this.ckbStatusUMD.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbStatusUMD.Location = new System.Drawing.Point(897, 12);
-            this.ckbStatusUMD.Name = "ckbStatusUMD";
-            this.ckbStatusUMD.Size = new System.Drawing.Size(69, 22);
-            this.ckbStatusUMD.TabIndex = 72;
-            this.ckbStatusUMD.Text = "Status";
-            this.ckbStatusUMD.UseVisualStyleBackColor = true;
-            // 
             // FrmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -7508,7 +7606,6 @@
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.pnlUsuario);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.pnlProducto);
             this.Controls.Add(this.tbcGeneral);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pictureBox1);
@@ -7523,10 +7620,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmAdministrador_Load);
             this.pnlPrincipal.ResumeLayout(false);
-            this.pnlUsuario.ResumeLayout(false);
-            this.pnlUsuario.PerformLayout();
             this.pnlProducto.ResumeLayout(false);
             this.pnlProducto.PerformLayout();
+            this.pnlUsuario.ResumeLayout(false);
+            this.pnlUsuario.PerformLayout();
             this.tbcGeneral.ResumeLayout(false);
             this.tbpProducto.ResumeLayout(false);
             this.tbpProducto.PerformLayout();
@@ -7618,15 +7715,19 @@
             this.pnlUpdateSucursal.ResumeLayout(false);
             this.pnlUpdateSucursal.PerformLayout();
             this.pnlIUpdateSucursalPreferenciasCertificado.ResumeLayout(false);
+            this.tbpUMD.ResumeLayout(false);
+            this.tbpUMD.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrDatosUMD)).EndInit();
+            this.tbtaddUMD.ResumeLayout(false);
+            this.tbtaddUMD.PerformLayout();
+            this.tbtUpdateUMD.ResumeLayout(false);
+            this.tbtUpdateUMD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.pnlEmpresas.ResumeLayout(false);
             this.pnlEmpresas.PerformLayout();
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tbpUMD.ResumeLayout(false);
-            this.tbpUMD.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrDatosUMD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -8232,8 +8333,6 @@
         private System.Windows.Forms.TabPage tbpUMD;
         private System.Windows.Forms.Label lblCantidadUMD;
         private System.Windows.Forms.DataGridView dgrDatosUMD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.TextBox txtBuscarUMD;
         private System.Windows.Forms.Label label181;
         private System.Windows.Forms.Button btnDeleteUMD;
@@ -8242,5 +8341,14 @@
         private System.Windows.Forms.TabPage tbtaddUMD;
         private System.Windows.Forms.TabPage tbtUpdateUMD;
         private System.Windows.Forms.CheckBox ckbStatusUMD;
+        private System.Windows.Forms.Button btnUMD;
+        private System.Windows.Forms.Button btnSaveUMD;
+        private System.Windows.Forms.TextBox txtAddUMD;
+        private System.Windows.Forms.Label label182;
+        private System.Windows.Forms.Button btnActualizarUDM;
+        private System.Windows.Forms.TextBox txtUpdateUMD;
+        private System.Windows.Forms.Label label184;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
     }
 }

@@ -123,7 +123,7 @@ namespace SiscomSoft_Desktop.Views
             cbxPrecioAddProd.DisplayMember = "iPrePorcen";
             cbxPrecioAddProd.ValueMember = "pkPrecios";
 
-            cbxCatalogoAddProd.DataSource = ManejoCatalogo.getAll(true);
+            cbxCatalogoAddProd.DataSource = ManejoCatalogo.getAll();
             cbxCatalogoAddProd.DisplayMember = "sUDM";
             cbxCatalogoAddProd.ValueMember = "pkCatalogo";
 
@@ -140,7 +140,7 @@ namespace SiscomSoft_Desktop.Views
 
         
 
-            cbxUpdateUMDProd.DataSource = ManejoCatalogo.getAll(true);
+            cbxUpdateUMDProd.DataSource = ManejoCatalogo.getAll();
             cbxUpdateUMDProd.DisplayMember = "sUDM";
             cbxUpdateUMDProd.ValueMember = "pkCatalogo";
 
@@ -341,7 +341,7 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpAddCliente);
             tbcGeneral.TabPages.Remove(tbpUpdateCliente); 
             tbcGeneral.TabPages.Remove(tbpUMD);
-            tbcGeneral.TabPages.Remove(tbtUpdateUMD);
+            tbcGeneral.TabPages.Remove(tbtaddUMD);
             tbcGeneral.TabPages.Remove(tbtUpdateUMD);
             cmbStatusSucursal.SelectedIndex = 0;
             CargarTablas();
@@ -689,6 +689,12 @@ namespace SiscomSoft_Desktop.Views
             Categoria nCategoria = ManejoCategoria.getById(PKCATEGORIA);
             txtActualizarNomCat.Text = nCategoria.sNombre;
             txtActualizarSubCat.Text = nCategoria.sNomSubCat;
+        }
+        public void ActualizarUMD()
+        {
+          Catalogo  nCatalogo = ManejoCatalogo.getById(PKUMD);
+            txtUpdateUMD.Text = nCatalogo.sUDM;
+           
         }
         public void ActualizarUsuario()
         {
@@ -5307,6 +5313,129 @@ namespace SiscomSoft_Desktop.Views
                // this.Controls.Add(nControl);
 
             
+        }
+
+        private void btnUMD_Click(object sender, EventArgs e)
+        {
+            if (flagUMD == false)
+            {
+                tbcGeneral.Visible = true;
+                tbcGeneral.TabPages.Add(tbpUMD);
+                tbcGeneral.SelectedTab = tbpUMD;
+                flagUMD = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpUMD;
+            }
+        }
+
+        private void btnAddUMD_Click(object sender, EventArgs e)
+        {
+            if (flagAddUMD == false)
+            {
+                tbcGeneral.TabPages.Add(tbtaddUMD);
+                tbcGeneral.SelectedTab = tbtaddUMD;
+                flagAddUMD = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbtaddUMD;
+            }
+        }
+
+        private void btnUpdateUMD_Click(object sender, EventArgs e)
+        {
+            if (this.dgrDatosUMD.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbtUpdateUMD);
+                PKUMD = Convert.ToInt32(this.dgrDatosUMD.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbtUpdateUMD);
+                ActualizarUMD();
+                tbcGeneral.SelectedTab = tbtUpdateUMD;
+
+
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (this.txtUpdateUMD.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateUMD, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateUMD, "Campo necesario");
+                this.txtUpdateUMD.Focus();
+            }
+
+            else
+            {
+                Catalogo nUMD = new Catalogo();
+                nUMD.pkCatalogo = PKUMD;
+                nUMD.sUDM = txtUpdateUMD.Text;
+
+
+
+                ManejoCatalogo.Modificar(nUMD);
+                MessageBox.Show("¡Unidad Actualizada!");
+                cargarUMD();
+            }
+        }
+
+        private void txtBuscarUMD_TextChanged(object sender, EventArgs e)
+        {
+            cargarUMD();
+        }
+
+        private void ckbStatusUMD_CheckedChanged(object sender, EventArgs e)
+        {
+            cargarUMD();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (this.txtAddUMD.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddUMD, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddUMD, "Campo necesario");
+                this.txtAddUMD.Focus();
+            }
+
+            else
+            {
+                Catalogo nUMD = new Catalogo();
+
+                nUMD.sUDM = txtAddPrecio.Text;
+
+
+                ManejoCatalogo.RegistrarNuevoUDM(nUMD);
+
+                MessageBox.Show("¡Unidad Registrada!");
+                txtAddUMD.Clear();
+                txtAddUMD.Focus();
+                cargarUMD();
+
+
+            }
+        }
+
+        private void dgrDatosUMD_DataSourceChanged(object sender, EventArgs e)
+        {
+            cargarUMD();
+        }
+
+        private void btnDeleteUMD_Click(object sender, EventArgs e)
+        {
+            if (dgrDatosUMD.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoCatalogo.Eliminar(Convert.ToInt32(dgrDatosUMD.CurrentRow.Cells[0].Value));
+                    cargarProductos();
+                }
+            }
         }
     }
 }
