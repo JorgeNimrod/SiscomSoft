@@ -143,7 +143,7 @@ namespace SiscomSoft_Desktop.Views
         {
             if (txtCantidad.Text != "0")
             {
-                Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(2);
+                Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(1);
                 DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
                 row.Cells[0].Value = nProducto.pkProducto;
                 if (txtCantidad.Text == "")
@@ -158,7 +158,7 @@ namespace SiscomSoft_Desktop.Views
 
                 txtCantidad.Clear();
                 decimal Subtotal = 0;
-                decimal dgvCosto = Convert.ToDecimal(row.Cells[4].Value);
+                decimal dgvCosto = nProducto.dCosto;
                 int dgvCantidad = Convert.ToInt32(row.Cells[1].Value);
 
                 decimal total = dgvCantidad * dgvCosto;
