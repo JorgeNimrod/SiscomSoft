@@ -71,5 +71,14 @@ namespace SiscomSoft.Models
         public ICollection<InventarioEntrada> InventariosEntradas { get; set; }
 
         public ICollection<Factura> Facturas { get; set; }
+
+        public Cliente()
+        {
+            this.iCodPostal = 0;
+            this.iNumExterior = 0;
+            this.iNumInterior = 0;
+            this.iPersona = 0;
+            this.iStatus = 1;
+        }
     }
 }

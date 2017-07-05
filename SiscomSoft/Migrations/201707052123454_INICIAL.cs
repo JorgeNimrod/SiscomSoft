@@ -3,7 +3,7 @@ namespace SiscomSoft.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class inicial : DbMigration
+    public partial class INICIAL : DbMigration
     {
         public override void Up()
         {
