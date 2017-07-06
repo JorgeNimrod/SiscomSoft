@@ -18,7 +18,8 @@ namespace SiscomSoft_Desktop.Views
         double noCantidad = 0;
         double noPagar = 0;
         Boolean pesos = false;
-        public static string NOMCLIENTE;
+        public static Cliente mCliente;
+        public static Factura mFactura;
 
         public FrmDetalleVentasOneToOne()
         {
@@ -30,9 +31,9 @@ namespace SiscomSoft_Desktop.Views
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             #region LABELS 
-            if (NOMCLIENTE!=null)
+            if (mCliente!=null)
             {
-                lblNomCliente.Text = "Cliente: " + NOMCLIENTE;
+                lblNomCliente.Text = "Cliente: " + mCliente.sNombre;
             }
             else
             {
@@ -698,19 +699,30 @@ namespace SiscomSoft_Desktop.Views
             cambio = total - monto;
             if (cambio == 0)
             {
-                InventarioEntrada mEntrada = new InventarioEntrada();
-                foreach (DataGridView row in dgvDetalleProductos.Rows)
+                Venta mVenta = new Venta();
+                mVenta.fkCliente = mCliente;
+                mVenta.fkFactura = mFactura;
+                ManejoVenta.RegistrarNuevaVenta(mVenta);
+                DetalleVenta mDetalle = new DetalleVenta();
+                mDetalle.dCambio = Convert.ToDecimal(lblCambio.Text);
+                mDetalle.dtFechaVenta = DateTime.Now;
+                mDetalle.dTotal = Convert.ToDecimal(lblTotal2.Text);
+                mDetalle.fkVenta = mVenta;
+                mDetalle.sMoneda = "MXM";
+                mDetalle.sTipoPago = "EFECTIVO";
+                foreach (DataGridViewRow row in dgvDetalleProductos.Rows)
                 {
-                    Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.CurrentRow.Cells[0].Value));
-                    mEntrada.fkProducto = mProducto;
-                    mEntrada.iCantidad = Convert.ToInt32(row.CurrentRow.Cells[1].Value);
-                    mEntrada.sNomProducto = row.CurrentRow.Cells[2].Value.ToString();
-                    mEntrada.dTotal = Convert.ToDecimal(row.CurrentRow.Cells[3].Value);
+                    if (!row.IsNewRow)
+                    {
+                        Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
+                        mDetalle.fkProducto = mProducto;
+                        mDetalle.iCantidad = Convert.ToInt32(row.Cells[1].Value);
+                    }
                 }
+
+                ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalle);
                 FrmMenu.nVenta = null;
-                FrmMenuVentas v = new FrmMenuVentas();
-                this.Close();
-                v.ShowDialog();
+                MessageBox.Show("Test");
             }
             else
             {
