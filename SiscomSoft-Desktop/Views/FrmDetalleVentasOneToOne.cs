@@ -19,7 +19,6 @@ namespace SiscomSoft_Desktop.Views
         double noPagar = 0;
         Boolean pesos = false;
         public static string NOMCLIENTE;
-        public static List<InventarioEntrada> nVenta;
 
         public FrmDetalleVentasOneToOne()
         {
@@ -40,28 +39,21 @@ namespace SiscomSoft_Desktop.Views
                 lblNomCliente.Visible = false;
             }
             #endregion
-
-            if (nVenta != null)
+            #region DATOS EN MEMORIA
+            if (FrmMenu.nVenta != null)
             {
-                foreach (InventarioEntrada rEntrada in nVenta)
+                foreach (InventarioEntrada rEntrada in FrmMenu.nVenta)
                 {
                     DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
                     row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
                     row.Cells[1].Value = rEntrada.iCantidad;
                     row.Cells[2].Value = rEntrada.sNomProducto;
+                    row.Cells[3].Value = rEntrada.dTotal;
                     row.Cells[4].Value = rEntrada.dPreUnitario;
-
-                    txtCantidad.Clear();
-                    decimal Subtotal = 0;
-                    decimal dgvCosto = Convert.ToDecimal(row.Cells[4].Value);
-                    int dgvCantidad = Convert.ToInt32(row.Cells[1].Value);
-
-                    decimal total = dgvCosto * dgvCantidad;
-
-                    row.Cells[3].Value = total;
                     row.Height = 50;
                     dgvProductos.Rows.Add(row);
 
+                    decimal Subtotal = 0;
                     foreach (DataGridViewRow rItem in dgvProductos.Rows)
                     {
                         Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
@@ -70,8 +62,79 @@ namespace SiscomSoft_Desktop.Views
                     lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
                 }
             }
+            #endregion
         }
 
+        private void FrmDetalleVentasOneToOne_MouseClick(object sender, MouseEventArgs e)
+        {
+            dgvProductos.ClearSelection();
+            pnlAccionesProductos.Visible = false;
+            pnlAccionesGenerales.Visible = true;
+        }
+
+        private void pnlDetalleVenta_MouseClick(object sender, MouseEventArgs e)
+        {
+            dgvProductos.ClearSelection();
+            pnlAccionesProductos.Visible = false;
+            pnlAccionesGenerales.Visible = true;
+        }
+
+        private void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            Close();
+            FrmMenu V = new Views.FrmMenu();
+            V.ShowDialog();
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            if (dgvProductos.RowCount > 1)
+            {
+                FrmMenu.nVenta = new List<InventarioEntrada>();
+                foreach (DataGridViewRow row in dgvProductos.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
+                        FrmMenu.nVenta.Add(new InventarioEntrada
+                        {
+                            iCantidad = Convert.ToInt32(row.Cells[1].Value),
+                            sNomProducto = row.Cells[2].Value.ToString(),
+                            dTotal = Convert.ToDecimal(row.Cells[3].Value),
+                            dPreUnitario = Convert.ToDecimal(row.Cells[4].Value),
+                            fkProducto = nProducto
+                        });
+                    }
+                }
+                if (FrmMenu.nVenta != null)
+                {
+                    foreach (InventarioEntrada rEntrada in FrmMenu.nVenta)
+                    {
+                        DataGridViewRow row = (DataGridViewRow)dgvDetalleProductos.Rows[0].Clone();
+                        row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
+                        row.Cells[1].Value = rEntrada.iCantidad;
+                        row.Cells[2].Value = rEntrada.sNomProducto;
+                        row.Cells[3].Value = rEntrada.dTotal;
+                        row.Cells[4].Value = rEntrada.dPreUnitario;
+                        row.Height = 50;
+                        dgvDetalleProductos.Rows.Add(row);
+                    }
+                    decimal Subtotal = 0;
+                    foreach (DataGridViewRow rItem in dgvDetalleProductos.Rows)
+                    {
+                        Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
+                    }
+
+                    lblTotalPagar.Text = "$" + Subtotal.ToString("#,###.#0#");
+                    lblTotal2.Text = Subtotal.ToString("#,###.#0#");
+                }
+                lblCliente.Visible = true;
+                lblCliente.Text = lblNomCliente.Text;
+                pnlDetalleVenta.Visible = false;
+                pnlPagar.Visible = true;
+            }
+        }
+        
         #region BOTONES NUMERICOS DE CANTIDAD
         private void btnNum1_Click(object sender, EventArgs e)
         {
@@ -184,10 +247,19 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
+        #region PANEL ACCIONES GENERALES & ACCIONES DE PRODUCTOS
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
+            if (!dgvProductos.CurrentRow.IsNewRow)
+            {
                 pnlAccionesGenerales.Visible = false;
                 pnlAccionesProductos.Visible = true;
+            }
+            else
+            {
+                pnlAccionesProductos.Visible = false;
+                pnlAccionesGenerales.Visible = true;
+            }
         }
 
         private void btnMasCantidad_Click(object sender, EventArgs e)
@@ -275,25 +347,377 @@ namespace SiscomSoft_Desktop.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int x = 0;
             if (dgvProductos.RowCount > 1)
             {
-                InventarioEntrada nEntrada = new InventarioEntrada();
-                nVenta = new List<InventarioEntrada>();
-                for (int i = 0; i < dgvProductos.RowCount-1; i++)
+                FrmMenu.nVenta = new List<InventarioEntrada>();
+                foreach (DataGridViewRow row in dgvProductos.Rows)
                 {
-                    SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value));
-                    nEntrada.fkProducto = nProducto;
-                    nEntrada.iCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
-                    nEntrada.sNomProducto = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                    nEntrada.dPreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
-
-                    nVenta.Add(nEntrada);
+                    if (!row.IsNewRow)
+                    {
+                        SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
+                        FrmMenu.nVenta.Add(new InventarioEntrada
+                        {
+                            iCantidad = Convert.ToInt32(row.Cells[1].Value),
+                            sNomProducto = row.Cells[2].Value.ToString(),
+                            dTotal = Convert.ToDecimal(row.Cells[3].Value),
+                            dPreUnitario = Convert.ToDecimal(row.Cells[4].Value),
+                            fkProducto = nProducto
+                        });
+                    }
                 }
             }
             this.Close();
             FrmCustomCliente v = new FrmCustomCliente();
             v.ShowDialog();
         }
+
+        #endregion
+
+        #region BOTONES BILLETES
+        private void btn500pesos_Click(object sender, EventArgs e)
+        {
+            pesos = true;
+            noCantidad += 500;
+            noCantidad += Convert.ToDouble(lblMonto.Text);
+            lblMonto.Text = noCantidad.ToString("#,###.#0#");
+            noCantidad = 0;
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btn200pesos_Click(object sender, EventArgs e)
+        {
+            pesos = true;
+            noCantidad += 200;
+            noCantidad += Convert.ToDouble(lblMonto.Text);
+            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
+            lblMonto.Text = noCantidad.ToString("#,###.#0#");
+            noCantidad = 0;
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btn100Peso_Click(object sender, EventArgs e)
+        {
+            pesos = true;
+            noCantidad += 100;
+            noCantidad += Convert.ToDouble(lblMonto.Text);
+            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
+            lblMonto.Text = noCantidad.ToString("#,###.#0#");
+            noCantidad = 0;
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btn50Peso_Click(object sender, EventArgs e)
+        {
+            pesos = true;
+            noCantidad += 50;
+            noCantidad += Convert.ToDouble(lblMonto.Text);
+            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
+            lblMonto.Text = noCantidad.ToString("#,###.#0#");
+            noCantidad = 0;
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btn20Peso_Click(object sender, EventArgs e)
+        {
+            pesos = true;
+            noCantidad += 20;
+            noCantidad += Convert.ToDouble(lblMonto.Text);
+            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
+            lblMonto.Text = noCantidad.ToString("#,###.#0#");
+            noCantidad = 0;
+
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        #endregion
+
+        #region BOTONES NUMERICOS DINERO
+        private void btnNo1_Click(object sender, EventArgs e)
+        {
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 1);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noCantidad = 0;
+                lblMonto.Text = "1";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btnNo2_Click(object sender, EventArgs e)
+        {
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 2);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noCantidad = 0;
+                lblMonto.Text = "2";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btnNo3_Click(object sender, EventArgs e)
+        {
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 3);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noCantidad = 0;
+                lblMonto.Text = "3";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btnNo4_Click(object sender, EventArgs e)
+        {
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 4);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noCantidad = 0;
+                lblMonto.Text = "4";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btnNo5_Click(object sender, EventArgs e)
+        {
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 5);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noCantidad = 0;
+                lblMonto.Text = "5";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btnNo6_Click(object sender, EventArgs e)
+        {
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 6);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noCantidad = 0;
+                lblMonto.Text = "6";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btnNo7_Click(object sender, EventArgs e)
+        {
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 7);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noCantidad = 0;
+                lblMonto.Text = "7";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btnNo8_Click(object sender, EventArgs e)
+        {
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 8);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noCantidad = 0;
+                lblMonto.Text = "8";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btnNo9_Click(object sender, EventArgs e)
+        {
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 9);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noCantidad = 0;
+                lblMonto.Text = "9";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btnNo0_Click(object sender, EventArgs e)
+        {
+            if (pesos != true)
+            {
+                noPagar = Convert.ToDouble(lblMonto.Text + 0);
+                lblMonto.Text = noPagar.ToString();
+            }
+            else
+            {
+                noCantidad = 0;
+                lblMonto.Text = "0";
+                pesos = false;
+            }
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+
+        private void btnPuntoPagar_Click(object sender, EventArgs e)
+        {
+            //TODO: FALTA HACER EL BOTON DEL PUTO PUNTO
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            noPagar = 0;
+            noCantidad = 0;
+            lblMonto.Text = "0";
+            btnEfectivo.Enabled = false;
+            btnCredito.Enabled = false;
+            btnVouncher.Enabled = false;
+            btn.Enabled = false;
+        }
+        #endregion
+
+        #region BOTONES ACCIONES PAGAR
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            noPagar = 0;
+            noCantidad = 0;
+            lblMonto.Text = lblTotal2.Text;
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
+        #endregion
+
+        #region BOTONES METODOS DE PAGO
+        private void btnPagarCancelar_Click(object sender, EventArgs e)
+        {
+            if (lblMonto.Text == "0")
+            {
+                dgvDetalleProductos.Rows.Clear();
+                pnlPagar.Visible = false;
+                pnlDetalleVenta.Visible = true;
+
+                noPagar = 0;
+                noCantidad = 0;
+                btnEfectivo.Enabled = false;
+                btnCredito.Enabled = false;
+                btnVouncher.Enabled = false;
+                btn.Enabled = false;
+            }
+        }
+
+        private void btnEfectivo_Click(object sender, EventArgs e)
+        {
+            double cambio = 0;
+            double total = 0;
+            double monto = 0;
+
+            cambio = total - monto;
+            if (cambio == 0)
+            {
+                InventarioEntrada mEntrada = new InventarioEntrada();
+                foreach (DataGridView row in dgvDetalleProductos.Rows)
+                {
+                    Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.CurrentRow.Cells[0].Value));
+                    mEntrada.fkProducto = mProducto;
+                    mEntrada.iCantidad = Convert.ToInt32(row.CurrentRow.Cells[1].Value);
+                    mEntrada.sNomProducto = row.CurrentRow.Cells[2].Value.ToString();
+                    mEntrada.dTotal = Convert.ToDecimal(row.CurrentRow.Cells[3].Value);
+                }
+                FrmMenu.nVenta = null;
+                FrmMenuVentas v = new FrmMenuVentas();
+                this.Close();
+                v.ShowDialog();
+            }
+            else
+            {
+                lblCambio.Text = cambio.ToString();
+                pnlCambio.Visible = true;
+            }
+        }
+        #endregion
     }
 }

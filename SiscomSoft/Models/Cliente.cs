@@ -72,6 +72,8 @@ namespace SiscomSoft.Models
 
         public ICollection<Factura> Facturas { get; set; }
 
+        public ICollection<Venta> Ventas { get; set; }
+
         public Cliente()
         {
             this.iCodPostal = 0;

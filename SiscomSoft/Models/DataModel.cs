@@ -44,6 +44,10 @@ namespace SiscomSoft.Models
 
         public DbSet<Factura> Facturas { get; set; }
 
+        public DbSet<Venta> Ventas { get; set; }
+
+        public DbSet<DetalleVenta> DetalleVentas { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<DataModel>(null);
