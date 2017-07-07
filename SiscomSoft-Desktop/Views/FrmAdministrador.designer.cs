@@ -1164,6 +1164,7 @@
             this.txtBuscarProducto.Name = "txtBuscarProducto";
             this.txtBuscarProducto.Size = new System.Drawing.Size(661, 24);
             this.txtBuscarProducto.TabIndex = 36;
+            this.txtBuscarProducto.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtBuscarProducto_MouseClick);
             this.txtBuscarProducto.TextChanged += new System.EventHandler(this.txtBuscarProducto_TextChanged);
             // 
             // label17
@@ -6666,6 +6667,7 @@
             this.txtUpdateValidoHasta.Name = "txtUpdateValidoHasta";
             this.txtUpdateValidoHasta.Size = new System.Drawing.Size(303, 24);
             this.txtUpdateValidoHasta.TabIndex = 159;
+            this.txtUpdateValidoHasta.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateValidoHasta_MouseClick);
             // 
             // txtUpdateValidoDe
             // 
@@ -6675,6 +6677,7 @@
             this.txtUpdateValidoDe.Name = "txtUpdateValidoDe";
             this.txtUpdateValidoDe.Size = new System.Drawing.Size(300, 24);
             this.txtUpdateValidoDe.TabIndex = 158;
+            this.txtUpdateValidoDe.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateValidoDe_MouseClick);
             // 
             // txtUpdateNoCertificado
             // 
@@ -6684,6 +6687,7 @@
             this.txtUpdateNoCertificado.Name = "txtUpdateNoCertificado";
             this.txtUpdateNoCertificado.Size = new System.Drawing.Size(300, 24);
             this.txtUpdateNoCertificado.TabIndex = 156;
+            this.txtUpdateNoCertificado.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateNoCertificado_MouseClick);
             // 
             // txtUpdateContraseñaCertificado
             // 
@@ -6693,6 +6697,7 @@
             this.txtUpdateContraseñaCertificado.Size = new System.Drawing.Size(303, 24);
             this.txtUpdateContraseñaCertificado.TabIndex = 148;
             this.txtUpdateContraseñaCertificado.Text = "12345678a";
+            this.txtUpdateContraseñaCertificado.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateContraseñaCertificado_MouseClick);
             this.txtUpdateContraseñaCertificado.TextChanged += new System.EventHandler(this.txtUpdateContraseñaCertificado_TextChanged);
             // 
             // txtUpdateKey
@@ -6819,7 +6824,7 @@
             this.pnlUpdatePreferencias.Controls.Add(this.btnUpdateExaminarLogoSucursal);
             this.pnlUpdatePreferencias.Location = new System.Drawing.Point(156, 0);
             this.pnlUpdatePreferencias.Name = "pnlUpdatePreferencias";
-            this.pnlUpdatePreferencias.Size = new System.Drawing.Size(997, 550);
+            this.pnlUpdatePreferencias.Size = new System.Drawing.Size(997, 546);
             this.pnlUpdatePreferencias.TabIndex = 139;
             this.pnlUpdatePreferencias.Visible = false;
             // 
@@ -6831,6 +6836,7 @@
             this.txtUpdateNoSerie.Size = new System.Drawing.Size(151, 24);
             this.txtUpdateNoSerie.TabIndex = 125;
             this.txtUpdateNoSerie.Text = "SA";
+            this.txtUpdateNoSerie.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateNoSerie_MouseClick);
             this.txtUpdateNoSerie.TextChanged += new System.EventHandler(this.txtUpdateNoSerie_TextChanged);
             // 
             // ckbUpdateForImpreso
@@ -6995,6 +7001,7 @@
             this.txtUpdateNomSucursal.Size = new System.Drawing.Size(350, 24);
             this.txtUpdateNomSucursal.TabIndex = 91;
             this.txtUpdateNomSucursal.Text = "EMPRESA COMERCIAL";
+            this.txtUpdateNomSucursal.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateNomSucursal_MouseClick);
             this.txtUpdateNomSucursal.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // txtUpdatePais
@@ -7005,6 +7012,7 @@
             this.txtUpdatePais.Size = new System.Drawing.Size(125, 24);
             this.txtUpdatePais.TabIndex = 102;
             this.txtUpdatePais.Text = "MEXICO";
+            this.txtUpdatePais.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdatePais_MouseClick);
             this.txtUpdatePais.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             this.txtUpdatePais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdatePais_KeyPress);
             // 
@@ -7026,6 +7034,7 @@
             this.txtUpdateMunicipio.Size = new System.Drawing.Size(157, 24);
             this.txtUpdateMunicipio.TabIndex = 96;
             this.txtUpdateMunicipio.Text = "HERMOSILLO";
+            this.txtUpdateMunicipio.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateMunicipio_MouseClick);
             this.txtUpdateMunicipio.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
             this.txtUpdateMunicipio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateMunicipio_KeyPress);
             // 
@@ -7037,6 +7046,7 @@
             this.txtUpdateColonia.Size = new System.Drawing.Size(187, 24);
             this.txtUpdateColonia.TabIndex = 106;
             this.txtUpdateColonia.Text = "SAN SEBASTIAN";
+            this.txtUpdateColonia.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateColonia_MouseClick);
             this.txtUpdateColonia.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // txtUpdateLocalidad
@@ -7047,6 +7057,7 @@
             this.txtUpdateLocalidad.Size = new System.Drawing.Size(239, 24);
             this.txtUpdateLocalidad.TabIndex = 104;
             this.txtUpdateLocalidad.Text = "AVELARDO ZAMAROCOS";
+            this.txtUpdateLocalidad.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateLocalidad_MouseClick);
             this.txtUpdateLocalidad.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
             // cmbCodigoPostal
@@ -7077,6 +7088,7 @@
             this.txtUpdateEstado.Size = new System.Drawing.Size(125, 24);
             this.txtUpdateEstado.TabIndex = 103;
             this.txtUpdateEstado.Text = "SONORA";
+            this.txtUpdateEstado.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateEstado_MouseClick);
             this.txtUpdateEstado.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
             this.txtUpdateEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateEstado_KeyPress);
             // 
@@ -7088,6 +7100,7 @@
             this.txtUpdateCalle.Size = new System.Drawing.Size(241, 24);
             this.txtUpdateCalle.TabIndex = 105;
             this.txtUpdateCalle.Text = "AVELARDO ZAMAROCOS";
+            this.txtUpdateCalle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateCalle_MouseClick);
             this.txtUpdateCalle.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
             // 
             // label176
@@ -7149,6 +7162,7 @@
             this.txtUpdateNoInterior.Size = new System.Drawing.Size(113, 24);
             this.txtUpdateNoInterior.TabIndex = 107;
             this.txtUpdateNoInterior.Text = "171";
+            this.txtUpdateNoInterior.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateNoInterior_MouseClick);
             this.txtUpdateNoInterior.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
             this.txtUpdateNoInterior.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateNoInterior_KeyPress);
             // 
@@ -7160,6 +7174,7 @@
             this.txtUpdateNoExterior.Size = new System.Drawing.Size(128, 24);
             this.txtUpdateNoExterior.TabIndex = 108;
             this.txtUpdateNoExterior.Text = "0";
+            this.txtUpdateNoExterior.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateNoExterior_MouseClick);
             this.txtUpdateNoExterior.TextChanged += new System.EventHandler(this.textBox17_TextChanged);
             this.txtUpdateNoExterior.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateNoExterior_KeyPress);
             // 
@@ -7307,7 +7322,9 @@
             this.txtBuscarUMD.Name = "txtBuscarUMD";
             this.txtBuscarUMD.Size = new System.Drawing.Size(822, 24);
             this.txtBuscarUMD.TabIndex = 42;
+            this.txtBuscarUMD.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtBuscarUMD_MouseClick);
             this.txtBuscarUMD.TextChanged += new System.EventHandler(this.txtBuscarUMD_TextChanged);
+            this.txtBuscarUMD.MouseCaptureChanged += new System.EventHandler(this.txtBuscarUMD_MouseCaptureChanged);
             // 
             // label181
             // 
@@ -7386,6 +7403,9 @@
             this.txtAddUMD.Name = "txtAddUMD";
             this.txtAddUMD.Size = new System.Drawing.Size(342, 24);
             this.txtAddUMD.TabIndex = 10;
+            this.txtAddUMD.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtAddUMD_MouseClick);
+            this.txtAddUMD.TextChanged += new System.EventHandler(this.txtAddUMD_TextChanged);
+            this.txtAddUMD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddUMD_KeyPress);
             // 
             // label182
             // 
@@ -7428,6 +7448,8 @@
             this.txtUpdateUMD.Name = "txtUpdateUMD";
             this.txtUpdateUMD.Size = new System.Drawing.Size(342, 24);
             this.txtUpdateUMD.TabIndex = 10;
+            this.txtUpdateUMD.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateUMD_MouseClick);
+            this.txtUpdateUMD.TextChanged += new System.EventHandler(this.txtUpdateUMD_TextChanged);
             // 
             // label184
             // 
