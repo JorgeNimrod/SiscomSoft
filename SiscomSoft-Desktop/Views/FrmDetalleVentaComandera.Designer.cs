@@ -621,7 +621,7 @@
             this.pnlPagar.ForeColor = System.Drawing.Color.DimGray;
             this.pnlPagar.Location = new System.Drawing.Point(12, 47);
             this.pnlPagar.Name = "pnlPagar";
-            this.pnlPagar.Size = new System.Drawing.Size(1338, 633);
+            this.pnlPagar.Size = new System.Drawing.Size(1338, 622);
             this.pnlPagar.TabIndex = 0;
             this.pnlPagar.Visible = false;
             // 

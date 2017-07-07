@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SiscomSoft.Controller.Helpers;
+using SiscomSoft.Models;
 
 namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmMenu : Form
     {
         public static UsuarioHelper uHelper;
+        public static List<InventarioEntrada> nVenta;
         public FrmMenu()
         {
             InitializeComponent();
@@ -95,6 +97,13 @@ namespace SiscomSoft_Desktop.Views
         private void lblFecha_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FrmMenuVentas v = new Views.FrmMenuVentas();
+            v.ShowDialog();
         }
     }
 }

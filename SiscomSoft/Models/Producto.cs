@@ -49,6 +49,8 @@ namespace SiscomSoft.Models
         // llave foranea de InventarioEntrada
         public ICollection<InventarioEntrada> InventarioEntrada { get; set; }
 
+        public ICollection<DetalleVenta> DetalleVentas { get; set; }
+
         public Producto()
         {
             this.bStatus = true;

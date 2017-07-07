@@ -58,6 +58,8 @@ namespace SiscomSoft.Models
 
         public ICollection<InventarioEntrada> InventariosEntradas { get; set; }
 
+        public ICollection<Venta> Ventas { get; set; }
+
         public Factura()
         {
             this.bStatus = true;

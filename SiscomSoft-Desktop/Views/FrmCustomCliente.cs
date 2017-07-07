@@ -48,7 +48,8 @@ namespace SiscomSoft_Desktop.Views
         {
             if (dgvAllClientes.RowCount >= 1)
             {
-                FrmDetalleVentasOneToOne.NOMCLIENTE = dgvAllClientes.CurrentRow.Cells[1].Value.ToString();
+                Cliente nCliente = ManejoCliente.getById(Convert.ToInt32(dgvAllClientes.CurrentRow.Cells[0].Value));
+                FrmDetalleVentasOneToOne.mCliente = nCliente;
                 FrmDetalleVentasOneToOne v = new FrmDetalleVentasOneToOne();
                 this.Close();
                 v.ShowDialog();
