@@ -18,6 +18,7 @@ namespace SiscomSoft_Desktop.Views
         double noCantidad = 0;
         double noPagar = 0;
         Boolean pesos = false;
+        List<DetalleVenta> nVenta;
         public static Cliente mCliente;
         public static Factura mFactura;
 
@@ -98,19 +99,17 @@ namespace SiscomSoft_Desktop.Views
         {
             if (dgvProductos.RowCount > 1)
             {
-                FrmMenu.nVenta = new List<InventarioEntrada>();
+                nVenta = new List<DetalleVenta>();
                 foreach (DataGridViewRow row in dgvProductos.Rows)
                 {
                     if (!row.IsNewRow)
                     {
                         SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
-                        FrmMenu.nVenta.Add(new InventarioEntrada
-                        {
+                        nVenta.Add(new DetalleVenta{
                             iCantidad = Convert.ToInt32(row.Cells[1].Value),
-                            sNomProducto = row.Cells[2].Value.ToString(),
-                            dTotal = Convert.ToDecimal(row.Cells[3].Value),
                             dPreUnitario = Convert.ToDecimal(row.Cells[4].Value),
-                            fkProducto = nProducto
+                            fkProducto = nProducto,
+                            
                         });
                     }
                 }
@@ -237,6 +236,7 @@ namespace SiscomSoft_Desktop.Views
 
                 row.Cells[3].Value = total;
                 row.Cells[4].Value = nProducto.dCosto;
+                row.Cells[5].Value = nProducto.fkImpuesto.dTasaImpuesto;
                 row.Height = 40;
                 dgvProductos.Rows.Add(row);
 

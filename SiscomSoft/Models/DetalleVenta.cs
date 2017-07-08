@@ -16,12 +16,13 @@ namespace SiscomSoft.Models
         public int pkDetalleVenta { get; set; }
 
         public virtual Producto fkProducto { get; set; }
-
         public virtual Venta fkVenta { get; set; }
 
         public int iCantidad { get; set; }
 
         public int iDescuento { get; set; }
+
+        public decimal dImpuesto { get; set; }
 
         public decimal dPreUnitario { get; set; }
 
