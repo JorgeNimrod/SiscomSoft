@@ -73,6 +73,8 @@
     <Compile Include="Migrations\201707062301367_INICIAL.Designer.cs">
       <DependentUpon>201707062301367_INICIAL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Almacen.cs" />
+    <Compile Include="Models\DetalleAlmacen.cs" />
     <Compile Include="Models\DetalleVenta.cs" />
     <Compile Include="Models\ManejoImpuesto.cs" />
     <Compile Include="Controller\ManejoPermiso.cs" />

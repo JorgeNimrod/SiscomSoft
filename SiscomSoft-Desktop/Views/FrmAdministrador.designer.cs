@@ -824,6 +824,8 @@
             this.btnUMD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUMD.UseVisualStyleBackColor = false;
             this.btnUMD.Click += new System.EventHandler(this.btnUMD_Click);
+            this.btnUMD.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnUMD_MouseClick);
+            this.btnUMD.ChangeUICues += new System.Windows.Forms.UICuesEventHandler(this.btnUMD_ChangeUICues);
             // 
             // btnCategorialist
             // 

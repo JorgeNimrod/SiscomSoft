@@ -74,6 +74,8 @@ namespace SiscomSoft.Models
 
         public ICollection<Venta> Ventas { get; set; }
 
+        public ICollection<Almacen> Almacen { get; set; }
+
         public Cliente()
         {
             this.iCodPostal = 0;
