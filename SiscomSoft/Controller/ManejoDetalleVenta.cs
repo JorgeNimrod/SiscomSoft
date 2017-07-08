@@ -11,12 +11,16 @@ namespace SiscomSoft.Controller
 {
     public class ManejoDetalleVenta
     {
-        public static void RegistrarNuevoDetalle(DetalleVenta nDetalle)
+        public static void RegistrarNuevoDetalle(DetalleVenta nDetalle, Producto nProducto, Venta nVenta)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
+                    nDetalle.fkProducto = nProducto;
+                    nDetalle.fkVenta = nVenta;
+                    ctx.Productos.Attach(nProducto);
+                    ctx.Ventas.Attach(nVenta);
                     ctx.DetalleVentas.Add(nDetalle);
                     ctx.SaveChanges();
                 }

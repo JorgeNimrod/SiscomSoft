@@ -17,21 +17,13 @@ namespace SiscomSoft.Models
 
         public virtual Producto fkProducto { get; set; }
 
-        public DateTime dtFechaVenta { get; set; }
-
-        public decimal dTotal { get; set; }
-
-        public decimal dCambio { get; set; }
-
         public virtual Venta fkVenta { get; set; }
 
         public int iCantidad { get; set; }
 
-        public string sTipoPago { get; set; }
-
-        public string sMoneda { get; set; }
-
         public int iDescuento { get; set; }
+
+        public decimal dPreUnitario { get; set; }
 
         public Boolean bStatus { get; set; }
 
