@@ -16,8 +16,8 @@ namespace SiscomSoft_Desktop.Views
 
 
         public static string informacion;
-      
-        Boolean mayus = false;
+       
+          Boolean mayus = false;
         string teclado;
         public FrmKeyboard()
         {
@@ -27,7 +27,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmKeyboard_Load(object sender, EventArgs e)
         {
-           
+         
         }
 
         private void btnCloseKeyboard_Click_1(object sender, EventArgs e)
@@ -673,11 +673,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "$");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + 4);
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -689,11 +691,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "%");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + 5);
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -705,11 +709,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "&");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + 6);
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -721,11 +727,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "/");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + 7);
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -737,11 +745,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "(");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + 8);
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -753,11 +763,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + ")");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + 9);
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -769,11 +781,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "=");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + 0);
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -781,17 +795,11 @@ namespace SiscomSoft_Desktop.Views
         private void btnBack_Click(object sender, EventArgs e)
         {
 
-            //txtTeclado.Text = txtTeclado.Text.Substring(0, txtTeclado.Text.Count() - 1);
-            //teclado = txtTeclado.Text;
+            txtTeclado.Text = txtTeclado.Text.Substring(0, txtTeclado.Text.Count() - 1);
+            teclado = txtTeclado.Text;
+            informacion = teclado;
 
-            if (txtTeclado.Text.Substring(txtTeclado.Text.Count() - 1) == null)
-            {
-               
-            }
-            else
-            {
-                txtTeclado.Text = txtTeclado.Text.Substring(0, txtTeclado.Text.Count() - 1);
-            }
+
 
         }
 
@@ -802,11 +810,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "_");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "-");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -818,11 +828,13 @@ namespace SiscomSoft_Desktop.Views
                 SendKeys.Send("q");
                 //teclado = Convert.ToString(txtTeclado.Text + "q");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "Q");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -833,11 +845,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "w");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "W");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -848,11 +862,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "e");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "E");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -863,11 +879,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "r");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "R");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -878,11 +896,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "t");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "T");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -893,11 +913,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "y");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "Y");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -908,11 +930,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "u");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "U");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -923,11 +947,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "i");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "I");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -938,11 +964,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "o");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "O");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -953,11 +981,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "p");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "P");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -968,11 +998,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "?");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "'");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -984,11 +1016,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "¡");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "¿");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -1000,11 +1034,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "$");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "@");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -1016,11 +1052,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "a");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "A");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1031,11 +1069,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "s");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "S");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1046,11 +1086,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "d");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "D");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1062,11 +1104,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "f");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "F");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1077,11 +1121,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "g");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "G");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1092,11 +1138,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "h");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "H");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1107,11 +1155,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "j");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "J");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1122,11 +1172,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "k");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "K");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1137,11 +1189,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "l");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "L");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1152,11 +1206,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "ñ");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "Ñ");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1167,11 +1223,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "[");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "{");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -1188,11 +1246,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "z");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "Z");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1203,11 +1263,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "x");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "X");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1218,11 +1280,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "c");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "C");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1233,11 +1297,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "v");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "V");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1248,11 +1314,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "b");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "B");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1263,11 +1331,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "n");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "N");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1278,11 +1348,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "m");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "M");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
         }
 
@@ -1293,11 +1365,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "]");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "}");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -1309,11 +1383,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + "°");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + "|");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -1325,11 +1401,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + ":");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + ",");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -1341,11 +1419,13 @@ namespace SiscomSoft_Desktop.Views
 
                 teclado = Convert.ToString(txtTeclado.Text + ";");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
             }
             else
             {
                 teclado = Convert.ToString(txtTeclado.Text + ".");
                 txtTeclado.Text = teclado;
+                informacion = teclado;
 
             }
         }
@@ -1354,6 +1434,7 @@ namespace SiscomSoft_Desktop.Views
         {
             teclado = Convert.ToString(txtTeclado.Text + " ");
             txtTeclado.Text = teclado;
+            informacion = teclado;
         }
 
         private void btnMayusIzqu_Click(object sender, EventArgs e)

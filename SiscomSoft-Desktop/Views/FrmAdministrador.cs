@@ -21,10 +21,10 @@ namespace SiscomSoft_Desktop.Views
 
     public partial class FrmAdministrador : Form
     {
-   
+        int[] numeros = {  };
+       
 
-
-
+         
         Boolean flagRol = false;
         Boolean flagUsuario = false;
         Boolean flagProducto = false;
@@ -310,7 +310,23 @@ namespace SiscomSoft_Desktop.Views
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
-     
+            foreach (Form frm in Application.OpenForms)
+
+            {
+
+                if (frm.GetType() == typeof(FrmKeyboard))
+
+                {
+
+                    FrmKeyboard.informacion = txtAddUMD.Text;
+
+                    break;
+
+                }
+
+            }
+
+
             cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
@@ -5405,7 +5421,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 Catalogo nUMD = new Catalogo();
 
-                nUMD.sUDM = txtAddPrecio.Text;
+                nUMD.sUDM = txtAddUMD.Text;
 
 
                 ManejoCatalogo.RegistrarNuevoUDM(nUMD);
@@ -5421,7 +5437,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void dgrDatosUMD_DataSourceChanged(object sender, EventArgs e)
         {
-            cargarUMD();
+            lblCantidadUMD.Text = "Registros: " + dgrDatosUMD.Rows.Count;
         }
 
         private void btnDeleteUMD_Click(object sender, EventArgs e)
@@ -5433,9 +5449,140 @@ namespace SiscomSoft_Desktop.Views
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoCatalogo.Eliminar(Convert.ToInt32(dgrDatosUMD.CurrentRow.Cells[0].Value));
-                    cargarProductos();
+                    cargarUMD();
                 }
             }
+        }
+
+        private void txtAddUMD_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateUMD_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtBuscarUMD_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBuscarUMD.Text = FrmKeyboard.informacion;
+
+
+            //for (int i = 0; i < Application.OpenForms.Count; i++)
+            //{
+            //    string nombreForm = Application.OpenForms[i].ToString();
+            //    if (nombreForm.Contains("FrmKeyboard") != false)
+            //    {
+            //        txtAddUMD.Text = FrmKeyboard.informacion;
+            //        return;
+            //    }
+            //}
+        }
+
+        private void txtAddUMD_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (FrmKeyboard.informacion == "")
+            {
+
+                txtAddUMD.Text = FrmKeyboard.informacion;
+            }
+            else
+            {
+                txtAddUMD.Text = "";
+            }
+        }
+
+        private void txtUpdateUMD_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateUMD.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtBuscarUMD_MouseCaptureChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtUpdateNoCertificado_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtUpdateNoCertificado.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateContraseñaCertificado_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateContraseñaCertificado.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateValidoHasta_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateValidoHasta.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateValidoDe_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateValidoDe.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateNoSerie_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateNoSerie.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateNomSucursal_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateNomSucursal.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdatePais_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdatePais.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateEstado_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateEstado.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateMunicipio_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+            txtUpdateMunicipio.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateCalle_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtUpdateCalle.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateColonia_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateColonia.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateLocalidad_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtUpdateLocalidad.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateNoInterior_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateNoInterior.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateNoExterior_MouseClick(object sender, MouseEventArgs e)
+        {
+            //txtUpdateNoExterior.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddUMD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+           && e.KeyChar != 8) e.Handled = true;
+        }
+
+        private void txtBuscarProducto_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBuscarProducto.Text = FrmKeyboard.informacion;
         }
     }
 }
