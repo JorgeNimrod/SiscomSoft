@@ -33,17 +33,17 @@
             this.btnWare = new System.Windows.Forms.Button();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.dgrDatosAlmacen = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnInventario = new System.Windows.Forms.Button();
-            this.btnPurchase = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Porcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Porcenctaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
+            this.btnPurchase = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.lbltoday = new System.Windows.Forms.Label();
             this.dgrInventario = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,24 +53,24 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlAlmacen = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.dgrPurchase = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgrPurchase = new System.Windows.Forms.DataGridView();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrInventario)).BeginInit();
             this.pnlAlmacen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrPurchase)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFecha
@@ -137,6 +137,42 @@
             this.dgrDatosAlmacen.TabIndex = 29;
             this.dgrDatosAlmacen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellContentClick);
             // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre Producto";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 300;
+            // 
+            // Porcion
+            // 
+            this.Porcion.HeaderText = "Porcion";
+            this.Porcion.Name = "Porcion";
+            this.Porcion.Width = 180;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad Vendida";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 185;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.Name = "Costo";
+            this.Costo.Width = 185;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.Width = 180;
+            // 
+            // Porcenctaje
+            // 
+            this.Porcenctaje.HeaderText = "Porcentaje";
+            this.Porcenctaje.Name = "Porcenctaje";
+            this.Porcenctaje.Width = 200;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(1803, 265);
@@ -195,42 +231,6 @@
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre Producto";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 300;
-            // 
-            // Porcion
-            // 
-            this.Porcion.HeaderText = "Porcion";
-            this.Porcion.Name = "Porcion";
-            this.Porcion.Width = 180;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad Vendida";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 185;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.Name = "Costo";
-            this.Costo.Width = 185;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.Width = 180;
-            // 
-            // Porcenctaje
-            // 
-            this.Porcenctaje.HeaderText = "Porcentaje";
-            this.Porcenctaje.Name = "Porcenctaje";
-            this.Porcenctaje.Width = 200;
             // 
             // lbltoday
             // 
@@ -318,23 +318,114 @@
             this.pnlAlmacen.Controls.Add(this.btnEliminar);
             this.pnlAlmacen.Controls.Add(this.btnGuardar);
             this.pnlAlmacen.Controls.Add(this.btnCerrar);
-            this.pnlAlmacen.Location = new System.Drawing.Point(13, 60);
+            this.pnlAlmacen.Location = new System.Drawing.Point(221, 7);
             this.pnlAlmacen.Name = "pnlAlmacen";
-            this.pnlAlmacen.Size = new System.Drawing.Size(1346, 658);
+            this.pnlAlmacen.Size = new System.Drawing.Size(42, 43);
             this.pnlAlmacen.TabIndex = 38;
             this.pnlAlmacen.Visible = false;
             // 
-            // pictureBox1
+            // comboBox1
             // 
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(18, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(181, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(246, 57);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(307, 28);
+            this.comboBox1.TabIndex = 11;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(777, 17);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(409, 71);
+            this.textBox1.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(671, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Descripcion :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(553, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 20);
+            this.label3.TabIndex = 8;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(246, 13);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(307, 26);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(104, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Entidad :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(179, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Numero de documento :";
+            // 
+            // dgrPurchase
+            // 
+            this.dgrPurchase.BackgroundColor = System.Drawing.Color.White;
+            this.dgrPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrPurchase.Location = new System.Drawing.Point(15, 103);
+            this.dgrPurchase.Name = "dgrPurchase";
+            this.dgrPurchase.Size = new System.Drawing.Size(1171, 506);
+            this.dgrPurchase.TabIndex = 4;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Location = new System.Drawing.Point(1204, 168);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(126, 71);
+            this.btnModificar.TabIndex = 3;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.MouseLeave += new System.EventHandler(this.btnModificar_MouseLeave);
+            this.btnModificar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnModificar_MouseMove);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Location = new System.Drawing.Point(1204, 245);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(126, 71);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.MouseLeave += new System.EventHandler(this.btnEliminar_MouseLeave);
+            this.btnEliminar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEliminar_MouseMove);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Location = new System.Drawing.Point(1204, 91);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(126, 71);
+            this.btnGuardar.TabIndex = 1;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.MouseLeave += new System.EventHandler(this.btnGuardar_MouseLeave);
+            this.btnGuardar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnGuardar_MouseMove);
             // 
             // btnCerrar
             // 
@@ -349,115 +440,24 @@
             this.btnCerrar.MouseLeave += new System.EventHandler(this.btnCerrar_MouseLeave);
             this.btnCerrar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCerrar_MouseMove);
             // 
-            // btnGuardar
+            // pictureBox1
             // 
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(1204, 91);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(126, 71);
-            this.btnGuardar.TabIndex = 1;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.MouseLeave += new System.EventHandler(this.btnGuardar_MouseLeave);
-            this.btnGuardar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnGuardar_MouseMove);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Location = new System.Drawing.Point(1204, 245);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(126, 71);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.MouseLeave += new System.EventHandler(this.btnEliminar_MouseLeave);
-            this.btnEliminar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEliminar_MouseMove);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Location = new System.Drawing.Point(1204, 168);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(126, 71);
-            this.btnModificar.TabIndex = 3;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.MouseLeave += new System.EventHandler(this.btnModificar_MouseLeave);
-            this.btnModificar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnModificar_MouseMove);
-            // 
-            // dgrPurchase
-            // 
-            this.dgrPurchase.BackgroundColor = System.Drawing.Color.White;
-            this.dgrPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrPurchase.Location = new System.Drawing.Point(15, 103);
-            this.dgrPurchase.Name = "dgrPurchase";
-            this.dgrPurchase.Size = new System.Drawing.Size(1171, 506);
-            this.dgrPurchase.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Numero de documento :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Entidad :";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(246, 13);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(307, 26);
-            this.dateTimePicker1.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(553, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 20);
-            this.label3.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(671, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Descripcion :";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(777, 17);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(409, 71);
-            this.textBox1.TabIndex = 10;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(246, 57);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(307, 28);
-            this.comboBox1.TabIndex = 11;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(18, 18);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(181, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1370, 750);
             this.Controls.Add(this.pnlAlmacen);
             this.Controls.Add(this.dgrInventario);
             this.Controls.Add(this.lbltoday);
@@ -482,8 +482,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgrInventario)).EndInit();
             this.pnlAlmacen.ResumeLayout(false);
             this.pnlAlmacen.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrPurchase)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
