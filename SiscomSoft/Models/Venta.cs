@@ -19,9 +19,17 @@ namespace SiscomSoft.Models
 
         public virtual Factura fkFactura { get; set; }
 
-        public ICollection<DetalleVenta> DetalleVentas { get; set; }
+        public DateTime dtFechaVenta { get; set; }
+
+        public decimal dCambio { get; set; }
+
+        public string sTipoPago { get; set; }
+
+        public string sMoneda { get; set; }
 
         public Boolean bStatus { get; set; }
+
+        public ICollection<DetalleVenta> DetalleVentas { get; set; }
 
         public Venta()
         {

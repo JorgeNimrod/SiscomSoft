@@ -183,13 +183,9 @@ namespace SiscomSoft.Migrations
                 c => new
                     {
                         pkDetalleVenta = c.Int(nullable: false, identity: true),
-                        dtFechaVenta = c.DateTime(nullable: false, precision: 0),
-                        dTotal = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        dCambio = c.Decimal(nullable: false, precision: 18, scale: 2),
                         iCantidad = c.Int(nullable: false),
-                        sTipoPago = c.String(unicode: false),
-                        sMoneda = c.String(unicode: false),
                         iDescuento = c.Int(nullable: false),
+                        dPreUnitario = c.Decimal(nullable: false, precision: 18, scale: 2),
                         bStatus = c.Boolean(nullable: false),
                         fkProducto_pkProducto = c.Int(),
                         fkVenta_pkVenta = c.Int(),
@@ -205,6 +201,10 @@ namespace SiscomSoft.Migrations
                 c => new
                     {
                         pkVenta = c.Int(nullable: false, identity: true),
+                        dtFechaVenta = c.DateTime(nullable: false, precision: 0),
+                        dCambio = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        sTipoPago = c.String(unicode: false),
+                        sMoneda = c.String(unicode: false),
                         bStatus = c.Boolean(nullable: false),
                         fkCliente_pkCliente = c.Int(),
                         fkFactura_pkFactura = c.Int(),

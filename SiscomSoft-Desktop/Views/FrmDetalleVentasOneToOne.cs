@@ -27,6 +27,12 @@ namespace SiscomSoft_Desktop.Views
             txtCantidad.Focus();
         }
 
+        public void numeroVenta()
+        {
+            List<Venta> nVenta = ManejoVenta.getAll();
+            lblNumVenta.Text = "#" + nVenta.Count.ToString();
+        }
+
         private void FrmDetalleVentasOneToOne_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
@@ -64,6 +70,7 @@ namespace SiscomSoft_Desktop.Views
                 }
             }
             #endregion
+            numeroVenta();
         }
 
         private void FrmDetalleVentasOneToOne_MouseClick(object sender, MouseEventArgs e)
@@ -129,6 +136,7 @@ namespace SiscomSoft_Desktop.Views
                     lblTotalPagar.Text = "$" + Subtotal.ToString("#,###.#0#");
                     lblTotal2.Text = Subtotal.ToString("#,###.#0#");
                 }
+                noCantidad = 0;
                 lblCliente.Visible = true;
                 lblCliente.Text = lblNomCliente.Text;
                 pnlDetalleVenta.Visible = false;
@@ -229,7 +237,7 @@ namespace SiscomSoft_Desktop.Views
 
                 row.Cells[3].Value = total;
                 row.Cells[4].Value = nProducto.dCosto;
-                row.Height = 50;
+                row.Height = 40;
                 dgvProductos.Rows.Add(row);
 
                 foreach (DataGridViewRow rItem in dgvProductos.Rows)
@@ -391,10 +399,10 @@ namespace SiscomSoft_Desktop.Views
 
         private void btn200pesos_Click(object sender, EventArgs e)
         {
+            int x = 0;
             pesos = true;
             noCantidad += 200;
             noCantidad += Convert.ToDouble(lblMonto.Text);
-            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
             lblMonto.Text = noCantidad.ToString("#,###.#0#");
             noCantidad = 0;
 
@@ -687,48 +695,144 @@ namespace SiscomSoft_Desktop.Views
                 btnCredito.Enabled = false;
                 btnVouncher.Enabled = false;
                 btn.Enabled = false;
+
+                btn500pesos.Enabled = true;
+                btn200pesos.Enabled = true;
+                btn100Peso.Enabled = true;
+                btn50Peso.Enabled = true;
+                btn20Peso.Enabled = true;
+
+                btnNo0.Enabled = true;
+                btnNo1.Enabled = true;
+                btnNo2.Enabled = true;
+                btnNo3.Enabled = true;
+                btnNo4.Enabled = true;
+                btnNo5.Enabled = true;
+                btnNo6.Enabled = true;
+                btnNo7.Enabled = true;
+                btnNo8.Enabled = true;
+                btnNo9.Enabled = true;
+                btnPuntoPagar.Enabled = true;
+                btnClear.Enabled = true;
+                btnAll.Enabled = true;
+
+                btnFactura.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+                button10.Enabled = true;
+                button11.Enabled = true;
+                button12.Enabled = true;
+                button13.Enabled = true;
+
+                lblCambio.Text = "0";
+                pnlCambio.Visible = false;
             }
         }
 
         private void btnEfectivo_Click(object sender, EventArgs e)
         {
-            double cambio = 0;
-            double total = 0;
-            double monto = 0;
+            Decimal cambio = 0;
+            Decimal falta = 0;
+            Decimal total = Convert.ToDecimal(lblTotal2.Text);
+            Decimal monto = Convert.ToDecimal(lblMonto.Text);
 
-            cambio = total - monto;
+            cambio = monto-total;
+            falta = total - monto;
+            if (falta>0)
+            {
+                lblTotal2.Text = falta.ToString();
+                lblMonto.Text = "0";
+                btnEfectivo.Enabled = false;
+                btnCredito.Enabled = false;
+                btnVouncher.Enabled = false;
+                btn.Enabled = false;
+            }
             if (cambio == 0)
             {
-                Venta mVenta = new Venta();
-                mVenta.fkCliente = mCliente;
-                mVenta.fkFactura = mFactura;
-                ManejoVenta.RegistrarNuevaVenta(mVenta);
-                DetalleVenta mDetalle = new DetalleVenta();
-                mDetalle.dCambio = Convert.ToDecimal(lblCambio.Text);
-                mDetalle.dtFechaVenta = DateTime.Now;
-                mDetalle.dTotal = Convert.ToDecimal(lblTotal2.Text);
-                mDetalle.fkVenta = mVenta;
-                mDetalle.sMoneda = "MXM";
-                mDetalle.sTipoPago = "EFECTIVO";
-                foreach (DataGridViewRow row in dgvDetalleProductos.Rows)
-                {
-                    if (!row.IsNewRow)
-                    {
-                        Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
-                        mDetalle.fkProducto = mProducto;
-                        mDetalle.iCantidad = Convert.ToInt32(row.Cells[1].Value);
-                    }
-                }
-
-                ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalle);
-                FrmMenu.nVenta = null;
-                MessageBox.Show("Test");
+                guardarVenta();
+                pnlPagar.Visible = false;
+                pnlDetalleVenta.Visible = true;
             }
-            else
+            else if (cambio>total)
             {
+                guardarVenta();
+
+                btn500pesos.Enabled = false;
+                btn200pesos.Enabled = false;
+                btn100Peso.Enabled = false;
+                btn50Peso.Enabled = false;
+                btn20Peso.Enabled = false;
+
+                btnNo0.Enabled = false;
+                btnNo1.Enabled = false;
+                btnNo2.Enabled = false;
+                btnNo3.Enabled = false;
+                btnNo4.Enabled = false;
+                btnNo5.Enabled = false;
+                btnNo6.Enabled = false;
+                btnNo7.Enabled = false;
+                btnNo8.Enabled = false;
+                btnNo9.Enabled = false;
+                btnPuntoPagar.Enabled = false;
+                btnClear.Enabled = false;
+                btnAll.Enabled = false;
+
+                btnFactura.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
+                button4.Enabled = false;
+                button10.Enabled = false;
+                button11.Enabled = false;
+                button12.Enabled = false;
+                button13.Enabled = false;
+                
                 lblCambio.Text = cambio.ToString();
                 pnlCambio.Visible = true;
             }
+        }
+
+        private void guardarVenta()
+        {
+            Venta mVenta = new Venta();
+            DetalleVenta mDetalle = new DetalleVenta();
+            mVenta.dCambio = Convert.ToDecimal(lblCambio.Text);
+            mVenta.dtFechaVenta = DateTime.Now;
+            mVenta.sMoneda = "MXM";
+            mVenta.sTipoPago = "EFECTIVO";
+            ManejoVenta.RegistrarNuevaVenta(mVenta, mCliente, mFactura);
+            foreach (DataGridViewRow row in dgvDetalleProductos.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
+                    mDetalle.iCantidad = Convert.ToInt32(row.Cells[1].Value);
+                    mDetalle.dPreUnitario = Convert.ToInt32(row.Cells[4].Value);
+                    ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalle, mProducto, mVenta);
+                }
+            }
+
+            FrmMenu.nVenta = null;
+            mCliente = null;
+            mFactura = null;
+
+            dgvProductos.Rows.Clear();
+            dgvDetalleProductos.Rows.Clear();
+
+            noPagar = 0;
+            noCantidad = 0;
+            lblMonto.Text = "0";
+            lblSubTotal.Text = "$0";
+            btnEfectivo.Enabled = false;
+            btnCredito.Enabled = false;
+            btnVouncher.Enabled = false;
+            btn.Enabled = false;
+            lblCliente.Text = "";
+            lblNomCliente.Text="";
+            lblNomCliente.Visible = false;
+            pnlAccionesProductos.Visible = false;
+            pnlAccionesGenerales.Visible = true;
+            numeroVenta();
         }
         #endregion
     }
