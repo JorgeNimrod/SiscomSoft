@@ -18,7 +18,7 @@ namespace SiscomSoft_Desktop.Views
         double noCantidad = 0;
         double noPagar = 0;
         Boolean pesos = false;
-        List<DetalleVenta> nVenta;
+        public static List<DetalleVenta> nVenta;
         public static Cliente mCliente;
         public static Factura mFactura;
 
@@ -48,19 +48,27 @@ namespace SiscomSoft_Desktop.Views
             }
             #endregion
             #region DATOS EN MEMORIA
-            if (FrmMenu.nVenta != null)
+            if (nVenta != null)
             {
-                foreach (InventarioEntrada rEntrada in FrmMenu.nVenta)
+                foreach (DetalleVenta rDetalle in nVenta)
                 {
                     DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
-                    row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
-                    row.Cells[1].Value = rEntrada.iCantidad;
-                    row.Cells[2].Value = rEntrada.sNomProducto;
-                    row.Cells[3].Value = rEntrada.dTotal;
-                    row.Cells[4].Value = rEntrada.dPreUnitario;
-                    row.Height = 50;
-                    dgvProductos.Rows.Add(row);
+                    row.Cells[0].Value = rDetalle.fkProducto.pkProducto;
+                    row.Cells[1].Value = rDetalle.iCantidad;
+                    row.Cells[2].Value = rDetalle.sDescripcion;
+                    row.Cells[4].Value = rDetalle.dPreUnitario;
+                    row.Cells[5].Value = rDetalle.dImpuesto;
+                    row.Cells[6].Value = rDetalle.iDescuento;
 
+                    decimal dgvCosto = rDetalle.dPreUnitario;
+                    int dgvCantidad = rDetalle.iCantidad;
+
+                    decimal total = dgvCantidad * dgvCosto;
+
+                    row.Cells[3].Value = total;
+                    row.Height = 40;
+                    dgvProductos.Rows.Add(row);
+                    
                     decimal Subtotal = 0;
                     foreach (DataGridViewRow rItem in dgvProductos.Rows)
                     {
@@ -105,25 +113,36 @@ namespace SiscomSoft_Desktop.Views
                     if (!row.IsNewRow)
                     {
                         SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
-                        nVenta.Add(new DetalleVenta{
-                            iCantidad = Convert.ToInt32(row.Cells[1].Value),
-                            dPreUnitario = Convert.ToDecimal(row.Cells[4].Value),
+                        nVenta.Add(new DetalleVenta {
                             fkProducto = nProducto,
-                            
+                            iCantidad = Convert.ToInt32(row.Cells[1].Value),
+                            sDescripcion = row.Cells[2].Value.ToString(),
+                            dPreUnitario = Convert.ToDecimal(row.Cells[4].Value),
+                            dImpuesto = Convert.ToDecimal(row.Cells[5].Value),
+                            iDescuento = Convert.ToInt32(row.Cells[6].Value),
                         });
                     }
                 }
-                if (FrmMenu.nVenta != null)
+                if (nVenta != null)
                 {
-                    foreach (InventarioEntrada rEntrada in FrmMenu.nVenta)
+                    foreach (DetalleVenta rDetalle in nVenta)
                     {
                         DataGridViewRow row = (DataGridViewRow)dgvDetalleProductos.Rows[0].Clone();
-                        row.Cells[0].Value = rEntrada.fkProducto.pkProducto;
-                        row.Cells[1].Value = rEntrada.iCantidad;
-                        row.Cells[2].Value = rEntrada.sNomProducto;
-                        row.Cells[3].Value = rEntrada.dTotal;
-                        row.Cells[4].Value = rEntrada.dPreUnitario;
-                        row.Height = 50;
+                        row.Cells[0].Value = rDetalle.fkProducto.pkProducto;
+                        row.Cells[1].Value = rDetalle.iCantidad;
+                        row.Cells[2].Value = rDetalle.sDescripcion;
+                        row.Cells[4].Value = rDetalle.dPreUnitario;
+                        row.Cells[5].Value = rDetalle.dImpuesto;
+                        row.Cells[6].Value = rDetalle.iDescuento;
+
+                        decimal dgvCosto = rDetalle.dPreUnitario;
+                        int dgvCantidad = rDetalle.iCantidad;
+
+                        decimal total = dgvCantidad * dgvCosto;
+
+                        row.Cells[3].Value = total;
+
+                        row.Height = 40;
                         dgvDetalleProductos.Rows.Add(row);
                     }
                     decimal Subtotal = 0;
@@ -358,19 +377,19 @@ namespace SiscomSoft_Desktop.Views
         {
             if (dgvProductos.RowCount > 1)
             {
-                FrmMenu.nVenta = new List<InventarioEntrada>();
+                nVenta = new List<DetalleVenta>();
                 foreach (DataGridViewRow row in dgvProductos.Rows)
                 {
                     if (!row.IsNewRow)
                     {
                         SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
-                        FrmMenu.nVenta.Add(new InventarioEntrada
-                        {
+                        nVenta.Add(new DetalleVenta {
+                            fkProducto = nProducto,
                             iCantidad = Convert.ToInt32(row.Cells[1].Value),
-                            sNomProducto = row.Cells[2].Value.ToString(),
-                            dTotal = Convert.ToDecimal(row.Cells[3].Value),
+                            sDescripcion = row.Cells[2].Value.ToString(),
                             dPreUnitario = Convert.ToDecimal(row.Cells[4].Value),
-                            fkProducto = nProducto
+                            dImpuesto = Convert.ToDecimal(row.Cells[5].Value),
+                            iDescuento = Convert.ToInt32(row.Cells[6].Value)
                         });
                     }
                 }
@@ -754,7 +773,7 @@ namespace SiscomSoft_Desktop.Views
                 pnlPagar.Visible = false;
                 pnlDetalleVenta.Visible = true;
             }
-            else if (cambio>total)
+            else if (cambio<total)
             {
                 guardarVenta();
 
@@ -789,6 +808,12 @@ namespace SiscomSoft_Desktop.Views
                 
                 lblCambio.Text = cambio.ToString();
                 pnlCambio.Visible = true;
+
+                pnlDetalleMinimo.Visible = true;
+                lblPagoTotal.Text = total.ToString();
+                lblMontoRecibido.Text = monto.ToString();
+                lblCambioDado.Text = cambio.ToString();
+                dgvDetalleProductos.Height = 440;
             }
         }
 
@@ -807,12 +832,15 @@ namespace SiscomSoft_Desktop.Views
                 {
                     Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
                     mDetalle.iCantidad = Convert.ToInt32(row.Cells[1].Value);
-                    mDetalle.dPreUnitario = Convert.ToInt32(row.Cells[4].Value);
+                    mDetalle.sDescripcion = row.Cells[2].Value.ToString();
+                    mDetalle.dPreUnitario = Convert.ToDecimal(row.Cells[4].Value);
+                    mDetalle.dImpuesto = Convert.ToDecimal(row.Cells[5].Value);
+                    mDetalle.iDescuento = Convert.ToInt32(row.Cells[6].Value);
                     ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalle, mProducto, mVenta);
                 }
             }
 
-            FrmMenu.nVenta = null;
+            nVenta = null;
             mCliente = null;
             mFactura = null;
 
