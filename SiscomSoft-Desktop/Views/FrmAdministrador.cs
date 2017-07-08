@@ -21,10 +21,13 @@ namespace SiscomSoft_Desktop.Views
 
     public partial class FrmAdministrador : Form
     {
-        int[] numeros = {  };
-       
+        
 
-         
+
+        int[] valores = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+
+
         Boolean flagRol = false;
         Boolean flagUsuario = false;
         Boolean flagProducto = false;
@@ -236,6 +239,8 @@ namespace SiscomSoft_Desktop.Views
             btnPreciolist.ForeColor = Color.Black;
             btnProductolist.BackColor = Color.DarkCyan;
             btnProductolist.ForeColor = Color.White;
+            btnUMD.BackColor = Color.White;
+            btnUMD.ForeColor = Color.Black;
         }
 
         private void btnPreciolist_MouseClick(object sender, MouseEventArgs e)
@@ -248,6 +253,8 @@ namespace SiscomSoft_Desktop.Views
             btnProductolist.ForeColor = Color.Black;
             btnPreciolist.BackColor = Color.DarkCyan;
             btnPreciolist.ForeColor = Color.White;
+            btnUMD.BackColor = Color.White;
+            btnUMD.ForeColor = Color.Black;
         }
 
         private void btnImpuestolist_MouseClick(object sender, MouseEventArgs e)
@@ -260,6 +267,8 @@ namespace SiscomSoft_Desktop.Views
             btnProductolist.ForeColor = Color.Black;
             btnImpuestolist.BackColor = Color.DarkCyan;
             btnImpuestolist.ForeColor = Color.White;
+            btnUMD.BackColor = Color.White;
+            btnUMD.ForeColor = Color.Black;
         }
 
         private void btnCategorialist_MouseClick(object sender, MouseEventArgs e)
@@ -272,6 +281,8 @@ namespace SiscomSoft_Desktop.Views
             btnProductolist.ForeColor = Color.Black;
             btnCategorialist.BackColor = Color.DarkCyan;
             btnCategorialist.ForeColor = Color.White;
+            btnUMD.BackColor = Color.White;
+            btnUMD.ForeColor = Color.Black;
         }
         public static bool ValidarCurp(string curp)
         {
@@ -5482,15 +5493,16 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtAddUMD_MouseClick(object sender, MouseEventArgs e)
         {
-            if (FrmKeyboard.informacion == "")
-            {
+          
+            //    if (FrmKeyboard.informacion == Convert.ToString( valores))
+            //    {
 
-                txtAddUMD.Text = FrmKeyboard.informacion;
-            }
-            else
-            {
-                txtAddUMD.Text = "";
-            }
+            //        txtAddUMD.Text = FrmKeyboard.informacion;
+            //    }
+            //    else
+            //    {
+            //        txtAddUMD.Text = "";
+            //    }
         }
 
         private void txtUpdateUMD_MouseClick(object sender, MouseEventArgs e)
@@ -5583,6 +5595,26 @@ namespace SiscomSoft_Desktop.Views
         private void txtBuscarProducto_MouseClick(object sender, MouseEventArgs e)
         {
             txtBuscarProducto.Text = FrmKeyboard.informacion;
+        }
+
+        private void btnUMD_ChangeUICues(object sender, UICuesEventArgs e)
+        {
+
+        }
+
+        private void btnUMD_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnImpuestolist.BackColor = Color.White;
+            btnImpuestolist.ForeColor = Color.Black;
+            btnPreciolist.BackColor = Color.White;
+            btnPreciolist.ForeColor = Color.Black;
+            btnProductolist.BackColor = Color.White;
+            btnProductolist.ForeColor = Color.Black;
+            btnCategorialist.BackColor = Color.White;
+            btnCategorialist.ForeColor = Color.Black;
+            btnUMD.BackColor = Color.DarkCyan;
+            btnUMD.ForeColor = Color.White;
+
         }
     }
 }
