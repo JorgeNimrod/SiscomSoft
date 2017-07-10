@@ -15,9 +15,10 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmDetalleVentasOneToOne : Form
     {
+        Boolean pesos = false;
         double noCantidad = 0;
         double noPagar = 0;
-        Boolean pesos = false;
+        public decimal IVA = 0;
         public static List<DetalleVenta> nVenta;
         public static Cliente mCliente;
         public static Factura mFactura;
@@ -60,12 +61,23 @@ namespace SiscomSoft_Desktop.Views
                     row.Cells[5].Value = rDetalle.dImpuesto;
                     row.Cells[6].Value = rDetalle.iDescuento;
 
-                    decimal dgvCosto = rDetalle.dPreUnitario;
-                    int dgvCantidad = rDetalle.iCantidad;
+                    decimal Importe = 0;
+                    decimal ImporteWithImpuesto = 0;
+                    decimal ImporteWithDescuento = 0;
+                    decimal PreUnitario = rDetalle.dPreUnitario;
+                    decimal TasaImpuesto = rDetalle.fkProducto.fkImpuesto.dTasaImpuesto;
+                    int Cantidad = rDetalle.iCantidad;
+                    int Descuento = rDetalle.fkProducto.iDescuento;
 
-                    decimal total = dgvCantidad * dgvCosto;
+                    ImporteWithDescuento = (Cantidad * PreUnitario) - Descuento;
+                    ImporteWithImpuesto = ImporteWithDescuento * (TasaImpuesto / 100);
+                    Importe = (ImporteWithDescuento + ImporteWithImpuesto);
 
-                    row.Cells[3].Value = total;
+                    row.Cells[3].Value = Importe.ToString("#,###.#0#");
+                    row.Cells[4].Value = rDetalle.dPreUnitario;
+                    row.Cells[5].Value = rDetalle.fkProducto.fkImpuesto.dTasaImpuesto;
+                    row.Cells[6].Value = rDetalle.fkProducto.iDescuento;
+
                     row.Height = 40;
                     dgvProductos.Rows.Add(row);
                     
@@ -131,16 +143,23 @@ namespace SiscomSoft_Desktop.Views
                         row.Cells[0].Value = rDetalle.fkProducto.pkProducto;
                         row.Cells[1].Value = rDetalle.iCantidad;
                         row.Cells[2].Value = rDetalle.sDescripcion;
+                        
+                        decimal Importe = 0;
+                        decimal ImporteWithImpuesto = 0;
+                        decimal ImporteWithDescuento = 0;
+                        decimal PreUnitario = rDetalle.dPreUnitario;
+                        decimal TasaImpuesto = rDetalle.fkProducto.fkImpuesto.dTasaImpuesto;
+                        int Cantidad = rDetalle.iCantidad;
+                        int Descuento = rDetalle.fkProducto.iDescuento;
+
+                        ImporteWithDescuento = (Cantidad * PreUnitario) - Descuento;
+                        ImporteWithImpuesto = ImporteWithDescuento * (TasaImpuesto / 100);
+                        Importe = (ImporteWithDescuento + ImporteWithImpuesto);
+                        
+                        row.Cells[3].Value = Importe.ToString("#,###.#0#");
                         row.Cells[4].Value = rDetalle.dPreUnitario;
-                        row.Cells[5].Value = rDetalle.dImpuesto;
-                        row.Cells[6].Value = rDetalle.iDescuento;
-
-                        decimal dgvCosto = rDetalle.dPreUnitario;
-                        int dgvCantidad = rDetalle.iCantidad;
-
-                        decimal total = dgvCantidad * dgvCosto;
-
-                        row.Cells[3].Value = total;
+                        row.Cells[5].Value = rDetalle.fkProducto.fkImpuesto.dTasaImpuesto;
+                        row.Cells[6].Value = rDetalle.fkProducto.iDescuento;
 
                         row.Height = 40;
                         dgvDetalleProductos.Rows.Add(row);
@@ -260,7 +279,12 @@ namespace SiscomSoft_Desktop.Views
                 ImporteWithImpuesto = ImporteWithDescuento * (TasaImpuesto / 100);
                 Importe = (ImporteWithDescuento + ImporteWithImpuesto);
 
-                row.Cells[3].Value = ImporteWithDescuento.ToString("#,###.#0#");
+                if(nProducto.fkImpuesto.dTasaImpuesto == 16)
+                {
+                    IVA += ImporteWithImpuesto;
+                }
+
+                row.Cells[3].Value = Importe.ToString("#,###.#0#");
                 row.Cells[4].Value = nProducto.dCosto;
                 row.Cells[5].Value = nProducto.fkImpuesto.dTasaImpuesto;
                 row.Cells[6].Value = nProducto.iDescuento;
@@ -303,14 +327,22 @@ namespace SiscomSoft_Desktop.Views
             int valor = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
             valor += 1;
             dgvProductos.CurrentRow.Cells[1].Value = valor;
-            decimal dgvCosto = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
-            int dgvCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
-
-            decimal total = dgvCantidad * dgvCosto;
-
-            dgvProductos.CurrentRow.Cells[3].Value = total;
 
             decimal Subtotal = 0;
+            decimal Importe = 0;
+            decimal ImporteWithImpuesto = 0;
+            decimal ImporteWithDescuento = 0;
+            decimal PreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+            decimal TasaImpuesto = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[5].Value);
+            int Cantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
+            int Descuento = Convert.ToInt32(dgvProductos.CurrentRow.Cells[6].Value);
+
+            ImporteWithDescuento = (Cantidad * PreUnitario) - Descuento;
+            ImporteWithImpuesto = ImporteWithDescuento * (TasaImpuesto / 100);
+            Importe = ImporteWithDescuento + ImporteWithImpuesto;
+
+            dgvProductos.CurrentRow.Cells[3].Value = Importe;
+            
             foreach (DataGridViewRow rItem in dgvProductos.Rows)
             {
                 Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
@@ -328,14 +360,21 @@ namespace SiscomSoft_Desktop.Views
                 valor -= 1;
                 dgvProductos.CurrentRow.Cells[1].Value = valor;
 
-                decimal dgvCosto = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
-                int dgvCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
-
-                decimal total = dgvCantidad * dgvCosto;
-
-                dgvProductos.CurrentRow.Cells[3].Value = total;
-
                 decimal Subtotal = 0;
+                decimal Importe = 0;
+                decimal ImporteWithImpuesto = 0;
+                decimal ImporteWithDescuento = 0;
+                decimal PreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
+                decimal TasaImpuesto = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[5].Value);
+                int Cantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
+                int Descuento = Convert.ToInt32(dgvProductos.CurrentRow.Cells[6].Value);
+
+                ImporteWithDescuento = (Cantidad * PreUnitario) - Descuento;
+                ImporteWithImpuesto = ImporteWithDescuento * (TasaImpuesto / 100);
+                Importe = ImporteWithDescuento + ImporteWithImpuesto;
+
+                dgvProductos.CurrentRow.Cells[3].Value = Importe;
+                
                 foreach (DataGridViewRow rItem in dgvProductos.Rows)
                 {
                     Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
@@ -353,13 +392,8 @@ namespace SiscomSoft_Desktop.Views
         {
             if (dgvProductos.RowCount > 1)
             {
-                //decimal dgvCosto = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[5].Value);
-                //int dgvCantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[3].Value);
-
-                //decimal total = dgvCantidad * dgvCosto;
-
-                //dgvProductos.CurrentRow.Cells[4].Value = total;
                 dgvProductos.Rows.RemoveAt(dgvProductos.CurrentRow.Index);
+
                 decimal Subtotal = 0;
                 foreach (DataGridViewRow rItem in dgvProductos.Rows)
                 {
@@ -373,7 +407,7 @@ namespace SiscomSoft_Desktop.Views
                 {
                     lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
                 }
-                int x = 0;
+
                 if (dgvProductos.RowCount == 1)
                 {
                     pnlAccionesProductos.Visible = false;
@@ -781,9 +815,8 @@ namespace SiscomSoft_Desktop.Views
                 pnlPagar.Visible = false;
                 pnlDetalleVenta.Visible = true;
             }
-            else if (cambio<total)
+            else if (cambio>total)
             {
-                guardarVenta();
 
                 btn500pesos.Enabled = false;
                 btn200pesos.Enabled = false;
@@ -818,10 +851,12 @@ namespace SiscomSoft_Desktop.Views
                 pnlCambio.Visible = true;
 
                 pnlDetalleMinimo.Visible = true;
-                lblPagoTotal.Text = total.ToString();
+                lblImporte.Text = total.ToString();
                 lblMontoRecibido.Text = monto.ToString();
                 lblCambioDado.Text = cambio.ToString();
+                lblIVA16.Text = IVA.ToString("#,###.#0#");
                 dgvDetalleProductos.Height = 440;
+                guardarVenta();
             }
         }
 

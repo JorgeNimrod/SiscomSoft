@@ -69,6 +69,10 @@
     <Compile Include="Controller\ManejoEntrada.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
+    <Compile Include="Migrations\201707102244224_INICIAL.cs" />
+    <Compile Include="Migrations\201707102244224_INICIAL.Designer.cs">
+      <DependentUpon>201707102244224_INICIAL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\DetalleAlmacen.cs" />
     <Compile Include="Models\DetalleVenta.cs" />
@@ -104,6 +108,11 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201707102244224_INICIAL.resx">
+      <DependentUpon>201707102244224_INICIAL.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
