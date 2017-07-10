@@ -203,6 +203,12 @@
     <Compile Include="Views\FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UICONTROL\FrmWareHouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UICONTROL\FrmWareHouse.Designer.cs">
+      <DependentUpon>FrmWareHouse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UICONTROL\ucImagenProducto.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -273,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UICONTROL\FrmWareHouse.resx">
+      <DependentUpon>FrmWareHouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UICONTROL\ucImagenProducto.resx">
       <DependentUpon>ucImagenProducto.cs</DependentUpon>

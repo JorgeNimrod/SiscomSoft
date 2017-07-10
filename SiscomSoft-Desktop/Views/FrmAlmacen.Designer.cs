@@ -32,26 +32,12 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.btnWare = new System.Windows.Forms.Button();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
-            this.dgrDatosAlmacen = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Porcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Porcenctaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnPurchase = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.lbltoday = new System.Windows.Forms.Label();
-            this.dgrInventario = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlAlmacen = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -66,11 +52,17 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrInventario)).BeginInit();
+            this.Porcenctaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Porcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgrDatosAlmacen = new System.Windows.Forms.DataGridView();
             this.pnlAlmacen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFecha
@@ -114,64 +106,6 @@
             this.btnMenuPrincipal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnMenuPrincipal.UseVisualStyleBackColor = false;
             this.btnMenuPrincipal.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // dgrDatosAlmacen
-            // 
-            this.dgrDatosAlmacen.BackgroundColor = System.Drawing.Color.White;
-            this.dgrDatosAlmacen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgrDatosAlmacen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrDatosAlmacen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre,
-            this.Porcion,
-            this.Cantidad,
-            this.Costo,
-            this.Precio,
-            this.Porcenctaje});
-            this.dgrDatosAlmacen.EnableHeadersVisualStyles = false;
-            this.dgrDatosAlmacen.GridColor = System.Drawing.Color.Chocolate;
-            this.dgrDatosAlmacen.Location = new System.Drawing.Point(13, 177);
-            this.dgrDatosAlmacen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgrDatosAlmacen.Name = "dgrDatosAlmacen";
-            this.dgrDatosAlmacen.RowHeadersVisible = false;
-            this.dgrDatosAlmacen.Size = new System.Drawing.Size(1224, 541);
-            this.dgrDatosAlmacen.TabIndex = 29;
-            this.dgrDatosAlmacen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellContentClick);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre Producto";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 300;
-            // 
-            // Porcion
-            // 
-            this.Porcion.HeaderText = "Porcion";
-            this.Porcion.Name = "Porcion";
-            this.Porcion.Width = 180;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad Vendida";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 185;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.Name = "Costo";
-            this.Costo.Width = 185;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.Width = 180;
-            // 
-            // Porcenctaje
-            // 
-            this.Porcenctaje.HeaderText = "Porcentaje";
-            this.Porcenctaje.Name = "Porcenctaje";
-            this.Porcenctaje.Width = 200;
             // 
             // button1
             // 
@@ -244,65 +178,6 @@
             this.lbltoday.TabIndex = 35;
             this.lbltoday.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
             // 
-            // dgrInventario
-            // 
-            this.dgrInventario.BackgroundColor = System.Drawing.Color.White;
-            this.dgrInventario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgrInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrInventario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.dgrInventario.EnableHeadersVisualStyles = false;
-            this.dgrInventario.GridColor = System.Drawing.Color.Chocolate;
-            this.dgrInventario.Location = new System.Drawing.Point(13, 177);
-            this.dgrInventario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgrInventario.Name = "dgrInventario";
-            this.dgrInventario.RowHeadersVisible = false;
-            this.dgrInventario.Size = new System.Drawing.Size(1224, 541);
-            this.dgrInventario.TabIndex = 36;
-            this.dgrInventario.Visible = false;
-            this.dgrInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrInventario_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre Producto";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 300;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Unidad";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 180;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "En Stock";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 185;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Compra";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 185;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Costo";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 180;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Consumo";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 200;
-            // 
             // pnlAlmacen
             // 
             this.pnlAlmacen.BackColor = System.Drawing.Color.White;
@@ -318,11 +193,12 @@
             this.pnlAlmacen.Controls.Add(this.btnEliminar);
             this.pnlAlmacen.Controls.Add(this.btnGuardar);
             this.pnlAlmacen.Controls.Add(this.btnCerrar);
-            this.pnlAlmacen.Location = new System.Drawing.Point(221, 7);
+            this.pnlAlmacen.Location = new System.Drawing.Point(0, 12);
             this.pnlAlmacen.Name = "pnlAlmacen";
-            this.pnlAlmacen.Size = new System.Drawing.Size(42, 43);
+            this.pnlAlmacen.Size = new System.Drawing.Size(1370, 40);
             this.pnlAlmacen.TabIndex = 38;
             this.pnlAlmacen.Visible = false;
+            this.pnlAlmacen.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlAlmacen_Paint);
             // 
             // comboBox1
             // 
@@ -334,7 +210,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(777, 17);
+            this.textBox1.Location = new System.Drawing.Point(777, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(409, 71);
@@ -376,7 +252,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 14);
+            this.label1.Location = new System.Drawing.Point(34, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(179, 20);
             this.label1.TabIndex = 5;
@@ -452,6 +328,64 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
+            // Porcenctaje
+            // 
+            this.Porcenctaje.HeaderText = "Porcentaje";
+            this.Porcenctaje.Name = "Porcenctaje";
+            this.Porcenctaje.Width = 200;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.Width = 180;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.Name = "Costo";
+            this.Costo.Width = 185;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad Vendida";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 185;
+            // 
+            // Porcion
+            // 
+            this.Porcion.HeaderText = "Porcion";
+            this.Porcion.Name = "Porcion";
+            this.Porcion.Width = 180;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre Producto";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 300;
+            // 
+            // dgrDatosAlmacen
+            // 
+            this.dgrDatosAlmacen.BackgroundColor = System.Drawing.Color.White;
+            this.dgrDatosAlmacen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgrDatosAlmacen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrDatosAlmacen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre,
+            this.Porcion,
+            this.Cantidad,
+            this.Costo,
+            this.Precio,
+            this.Porcenctaje});
+            this.dgrDatosAlmacen.EnableHeadersVisualStyles = false;
+            this.dgrDatosAlmacen.GridColor = System.Drawing.Color.Chocolate;
+            this.dgrDatosAlmacen.Location = new System.Drawing.Point(13, 177);
+            this.dgrDatosAlmacen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgrDatosAlmacen.Name = "dgrDatosAlmacen";
+            this.dgrDatosAlmacen.RowHeadersVisible = false;
+            this.dgrDatosAlmacen.Size = new System.Drawing.Size(1224, 541);
+            this.dgrDatosAlmacen.TabIndex = 29;
+            this.dgrDatosAlmacen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellContentClick);
+            // 
             // FrmAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -459,7 +393,6 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1370, 750);
             this.Controls.Add(this.pnlAlmacen);
-            this.Controls.Add(this.dgrInventario);
             this.Controls.Add(this.lbltoday);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnPurchase);
@@ -478,12 +411,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmAlmacen_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrInventario)).EndInit();
             this.pnlAlmacen.ResumeLayout(false);
             this.pnlAlmacen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrPurchase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,26 +427,12 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Button btnWare;
         private System.Windows.Forms.Button btnMenuPrincipal;
-        private System.Windows.Forms.DataGridView dgrDatosAlmacen;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnInventario;
         private System.Windows.Forms.Button btnPurchase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Porcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Porcenctaje;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label lbltoday;
-        private System.Windows.Forms.DataGridView dgrInventario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Panel pnlAlmacen;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -528,5 +446,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Porcenctaje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Porcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridView dgrDatosAlmacen;
     }
 }

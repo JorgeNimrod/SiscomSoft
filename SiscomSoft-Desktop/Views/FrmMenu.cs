@@ -49,7 +49,7 @@ namespace SiscomSoft_Desktop.Views
             //{
             //    //TODO: ACTIVAR TODOS LOS CONTROLES SEGUN EL PERMISO
             //    //ProcesarPermisos();
-            //lblNombre.Text = "Bienvenido " + uHelper.usuario.sNombre;
+            //    lblNombre.Text = "Bienvenido " + uHelper.usuario.sNombre;
             //}
             //else
             //{
@@ -89,7 +89,7 @@ namespace SiscomSoft_Desktop.Views
         private void btnMenuInventario_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmAlmacen v = new FrmAlmacen();
+            UICONTROL.FrmWareHouse v = new UICONTROL.FrmWareHouse();
             v.ShowDialog();
 
         }

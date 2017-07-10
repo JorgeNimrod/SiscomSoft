@@ -11,8 +11,22 @@ namespace SiscomSoft.Controller
 {
    public class ManejoCatalogo
     {
-      
-            public static void RegistrarNuevoUDM(Catalogo nUDM)
+        public static List<Catalogo> getAll(Boolean status)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Catalogos.Where(r => r.bStatus == status).ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static void RegistrarNuevoUDM(Catalogo nUDM)
             {
                 try
                 {

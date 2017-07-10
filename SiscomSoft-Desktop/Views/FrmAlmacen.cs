@@ -58,7 +58,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 btnInventario.Text = "Mostrar Costo";
 
-                dgrInventario.Visible = false;
+            //    dgrInventario.Visible = false;
                 dgrDatosAlmacen.Visible = true;
                 status = true;
                 btnInventario.BackColor = Color.Gold;
@@ -67,7 +67,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 btnInventario.Text = "Mostrar Inventario";
                 dgrDatosAlmacen.Visible = false;
-                dgrInventario.Visible = true;
+             //   dgrInventario.Visible = true;
                 status = false;
                
             }
@@ -127,6 +127,11 @@ namespace SiscomSoft_Desktop.Views
         private void btnEliminar_MouseLeave(object sender, EventArgs e)
         {
             btnEliminar.BackColor = Color.White;
+        }
+
+        private void pnlAlmacen_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SiscomSoft.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201707081734353_INICIAL"; }
+            get { return "201707101732469_INICIAL"; }
         }
         
         string IMigrationMetadata.Source
