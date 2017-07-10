@@ -248,14 +248,22 @@ namespace SiscomSoft_Desktop.Views
 
                 txtCantidad.Clear();
                 decimal Subtotal = 0;
-                decimal dgvCosto = nProducto.dCosto;
-                int dgvCantidad = Convert.ToInt32(row.Cells[1].Value);
+                decimal PreUnitario = nProducto.dCosto;
+                int Cantidad = Convert.ToInt32(row.Cells[1].Value);
+                decimal TasaImpuesto = nProducto.fkImpuesto.dTasaImpuesto;
+                int Descuento = nProducto.iDescuento;
+                decimal Importe = 0;
+                decimal ImporteWithImpuesto = 0;
+                decimal ImporteWithDescuento = 0;
 
-                decimal total = dgvCantidad * dgvCosto;
+                ImporteWithDescuento = (Cantidad * PreUnitario) - Descuento;
+                ImporteWithImpuesto = ImporteWithDescuento * (TasaImpuesto / 100);
+                Importe = (ImporteWithDescuento + ImporteWithImpuesto);
 
-                row.Cells[3].Value = total;
+                row.Cells[3].Value = ImporteWithDescuento.ToString("#,###.#0#");
                 row.Cells[4].Value = nProducto.dCosto;
                 row.Cells[5].Value = nProducto.fkImpuesto.dTasaImpuesto;
+                row.Cells[6].Value = nProducto.iDescuento;
                 row.Height = 40;
                 dgvProductos.Rows.Add(row);
 
