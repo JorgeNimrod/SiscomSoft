@@ -17,6 +17,7 @@ namespace SiscomSoft.Models
         public virtual Producto fkProducto { get; set; }
         public int iCantidad { get; set; }
         public int iDescuento { get; set; }
+        public DateTime dtFechaCaducidad { get; set; }
         public virtual Impuesto fkImpuesto { get; set; }
         public virtual Precio fkPrecio { get; set; }
         public virtual Catalogo fkCatalogo { get; set; }

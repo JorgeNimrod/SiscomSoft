@@ -10,15 +10,22 @@ namespace SiscomSoft.Controller
 {
    public class ManejoDetalleAlmacen
     {
-        public static void RegistrarNuevoDetalle(DetalleAlmacen nDetalle, Producto nProducto,Catalogo nCatalogo )
+        public static void RegistrarNuevoDetalle(DetalleAlmacen nDetalle,Almacen nAlmacen, Producto nProducto,Catalogo nCatalogo,Impuesto nImpuesto,Precio nPrecio )
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
+                    nDetalle.fkAlmacen = nAlmacen;
                     nDetalle.fkProducto = nProducto;
-                    ctx.Catalogos.Attach(nCatalogo);
+                    nDetalle.fkCatalogo = nCatalogo;
+                    nDetalle.fkImpuesto = nImpuesto;
+                    nDetalle.fkPrecio = nPrecio;
+                    ctx.Almacenes.Attach(nAlmacen);
                     ctx.Productos.Attach(nProducto);
+                    ctx.Catalogos.Attach(nCatalogo);
+                    ctx.Impuestos.Attach(nImpuesto);
+                    ctx.Precios.Attach(nPrecio);
                     ctx.DetalleAlmacen.Add(nDetalle);
                     ctx.SaveChanges();
                 }
@@ -39,6 +46,8 @@ namespace SiscomSoft.Controller
                     
                         .Include("fkCatalogo")
                         .Include("fkProducto")
+                        .Include("fkImpuesto")
+                        .Include("fkPrecio")
                         .Where(r => r.bStatus == true && r.pkDetalle == pkDetalle)
                         .FirstOrDefault();
                 }
@@ -62,6 +71,8 @@ namespace SiscomSoft.Controller
                         .Include("fkAlmacen")
                         .Include("fkCatalogo")
                         .Include("fkProducto")
+                        .Include("fkImpuesto")
+                        .Include("fkPrecio")
                         .Where(r => r.iCantidad == pkAlmacen).ToList();
                 }
             }
@@ -76,7 +87,9 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.DetalleAlmacen.Where(r => r.bStatus == true).ToList();
+                    return ctx.DetalleAlmacen
+                        .Include("fkAlmacen")
+                        .Where(r => r.bStatus == true).ToList();
                 }
             }
             catch (Exception)

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWareHouse));
             this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -58,9 +58,41 @@
             this.txtTipoCompra = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pnlMostrarDetalles = new System.Windows.Forms.Panel();
+            this.dgrMostrarDetalles = new System.Windows.Forms.DataGridView();
+            this.btnAlmacenDetalle = new System.Windows.Forms.Button();
+            this.dgrMostrarAlmacen = new System.Windows.Forms.DataGridView();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtBuscarAlmacen = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBuscarDetalle = new System.Windows.Forms.TextBox();
+            this.ckbStatusAlmacen = new System.Windows.Forms.CheckBox();
+            this.cbkStatusDetalle = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).BeginInit();
+            this.pnlMostrarDetalles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrMostrarDetalles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrMostrarAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbxCliente
@@ -104,27 +136,16 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Tipo de Cambio : ";
             // 
-            // btnModificar
-            // 
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Location = new System.Drawing.Point(1217, 235);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(126, 71);
-            this.btnModificar.TabIndex = 15;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.MouseLeave += new System.EventHandler(this.btnModificar_MouseLeave);
-            this.btnModificar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnModificar_MouseMove);
-            // 
             // btnEliminar
             // 
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Location = new System.Drawing.Point(1217, 312);
+            this.btnEliminar.Location = new System.Drawing.Point(1217, 235);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(126, 71);
             this.btnEliminar.TabIndex = 14;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             this.btnEliminar.MouseLeave += new System.EventHandler(this.btnEliminar_MouseLeave);
             this.btnEliminar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEliminar_MouseMove);
             // 
@@ -180,6 +201,8 @@
             this.dgrDatosAlmacen.RowHeadersVisible = false;
             this.dgrDatosAlmacen.Size = new System.Drawing.Size(1198, 495);
             this.dgrDatosAlmacen.TabIndex = 36;
+            this.dgrDatosAlmacen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellClick);
+            this.dgrDatosAlmacen.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgrDatosAlmacen_CellValidating);
             // 
             // pkDetalle
             // 
@@ -304,6 +327,7 @@
             this.btnWare.TabIndex = 28;
             this.btnWare.Text = "Almacen";
             this.btnWare.UseVisualStyleBackColor = false;
+            this.btnWare.Click += new System.EventHandler(this.btnWare_Click);
             // 
             // txtTipoCompra
             // 
@@ -330,9 +354,285 @@
             this.label4.TabIndex = 45;
             this.label4.Text = "Cliente: ";
             // 
+            // pnlMostrarDetalles
+            // 
+            this.pnlMostrarDetalles.Controls.Add(this.cbkStatusDetalle);
+            this.pnlMostrarDetalles.Controls.Add(this.ckbStatusAlmacen);
+            this.pnlMostrarDetalles.Controls.Add(this.txtBuscarDetalle);
+            this.pnlMostrarDetalles.Controls.Add(this.label8);
+            this.pnlMostrarDetalles.Controls.Add(this.txtBuscarAlmacen);
+            this.pnlMostrarDetalles.Controls.Add(this.lblFecha);
+            this.pnlMostrarDetalles.Controls.Add(this.pictureBox1);
+            this.pnlMostrarDetalles.Controls.Add(this.btnCerrar);
+            this.pnlMostrarDetalles.Controls.Add(this.dgrMostrarAlmacen);
+            this.pnlMostrarDetalles.Controls.Add(this.btnAlmacenDetalle);
+            this.pnlMostrarDetalles.Controls.Add(this.dgrMostrarDetalles);
+            this.pnlMostrarDetalles.Location = new System.Drawing.Point(0, 0);
+            this.pnlMostrarDetalles.Name = "pnlMostrarDetalles";
+            this.pnlMostrarDetalles.Size = new System.Drawing.Size(1373, 755);
+            this.pnlMostrarDetalles.TabIndex = 46;
+            this.pnlMostrarDetalles.Visible = false;
+            this.pnlMostrarDetalles.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMostrarDetalles_Paint);
+            // 
+            // dgrMostrarDetalles
+            // 
+            this.dgrMostrarDetalles.AllowUserToDeleteRows = false;
+            this.dgrMostrarDetalles.BackgroundColor = System.Drawing.Color.White;
+            this.dgrMostrarDetalles.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgrMostrarDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrMostrarDetalles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewComboBoxColumn1,
+            this.dataGridViewComboBoxColumn2,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewComboBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewComboBoxColumn4});
+            this.dgrMostrarDetalles.EnableHeadersVisualStyles = false;
+            this.dgrMostrarDetalles.GridColor = System.Drawing.Color.Chocolate;
+            this.dgrMostrarDetalles.Location = new System.Drawing.Point(16, 147);
+            this.dgrMostrarDetalles.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgrMostrarDetalles.Name = "dgrMostrarDetalles";
+            this.dgrMostrarDetalles.RowHeadersVisible = false;
+            this.dgrMostrarDetalles.Size = new System.Drawing.Size(1194, 552);
+            this.dgrMostrarDetalles.TabIndex = 37;
+            // 
+            // btnAlmacenDetalle
+            // 
+            this.btnAlmacenDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlmacenDetalle.Location = new System.Drawing.Point(1217, 92);
+            this.btnAlmacenDetalle.Name = "btnAlmacenDetalle";
+            this.btnAlmacenDetalle.Size = new System.Drawing.Size(126, 71);
+            this.btnAlmacenDetalle.TabIndex = 38;
+            this.btnAlmacenDetalle.Text = "Mostrar Almacen";
+            this.btnAlmacenDetalle.UseVisualStyleBackColor = true;
+            this.btnAlmacenDetalle.Click += new System.EventHandler(this.btnAlmacenDetalle_Click);
+            // 
+            // dgrMostrarAlmacen
+            // 
+            this.dgrMostrarAlmacen.AllowUserToDeleteRows = false;
+            this.dgrMostrarAlmacen.BackgroundColor = System.Drawing.Color.White;
+            this.dgrMostrarAlmacen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgrMostrarAlmacen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrMostrarAlmacen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.Fecha,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.TipoCompra});
+            this.dgrMostrarAlmacen.EnableHeadersVisualStyles = false;
+            this.dgrMostrarAlmacen.GridColor = System.Drawing.Color.Chocolate;
+            this.dgrMostrarAlmacen.Location = new System.Drawing.Point(17, 294);
+            this.dgrMostrarAlmacen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgrMostrarAlmacen.Name = "dgrMostrarAlmacen";
+            this.dgrMostrarAlmacen.RowHeadersVisible = false;
+            this.dgrMostrarAlmacen.Size = new System.Drawing.Size(1194, 405);
+            this.dgrMostrarAlmacen.TabIndex = 39;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Location = new System.Drawing.Point(1218, 169);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(126, 71);
+            this.btnCerrar.TabIndex = 40;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // ErrorProvider
             // 
             this.ErrorProvider.ContainerControl = this;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblFecha.Location = new System.Drawing.Point(1032, 34);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(302, 18);
+            this.lblFecha.TabIndex = 42;
+            this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(9, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(181, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 41;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "pkDetalle";
+            this.dataGridViewTextBoxColumn1.HeaderText = "No";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewComboBoxColumn1
+            // 
+            this.dataGridViewComboBoxColumn1.DataPropertyName = "fkProducto";
+            this.dataGridViewComboBoxColumn1.HeaderText = "Nombre Producto";
+            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
+            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn1.Width = 300;
+            // 
+            // dataGridViewComboBoxColumn2
+            // 
+            this.dataGridViewComboBoxColumn2.DataPropertyName = "fkCatalogo";
+            this.dataGridViewComboBoxColumn2.HeaderText = "Unidad ";
+            this.dataGridViewComboBoxColumn2.Name = "dataGridViewComboBoxColumn2";
+            this.dataGridViewComboBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "iCantidad";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Cantidad ";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "dPrecioUnitario";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Precio Unitario";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 200;
+            // 
+            // dataGridViewComboBoxColumn3
+            // 
+            this.dataGridViewComboBoxColumn3.DataPropertyName = "fkPrecio";
+            this.dataGridViewComboBoxColumn3.HeaderText = "Costo";
+            this.dataGridViewComboBoxColumn3.Name = "dataGridViewComboBoxColumn3";
+            this.dataGridViewComboBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "iDescuento";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Descuento";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Importe";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 190;
+            // 
+            // dataGridViewComboBoxColumn4
+            // 
+            this.dataGridViewComboBoxColumn4.DataPropertyName = "fkImpuesto";
+            this.dataGridViewComboBoxColumn4.HeaderText = "Impuesto";
+            this.dataGridViewComboBoxColumn4.Name = "dataGridViewComboBoxColumn4";
+            this.dataGridViewComboBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "pkAlmacen";
+            this.dataGridViewTextBoxColumn6.HeaderText = "No";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "sFolio";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Folio";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 200;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "dtFechaMovimiento";
+            this.Fecha.HeaderText = "Fecha de Movimiento";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "sNumFactura";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Numero de Factura";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "sMoneda";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Moneda";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "dTipoCambio";
+            this.dataGridViewTextBoxColumn10.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn10.HeaderText = "Tipo Cambio";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 150;
+            // 
+            // TipoCompra
+            // 
+            this.TipoCompra.DataPropertyName = "iTipoCompra";
+            this.TipoCompra.HeaderText = "Tipo de Compra";
+            this.TipoCompra.Name = "TipoCompra";
+            this.TipoCompra.Width = 150;
+            // 
+            // txtBuscarAlmacen
+            // 
+            this.txtBuscarAlmacen.Location = new System.Drawing.Point(136, 100);
+            this.txtBuscarAlmacen.Name = "txtBuscarAlmacen";
+            this.txtBuscarAlmacen.Size = new System.Drawing.Size(964, 29);
+            this.txtBuscarAlmacen.TabIndex = 43;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(23, 97);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 24);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "Buscar :";
+            // 
+            // txtBuscarDetalle
+            // 
+            this.txtBuscarDetalle.Location = new System.Drawing.Point(136, 100);
+            this.txtBuscarDetalle.Name = "txtBuscarDetalle";
+            this.txtBuscarDetalle.Size = new System.Drawing.Size(964, 29);
+            this.txtBuscarDetalle.TabIndex = 45;
+            // 
+            // ckbStatusAlmacen
+            // 
+            this.ckbStatusAlmacen.AutoSize = true;
+            this.ckbStatusAlmacen.Checked = true;
+            this.ckbStatusAlmacen.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbStatusAlmacen.Location = new System.Drawing.Point(1116, 97);
+            this.ckbStatusAlmacen.Name = "ckbStatusAlmacen";
+            this.ckbStatusAlmacen.Size = new System.Drawing.Size(79, 28);
+            this.ckbStatusAlmacen.TabIndex = 46;
+            this.ckbStatusAlmacen.Text = "Status";
+            this.ckbStatusAlmacen.UseVisualStyleBackColor = true;
+            // 
+            // cbkStatusDetalle
+            // 
+            this.cbkStatusDetalle.AutoSize = true;
+            this.cbkStatusDetalle.Checked = true;
+            this.cbkStatusDetalle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbkStatusDetalle.Location = new System.Drawing.Point(1116, 100);
+            this.cbkStatusDetalle.Name = "cbkStatusDetalle";
+            this.cbkStatusDetalle.Size = new System.Drawing.Size(79, 28);
+            this.cbkStatusDetalle.TabIndex = 47;
+            this.cbkStatusDetalle.Text = "Status";
+            this.cbkStatusDetalle.UseVisualStyleBackColor = true;
             // 
             // FrmWareHouse
             // 
@@ -341,6 +641,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1370, 750);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlMostrarDetalles);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTipoCompra);
             this.Controls.Add(this.label7);
@@ -358,7 +659,6 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnGuardar);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -369,7 +669,12 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmWareHouse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).EndInit();
+            this.pnlMostrarDetalles.ResumeLayout(false);
+            this.pnlMostrarDetalles.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrMostrarDetalles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrMostrarAlmacen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,7 +687,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button button5;
@@ -397,7 +701,6 @@
         private System.Windows.Forms.TextBox txtTipoCompra;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ErrorProvider ErrorProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkDetalle;
         private System.Windows.Forms.DataGridViewComboBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewComboBoxColumn Unidad;
@@ -407,5 +710,34 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.DataGridViewComboBoxColumn Impuesto;
+        private System.Windows.Forms.Panel pnlMostrarDetalles;
+        private System.Windows.Forms.Button btnAlmacenDetalle;
+        private System.Windows.Forms.DataGridView dgrMostrarDetalles;
+        private System.Windows.Forms.DataGridView dgrMostrarAlmacen;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewComboBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewComboBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewComboBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewComboBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoCompra;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtBuscarAlmacen;
+        private System.Windows.Forms.TextBox txtBuscarDetalle;
+        private System.Windows.Forms.CheckBox cbkStatusDetalle;
+        private System.Windows.Forms.CheckBox ckbStatusAlmacen;
     }
 }

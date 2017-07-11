@@ -182,7 +182,6 @@
             // 
             this.pnlAlmacen.BackColor = System.Drawing.Color.White;
             this.pnlAlmacen.Controls.Add(this.comboBox1);
-            this.pnlAlmacen.Controls.Add(this.textBox1);
             this.pnlAlmacen.Controls.Add(this.label4);
             this.pnlAlmacen.Controls.Add(this.label3);
             this.pnlAlmacen.Controls.Add(this.dateTimePicker1);
@@ -193,9 +192,9 @@
             this.pnlAlmacen.Controls.Add(this.btnEliminar);
             this.pnlAlmacen.Controls.Add(this.btnGuardar);
             this.pnlAlmacen.Controls.Add(this.btnCerrar);
-            this.pnlAlmacen.Location = new System.Drawing.Point(0, 12);
+            this.pnlAlmacen.Location = new System.Drawing.Point(555, 303);
             this.pnlAlmacen.Name = "pnlAlmacen";
-            this.pnlAlmacen.Size = new System.Drawing.Size(1370, 40);
+            this.pnlAlmacen.Size = new System.Drawing.Size(815, 161);
             this.pnlAlmacen.TabIndex = 38;
             this.pnlAlmacen.Visible = false;
             this.pnlAlmacen.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlAlmacen_Paint);
@@ -210,10 +209,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(777, 3);
+            this.textBox1.Location = new System.Drawing.Point(677, 48);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(409, 71);
+            this.textBox1.Size = new System.Drawing.Size(386, 20);
             this.textBox1.TabIndex = 10;
             // 
             // label4
@@ -262,7 +261,7 @@
             // 
             this.dgrPurchase.BackgroundColor = System.Drawing.Color.White;
             this.dgrPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrPurchase.Location = new System.Drawing.Point(15, 103);
+            this.dgrPurchase.Location = new System.Drawing.Point(18, 105);
             this.dgrPurchase.Name = "dgrPurchase";
             this.dgrPurchase.Size = new System.Drawing.Size(1171, 506);
             this.dgrPurchase.TabIndex = 4;
@@ -378,11 +377,11 @@
             this.Porcenctaje});
             this.dgrDatosAlmacen.EnableHeadersVisualStyles = false;
             this.dgrDatosAlmacen.GridColor = System.Drawing.Color.Chocolate;
-            this.dgrDatosAlmacen.Location = new System.Drawing.Point(13, 177);
+            this.dgrDatosAlmacen.Location = new System.Drawing.Point(1, 192);
             this.dgrDatosAlmacen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgrDatosAlmacen.Name = "dgrDatosAlmacen";
             this.dgrDatosAlmacen.RowHeadersVisible = false;
-            this.dgrDatosAlmacen.Size = new System.Drawing.Size(1224, 541);
+            this.dgrDatosAlmacen.Size = new System.Drawing.Size(1224, 74);
             this.dgrDatosAlmacen.TabIndex = 29;
             this.dgrDatosAlmacen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellContentClick);
             // 
@@ -393,6 +392,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1370, 750);
             this.Controls.Add(this.pnlAlmacen);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbltoday);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnPurchase);
