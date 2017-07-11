@@ -17,7 +17,9 @@ namespace SiscomSoft.Models
      
         public virtual Cliente fkCliente {get; set;}
        
-       public String sNumFactura { get; set; }
+    
+
+        public String sNumFactura { get; set; }
        
        public string sMoneda { get; set; }
 

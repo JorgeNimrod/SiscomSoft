@@ -84,5 +84,24 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+        public static void Eliminar(int pkDetalle)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    DetalleAlmacen nDetalle = ManejoDetalleAlmacen.getById(pkDetalle);
+                    nDetalle.bStatus = false;
+
+                    ctx.Entry(nDetalle).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

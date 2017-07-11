@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Comun\LoginTool.cs" />
     <Compile Include="Comun\ToolImagen.cs" />
+    <Compile Include="Controller\ManejoAlmacen.cs" />
     <Compile Include="Controller\ManejoDetalleAlmacen.cs" />
     <Compile Include="Controller\ManejoCatalogo.cs" />
     <Compile Include="Controller\Helpers\UsuarioHelper.cs" />
@@ -70,13 +71,9 @@
     <Compile Include="Controller\ManejoEntrada.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201707101732469_INICIAL.cs" />
-    <Compile Include="Migrations\201707101732469_INICIAL.Designer.cs">
-      <DependentUpon>201707101732469_INICIAL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707101738323_INICIALES.cs" />
-    <Compile Include="Migrations\201707101738323_INICIALES.Designer.cs">
-      <DependentUpon>201707101738323_INICIALES.cs</DependentUpon>
+    <Compile Include="Migrations\201707102342453_INICIAL.cs" />
+    <Compile Include="Migrations\201707102342453_INICIAL.Designer.cs">
+      <DependentUpon>201707102342453_INICIAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\DetalleAlmacen.cs" />
@@ -115,11 +112,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707101732469_INICIAL.resx">
-      <DependentUpon>201707101732469_INICIAL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707101738323_INICIALES.resx">
-      <DependentUpon>201707101738323_INICIALES.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707102342453_INICIAL.resx">
+      <DependentUpon>201707102342453_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

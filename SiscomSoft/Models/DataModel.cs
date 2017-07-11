@@ -47,7 +47,7 @@ namespace SiscomSoft.Models
         public DbSet<Venta> Ventas { get; set; }
 
         public DbSet<DetalleVenta> DetalleVentas { get; set; }
-        public DbSet<Almacen> Almacen { get; set; }
+        public DbSet<Almacen> Almacenes { get; set; }
 
         public DbSet<DetalleAlmacen> DetalleAlmacen { get; set; }
 
