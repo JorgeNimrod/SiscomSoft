@@ -208,17 +208,24 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 {
                     if (!row.IsNewRow)
                     {
-                        Precio mPrecio = ManejoPrecio.getById(Convert.ToInt32(row.Cells[5].Value));
-                        Impuesto mImpuesto = ManejoImpuesto.getById(Convert.ToInt32(row.Cells[8].Value));
+                        Precio mPrecio = ManejoPrecio.getById(Convert.ToInt32(row.Cells[6].Value));
+                        Impuesto mImpuesto = ManejoImpuesto.getById(Convert.ToInt32(row.Cells[7].Value));
                         Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[1].Value));
                         Catalogo mCatalogo = ManejoCatalogo.getById(Convert.ToInt32(row.Cells[2].Value));
                         DetalleAlmacen mDetalle = new DetalleAlmacen();
-                       
+                      
                         mDetalle.iCantidad = Convert.ToInt32(row.Cells[3].Value);
+
+                        
                   
                         mDetalle.dPrecioUnitario = Convert.ToDecimal(row.Cells[4].Value);
                        
-                        mDetalle.iDescuento = Convert.ToInt32(row.Cells[6].Value);
+                        mDetalle.iDescuento = Convert.ToInt32(row.Cells[5].Value);
+
+                        if (panel1.Visible == true)
+                        {
+                            mDetalle.dtFechaCaducidad = Convert.ToDateTime(dateTimePicker2.Text);
+                        }
 
                         ManejoDetalleAlmacen.RegistrarNuevoDetalle(mDetalle,nAlmacen, mProducto, mCatalogo,mImpuesto,mPrecio);
 
@@ -234,7 +241,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 txtTipoCompra.Clear();
                
                 
-
+                
 
 
 
@@ -320,7 +327,19 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void pnlMostrarDetalles_Paint(object sender, PaintEventArgs e)
         {
+            dgrDatosAlmacen.CurrentCell.Value = dtp.Text.ToString();
+        }
 
+        private void cbkCaducidad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbkCaducidad.Checked == true)
+            {
+                panel1.Visible = true;
+            }
+            else
+            {
+                panel1.Visible = false;
+            }
         }
     }
 }

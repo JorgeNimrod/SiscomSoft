@@ -75,6 +75,10 @@
     <Compile Include="Migrations\201707111800404_INICIAL.Designer.cs">
       <DependentUpon>201707111800404_INICIAL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707121713051_Iwill.cs" />
+    <Compile Include="Migrations\201707121713051_Iwill.Designer.cs">
+      <DependentUpon>201707121713051_Iwill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\DetalleAlmacen.cs" />
     <Compile Include="Models\DetalleVenta.cs" />
@@ -102,6 +106,7 @@
     <Compile Include="Models\Preferencia.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\Capa.cs" />
     <Compile Include="Models\Sucursal.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Venta.cs" />
@@ -114,6 +119,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707111800404_INICIAL.resx">
       <DependentUpon>201707111800404_INICIAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707121713051_Iwill.resx">
+      <DependentUpon>201707121713051_Iwill.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
