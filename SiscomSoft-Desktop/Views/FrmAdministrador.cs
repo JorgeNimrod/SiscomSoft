@@ -682,7 +682,7 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateLineaProd.Text = nCategoria.sNombre;
             txtUpdateSubProd.Text = nCategoria.sNomSubCat;
 
-            cbxUpdateImpuProd.SelectedItem = nProducto.fkImpuesto.pkImpuesto;
+           // cbxUpdateImpuProd.SelectedItem = nProducto.fkImpuesto.pkImpuesto;
           
             cbxUpdateUMDProd.SelectedItem = nProducto.fkCatalogo.pkCatalogo;
             cbxUpdatePrecioProd.SelectedItem = nProducto.fkPrecio.pkPrecios;

@@ -38,7 +38,6 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nProducto.fkImpuesto = impuesto;
                     nProducto.fkPrecio = precio;
                     nProducto.fkCatalogo = catalogo;
                     nProducto.fkCategoria = categoria;
@@ -62,7 +61,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Productos.Include("fkImpuesto")
+                    return ctx.Productos
                         .Include("fkCategoria")
                         .Include("fkCatalogo")
                         .Include("fkPrecio")
