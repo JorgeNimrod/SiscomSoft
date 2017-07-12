@@ -208,19 +208,19 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 {
                     if (!row.IsNewRow)
                     {
-                        Precio mPrecio = ManejoPrecio.getById(Convert.ToInt32(row.Cells[6].Value));
-                        Impuesto mImpuesto = ManejoImpuesto.getById(Convert.ToInt32(row.Cells[7].Value));
+                        Precio mPrecio = ManejoPrecio.getById(Convert.ToInt32(row.Cells[5].Value));
+                        Impuesto mImpuesto = ManejoImpuesto.getById(Convert.ToInt32(row.Cells[8].Value));
                         Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[1].Value));
                         Catalogo mCatalogo = ManejoCatalogo.getById(Convert.ToInt32(row.Cells[2].Value));
-                        DetalleAlmacen mDetalle = new DetalleAlmacen();
                       
+                        DetalleAlmacen mDetalle = new DetalleAlmacen();
                         mDetalle.iCantidad = Convert.ToInt32(row.Cells[3].Value);
 
                         
                   
                         mDetalle.dPrecioUnitario = Convert.ToDecimal(row.Cells[4].Value);
                        
-                        mDetalle.iDescuento = Convert.ToInt32(row.Cells[5].Value);
+                        mDetalle.iDescuento = Convert.ToInt32(row.Cells[6].Value);
 
                         if (panel1.Visible == true)
                         {
