@@ -8,16 +8,16 @@ using SiscomSoft.Models;
 
 namespace SiscomSoft.Controller
 {
-    public class ManejoDetalleProducto
+    public class ManejoDescuentoProducto
     {
-        public static List<ImpuestoProducto> getById(int pkProducto)
+        public static List<DescuentoProducto> getById(int pkProducto)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.ImpuestosProductos
-                        .Include("fkImpuesto")
+                    return ctx.DescuentosProductos
+                        .Include("fkDescuento")
                         .Include("fkProducto")
                         .Where(r => r.bStatus == true && r.fkProducto.pkProducto == pkProducto)
                         .ToList();

@@ -15,9 +15,9 @@ namespace SiscomSoft.Models
         [Key]
         public int pkDescuento { get; set; }
 
-        public int iTasaDesc { get; set; }
+        public decimal dTasaDesc { get; set; }
 
-        public int iTasaDescEx { get; set; }
+        public decimal dTasaDescEx { get; set; }
 
         public Boolean bStatus { get; set; }
 
