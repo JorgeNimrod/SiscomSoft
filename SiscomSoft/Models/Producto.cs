@@ -40,16 +40,12 @@ namespace SiscomSoft.Models
         // llave foranea de catalogo - Es la unidad de medida del producto (K, Kg, L, Ml, Etc)
         public virtual Catalogo fkCatalogo { get; set; }
 
-        // llave foranea de impuestos
-        public virtual Impuesto fkImpuesto { get; set; }
-
         // llave foranea de precio - Precio que se le da al cliente 
         public virtual Precio fkPrecio { get; set; }
 
-        // llave foranea de InventarioEntrada
-        public ICollection<InventarioEntrada> InventarioEntrada { get; set; }
-
         public ICollection<DetalleVenta> DetalleVentas { get; set; }
+
+        public ICollection<DetalleProducto> DetalleProductos { get; set; }
 
         public Producto()
         {

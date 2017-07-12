@@ -23,11 +23,11 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<Producto> Productos { get; set; }
-
         public ICollection<Factura> Facturas { get; set; }
 
         public ICollection<DetalleAlmacen> DetalleAlmacen { get; set; }
+
+        public ICollection<DetalleProducto> DetalleProductos { get; set; }
 
         public Impuesto()
         {

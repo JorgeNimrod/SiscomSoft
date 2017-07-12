@@ -11,7 +11,7 @@ namespace SiscomSoft.Models
     public class DataModel : DbContext
     {
         public DataModel() : base("DataModel") { }
-        
+
         public DbSet<Usuario> Usuarios { get; set; }
 
         public DbSet<Empresa> Empresas { get; set; }
@@ -50,6 +50,8 @@ namespace SiscomSoft.Models
         public DbSet<Almacen> Almacenes { get; set; }
 
         public DbSet<DetalleAlmacen> DetalleAlmacen { get; set; }
+
+        public DbSet<DetalleProducto> DetalleProductos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
