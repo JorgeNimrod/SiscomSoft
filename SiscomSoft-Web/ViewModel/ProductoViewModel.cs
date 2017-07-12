@@ -48,7 +48,7 @@ namespace SiscomSoft_Web.ViewModel
             dato.sDescripcion = Datos.txtDescripcion;
             dato.sMarca = Datos.txtMarca;
             dato.dCosto = Datos.txtCosto;
-            dato.iDescuento = Datos.txtDescuento;
+            //dato.iDescuento = Datos.txtDescuento;
             dato.sFoto = Datos.txtFoto;
             dato.dtCaducidad = Datos.txtCaducidad;
             dato.iLote = Datos.txtLote;
@@ -96,7 +96,7 @@ namespace SiscomSoft_Web.ViewModel
             dato.sDescripcion = Datos.txtDescripcion;
             dato.sMarca = Datos.txtMarca;
             dato.dCosto = Datos.txtCosto;
-            dato.iDescuento = Datos.txtDescuento;
+            //dato.iDescuento = Datos.txtDescuento;
             dato.sFoto = Datos.txtFoto;
             dato.dtCaducidad = Datos.txtCaducidad;
             dato.iLote = Datos.txtLote;

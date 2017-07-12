@@ -675,7 +675,7 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateMarcProd.Text = nProducto.sMarca;
             dtpUpdateFechaProd.Value = nProducto.dtCaducidad;
             txtUpdateCostoProd.Text = nProducto.dCosto.ToString();
-            txtUpdateDescProd.Text = nProducto.iDescuento.ToString();
+            //txtUpdateDescProd.Text = nProducto.iDescuento.ToString();
             txtUpdateDesProd.Text = nProducto.sDescripcion;
             cbxUpdatePrecioProd.Text = nProducto.fkPrecio.ToString();
             txtUpdateLoteProd.Text = nProducto.iLote.ToString();
@@ -1539,7 +1539,7 @@ namespace SiscomSoft_Desktop.Views
                 nProducto.sMarca = txtMarcaaddProd.Text;
                 nProducto.dtCaducidad = dtpFechaCaducidadProd.Value.Date;
                 nProducto.dCosto = Convert.ToDecimal(txtCostoAddProd.Text);
-                nProducto.iDescuento = Convert.ToInt32(txtDescuentoProd.Text.ToString());
+                //nProducto.iDescuento = Convert.ToInt32(txtDescuentoProd.Text.ToString());
                 nProducto.sFoto = ImagenString;
                 nProducto.iLote = Convert.ToInt32(txtLoteAddProd.Text.ToString());
 
@@ -1831,7 +1831,7 @@ namespace SiscomSoft_Desktop.Views
                 nProducto.sDescripcion = txtUpdateDesProd.Text;
                 nProducto.sMarca = txtUpdateMarcProd.Text;
                 nProducto.dCosto = Convert.ToDecimal(txtUpdateCostoProd.Text);
-                nProducto.iDescuento = Convert.ToInt32(txtUpdateDescProd.Text);
+                //nProducto.iDescuento = Convert.ToInt32(txtUpdateDescProd.Text);
 
                 ImagenBitmap = new System.Drawing.Bitmap(pcbUpdateImgProd.Image);
                 ImagenString = ToolImagen.ToBase64String(ImagenBitmap, ImageFormat.Jpeg);

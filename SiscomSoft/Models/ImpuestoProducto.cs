@@ -9,8 +9,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SiscomSoft.Models
 {
-    [Table("DetalleProductos")]
-    public class DetalleProducto
+    [Table("ImpuestosProducto")]
+    public class ImpuestoProducto
     {
         [Key]
         public int pkDetalleProducto { get; set; }
@@ -21,7 +21,7 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public DetalleProducto()
+        public ImpuestoProducto()
         {
             this.bStatus = true;
         }

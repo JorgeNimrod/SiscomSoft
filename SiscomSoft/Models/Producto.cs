@@ -24,8 +24,6 @@ namespace SiscomSoft.Models
         //Costo real del producto
         public decimal dCosto { get; set; }
 
-        public int iDescuento { get; set; }
-
         public string sFoto { get; set; }
 
         public DateTime dtCaducidad { get; set; }
@@ -45,7 +43,9 @@ namespace SiscomSoft.Models
 
         public ICollection<DetalleVenta> DetalleVentas { get; set; }
 
-        public ICollection<DetalleProducto> DetalleProductos { get; set; }
+        public ICollection<ImpuestoProducto> ImpuestosProductos { get; set; }
+
+        public ICollection<DescuentoProducto> DescuentosProducto { get; set; }
 
         public Producto()
         {
