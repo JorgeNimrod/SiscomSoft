@@ -19,6 +19,7 @@ namespace SiscomSoft_Desktop.Views
         Boolean pesos = false;
         double noCantidad = 0;
         double noPagar = 0;
+        decimal DESCUENTO = 0;
         decimal IVA16 = 0;
         decimal IVA11 = 0;
         decimal IVA4 = 0;
@@ -74,8 +75,8 @@ namespace SiscomSoft_Desktop.Views
                     decimal TasaImpuestoIEPS30 = 0;
                     int Cantidad = Convert.ToInt32(row.Cells[1].Value);
 
-                    List<DetalleProducto> mDetalleProducto = ManejoDetalleProducto.getById(Convert.ToInt32(rDetalleVenta.fkProducto.pkProducto));
-                    foreach (DetalleProducto rDetalleProducto in mDetalleProducto)
+                    List<ImpuestoProducto> mDetalleProducto = ManejoDetalleProducto.getById(Convert.ToInt32(rDetalleVenta.fkProducto.pkProducto));
+                    foreach (ImpuestoProducto rDetalleProducto in mDetalleProducto)
                     {
                         if (rDetalleProducto.fkImpuesto.sTipoImpuesto == "TRASLADO")
                         {
@@ -136,7 +137,7 @@ namespace SiscomSoft_Desktop.Views
 
                     row.Cells[3].Value = Importe.ToString("#,###.#0#");
                     row.Cells[4].Value = rDetalleVenta.dPreUnitario;
-                    row.Cells[6].Value = rDetalleVenta.fkProducto.iDescuento;
+                    
 
                     row.Height = 40;
                     dgvProductos.Rows.Add(row);
@@ -215,8 +216,8 @@ namespace SiscomSoft_Desktop.Views
                         decimal TasaImpuestoIEPS30 = 0;
                         int Cantidad = Convert.ToInt32(row.Cells[1].Value);
 
-                        List<DetalleProducto> mDetalleProducto = ManejoDetalleProducto.getById(Convert.ToInt32(rDetalleVenta.fkProducto.pkProducto));
-                        foreach (DetalleProducto rDetalleProducto in mDetalleProducto)
+                        List<ImpuestoProducto> mDetalleProducto = ManejoDetalleProducto.getById(Convert.ToInt32(rDetalleVenta.fkProducto.pkProducto));
+                        foreach (ImpuestoProducto rDetalleProducto in mDetalleProducto)
                         {
                             if (rDetalleProducto.fkImpuesto.sTipoImpuesto == "TRASLADO")
                             {
@@ -283,7 +284,6 @@ namespace SiscomSoft_Desktop.Views
                         
                         row.Cells[3].Value = Importe.ToString("#,###.#0#");
                         row.Cells[4].Value = rDetalleVenta.dPreUnitario;
-                        row.Cells[6].Value = rDetalleVenta.fkProducto.iDescuento;
 
                         row.Height = 40;
                         dgvDetalleProductos.Rows.Add(row);
@@ -401,8 +401,8 @@ namespace SiscomSoft_Desktop.Views
                 decimal TasaImpuestoIEPS30 = 0;
                 int Cantidad = Convert.ToInt32(row.Cells[1].Value);
 
-                List<DetalleProducto> mDetalle = ManejoDetalleProducto.getById(Convert.ToInt32(nProducto.pkProducto));
-                foreach (DetalleProducto rDetalle in mDetalle)
+                List<ImpuestoProducto> mDetalle = ManejoDetalleProducto.getById(Convert.ToInt32(nProducto.pkProducto));
+                foreach (ImpuestoProducto rDetalle in mDetalle)
                 {
                     if (rDetalle.fkImpuesto.sTipoImpuesto == "TRASLADO")
                     {
@@ -421,7 +421,7 @@ namespace SiscomSoft_Desktop.Views
                     }
                 }
 
-                int TasaDescuento = nProducto.iDescuento;
+                //int TasaDescuento = nProducto.iDescuento;
                 decimal Importe = 0;
                 decimal ImporteWithImpuestoIVA16 = 0;
                 decimal ImporteWithImpuestoIVA11 = 0;
@@ -433,10 +433,10 @@ namespace SiscomSoft_Desktop.Views
                 decimal PriceForLot = 0;
                 decimal Descuento = 0;
 
-                if (nProducto.iDescuento != 0)
-                {
-                    Descuento = PreUnitario * (TasaDescuento/100);
-                }
+                //if (nProducto.iDescuento != 0)
+                //{
+                //    Descuento = PreUnitario * (TasaDescuento/100);
+                //}
                 PreUnitarioWithDescuento = PreUnitario - Descuento;
                 PriceForLot = Cantidad * PreUnitarioWithDescuento;
 
@@ -452,8 +452,6 @@ namespace SiscomSoft_Desktop.Views
 
                 row.Cells[3].Value = Importe.ToString("#,###.#0#");
                 row.Cells[4].Value = nProducto.dCosto;
-                //row.Cells[5].Value = nProducto.fkDetalleProducto.fkImpuesto.dTasaImpuesto;
-                row.Cells[6].Value = nProducto.iDescuento;
                 row.Height = 40;
                 dgvProductos.Rows.Add(row);
 
@@ -1025,6 +1023,7 @@ namespace SiscomSoft_Desktop.Views
                 lblIEPS53.Text = IEPS53.ToString("#,###.#0#");
                 lblIEPS30.Text = IEPS30.ToString("#,###.#0#");
                 lblIEPS26.Text = IEPS26.ToString("#,###.#0#");
+                lblDescuento.Text = DESCUENTO.ToString("#,###.#0#");
 
                 dgvDetalleProductos.Height = 440;
                 guardarVenta();
@@ -1077,5 +1076,10 @@ namespace SiscomSoft_Desktop.Views
             numeroVenta();
         }
         #endregion
+
+        private void btnCredito_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

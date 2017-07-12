@@ -76,10 +76,8 @@ namespace SiscomSoft_Desktop.Views
                 row.Cells[1].Value = nProducto.sDescripcion;
                 row.Cells[2].Value = nProducto.sMarca;
                 row.Cells[3].Value = nProducto.fkCatalogo.sUDM;
-               // row.Cells[4].Value = nProducto.fkImpuesto.dTasaImpuesto;
                 row.Cells[5].Value = nProducto.dCosto;
                 row.Cells[6].Value = 1;
-                row.Cells[7].Value = nProducto.iDescuento;
                 row.Cells[9].Value = nProducto.iClaveProd;
 
                 dgvDatosProducto.Rows.Add(row);

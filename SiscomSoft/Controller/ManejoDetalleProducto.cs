@@ -10,13 +10,13 @@ namespace SiscomSoft.Controller
 {
     public class ManejoDetalleProducto
     {
-        public static List<DetalleProducto> getById(int pkProducto)
+        public static List<ImpuestoProducto> getById(int pkProducto)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.DetalleProductos
+                    return ctx.ImpuestosProductos
                         .Include("fkImpuesto")
                         .Include("fkProducto")
                         .Where(r => r.bStatus == true && r.fkProducto.pkProducto == pkProducto)

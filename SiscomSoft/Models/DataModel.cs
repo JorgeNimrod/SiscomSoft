@@ -47,11 +47,16 @@ namespace SiscomSoft.Models
         public DbSet<Venta> Ventas { get; set; }
 
         public DbSet<DetalleVenta> DetalleVentas { get; set; }
+
         public DbSet<Almacen> Almacenes { get; set; }
 
         public DbSet<DetalleAlmacen> DetalleAlmacen { get; set; }
 
-        public DbSet<DetalleProducto> DetalleProductos { get; set; }
+        public DbSet<ImpuestoProducto> ImpuestosProductos { get; set; }
+
+        public DbSet<DescuentoProducto> DescuentosProductos { get; set; }
+
+        public DbSet<Descuento> Descuentos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
