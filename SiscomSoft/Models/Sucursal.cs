@@ -54,6 +54,8 @@ namespace SiscomSoft.Models
         // llave foranea de certificado
         public virtual Certificado fkCertificado { get; set; }
 
+        public ICollection<Usuario> Usuarios { get; set; }
+
         public Sucursal()
         {
             this.iCodPostal = 0;

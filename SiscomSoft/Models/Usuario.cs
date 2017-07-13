@@ -44,6 +44,8 @@ namespace SiscomSoft.Models
         // llave foranea de rol
         public virtual Rol fkRol { get; set; }
 
+        public virtual Sucursal fkSucursal { get; set; }
+
         public Boolean bStatus { get; set; }
 
         public Usuario()
