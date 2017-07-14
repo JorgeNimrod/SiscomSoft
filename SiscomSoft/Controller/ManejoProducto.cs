@@ -101,7 +101,6 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Productos
-                        .Include("fkImpuesto")
                         .Include("fkCategoria")
                         .Include("fkCatalogo")
                         .Include("fkPrecio")

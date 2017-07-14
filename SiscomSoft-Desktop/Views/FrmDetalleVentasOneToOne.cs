@@ -21,6 +21,7 @@ namespace SiscomSoft_Desktop.Views
         double noCantidad = 0;
         double noPagar = 0;
         decimal DESCUENTO = 0;
+        decimal DESCUENTOEXTRA = 0;
         decimal IVA16 = 0;
         decimal IVA11 = 0;
         decimal IVA4 = 0;
@@ -268,22 +269,29 @@ namespace SiscomSoft_Desktop.Views
                         if (TasaDescuento != 0)
                         {
                             Descuento = PreUnitario * (TasaDescuento / 100);
+                            DESCUENTO += Descuento;
                         }
                         if (TasaDescuentoExtra != 0)
                         {
                             DescuentoExtra = PreUnitario * (TasaDescuentoExtra / 100);
+                            DESCUENTOEXTRA += DescuentoExtra;
                         }
                         PreUnitarioWithDescuento = PreUnitario - Descuento - DescuentoExtra;
                         PriceForLot = Cantidad * PreUnitarioWithDescuento;
 
                         ImporteWithImpuestoIVA16 = PriceForLot * (TasaImpuestoIVA16 / 100);
+                        IVA16 += ImporteWithImpuestoIVA16;
                         ImporteWithImpuestoIVA11 = PriceForLot * (TasaImpuestoIVA11 / 100);
+                        IVA11 += ImporteWithImpuestoIVA11;
                         ImporteWithImpuestoIVA4 = PriceForLot * (TasaImpuestoIVA4 / 100);
+                        IVA4 += ImporteWithImpuestoIVA4;
                         ImporteWithImpuestosIEPS53 = PriceForLot * (TasaImpuestoIEPS53 / 100);
+                        IEPS53 += ImporteWithImpuestosIEPS53;
                         ImporteWithImpuestosIEPS30 = PriceForLot * (TasaImpuestoIEPS30 / 100);
+                        IEPS30 += ImporteWithImpuestosIEPS30;
                         ImporteWithImpuestosIEPS26 = PriceForLot * (TasaImpuestoIEPS26 / 100);
-
-
+                        IEPS26 += ImporteWithImpuestosIEPS26;
+                        
                         Importe = PriceForLot + ImporteWithImpuestoIVA16 + ImporteWithImpuestoIVA11 +
                             ImporteWithImpuestoIVA4 + ImporteWithImpuestosIEPS53 + ImporteWithImpuestosIEPS30 +
                             ImporteWithImpuestosIEPS26;
@@ -300,7 +308,7 @@ namespace SiscomSoft_Desktop.Views
                     {
                         Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
                     }
-                    lblTotal2.Text = Subtotal.ToString("#,###.#0#");
+                    lblTotal2.Text = Subtotal.ToString("N");
                 }
                 noCantidad = 0;
                 lblCliente.Visible = true;
@@ -1043,13 +1051,48 @@ namespace SiscomSoft_Desktop.Views
         #region BOTONES ACCIONES PAGAR
         private void btnAll_Click(object sender, EventArgs e)
         {
-            noPagar = 0;
-            noCantidad = 0;
-            lblMonto.Text = lblTotal2.Text;
-            btnEfectivo.Enabled = true;
-            btnCredito.Enabled = true;
-            btnVouncher.Enabled = true;
-            btn.Enabled = true;
+            if (dolar==true)
+            {
+                noPagar = 0;
+                noCantidad = 0;
+                lblMonto.Text = lblTotalDolares.Text;
+                btnEfectivo.Enabled = true;
+                btnCredito.Enabled = true;
+                btnVouncher.Enabled = true;
+                btn.Enabled = true;
+            }
+            else
+            {
+                noPagar = 0;
+                noCantidad = 0;
+                lblMonto.Text = lblTotal2.Text;
+                btnEfectivo.Enabled = true;
+                btnCredito.Enabled = true;
+                btnVouncher.Enabled = true;
+                btn.Enabled = true;
+            }
+        }
+
+        private void btnDolares_Click(object sender, EventArgs e)
+        {
+            lblMonto.Text = "0";
+            decimal TotalPesos = Convert.ToDecimal(lblTotal2.Text);
+            decimal TotalDolar = 0;
+            decimal TipoCambio = Convert.ToDecimal(17.6943); //  Convert.ToDecimal(FrmMenu.uHelper.usuario.fkSucursal.sTipoCambio);
+            if (dolar != true)
+            {
+                TotalDolar = (TotalPesos * 1) / TipoCambio;
+                lblTotalDolares.Text = TotalDolar.ToString("N");
+                pnlDolares.Visible = true;
+                dolar = true;
+                btnDolares.Text = "Pesos";
+            }
+            else
+            {
+                pnlDolares.Visible = false;
+                dolar = false;
+                btnDolares.Text = "Dolares";
+            }
         }
         #endregion
 
@@ -1105,77 +1148,162 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnEfectivo_Click(object sender, EventArgs e)
         {
-            Decimal cambio = 0;
-            Decimal falta = 0;
-            Decimal total = Convert.ToDecimal(lblTotal2.Text);
-            Decimal monto = Convert.ToDecimal(lblMonto.Text);
-
-            cambio = monto-total;
-            falta = total - monto;
-            if (falta>0)
+            if (dolar == true)
             {
-                lblTotal2.Text = falta.ToString();
-                lblMonto.Text = "0";
-                btnEfectivo.Enabled = false;
-                btnCredito.Enabled = false;
-                btnVouncher.Enabled = false;
-                btn.Enabled = false;
+                Decimal cambioDolar = 0;
+                Decimal faltaDolar = 0;
+                Decimal totalDolar = Convert.ToDecimal(lblTotalDolares.Text);
+                Decimal montoDolar = Convert.ToDecimal(lblMonto.Text);
+
+                faltaDolar = totalDolar - montoDolar;
+                if (faltaDolar > 0)
+                {
+                    lblTotalDolares.Text = faltaDolar.ToString();
+                    lblMonto.Text = "0";
+                    btnEfectivo.Enabled = false;
+                    btnCredito.Enabled = false;
+                    btnVouncher.Enabled = false;
+                    btn.Enabled = false;
+                }
+                else
+                {
+                    cambioDolar = montoDolar - totalDolar;
+                    if (cambioDolar == 0)
+                    {
+                        guardarVenta();
+                        pnlPagar.Visible = false;
+                        pnlDetalleVenta.Visible = true;
+                    }
+                    else
+                    {
+
+                        btn500pesos.Enabled = false;
+                        btn200pesos.Enabled = false;
+                        btn100Peso.Enabled = false;
+                        btn50Peso.Enabled = false;
+                        btn20Peso.Enabled = false;
+
+                        btnNo0.Enabled = false;
+                        btnNo1.Enabled = false;
+                        btnNo2.Enabled = false;
+                        btnNo3.Enabled = false;
+                        btnNo4.Enabled = false;
+                        btnNo5.Enabled = false;
+                        btnNo6.Enabled = false;
+                        btnNo7.Enabled = false;
+                        btnNo8.Enabled = false;
+                        btnNo9.Enabled = false;
+                        btnPuntoPagar.Enabled = false;
+                        btnClear.Enabled = false;
+                        btnAll.Enabled = false;
+
+                        btnFactura.Enabled = false;
+                        button2.Enabled = false;
+                        button3.Enabled = false;
+                        button4.Enabled = false;
+                        btnDolares.Enabled = false;
+                        button11.Enabled = false;
+                        button12.Enabled = false;
+                        button13.Enabled = false;
+
+                        pnlDolares.Visible = false;
+                        lblCambio.Text = cambioDolar.ToString();
+                        pnlCambio.Visible = true;
+
+                        pnlDetalleMinimo.Visible = true;
+                        lblImporte.Text = totalDolar.ToString();
+                        lblMontoRecibido.Text = montoDolar.ToString();
+                        lblCambioDado.Text = cambioDolar.ToString();
+                        lblIVA16.Text = IVA16.ToString("N");
+                        lblIVA11.Text = IVA11.ToString("N");
+                        lblIVA4.Text = IVA4.ToString("N");
+                        lblIEPS53.Text = IEPS53.ToString("N");
+                        lblIEPS30.Text = IEPS30.ToString("N");
+                        lblIEPS26.Text = IEPS26.ToString("N");
+                        lblDescuento.Text = DESCUENTO.ToString("N");
+
+                        dgvDetalleProductos.Height = 440;
+                        guardarVenta();
+                    }
+                }
             }
-            if (cambio == 0)
+            else if (dolar == false)
             {
-                guardarVenta();
-                pnlPagar.Visible = false;
-                pnlDetalleVenta.Visible = true;
-            }
-            else if (cambio!=total)
-            {
+                Decimal cambio = 0;
+                Decimal falta = 0;
+                Decimal total = Convert.ToDecimal(lblTotal2.Text);
+                Decimal monto = Convert.ToDecimal(lblMonto.Text);
 
-                btn500pesos.Enabled = false;
-                btn200pesos.Enabled = false;
-                btn100Peso.Enabled = false;
-                btn50Peso.Enabled = false;
-                btn20Peso.Enabled = false;
+                falta = total - monto;
+                if (falta > 0)
+                {
+                    lblTotal2.Text = falta.ToString();
+                    lblMonto.Text = "0";
+                    btnEfectivo.Enabled = false;
+                    btnCredito.Enabled = false;
+                    btnVouncher.Enabled = false;
+                    btn.Enabled = false;
+                }
+                else
+                {
+                    cambio = monto - total;
+                    if (cambio == 0)
+                    {
+                        guardarVenta();
+                        pnlPagar.Visible = false;
+                        pnlDetalleVenta.Visible = true;
+                    }
+                    else
+                    {
 
-                btnNo0.Enabled = false;
-                btnNo1.Enabled = false;
-                btnNo2.Enabled = false;
-                btnNo3.Enabled = false;
-                btnNo4.Enabled = false;
-                btnNo5.Enabled = false;
-                btnNo6.Enabled = false;
-                btnNo7.Enabled = false;
-                btnNo8.Enabled = false;
-                btnNo9.Enabled = false;
-                btnPuntoPagar.Enabled = false;
-                btnClear.Enabled = false;
-                btnAll.Enabled = false;
+                        btn500pesos.Enabled = false;
+                        btn200pesos.Enabled = false;
+                        btn100Peso.Enabled = false;
+                        btn50Peso.Enabled = false;
+                        btn20Peso.Enabled = false;
 
-                btnFactura.Enabled = false;
-                button2.Enabled = false;
-                button3.Enabled = false;
-                button4.Enabled = false;
-                btnDolares.Enabled = false;
-                button11.Enabled = false;
-                button12.Enabled = false;
-                button13.Enabled = false;
-                
-                lblCambio.Text = cambio.ToString();
-                pnlCambio.Visible = true;
+                        btnNo0.Enabled = false;
+                        btnNo1.Enabled = false;
+                        btnNo2.Enabled = false;
+                        btnNo3.Enabled = false;
+                        btnNo4.Enabled = false;
+                        btnNo5.Enabled = false;
+                        btnNo6.Enabled = false;
+                        btnNo7.Enabled = false;
+                        btnNo8.Enabled = false;
+                        btnNo9.Enabled = false;
+                        btnPuntoPagar.Enabled = false;
+                        btnClear.Enabled = false;
+                        btnAll.Enabled = false;
 
-                pnlDetalleMinimo.Visible = true;
-                lblImporte.Text = total.ToString();
-                lblMontoRecibido.Text = monto.ToString();
-                lblCambioDado.Text = cambio.ToString();
-                lblIVA16.Text = IVA16.ToString("#,###.#0#");
-                lblIVA11.Text = IVA11.ToString("#,###.#0#");
-                lblIVA4.Text = IVA4.ToString("#,###.#0#");
-                lblIEPS53.Text = IEPS53.ToString("#,###.#0#");
-                lblIEPS30.Text = IEPS30.ToString("#,###.#0#");
-                lblIEPS26.Text = IEPS26.ToString("#,###.#0#");
-                lblDescuento.Text = DESCUENTO.ToString("#,###.#0#");
+                        btnFactura.Enabled = false;
+                        button2.Enabled = false;
+                        button3.Enabled = false;
+                        button4.Enabled = false;
+                        btnDolares.Enabled = false;
+                        button11.Enabled = false;
+                        button12.Enabled = false;
+                        button13.Enabled = false;
 
-                dgvDetalleProductos.Height = 440;
-                guardarVenta();
+                        lblCambio.Text = cambio.ToString();
+                        pnlCambio.Visible = true;
+
+                        pnlDetalleMinimo.Visible = true;
+                        lblImporte.Text = total.ToString();
+                        lblMontoRecibido.Text = monto.ToString();
+                        lblCambioDado.Text = cambio.ToString();
+                        lblIVA16.Text = IVA16.ToString("N");
+                        lblIVA11.Text = IVA11.ToString("N");
+                        lblIVA4.Text = IVA4.ToString("N");
+                        lblIEPS53.Text = IEPS53.ToString("N");
+                        lblIEPS30.Text = IEPS30.ToString("N");
+                        lblIEPS26.Text = IEPS26.ToString("N");
+                        lblDescuento.Text = DESCUENTO.ToString("N");
+
+                        dgvDetalleProductos.Height = 440;
+                        guardarVenta();
+                    }
+                }
             }
         }
 
@@ -1185,7 +1313,13 @@ namespace SiscomSoft_Desktop.Views
             DetalleVenta mDetalle = new DetalleVenta();
             mVenta.dCambio = Convert.ToDecimal(lblCambio.Text);
             mVenta.dtFechaVenta = DateTime.Now;
-            mVenta.sMoneda = "MXM";
+            if (dolar==true)
+            {
+                mVenta.sMoneda = "USA";
+            }else
+            {
+                mVenta.sMoneda = "MXM";
+            }
             mVenta.sTipoPago = "EFECTIVO";
             ManejoVenta.RegistrarNuevaVenta(mVenta, mCliente, mFactura);
             foreach (DataGridViewRow row in dgvDetalleProductos.Rows)
@@ -1196,8 +1330,6 @@ namespace SiscomSoft_Desktop.Views
                     mDetalle.iCantidad = Convert.ToInt32(row.Cells[1].Value);
                     mDetalle.sDescripcion = row.Cells[2].Value.ToString();
                     mDetalle.dPreUnitario = Convert.ToDecimal(row.Cells[4].Value);
-                    mDetalle.dImpuesto = Convert.ToDecimal(row.Cells[5].Value);
-                    mDetalle.iDescuento = Convert.ToInt32(row.Cells[6].Value);
                     ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalle, mProducto, mVenta);
                 }
             }
@@ -1207,7 +1339,6 @@ namespace SiscomSoft_Desktop.Views
             mFactura = null;
 
             dgvProductos.Rows.Clear();
-            dgvDetalleProductos.Rows.Clear();
 
             noPagar = 0;
             noCantidad = 0;
@@ -1225,26 +1356,5 @@ namespace SiscomSoft_Desktop.Views
             numeroVenta();
         }
         #endregion
-
-        private void btnDolares_Click(object sender, EventArgs e)
-        {
-            decimal TotalPesos = Convert.ToDecimal(lblTotal2.Text);
-            decimal TotalDolar = 0;
-            decimal TipoCambio = Convert.ToDecimal(17.6943); //  Convert.ToDecimal(FrmMenu.uHelper.usuario.fkSucursal.sTipoCambio);
-            if (dolar != true)
-            {
-                TotalDolar = (TotalPesos * 1) / TipoCambio;
-                lblTotalDolares.Text = TotalDolar.ToString("C");
-                pnlDolares.Visible = true;
-                dolar = true;
-                btnDolares.Text = "Pesos";
-            }
-            else
-            {
-                pnlDolares.Visible = false;
-                dolar = false;
-                btnDolares.Text = "Dolares";
-            }
-        }
     }
 }
