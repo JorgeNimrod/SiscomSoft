@@ -60,27 +60,7 @@ namespace SiscomSoft.Controller
 
         }
       
-        public static List<DetalleAlmacen> Buscar(int pkAlmacen)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    return ctx.DetalleAlmacen
-                      
-                        .Include("fkAlmacen")
-                        .Include("fkCatalogo")
-                        .Include("fkProducto")
-                        .Include("fkImpuesto")
-                        .Include("fkPrecio")
-                        .Where(r => r.iCantidad == pkAlmacen).ToList();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+      
         public static List<DetalleAlmacen> getAll()
         {
             try
@@ -89,6 +69,10 @@ namespace SiscomSoft.Controller
                 {
                     return ctx.DetalleAlmacen
                         .Include("fkAlmacen")
+                          .Include("fkCatalogo")
+                        .Include("fkProducto")
+                        .Include("fkImpuesto")
+                        .Include("fkPrecio")
                         .Where(r => r.bStatus == true).ToList();
                 }
             }
@@ -116,5 +100,41 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+        public static List<DetalleAlmacen> Buscar(string valor, Boolean Status)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.DetalleAlmacen
+                            .Include("fkAlmacen")
+                          .Include("fkCatalogo")
+                        .Include("fkProducto")
+                        .Include("fkImpuesto")
+                        .Include("fkPrecio")
+                         .Where(r => r.bStatus == Status && r.sDescripcion.Contains(valor))
+                        .ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        //public static List<DetalleAlmacen> Obtener()
+        //{
+        //    try
+        //    {
+        //        using (var ctx = new DataModel())
+        //        {
+        //            return ctx.DetalleAlmacen.Where(r => r.bStatus == true).ToList();
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
     }
 }
