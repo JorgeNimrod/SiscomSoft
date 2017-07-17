@@ -20,9 +20,10 @@ namespace SiscomSoft.Models
         public string sDescripcion { get; set; }
 
         public string sMarca { get; set; }
-
-        //Costo real del producto
+        
         public decimal dCosto { get; set; }
+
+        public decimal dPreVenta { get; set; }
 
         public string sFoto { get; set; }
 

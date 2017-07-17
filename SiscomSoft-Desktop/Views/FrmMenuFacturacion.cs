@@ -178,6 +178,11 @@ namespace SiscomSoft_Desktop.Views
                 lblSubTotal.Text = SubTotal.ToString("N");
                 lblTotal.Text = Total.ToString("N");
                 lblIVA16.Text = IVA16.ToString("N");
+                lblIVA11.Text = IVA11.ToString("N");
+                lblIVA4.Text = IVA4.ToString("N");
+                lblIEPS53.Text = IEPS53.ToString("N");
+                lblIEPS30.Text = IEPS30.ToString("N");
+                lblIEPS26.Text = IEPS26.ToString("N");
             }
         }
 
