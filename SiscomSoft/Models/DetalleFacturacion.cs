@@ -4,22 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SiscomSoft.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SiscomSoft.Models
 {
-    [Table("DetalleVentas")]
-    public class DetalleVenta
+    [Table("DetalleFacturacion")]
+    public class DetalleFacturacion
     {
         [Key]
-        public int pkDetalleVenta { get; set; }
+        public int pkDetalleFacturacion { get; set; }
 
-        public virtual Venta fkVenta { get; set; }
+        public virtual Factura fkFactura { get; set; }
 
-        public virtual Producto fkProducto { get; set; }
+        public virtual Producto fkProducto  { get; set; }
 
         public string sDescripcion { get; set; }
+
+        public string sClave { get; set; }
 
         public int iCantidad { get; set; }
 
@@ -27,7 +30,7 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public DetalleVenta()
+        public DetalleFacturacion()
         {
             this.bStatus = true;
         }

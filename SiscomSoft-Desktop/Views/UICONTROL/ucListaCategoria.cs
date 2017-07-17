@@ -17,7 +17,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
     {
         public static int pkCategoriaUI;
         Categoria nCategoria;
-        FrmDetalleVenta vMain;
+        //FrmDetalleVenta vMain;
         public ucListaCategoria() //Categoria ucCategoria, FrmDetalleVenta vmain
         {
             InitializeComponent();

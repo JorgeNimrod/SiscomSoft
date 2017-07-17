@@ -18,7 +18,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
     {
         Producto nProducto;
         public static int pkProductoUI;
-        FrmDetalleVenta vMain;
+        //FrmDetalleVenta vMain;
         public ucImagenProducto() //Producto ucProducto, FrmDetalleVenta vmain
         {
             InitializeComponent();

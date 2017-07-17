@@ -22,11 +22,20 @@ namespace SiscomSoft_Desktop.Views
     public partial class FrmMenuFacturacion : Form
     {
         string strSello = string.Empty;
+        decimal SubTotal = 0;
+        decimal DESCUENTO = 0;
+        decimal DESCUENTOEXTRA = 0;
+        decimal IVA16 = 0;
+        decimal IVA11 = 0;
+        decimal IVA4 = 0;
+        decimal IEPS53 = 0;
+        decimal IEPS30 = 0;
+        decimal IEPS26 = 0;
 
         public FrmMenuFacturacion()
         {
             InitializeComponent();
-            this.dgvDatosProducto.AutoGenerateColumns = false;
+            this.dgvProductos.AutoGenerateColumns = false;
         }
 
         public void cargarSucursales()
@@ -71,17 +80,104 @@ namespace SiscomSoft_Desktop.Views
             Producto nProducto = ManejoProducto.getById(FrmLookingForProducts.PKPRODUCTO);
             if (nProducto != null)
             {
-                DataGridViewRow row = (DataGridViewRow) dgvDatosProducto.Rows[0].Clone();
+                DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
                 row.Cells[0].Value = nProducto.pkProducto;
-                row.Cells[1].Value = nProducto.sDescripcion;
-                row.Cells[2].Value = nProducto.sMarca;
-                row.Cells[3].Value = nProducto.fkCatalogo.sUDM;
+                row.Cells[1].Value = nProducto.iClaveProd;
+                row.Cells[2].Value = nProducto.sDescripcion;
+                row.Cells[3].Value = nProducto.sMarca;
+                row.Cells[4].Value = nProducto.fkCatalogo.sUDM;
                 row.Cells[5].Value = nProducto.dCosto;
                 row.Cells[6].Value = 1;
-                row.Cells[9].Value = nProducto.iClaveProd;
 
-                dgvDatosProducto.Rows.Add(row);
-                CalcularTotales();
+                decimal Total = 0;
+                decimal PreUnitario = nProducto.dCosto;
+                decimal TasaImpuestoIVA16 = 0;
+                decimal TasaImpuestoIVA11 = 0;
+                decimal TasaImpuestoIVA4 = 0;
+                decimal TasaImpuestoIEPS53 = 0;
+                decimal TasaImpuestoIEPS26 = 0;
+                decimal TasaImpuestoIEPS30 = 0;
+                decimal TasaDescuento = 0;
+                decimal TasaDescuentoExtra = 0;
+                int Cantidad = Convert.ToInt32(row.Cells[6].Value);
+                #region Impuestos
+                List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
+                foreach (ImpuestoProducto rImpuesto in mImpuesto)
+                {
+                    if (rImpuesto.fkImpuesto.sTipoImpuesto == "TRASLADO")
+                    {
+                        if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
+                        {
+                            TasaImpuestoIVA16 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                        }
+                        else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
+                        {
+                            TasaImpuestoIVA11 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                        }
+                        else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
+                        {
+                            TasaImpuestoIVA4 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                        }
+                    }
+                }
+                #endregion
+                #region Descuentos
+                List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
+                foreach (DescuentoProducto rDescuento in mDescuento)
+                {
+                    TasaDescuento = rDescuento.fkDescuento.dTasaDesc;
+                    TasaDescuentoExtra = rDescuento.fkDescuento.dTasaDescEx;
+                }
+                #endregion
+
+                decimal Importe = 0;
+                decimal ImporteWithImpuestoIVA16 = 0;
+                decimal ImporteWithImpuestoIVA11 = 0;
+                decimal ImporteWithImpuestoIVA4 = 0;
+                decimal ImporteWithImpuestosIEPS53 = 0;
+                decimal ImporteWithImpuestosIEPS30 = 0;
+                decimal ImporteWithImpuestosIEPS26 = 0;
+                decimal PreUnitarioWithDescuento = 0;
+                decimal PriceForLot = 0;
+                decimal Descuento = 0;
+                decimal DescuentoExtra = 0;
+
+                if (TasaDescuento != 0)
+                {
+                    Descuento = PreUnitario * (TasaDescuento / 100);
+                }
+                if (TasaDescuentoExtra != 0)
+                {
+                    DescuentoExtra = PreUnitario * (TasaDescuentoExtra / 100);
+                }
+
+                SubTotal += Cantidad * PreUnitario;
+                PreUnitarioWithDescuento = PreUnitario - Descuento - DescuentoExtra;
+                PriceForLot = Cantidad * PreUnitarioWithDescuento;
+
+                ImporteWithImpuestoIVA16 = PriceForLot * (TasaImpuestoIVA16 / 100);
+                ImporteWithImpuestoIVA11 = PriceForLot * (TasaImpuestoIVA11 / 100);
+                ImporteWithImpuestoIVA4 = PriceForLot * (TasaImpuestoIVA4 / 100);
+                ImporteWithImpuestosIEPS53 = PriceForLot * (TasaImpuestoIEPS53 / 100);
+                ImporteWithImpuestosIEPS30 = PriceForLot * (TasaImpuestoIEPS30 / 100);
+                ImporteWithImpuestosIEPS26 = PriceForLot * (TasaImpuestoIEPS26 / 100);
+
+                Importe = PriceForLot + ImporteWithImpuestoIVA16 + ImporteWithImpuestoIVA11 +
+                    ImporteWithImpuestoIVA4 + ImporteWithImpuestosIEPS53 + ImporteWithImpuestosIEPS30 +
+                    ImporteWithImpuestosIEPS26;
+
+                row.Cells[7].Value = Importe.ToString("N");
+                row.Height = 30;
+                dgvProductos.Rows.Add(row);
+
+                foreach (DataGridViewRow rItem in dgvProductos.Rows)
+                {
+                    Total += Convert.ToDecimal(rItem.Cells[7].Value);
+                }
+
+                lblSubTotal.Text = SubTotal.ToString("N");
+                lblTotal.Text = Total.ToString("N");
+                lblIVA16.Text = IVA16.ToString("N");
             }
         }
 
@@ -94,30 +190,6 @@ namespace SiscomSoft_Desktop.Views
             this.txtTelefono.Text = nCliente.sTelMovil;
             this.cmbFormaDePago.SelectedIndex = Convert.ToInt16(nCliente.sTipoPago)-1;
             this.txtCondicionesDePago.Text = nCliente.sConPago;
-        }
-
-        public void CalcularTotales()
-        {
-            //this.dgvDatosProducto.CurrentRow.Cells[0].Value
-            decimal Subtotal = 0;
-            decimal Total;
-            decimal dgvCosto = Convert.ToDecimal(this.dgvDatosProducto.CurrentRow.Cells[5].Value);
-            int dgvCantidad = Convert.ToInt32(this.dgvDatosProducto.CurrentRow.Cells[6].Value);
-            decimal dgvDescuento = Convert.ToDecimal(this.dgvDatosProducto.CurrentRow.Cells[7].Value);
-
-            decimal total = dgvCosto * dgvCantidad;
-
-            this.dgvDatosProducto.CurrentRow.Cells[8].Value = total;
-            foreach (DataGridViewRow rItem in dgvDatosProducto.Rows)
-            {
-                decimal tems = Convert.ToDecimal(rItem.Cells[8].Value);
-                Subtotal += tems;
-            }
-            
-            Total = Subtotal;
-
-            txtSubtotal.Text = Subtotal.ToString();
-            txtTotal.Text = Total.ToString();
         }
 
         public void GenerarFacturaIngreso()
@@ -227,7 +299,7 @@ namespace SiscomSoft_Desktop.Views
             cfdi.CondicionesDePago = txtCondicionesDePago.Text;
             #endregion
 
-            cfdi.SubTotal = Convert.ToDecimal(txtSubtotal.Text);
+            cfdi.SubTotal = Convert.ToDecimal(lblSubTotal.Text);
 
             //No se muestra
             cfdi.Descuento = Convert.ToDecimal("0.00");
@@ -247,7 +319,7 @@ namespace SiscomSoft_Desktop.Views
             }
             #endregion
 
-            cfdi.Total = Convert.ToDecimal(txtTotal.Text);
+            cfdi.Total = Convert.ToDecimal(lblTotal.Text);
 
             #region TipoDeComprobante
             if (cmbTipoDeComprobante.SelectedIndex == 0)
@@ -508,18 +580,18 @@ namespace SiscomSoft_Desktop.Views
             #endregion
 
             #region Conceptos
-            cfdi.Conceptos = new ComprobanteConcepto[this.dgvDatosProducto.Rows.Count - 1];
-            for (int i = 0; i < this.dgvDatosProducto.Rows.Count - 1; i++)
+            cfdi.Conceptos = new ComprobanteConcepto[this.dgvProductos.Rows.Count - 1];
+            for (int i = 0; i < this.dgvProductos.Rows.Count - 1; i++)
             {
                 cfdi.Conceptos[i] = new ComprobanteConcepto();
                 //TODO: poner en la vista para agregar pructos un combo para la clave del producto o servicio
                 cfdi.Conceptos[i].ClaveProdServ = c_ClaveProdServ.Item01010101;
-                cfdi.Conceptos[i].Cantidad = Convert.ToInt32(this.dgvDatosProducto.CurrentRow.Cells[6].Value);
+                cfdi.Conceptos[i].Cantidad = Convert.ToInt32(this.dgvProductos.CurrentRow.Cells[6].Value);
                 cfdi.Conceptos[i].ClaveUnidad = c_ClaveUnidad.KGM;
                 cfdi.Conceptos[i].Unidad = "KILO";
-                cfdi.Conceptos[i].Descripcion = this.dgvDatosProducto.CurrentRow.Cells[1].Value.ToString(); ;
-                cfdi.Conceptos[i].ValorUnitario = Convert.ToDecimal(this.dgvDatosProducto.CurrentRow.Cells[5].Value);
-                cfdi.Conceptos[i].Importe = Convert.ToDecimal(this.dgvDatosProducto.CurrentRow.Cells[8].Value);
+                cfdi.Conceptos[i].Descripcion = this.dgvProductos.CurrentRow.Cells[1].Value.ToString(); ;
+                cfdi.Conceptos[i].ValorUnitario = Convert.ToDecimal(this.dgvProductos.CurrentRow.Cells[5].Value);
+                cfdi.Conceptos[i].Importe = Convert.ToDecimal(this.dgvProductos.CurrentRow.Cells[8].Value);
             }
             #endregion
 
@@ -644,13 +716,6 @@ namespace SiscomSoft_Desktop.Views
             txtRFC.Focus();
         }
 
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmMenu v = new FrmMenu();
-            v.ShowDialog();
-        }
-
         private void btnCancelarBill_Click(object sender, EventArgs e)
         {
             pnlCreateFactura.Visible = false;
@@ -680,6 +745,13 @@ namespace SiscomSoft_Desktop.Views
             CrearCadenaOriginalSello();
             GenerarFacturaIngreso();
             MessageBox.Show("Exito");
+        }
+
+        private void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmMenu v = new FrmMenu();
+            v.ShowDialog();
         }
         #endregion
 

@@ -750,8 +750,7 @@ namespace SiscomSoft_Desktop.Views
                             fkProducto = nProducto,
                             iCantidad = Convert.ToInt32(row.Cells[1].Value),
                             sDescripcion = row.Cells[2].Value.ToString(),
-                            dPreUnitario = Convert.ToDecimal(row.Cells[4].Value),
-                            iDescuento = Convert.ToInt32(row.Cells[6].Value)
+                            dPreUnitario = Convert.ToDecimal(row.Cells[4].Value)
                         });
                     }
                 }

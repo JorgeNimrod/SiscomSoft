@@ -14,51 +14,26 @@ namespace SiscomSoft.Models
     {
         [Key]
         public int pkFactura { get; set; }
-        
-        // llave foranea de emoresa
-        public virtual Empresa fkEmpresa { get; set; }
+
+        public virtual Usuario fkUsuario { get; set; }
+
+        public virtual Sucursal fkSucursal { get; set; }
+
+        public virtual Cliente fkCliente { get; set; }
 
         public string sTipoCambio { get; set; }
-
-        public string sNomCliente { get; set; }
-
-        public string sDireccion { get; set; }
-
-        public string sRFC { get; set; }
-
-        public string sTelefono { get; set; }
 
         public DateTime dtFecha { get; set; }
         
         public string sFolio { get; set; }
 
-        public string sNomVendedor { get; set; }
-
-        public int iClavePro { get; set; }
-
-        public int iCantidad { get; set; }
-
-        // llave foranea de catalogo
-        public virtual Catalogo fkCatalogo { get; set; }
-
-        public decimal dCostoPro { get; set; }
-
-        public decimal dPreVta { get; set; }
-
-        public decimal dImporte { get; set; }
-
-        // llave foranea de impuesto
-        public virtual Impuesto fkImpuestos { get; set; }
-
-        public int iDescuento { get; set; }
-
         public string sComentario { get; set; }
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<InventarioEntrada> InventariosEntradas { get; set; }
-
         public ICollection<Venta> Ventas { get; set; }
+
+        public ICollection<DetalleFacturacion> DetalleFacturacion { get; set; }
 
         public Factura()
         {

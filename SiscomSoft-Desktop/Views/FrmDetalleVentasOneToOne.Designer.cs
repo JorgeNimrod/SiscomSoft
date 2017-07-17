@@ -85,6 +85,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.pnlDetalleMinimo = new System.Windows.Forms.Panel();
+            this.lblImporteDolares = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lblDescuento = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.lblIEPS30 = new System.Windows.Forms.Label();
@@ -154,8 +156,6 @@
             this.btnNo7 = new System.Windows.Forms.Button();
             this.btnNo4 = new System.Windows.Forms.Button();
             this.btnNo1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblImporteDolares = new System.Windows.Forms.Label();
             this.pnlDetalleVenta.SuspendLayout();
             this.pnlAccionesProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -819,6 +819,24 @@
             this.pnlDetalleMinimo.Size = new System.Drawing.Size(474, 186);
             this.pnlDetalleMinimo.TabIndex = 160;
             this.pnlDetalleMinimo.Visible = false;
+            // 
+            // lblImporteDolares
+            // 
+            this.lblImporteDolares.Location = new System.Drawing.Point(354, 0);
+            this.lblImporteDolares.Name = "lblImporteDolares";
+            this.lblImporteDolares.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblImporteDolares.Size = new System.Drawing.Size(115, 18);
+            this.lblImporteDolares.TabIndex = 23;
+            this.lblImporteDolares.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(284, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 18);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Dolares:";
             // 
             // lblDescuento
             // 
@@ -1636,24 +1654,6 @@
             this.btnNo1.Text = "1";
             this.btnNo1.UseVisualStyleBackColor = false;
             this.btnNo1.Click += new System.EventHandler(this.btnNo1_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(284, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 18);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Dolares:";
-            // 
-            // lblImporteDolares
-            // 
-            this.lblImporteDolares.Location = new System.Drawing.Point(354, 0);
-            this.lblImporteDolares.Name = "lblImporteDolares";
-            this.lblImporteDolares.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblImporteDolares.Size = new System.Drawing.Size(115, 18);
-            this.lblImporteDolares.TabIndex = 23;
-            this.lblImporteDolares.Text = "0";
             // 
             // FrmDetalleVentasOneToOne
             // 

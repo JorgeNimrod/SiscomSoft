@@ -81,6 +81,7 @@
     <Compile Include="Models\Descuento.cs" />
     <Compile Include="Models\DescuentoProducto.cs" />
     <Compile Include="Models\DetalleAlmacen.cs" />
+    <Compile Include="Models\DetalleFacturacion.cs" />
     <Compile Include="Models\ImpuestoProducto.cs" />
     <Compile Include="Models\DetalleVenta.cs" />
     <Compile Include="Models\ManejoImpuesto.cs" />
