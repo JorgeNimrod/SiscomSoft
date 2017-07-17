@@ -1211,9 +1211,10 @@ namespace SiscomSoft_Desktop.Views
                         pnlCambio.Visible = true;
 
                         pnlDetalleMinimo.Visible = true;
-                        lblImporte.Text = totalDolar.ToString();
-                        lblMontoRecibido.Text = montoDolar.ToString();
-                        lblCambioDado.Text = cambioDolar.ToString();
+                        lblImporte.Text = lblTotal2.Text;
+                        lblImporteDolares.Text = totalDolar.ToString("N");
+                        lblMontoRecibido.Text = montoDolar.ToString("N");
+                        lblCambioDado.Text = cambioDolar.ToString("N");
                         lblIVA16.Text = IVA16.ToString("N");
                         lblIVA11.Text = IVA11.ToString("N");
                         lblIVA4.Text = IVA4.ToString("N");
