@@ -13,6 +13,7 @@ namespace SiscomSoft.Models
     {
     [Key]
     public int pkDetalle { get; set; }
+        public string sDescripcion { get; set; }
         public virtual Almacen fkAlmacen { get; set; }
         public virtual Producto fkProducto { get; set; }
         public int iCantidad { get; set; }
