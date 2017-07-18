@@ -29,6 +29,12 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
+        public int iTurno { get; set; }
+
+        public int iCaja { get; set; }
+
+        public virtual Usuario fkUsuario { get; set; }
+
         public ICollection<DetalleVenta> DetalleVentas { get; set; }
 
         public Venta()

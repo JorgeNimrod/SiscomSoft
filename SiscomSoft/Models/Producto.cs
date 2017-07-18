@@ -32,14 +32,11 @@ namespace SiscomSoft.Models
         public int iLote { get; set; }
 
         public Boolean bStatus { get; set; }
-
-        // llave foranea de categoria
+        
         public virtual Categoria fkCategoria { get; set; }
-
-        // llave foranea de catalogo - Es la unidad de medida del producto (K, Kg, L, Ml, Etc)
+        
         public virtual Catalogo fkCatalogo { get; set; }
-
-        // llave foranea de precio - Precio que se le da al cliente 
+        
         public virtual Precio fkPrecio { get; set; }
 
         public ICollection<DetalleVenta> DetalleVentas { get; set; }

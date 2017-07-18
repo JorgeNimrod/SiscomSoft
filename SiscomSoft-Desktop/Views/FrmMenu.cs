@@ -39,7 +39,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+            timer1.Start();
             //if (uHelper == null)
             //{
             //    FrmLogin vLogin = new FrmLogin();
@@ -104,6 +104,18 @@ namespace SiscomSoft_Desktop.Views
             Hide();
             FrmMenuVentas v = new Views.FrmMenuVentas();
             v.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FrmPeriodoTrabajo v = new Views.FrmPeriodoTrabajo();
+            v.ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
         }
     }
 }

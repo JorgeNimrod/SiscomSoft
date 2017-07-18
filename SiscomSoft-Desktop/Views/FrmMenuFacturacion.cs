@@ -762,8 +762,13 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmMenuFacturacion_Load(object sender, EventArgs e)
         {
-            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+            timer1.Start();
             cargarSucursales();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
         }
     }
 } 
