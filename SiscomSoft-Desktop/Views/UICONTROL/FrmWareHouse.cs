@@ -16,8 +16,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
     public partial class FrmWareHouse : Form
     {
         Boolean status = false;
-        DateTimePicker dtp = new DateTimePicker();
-        Rectangle _Rectangle;
+      
 
         public FrmWareHouse()
         {
@@ -26,10 +25,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             this.dgrMostrarAlmacen.AutoGenerateColumns = false;
             this.dgrMostrarDetalles.AutoGenerateColumns = false;
 
-            dgrDatosAlmacen.Controls.Add(dtp);
-            dtp.Visible = false;
-            dtp.Format = DateTimePickerFormat.Custom;
-            //  dtp.TextChanged += new EventHandler(dtp_TextChange);
+          
         }
         private Boolean EsFecha(String fecha)
         {
@@ -117,11 +113,8 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             cargarCombos();
             cargarProducto();
-            cargarCatalogo();
-            cargarPrecios();
-            cargarImpuestos();
-            // cargarAlmacenes();
-            cargarDetalles();
+        
+          
             cargarWaver();
             cargarDetails();
         }
@@ -133,27 +126,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             combo.DisplayMember = "sDescripcion";
             combo.ValueMember = "pkProducto";
         }
-        private void cargarCatalogo()
-        {
-            DataGridViewComboBoxColumn combo = dgrDatosAlmacen.Columns["Unidad"] as DataGridViewComboBoxColumn;
-            combo.DataSource = ManejoCatalogo.getAll(true);
-            combo.DisplayMember = "sUDM";
-            combo.ValueMember = "pkCatalogo";
-        }
-        private void cargarPrecios()
-        {
-            DataGridViewComboBoxColumn combo = dgrDatosAlmacen.Columns["Costo"] as DataGridViewComboBoxColumn;
-            combo.DataSource = ManejoPrecio.getAll();
-            combo.DisplayMember = "iPrePorcen";
-            combo.ValueMember = "pkPrecios";
-        }
-        private void cargarImpuestos()
-        {
-            DataGridViewComboBoxColumn combo = dgrDatosAlmacen.Columns["Impuesto"] as DataGridViewComboBoxColumn;
-            combo.DataSource = ManejoImpuesto.getAll(true);
-            combo.DisplayMember = "dTasaImpuesto";
-            combo.ValueMember = "pkImpuesto";
-        }
+      
 
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -232,18 +205,14 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     Impuesto mImpuesto = ManejoImpuesto.getById(Convert.ToInt32(row.Cells[8].Value));
                     Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[1].Value));
                     Catalogo mCatalogo = ManejoCatalogo.getById(Convert.ToInt32(row.Cells[2].Value));
-
+                     
                     DetalleAlmacen mDetalle = new DetalleAlmacen();
                     mDetalle.iCantidad = Convert.ToInt32(row.Cells[4].Value);
                     mDetalle.sDescripcion = Convert.ToString(row.Cells[1].Value);
-                    mDetalle.dtFechaCaducidad = Convert.ToDateTime(row.Cells[3].Value);
-
-                    mDetalle.dPrecioUnitario = Convert.ToDecimal(row.Cells[5].Value);
-
-                    mDetalle.iDescuento = Convert.ToInt32(row.Cells[7].Value);
+                  
 
 
-                    ManejoDetalleAlmacen.RegistrarNuevoDetalle(mDetalle, nAlmacen, mProducto, mCatalogo, mImpuesto, mPrecio);
+                    ManejoDetalleAlmacen.RegistrarNuevoDetalle(mDetalle, nAlmacen, mProducto);
 
                 }
             }
@@ -263,32 +232,8 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void dgrDatosAlmacen_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            //Validamos si no es una fila nueva
-            if (!dgrDatosAlmacen.Rows[e.RowIndex].IsNewRow)
-            {
-                //Sólo controlamos el dato de la columna 0
-                if (e.ColumnIndex == 3)
-                {
-                    if (!this.EsFecha(e.FormattedValue.ToString()))
-                    {
-                        MessageBox.Show("El dato introducido no es de tipo fecha Ejemplo: 25/08/2017", "Error de validación",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        dgrDatosAlmacen.Rows[e.RowIndex].ErrorText = "El dato introducido no es de tipo fecha Ejemplo: 25/08/2017";
-                        e.Cancel = true;
-                    }
-                }
-
-                if (dgrDatosAlmacen.Columns[e.ColumnIndex].Index == 4)
-                {
-                    if (String.IsNullOrEmpty(e.FormattedValue.ToString()))
-                    {
-                        dgrDatosAlmacen.Rows[e.RowIndex].ErrorText =
-                            "Inserte valor";
-                        e.Cancel = true;
-                    }
-
-                }
-            }
+          
+            
         }
 
         private void dgrDatosAlmacen_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -306,19 +251,19 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
 
 
-                    decimal Subtotal = 0;
-                    foreach (DataGridViewRow rItem in dgrDatosAlmacen.Rows)
-                    {
-                        Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
-                    }
-                    if (Subtotal == 0)
-                    {
-                        // = "$0";
-                    }
-                    else
-                    {
-                        //  lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
-                    }
+                    //decimal Subtotal = 0;
+                    //foreach (DataGridViewRow rItem in dgrDatosAlmacen.Rows)
+                    //{
+                    //    Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
+                    //}
+                    //if (Subtotal == 0)
+                    //{
+                    //    // = "$0";
+                    //}
+                    //else
+                    //{
+                    //    //  lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
+                    //}
 
                 }
             }
@@ -364,7 +309,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void pnlMostrarDetalles_Paint(object sender, PaintEventArgs e)
         {
-            dgrDatosAlmacen.CurrentCell.Value = dtp.Text.ToString();
+          
         }
 
         private void cbkCaducidad_CheckedChanged(object sender, EventArgs e)
@@ -446,8 +391,18 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void dgrDatosAlmacen_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            //Elimina el mensaje de error de la cabecera de la fila
-            dgrDatosAlmacen.Rows[e.RowIndex].ErrorText = String.Empty;
+            Producto nProducto = ManejoProducto.getById(Convert.ToInt32(dgrDatosAlmacen.CurrentRow.Cells[1].Value));
+            if (nProducto != null)
+            {
+                DataGridViewRow row = (DataGridViewRow)dgrDatosAlmacen.Rows[0].Clone();
+                row.Cells[3].Value = nProducto.fkCatalogo.sUDM;
+                row.Cells[5].Value = 1;
+                row.Cells[2].Value = nProducto.dCosto;
+
+                row.Height = 40;
+
+                dgrDatosAlmacen.Rows.Add(row);
+            }
 
 
         }
@@ -532,11 +487,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void dgrDatosAlmacen_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (this.dgrDatosAlmacen.Columns[e.ColumnIndex].Name == "Precio")
-            {
-                string deger = (string)e.Value;
-                deger = String.Format("{0:0.00}", deger);
-            }
+           
         }
 
         private void dgrDatosAlmacen_DefaultCellStyleChanged(object sender, EventArgs e)
@@ -544,6 +495,19 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         }
 
+        private void dgrDatosAlmacen_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
+            {
+
+                if (Convert.ToBoolean(row.Cells[5].Value))
+                {
+                    //FrmAgregarDescuentoProducto descuento = new FrmAgregarDescuentoProducto();
+                    //descuento.Show();
+                }
+            }
+        }
     }
 }
 

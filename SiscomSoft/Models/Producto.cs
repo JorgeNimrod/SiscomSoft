@@ -45,6 +45,8 @@ namespace SiscomSoft.Models
 
         public ICollection<DescuentoProducto> DescuentosProducto { get; set; }
 
+        public ICollection<Inventario> Inventarios { get; set; }
+
         public Producto()
         {
             this.bStatus = true;
