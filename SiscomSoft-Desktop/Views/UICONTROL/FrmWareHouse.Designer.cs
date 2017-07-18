@@ -41,13 +41,11 @@
             this.dgrDatosAlmacen = new System.Windows.Forms.DataGridView();
             this.pkDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Unidad = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.fe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descuento = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Impuesto = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.fe = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFolio = new System.Windows.Forms.TextBox();
             this.txtNoFactura = new System.Windows.Forms.TextBox();
@@ -187,13 +185,11 @@
             this.dgrDatosAlmacen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pkDetalle,
             this.Nombre,
+            this.costo,
             this.Unidad,
-            this.fe,
-            this.Cantidad,
-            this.Precio,
-            this.Costo,
             this.Descuento,
-            this.Impuesto,
+            this.Cantidad,
+            this.fe,
             this.Importe});
             this.dgrDatosAlmacen.EnableHeadersVisualStyles = false;
             this.dgrDatosAlmacen.GridColor = System.Drawing.Color.Chocolate;
@@ -205,6 +201,7 @@
             this.dgrDatosAlmacen.TabIndex = 36;
             this.dgrDatosAlmacen.DefaultCellStyleChanged += new System.EventHandler(this.dgrDatosAlmacen_DefaultCellStyleChanged);
             this.dgrDatosAlmacen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellClick);
+            this.dgrDatosAlmacen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellContentClick);
             this.dgrDatosAlmacen.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellEndEdit);
             this.dgrDatosAlmacen.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgrDatosAlmacen_CellFormatting);
             this.dgrDatosAlmacen.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgrDatosAlmacen_CellValidating);
@@ -229,52 +226,38 @@
             this.Nombre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Nombre.Width = 300;
             // 
+            // costo
+            // 
+            this.costo.HeaderText = "Costo";
+            this.costo.Name = "costo";
+            // 
             // Unidad
             // 
-            this.Unidad.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Unidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Unidad.HeaderText = "Unidad ";
             this.Unidad.Name = "Unidad";
             this.Unidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Unidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Unidad.Width = 150;
             // 
-            // fe
+            // Descuento
             // 
-            this.fe.HeaderText = "Fecha de Caducidad";
-            this.fe.Name = "fe";
-            this.fe.Width = 150;
+            this.Descuento.HeaderText = "Descuento";
+            this.Descuento.Name = "Descuento";
+            this.Descuento.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Descuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Descuento.Width = 150;
             // 
             // Cantidad
             // 
             this.Cantidad.HeaderText = "Cantidad ";
             this.Cantidad.Name = "Cantidad";
             // 
-            // Precio
+            // fe
             // 
-            this.Precio.HeaderText = "Precio Unitario";
-            this.Precio.Name = "Precio";
-            this.Precio.Width = 200;
-            // 
-            // Costo
-            // 
-            this.Costo.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Costo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Costo.HeaderText = "Costo";
-            this.Costo.Name = "Costo";
-            // 
-            // Descuento
-            // 
-            this.Descuento.HeaderText = "Descuento";
-            this.Descuento.Name = "Descuento";
-            this.Descuento.Width = 150;
-            // 
-            // Impuesto
-            // 
-            this.Impuesto.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Impuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Impuesto.HeaderText = "Impuesto";
-            this.Impuesto.Name = "Impuesto";
+            this.fe.HeaderText = "Fecha de Caducidad";
+            this.fe.Name = "fe";
+            this.fe.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.fe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.fe.Width = 150;
             // 
             // Importe
             // 
@@ -390,9 +373,9 @@
             this.pnlMostrarDetalles.Controls.Add(this.dgrMostrarAlmacen);
             this.pnlMostrarDetalles.Controls.Add(this.btnAlmacenDetalle);
             this.pnlMostrarDetalles.Controls.Add(this.dgrMostrarDetalles);
-            this.pnlMostrarDetalles.Location = new System.Drawing.Point(0, 325);
+            this.pnlMostrarDetalles.Location = new System.Drawing.Point(1163, 436);
             this.pnlMostrarDetalles.Name = "pnlMostrarDetalles";
-            this.pnlMostrarDetalles.Size = new System.Drawing.Size(1369, 427);
+            this.pnlMostrarDetalles.Size = new System.Drawing.Size(195, 214);
             this.pnlMostrarDetalles.TabIndex = 49;
             this.pnlMostrarDetalles.Visible = false;
             this.pnlMostrarDetalles.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
@@ -773,13 +756,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewComboBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkDetalle;
         private System.Windows.Forms.DataGridViewComboBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Unidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unidad;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Costo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Impuesto;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn fe;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
     }
 }

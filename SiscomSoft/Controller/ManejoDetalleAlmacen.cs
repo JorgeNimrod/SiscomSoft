@@ -10,7 +10,7 @@ namespace SiscomSoft.Controller
 {
    public class ManejoDetalleAlmacen
     {
-        public static void RegistrarNuevoDetalle(DetalleAlmacen nDetalle,Almacen nAlmacen, Producto nProducto,Catalogo nCatalogo,Impuesto nImpuesto,Precio nPrecio )
+        public static void RegistrarNuevoDetalle(DetalleAlmacen nDetalle,Almacen nAlmacen, Producto nProducto )
         {
             try
             {
@@ -18,14 +18,10 @@ namespace SiscomSoft.Controller
                 {
                     nDetalle.fkAlmacen = nAlmacen;
                     nDetalle.fkProducto = nProducto;
-                    nDetalle.fkCatalogo = nCatalogo;
-                    nDetalle.fkImpuesto = nImpuesto;
-                    nDetalle.fkPrecio = nPrecio;
+                   
                     ctx.Almacenes.Attach(nAlmacen);
                     ctx.Productos.Attach(nProducto);
-                    ctx.Catalogos.Attach(nCatalogo);
-                    ctx.Impuestos.Attach(nImpuesto);
-                    ctx.Precios.Attach(nPrecio);
+                   
                     ctx.DetalleAlmacen.Add(nDetalle);
                     ctx.SaveChanges();
                 }
@@ -44,10 +40,9 @@ namespace SiscomSoft.Controller
                 {
                     return ctx.DetalleAlmacen.Include("fkAlmacen")
                     
-                        .Include("fkCatalogo")
+                       
                         .Include("fkProducto")
-                        .Include("fkImpuesto")
-                        .Include("fkPrecio")
+                       
                         .Where(r => r.bStatus == true && r.pkDetalle == pkDetalle)
                         .FirstOrDefault();
                 }
@@ -69,10 +64,9 @@ namespace SiscomSoft.Controller
                 {
                     return ctx.DetalleAlmacen
                         .Include("fkAlmacen")
-                          .Include("fkCatalogo")
+                          
                         .Include("fkProducto")
-                        .Include("fkImpuesto")
-                        .Include("fkPrecio")
+                      
                         .Where(r => r.bStatus == true).ToList();
                 }
             }
@@ -108,10 +102,9 @@ namespace SiscomSoft.Controller
                 {
                     return ctx.DetalleAlmacen
                             .Include("fkAlmacen")
-                          .Include("fkCatalogo")
+                        
                         .Include("fkProducto")
-                        .Include("fkImpuesto")
-                        .Include("fkPrecio")
+                     
                          .Where(r => r.bStatus == Status && r.sDescripcion.Contains(valor))
                         .ToList();
                 }
