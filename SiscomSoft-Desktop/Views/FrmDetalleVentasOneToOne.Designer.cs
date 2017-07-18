@@ -77,7 +77,6 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.pnlAccionesGenerales = new System.Windows.Forms.Panel();
             this.btnSeleccionarCliente = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlPagar = new System.Windows.Forms.Panel();
             this.pnlDolares = new System.Windows.Forms.Panel();
@@ -463,6 +462,7 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(524, 31);
             this.txtCantidad.TabIndex = 1;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // btnEquis
             // 
@@ -647,10 +647,9 @@
             // pnlAccionesGenerales
             // 
             this.pnlAccionesGenerales.Controls.Add(this.btnSeleccionarCliente);
-            this.pnlAccionesGenerales.Controls.Add(this.button3);
             this.pnlAccionesGenerales.Location = new System.Drawing.Point(12, 42);
             this.pnlAccionesGenerales.Name = "pnlAccionesGenerales";
-            this.pnlAccionesGenerales.Size = new System.Drawing.Size(104, 126);
+            this.pnlAccionesGenerales.Size = new System.Drawing.Size(104, 60);
             this.pnlAccionesGenerales.TabIndex = 121;
             // 
             // btnSeleccionarCliente
@@ -660,27 +659,13 @@
             this.btnSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeleccionarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeleccionarCliente.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSeleccionarCliente.Location = new System.Drawing.Point(0, 66);
+            this.btnSeleccionarCliente.Location = new System.Drawing.Point(0, 0);
             this.btnSeleccionarCliente.Name = "btnSeleccionarCliente";
             this.btnSeleccionarCliente.Size = new System.Drawing.Size(104, 60);
             this.btnSeleccionarCliente.TabIndex = 18;
             this.btnSeleccionarCliente.Text = "Seleccionar Cliente";
             this.btnSeleccionarCliente.UseVisualStyleBackColor = false;
             this.btnSeleccionarCliente.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.DimGray;
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 60);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Seleccionar Mesa";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -738,9 +723,9 @@
             this.pnlPagar.Controls.Add(this.btnNo4);
             this.pnlPagar.Controls.Add(this.btnNo1);
             this.pnlPagar.ForeColor = System.Drawing.Color.DimGray;
-            this.pnlPagar.Location = new System.Drawing.Point(12, 42);
+            this.pnlPagar.Location = new System.Drawing.Point(12, 511);
             this.pnlPagar.Name = "pnlPagar";
-            this.pnlPagar.Size = new System.Drawing.Size(1338, 654);
+            this.pnlPagar.Size = new System.Drawing.Size(1338, 185);
             this.pnlPagar.TabIndex = 129;
             this.pnlPagar.Visible = false;
             // 
@@ -1732,7 +1717,6 @@
         private System.Windows.Forms.Label lblNomCliente;
         private System.Windows.Forms.Panel pnlAccionesGenerales;
         private System.Windows.Forms.Button btnSeleccionarCliente;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblNumVenta;
         private System.Windows.Forms.Panel pnlPagar;
         private System.Windows.Forms.Label lblCliente;

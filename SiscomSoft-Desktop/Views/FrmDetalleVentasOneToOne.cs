@@ -18,7 +18,8 @@ namespace SiscomSoft_Desktop.Views
         #region MAIN
         Boolean pesos = false;
         Boolean dolar = false;
-        double noCantidad = 0;
+        Boolean punto = true;
+        string noCantidad;
         double noPagar = 0;
         decimal DESCUENTO = 0;
         decimal DESCUENTOEXTRA = 0;
@@ -28,6 +29,7 @@ namespace SiscomSoft_Desktop.Views
         decimal IEPS53 = 0;
         decimal IEPS30 = 0;
         decimal IEPS26 = 0;
+        Decimal monto;
 
         public static List<DetalleVenta> nVenta;
         public static Cliente mCliente;
@@ -296,7 +298,7 @@ namespace SiscomSoft_Desktop.Views
                             ImporteWithImpuestoIVA4 + ImporteWithImpuestosIEPS53 + ImporteWithImpuestosIEPS30 +
                             ImporteWithImpuestosIEPS26;
 
-                        row.Cells[3].Value = Importe.ToString("#,###.#0#");
+                        row.Cells[3].Value = Importe.ToString("N");
                         row.Cells[4].Value = rDetalleVenta.dPreUnitario;
 
                         row.Height = 40;
@@ -310,7 +312,7 @@ namespace SiscomSoft_Desktop.Views
                     }
                     lblTotal2.Text = Subtotal.ToString("N");
                 }
-                noCantidad = 0;
+                noCantidad = "";
                 lblCliente.Visible = true;
                 lblCliente.Text = lblNomCliente.Text;
                 pnlDetalleVenta.Visible = false;
@@ -322,67 +324,90 @@ namespace SiscomSoft_Desktop.Views
         #region BOTONES NUMERICOS DE CANTIDAD
         private void btnNum1_Click(object sender, EventArgs e)
         {
-            noCantidad = Convert.ToInt64(txtCantidad.Text + 1);
-            txtCantidad.Text = noCantidad.ToString();
+            noCantidad = txtCantidad.Text + 1;
+            txtCantidad.Text = noCantidad;
         }
 
         private void btnNum2_Click(object sender, EventArgs e)
         {
-            noCantidad = Convert.ToInt64(txtCantidad.Text + 2);
-            txtCantidad.Text = noCantidad.ToString();
+            noCantidad = txtCantidad.Text + 2;
+            txtCantidad.Text = noCantidad;
         }
 
         private void btnNum3_Click(object sender, EventArgs e)
         {
-            noCantidad = Convert.ToInt64(txtCantidad.Text + 3);
-            txtCantidad.Text = noCantidad.ToString();
+            noCantidad = txtCantidad.Text + 3;
+            txtCantidad.Text = noCantidad;
         }
 
         private void btnNum4_Click(object sender, EventArgs e)
         {
-            noCantidad = Convert.ToInt64(txtCantidad.Text + 4);
-            txtCantidad.Text = noCantidad.ToString();
+            noCantidad = txtCantidad.Text + 4;
+            txtCantidad.Text = noCantidad;
         }
 
         private void btnNum5_Click(object sender, EventArgs e)
         {
-            noCantidad = Convert.ToInt64(txtCantidad.Text + 5);
-            txtCantidad.Text = noCantidad.ToString();
+            noCantidad = txtCantidad.Text + 5;
+            txtCantidad.Text = noCantidad;
         }
 
         private void btnNum6_Click(object sender, EventArgs e)
         {
-            noCantidad = Convert.ToInt64(txtCantidad.Text + 6);
-            txtCantidad.Text = noCantidad.ToString();
+            noCantidad = txtCantidad.Text + 6;
+            txtCantidad.Text = noCantidad;
         }
 
         private void btnNum7_Click(object sender, EventArgs e)
         {
-            noCantidad = Convert.ToInt64(txtCantidad.Text + 7);
-            txtCantidad.Text = noCantidad.ToString();
+            noCantidad = txtCantidad.Text + 7;
+            txtCantidad.Text = noCantidad;
         }
 
         private void btnNum8_Click(object sender, EventArgs e)
         {
-            noCantidad = Convert.ToInt64(txtCantidad.Text + 8);
-            txtCantidad.Text = noCantidad.ToString();
+            noCantidad = txtCantidad.Text + 8;
+            txtCantidad.Text = noCantidad;
         }
 
         private void btnNum9_Click(object sender, EventArgs e)
         {
-            noCantidad = Convert.ToInt64(txtCantidad.Text + 9);
+            noCantidad = txtCantidad.Text + 9;
             txtCantidad.Text = noCantidad.ToString();
         }
 
         private void btnNum0_Click(object sender, EventArgs e)
         {
-            noCantidad = Convert.ToInt64(txtCantidad.Text + 0);
-            txtCantidad.Text = noCantidad.ToString();
+            noCantidad = txtCantidad.Text + 0;
+            txtCantidad.Text = noCantidad;
         }
 
         private void btnPunto_Click(object sender, EventArgs e)
         {
+            if (txtCantidad.Text !="")
+            {
+                noCantidad = txtCantidad.Text;
+                txtCantidad.Text = noCantidad + ".";
+            }
+            else
+            {
+                noCantidad = "0";
+                txtCantidad.Text = noCantidad + ".";
+            }
+        }
 
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs en)
+        {
+            if (!char.IsDigit(en.KeyChar) && en.KeyChar != (char)Keys.Back && en.KeyChar != 46)
+                en.Handled = true;
+            else if (en.KeyChar == 46)
+            {
+                if (punto)
+                {
+                    punto = false;
+                }
+                else en.Handled = true;
+            }
         }
         #endregion
 
@@ -406,7 +431,7 @@ namespace SiscomSoft_Desktop.Views
 
                 txtCantidad.Clear();
                 decimal Subtotal = 0;
-                decimal PreUnitario = nProducto.dCosto;
+                decimal PreUnitario = nProducto.dPreVenta;
                 decimal TasaImpuestoIVA16 = 0;
                 decimal TasaImpuestoIVA11 = 0;
                 decimal TasaImpuestoIVA4 = 0;
@@ -481,8 +506,8 @@ namespace SiscomSoft_Desktop.Views
                     ImporteWithImpuestoIVA4 + ImporteWithImpuestosIEPS53 + ImporteWithImpuestosIEPS30 + 
                     ImporteWithImpuestosIEPS26;
 
-                row.Cells[3].Value = Importe.ToString("#,###.#0#");
-                row.Cells[4].Value = nProducto.dCosto;
+                row.Cells[3].Value = Importe.ToString("N");
+                row.Cells[4].Value = nProducto.dPreVenta;
                 row.Height = 40;
                 dgvProductos.Rows.Add(row);
 
@@ -491,7 +516,7 @@ namespace SiscomSoft_Desktop.Views
                     Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
                 }
 
-                lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
+                lblSubTotal.Text = "$" + Subtotal.ToString("N");
                 dgvProductos.ClearSelection();
                 pnlAccionesProductos.Visible = false;
                 pnlAccionesGenerales.Visible = true;
@@ -524,7 +549,7 @@ namespace SiscomSoft_Desktop.Views
             dgvProductos.CurrentRow.Cells[1].Value = valor;
 
             decimal Subtotal = 0;
-            decimal PreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value); ;
+            decimal PreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
             decimal TasaImpuestoIVA16 = 0;
             decimal TasaImpuestoIVA11 = 0;
             decimal TasaImpuestoIVA4 = 0;
@@ -535,7 +560,7 @@ namespace SiscomSoft_Desktop.Views
             decimal TasaDescuentoExtra = 0;
             int Cantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
             #region Impuestos
-            List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value));
+            List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value)));
             foreach (ImpuestoProducto rImpuesto in mImpuesto)
             {
                 if (rImpuesto.fkImpuesto.sTipoImpuesto == "TRASLADO")
@@ -599,13 +624,14 @@ namespace SiscomSoft_Desktop.Views
                 ImporteWithImpuestoIVA4 + ImporteWithImpuestosIEPS53 + ImporteWithImpuestosIEPS30 +
                 ImporteWithImpuestosIEPS26;
 
-            dgvProductos.CurrentRow.Cells[3].Value = Importe;
-            
+            dgvProductos.CurrentRow.Cells[3].Value = Importe.ToString("N");
+
             foreach (DataGridViewRow rItem in dgvProductos.Rows)
             {
                 Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
             }
-            lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
+
+            lblSubTotal.Text = "$" + Subtotal.ToString("N");
 
             btnMenosCantidad.Enabled = true;
         }
@@ -619,7 +645,7 @@ namespace SiscomSoft_Desktop.Views
                 dgvProductos.CurrentRow.Cells[1].Value = valor;
 
                 decimal Subtotal = 0;
-                decimal PreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value); ;
+                decimal PreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[4].Value);
                 decimal TasaImpuestoIVA16 = 0;
                 decimal TasaImpuestoIVA11 = 0;
                 decimal TasaImpuestoIVA4 = 0;
@@ -694,13 +720,14 @@ namespace SiscomSoft_Desktop.Views
                     ImporteWithImpuestoIVA4 + ImporteWithImpuestosIEPS53 + ImporteWithImpuestosIEPS30 +
                     ImporteWithImpuestosIEPS26;
 
-                dgvProductos.CurrentRow.Cells[3].Value = Importe;
-                
+                dgvProductos.CurrentRow.Cells[3].Value = Importe.ToString("N");
+
                 foreach (DataGridViewRow rItem in dgvProductos.Rows)
                 {
                     Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
                 }
-                lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
+
+                lblSubTotal.Text = "$" + Subtotal.ToString("N");
 
                 if (valor == 1)
                 {
@@ -726,7 +753,7 @@ namespace SiscomSoft_Desktop.Views
                 }
                 else
                 {
-                    lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
+                    lblSubTotal.Text = "$" + Subtotal.ToString("N");
                 }
 
                 if (dgvProductos.RowCount == 1)
@@ -768,8 +795,8 @@ namespace SiscomSoft_Desktop.Views
             pesos = true;
             noCantidad += 500;
             noCantidad += Convert.ToDouble(lblMonto.Text);
-            lblMonto.Text = noCantidad.ToString("#,###.#0#");
-            noCantidad = 0;
+            //lblMonto.Text = noCantidad.ToString("#,###.#0#");
+           // noCantidad = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -783,8 +810,8 @@ namespace SiscomSoft_Desktop.Views
             pesos = true;
             noCantidad += 200;
             noCantidad += Convert.ToDouble(lblMonto.Text);
-            lblMonto.Text = noCantidad.ToString("#,###.#0#");
-            noCantidad = 0;
+           // lblMonto.Text = noCantidad.ToString("#,###.#0#");
+           // noCantidad = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -797,9 +824,8 @@ namespace SiscomSoft_Desktop.Views
             pesos = true;
             noCantidad += 100;
             noCantidad += Convert.ToDouble(lblMonto.Text);
-            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
-            lblMonto.Text = noCantidad.ToString("#,###.#0#");
-            noCantidad = 0;
+          //  lblMonto.Text = noCantidad.ToString("#,###.#0#");
+          //  noCantidad = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -812,9 +838,8 @@ namespace SiscomSoft_Desktop.Views
             pesos = true;
             noCantidad += 50;
             noCantidad += Convert.ToDouble(lblMonto.Text);
-            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
-            lblMonto.Text = noCantidad.ToString("#,###.#0#");
-            noCantidad = 0;
+           // lblMonto.Text = noCantidad.ToString("N");
+          //  noCantidad = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -828,8 +853,8 @@ namespace SiscomSoft_Desktop.Views
             noCantidad += 20;
             noCantidad += Convert.ToDouble(lblMonto.Text);
             //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
-            lblMonto.Text = noCantidad.ToString("#,###.#0#");
-            noCantidad = 0;
+          //  lblMonto.Text = noCantidad.ToString("N");
+          //  noCantidad = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -849,7 +874,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = "1";
                 pesos = false;
             }
@@ -868,7 +893,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = "2";
                 pesos = false;
             }
@@ -887,7 +912,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = "3";
                 pesos = false;
             }
@@ -906,7 +931,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = "4";
                 pesos = false;
             }
@@ -925,7 +950,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = "5";
                 pesos = false;
             }
@@ -944,7 +969,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = "6";
                 pesos = false;
             }
@@ -963,7 +988,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = "7";
                 pesos = false;
             }
@@ -982,7 +1007,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = "8";
                 pesos = false;
             }
@@ -1001,7 +1026,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = "9";
                 pesos = false;
             }
@@ -1020,7 +1045,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = "0";
                 pesos = false;
             }
@@ -1038,7 +1063,7 @@ namespace SiscomSoft_Desktop.Views
         private void btnClear_Click(object sender, EventArgs e)
         {
             noPagar = 0;
-            noCantidad = 0;
+            noCantidad = "";
             lblMonto.Text = "0";
             btnEfectivo.Enabled = false;
             btnCredito.Enabled = false;
@@ -1053,7 +1078,7 @@ namespace SiscomSoft_Desktop.Views
             if (dolar==true)
             {
                 noPagar = 0;
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = lblTotalDolares.Text;
                 btnEfectivo.Enabled = true;
                 btnCredito.Enabled = true;
@@ -1063,7 +1088,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 noPagar = 0;
-                noCantidad = 0;
+                noCantidad = "";
                 lblMonto.Text = lblTotal2.Text;
                 btnEfectivo.Enabled = true;
                 btnCredito.Enabled = true;
@@ -1105,7 +1130,7 @@ namespace SiscomSoft_Desktop.Views
                 pnlDetalleVenta.Visible = true;
 
                 noPagar = 0;
-                noCantidad = 0;
+                noCantidad = "";
                 btnEfectivo.Enabled = false;
                 btnCredito.Enabled = false;
                 btnVouncher.Enabled = false;
@@ -1133,7 +1158,6 @@ namespace SiscomSoft_Desktop.Views
 
                 btnFactura.Enabled = true;
                 button2.Enabled = true;
-                button3.Enabled = true;
                 button4.Enabled = true;
                 btnDolares.Enabled = true;
                 button11.Enabled = true;
@@ -1142,6 +1166,8 @@ namespace SiscomSoft_Desktop.Views
 
                 lblCambio.Text = "0";
                 pnlCambio.Visible = false;
+
+                dolar = false;
             }
         }
 
@@ -1149,6 +1175,7 @@ namespace SiscomSoft_Desktop.Views
         {
             if (dolar == true)
             {
+                #region Dolar
                 Decimal cambioDolar = 0;
                 Decimal faltaDolar = 0;
                 Decimal totalDolar = Convert.ToDecimal(lblTotalDolares.Text);
@@ -1198,7 +1225,6 @@ namespace SiscomSoft_Desktop.Views
 
                         btnFactura.Enabled = false;
                         button2.Enabled = false;
-                        button3.Enabled = false;
                         button4.Enabled = false;
                         btnDolares.Enabled = false;
                         button11.Enabled = false;
@@ -1226,19 +1252,32 @@ namespace SiscomSoft_Desktop.Views
                         guardarVenta();
                     }
                 }
+                #endregion
             }
             else if (dolar == false)
             {
+                #region Pesos
                 Decimal cambio = 0;
                 Decimal falta = 0;
                 Decimal total = Convert.ToDecimal(lblTotal2.Text);
-                Decimal monto = Convert.ToDecimal(lblMonto.Text);
+                monto += Convert.ToDecimal(lblMonto.Text);
 
                 falta = total - monto;
                 if (falta > 0)
                 {
                     lblTotal2.Text = falta.ToString();
                     lblMonto.Text = "0";
+                    pnlDetalleMinimo.Visible = true;
+                    lblImporte.Text = total.ToString();
+                    lblMontoRecibido.Text = monto.ToString();
+                    lblCambioDado.Text = cambio.ToString();
+                    lblIVA16.Text = IVA16.ToString("N");
+                    lblIVA11.Text = IVA11.ToString("N");
+                    lblIVA4.Text = IVA4.ToString("N");
+                    lblIEPS53.Text = IEPS53.ToString("N");
+                    lblIEPS30.Text = IEPS30.ToString("N");
+                    lblIEPS26.Text = IEPS26.ToString("N");
+                    lblDescuento.Text = DESCUENTO.ToString("N");
                     btnEfectivo.Enabled = false;
                     btnCredito.Enabled = false;
                     btnVouncher.Enabled = false;
@@ -1278,7 +1317,6 @@ namespace SiscomSoft_Desktop.Views
 
                         btnFactura.Enabled = false;
                         button2.Enabled = false;
-                        button3.Enabled = false;
                         button4.Enabled = false;
                         btnDolares.Enabled = false;
                         button11.Enabled = false;
@@ -1304,6 +1342,7 @@ namespace SiscomSoft_Desktop.Views
                         guardarVenta();
                     }
                 }
+                #endregion
             }
         }
 
@@ -1341,7 +1380,7 @@ namespace SiscomSoft_Desktop.Views
             dgvProductos.Rows.Clear();
 
             noPagar = 0;
-            noCantidad = 0;
+            noCantidad = "";
             lblMonto.Text = "0";
             lblSubTotal.Text = "$0";
             btnEfectivo.Enabled = false;
@@ -1356,5 +1395,6 @@ namespace SiscomSoft_Desktop.Views
             numeroVenta();
         }
         #endregion
+
     }
 }
