@@ -16,7 +16,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
     public partial class FrmWareHouse : Form
     {
         Boolean status = false;
-      
+
 
         public FrmWareHouse()
         {
@@ -25,7 +25,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             this.dgrMostrarAlmacen.AutoGenerateColumns = false;
             this.dgrMostrarDetalles.AutoGenerateColumns = false;
 
-          
+
         }
         private Boolean EsFecha(String fecha)
         {
@@ -102,6 +102,10 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             cbxCliente.DisplayMember = "sNombre";
             cbxCliente.ValueMember = "pkCliente";
 
+            cbxPkProd.DataSource = ManejoProducto.getAll(true);
+            cbxPkProd.DisplayMember = "sDescripcion";
+            cbxPkProd.ValueMember = "pkProducto";
+
 
 
 
@@ -112,21 +116,15 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             cargarCombos();
-            cargarProducto();
-        
-          
+
+
+
             cargarWaver();
             cargarDetails();
         }
 
-        private void cargarProducto()
-        {
-            DataGridViewComboBoxColumn combo = dgrDatosAlmacen.Columns["Nombre"] as DataGridViewComboBoxColumn;
-            combo.DataSource = ManejoProducto.getAll(true);
-            combo.DisplayMember = "sDescripcion";
-            combo.ValueMember = "pkProducto";
-        }
-      
+
+
 
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -201,39 +199,39 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
 
 
-                    Precio mPrecio = ManejoPrecio.getById(Convert.ToInt32(row.Cells[6].Value));
-                    Impuesto mImpuesto = ManejoImpuesto.getById(Convert.ToInt32(row.Cells[8].Value));
-                    Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[1].Value));
-                    Catalogo mCatalogo = ManejoCatalogo.getById(Convert.ToInt32(row.Cells[2].Value));
-                     
+
+                    Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
+
+
                     DetalleAlmacen mDetalle = new DetalleAlmacen();
-                    mDetalle.iCantidad = Convert.ToInt32(row.Cells[4].Value);
+                    mDetalle.iCantidad = Convert.ToInt32(row.Cells[5].Value);
                     mDetalle.sDescripcion = Convert.ToString(row.Cells[1].Value);
-                  
+                    mDetalle.dCosto = Convert.ToDecimal(row.Cells[2].Value);
 
 
                     ManejoDetalleAlmacen.RegistrarNuevoDetalle(mDetalle, nAlmacen, mProducto);
 
+
                 }
+
+                MessageBox.Show("¡Almacen!");
+                txtFolio.Clear();
+                txtMoneda.Clear();
+                txtNoFactura.Clear();
+
+                txtTipoCambio.Clear();
+                txtTipoCompra.Clear();
+                dgrDatosAlmacen.Rows.Clear();
+                dgrDatosAlmacen.Refresh();
             }
-
-            MessageBox.Show("¡Almacen!");
-            txtFolio.Clear();
-            txtMoneda.Clear();
-            txtNoFactura.Clear();
-
-            txtTipoCambio.Clear();
-            txtTipoCompra.Clear();
-            dgrDatosAlmacen.Rows.Clear();
-            dgrDatosAlmacen.Refresh();
         }
 
 
 
         private void dgrDatosAlmacen_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-          
-            
+
+
         }
 
         private void dgrDatosAlmacen_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -249,21 +247,6 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 {
                     dgrDatosAlmacen.Rows.RemoveAt(dgrDatosAlmacen.CurrentRow.Index);
 
-
-
-                    //decimal Subtotal = 0;
-                    //foreach (DataGridViewRow rItem in dgrDatosAlmacen.Rows)
-                    //{
-                    //    Subtotal += Convert.ToDecimal(rItem.Cells[3].Value);
-                    //}
-                    //if (Subtotal == 0)
-                    //{
-                    //    // = "$0";
-                    //}
-                    //else
-                    //{
-                    //    //  lblSubTotal.Text = "$" + Subtotal.ToString("#,###.#0#");
-                    //}
 
                 }
             }
@@ -309,7 +292,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void pnlMostrarDetalles_Paint(object sender, PaintEventArgs e)
         {
-          
+
         }
 
         private void cbkCaducidad_CheckedChanged(object sender, EventArgs e)
@@ -391,107 +374,39 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void dgrDatosAlmacen_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            Producto nProducto = ManejoProducto.getById(Convert.ToInt32(dgrDatosAlmacen.CurrentRow.Cells[1].Value));
-            if (nProducto != null)
-            {
-                DataGridViewRow row = (DataGridViewRow)dgrDatosAlmacen.Rows[0].Clone();
-                row.Cells[3].Value = nProducto.fkCatalogo.sUDM;
-                row.Cells[5].Value = 1;
-                row.Cells[2].Value = nProducto.dCosto;
 
-                row.Height = 40;
-
-                dgrDatosAlmacen.Rows.Add(row);
-            }
 
 
         }
+
+
 
 
 
         private void dgrDatosAlmacen_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            if (dgrDatosAlmacen.CurrentCell.ColumnIndex == 4)
-            {
-                TextBox txt = e.Control as TextBox;
-                if (txt != null)
-                {
-                    txt.KeyPress -= new KeyPressEventHandler(dgrDatosAlmacen_KeyPress);
-                    txt.KeyPress += new KeyPressEventHandler(dgrDatosAlmacen_KeyPress);
-                }
-            }
-            if (dgrDatosAlmacen.CurrentCell.ColumnIndex == 7)
-            {
-                TextBox txt = e.Control as TextBox;
-                if (txt != null)
-                {
-                    txt.KeyPress -= new KeyPressEventHandler(dgrDatosAlmacen_KeyPress);
-                    txt.KeyPress += new KeyPressEventHandler(dgrDatosAlmacen_KeyPress);
-                }
-            }
-            if (dgrDatosAlmacen.CurrentCell.ColumnIndex == 5)
-            {
-                TextBox txt = e.Control as TextBox;
-                if (txt != null)
-                {
-                    txt.KeyPress -= new KeyPressEventHandler(dgrDatosAlmacen_KeyPress);
-                    txt.KeyPress += new KeyPressEventHandler(dgrDatosAlmacen_KeyPress);
-                }
-            }
-        }
+            //cb = e.Control as ComboBox;
+            //if (cb != null)
+            //{
+            //    // first remove event handler to keep from attaching multiple:
+            //    cb.SelectedIndexChanged -= new EventHandler(cb_SelectedIndexChanged);
 
-        private void dgrDatosAlmacen_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (dgrDatosAlmacen.CurrentCell.ColumnIndex == 4)
-            {
-                if (e.KeyChar == (char)Keys.Back || char.IsNumber(e.KeyChar))
-                    e.Handled = false;
-                else
-                    e.Handled = true;
-            }
+            //    // now attach the event handler
+            //    cb.SelectedIndexChanged += new EventHandler(cb_SelectedIndexChanged);
+            //}
+            ////Producto nProducto = ManejoProducto.getById(Convert.ToInt32(dgrDatosAlmacen.CurrentRow.Cells[1].Value));
+            ////if (nProducto != null)
+            ////{
+            ////    DataGridViewRow row = (DataGridViewRow)dgrDatosAlmacen.Rows[0].Clone();
+            ////    row.Cells[3].Value = nProducto.fkCatalogo.sUDM;
+            ////    row.Cells[5].Value = 1;
+            ////    row.Cells[2].Value = nProducto.dCosto;
 
-            if (dgrDatosAlmacen.CurrentCell.ColumnIndex == 7)
-            {
-                if (e.KeyChar == (char)Keys.Back || char.IsNumber(e.KeyChar))
-                    e.Handled = false;
-                else
-                    e.Handled = true;
-            }
+            ////    row.Height = 40;
 
-            if (dgrDatosAlmacen.CurrentCell.ColumnIndex == 5)
-            {
-                if (!char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true;
-                }
+            ////    dgrDatosAlmacen.Rows.Add(row);
+            ////}
 
-                if (e.KeyChar == '\b')
-                {
-                    e.Handled = false;
-                }
-            }
-            else
-            {
-                if (!char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true;
-                }
-
-                if (e.KeyChar == '.' || e.KeyChar == '\b')
-                {
-                    e.Handled = false;
-                }
-            }
-
-        }
-
-        private void dgrDatosAlmacen_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-           
-        }
-
-        private void dgrDatosAlmacen_DefaultCellStyleChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -503,11 +418,54 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
                 if (Convert.ToBoolean(row.Cells[5].Value))
                 {
-                    //FrmAgregarDescuentoProducto descuento = new FrmAgregarDescuentoProducto();
-                    //descuento.Show();
+                    FrmAgregarDescuentoProducto descuento = new FrmAgregarDescuentoProducto();
+                    descuento.ShowDialog();
+                    this.Hide();
+                }
+            }
+        }
+
+        private void dgrDatosAlmacen_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+
+
+        }
+
+        private void cbxPkProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Producto nProducto = ManejoProducto.Buscar(cbxPkProd.Text);
+            if (dgrDatosAlmacen.CurrentRow != null)
+            {
+                if (dgrDatosAlmacen.CurrentRow.IsNewRow)
+                {
+                    if (nProducto != null)
+                    {
+                        DataGridViewRow row = (DataGridViewRow)dgrDatosAlmacen.Rows[0].Clone();
+                        row.Cells[0].Value = nProducto.pkProducto;
+                        row.Cells[1].Value = nProducto.sDescripcion;
+                        row.Cells[2].Value = nProducto.dCosto;
+                        row.Cells[3].Value = nProducto.fkCatalogo.sUDM;
+                        row.Cells[5].Value = 1;
+
+                        dgrDatosAlmacen.Rows.Add(row);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Test");
+                    dgrDatosAlmacen.CurrentRow.Cells[0].Value = nProducto.pkProducto;
+                    dgrDatosAlmacen.CurrentRow.Cells[1].Value = nProducto.sDescripcion;
+                    dgrDatosAlmacen.CurrentRow.Cells[2].Value = nProducto.dCosto;
+                    dgrDatosAlmacen.CurrentRow.Cells[3].Value = nProducto.fkCatalogo.sUDM;
+                
+                    dgrDatosAlmacen.CurrentRow.Cells[5].Value = 1;
+
                 }
             }
         }
     }
 }
+
 

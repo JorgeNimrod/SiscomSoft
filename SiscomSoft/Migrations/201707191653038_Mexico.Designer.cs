@@ -7,13 +7,13 @@ namespace SiscomSoft.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Danonio : IMigrationMetadata
+    public sealed partial class Mexico : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Danonio));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Mexico));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707182256163_Danonio"; }
+            get { return "201707191653038_Mexico"; }
         }
         
         string IMigrationMetadata.Source

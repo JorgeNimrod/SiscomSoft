@@ -1550,7 +1550,7 @@ namespace SiscomSoft_Desktop.Views
 
 
                 int fkCatalogo = Convert.ToInt32(cbxCatalogoAddProd.SelectedValue.ToString());
-                ManejoProducto.RegistrarNuevoProducto(nProducto, fkImpuesto, fkPrecio, nCategoria.pkCategoria, fkCatalogo);
+                ManejoProducto.RegistrarNuevoProducto(nProducto, fkPrecio, nCategoria.pkCategoria, fkCatalogo);
 
                 MessageBox.Show("¡Producto Registrado!");
                 txtDescripcionAddProd.Clear();

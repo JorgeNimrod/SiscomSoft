@@ -3,7 +3,7 @@ namespace SiscomSoft.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Danonio : DbMigration
+    public partial class Mexico : DbMigration
     {
         public override void Up()
         {
@@ -377,30 +377,6 @@ namespace SiscomSoft.Migrations
                 .PrimaryKey(t => t.pkPrecios);
             
             CreateTable(
-                "dbo.DetalleAlmacen",
-                c => new
-                    {
-                        pkDetalle = c.Int(nullable: false, identity: true),
-                        sDescripcion = c.String(unicode: false),
-                        iCantidad = c.Int(nullable: false),
-                        dCosto = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        bStatus = c.Boolean(nullable: false),
-                        fkAlmacen_pkAlmacen = c.Int(),
-                        fkProducto_pkProducto = c.Int(),
-                        Precio_pkPrecios = c.Int(),
-                        Impuesto_pkImpuesto = c.Int(),
-                    })
-                .PrimaryKey(t => t.pkDetalle)
-                .ForeignKey("dbo.Almacenes", t => t.fkAlmacen_pkAlmacen)
-                .ForeignKey("dbo.Productos", t => t.fkProducto_pkProducto)
-                .ForeignKey("dbo.Precios", t => t.Precio_pkPrecios)
-                .ForeignKey("dbo.Impuestos", t => t.Impuesto_pkImpuesto)
-                .Index(t => t.fkAlmacen_pkAlmacen)
-                .Index(t => t.fkProducto_pkProducto)
-                .Index(t => t.Precio_pkPrecios)
-                .Index(t => t.Impuesto_pkImpuesto);
-            
-            CreateTable(
                 "dbo.ImpuestosProducto",
                 c => new
                     {
@@ -476,10 +452,30 @@ namespace SiscomSoft.Migrations
                 .Index(t => t.fkFactura_pkFactura)
                 .Index(t => t.fkProducto_pkProducto);
             
+            CreateTable(
+                "dbo.DetalleAlmacen",
+                c => new
+                    {
+                        pkDetalle = c.Int(nullable: false, identity: true),
+                        sDescripcion = c.String(unicode: false),
+                        iCantidad = c.Int(nullable: false),
+                        dCosto = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        bStatus = c.Boolean(nullable: false),
+                        fkAlmacen_pkAlmacen = c.Int(),
+                        fkProducto_pkProducto = c.Int(),
+                    })
+                .PrimaryKey(t => t.pkDetalle)
+                .ForeignKey("dbo.Almacenes", t => t.fkAlmacen_pkAlmacen)
+                .ForeignKey("dbo.Productos", t => t.fkProducto_pkProducto)
+                .Index(t => t.fkAlmacen_pkAlmacen)
+                .Index(t => t.fkProducto_pkProducto);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.DetalleAlmacen", "fkProducto_pkProducto", "dbo.Productos");
+            DropForeignKey("dbo.DetalleAlmacen", "fkAlmacen_pkAlmacen", "dbo.Almacenes");
             DropForeignKey("dbo.InventariosEntradas", "fkProducto_pkProducto", "dbo.Productos");
             DropForeignKey("dbo.InventariosEntradas", "fkFactura_pkFactura", "dbo.Facturas");
             DropForeignKey("dbo.InventariosEntradas", "fkCliente_pkCliente", "dbo.Clientes");
@@ -492,11 +488,7 @@ namespace SiscomSoft.Migrations
             DropForeignKey("dbo.ImpuestosProducto", "fkProducto_pkProducto", "dbo.Productos");
             DropForeignKey("dbo.ImpuestosProducto", "fkImpuesto_pkImpuesto", "dbo.Impuestos");
             DropForeignKey("dbo.Facturas", "Impuesto_pkImpuesto", "dbo.Impuestos");
-            DropForeignKey("dbo.DetalleAlmacen", "Impuesto_pkImpuesto", "dbo.Impuestos");
             DropForeignKey("dbo.Productos", "fkPrecio_pkPrecios", "dbo.Precios");
-            DropForeignKey("dbo.DetalleAlmacen", "Precio_pkPrecios", "dbo.Precios");
-            DropForeignKey("dbo.DetalleAlmacen", "fkProducto_pkProducto", "dbo.Productos");
-            DropForeignKey("dbo.DetalleAlmacen", "fkAlmacen_pkAlmacen", "dbo.Almacenes");
             DropForeignKey("dbo.Productos", "fkCategoria_pkCategoria", "dbo.Categorias");
             DropForeignKey("dbo.Productos", "fkCatalogo_pkCatalogo", "dbo.Catalogos");
             DropForeignKey("dbo.Facturas", "Catalogo_pkCatalogo", "dbo.Catalogos");
@@ -517,6 +509,8 @@ namespace SiscomSoft.Migrations
             DropForeignKey("dbo.DescuentosProducto", "fkDescuento_pkDescuento", "dbo.Descuentos");
             DropForeignKey("dbo.DetalleFacturacion", "fkFactura_pkFactura", "dbo.Facturas");
             DropForeignKey("dbo.Almacenes", "fkCliente_pkCliente", "dbo.Clientes");
+            DropIndex("dbo.DetalleAlmacen", new[] { "fkProducto_pkProducto" });
+            DropIndex("dbo.DetalleAlmacen", new[] { "fkAlmacen_pkAlmacen" });
             DropIndex("dbo.InventariosEntradas", new[] { "fkProducto_pkProducto" });
             DropIndex("dbo.InventariosEntradas", new[] { "fkFactura_pkFactura" });
             DropIndex("dbo.InventariosEntradas", new[] { "fkCliente_pkCliente" });
@@ -524,10 +518,6 @@ namespace SiscomSoft.Migrations
             DropIndex("dbo.Inventario", new[] { "fkProducto_pkProducto" });
             DropIndex("dbo.ImpuestosProducto", new[] { "fkProducto_pkProducto" });
             DropIndex("dbo.ImpuestosProducto", new[] { "fkImpuesto_pkImpuesto" });
-            DropIndex("dbo.DetalleAlmacen", new[] { "Impuesto_pkImpuesto" });
-            DropIndex("dbo.DetalleAlmacen", new[] { "Precio_pkPrecios" });
-            DropIndex("dbo.DetalleAlmacen", new[] { "fkProducto_pkProducto" });
-            DropIndex("dbo.DetalleAlmacen", new[] { "fkAlmacen_pkAlmacen" });
             DropIndex("dbo.Sucursales", new[] { "fkPreferencia_pkPreferencia" });
             DropIndex("dbo.Sucursales", new[] { "fkEmpresa_pkEmpresa" });
             DropIndex("dbo.Sucursales", new[] { "fkCertificado_pkCertificado" });
@@ -554,11 +544,11 @@ namespace SiscomSoft.Migrations
             DropIndex("dbo.Facturas", new[] { "Catalogo_pkCatalogo" });
             DropIndex("dbo.Facturas", new[] { "Empresa_pkEmpresa" });
             DropIndex("dbo.Almacenes", new[] { "fkCliente_pkCliente" });
+            DropTable("dbo.DetalleAlmacen");
             DropTable("dbo.InventariosEntradas");
             DropTable("dbo.Inventario");
             DropTable("dbo.Impuestos");
             DropTable("dbo.ImpuestosProducto");
-            DropTable("dbo.DetalleAlmacen");
             DropTable("dbo.Precios");
             DropTable("dbo.Categorias");
             DropTable("dbo.Catalogos");
