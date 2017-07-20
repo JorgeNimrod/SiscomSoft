@@ -19,7 +19,8 @@ namespace SiscomSoft_Desktop.Views
         Boolean pesos = false;
         Boolean dolar = false;
         Boolean punto = true;
-        string noCantidad;
+        string noCantidad = null;
+        double noBilletes = 0;
         double noPagar = 0;
         decimal DESCUENTO = 0;
         decimal DESCUENTOEXTRA = 0;
@@ -29,7 +30,7 @@ namespace SiscomSoft_Desktop.Views
         decimal IEPS53 = 0;
         decimal IEPS30 = 0;
         decimal IEPS26 = 0;
-        Decimal monto;
+        Decimal monto = 0;
 
         public static List<DetalleVenta> nVenta;
         public static Cliente mCliente;
@@ -67,7 +68,7 @@ namespace SiscomSoft_Desktop.Views
                 {
                     DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
                     row.Cells[0].Value = rDetalleVenta.fkProducto.pkProducto;
-                    row.Cells[1].Value = rDetalleVenta.iCantidad;
+                    row.Cells[1].Value = rDetalleVenta.dCantidad;
                     row.Cells[2].Value = rDetalleVenta.sDescripcion;
 
                     decimal PreUnitario = rDetalleVenta.dPreUnitario;
@@ -201,7 +202,7 @@ namespace SiscomSoft_Desktop.Views
                         SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
                         nVenta.Add(new DetalleVenta {
                             fkProducto = nProducto,
-                            iCantidad = Convert.ToInt32(row.Cells[1].Value),
+                            dCantidad = Convert.ToDecimal(row.Cells[1].Value),
                             sDescripcion = row.Cells[2].Value.ToString(),
                             dPreUnitario = Convert.ToDecimal(row.Cells[4].Value)
                         });
@@ -213,7 +214,7 @@ namespace SiscomSoft_Desktop.Views
                     {
                         DataGridViewRow row = (DataGridViewRow)dgvDetalleProductos.Rows[0].Clone();
                         row.Cells[0].Value = rDetalleVenta.fkProducto.pkProducto;
-                        row.Cells[1].Value = rDetalleVenta.iCantidad;
+                        row.Cells[1].Value = rDetalleVenta.dCantidad;
                         row.Cells[2].Value = rDetalleVenta.sDescripcion;
                         
                         decimal PreUnitario = rDetalleVenta.dPreUnitario;
@@ -225,7 +226,7 @@ namespace SiscomSoft_Desktop.Views
                         decimal TasaImpuestoIEPS30 = 0;
                         decimal TasaDescuento = 0;
                         decimal TasaDescuentoExtra = 0;
-                        int Cantidad = Convert.ToInt32(row.Cells[1].Value);
+                        decimal Cantidad = Convert.ToDecimal(row.Cells[1].Value);
                         #region Impuestos
                         List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(rDetalleVenta.fkProducto.pkProducto));
                         foreach (ImpuestoProducto rImpuesto in mImpuesto)
@@ -384,27 +385,38 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnPunto_Click(object sender, EventArgs e)
         {
-            if (txtCantidad.Text !="")
+            if (!txtCantidad.Text.Contains("."))
             {
-                noCantidad = txtCantidad.Text;
-                txtCantidad.Text = noCantidad + ".";
+                punto = true;
             }
-            else
+            if (punto)
             {
-                noCantidad = "0";
-                txtCantidad.Text = noCantidad + ".";
+                if (txtCantidad.Text != "")
+                {
+                    noCantidad = txtCantidad.Text;
+                    txtCantidad.Text = noCantidad + ".";
+                    punto = false;
+                }
+                else
+                {
+                    noCantidad = "0";
+                    txtCantidad.Text = noCantidad + ".";
+                    punto = false;
+                }
             }
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs en)
         {
-            if (!char.IsDigit(en.KeyChar) && en.KeyChar != (char)Keys.Back && en.KeyChar != 46)
-                en.Handled = true;
-            else if (en.KeyChar == 46)
+            if (en.KeyChar == 46)
             {
                 if (punto)
                 {
                     punto = false;
+                }
+                if (!txtCantidad.Text.Contains("."))
+                {
+                    punto = true;
                 }
                 else en.Handled = true;
             }
@@ -425,7 +437,12 @@ namespace SiscomSoft_Desktop.Views
                 }
                 else
                 {
-                    row.Cells[1].Value = txtCantidad.Text;
+                    decimal cantidad = Convert.ToDecimal(txtCantidad.Text);
+                    row.Cells[1].Value = cantidad.ToString("N");
+                    if (cantidad > 1)
+                    {
+                        btnMenosCantidad.Enabled = true;
+                    }
                 }
                 row.Cells[2].Value = nProducto.sDescripcion;
 
@@ -440,7 +457,7 @@ namespace SiscomSoft_Desktop.Views
                 decimal TasaImpuestoIEPS30 = 0;
                 decimal TasaDescuento = 0;
                 decimal TasaDescuentoExtra = 0;
-                int Cantidad = Convert.ToInt32(row.Cells[1].Value);
+                decimal Cantidad = Convert.ToDecimal(row.Cells[1].Value);
                 #region Impuestos
                 List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
                 foreach (ImpuestoProducto rImpuesto in mImpuesto)
@@ -544,7 +561,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnMasCantidad_Click(object sender, EventArgs e)
         {
-            int valor = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
+            decimal valor = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[1].Value);
             valor += 1;
             dgvProductos.CurrentRow.Cells[1].Value = valor;
 
@@ -558,7 +575,7 @@ namespace SiscomSoft_Desktop.Views
             decimal TasaImpuestoIEPS30 = 0;
             decimal TasaDescuento = 0;
             decimal TasaDescuentoExtra = 0;
-            int Cantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
+            decimal Cantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
             #region Impuestos
             List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value)));
             foreach (ImpuestoProducto rImpuesto in mImpuesto)
@@ -638,7 +655,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnMenosCantidad_Click(object sender, EventArgs e)
         {
-            int valor = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
+            decimal valor = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[1].Value);
             if (valor > 1)
             {
                 valor -= 1;
@@ -654,7 +671,7 @@ namespace SiscomSoft_Desktop.Views
                 decimal TasaImpuestoIEPS30 = 0;
                 decimal TasaDescuento = 0;
                 decimal TasaDescuentoExtra = 0;
-                int Cantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
+                decimal Cantidad = Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value);
                 #region Impuestos
                 List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value)));
                 foreach (ImpuestoProducto rImpuesto in mImpuesto)
@@ -775,7 +792,7 @@ namespace SiscomSoft_Desktop.Views
                         SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
                         nVenta.Add(new DetalleVenta {
                             fkProducto = nProducto,
-                            iCantidad = Convert.ToInt32(row.Cells[1].Value),
+                            dCantidad = Convert.ToInt32(row.Cells[1].Value),
                             sDescripcion = row.Cells[2].Value.ToString(),
                             dPreUnitario = Convert.ToDecimal(row.Cells[4].Value)
                         });
@@ -793,10 +810,10 @@ namespace SiscomSoft_Desktop.Views
         private void btn500pesos_Click(object sender, EventArgs e)
         {
             pesos = true;
-            noCantidad += 500;
-            noCantidad += Convert.ToDouble(lblMonto.Text);
-            //lblMonto.Text = noCantidad.ToString("#,###.#0#");
-           // noCantidad = 0;
+            noBilletes += 500;
+            noBilletes += Convert.ToDouble(lblMonto.Text);
+            lblMonto.Text = noBilletes.ToString("N");
+            noBilletes = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -806,12 +823,11 @@ namespace SiscomSoft_Desktop.Views
 
         private void btn200pesos_Click(object sender, EventArgs e)
         {
-            int x = 0;
             pesos = true;
-            noCantidad += 200;
-            noCantidad += Convert.ToDouble(lblMonto.Text);
-           // lblMonto.Text = noCantidad.ToString("#,###.#0#");
-           // noCantidad = 0;
+            noBilletes += 200;
+            noBilletes += Convert.ToDouble(lblMonto.Text);
+            lblMonto.Text = noBilletes.ToString("N");
+            noBilletes = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -822,10 +838,10 @@ namespace SiscomSoft_Desktop.Views
         private void btn100Peso_Click(object sender, EventArgs e)
         {
             pesos = true;
-            noCantidad += 100;
-            noCantidad += Convert.ToDouble(lblMonto.Text);
-          //  lblMonto.Text = noCantidad.ToString("#,###.#0#");
-          //  noCantidad = 0;
+            noBilletes += 100;
+            noBilletes += Convert.ToDouble(lblMonto.Text);
+            lblMonto.Text = noBilletes.ToString("N");
+            noBilletes = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -836,10 +852,10 @@ namespace SiscomSoft_Desktop.Views
         private void btn50Peso_Click(object sender, EventArgs e)
         {
             pesos = true;
-            noCantidad += 50;
-            noCantidad += Convert.ToDouble(lblMonto.Text);
-           // lblMonto.Text = noCantidad.ToString("N");
-          //  noCantidad = 0;
+            noBilletes += 50;
+            noBilletes += Convert.ToDouble(lblMonto.Text);
+            lblMonto.Text = noBilletes.ToString("N");
+            noBilletes = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -850,11 +866,10 @@ namespace SiscomSoft_Desktop.Views
         private void btn20Peso_Click(object sender, EventArgs e)
         {
             pesos = true;
-            noCantidad += 20;
-            noCantidad += Convert.ToDouble(lblMonto.Text);
-            //lblMonto.Text = String.Format("{0:0.00}", (noDetalle)); #,###.#0#
-          //  lblMonto.Text = noCantidad.ToString("N");
-          //  noCantidad = 0;
+            noBilletes += 20;
+            noBilletes += Convert.ToDouble(lblMonto.Text);
+            lblMonto.Text = noBilletes.ToString("N");
+            noBilletes = 0;
 
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -1366,7 +1381,7 @@ namespace SiscomSoft_Desktop.Views
                 if (!row.IsNewRow)
                 {
                     Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
-                    mDetalle.iCantidad = Convert.ToInt32(row.Cells[1].Value);
+                    mDetalle.dCantidad = Convert.ToInt32(row.Cells[1].Value);
                     mDetalle.sDescripcion = row.Cells[2].Value.ToString();
                     mDetalle.dPreUnitario = Convert.ToDecimal(row.Cells[4].Value);
                     ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalle, mProducto, mVenta);
@@ -1396,5 +1411,10 @@ namespace SiscomSoft_Desktop.Views
         }
         #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtCantidad.Text = "";
+            punto = true;
+        }
     }
 }

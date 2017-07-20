@@ -21,7 +21,7 @@ namespace SiscomSoft.Models
 
         public string sDescripcion { get; set; }
 
-        public int iCantidad { get; set; }
+        public decimal dCantidad { get; set; }
 
         public decimal dPreUnitario { get; set; }
 
