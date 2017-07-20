@@ -25,9 +25,10 @@ namespace SiscomSoft.Models
 
         public ICollection<Factura> Facturas { get; set; }
 
-        public ICollection<DetalleAlmacen> DetalleAlmacen { get; set; }
+       
 
-        public ICollection<ImpuestoProducto> ImpuestosProductos { get; set; }
+
+       
 
         public Impuesto()
         {

@@ -27,9 +27,9 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static void RegistrarNuevoProducto(Producto nProducto, int pkImpuesto,int pkPrecio, int pkCategoria,int pkCatalogo)
+        public static void RegistrarNuevoProducto(Producto nProducto,int pkPrecio, int pkCategoria,int pkCatalogo)
         {
-            Impuesto impuesto = ManejoImpuesto.getById(pkImpuesto);
+            
             Precio precio = ManejoPrecio.getById(pkPrecio);
             Catalogo catalogo = ManejoCatalogo.getById(pkCatalogo);
             Categoria categoria = ManejoCategoria.getById(pkCategoria);
@@ -42,7 +42,7 @@ namespace SiscomSoft.Controller
                     nProducto.fkCatalogo = catalogo;
                     nProducto.fkCategoria = categoria;
                     ctx.Productos.Add(nProducto);
-                    ctx.Impuestos.Attach(impuesto);
+                  
                     ctx.Precios.Attach(precio);
                     ctx.Catalogos.Attach(catalogo);
                     ctx.Categorias.Attach(categoria);
@@ -62,8 +62,8 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Productos
-                        .Include("fkCategoria")
                         .Include("fkCatalogo")
+                        .Include("fkCategoria")
                         .Include("fkPrecio")
                         .Where(r => r.bStatus == true && r.pkProducto == pkProducto)
                         .FirstOrDefault();
@@ -101,11 +101,32 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Productos
-                        .Include("fkCategoria")
                         .Include("fkCatalogo")
+                        .Include("fkCategoria")
                         .Include("fkPrecio")
                         .Where(r => r.bStatus == Status && r.sDescripcion.Contains(valor))
                         .ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static Producto Buscar(string valor)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Productos
+                        .Include("fkCatalogo")
+                        .Include("fkCategoria")
+                        .Include("fkPrecio")
+                        .Where(r => r.bStatus == true && r.sDescripcion.Contains(valor))
+                        .FirstOrDefault();
                 }
             }
             catch (Exception)
