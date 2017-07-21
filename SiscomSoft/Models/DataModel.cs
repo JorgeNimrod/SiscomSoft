@@ -58,6 +58,10 @@ namespace SiscomSoft.Models
 
         public DbSet<Descuento> Descuentos { get; set; }
 
+        public DbSet<Periodo> Periodos { get; set; }
+
+        public DbSet<DetallePeriodo> DetallePeriodos { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<DataModel>(null);

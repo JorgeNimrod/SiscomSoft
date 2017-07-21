@@ -37,6 +37,8 @@ namespace SiscomSoft.Models
 
         public ICollection<DetalleVenta> DetalleVentas { get; set; }
 
+        public ICollection<DetallePeriodo> DetallePeriodos { get; set; }
+
         public Venta()
         {
             this.bStatus = true;
