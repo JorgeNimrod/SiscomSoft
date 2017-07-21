@@ -1396,5 +1396,9 @@ namespace SiscomSoft_Desktop.Views
         }
         #endregion
 
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -454,7 +454,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 }
                 else
                 {
-                    MessageBox.Show("Test");
+                   
                     dgrDatosAlmacen.CurrentRow.Cells[0].Value = nProducto.pkProducto;
                     dgrDatosAlmacen.CurrentRow.Cells[1].Value = nProducto.sDescripcion;
                     dgrDatosAlmacen.CurrentRow.Cells[2].Value = nProducto.dCosto;
