@@ -7,13 +7,13 @@ namespace SiscomSoft.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Mexico : IMigrationMetadata
+    public sealed partial class KAFE : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Mexico));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(KAFE));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707191653038_Mexico"; }
+            get { return "201707202345152_KAFE"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,7 +3,7 @@ namespace SiscomSoft.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Mexico : DbMigration
+    public partial class KAFE : DbMigration
     {
         public override void Up()
         {
@@ -165,7 +165,7 @@ namespace SiscomSoft.Migrations
                     {
                         pkDetalleVenta = c.Int(nullable: false, identity: true),
                         sDescripcion = c.String(unicode: false),
-                        iCantidad = c.Int(nullable: false),
+                        dCantidad = c.Decimal(nullable: false, precision: 18, scale: 2),
                         dPreUnitario = c.Decimal(nullable: false, precision: 18, scale: 2),
                         bStatus = c.Boolean(nullable: false),
                         fkProducto_pkProducto = c.Int(),
