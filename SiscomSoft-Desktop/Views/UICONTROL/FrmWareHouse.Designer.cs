@@ -39,6 +39,14 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dgrDatosAlmacen = new System.Windows.Forms.DataGridView();
+            this.pkDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descuento = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fe = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFolio = new System.Windows.Forms.TextBox();
             this.txtNoFactura = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -78,14 +86,6 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewComboBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pkDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descuento = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fe = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.cbxPkProd = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).BeginInit();
@@ -140,7 +140,7 @@
             // btnEliminar
             // 
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Location = new System.Drawing.Point(1218, 325);
+            this.btnEliminar.Location = new System.Drawing.Point(1218, 384);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(126, 71);
             this.btnEliminar.TabIndex = 14;
@@ -153,7 +153,7 @@
             // btnGuardar
             // 
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(1218, 248);
+            this.btnGuardar.Location = new System.Drawing.Point(1218, 307);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(126, 71);
             this.btnGuardar.TabIndex = 13;
@@ -195,11 +195,11 @@
             this.Importe});
             this.dgrDatosAlmacen.EnableHeadersVisualStyles = false;
             this.dgrDatosAlmacen.GridColor = System.Drawing.Color.Chocolate;
-            this.dgrDatosAlmacen.Location = new System.Drawing.Point(13, 247);
+            this.dgrDatosAlmacen.Location = new System.Drawing.Point(13, 306);
             this.dgrDatosAlmacen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgrDatosAlmacen.Name = "dgrDatosAlmacen";
             this.dgrDatosAlmacen.RowHeadersVisible = false;
-            this.dgrDatosAlmacen.Size = new System.Drawing.Size(1198, 495);
+            this.dgrDatosAlmacen.Size = new System.Drawing.Size(1198, 436);
             this.dgrDatosAlmacen.TabIndex = 36;
             this.dgrDatosAlmacen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellClick);
             this.dgrDatosAlmacen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellContentClick);
@@ -208,6 +208,60 @@
             this.dgrDatosAlmacen.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellValueChanged);
             this.dgrDatosAlmacen.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgrDatosAlmacen_EditingControlShowing);
             this.dgrDatosAlmacen.Validating += new System.ComponentModel.CancelEventHandler(this.dgrDatosAlmacen_Validating);
+            // 
+            // pkDetalle
+            // 
+            this.pkDetalle.DataPropertyName = "pkDetalle";
+            this.pkDetalle.HeaderText = "No";
+            this.pkDetalle.Name = "pkDetalle";
+            this.pkDetalle.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre Producto";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Nombre.Width = 300;
+            // 
+            // costo
+            // 
+            this.costo.HeaderText = "Costo";
+            this.costo.Name = "costo";
+            // 
+            // Unidad
+            // 
+            this.Unidad.HeaderText = "Unidad ";
+            this.Unidad.Name = "Unidad";
+            this.Unidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Unidad.Width = 150;
+            // 
+            // Descuento
+            // 
+            this.Descuento.HeaderText = "Descuento";
+            this.Descuento.Name = "Descuento";
+            this.Descuento.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Descuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Descuento.Width = 150;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad ";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // fe
+            // 
+            this.fe.HeaderText = "Fecha de Caducidad";
+            this.fe.Name = "fe";
+            this.fe.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.fe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.fe.Width = 150;
+            // 
+            // Importe
+            // 
+            this.Importe.FillWeight = 200F;
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.Width = 190;
             // 
             // txtFolio
             // 
@@ -316,7 +370,7 @@
             this.pnlMostrarDetalles.Controls.Add(this.dgrMostrarAlmacen);
             this.pnlMostrarDetalles.Controls.Add(this.btnAlmacenDetalle);
             this.pnlMostrarDetalles.Controls.Add(this.dgrMostrarDetalles);
-            this.pnlMostrarDetalles.Location = new System.Drawing.Point(1163, 436);
+            this.pnlMostrarDetalles.Location = new System.Drawing.Point(1164, 485);
             this.pnlMostrarDetalles.Name = "pnlMostrarDetalles";
             this.pnlMostrarDetalles.Size = new System.Drawing.Size(195, 214);
             this.pnlMostrarDetalles.TabIndex = 49;
@@ -601,64 +655,10 @@
             this.dataGridViewComboBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewComboBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // pkDetalle
-            // 
-            this.pkDetalle.DataPropertyName = "pkDetalle";
-            this.pkDetalle.HeaderText = "No";
-            this.pkDetalle.Name = "pkDetalle";
-            this.pkDetalle.Visible = false;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre Producto";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Nombre.Width = 300;
-            // 
-            // costo
-            // 
-            this.costo.HeaderText = "Costo";
-            this.costo.Name = "costo";
-            // 
-            // Unidad
-            // 
-            this.Unidad.HeaderText = "Unidad ";
-            this.Unidad.Name = "Unidad";
-            this.Unidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Unidad.Width = 150;
-            // 
-            // Descuento
-            // 
-            this.Descuento.HeaderText = "Descuento";
-            this.Descuento.Name = "Descuento";
-            this.Descuento.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Descuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Descuento.Width = 150;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad ";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // fe
-            // 
-            this.fe.HeaderText = "Fecha de Caducidad";
-            this.fe.Name = "fe";
-            this.fe.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.fe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.fe.Width = 150;
-            // 
-            // Importe
-            // 
-            this.Importe.FillWeight = 200F;
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
-            this.Importe.Width = 190;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(701, 159);
+            this.label8.Location = new System.Drawing.Point(22, 271);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 24);
             this.label8.TabIndex = 51;
@@ -667,9 +667,9 @@
             // cbxPkProd
             // 
             this.cbxPkProd.FormattingEnabled = true;
-            this.cbxPkProd.Location = new System.Drawing.Point(803, 156);
+            this.cbxPkProd.Location = new System.Drawing.Point(124, 268);
             this.cbxPkProd.Name = "cbxPkProd";
-            this.cbxPkProd.Size = new System.Drawing.Size(192, 32);
+            this.cbxPkProd.Size = new System.Drawing.Size(1087, 32);
             this.cbxPkProd.TabIndex = 50;
             this.cbxPkProd.SelectedIndexChanged += new System.EventHandler(this.cbxPkProd_SelectedIndexChanged);
             // 
