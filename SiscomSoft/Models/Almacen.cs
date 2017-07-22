@@ -27,11 +27,15 @@ namespace SiscomSoft.Models
         public decimal dTipoCambio { get; set; }
         public int iTipoCompra { get; set; }
 
+        public DateTime dtFechaCompra { get; set; }
+
         public DateTime dtFechaMovimiento { get; set; }
 
         public Boolean bStatus { get; set; }
 
-        
+        public ICollection<DetalleAlmacen> DetalleAlmacen { get; set; }
+
+
         public Almacen()
         {
             this.bStatus = true;

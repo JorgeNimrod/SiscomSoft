@@ -67,5 +67,20 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+        public static Almacen getById(int pkAlmacen)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Almacenes.Where(r => r.bStatus == true && r.pkAlmacen == pkAlmacen).FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

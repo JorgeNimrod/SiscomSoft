@@ -10,6 +10,34 @@ namespace SiscomSoft.Controller
 {
    public class ManejoDetalleAlmacen
     {
+        public static void RegistrarNuevoDetail(DetalleAlmacen nDetalle, int pkAlmacen, int pkProducto)
+        {
+
+            Almacen Almacen = ManejoAlmacen.getById(pkAlmacen);
+            Producto producto = ManejoProducto.getById(pkProducto);
+        
+
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    nDetalle.fkAlmacen = Almacen;
+                    nDetalle.fkProducto = producto;
+                    
+
+                    ctx.Almacenes.Attach(Almacen);
+                    ctx.Productos.Attach(producto);
+                    ctx.DetalleAlmacen.Add(nDetalle);
+               
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public static void RegistrarNuevoDetalle(DetalleAlmacen nDetalle,Almacen nAlmacen, Producto nProducto )
         {
             try

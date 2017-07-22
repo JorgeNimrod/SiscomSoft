@@ -11,6 +11,7 @@ namespace SiscomSoft.Controller
 {
     public class ManejoDetalleVenta
     {
+      
         public static void RegistrarNuevoDetalle(DetalleVenta nDetalle, Producto nProducto, Venta nVenta)
         {
             try

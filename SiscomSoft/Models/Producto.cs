@@ -43,6 +43,9 @@ namespace SiscomSoft.Models
 
         public ICollection<ImpuestoProducto> ImpuestosProductos { get; set; }
 
+
+        public ICollection<DetalleAlmacen> DetalleAlmacen { get; set; }
+
         public ICollection<DescuentoProducto> DescuentosProducto { get; set; }
 
         public ICollection<Inventario> Inventarios { get; set; }
