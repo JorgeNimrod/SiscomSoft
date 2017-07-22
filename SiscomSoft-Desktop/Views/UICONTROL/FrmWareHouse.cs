@@ -194,17 +194,76 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
                 foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
                 {
-             Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
-                    
-                    DetalleAlmacen mDetalle = new DetalleAlmacen();
-                    mDetalle.iCantidad = Convert.ToInt32(row.Cells[5].Value);
-                    mDetalle.sDescripcion = Convert.ToString(row.Cells[1].Value);
-                    mDetalle.dCosto = Convert.ToDecimal(row.Cells[2].Value);
+                     Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
+                    if (!row.IsNewRow)
+                    {
+                        DetalleAlmacen mDetalle = new DetalleAlmacen();
+                        mDetalle.iCantidad = Convert.ToInt32(row.Cells[5].Value);
+                        mDetalle.sDescripcion = Convert.ToString(row.Cells[1].Value);
+                        mDetalle.dCosto = Convert.ToDecimal(row.Cells[2].Value);
 
-             //  int fkProducto = Convert.ToInt32(row.Cells[0].Value);
-               //   ManejoDetalleAlmacen.RegistrarNuevoDetail(mDetalle, nAlmacen.pkAlmacen,fkProducto);
-                    int X = 0;
-               ManejoDetalleAlmacen.RegistrarNuevoDetalle(mDetalle, nAlmacen, mProducto);
+                        ManejoDetalleAlmacen.RegistrarNuevoDetalle(mDetalle, nAlmacen, mProducto);
+
+                        decimal prePorcentaje = 0;
+                        decimal costo = 0;
+                        decimal TasaImpuestoIVA16 = 0;
+                        decimal TasaImpuestoIVA11 = 0;
+                        decimal TasaImpuestoIVA4 = 0;
+                        decimal TasaImpuestoIEPS53 = 0;
+                        decimal TasaImpuestoIEPS30 = 0;
+                        decimal TasaImpuestoIEPS26 = 0;
+                        decimal preVenta = 0;
+                        decimal PrecioConPorcentaje = 0;
+                        decimal Destroyer = 0;
+
+                        decimal Importe = 0;
+                        decimal ImporteWithImpuestoIVA16 = 0;
+                        decimal ImporteWithImpuestoIVA11 = 0;
+                        decimal ImporteWithImpuestoIVA4 = 0;
+                        decimal ImporteWithImpuestosIEPS53 = 0;
+                        decimal ImporteWithImpuestosIEPS30 = 0;
+                        decimal ImporteWithImpuestosIEPS26 = 0;
+
+                        prePorcentaje = mProducto.fkPrecio.iPrePorcen;
+                        costo = mProducto.dCosto;
+
+                        #region Impuestos
+                        List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(mProducto.pkProducto));
+                        foreach (ImpuestoProducto rImpuesto in mImpuesto)
+                        {
+                            if (rImpuesto.fkImpuesto.sTipoImpuesto == "TRASLADO")
+                            {
+                                if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
+                                {
+                                    TasaImpuestoIVA16 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                                }
+                                else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
+                                {
+                                    TasaImpuestoIVA11 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                                }
+                                else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
+                                {
+                                    TasaImpuestoIVA4 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                                }
+                            }
+                        }
+                        #endregion
+
+                        PrecioConPorcentaje = costo * (prePorcentaje / 100);
+                        Destroyer = costo + PrecioConPorcentaje;
+
+                        ImporteWithImpuestoIVA16 = costo * (TasaImpuestoIVA16 / 100);
+                        ImporteWithImpuestoIVA11 = costo * (TasaImpuestoIVA11 / 100);
+                        ImporteWithImpuestoIVA4 = costo * (TasaImpuestoIVA4 / 100);
+                        ImporteWithImpuestosIEPS53 = costo * (TasaImpuestoIEPS53 / 100);
+                        ImporteWithImpuestosIEPS30 = costo * (TasaImpuestoIEPS30 / 100);
+                        ImporteWithImpuestosIEPS26 = costo * (TasaImpuestoIEPS26 / 100);
+
+
+                        Importe = Destroyer + ImporteWithImpuestoIVA16 + ImporteWithImpuestoIVA11 +
+                            ImporteWithImpuestoIVA4 + ImporteWithImpuestosIEPS53 + ImporteWithImpuestosIEPS30 +
+                            ImporteWithImpuestosIEPS26;
+                    }
                 }
 
                 MessageBox.Show("¡Almacen!");
@@ -411,7 +470,6 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                             }
                         }
                         #endregion
-                      
 
                         decimal Importe = 0;
                         decimal ImporteWithImpuestoIVA16 = 0;
@@ -420,11 +478,8 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         decimal ImporteWithImpuestosIEPS53 = 0;
                         decimal ImporteWithImpuestosIEPS30 = 0;
                         decimal ImporteWithImpuestosIEPS26 = 0;
-                    
                         decimal PriceForLot = 0;
-                     
 
-                    
                         //PreUnitarioWithDescuento = PreUnitario - Descuento - DescuentoExtra;
                         PriceForLot = Cantidad * PreUnitario;
 

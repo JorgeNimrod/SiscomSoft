@@ -12,7 +12,7 @@ namespace SiscomSoft.Controller
     {
         public static void RegistrarNuevoDetail(DetalleAlmacen nDetalle, int pkAlmacen, int pkProducto)
         {
-
+            int x = 0;
             Almacen Almacen = ManejoAlmacen.getById(pkAlmacen);
             Producto producto = ManejoProducto.getById(pkProducto);
         
@@ -23,9 +23,9 @@ namespace SiscomSoft.Controller
                 {
                     nDetalle.fkAlmacen = Almacen;
                     nDetalle.fkProducto = producto;
-                    
+         
 
-                    ctx.Almacenes.Attach(Almacen);
+                     ctx.Almacenes.Attach(Almacen);
                     ctx.Productos.Attach(producto);
                     ctx.DetalleAlmacen.Add(nDetalle);
                
