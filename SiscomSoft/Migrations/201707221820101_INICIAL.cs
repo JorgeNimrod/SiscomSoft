@@ -163,6 +163,7 @@ namespace SiscomSoft.Migrations
                         sFolio = c.String(unicode: false),
                         iTurno = c.Int(nullable: false),
                         sCaja = c.String(unicode: false),
+                        dFondo = c.Decimal(nullable: false, precision: 18, scale: 2),
                         bStatus = c.Boolean(nullable: false),
                         fkUsuario_pkUsuario = c.Int(),
                     })

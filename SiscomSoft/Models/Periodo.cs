@@ -25,6 +25,8 @@ namespace SiscomSoft.Models
 
         public string sCaja { get; set; }
 
+        public decimal dFondo { get; set; }
+
         public virtual Usuario fkUsuario { get; set; }
 
         public Boolean bStatus { get; set; }

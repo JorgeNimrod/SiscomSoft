@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using SiscomSoft.Controller;
 using SiscomSoft.Controller.Helpers;
 using SiscomSoft.Models;
 
@@ -40,28 +41,37 @@ namespace SiscomSoft_Desktop.Views
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             timer1.Start();
-            //if (uHelper == null)
-            //{
-            //    FrmLogin vLogin = new FrmLogin();
-            //    vLogin.ShowDialog();
-            //}
-            //if (uHelper.esValido && uHelper != null)
-            //{
-            //    //TODO: ACTIVAR TODOS LOS CONTROLES SEGUN EL PERMISO
-            //    //ProcesarPermisos();
-            //    lblNombre.Text = "Bienvenido " + uHelper.usuario.sNombre;
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Se require se autentifique", "Eror..", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            if (uHelper == null)
+            {
+                FrmLogin vLogin = new FrmLogin();
+                vLogin.ShowDialog();
+            }
+            if (uHelper.esValido && uHelper != null)
+            {
+                //TODO: ACTIVAR TODOS LOS CONTROLES SEGUN EL PERMISO
+                //ProcesarPermisos();
+                lblNombre.Text = "Bienvenido " + uHelper.usuario.sNombre;
+            }
+            else
+            {
+                MessageBox.Show("Se require se autentifique", "Eror..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnMenuVentas_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmDetalleVentasOneToOne v = new FrmDetalleVentasOneToOne();
-            v.ShowDialog();
+            Periodo mPeriodo = ManejoPeriodo.getByUser(uHelper.usuario.pkUsuario);
+            if (mPeriodo!=null)
+            {
+                this.Hide();
+                FrmDetalleVentasOneToOne v = new FrmDetalleVentasOneToOne();
+                v.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Inicie un periodo para acceder");
+            }
+            mPeriodo = null;
         }
 
         private void btnMenuFacturacion_Click(object sender, EventArgs e)
