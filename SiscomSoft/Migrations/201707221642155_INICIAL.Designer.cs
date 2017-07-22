@@ -7,13 +7,13 @@ namespace SiscomSoft.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Cokes : IMigrationMetadata
+    public sealed partial class INICIAL : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Cokes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(INICIAL));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707212012465_Cokes"; }
+            get { return "201707221642155_INICIAL"; }
         }
         
         string IMigrationMetadata.Source

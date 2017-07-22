@@ -73,21 +73,9 @@
     <Compile Include="Controller\ManejoEntrada.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201707202345152_KAFE.cs" />
-    <Compile Include="Migrations\201707202345152_KAFE.Designer.cs">
-      <DependentUpon>201707202345152_KAFE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707211958229_Coke.cs" />
-    <Compile Include="Migrations\201707211958229_Coke.Designer.cs">
-      <DependentUpon>201707211958229_Coke.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707212012465_Cokes.cs" />
-    <Compile Include="Migrations\201707212012465_Cokes.Designer.cs">
-      <DependentUpon>201707212012465_Cokes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707221525104_FechaCompra.cs" />
-    <Compile Include="Migrations\201707221525104_FechaCompra.Designer.cs">
-      <DependentUpon>201707221525104_FechaCompra.cs</DependentUpon>
+    <Compile Include="Migrations\201707221642155_INICIAL.cs" />
+    <Compile Include="Migrations\201707221642155_INICIAL.Designer.cs">
+      <DependentUpon>201707221642155_INICIAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\Descuento.cs" />
@@ -134,17 +122,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707202345152_KAFE.resx">
-      <DependentUpon>201707202345152_KAFE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707211958229_Coke.resx">
-      <DependentUpon>201707211958229_Coke.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707212012465_Cokes.resx">
-      <DependentUpon>201707212012465_Cokes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707221525104_FechaCompra.resx">
-      <DependentUpon>201707221525104_FechaCompra.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707221642155_INICIAL.resx">
+      <DependentUpon>201707221642155_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
