@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using SiscomSoft.Models;
+
 namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmPeriodoTrabajo : Form
@@ -16,6 +18,11 @@ namespace SiscomSoft_Desktop.Views
         {
             InitializeComponent();
             dgvPeriodos.AutoGenerateColumns = false;
+        }
+
+        public void cargarPeriodos()
+        {
+
         }
 
         private void btnMenuPrincipal_Click(object sender, EventArgs e)
@@ -33,6 +40,12 @@ namespace SiscomSoft_Desktop.Views
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+        }
+
+        private void btnIniciarPeriodo_Click(object sender, EventArgs e)
+        {
+            FrmDetallePeriodo v = new Views.FrmDetallePeriodo();
+            v.ShowDialog();
         }
     }
 }
