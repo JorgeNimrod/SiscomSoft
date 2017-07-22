@@ -94,6 +94,7 @@
     <Compile Include="Models\DescuentoProducto.cs" />
     <Compile Include="Models\DetalleAlmacen.cs" />
     <Compile Include="Models\DetalleFacturacion.cs" />
+    <Compile Include="Models\DetallePeriodo.cs" />
     <Compile Include="Models\ImpuestoProducto.cs" />
     <Compile Include="Models\DetalleVenta.cs" />
     <Compile Include="Models\Inventario.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Impuesto.cs" />
     <Compile Include="Models\InventarioEntrada.cs" />
+    <Compile Include="Models\Periodo.cs" />
     <Compile Include="Models\Permiso.cs" />
     <Compile Include="Models\PermisoNegadoRol.cs" />
     <Compile Include="Models\Precio.cs" />
