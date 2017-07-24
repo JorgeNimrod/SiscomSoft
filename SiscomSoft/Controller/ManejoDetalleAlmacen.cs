@@ -44,6 +44,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
+                  
                     nDetalle.fkAlmacen = nAlmacen;
                     nDetalle.fkProducto = nProducto;
                    

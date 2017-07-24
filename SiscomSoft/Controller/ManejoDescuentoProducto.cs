@@ -10,6 +10,22 @@ namespace SiscomSoft.Controller
 {
     public class ManejoDescuentoProducto
     {
+        public static List<Descuento> ListarContenido()
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Descuentos.Where(r => r.bStatus == true).ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static List<DescuentoProducto> getById(int pkProducto)
         {
             try

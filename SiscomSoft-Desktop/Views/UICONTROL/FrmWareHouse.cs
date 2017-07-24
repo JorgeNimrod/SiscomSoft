@@ -15,6 +15,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 {
     public partial class FrmWareHouse : Form
     {
+        public static List<Decimal> DESCUENTOS;
         Boolean status = false;
         decimal IVA16 = 0;
         decimal IVA11 = 0;
@@ -30,21 +31,11 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             this.dgrDatosAlmacen.AutoGenerateColumns = false;
             this.dgrMostrarAlmacen.AutoGenerateColumns = false;
             this.dgrMostrarDetalles.AutoGenerateColumns = false;
+             
 
 
         }
-        private Boolean EsFecha(String fecha)
-        {
-            try
-            {
-                DateTime.Parse(fecha);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+      
 
         private void btnGuardar_MouseMove(object sender, MouseEventArgs e)
         {
@@ -56,15 +47,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             btnGuardar.BackColor = Color.White;
         }
 
-        private void btnModificar_MouseMove(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void btnModificar_MouseLeave(object sender, EventArgs e)
-        {
-
-        }
+     
 
         public void cargarWaver()
         {
@@ -91,15 +74,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             FrmMenu v = new FrmMenu();
             v.Show();
         }
-        //public void cargarDetails()
-        //{
-        //    this.dgrMostrarDetalles.DataSource = ManejoDetalleAlmacen.getAll();
-        //}
-        public void cargarDetalles()
-        {
-            //int x = 0;
-            //List<DetalleAlmacen> nAlmacen = ManejoDetalleAlmacen.getAll();
-        }
+      
         public void cargarCombos()
         {
 
@@ -123,16 +98,6 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             cargarCombos();
             cargarWaver();
             cargarDetails();
-        }
-
-
-
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -180,6 +145,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             else
             {
                 Almacen nAlmacen = new Almacen();
+                DetalleAlmacen mDetalle = new DetalleAlmacen();
 
                 nAlmacen.sFolio = txtFolio.Text;
                 nAlmacen.iTipoCompra = Convert.ToInt32(txtTipoCompra.Text);
@@ -194,13 +160,15 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
                 foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
                 {
-                     Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
                     if (!row.IsNewRow)
                     {
-                        DetalleAlmacen mDetalle = new DetalleAlmacen();
+                        int x = 0;
+                        Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
                         mDetalle.iCantidad = Convert.ToInt32(row.Cells[5].Value);
                         mDetalle.sDescripcion = Convert.ToString(row.Cells[1].Value);
                         mDetalle.dCosto = Convert.ToDecimal(row.Cells[2].Value);
+
+                        
 
                         ManejoDetalleAlmacen.RegistrarNuevoDetalle(mDetalle, nAlmacen, mProducto);
 
@@ -233,6 +201,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         {
                             if (rImpuesto.fkImpuesto.sTipoImpuesto == "TRASLADO")
                             {
+                                // IVA
                                 if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                                 {
                                     TasaImpuestoIVA16 += rImpuesto.fkImpuesto.dTasaImpuesto;
@@ -244,6 +213,19 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                                 else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
                                 {
                                     TasaImpuestoIVA4 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                                }
+                                //IEPS
+                                else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
+                                {
+                                    TasaImpuestoIEPS53 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                                }
+                                else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(30.00))
+                                {
+                                    TasaImpuestoIEPS30 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                                }
+                                else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(26.50))
+                                {
+                                    TasaImpuestoIEPS26 += rImpuesto.fkImpuesto.dTasaImpuesto;
                                 }
                             }
                         }
@@ -263,10 +245,13 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         Importe = Destroyer + ImporteWithImpuestoIVA16 + ImporteWithImpuestoIVA11 +
                             ImporteWithImpuestoIVA4 + ImporteWithImpuestosIEPS53 + ImporteWithImpuestosIEPS30 +
                             ImporteWithImpuestosIEPS26;
+
+                        mProducto.dPreVenta = Importe;
+                        ManejoProducto.Modificar(mProducto);
                     }
                 }
 
-                MessageBox.Show("¡Almacen!");
+                MessageBox.Show("¡Registros Guardados!");
                 txtFolio.Clear();
                 txtMoneda.Clear();
                 txtNoFactura.Clear();
@@ -333,10 +318,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             pnlMostrarDetalles.Visible = false;
         }
 
-        private void pnlMostrarDetalles_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
     
 
@@ -397,35 +379,51 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             ErrorProvider.Clear();
         }
 
-       
-       
-
-
-
-
-       
-
         private void dgrDatosAlmacen_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
+            {
+                //Get the appropriate cell using index, name or whatever and cast to DataGridViewCheckBoxCell
+                DataGridViewCheckBoxCell cell = row.Cells[4] as DataGridViewCheckBoxCell;
+                if (!row.IsNewRow)
+                {
+                    if (cell.Value == cell.TrueValue)
+                    {
+                        FrmAgregarDescuentoProducto descuento = new FrmAgregarDescuentoProducto();
+                        descuento.ShowDialog();
+           //     this.dgrDatosAlmacen.RefreshEdit();
+                    }
+                }
+                //Compare to the true value because Value isn't boolean
+            }
+
+                    
+            //The value is true
+        
 
             //foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
             //{
 
-            //    if (Convert.ToBoolean(row.Cells[5].Value))
+            //    if (Convert.ToBoolean(row.Cells[4].Value))
             //    {
             //        FrmAgregarDescuentoProducto descuento = new FrmAgregarDescuentoProducto();
             //        descuento.ShowDialog();
-            //        this.Hide();
+             
+            //    }
+            //    else
+            //    {
+
             //    }
             //}
+
+
         }
 
     
         private void cbxPkProd_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int x = 0;
           
-
             Producto nProducto = ManejoProducto.Buscar(cbxPkProd.Text);
             if (dgrDatosAlmacen.CurrentRow != null)
             {
@@ -439,6 +437,9 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         row.Cells[2].Value = nProducto.dCosto;
                         row.Cells[3].Value = nProducto.fkCatalogo.sUDM;
                         row.Cells[5].Value = 1;
+                        
+                        int cantidad = 0;
+                        cantidad = Convert.ToInt32(row.Cells[5].Value);
 
                         decimal PreUnitario = nProducto.dCosto;
                         decimal TasaImpuestoIVA16 = 0;
@@ -447,8 +448,9 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         decimal TasaImpuestoIEPS53 = 0;
                         decimal TasaImpuestoIEPS26 = 0;
                         decimal TasaImpuestoIEPS30 = 0;
-                  
-                        decimal Cantidad = Convert.ToDecimal(row.Cells[5].Value);
+                        decimal costoxCantidad = 0;
+
+                decimal Cantidad = Convert.ToDecimal(row.Cells[5].Value);
                         #region Impuestos
                         List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
                         foreach (ImpuestoProducto rImpuesto in mImpuesto)
@@ -536,6 +538,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     {
                         if (rImpuesto.fkImpuesto.sTipoImpuesto == "TRASLADO")
                         {
+                            // IVA
                             if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                             {
                                 TasaImpuestoIVA16 += rImpuesto.fkImpuesto.dTasaImpuesto;
@@ -547,6 +550,19 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                             else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
                             {
                                 TasaImpuestoIVA4 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                            }
+                            //IEPS
+                            else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
+                            {
+                                TasaImpuestoIEPS53 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                            }
+                            else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(30.00))
+                            {
+                                TasaImpuestoIEPS30 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                            }
+                            else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(26.50))
+                            {
+                                TasaImpuestoIEPS26 += rImpuesto.fkImpuesto.dTasaImpuesto;
                             }
                         }
                     }
@@ -588,6 +604,13 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblNepe.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+        }
+
+        private void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmMenu v = new FrmMenu();
+            v.Show();
         }
     }
 }

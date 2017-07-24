@@ -475,8 +475,8 @@ namespace SiscomSoft_Desktop.Views
                 decimal TasaDescuentoExtra = 0;
                 decimal Cantidad = Convert.ToDecimal(row.Cells[1].Value);
                 #region Impuestos
-                List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(rDetalleVenta.fkProducto.pkProducto));
-                foreach (ImpuestoProducto rImpuesto in mImpuesto)
+               List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
+               foreach (ImpuestoProducto rImpuesto in mImpuesto)
                 {
                     if (rImpuesto.fkImpuesto.sTipoImpuesto == "TRASLADO")
                     {

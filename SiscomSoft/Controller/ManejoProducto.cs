@@ -11,6 +11,7 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoProducto
     {
+
       
         public static List<Producto> getByIDList(int pkProducto)
         {

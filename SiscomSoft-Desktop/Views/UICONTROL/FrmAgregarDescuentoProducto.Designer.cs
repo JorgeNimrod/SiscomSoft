@@ -31,7 +31,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
             this.pnlAccionesDesc = new System.Windows.Forms.Panel();
             this.btnRemoveRow = new System.Windows.Forms.Button();
             this.btnMenosCantidad = new System.Windows.Forms.Button();
@@ -62,6 +62,7 @@
             this.btnAgregar.TabIndex = 128;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label1
             // 
@@ -69,16 +70,16 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(184, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 18);
+            this.label1.Size = new System.Drawing.Size(80, 18);
             this.label1.TabIndex = 127;
-            this.label1.Text = "Impuesto";
+            this.label1.Text = "Descuento";
             // 
-            // textBox1
+            // txtDescuento
             // 
-            this.textBox1.Location = new System.Drawing.Point(148, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 24);
-            this.textBox1.TabIndex = 126;
+            this.txtDescuento.Location = new System.Drawing.Point(148, 56);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(158, 24);
+            this.txtDescuento.TabIndex = 126;
             // 
             // pnlAccionesDesc
             // 
@@ -132,6 +133,7 @@
             this.btnMasCantidad.TabIndex = 20;
             this.btnMasCantidad.Text = "+";
             this.btnMasCantidad.UseVisualStyleBackColor = false;
+            this.btnMasCantidad.Click += new System.EventHandler(this.btnMasCantidad_Click);
             // 
             // FrmAgregarDescuentoProducto
             // 
@@ -141,14 +143,15 @@
             this.ClientSize = new System.Drawing.Size(831, 408);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.pnlAccionesDesc);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAgregarDescuentoProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.FrmAgregarDescuentoProducto_Load);
             this.pnlAccionesDesc.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -160,7 +163,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescuento;
         private System.Windows.Forms.Panel pnlAccionesDesc;
         private System.Windows.Forms.Button btnRemoveRow;
         private System.Windows.Forms.Button btnMenosCantidad;

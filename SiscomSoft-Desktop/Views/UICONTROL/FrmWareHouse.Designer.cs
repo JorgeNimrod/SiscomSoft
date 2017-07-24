@@ -214,9 +214,7 @@
             this.dgrDatosAlmacen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgrDatosAlmacen.Size = new System.Drawing.Size(1186, 352);
             this.dgrDatosAlmacen.TabIndex = 36;
-      
             this.dgrDatosAlmacen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellContentClick);
-         
             // 
             // pkDetalle
             // 
@@ -392,12 +390,11 @@
             this.pnlMostrarDetalles.Controls.Add(this.dgrMostrarAlmacen);
             this.pnlMostrarDetalles.Controls.Add(this.btnAlmacenDetalle);
             this.pnlMostrarDetalles.Controls.Add(this.dgrMostrarDetalles);
-            this.pnlMostrarDetalles.Location = new System.Drawing.Point(1218, 485);
+            this.pnlMostrarDetalles.Location = new System.Drawing.Point(1233, 431);
             this.pnlMostrarDetalles.Name = "pnlMostrarDetalles";
-            this.pnlMostrarDetalles.Size = new System.Drawing.Size(141, 214);
+            this.pnlMostrarDetalles.Size = new System.Drawing.Size(86, 110);
             this.pnlMostrarDetalles.TabIndex = 49;
             this.pnlMostrarDetalles.Visible = false;
-          
             // 
             // cbkStatusDetalle
             // 
@@ -949,6 +946,7 @@
             this.btnMenuPrincipal.Text = "MENU PRINCIPAL";
             this.btnMenuPrincipal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnMenuPrincipal.UseVisualStyleBackColor = false;
+            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
             // 
             // lblNepe
             // 
