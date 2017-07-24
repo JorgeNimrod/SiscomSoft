@@ -67,6 +67,7 @@
     <Compile Include="Controller\ManejoCertificado.cs" />
     <Compile Include="Controller\ManejoCFDIv33.cs" />
     <Compile Include="Controller\ManejoCliente.cs" />
+    <Compile Include="Controller\ManejoDetallePeriodo.cs" />
     <Compile Include="Controller\ManejoImpuestoProducto.cs" />
     <Compile Include="Controller\ManejoDetalleVenta.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
@@ -74,9 +75,9 @@
     <Compile Include="Controller\ManejoPeriodo.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201707221642155_INICIAL.cs" />
-    <Compile Include="Migrations\201707221642155_INICIAL.Designer.cs">
-      <DependentUpon>201707221642155_INICIAL.cs</DependentUpon>
+    <Compile Include="Migrations\201707221820101_INICIAL.cs" />
+    <Compile Include="Migrations\201707221820101_INICIAL.Designer.cs">
+      <DependentUpon>201707221820101_INICIAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\Descuento.cs" />
@@ -123,8 +124,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707221642155_INICIAL.resx">
-      <DependentUpon>201707221642155_INICIAL.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707221820101_INICIAL.resx">
+      <DependentUpon>201707221820101_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

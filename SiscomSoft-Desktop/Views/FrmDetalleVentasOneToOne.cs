@@ -475,8 +475,8 @@ namespace SiscomSoft_Desktop.Views
                 decimal TasaDescuentoExtra = 0;
                 decimal Cantidad = Convert.ToDecimal(row.Cells[1].Value);
                 #region Impuestos
-               List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
-               foreach (ImpuestoProducto rImpuesto in mImpuesto)
+                List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
+                foreach (ImpuestoProducto rImpuesto in mImpuesto)
                 {
                     if (rImpuesto.fkImpuesto.sTipoImpuesto == "TRASLADO")
                     {
@@ -1481,7 +1481,15 @@ namespace SiscomSoft_Desktop.Views
         {
             Venta mVenta = new Venta();
             DetalleVenta mDetalle = new DetalleVenta();
-            mVenta.dCambio = Convert.ToDecimal(lblCambio.Text);
+            Periodo mPeriodo = ManejoPeriodo.getByUser(FrmMenu.uHelper.usuario.pkUsuario);
+            if (lblCambio.Text=="")
+            {
+                mVenta.dCambio = 0;
+            }
+            else
+            {
+                mVenta.dCambio = Convert.ToDecimal(lblCambio.Text);
+            }
             mVenta.dtFechaVenta = DateTime.Now;
             if (dolar==true)
             {
@@ -1504,6 +1512,9 @@ namespace SiscomSoft_Desktop.Views
                 }
             }
 
+            ManejoDetallePeriodo.Guardar(mPeriodo, mVenta);
+
+            mPeriodo = null;
             nVenta = null;
             mCliente = null;
             mFactura = null;

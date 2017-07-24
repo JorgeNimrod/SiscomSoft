@@ -30,19 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPeriodoTrabajo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.dgvPeriodos = new System.Windows.Forms.DataGridView();
-            this.pkPeriodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sFechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sFechaFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnIniciarPeriodo = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnFinalizarPeriodo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pkPeriodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sFechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sFechaFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeriodos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -81,25 +81,25 @@
             this.dgvPeriodos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPeriodos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvPeriodos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPeriodos.ColumnHeadersVisible = false;
             this.dgvPeriodos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pkPeriodo,
             this.sFechaInicio,
             this.sFechaFinal});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPeriodos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPeriodos.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPeriodos.GridColor = System.Drawing.Color.DimGray;
             this.dgvPeriodos.Location = new System.Drawing.Point(12, 50);
+            this.dgvPeriodos.MultiSelect = false;
             this.dgvPeriodos.Name = "dgvPeriodos";
             this.dgvPeriodos.ReadOnly = true;
             this.dgvPeriodos.RowHeadersVisible = false;
-            this.dgvPeriodos.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvPeriodos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvPeriodos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPeriodos.ShowCellErrors = false;
             this.dgvPeriodos.ShowCellToolTips = false;
@@ -107,27 +107,6 @@
             this.dgvPeriodos.ShowRowErrors = false;
             this.dgvPeriodos.Size = new System.Drawing.Size(1037, 587);
             this.dgvPeriodos.TabIndex = 135;
-            // 
-            // pkPeriodo
-            // 
-            this.pkPeriodo.HeaderText = "No.";
-            this.pkPeriodo.Name = "pkPeriodo";
-            this.pkPeriodo.ReadOnly = true;
-            this.pkPeriodo.Visible = false;
-            // 
-            // sFechaInicio
-            // 
-            this.sFechaInicio.HeaderText = "FechaInicio";
-            this.sFechaInicio.Name = "sFechaInicio";
-            this.sFechaInicio.ReadOnly = true;
-            this.sFechaInicio.Width = 517;
-            // 
-            // sFechaFinal
-            // 
-            this.sFechaFinal.HeaderText = "FechaFinal";
-            this.sFechaFinal.Name = "sFechaFinal";
-            this.sFechaFinal.ReadOnly = true;
-            this.sFechaFinal.Width = 517;
             // 
             // lblFecha
             // 
@@ -183,6 +162,7 @@
             this.btnFinalizarPeriodo.Text = "FINALIZAR PERIODO";
             this.btnFinalizarPeriodo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnFinalizarPeriodo.UseVisualStyleBackColor = false;
+            this.btnFinalizarPeriodo.Click += new System.EventHandler(this.btnFinalizarPeriodo_Click);
             // 
             // pictureBox1
             // 
@@ -194,6 +174,32 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 133;
             this.pictureBox1.TabStop = false;
+            // 
+            // pkPeriodo
+            // 
+            this.pkPeriodo.DataPropertyName = "pkPeriodo";
+            this.pkPeriodo.HeaderText = "No.";
+            this.pkPeriodo.Name = "pkPeriodo";
+            this.pkPeriodo.ReadOnly = true;
+            this.pkPeriodo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.pkPeriodo.Visible = false;
+            // 
+            // sFechaInicio
+            // 
+            this.sFechaInicio.DataPropertyName = "dtInicio";
+            this.sFechaInicio.HeaderText = "Fecha Inicio";
+            this.sFechaInicio.Name = "sFechaInicio";
+            this.sFechaInicio.ReadOnly = true;
+            this.sFechaInicio.Width = 517;
+            // 
+            // sFechaFinal
+            // 
+            this.sFechaFinal.DataPropertyName = "dtFinal";
+            this.sFechaFinal.HeaderText = "Fecha Final";
+            this.sFechaFinal.Name = "sFechaFinal";
+            this.sFechaFinal.ReadOnly = true;
+            this.sFechaFinal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sFechaFinal.Width = 517;
             // 
             // FrmPeriodoTrabajo
             // 
