@@ -32,6 +32,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void btnMasCantidad_Click(object sender, EventArgs e)
         {
+
             //List<> lsCategoria = ManejoCategoria.getAll(true);
             //int top = 0;
             //foreach (Categoria nCategoria in lsCategoria)
@@ -73,6 +74,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             foreach (Descuento item in descuentos)
             {
                 TextBox txtdesc = new TextBox();
+                Label lbldesc = new Label();
                
                 txtdesc.Left = left;
                 txtdesc.Top = top;
@@ -83,7 +85,22 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     left = 10;
                 }
                 this.Controls.Add(txtdesc);
+                lbldesc.Left = left;
+                lbldesc.Top = top;
+                left += lbldesc.Width + 10;
+                if ((left + lbldesc.Width) > this.Width)
+                {
+                    top += 10 + lbldesc.Height;
+                    left = 10;
+                }
+                this.Controls.Add(lbldesc);
+                lbldesc.Text = "Descuento";
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

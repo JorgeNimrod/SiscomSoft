@@ -190,7 +190,7 @@ namespace SiscomSoft_Desktop.Views
             {
 
                 uHelper = ManejoUsuario.Autentificar(txtPin.Text);
-                    int x = 0;
+                   
                 if (uHelper.esValido)
                 {
                     FrmMenu.uHelper = uHelper;

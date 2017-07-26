@@ -12,7 +12,7 @@ namespace SiscomSoft.Controller
     {
         public static void RegistrarNuevoDetail(DetalleAlmacen nDetalle, int pkAlmacen, int pkProducto)
         {
-            int x = 0;
+          
             Almacen Almacen = ManejoAlmacen.getById(pkAlmacen);
             Producto producto = ManejoProducto.getById(pkProducto);
         

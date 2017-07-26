@@ -214,7 +214,9 @@
             this.dgrDatosAlmacen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgrDatosAlmacen.Size = new System.Drawing.Size(1186, 352);
             this.dgrDatosAlmacen.TabIndex = 36;
+            this.dgrDatosAlmacen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellClick);
             this.dgrDatosAlmacen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellContentClick);
+            this.dgrDatosAlmacen.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellEndEdit);
             // 
             // pkDetalle
             // 

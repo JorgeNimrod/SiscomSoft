@@ -52,9 +52,9 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         public void cargarWaver()
         {
             this.dgrMostrarAlmacen.DataSource = ManejoAlmacen.Buscar(txtBuscarAlmacen.Text, ckbStatusAlmacen.Checked);
-        }
-        public void cargarDetails()
-        {
+            }
+            public void cargarDetails()
+            {
             this.dgrMostrarDetalles.DataSource = ManejoDetalleAlmacen.Buscar(txtBuscarDetalle.Text, cbkStatusDetalle.Checked);
         }
 
@@ -162,7 +162,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 {
                     if (!row.IsNewRow)
                     {
-                        int x = 0;
+                     
                         Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
                         mDetalle.iCantidad = Convert.ToInt32(row.Cells[5].Value);
                         mDetalle.sDescripcion = Convert.ToString(row.Cells[1].Value);
@@ -312,16 +312,12 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             }
 
         }
+        
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             pnlMostrarDetalles.Visible = false;
         }
-
-       
-
-    
-
         private void btnCerrar_Click_1(object sender, EventArgs e)
         {
             pnlMostrarDetalles.Visible = false;
@@ -382,8 +378,11 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         private void dgrDatosAlmacen_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+
+
             foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
             {
+
                 //Get the appropriate cell using index, name or whatever and cast to DataGridViewCheckBoxCell
                 DataGridViewCheckBoxCell cell = row.Cells[4] as DataGridViewCheckBoxCell;
                 if (!row.IsNewRow)
@@ -392,15 +391,18 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     {
                         FrmAgregarDescuentoProducto descuento = new FrmAgregarDescuentoProducto();
                         descuento.ShowDialog();
-           //     this.dgrDatosAlmacen.RefreshEdit();
+                        //     this.dgrDatosAlmacen.RefreshEdit();
                     }
+
                 }
+               
                 //Compare to the true value because Value isn't boolean
             }
 
-                    
-            //The value is true
-        
+
+           // The value is true
+
+
 
             //foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
             //{
@@ -409,12 +411,9 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             //    {
             //        FrmAgregarDescuentoProducto descuento = new FrmAgregarDescuentoProducto();
             //        descuento.ShowDialog();
-             
-            //    }
-            //    else
-            //    {
 
             //    }
+              
             //}
 
 
@@ -423,6 +422,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
     
         private void cbxPkProd_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
           
             Producto nProducto = ManejoProducto.Buscar(cbxPkProd.Text);
             if (dgrDatosAlmacen.CurrentRow != null)
@@ -438,6 +438,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         row.Cells[3].Value = nProducto.fkCatalogo.sUDM;
                         row.Cells[5].Value = 1;
                         
+
                         int cantidad = 0;
                         cantidad = Convert.ToInt32(row.Cells[5].Value);
 
@@ -521,7 +522,8 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     dgrDatosAlmacen.CurrentRow.Cells[1].Value = nProducto.sDescripcion;
                     dgrDatosAlmacen.CurrentRow.Cells[2].Value = nProducto.dCosto;
                     dgrDatosAlmacen.CurrentRow.Cells[3].Value = nProducto.fkCatalogo.sUDM;
-                    dgrDatosAlmacen.CurrentRow.Cells[5].Value = 1;
+                    dgrDatosAlmacen.CurrentRow.Cells[5].Value = 1  ;
+
 
                     decimal PreUnitario = nProducto.dCosto;
                     decimal TasaImpuestoIVA16 = 0;
@@ -611,6 +613,16 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             this.Close();
             FrmMenu v = new FrmMenu();
             v.Show();
+        }
+
+        private void dgrDatosAlmacen_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgrDatosAlmacen_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+          
         }
     }
 }

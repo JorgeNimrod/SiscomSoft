@@ -692,7 +692,7 @@ namespace SiscomSoft_Desktop.Views
            
 
 
-            int x = 0;
+          
         }
         public void ActualizarPrecio()
         {
