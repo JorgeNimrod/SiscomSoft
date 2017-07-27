@@ -101,11 +101,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.lblIVA16 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.lblCambioDado = new System.Windows.Forms.Label();
-            this.lblMontoRecibido = new System.Windows.Forms.Label();
             this.lblImporte = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
@@ -712,11 +708,7 @@
             this.pnlDetalleMinimo.Controls.Add(this.label16);
             this.pnlDetalleMinimo.Controls.Add(this.lblIVA16);
             this.pnlDetalleMinimo.Controls.Add(this.label13);
-            this.pnlDetalleMinimo.Controls.Add(this.lblCambioDado);
-            this.pnlDetalleMinimo.Controls.Add(this.lblMontoRecibido);
             this.pnlDetalleMinimo.Controls.Add(this.lblImporte);
-            this.pnlDetalleMinimo.Controls.Add(this.label12);
-            this.pnlDetalleMinimo.Controls.Add(this.label11);
             this.pnlDetalleMinimo.Controls.Add(this.label10);
             this.pnlDetalleMinimo.Location = new System.Drawing.Point(13, 562);
             this.pnlDetalleMinimo.Name = "pnlDetalleMinimo";
@@ -726,7 +718,7 @@
             // lblDescuento
             // 
             this.lblDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescuento.Location = new System.Drawing.Point(410, 74);
+            this.lblDescuento.Location = new System.Drawing.Point(410, 58);
             this.lblDescuento.Name = "lblDescuento";
             this.lblDescuento.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblDescuento.Size = new System.Drawing.Size(149, 18);
@@ -737,7 +729,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(284, 74);
+            this.label17.Location = new System.Drawing.Point(284, 58);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(76, 16);
             this.label17.TabIndex = 20;
@@ -746,7 +738,7 @@
             // lblIEPS30
             // 
             this.lblIEPS30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIEPS30.Location = new System.Drawing.Point(410, 38);
+            this.lblIEPS30.Location = new System.Drawing.Point(410, 22);
             this.lblIEPS30.Name = "lblIEPS30";
             this.lblIEPS30.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIEPS30.Size = new System.Drawing.Size(149, 18);
@@ -757,7 +749,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(284, 38);
+            this.label14.Location = new System.Drawing.Point(284, 22);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(87, 16);
             this.label14.TabIndex = 18;
@@ -766,7 +758,7 @@
             // lblIEPS26
             // 
             this.lblIEPS26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIEPS26.Location = new System.Drawing.Point(410, 56);
+            this.lblIEPS26.Location = new System.Drawing.Point(410, 40);
             this.lblIEPS26.Name = "lblIEPS26";
             this.lblIEPS26.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIEPS26.Size = new System.Drawing.Size(149, 18);
@@ -777,7 +769,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(284, 56);
+            this.label18.Location = new System.Drawing.Point(284, 40);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(104, 16);
             this.label18.TabIndex = 16;
@@ -786,7 +778,7 @@
             // lblIEPS53
             // 
             this.lblIEPS53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIEPS53.Location = new System.Drawing.Point(410, 20);
+            this.lblIEPS53.Location = new System.Drawing.Point(410, 4);
             this.lblIEPS53.Name = "lblIEPS53";
             this.lblIEPS53.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIEPS53.Size = new System.Drawing.Size(149, 18);
@@ -797,7 +789,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(284, 20);
+            this.label20.Location = new System.Drawing.Point(284, 4);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(87, 16);
             this.label20.TabIndex = 14;
@@ -806,7 +798,7 @@
             // lblIVA11
             // 
             this.lblIVA11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIVA11.Location = new System.Drawing.Point(129, 72);
+            this.lblIVA11.Location = new System.Drawing.Point(129, 38);
             this.lblIVA11.Name = "lblIVA11";
             this.lblIVA11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIVA11.Size = new System.Drawing.Size(149, 18);
@@ -817,7 +809,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 72);
+            this.label15.Location = new System.Drawing.Point(3, 38);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(78, 16);
             this.label15.TabIndex = 12;
@@ -826,7 +818,7 @@
             // lblIVA4
             // 
             this.lblIVA4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIVA4.Location = new System.Drawing.Point(410, 2);
+            this.lblIVA4.Location = new System.Drawing.Point(129, 58);
             this.lblIVA4.Name = "lblIVA4";
             this.lblIVA4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIVA4.Size = new System.Drawing.Size(149, 18);
@@ -837,7 +829,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(284, 2);
+            this.label16.Location = new System.Drawing.Point(3, 58);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(71, 16);
             this.label16.TabIndex = 10;
@@ -846,7 +838,7 @@
             // lblIVA16
             // 
             this.lblIVA16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIVA16.Location = new System.Drawing.Point(129, 54);
+            this.lblIVA16.Location = new System.Drawing.Point(129, 20);
             this.lblIVA16.Name = "lblIVA16";
             this.lblIVA16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIVA16.Size = new System.Drawing.Size(149, 18);
@@ -857,31 +849,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(3, 54);
+            this.label13.Location = new System.Drawing.Point(3, 20);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(78, 16);
             this.label13.TabIndex = 6;
             this.label13.Text = "I.V.A. (16%):";
-            // 
-            // lblCambioDado
-            // 
-            this.lblCambioDado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCambioDado.Location = new System.Drawing.Point(129, 36);
-            this.lblCambioDado.Name = "lblCambioDado";
-            this.lblCambioDado.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblCambioDado.Size = new System.Drawing.Size(149, 18);
-            this.lblCambioDado.TabIndex = 5;
-            this.lblCambioDado.Text = "0";
-            // 
-            // lblMontoRecibido
-            // 
-            this.lblMontoRecibido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoRecibido.Location = new System.Drawing.Point(129, 18);
-            this.lblMontoRecibido.Name = "lblMontoRecibido";
-            this.lblMontoRecibido.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblMontoRecibido.Size = new System.Drawing.Size(149, 18);
-            this.lblMontoRecibido.TabIndex = 4;
-            this.lblMontoRecibido.Text = "0";
             // 
             // lblImporte
             // 
@@ -892,26 +864,6 @@
             this.lblImporte.Size = new System.Drawing.Size(149, 18);
             this.lblImporte.TabIndex = 3;
             this.lblImporte.Text = "0";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 36);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 16);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Cambio:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 18);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 16);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Monto recibido:";
             // 
             // label10
             // 
@@ -985,6 +937,7 @@
             this.dtpFechaCompra.Name = "dtpFechaCompra";
             this.dtpFechaCompra.Size = new System.Drawing.Size(241, 29);
             this.dtpFechaCompra.TabIndex = 166;
+            this.dtpFechaCompra.ValueChanged += new System.EventHandler(this.dtpFechaCompra_ValueChanged);
             // 
             // label9
             // 
@@ -1116,11 +1069,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblIVA16;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label lblCambioDado;
-        private System.Windows.Forms.Label lblMontoRecibido;
         private System.Windows.Forms.Label lblImporte;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnMenuPrincipal;

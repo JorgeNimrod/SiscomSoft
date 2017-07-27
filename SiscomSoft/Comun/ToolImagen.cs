@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.IO;
 using System.Drawing.Imaging;
-
+using System.Reflection;
 
 namespace SiscomSoft.Comun
 {
@@ -30,6 +30,12 @@ namespace SiscomSoft.Comun
 
             return bmpReturn;
         }
+        public static Image ObtenerImagenNoDisponible()
+        {
+            Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            Stream file = assembly.GetManifestResourceStream("Helpers.Imagenes.NoDisponible.jpg");
+            return Image.FromStream(file);
+        }
 
         public static string ToBase64String(Bitmap bmp, ImageFormat imageFormat)
         {
@@ -47,6 +53,23 @@ namespace SiscomSoft.Comun
             byteBuffer = null;
 
             return base64String;
+        }
+        public static Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            return Image.FromStream(ms);
+        }
+
+        public static byte[] ImageToByteArray(Image imageIn)
+        {
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, ImageFormat.Jpeg);
+            return ms.ToArray();
+        }
+
+        public static object ByteArrayToImage(string sFoto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

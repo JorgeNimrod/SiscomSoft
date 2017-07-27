@@ -33,36 +33,42 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         private void btnMasCantidad_Click(object sender, EventArgs e)
         {
 
-            //List<> lsCategoria = ManejoCategoria.getAll(true);
-            //int top = 0;
-            //foreach (Categoria nCategoria in lsCategoria)
-            //{
-            //    uc = new ucListaCategoria(nCategoria, this);
-            //    uc.Top = top;
-            //    top += 70;
-            //    pnlCategoria.Controls.Add(uc);
-            //    top -= uc.Top;
-            //}
+            int left = 150;
+            int top = 100;
 
+            int leftlbl = 30;
+            int toplbl = 70;
+            // 
+            List<Descuento> descuentos = ManejoDescuentoProducto.ListarContenido();
+            foreach (Descuento item in descuentos)
+            {
 
-            //int left = 10;
-            //int top = 50;
+                TextBox txtdesc = new TextBox();
+                Label lbldesc = new Label();
 
+                txtdesc.Left = left;
+                txtdesc.Top = top;
+                left += txtdesc.Width + 50;
+                if ((left + txtdesc.Width) > this.Width)
+                {
+                    top += 10 + txtdesc.Height;
+                    left = 50;
+                }
 
-            //{
-            //    TextBox txtdesc = new TextBox();
+                this.Controls.Add(txtdesc);
 
-            //    txtdesc.Left = left;
-            //    txtdesc.Top = top;
-            //    left += txtdesc.Width + 10;
-            //    if ((left + txtdesc.Width) > this.Width)
-            //    {
-            //        top += 10 + txtdesc.Height;
-            //        left = 10;
-            //    }
-            //    this.Controls.Add(txtdesc);
-            //    top -= txtdesc.Top;
-            //}
+                lbldesc.Left = leftlbl;
+                lbldesc.Top = toplbl;
+                leftlbl += lbldesc.Width + 50;
+                if ((leftlbl + lbldesc.Width) > this.Width)
+                {
+                    toplbl += 72 + lbldesc.Height;
+                    leftlbl = 40;
+                }
+                this.Controls.Add(lbldesc);
+                lbldesc.Text = "Descuento";
+                //   }
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -70,7 +76,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             int left = 10;
             int top = 50;
             // 
-            List<Descuento> descuentos = ManejoDescuentoProducto.ListarContenido();
+           List<Descuento> descuentos = ManejoDescuentoProducto.ListarContenido();
             foreach (Descuento item in descuentos)
             {
                 TextBox txtdesc = new TextBox();

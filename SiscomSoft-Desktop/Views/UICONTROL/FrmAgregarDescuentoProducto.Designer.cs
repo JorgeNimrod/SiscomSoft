@@ -36,6 +36,7 @@
             this.btnRemoveRow = new System.Windows.Forms.Button();
             this.btnMenosCantidad = new System.Windows.Forms.Button();
             this.btnMasCantidad = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnlAccionesDesc.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(184, 26);
+            this.label1.Location = new System.Drawing.Point(158, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 18);
             this.label1.TabIndex = 127;
@@ -79,7 +80,7 @@
             // 
             this.txtDescuento.Location = new System.Drawing.Point(148, 56);
             this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(158, 24);
+            this.txtDescuento.Size = new System.Drawing.Size(100, 24);
             this.txtDescuento.TabIndex = 126;
             // 
             // pnlAccionesDesc
@@ -136,12 +137,20 @@
             this.btnMasCantidad.UseVisualStyleBackColor = false;
             this.btnMasCantidad.Click += new System.EventHandler(this.btnMasCantidad_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(-15, -15);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 24);
+            this.textBox1.TabIndex = 129;
+            // 
             // FrmAgregarDescuentoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(831, 408);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDescuento);
@@ -169,5 +178,6 @@
         private System.Windows.Forms.Button btnRemoveRow;
         private System.Windows.Forms.Button btnMenosCantidad;
         private System.Windows.Forms.Button btnMasCantidad;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
