@@ -15,7 +15,10 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 {
     public partial class FrmWareHouse : Form
     {
-        public static List<Decimal> DESCUENTOS;
+        decimal sumatoriadescuentos = 0;
+        public static Decimal Descuentos=0;
+        public static int PKPRODUCTO ;
+        int statuscheck = 0; 
         Boolean status = false;
         decimal IVA16 = 0;
         decimal IVA11 = 0;
@@ -47,7 +50,107 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             btnGuardar.BackColor = Color.White;
         }
 
-     
+        public void mapeardescuento(int pk)
+        {
+            Producto nProducto = ManejoProducto.getById(pk);
+            decimal PreUnitario = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[2].Value);
+            decimal TasaImpuestoIVA16 = 0;
+            decimal TasaImpuestoIVA11 = 0;
+            decimal TasaImpuestoIVA4 = 0;
+            decimal TasaImpuestoIEPS53 = 0;
+            decimal TasaImpuestoIEPS26 = 0;
+            decimal TasaImpuestoIEPS30 = 0; 
+
+            decimal Cantidad = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[5].Value);
+            #region Impuestos
+            List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
+            foreach (ImpuestoProducto rImpuesto in mImpuesto)
+            {
+                if (rImpuesto.fkImpuesto.sTipoImpuesto == "TRASLADO")
+                {
+                    // IVA
+                    if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
+                    {
+                        TasaImpuestoIVA16 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                    }
+                    else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
+                    {
+                        TasaImpuestoIVA11 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                    }
+                    else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
+                    {
+                        TasaImpuestoIVA4 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                    }
+                    //IEPS
+                    else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
+                    {
+                        TasaImpuestoIEPS53 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                    }
+                    else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(30.00))
+                    {
+                        TasaImpuestoIEPS30 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                    }
+                    else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(26.50))
+                    {
+                        TasaImpuestoIEPS26 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                    }
+                }
+            }
+            #endregion
+
+
+            decimal Importe = 0;
+            decimal ImporteWithImpuestoIVA16 = 0;
+            decimal ImporteWithImpuestoIVA11 = 0;
+            decimal ImporteWithImpuestoIVA4 = 0;
+            decimal ImporteWithImpuestosIEPS53 = 0;
+            decimal ImporteWithImpuestosIEPS30 = 0;
+            decimal ImporteWithImpuestosIEPS26 = 0;
+            decimal PreUnitarioWithDescuento = 0;
+            decimal PriceForLot = 0;
+            decimal Descuento = 0;
+
+            Descuento = PreUnitario * (Descuentos / 100);
+            sumatoriadescuentos += Descuento; 
+
+            PreUnitarioWithDescuento = PreUnitario - Descuento;
+            PriceForLot = Cantidad * PreUnitarioWithDescuento;
+
+            ImporteWithImpuestoIVA16 = PriceForLot * (TasaImpuestoIVA16 / 100);
+            ImporteWithImpuestoIVA11 = PriceForLot * (TasaImpuestoIVA11 / 100);
+            ImporteWithImpuestoIVA4 = PriceForLot * (TasaImpuestoIVA4 / 100);
+            ImporteWithImpuestosIEPS53 = PriceForLot * (TasaImpuestoIEPS53 / 100);
+            ImporteWithImpuestosIEPS30 = PriceForLot * (TasaImpuestoIEPS30 / 100);
+            ImporteWithImpuestosIEPS26 = PriceForLot * (TasaImpuestoIEPS26 / 100);
+
+
+            Importe = PriceForLot + ImporteWithImpuestoIVA16 + ImporteWithImpuestoIVA11 +
+                ImporteWithImpuestoIVA4 + ImporteWithImpuestosIEPS53 + ImporteWithImpuestosIEPS30 +
+                ImporteWithImpuestosIEPS26;
+
+            dgrDatosAlmacen.CurrentRow.Cells[6].Value = Importe.ToString("N");
+
+            Decimal sumatoria = 0;
+            foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
+            {
+                sumatoria += Convert.ToDecimal(row.Cells[6].Value);
+            }
+            lblImporte.Text = sumatoria.ToString("N");
+
+            dgrDatosAlmacen.CurrentRow.Cells[7].Value = Descuentos;
+
+            lblDescuento.Text = sumatoriadescuentos.ToString("N");
+            lblIVA16.Text = IVA16.ToString("N");
+            lblIVA11.Text = IVA11.ToString("N");
+            lblIVA4.Text = IVA4.ToString("N");
+            lblIEPS53.Text = IEPS53.ToString("N");
+            lblIEPS30.Text = IEPS30.ToString("N");
+            lblIEPS26.Text = IEPS26.ToString("N");
+
+         
+
+        }
+
 
         public void cargarWaver()
         {
@@ -374,32 +477,38 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         {
             ErrorProvider.Clear();
         }
+                   
 
         private void dgrDatosAlmacen_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
-            ch1 = (DataGridViewCheckBoxCell)dgrDatosAlmacen.Rows[dgrDatosAlmacen.CurrentRow.Index].Cells[4];
 
-            if (ch1.Value == null)
-                ch1.Value = false;
-            switch (ch1.Value.ToString())
-            {
-                case "False":
-                    UICONTROL.FrmAgregarDescuentoProducto desc = new FrmAgregarDescuentoProducto();
-                    desc.Show();
-                    ch1.Value = true;
-                    break;
-                case "True":
+            
+                DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
+                ch1 = (DataGridViewCheckBoxCell)dgrDatosAlmacen.Rows[dgrDatosAlmacen.CurrentRow.Index].Cells[4];
+
+                if (ch1.Value == null)
                     ch1.Value = false;
-                   
-                    break;
-            }
+                switch (ch1.Value.ToString())
+                {
+
+                    case "False":
+                        UICONTROL.FrmAgregarDescuentoProducto desc = new FrmAgregarDescuentoProducto(this);
+                        PKPRODUCTO = Convert.ToInt32(dgrDatosAlmacen.CurrentRow.Cells[0].Value);
+                        desc.ShowDialog();
+                        ch1.Value = true;
+                        break;
+                    case "True":
+                        ch1.Value = false;
+
+                        break;
+                }
+            
 
 
+                
 
-
-
+            
 
         }
 
@@ -422,27 +531,23 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         row.Cells[2].Value = nProducto.dCosto;
                         row.Cells[3].Value = nProducto.fkCatalogo.sUDM;
                         row.Cells[5].Value = 1;
-                        
 
-                        int cantidad = 0;
-                        cantidad = Convert.ToInt32(row.Cells[5].Value);
-
-                        decimal PreUnitario = nProducto.dCosto;
+                        decimal PreUnitario = Convert.ToDecimal(row.Cells[2].Value);
                         decimal TasaImpuestoIVA16 = 0;
                         decimal TasaImpuestoIVA11 = 0;
                         decimal TasaImpuestoIVA4 = 0;
                         decimal TasaImpuestoIEPS53 = 0;
                         decimal TasaImpuestoIEPS26 = 0;
                         decimal TasaImpuestoIEPS30 = 0;
-                        decimal costoxCantidad = 0;
 
-                decimal Cantidad = Convert.ToDecimal(row.Cells[5].Value);
+                        decimal Cantidad = Convert.ToDecimal(row.Cells[5].Value);
                         #region Impuestos
                         List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
                         foreach (ImpuestoProducto rImpuesto in mImpuesto)
                         {
                             if (rImpuesto.fkImpuesto.sTipoImpuesto == "TRASLADO")
                             {
+                                // IVA
                                 if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                                 {
                                     TasaImpuestoIVA16 += rImpuesto.fkImpuesto.dTasaImpuesto;
@@ -455,9 +560,23 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                                 {
                                     TasaImpuestoIVA4 += rImpuesto.fkImpuesto.dTasaImpuesto;
                                 }
+                                //IEPS
+                                else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
+                                {
+                                    TasaImpuestoIEPS53 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                                }
+                                else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(30.00))
+                                {
+                                    TasaImpuestoIEPS30 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                                }
+                                else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(26.50))
+                                {
+                                    TasaImpuestoIEPS26 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                                }
                             }
                         }
                         #endregion
+
 
                         decimal Importe = 0;
                         decimal ImporteWithImpuestoIVA16 = 0;
@@ -466,23 +585,22 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         decimal ImporteWithImpuestosIEPS53 = 0;
                         decimal ImporteWithImpuestosIEPS30 = 0;
                         decimal ImporteWithImpuestosIEPS26 = 0;
+                        decimal PreUnitarioWithDescuento = 0;
                         decimal PriceForLot = 0;
+                        decimal Descuento = 0;
 
-                        //PreUnitarioWithDescuento = PreUnitario - Descuento - DescuentoExtra;
-                        PriceForLot = Cantidad * PreUnitario;
+                        Descuento = PreUnitario * (Descuentos / 100);
+                        sumatoriadescuentos += Descuento;
+
+                        PreUnitarioWithDescuento = PreUnitario - Descuento;
+                        PriceForLot = Cantidad * PreUnitarioWithDescuento;
 
                         ImporteWithImpuestoIVA16 = PriceForLot * (TasaImpuestoIVA16 / 100);
-                        IVA16 += ImporteWithImpuestoIVA16;
                         ImporteWithImpuestoIVA11 = PriceForLot * (TasaImpuestoIVA11 / 100);
-                        IVA11 += ImporteWithImpuestoIVA11;
                         ImporteWithImpuestoIVA4 = PriceForLot * (TasaImpuestoIVA4 / 100);
-                        IVA4 += ImporteWithImpuestoIVA4;
                         ImporteWithImpuestosIEPS53 = PriceForLot * (TasaImpuestoIEPS53 / 100);
-                        IEPS53 += ImporteWithImpuestosIEPS53;
                         ImporteWithImpuestosIEPS30 = PriceForLot * (TasaImpuestoIEPS30 / 100);
-                        IEPS30 += ImporteWithImpuestosIEPS30;
                         ImporteWithImpuestosIEPS26 = PriceForLot * (TasaImpuestoIEPS26 / 100);
-                        IEPS26 += ImporteWithImpuestosIEPS26;
 
 
                         Importe = PriceForLot + ImporteWithImpuestoIVA16 + ImporteWithImpuestoIVA11 +
@@ -490,15 +608,10 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                             ImporteWithImpuestosIEPS26;
 
                         row.Cells[6].Value = Importe.ToString("N");
+                        row.Cells[7].Value = Descuentos;
 
                         dgrDatosAlmacen.Rows.Add(row);
 
-                        lblIVA16.Text = IVA16.ToString("N");
-                        lblIVA11.Text = IVA11.ToString("N");
-                        lblIVA4.Text = IVA4.ToString("N");
-                        lblIEPS53.Text = IEPS53.ToString("N");
-                        lblIEPS30.Text = IEPS30.ToString("N");
-                        lblIEPS26.Text = IEPS26.ToString("N");
                         Decimal sumatoria = 0;
                         foreach (DataGridViewRow rows in dgrDatosAlmacen.Rows)
                         {
@@ -506,6 +619,14 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         }
                         lblImporte.Text = sumatoria.ToString("N");
 
+
+                        lblDescuento.Text = sumatoriadescuentos.ToString("N");
+                        lblIVA16.Text = IVA16.ToString("N");
+                        lblIVA11.Text = IVA11.ToString("N");
+                        lblIVA4.Text = IVA4.ToString("N");
+                        lblIEPS53.Text = IEPS53.ToString("N");
+                        lblIEPS30.Text = IEPS30.ToString("N");
+                        lblIEPS26.Text = IEPS26.ToString("N");
                     }
                 }
                 else
@@ -617,7 +738,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void dgrDatosAlmacen_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            int x = 0;
+           
             // int cantidad = Convert.ToInt32(dgrDatosAlmacen.CurrentRow.Cells["Cantidad"].Value.ToString().TrimEnd());
 
             Producto nProducto = ManejoProducto.getById(Convert.ToInt32(dgrDatosAlmacen.CurrentRow.Cells[0].Value));
@@ -640,20 +761,31 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
                         foreach (ImpuestoProducto rImpuesto in mImpuesto)
                         {
-                            if (rImpuesto.fkImpuesto.sTipoImpuesto == "TRASLADO")
+                            // IVA
+                            if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                             {
-                                if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
-                                {
-                                    TasaImpuestoIVA16 += rImpuesto.fkImpuesto.dTasaImpuesto;
-                                }
-                                else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
-                                {
-                                    TasaImpuestoIVA11 += rImpuesto.fkImpuesto.dTasaImpuesto;
-                                }
-                                else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
-                                {
-                                    TasaImpuestoIVA4 += rImpuesto.fkImpuesto.dTasaImpuesto;
-                                }
+                                TasaImpuestoIVA16 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                            }
+                            else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
+                            {  
+                                TasaImpuestoIVA11 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                            }
+                            else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
+                            {
+                                TasaImpuestoIVA4 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                            }
+                            //IEPS
+                            else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
+                            {
+                                TasaImpuestoIEPS53 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                            }
+                            else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(30.00))
+                            {
+                                TasaImpuestoIEPS30 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                            }
+                            else if (rImpuesto.fkImpuesto.sImpuesto == "IEPS" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(26.50))
+                            {
+                                TasaImpuestoIEPS26 += rImpuesto.fkImpuesto.dTasaImpuesto;
                             }
                         }
                         #endregion
@@ -691,7 +823,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         dgrDatosAlmacen.CurrentRow.Cells[6].Value = Importe.ToString("N");
 
 
-
+                        lblDescuento.Text = sumatoriadescuentos.ToString("N");
                         lblIVA16.Text = IVA16.ToString("N");
                         lblIVA11.Text = IVA11.ToString("N");
                         lblIVA4.Text = IVA4.ToString("N");
@@ -720,7 +852,17 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void dtpFechaCompra_ValueChanged(object sender, EventArgs e)
         {
+             
+        }
 
+        private void dgrDatosAlmacen_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            
+        }
+
+        private void dgrDatosAlmacen_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+           
         }
     }
 }

@@ -37,14 +37,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgrDatosAlmacen = new System.Windows.Forms.DataGridView();
-            this.pkDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descuento = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fe = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtFolio = new System.Windows.Forms.TextBox();
             this.txtNoFactura = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -110,6 +102,15 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dtpFechaCompra = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
+            this.pkDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descuento = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fe = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Descuentoss = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlMostrarDetalles.SuspendLayout();
@@ -200,7 +201,8 @@
             this.Descuento,
             this.Cantidad,
             this.Importe,
-            this.fe});
+            this.fe,
+            this.Descuentoss});
             this.dgrDatosAlmacen.EnableHeadersVisualStyles = false;
             this.dgrDatosAlmacen.GridColor = System.Drawing.Color.Chocolate;
             this.dgrDatosAlmacen.Location = new System.Drawing.Point(13, 202);
@@ -213,64 +215,8 @@
             this.dgrDatosAlmacen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellClick);
             this.dgrDatosAlmacen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellContentClick);
             this.dgrDatosAlmacen.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellEndEdit);
-            // 
-            // pkDetalle
-            // 
-            this.pkDetalle.HeaderText = "No";
-            this.pkDetalle.Name = "pkDetalle";
-            this.pkDetalle.Visible = false;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre Producto";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Nombre.Width = 300;
-            // 
-            // costo
-            // 
-            this.costo.HeaderText = "Costo";
-            this.costo.Name = "costo";
-            this.costo.ReadOnly = true;
-            // 
-            // Unidad
-            // 
-            this.Unidad.HeaderText = "Unidad ";
-            this.Unidad.Name = "Unidad";
-            this.Unidad.ReadOnly = true;
-            this.Unidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Unidad.Width = 150;
-            // 
-            // Descuento
-            // 
-            this.Descuento.HeaderText = "Descuento";
-            this.Descuento.Name = "Descuento";
-            this.Descuento.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Descuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Descuento.Width = 150;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad ";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Importe
-            // 
-            this.Importe.FillWeight = 200F;
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
-            this.Importe.ReadOnly = true;
-            this.Importe.Width = 190;
-            // 
-            // fe
-            // 
-            this.fe.HeaderText = "Caducidades";
-            this.fe.Name = "fe";
-            this.fe.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.fe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.fe.Visible = false;
-            this.fe.Width = 150;
+            this.dgrDatosAlmacen.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgrDatosAlmacen_CellValidating);
+            this.dgrDatosAlmacen.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellValueChanged);
             // 
             // txtFolio
             // 
@@ -948,6 +894,69 @@
             this.label9.TabIndex = 167;
             this.label9.Text = "Fecha de Compra";
             // 
+            // pkDetalle
+            // 
+            this.pkDetalle.HeaderText = "No";
+            this.pkDetalle.Name = "pkDetalle";
+            this.pkDetalle.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre Producto";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Nombre.Width = 300;
+            // 
+            // costo
+            // 
+            this.costo.HeaderText = "Costo";
+            this.costo.Name = "costo";
+            // 
+            // Unidad
+            // 
+            this.Unidad.HeaderText = "Unidad ";
+            this.Unidad.Name = "Unidad";
+            this.Unidad.ReadOnly = true;
+            this.Unidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Unidad.Width = 150;
+            // 
+            // Descuento
+            // 
+            this.Descuento.HeaderText = "Descuento";
+            this.Descuento.Name = "Descuento";
+            this.Descuento.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Descuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Descuento.Width = 150;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad ";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Importe
+            // 
+            this.Importe.FillWeight = 200F;
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
+            this.Importe.Width = 190;
+            // 
+            // fe
+            // 
+            this.fe.HeaderText = "Caducidades";
+            this.fe.Name = "fe";
+            this.fe.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.fe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.fe.Visible = false;
+            this.fe.Width = 150;
+            // 
+            // Descuentoss
+            // 
+            this.Descuentoss.HeaderText = "Descuentos";
+            this.Descuentoss.Name = "Descuentoss";
+            this.Descuentoss.Visible = false;
+            // 
             // FrmWareHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -1076,6 +1085,8 @@
         private System.Windows.Forms.Label lblNepe;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dtpFechaCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn costo;
@@ -1084,7 +1095,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.DataGridViewCheckBoxColumn fe;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dtpFechaCompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descuentoss;
     }
 }
