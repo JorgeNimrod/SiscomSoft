@@ -13,11 +13,10 @@ namespace SiscomSoft.Models
     {
         [Key]
         public int pkAlmacen { get; set; }
+
         public string sFolio { get; set; }
      
         public virtual Cliente fkCliente {get; set;}
-       
-    
 
         public String sNumFactura { get; set; }
        

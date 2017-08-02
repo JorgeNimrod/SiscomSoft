@@ -33,6 +33,8 @@ namespace SiscomSoft.Models
 
         public int iCaja { get; set; }
 
+        public string sFolio { get; set; }
+
         public virtual Usuario fkUsuario { get; set; }
 
         public ICollection<DetalleVenta> DetalleVentas { get; set; }
