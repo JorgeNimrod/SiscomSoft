@@ -27,7 +27,7 @@ namespace SiscomSoft.Controller
             catch (Exception)
             {
 
-                throw;
+                throw; 
             }
         }
         public static void RegistrarNuevoAlmacen(Almacen nAlmacen, int pkCliente)
