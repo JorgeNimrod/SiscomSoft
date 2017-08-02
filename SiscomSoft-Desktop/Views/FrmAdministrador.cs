@@ -24,7 +24,7 @@ namespace SiscomSoft_Desktop.Views
         
 
 
-        int[] valores = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+      
 
 
 
@@ -184,9 +184,16 @@ namespace SiscomSoft_Desktop.Views
         }
         public void cargarProductos()
         {
-          //  Producto nProducto = new Producto();
+          
+
+            
+           
+            
+
+          //    Producto nProducto = new Producto();
             this.dgvDatosProducto.DataSource = ManejoProducto.Buscar(txtBuscarProducto.Text, ckbStatusProducto.Checked);
-       //     dgvDatosProducto.CurrentRow.Cells[8] = ToolImagen.Base64StringToBitmap(nProducto.sFoto);
+                   
+    //  dgvDatosProducto.CurrentRow.Cells[8] = ToolImagen.ByteArrayToImage(sFoto);
         }
         public void cargarClientes()
         {
@@ -692,7 +699,7 @@ namespace SiscomSoft_Desktop.Views
            
 
 
-            int x = 0;
+          
         }
         public void ActualizarPrecio()
         {
