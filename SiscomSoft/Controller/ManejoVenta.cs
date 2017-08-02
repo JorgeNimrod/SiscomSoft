@@ -27,6 +27,26 @@ namespace SiscomSoft.Controller
             }
         }
 
+        public static Venta getById(int pkVenta)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Ventas
+                        .Include("fkUsuario")
+                        .Include("fkCliente")
+                        .Include("fkFactura")
+                        .Where(r => r.pkVenta == pkVenta && r.bStatus==true).FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static void RegistrarNuevaVenta(Venta nVenta, Cliente nCliente, Factura nFactura)
         {
             try
