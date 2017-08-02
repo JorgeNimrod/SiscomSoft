@@ -35,6 +35,7 @@ namespace SiscomSoft.Models
         public DbSet<Cliente> Clientes { get; set; }
 
         public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Inventario> Inventarios { get; set; }
 
         public DbSet<Precio> Precios { get; set; }
 

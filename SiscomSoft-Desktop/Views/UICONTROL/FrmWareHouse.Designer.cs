@@ -111,6 +111,12 @@
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fe = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Descuentoss = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IVADIEZSEIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IVAONCE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IVACUATRO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IEPSCINCUENTAYTRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IEPSTREINTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IEPSVEINTEYTRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlMostrarDetalles.SuspendLayout();
@@ -202,7 +208,13 @@
             this.Cantidad,
             this.Importe,
             this.fe,
-            this.Descuentoss});
+            this.Descuentoss,
+            this.IVADIEZSEIS,
+            this.IVAONCE,
+            this.IVACUATRO,
+            this.IEPSCINCUENTAYTRES,
+            this.IEPSTREINTA,
+            this.IEPSVEINTEYTRES});
             this.dgrDatosAlmacen.EnableHeadersVisualStyles = false;
             this.dgrDatosAlmacen.GridColor = System.Drawing.Color.Chocolate;
             this.dgrDatosAlmacen.Location = new System.Drawing.Point(13, 202);
@@ -212,9 +224,11 @@
             this.dgrDatosAlmacen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgrDatosAlmacen.Size = new System.Drawing.Size(1186, 352);
             this.dgrDatosAlmacen.TabIndex = 36;
+            this.dgrDatosAlmacen.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgrDatosAlmacen_CellBeginEdit);
             this.dgrDatosAlmacen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellClick);
             this.dgrDatosAlmacen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellContentClick);
             this.dgrDatosAlmacen.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellEndEdit);
+            this.dgrDatosAlmacen.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.dgrDatosAlmacen_CellStateChanged);
             this.dgrDatosAlmacen.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgrDatosAlmacen_CellValidating);
             this.dgrDatosAlmacen.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosAlmacen_CellValueChanged);
             // 
@@ -957,6 +971,42 @@
             this.Descuentoss.Name = "Descuentoss";
             this.Descuentoss.Visible = false;
             // 
+            // IVADIEZSEIS
+            // 
+            this.IVADIEZSEIS.HeaderText = "IVA16";
+            this.IVADIEZSEIS.Name = "IVADIEZSEIS";
+            this.IVADIEZSEIS.Visible = false;
+            // 
+            // IVAONCE
+            // 
+            this.IVAONCE.HeaderText = "IVA11";
+            this.IVAONCE.Name = "IVAONCE";
+            this.IVAONCE.Visible = false;
+            // 
+            // IVACUATRO
+            // 
+            this.IVACUATRO.HeaderText = "IVA4";
+            this.IVACUATRO.Name = "IVACUATRO";
+            this.IVACUATRO.Visible = false;
+            // 
+            // IEPSCINCUENTAYTRES
+            // 
+            this.IEPSCINCUENTAYTRES.HeaderText = "IEPS53";
+            this.IEPSCINCUENTAYTRES.Name = "IEPSCINCUENTAYTRES";
+            this.IEPSCINCUENTAYTRES.Visible = false;
+            // 
+            // IEPSTREINTA
+            // 
+            this.IEPSTREINTA.HeaderText = "IEPS30";
+            this.IEPSTREINTA.Name = "IEPSTREINTA";
+            this.IEPSTREINTA.Visible = false;
+            // 
+            // IEPSVEINTEYTRES
+            // 
+            this.IEPSVEINTEYTRES.HeaderText = "IEPS23";
+            this.IEPSVEINTEYTRES.Name = "IEPSVEINTEYTRES";
+            this.IEPSVEINTEYTRES.Visible = false;
+            // 
             // FrmWareHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -1096,5 +1146,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.DataGridViewCheckBoxColumn fe;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuentoss;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IVADIEZSEIS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IVAONCE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IVACUATRO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IEPSCINCUENTAYTRES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IEPSTREINTA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IEPSVEINTEYTRES;
     }
 }
