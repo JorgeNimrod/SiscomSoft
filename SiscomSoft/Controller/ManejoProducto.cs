@@ -11,8 +11,28 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoProducto
     {
+        public static List<string> getProductosRegistrados(string valor)
+        {
+            List<string> productos = new List<string>();
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    var producto = ctx.Productos.Where(r => r.sDescripcion.Contains(valor)).GroupBy(r => r.sDescripcion).ToList();
+                    foreach (var item in producto)
+                    {
+                        productos.Add(item.Key.ToUpper());
+                    }
+                    return productos;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-      
+
         public static List<Producto> getByIDList(int pkProducto)
         {
             try

@@ -10,15 +10,17 @@ using System.Windows.Forms;
 using SiscomSoft.Comun;
 using SiscomSoft.Controller;
 using SiscomSoft.Models;
+using System.Globalization;
 
 namespace SiscomSoft_Desktop.Views.UICONTROL
 {
     public partial class FrmWareHouse : Form
     {
+      
         decimal sumatoriadescuentos = 0;
-        public static Decimal Descuentos=0;
-        public static int PKPRODUCTO ;
-        int statuscheck = 0; 
+        public static Decimal Descuentos = 0;
+        public static int PKPRODUCTO;
+        int statuscheck = 0;
         Boolean status = false;
         decimal IVA16 = 0;
         decimal IVA11 = 0;
@@ -34,11 +36,11 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             this.dgrDatosAlmacen.AutoGenerateColumns = false;
             this.dgrMostrarAlmacen.AutoGenerateColumns = false;
             this.dgrMostrarDetalles.AutoGenerateColumns = false;
-             
+
 
 
         }
-      
+
 
         private void btnGuardar_MouseMove(object sender, MouseEventArgs e)
         {
@@ -48,6 +50,14 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         private void btnGuardar_MouseLeave(object sender, EventArgs e)
         {
             btnGuardar.BackColor = Color.White;
+        }
+        public void cargarProductos()
+        {
+
+            //    Producto nProducto = new Producto();
+
+
+            //  dgvDatosProducto.CurrentRow.Cells[8] = ToolImagen.ByteArrayToImage(sFoto);
         }
 
         public void mapeardescuento(int pk)
@@ -59,7 +69,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             decimal TasaImpuestoIVA4 = 0;
             decimal TasaImpuestoIEPS53 = 0;
             decimal TasaImpuestoIEPS26 = 0;
-            decimal TasaImpuestoIEPS30 = 0; 
+            decimal TasaImpuestoIEPS30 = 0;
 
             decimal Cantidad = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[5].Value);
             #region Impuestos
@@ -119,7 +129,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             dgrDatosAlmacen.CurrentRow.Cells[7].Value = Descuentos;
             trampa = Cantidad * Desacuento;
             sumatoriadescuentos += trampa;
-            
+
             PreUnitarioWithDescuento = PreUnitario - Desacuento;
             PriceForLot = Cantidad * PreUnitarioWithDescuento;
 
@@ -158,9 +168,9 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         public void cargarWaver()
         {
             this.dgrMostrarAlmacen.DataSource = ManejoAlmacen.Buscar(txtBuscarAlmacen.Text, ckbStatusAlmacen.Checked);
-            }
-            public void cargarDetails()
-            {
+        }
+        public void cargarDetails()
+        {
             this.dgrMostrarDetalles.DataSource = ManejoDetalleAlmacen.Buscar(txtBuscarDetalle.Text, cbkStatusDetalle.Checked);
         }
 
@@ -180,7 +190,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             FrmMenu v = new FrmMenu();
             v.Show();
         }
-      
+
         public void cargarCombos()
         {
 
@@ -200,10 +210,24 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void FrmWareHouse_Load(object sender, EventArgs e)
         {
+            dgrDatosAlmacen.CurrentCell = dgrDatosAlmacen.Rows[0].Cells[1];
+
+            cbxPkProd.SelectedIndex = -1;
+            this.cbxPkProd.AutoCompleteCustomSource.AddRange(ManejoProducto.getProductosRegistrados(cbxPkProd.Text).ToArray());
+            this.cbxPkProd.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.cbxPkProd.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.Folios();
             timer1.Start();
             cargarCombos();
             cargarWaver();
             cargarDetails();
+         
+        }
+        public void Folios()
+        {
+            int n = ManejoAlmacen.getAlmacenCount() + 1;
+            txtFolio.Text = "A" + n;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -228,17 +252,17 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 this.ErrorProvider.SetError(this.txtNoFactura, "Campo necesario");
                 this.txtNoFactura.Focus();
             }
-            else if (this.txtTipoCompra.Text == "")
+            else if (this.cbxTipoCompra.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtTipoCompra, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtTipoCompra, "Campo necesario");
-                this.txtTipoCompra.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxTipoCompra, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxTipoCompra, "Seleccione una Opción");
+                this.cbxTipoCompra.Focus();
             }
-            else if (this.txtMoneda.Text == "")
+            else if (this.cbxMoneda.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtMoneda, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtMoneda, "Campo necesario");
-                this.txtMoneda.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxMoneda, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxMoneda, "Seleccione una Opción");
+                this.cbxMoneda.Focus();
             }
             else if (this.cbxCliente.Text == "")
             {
@@ -259,22 +283,22 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 nAlmacen.sNumFactura = txtNoFactura.Text;
                 nAlmacen.dtFechaCompra = Convert.ToDateTime(dtpFechaCompra.Text);
                 nAlmacen.dtFechaMovimiento = DateTime.Now;
-                nAlmacen.sMoneda = txtMoneda.Text;
+                nAlmacen.sMoneda = cbxMoneda.Text;
                 int fkCliente = Convert.ToInt32(cbxCliente.SelectedValue.ToString());
 
                 ManejoAlmacen.RegistrarNuevoAlmacen(nAlmacen, fkCliente);
 
                 foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
                 {
-                    if (row.Cells[0].Value!=null)
+                    if (row.Cells[0].Value != null)
                     {
-                     
+
                         Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
                         mDetalle.iCantidad = Convert.ToInt32(row.Cells[5].Value);
                         mDetalle.sDescripcion = Convert.ToString(row.Cells[1].Value);
                         mDetalle.dCosto = Convert.ToDecimal(row.Cells[2].Value);
 
-                        
+
 
                         ManejoDetalleAlmacen.RegistrarNuevoDetalle(mDetalle, nAlmacen, mProducto);
 
@@ -358,23 +382,20 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         Inventario nInventario = new Inventario();
                         nInventario.sFolio = txtFolio.Text;
                         nInventario.dtFecha = Convert.ToDateTime(dtpFechaCompra.Text);
-                        nInventario.sTipoMov = txtTipoCompra.Text;
-                        //nInventario.fkProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
-                        //nInventario.fkUsuario = ManejoPeriodo.getByUser(FrmWareHouse.uHelper.usuario.pkUsuario);
-
-                        //ManejoInventario.RegistrarNuevoInventario(nInventario,nInventario.fkProducto,nInventario);
-
 
                     }
                 }
 
                 MessageBox.Show("¡Registros Guardados!");
-                txtFolio.Clear();
-                txtMoneda.Clear();
+                this.Folios();
+                txtFolio.Refresh();
+             
+                cbxMoneda.ResetText();
+                cbxTipoCompra.ResetText();
                 txtNoFactura.Clear();
 
                 txtTipoCambio.Clear();
-                txtTipoCompra.Clear();
+
                 dgrDatosAlmacen.Rows.Clear();
                 dgrDatosAlmacen.Refresh();
             }
@@ -382,7 +403,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
 
 
-       
+
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -458,7 +479,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             }
 
         }
-        
+
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -466,7 +487,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         }
         private void btnCerrar_Click_1(object sender, EventArgs e)
         {
-           pnlDetalleMinimo.Visible = false;
+            pnlDetalleMinimo.Visible = false;
         }
 
         private void btnAlmacenDetalle_Click_1(object sender, EventArgs e)
@@ -520,13 +541,13 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         {
             ErrorProvider.Clear();
         }
-                   
+
 
         private void dgrDatosAlmacen_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string a = dgrDatosAlmacen.Columns[e.ColumnIndex].Name;
 
-            if (dgrDatosAlmacen.CurrentRow.Cells[0].Value!=null)
+            if (dgrDatosAlmacen.CurrentRow.Cells[0].Value != null)
             {
                 if (a == "Descuento")
                 {
@@ -556,16 +577,16 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
             }
 
-            
+
 
         }
 
 
-    
+
         private void cbxPkProd_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-          
+
+
             Producto nProducto = ManejoProducto.Buscar(cbxPkProd.Text);
             if (dgrDatosAlmacen.CurrentRow != null)
             {
@@ -696,7 +717,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     dgrDatosAlmacen.CurrentRow.Cells[1].Value = nProducto.sDescripcion;
                     dgrDatosAlmacen.CurrentRow.Cells[2].Value = nProducto.dCosto;
                     dgrDatosAlmacen.CurrentRow.Cells[3].Value = nProducto.fkCatalogo.sUDM;
-                    
+
 
                     decimal DgvIva16 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[9].Value);
                     decimal DgvIva11 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[10].Value);
@@ -829,6 +850,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     lblIEPS30.Text = IEPS30.ToString("N");
                     lblIEPS26.Text = IEPS26.ToString("N");
 
+
                 }
             }
         }
@@ -847,40 +869,44 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void dgrDatosAlmacen_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            string b = dgrDatosAlmacen.Columns[e.ColumnIndex].Name;
+
             string a = dgrDatosAlmacen.Columns[e.ColumnIndex].Name;
 
-            if (a == "Cantidad")
+        
+
+           if (a == "costo" || b=="Cantidad")
             {
                 if (dgrDatosAlmacen.CurrentRow != null)
                 {
                     if (!dgrDatosAlmacen.CurrentRow.IsNewRow)
                     {
                         decimal Cantidad = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[5].Value);
-                        if (Cantidad!=0)
+                        if (Cantidad != 0)
                         {
-                        Producto nProducto = ManejoProducto.getById(Convert.ToInt32(dgrDatosAlmacen.CurrentRow.Cells[0].Value));
+                            Producto nProducto = ManejoProducto.getById(Convert.ToInt32(dgrDatosAlmacen.CurrentRow.Cells[0].Value));
 
-                        decimal DgvIva16 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[9].Value);
-                        decimal DgvIva11 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[10].Value);
-                        decimal DgvIva4 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[11].Value);
-                        decimal DgvIep53 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[12].Value);
-                        decimal DgvIep30 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[13].Value);
-                        decimal DgvIep26 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[14].Value);
-                        decimal nepe = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[7].Value);
-                        decimal PreUnitario = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[2].Value);
-                        decimal desacuento = 0;
+                            decimal DgvIva16 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[9].Value);
+                            decimal DgvIva11 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[10].Value);
+                            decimal DgvIva4 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[11].Value);
+                            decimal DgvIep53 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[12].Value);
+                            decimal DgvIep30 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[13].Value);
+                            decimal DgvIep26 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[14].Value);
+                            decimal nepe = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[7].Value);
+                            decimal PreUnitario = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[2].Value);
+                            decimal desacuento = 0;
 
-                        IVA16 -= DgvIva16;
-                        IVA11 -= DgvIva11;
-                        IVA4 -= DgvIva4;
-                        IEPS53 -= DgvIep53;
-                        IEPS30 -= DgvIep30;
-                        IEPS26 -= DgvIep26;
+                            IVA16 -= DgvIva16;
+                            IVA11 -= DgvIva11;
+                            IVA4 -= DgvIva4;
+                            IEPS53 -= DgvIep53;
+                            IEPS30 -= DgvIep30;
+                            IEPS26 -= DgvIep26;
 
-                        desacuento = PreUnitario * (nepe / 100);
-                        
+                            desacuento = PreUnitario * (nepe / 100);
 
-                        sumatoriadescuentos -= desacuento;
+
+                            sumatoriadescuentos -= desacuento;
 
                             if (nProducto != null)
                             {
@@ -994,10 +1020,13 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         }
                     }
 
+
                 }
 
-            }
+            
+
         }
+    }
 
         private void dgrDatosAlmacen_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1073,6 +1102,127 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         private void btnCerrar_Click_2(object sender, EventArgs e)
         {
             pnlDetalleMinimo.Visible = false;
+        }
+
+        private void cbxPkProd_TextChanged(object sender, EventArgs e)
+        {
+            //TextBox t = sender as TextBox;
+            //if (t != null)
+            //{
+            //    if (t.Text.Length >= 3)
+            //    {
+            //        String[] arr = { };
+            //        switch (t.Tag.ToString())
+            //        {
+            //            case "PRODUCTO":
+            //                arr = ManejoProducto.getProductosRegistrados(t.Text).ToArray();
+            //                break;
+
+            //        }
+            //        AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+            //        collection.AddRange(arr);
+            //        t.AutoCompleteCustomSource = collection;
+            //    }
+            //}
+        }
+
+        private void cbxPkProd_TextUpdate(object sender, EventArgs e)
+        {
+            //TextBox t = sender as TextBox;
+            //if (t != null)
+            //{
+            //    if (t.Text.Length >= 3)
+            //    {
+            //        String[] arr = { };
+            //        switch (t.Tag.ToString())
+            //        {
+            //            case "PRODUCTO":
+            //                arr = ManejoProducto.getProductosRegistrados(t.Text).ToArray();
+            //                break;
+
+            //        }
+            //        AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+            //        collection.AddRange(arr);
+            //        t.AutoCompleteCustomSource = collection;
+            //    }
+            //}
+
+        }
+
+        private void txtTipoCambio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+
+        }
+
+        private void cbxMoneda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbxTipoCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void dgrDatosAlmacen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DataGridViewTextBoxEditingControl dText = new DataGridViewTextBoxEditingControl();
+
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < dText.Text.Length; i++)
+            {
+                if (dText.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+                
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
+        }
+
+        private void dgrDatosAlmacen_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            DataGridViewTextBoxEditingControl dText = (DataGridViewTextBoxEditingControl)e.Control;
+
+            dText.KeyPress -= new KeyPressEventHandler(dgrDatosAlmacen_KeyPress);
+            dText.KeyPress += new KeyPressEventHandler(dgrDatosAlmacen_KeyPress);
+        }
+
+        private void cbxMoneda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxMoneda.SelectedIndex ==0)
+            {
+               
+                txtTipoCambio.Text = "1";
+            
+
+            }
+            else
+            {
+               
+                txtTipoCambio.Text = FrmMenu.uHelper.usuario.fkSucursal.sTipoCambio;
+            }
         }
     }
 }
