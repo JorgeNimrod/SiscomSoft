@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Comun\LoginTool.cs" />
     <Compile Include="Comun\ToolImagen.cs" />
+    <Compile Include="Controller\ManejoFacturacion.cs" />
     <Compile Include="Controller\ManejoInventario.cs" />
     <Compile Include="Controller\ManejoAlmacen.cs" />
     <Compile Include="Controller\ManejoDescuentoProducto.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="Controller\ManejoImpuestoProducto.cs" />
     <Compile Include="Controller\ManejoDetalleVenta.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
-    <Compile Include="Controller\ManejoEntrada.cs" />
     <Compile Include="Controller\ManejoPeriodo.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
@@ -104,7 +104,6 @@
     <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Impuesto.cs" />
-    <Compile Include="Models\InventarioEntrada.cs" />
     <Compile Include="Models\Periodo.cs" />
     <Compile Include="Models\PeriodoReporte.cs" />
     <Compile Include="Models\PeriodoVentas.cs" />

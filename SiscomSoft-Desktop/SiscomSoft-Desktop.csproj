@@ -119,6 +119,18 @@
     <Compile Include="Views\FrmAlmacen.Designer.cs">
       <DependentUpon>FrmAlmacen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmBuscarCiente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarCiente.Designer.cs">
+      <DependentUpon>FrmBuscarCiente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBuscarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBuscarProductos.Designer.cs">
+      <DependentUpon>FrmBuscarProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmConfiguracionBD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,18 +172,6 @@
     </Compile>
     <Compile Include="Views\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmLookingForCustoms.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmLookingForCustoms.Designer.cs">
-      <DependentUpon>FrmLookingForCustoms.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmLookingForProducts.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmLookingForProducts.Designer.cs">
-      <DependentUpon>FrmLookingForProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmMenu.cs">
       <SubType>Form</SubType>
@@ -250,6 +250,12 @@
     <EmbeddedResource Include="Views\FrmAlmacen.resx">
       <DependentUpon>FrmAlmacen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarCiente.resx">
+      <DependentUpon>FrmBuscarCiente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBuscarProductos.resx">
+      <DependentUpon>FrmBuscarProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmConfiguracionBD.resx">
       <DependentUpon>FrmConfiguracionBD.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,12 +276,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmLookingForCustoms.resx">
-      <DependentUpon>FrmLookingForCustoms.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmLookingForProducts.resx">
-      <DependentUpon>FrmLookingForProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>

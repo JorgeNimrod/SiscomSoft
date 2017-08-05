@@ -121,6 +121,7 @@ namespace SiscomSoft_Desktop.Views
             lblTotalCredito.Text = credito.ToString("N");
             lblTotalEfectivo.Text = efectivo.ToString("N");
         }
+
         private void btnPeriodo_Click(object sender, EventArgs e)
         {
             dgvPeriodos.Visible = true;

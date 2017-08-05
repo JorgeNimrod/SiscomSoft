@@ -13,9 +13,7 @@ namespace SiscomSoft.Models
     {
         [Key]
         public int pkInventario { get; set; }
-
         public string sFolio { get; set; }
-
         public DateTime dtFecha { get; set; }
         public virtual Usuario fkUsuario { get; set; }
         public virtual Producto fkProducto { get; set; }

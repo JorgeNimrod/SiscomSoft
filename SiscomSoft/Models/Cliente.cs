@@ -68,8 +68,6 @@ namespace SiscomSoft.Models
 
         public string sLogo { get; set; }
 
-        public ICollection<InventarioEntrada> InventariosEntradas { get; set; }
-
         public ICollection<Factura> Facturas { get; set; }
 
         public ICollection<Venta> Ventas { get; set; }

@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System.Xml.Serialization;
+using System;
 
 // 
 // Este código fuente fue generado automáticamente por xsd, Versión=2.0.50727.3038.
@@ -78,7 +79,7 @@ public partial class Comprobante {
     
     private bool metodoPagoFieldSpecified;
     
-    private c_CodigoPostal lugarExpedicionField;
+    public string lugarExpedicionField;
     
     private string confirmacionField;
     
@@ -378,8 +379,8 @@ public partial class Comprobante {
     }
     
     /// <comentarios/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public c_CodigoPostal LugarExpedicion {
+    //[System.Xml.Serialization.XmlAttributeAttribute()]
+    public string LugarExpedicion {
         get {
             return this.lugarExpedicionField;
         }
@@ -13487,12 +13488,9 @@ public enum c_MetodoPago {
 }
 
 /// <comentarios/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos")]
-public enum c_CodigoPostal {
+//[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+//[System.SerializableAttribute()]
+//[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos")]
+//public enum c_CodigoPostal LugarExpedicion {
     
-    /// <comentarios/>
-    [System.Xml.Serialization.XmlEnumAttribute("83220")]
-    Item83220,
-}
+//}

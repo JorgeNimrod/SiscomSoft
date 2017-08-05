@@ -11,8 +11,6 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoProducto
     {
-
-      
         public static List<Producto> getByIDList(int pkProducto)
         {
             try
@@ -28,7 +26,6 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-
         public static void RegistrarNuevoProducto(Producto nProducto,int pkPrecio, int pkCategoria,int pkCatalogo)
         {
             
@@ -116,7 +113,6 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-
         public static Producto Buscar(string valor)
         {
             try
@@ -197,7 +193,6 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-
         public static List<Producto> BuscarProductoCategoria(Categoria nCategoria)
         {
             try
@@ -214,5 +209,28 @@ namespace SiscomSoft.Controller
             }
         }
 
+        public static List<Producto> BuscarProductoCategoria(string valor, int pk)
+        {
+            Categoria nCategoria = ManejoCategoria.getById(pk);
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    var a = ctx.Productos.Include("fkCategoria")
+                                         .Where(r=> r.fkCategoria.pkCategoria == nCategoria.pkCategoria && r.sDescripcion.Contains(valor)
+                                                && r.bStatus == true
+                                         //&& r.sDescripcion.Contains(valor) 
+                                         //|| r.sMarca.Contains(valor)
+                                         )
+                                         .ToList();
+                    return a;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
