@@ -559,7 +559,6 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         ch1.Value = false;
                     switch (ch1.Value.ToString())
                     {
-
                         case "False":
                             UICONTROL.FrmAgregarDescuentoProducto desc = new FrmAgregarDescuentoProducto(this);
                             PKPRODUCTO = Convert.ToInt32(dgrDatosAlmacen.CurrentRow.Cells[0].Value);

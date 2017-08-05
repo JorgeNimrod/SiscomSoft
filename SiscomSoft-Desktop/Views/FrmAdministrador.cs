@@ -72,6 +72,8 @@ namespace SiscomSoft_Desktop.Views
         public FrmAdministrador()
         {
             InitializeComponent();
+            this.dgrUpdateDesc.AutoGenerateColumns = false;
+            this.dgrUpdateImp.AutoGenerateColumns = false;
             this.dgrDatosUMD.AutoGenerateColumns = false;
             this.dgvDatosRol.AutoGenerateColumns = false;
             this.dgvDatosUsuario.AutoGenerateColumns = false;
@@ -83,6 +85,8 @@ namespace SiscomSoft_Desktop.Views
             this.dgvDatosEmpresa.AutoGenerateColumns = false;
             this.dgvDatosSucursal.AutoGenerateColumns = false;
             this.dgrDatosDescuento.AutoGenerateColumns = false;
+            this.dgrAddDescProd.AutoGenerateColumns = false;
+            this.dgrAddImpProd.AutoGenerateColumns = false;
             CargarTablas();
             cargarCombos();
 
@@ -103,60 +107,54 @@ namespace SiscomSoft_Desktop.Views
             cargarSucursal();
             cargarUMD();
             cargarDescuentos();
+            cargarImpuestosDescuentosForProducts();
         }
 
         public void cargarCombos()
         {
 
             //ComboBox de Registrar sucursales
-            cmbEmpresasSucursales.DataSource = ManejoEmpresa.getAll(true);
-            cmbEmpresasSucursales.DisplayMember = "sNomComercial";
             cmbEmpresasSucursales.ValueMember = "pkEmpresa";
+            cmbEmpresasSucursales.DisplayMember = "sNomComercial";
+            cmbEmpresasSucursales.DataSource = ManejoEmpresa.getAll(true);
 
             //ComboBox de Actualizar sucursales
-            cmbUpdateEmpresa.DataSource = ManejoEmpresa.getAll(true);
             cmbUpdateEmpresa.DisplayMember = "sNomComercial";
             cmbUpdateEmpresa.ValueMember = "pkEmpresa";
+            cmbUpdateEmpresa.DataSource = ManejoEmpresa.getAll(true);
 
             //ComboBox de Registrar Usuarios
-            cbxRol.DataSource = ManejoRol.getAll(true);
             cbxRol.DisplayMember = "sNombre";
             cbxRol.ValueMember = "pkRol";
+            cbxRol.DataSource = ManejoRol.getAll(true);
 
             //ComboBox de Actualizar Usuarios
-            cbxUpdateProfile.DataSource = ManejoRol.getAll(true);
             cbxUpdateProfile.DisplayMember = "sNombre";
             cbxUpdateProfile.ValueMember = "pkRol";
+            cbxUpdateProfile.DataSource = ManejoRol.getAll(true);
 
             //Combo's de Registrar Productos
-            cbxPrecioAddProd.DataSource = ManejoPrecio.getAll();
             cbxPrecioAddProd.DisplayMember = "iPrePorcen";
             cbxPrecioAddProd.ValueMember = "pkPrecios";
+            cbxPrecioAddProd.DataSource = ManejoPrecio.getAll();
 
-            cbxCatalogoAddProd.DataSource = ManejoCatalogo.getAll();
             cbxCatalogoAddProd.DisplayMember = "sUDM";
             cbxCatalogoAddProd.ValueMember = "pkCatalogo";
+            cbxCatalogoAddProd.DataSource = ManejoCatalogo.getAll();
 
-        
-
-            cbxImpuestoAddProd.DataSource = ManejoImpuesto.getAll(true);
-            cbxImpuestoAddProd.DisplayMember = "dTasaImpuesto";
-            cbxImpuestoAddProd.ValueMember = "pkImpuesto";
-
+            cbxAddProdCategoria.DisplayMember = "sNombre";
+            cbxAddProdCategoria.ValueMember = "pkCategoria";
+            cbxAddProdCategoria.DataSource = ManejoCategoria.getAll(true);
+            
             //Combobox de Actualizar Producto
-            cbxUpdatePrecioProd.DataSource = ManejoPrecio.getAll();
             cbxUpdatePrecioProd.DisplayMember = "iPrePorcen";
             cbxUpdatePrecioProd.ValueMember = "pkPrecios";
-
-        
-
-            cbxUpdateUMDProd.DataSource = ManejoCatalogo.getAll();
+            cbxUpdatePrecioProd.DataSource = ManejoPrecio.getAll();
+            
             cbxUpdateUMDProd.DisplayMember = "sUDM";
             cbxUpdateUMDProd.ValueMember = "pkCatalogo";
+            cbxUpdateUMDProd.DataSource = ManejoCatalogo.getAll();
 
-            cbxUpdateImpuProd.DataSource = ManejoImpuesto.getAll(true);
-            cbxUpdateImpuProd.DisplayMember = "dTasaImpuesto";
-            cbxUpdateImpuProd.ValueMember = "pkImpuesto";
         }
 
         public void cargarEmpresas()
@@ -167,6 +165,16 @@ namespace SiscomSoft_Desktop.Views
         {
             this.dgrDatosUMD.DataSource = ManejoCatalogo.Buscar(txtBuscarUMD.Text, ckbStatusUMD.Checked);
         }
+        public void cargarImpuestosDescuentosForProducts()
+        {
+            this.dgrAddDescProd.DataSource = ManejoDescuento.getAll();
+            this.dgrAddImpProd.DataSource = ManejoImpuesto.getAll(true);
+            this.dgrUpdateDesc.DataSource = ManejoDescuento.getAll();
+            this.dgrUpdateImp.DataSource = ManejoImpuesto.getAll(true);
+
+        }
+
+      
 
 
         public void cargarRoles()
@@ -713,14 +721,15 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateMarcProd.Text = nProducto.sMarca;
             dtpUpdateFechaProd.Value = nProducto.dtCaducidad;
             txtUpdateCostoProd.Text = nProducto.dCosto.ToString();
-            //txtUpdateDescProd.Text = nProducto.iDescuento.ToString();
+       
+            
+
             txtUpdateDesProd.Text = nProducto.sDescripcion;
             cbxUpdatePrecioProd.Text = nProducto.fkPrecio.ToString();
             txtUpdateLoteProd.Text = nProducto.iLote.ToString();
-            txtUpdateLineaProd.Text = nCategoria.sNombre;
-            txtUpdateSubProd.Text = nCategoria.sNomSubCat;
+         
             txtUpdatePVProd.Text = nProducto.dPreVenta.ToString();
-           // cbxUpdateImpuProd.SelectedItem = nProducto.fkImpuesto.pkImpuesto;
+         
           
             cbxUpdateUMDProd.SelectedItem = nProducto.fkCatalogo.pkCatalogo;
             cbxUpdatePrecioProd.SelectedItem = nProducto.fkPrecio.pkPrecios;
@@ -1558,12 +1567,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtCostoAddProd, "Campo necesario");
                 this.txtCostoAddProd.Focus();
             }
-            else if (this.txtDescuentoProd.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtDescuentoProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtDescuentoProd, "Campo necesario");
-                this.txtDescuentoProd.Focus();
-            }
+         
             else if (this.cbxPrecioAddProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.cbxPrecioAddProd, ErrorIconAlignment.MiddleRight);
@@ -1577,12 +1581,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtLoteAddProd, "Campo necesario");
                 this.txtLoteAddProd.Focus();
             }
-            else if (this.cbxImpuestoAddProd.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.cbxImpuestoAddProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.cbxImpuestoAddProd, "Debe agregar un impuesto primero");
-                this.cbxImpuestoAddProd.Focus();
-            }
+         
             else if (this.txtPrecioVenta.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtPrecioVenta, ErrorIconAlignment.MiddleRight);
@@ -1590,24 +1589,14 @@ namespace SiscomSoft_Desktop.Views
                 this.txtPrecioVenta.Focus();
             }
             
-            else if (this.txtLineaAddProd.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtLineaAddProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtLineaAddProd, "Campo necesario");
-                this.txtLineaAddProd.Focus();
-            }
+       
             else if (this.txtDescripcionAddProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtDescripcionAddProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtDescripcionAddProd, "Campo necesario");
                 this.txtDescripcionAddProd.Focus();
             }
-            else if (this.txtSublineaAddProd.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtSublineaAddProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtSublineaAddProd, "Campo necesario");
-                this.txtSublineaAddProd.Focus();
-            }
+        
             else if (this.cbxCatalogoAddProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.cbxCatalogoAddProd, ErrorIconAlignment.MiddleRight);
@@ -1622,11 +1611,11 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                Categoria nCategoria = new Categoria();
-                nCategoria.sNombre = txtLineaAddProd.Text;
-                nCategoria.sNomSubCat = txtLineaAddProd.Text;
+                //Categoria nCategoria = new Categoria();
+                //nCategoria.sNombre = txtLineaAddProd.Text;
+                //nCategoria.sNomSubCat = txtLineaAddProd.Text;
 
-                ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
+                //ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
 
                 Producto nProducto = new Producto();
                 nProducto.iClaveProd = Convert.ToInt32(txtClaveaddprod.Text.ToString());
@@ -1640,12 +1629,55 @@ namespace SiscomSoft_Desktop.Views
 
                 nProducto.sDescripcion = txtDescripcionAddProd.Text;
 
-                int fkImpuesto = Convert.ToInt32(cbxImpuestoAddProd.SelectedValue.ToString());
+              ;
                 int fkPrecio = Convert.ToInt32(cbxPrecioAddProd.SelectedValue.ToString());
-
-
+                int fkCategoria = Convert.ToInt32(cbxAddProdCategoria.SelectedValue.ToString());
                 int fkCatalogo = Convert.ToInt32(cbxCatalogoAddProd.SelectedValue.ToString());
-                ManejoProducto.RegistrarNuevoProducto(nProducto, fkPrecio, nCategoria.pkCategoria, fkCatalogo);
+                ManejoProducto.RegistrarNuevoProducto(nProducto, fkPrecio,fkCategoria , fkCatalogo);
+
+                if (cbkAddDescProd.Checked == true)
+                {
+
+
+                    foreach (DataGridViewRow row in dgrAddDescProd.Rows)
+                    {
+                        int PKDESC = 0;
+                        DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[3];
+                        if (chk.Value == chk.TrueValue)
+                        {
+                            chk.Value = chk.FalseValue;
+                        }
+                        else
+                        {
+                        PKDESC = Convert.ToInt32(row.Cells[0].Value);
+                                ManejoDescuentoProducto.registrarDescuentoProducto(PKDESC, nProducto.pkProducto);
+                            chk.Value = chk.TrueValue;
+                        }
+                               
+                        
+                    }
+                }
+                if (cbkAddImpProd.Checked == true)
+                {
+
+                    foreach (DataGridViewRow row in dgrAddImpProd.Rows)
+                    {
+                        int PKIMP = 0;
+                        DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[4];
+                        if (chk.Value == chk.TrueValue)
+                        {
+                            chk.Value = chk.FalseValue;
+                        }
+                        else
+                        {
+                            PKIMP = Convert.ToInt32(row.Cells[0].Value);
+                            ManejoImpuestoProducto.registrarImpuestoProducto(PKIMP, nProducto.pkProducto);
+                            chk.Value = chk.TrueValue;
+                        }
+
+
+                    }
+                }
 
                 MessageBox.Show("¡Producto Registrado!");
                 txtDescripcionAddProd.Clear();
@@ -1654,11 +1686,11 @@ namespace SiscomSoft_Desktop.Views
                 txtMarcaaddProd.Clear();
                 txtPrecioVenta.Clear();
                 dtpFechaCaducidadProd.ResetText();
-                txtDescuentoProd.Clear();
+              
                 pcbimgAddProd.Image = null;
                 ImagenString = null;
-                txtLineaAddProd.Clear();
-                txtSublineaAddProd.Clear();
+                pnlAddDescProd.Visible = false;
+                pnlAddImpProd.Visible = false;
                 txtLoteAddProd.Clear();
                 txtClaveaddprod.Focus();
                 cargarProductos();
@@ -1872,12 +1904,12 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtUpdateCostoProd, "Campo necesario");
                 this.txtUpdateCostoProd.Focus();
             }
-            else if (this.txtUpdateDescProd.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtUpdateDescProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtUpdateDescProd, "Campo necesario");
-                this.txtDescuentoProd.Focus();
-            }
+            //else if (this.txtUpdateDescProd.Text == "")
+            //{
+            //    this.ErrorProvider.SetIconAlignment(this.txtUpdateDescProd, ErrorIconAlignment.MiddleRight);
+            //    this.ErrorProvider.SetError(this.txtUpdateDescProd, "Campo necesario");
+            //    this.txtDescuentoProd.Focus();
+            //}
 
             else if (this.txtUpdateLoteProd.Text == "")
             {
@@ -1892,24 +1924,24 @@ namespace SiscomSoft_Desktop.Views
                 this.txtUpdatePVProd.Focus();
             }
 
-            else if (this.txtUpdateLineaProd.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtUpdateLineaProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtUpdateLineaProd, "Campo necesario");
-                this.txtUpdateLineaProd.Focus();
-            }
+            //else if (this.txtUpdateLineaProd.Text == "")
+            //{
+            //    this.ErrorProvider.SetIconAlignment(this.txtUpdateLineaProd, ErrorIconAlignment.MiddleRight);
+            //    this.ErrorProvider.SetError(this.txtUpdateLineaProd, "Campo necesario");
+            //    this.txtUpdateLineaProd.Focus();
+            //}
             else if (this.txtUpdateDesProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtUpdateDesProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtUpdateDesProd, "Campo necesario");
                 this.txtUpdateDesProd.Focus();
             }
-            else if (this.txtUpdateSubProd.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtUpdateSubProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtUpdateSubProd, "Campo necesario");
-                this.txtUpdateSubProd.Focus();
-            }
+            //else if (this.txtUpdateSubProd.Text == "")
+            //{
+            //    this.ErrorProvider.SetIconAlignment(this.txtUpdateSubProd, ErrorIconAlignment.MiddleRight);
+            //    this.ErrorProvider.SetError(this.txtUpdateSubProd, "Campo necesario");
+            //    this.txtUpdateSubProd.Focus();
+            //}
 
 
             else if (this.pcbUpdateImgProd == null)
@@ -1920,12 +1952,12 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                Categoria nCategoria = new Categoria();
-                nCategoria.pkCategoria = PKCATEGORIA;
-                nCategoria.sNombre = txtUpdateLineaProd.Text;
-                nCategoria.sNomSubCat = txtUpdateSubProd.Text;
+                //Categoria nCategoria = new Categoria();
+                //nCategoria.pkCategoria = PKCATEGORIA;
+                //nCategoria.sNombre = txtUpdateLineaProd.Text;
+                //nCategoria.sNomSubCat = txtUpdateSubProd.Text;
 
-                ManejoCategoria.Modificar(nCategoria);
+             /*   ManejoCategoria.Modificar(nCategoria)*/;
 
                 Producto nProducto = new Producto();
                 nProducto.pkProducto = PKPRODUCTO;
@@ -1947,7 +1979,7 @@ namespace SiscomSoft_Desktop.Views
 
 
 
-                int fkImpuesto = cbxUpdateImpuProd.SelectedIndex + 1;
+           
               
                 int fkPrecio = cbxUpdatePrecioProd.SelectedIndex + 1;
                 int fkCategoria = cbxUpdateUMDProd.SelectedIndex + 1;
@@ -5962,6 +5994,43 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
+
+        private void cbkImpuestos_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbkAddImpProd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbkAddImpProd.Checked==true)
+            {
+                pnlAddImpProd.Visible = true;
+            }
+            else
+            {
+                pnlAddImpProd.Visible = false;
+            }
+        }
+
+        private void cbkAddDescProd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbkAddDescProd.Checked == true)
+            {
+                pnlAddDescProd.Visible = true;
+            }
+            else
+            {
+                pnlAddDescProd.Visible = false;
+            }
+        }
+
+        private void dgrAddImpProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            
+        }
+
+      
     }
 }
 
