@@ -119,10 +119,10 @@
     <Compile Include="Views\FrmAdministrador.Designer.cs">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmAlmacen.cs">
+    <Compile Include="Views\UICONTROL\FrmAlmacen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmAlmacen.Designer.cs">
+    <Compile Include="Views\UICONTROL\FrmAlmacen.Designer.cs">
       <DependentUpon>FrmAlmacen.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmConfiguracionBD.cs">
@@ -262,7 +262,7 @@
     <EmbeddedResource Include="Views\FrmAdministrador.resx">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmAlmacen.resx">
+    <EmbeddedResource Include="Views\UICONTROL\FrmAlmacen.resx">
       <DependentUpon>FrmAlmacen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmConfiguracionBD.resx">

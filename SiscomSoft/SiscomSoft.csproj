@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Comun\LoginTool.cs" />
     <Compile Include="Comun\ToolImagen.cs" />
+    <Compile Include="Controller\ManejoDescuento.cs" />
     <Compile Include="Controller\ManejoInventario.cs" />
     <Compile Include="Controller\ManejoAlmacen.cs" />
     <Compile Include="Controller\ManejoDescuentoProducto.cs" />

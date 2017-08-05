@@ -51,6 +51,9 @@ namespace SiscomSoft_Desktop.Views
         Boolean flagUMD = false;
         Boolean flagAddUMD = false;
         Boolean flagUpdateUMD = false;
+        Boolean flagDescuento = false;
+        Boolean flagAddDescuento = false;
+        Boolean flagUpdateDescuento = false;
 
         public static int PKROL;
         public static int PKUSUARIO;
@@ -64,6 +67,7 @@ namespace SiscomSoft_Desktop.Views
         public static int PKSUCURSAL;
         public static int PKCERTIFICADO;
         public static int PKPREFERENCIA;
+        public static int PKDESCUENTO;
 
         public FrmAdministrador()
         {
@@ -78,8 +82,10 @@ namespace SiscomSoft_Desktop.Views
             this.dgvDatosCliente.AutoGenerateColumns = false;
             this.dgvDatosEmpresa.AutoGenerateColumns = false;
             this.dgvDatosSucursal.AutoGenerateColumns = false;
+            this.dgrDatosDescuento.AutoGenerateColumns = false;
             CargarTablas();
             cargarCombos();
+
         }
         public String ImagenString { get; set; }
         public Bitmap ImagenBitmap { get; set; }
@@ -96,6 +102,7 @@ namespace SiscomSoft_Desktop.Views
             cargarEmpresas();
             cargarSucursal();
             cargarUMD();
+            cargarDescuentos();
         }
 
         public void cargarCombos()
@@ -182,6 +189,10 @@ namespace SiscomSoft_Desktop.Views
         {
             this.dgvDatosPrecio.DataSource = ManejoPrecio.getAll();
         }
+        public void cargarDescuentos()
+        {
+            this.dgrDatosDescuento.DataSource = ManejoDescuento.getAll();
+        }
         public void cargarProductos()
         {
           
@@ -250,6 +261,8 @@ namespace SiscomSoft_Desktop.Views
             btnProductolist.ForeColor = Color.White;
             btnUMD.BackColor = Color.White;
             btnUMD.ForeColor = Color.Black;
+            btnListaDescuentos.BackColor = Color.White;
+            btnListaDescuentos.ForeColor = Color.Black;
         }
 
         private void btnPreciolist_MouseClick(object sender, MouseEventArgs e)
@@ -264,6 +277,8 @@ namespace SiscomSoft_Desktop.Views
             btnPreciolist.ForeColor = Color.White;
             btnUMD.BackColor = Color.White;
             btnUMD.ForeColor = Color.Black;
+            btnListaDescuentos.BackColor = Color.White;
+            btnListaDescuentos.ForeColor = Color.Black;
         }
 
         private void btnImpuestolist_MouseClick(object sender, MouseEventArgs e)
@@ -278,6 +293,8 @@ namespace SiscomSoft_Desktop.Views
             btnImpuestolist.ForeColor = Color.White;
             btnUMD.BackColor = Color.White;
             btnUMD.ForeColor = Color.Black;
+            btnListaDescuentos.BackColor = Color.White;
+            btnListaDescuentos.ForeColor = Color.Black;
         }
 
         private void btnCategorialist_MouseClick(object sender, MouseEventArgs e)
@@ -292,6 +309,8 @@ namespace SiscomSoft_Desktop.Views
             btnCategorialist.ForeColor = Color.White;
             btnUMD.BackColor = Color.White;
             btnUMD.ForeColor = Color.Black;
+            btnListaDescuentos.BackColor = Color.White;
+            btnListaDescuentos.ForeColor = Color.Black;
         }
         public static bool ValidarCurp(string curp)
         {
@@ -329,7 +348,9 @@ namespace SiscomSoft_Desktop.Views
         }
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
         private void FrmAdministrador_Load(object sender, EventArgs e)
-        {
+        { 
+
+
             cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
@@ -362,6 +383,9 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpUMD);
             tbcGeneral.TabPages.Remove(tbtaddUMD);
             tbcGeneral.TabPages.Remove(tbtUpdateUMD);
+            tbcGeneral.TabPages.Remove(tbpDescuento);
+            tbcGeneral.TabPages.Remove(tbpAddDescuento);
+            tbcGeneral.TabPages.Remove(tbpUpdateDescuento);
             cmbStatusSucursal.SelectedIndex = 0;
             CargarTablas();
         }
@@ -561,6 +585,7 @@ namespace SiscomSoft_Desktop.Views
             btnPnlAddPermises.ForeColor = Color.Black;
             btnPnlAddRoles.BackColor = Color.Teal;
             btnPnlAddRoles.ForeColor = Color.White;
+           
         }
 
         private void btnPnlAddPermises_Click(object sender, EventArgs e)
@@ -623,6 +648,12 @@ namespace SiscomSoft_Desktop.Views
             Rol nRol = ManejoRol.getById(PKROL);
             txtUpdateNombre.Text = nRol.sNombre;
             txtUpdateComentario.Text = nRol.sComentario;
+        }
+        public void ActualizarDescuento()
+        {
+            Descuento nDescuento = ManejoDescuento.getById(PKDESCUENTO);
+            txtUpdateDescEx.Text  = nDescuento.dTasaDescEx.ToString();
+            txtUpdateTasaDesc.Text = nDescuento.dTasaDesc.ToString();
         }
         public void ActualizarCliente()
         {
@@ -688,7 +719,7 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateLoteProd.Text = nProducto.iLote.ToString();
             txtUpdateLineaProd.Text = nCategoria.sNombre;
             txtUpdateSubProd.Text = nCategoria.sNomSubCat;
-
+            txtUpdatePVProd.Text = nProducto.dPreVenta.ToString();
            // cbxUpdateImpuProd.SelectedItem = nProducto.fkImpuesto.pkImpuesto;
           
             cbxUpdateUMDProd.SelectedItem = nProducto.fkCatalogo.pkCatalogo;
@@ -1100,11 +1131,36 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtTasaImpuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
-            if (char.IsNumber(e.KeyChar) ||
-                e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator
-                )
+            TextBox dText = new TextBox();
+
+            if (e.KeyChar == 8)
+            {
                 e.Handled = false;
+                return;
+            }
+
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < dText.Text.Length; i++)
+            {
+                if (dText.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
             else
                 e.Handled = true;
         }
@@ -1218,11 +1274,36 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtActualiTasaImpu_KeyPress(object sender, KeyPressEventArgs e)
         {
-            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
-            if (char.IsNumber(e.KeyChar) ||
-                e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator
-                )
+            TextBox dText = new TextBox();
+
+            if (e.KeyChar == 8)
+            {
                 e.Handled = false;
+                return;
+            }
+
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < dText.Text.Length; i++)
+            {
+                if (dText.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
             else
                 e.Handled = true;
         }
@@ -1502,7 +1583,13 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.cbxImpuestoAddProd, "Debe agregar un impuesto primero");
                 this.cbxImpuestoAddProd.Focus();
             }
-
+            else if (this.txtPrecioVenta.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtPrecioVenta, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtPrecioVenta, "Campo necesario");
+                this.txtPrecioVenta.Focus();
+            }
+            
             else if (this.txtLineaAddProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtLineaAddProd, ErrorIconAlignment.MiddleRight);
@@ -1549,6 +1636,7 @@ namespace SiscomSoft_Desktop.Views
                 //nProducto.iDescuento = Convert.ToInt32(txtDescuentoProd.Text.ToString());
                 nProducto.sFoto = ImagenString;
                 nProducto.iLote = Convert.ToInt32(txtLoteAddProd.Text.ToString());
+                nProducto.dPreVenta = Convert.ToDecimal(txtPrecioVenta.Text);
 
                 nProducto.sDescripcion = txtDescripcionAddProd.Text;
 
@@ -1564,6 +1652,7 @@ namespace SiscomSoft_Desktop.Views
                 txtCostoAddProd.Clear();
                 txtClaveaddprod.Clear();
                 txtMarcaaddProd.Clear();
+                txtPrecioVenta.Clear();
                 dtpFechaCaducidadProd.ResetText();
                 txtDescuentoProd.Clear();
                 pcbimgAddProd.Image = null;
@@ -1796,6 +1885,12 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtUpdateLoteProd, "Campo necesario");
                 this.txtUpdateLoteProd.Focus();
             }
+            else if (this.txtUpdatePVProd.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdatePVProd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdatePVProd, "Campo necesario");
+                this.txtUpdatePVProd.Focus();
+            }
 
             else if (this.txtUpdateLineaProd.Text == "")
             {
@@ -1839,6 +1934,7 @@ namespace SiscomSoft_Desktop.Views
                 nProducto.sMarca = txtUpdateMarcProd.Text;
                 nProducto.dCosto = Convert.ToDecimal(txtUpdateCostoProd.Text);
                 //nProducto.iDescuento = Convert.ToInt32(txtUpdateDescProd.Text);
+                nProducto.dPreVenta = Convert.ToDecimal(txtUpdatePVProd.Text);
 
                 ImagenBitmap = new System.Drawing.Bitmap(pcbUpdateImgProd.Image);
                 ImagenString = ToolImagen.ToBase64String(ImagenBitmap, ImageFormat.Jpeg);
@@ -1890,58 +1986,74 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtUpdateCostoProd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtUpdateCostoProd.Text.Contains('.'))
+            TextBox dText = new TextBox();
+
+            if (e.KeyChar == 8)
             {
-                if (!char.IsDigit(e.KeyChar))
+                e.Handled = false;
+                return;
+            }
+
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < dText.Text.Length; i++)
+            {
+                if (dText.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
                 {
                     e.Handled = true;
+                    return;
                 }
 
-                if (e.KeyChar == '\b')
-                {
-                    e.Handled = false;
-                }
+
             }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
             else
-            {
-                if (!char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true;
-                }
-
-                if (e.KeyChar == '.' || e.KeyChar == '\b')
-                {
-                    e.Handled = false;
-                }
-            }
+                e.Handled = true;
         }
 
         private void txtCostoAddProd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtCostoAddProd.Text.Contains('.'))
+            TextBox dText = new TextBox();
+
+            if (e.KeyChar == 8)
             {
-                if (!char.IsDigit(e.KeyChar))
+                e.Handled = false;
+                return;
+            }
+
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < dText.Text.Length; i++)
+            {
+                if (dText.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
                 {
                     e.Handled = true;
+                    return;
                 }
 
-                if (e.KeyChar == '\b')
-                {
-                    e.Handled = false;
-                }
+
             }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
             else
-            {
-                if (!char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true;
-                }
-
-                if (e.KeyChar == '.' || e.KeyChar == '\b')
-                {
-                    e.Handled = false;
-                }
-            }
+                e.Handled = true;
 
         }
 
@@ -5610,12 +5722,245 @@ namespace SiscomSoft_Desktop.Views
             btnCategorialist.ForeColor = Color.Black;
             btnUMD.BackColor = Color.DarkCyan;
             btnUMD.ForeColor = Color.White;
+            btnListaDescuentos.BackColor = Color.White;
+            btnListaDescuentos.ForeColor = Color.Black;
 
         }
 
         private void pcbUpdateImgProd_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox dText = new TextBox();
+
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < dText.Text.Length; i++)
+            {
+                if (dText.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
+        }
+
+        private void btnListaDescuentos_Click(object sender, EventArgs e)
+        {
+            if (flagDescuento == false)
+            {
+                tbcGeneral.Visible = true;
+                tbcGeneral.TabPages.Add(tbpDescuento);
+                tbcGeneral.SelectedTab = tbpDescuento;
+                flagDescuento = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpDescuento;
+            }
+        }
+
+        private void pnlCliente_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnListaDescuentos_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnCategorialist.BackColor = Color.White;
+            btnCategorialist.ForeColor = Color.Black;
+            btnPreciolist.BackColor = Color.White;
+            btnPreciolist.ForeColor = Color.Black;
+            btnProductolist.BackColor = Color.White;
+            btnProductolist.ForeColor = Color.Black;
+            btnListaDescuentos.BackColor = Color.DarkCyan;
+            btnListaDescuentos.ForeColor = Color.White;
+            btnImpuestolist.BackColor = Color.White;
+            btnImpuestolist.ForeColor = Color.Black;
+            btnUMD.BackColor = Color.White;
+            btnUMD.ForeColor = Color.Black;
+        }
+
+        private void tbpDescuento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbcGeneral_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_3(object sender, EventArgs e)
+        {
+            if (flagAddDescuento == false)
+            {
+                tbcGeneral.TabPages.Add(tbpAddDescuento);
+                tbcGeneral.SelectedTab = tbpAddDescuento;
+                flagAddDescuento = true;
+            }
+            else
+            {
+                tbcGeneral.SelectedTab = tbpAddDescuento;
+            }
+        }
+
+        private void dgrDatosDescuento_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblCatidadDescuento.Text = "Registros: " + dgrDatosDescuento.Rows.Count;
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (this.dgrDatosDescuento.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateDescuento);
+                PKDESCUENTO = Convert.ToInt32(this.dgrDatosDescuento.CurrentRow.Cells[0].Value);
+                tbcGeneral.TabPages.Add(tbpUpdateDescuento);
+                ActualizarDescuento();
+
+                tbcGeneral.SelectedTab = tbpUpdateDescuento;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (dgrDatosDescuento.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoDescuento.Eliminar(Convert.ToInt32(dgrDatosDescuento.CurrentRow.Cells[0].Value));
+                    cargarDescuentos();
+                }
+            }
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            if (this.txtTasaDescuento.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtTasaDescuento, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtTasaDescuento, "Campo necesario");
+                this.txtTasaDescuento.Focus();
+            }
+           
+            else if (this.txtTasaDescuentoEx.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtTasaDescuentoEx, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtTasaDescuentoEx, "Campo necesario");
+                this.txtTasaDescuentoEx.Focus();
+            }
+            else
+            {
+                Descuento nDescuento = new Descuento();
+
+                nDescuento.dTasaDesc = Convert.ToDecimal(txtTasaDescuento.Text);
+                nDescuento.dTasaDescEx = Convert.ToDecimal(txtTasaDescuentoEx.Text);
+
+              ManejoDescuento.RegistrarNuevoDescuento(nDescuento);
+
+                MessageBox.Show("¡Descuento Registrado!");
+             
+                txtTasaDescuento.Clear();
+                txtTasaDescuentoEx.Clear();
+                cargarDescuentos();
+               
+
+            }
+
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtPrecioVenta_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdatePVProd_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTasaDescuento_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtTasaDescuentoEx_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateTasaDesc_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateDescEx_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (this.txtUpdateTasaDesc.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateDescEx, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateDescEx, "Campo necesario");
+                this.txtUpdateDescEx.Focus();
+            }
+            else if (this.txtUpdateDescEx.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtUpdateDescEx, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtUpdateDescEx, "Campo necesario");
+                this.txtUpdateDescEx.Focus();
+            }
+
+            else
+            {
+                Descuento nDescuento = new Descuento();
+                nDescuento.pkDescuento = PKDESCUENTO;
+                nDescuento.dTasaDesc = Convert.ToDecimal(txtUpdateTasaDesc.Text);
+
+                nDescuento.dTasaDescEx = Convert.ToDecimal(txtUpdateDescEx.Text);
+
+                ManejoDescuento.Modificar(nDescuento);
+                MessageBox.Show("¡Descuento Actualizado!");
+                cargarDescuentos();
+
+
+
+            }
         }
     }
 }
