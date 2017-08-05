@@ -24,7 +24,7 @@ namespace SiscomSoft.Models
 
 
         public decimal dTipoCambio { get; set; }
-        public int iTipoCompra { get; set; }
+        public string sTipoCompra { get; set; }
 
         public DateTime dtFechaCompra { get; set; }
 

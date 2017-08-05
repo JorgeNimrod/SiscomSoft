@@ -11,6 +11,23 @@ namespace SiscomSoft.Controller
 {
   public class ManejoAlmacen
     {
+        public static int getAlmacenCount()
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Almacenes.Count();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static List<Almacen> Buscar(string valor, Boolean Status)
         {
             try
@@ -27,7 +44,7 @@ namespace SiscomSoft.Controller
             catch (Exception)
             {
 
-                throw;
+                throw; 
             }
         }
         public static void RegistrarNuevoAlmacen(Almacen nAlmacen, int pkCliente)

@@ -107,16 +107,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FrmAdministrador.Designer.cs">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmAlmacen.cs">
+    <Compile Include="Views\UICONTROL\FrmAlmacen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmAlmacen.Designer.cs">
+    <Compile Include="Views\UICONTROL\FrmAlmacen.Designer.cs">
       <DependentUpon>FrmAlmacen.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmBuscarCiente.cs">
@@ -209,6 +215,12 @@
     <Compile Include="Views\FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UICONTROL\FrmAddDescunetos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UICONTROL\FrmAddDescunetos.Designer.cs">
+      <DependentUpon>FrmAddDescunetos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UICONTROL\FrmAgregarDescuentoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,10 +256,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmAdministrador.resx">
       <DependentUpon>FrmAdministrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmAlmacen.resx">
+    <EmbeddedResource Include="Views\UICONTROL\FrmAlmacen.resx">
       <DependentUpon>FrmAlmacen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmBuscarCiente.resx">
@@ -294,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UICONTROL\FrmAddDescunetos.resx">
+      <DependentUpon>FrmAddDescunetos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UICONTROL\FrmAgregarDescuentoProducto.resx">
       <DependentUpon>FrmAgregarDescuentoProducto.cs</DependentUpon>

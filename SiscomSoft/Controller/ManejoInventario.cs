@@ -10,6 +10,23 @@ namespace SiscomSoft.Controller
 {
    public class ManejoInventario
     {
+        public static Inventario getByUser(int pkUsuario)
+        {
+            try
+            {
+                DateTime dt = new DateTime(0001, 01, 01, 00, 00, 00);
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Inventarios.Include("fkUsuario")
+                        .Where(r => r.fkUsuario.pkUsuario == pkUsuario).FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public static void RegistrarNuevoInventario(Inventario nInventario, int pkProducto,int pkUsuario)
         {
             Producto producto = ManejoProducto.getById(pkProducto);

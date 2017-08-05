@@ -59,6 +59,7 @@ namespace SiscomSoft.Controller
                     return ctx.Usuarios.Include("fkRol")
                         .Include("fkRol.PermisosNegadosRol")
                         .Include("fkRol.PermisosNegadosRol.fkPermiso")
+                        .Include("fkSucursal")
                          .Where(r => r.sPin == empleado && r.bStatus == true).FirstOrDefault();
                 }
             }
