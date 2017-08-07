@@ -1548,10 +1548,13 @@ namespace SiscomSoft_Desktop.Views
                     ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalle, mProducto, mVenta);
 
                     Inventario mInventario = ManejoInventario.getProductoByInventario(mProducto.pkProducto);
-                    decimal subtotal = 0;
-                    decimal cantidad = mInventario.;
-
-                    mInventario.dExistencia = subtotal;
+                    if (mInventario.dExistencia > 0)
+                    {
+                        decimal subtotal = 0;
+                        subtotal = mInventario.dExistencia - mDetalle.dCantidad;
+                        mInventario.dExistencia = subtotal;
+                        ManejoInventario.Modificar(mInventario, mProducto.pkProducto, FrmMenu.uHelper.usuario.pkUsuario);
+                    }
                 }
             }
 

@@ -21,6 +21,5 @@ namespace SiscomSoft.Models
         public decimal dExistencia { get; set; }
         public decimal dLastCosto { get; set; }
         public decimal dPreVenta { get; set; }
-
     }
 }
