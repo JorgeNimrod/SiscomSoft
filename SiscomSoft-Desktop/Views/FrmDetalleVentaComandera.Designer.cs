@@ -207,7 +207,6 @@
             this.btnRemoveRow.Size = new System.Drawing.Size(73, 50);
             this.btnRemoveRow.TabIndex = 75;
             this.btnRemoveRow.UseVisualStyleBackColor = false;
-            this.btnRemoveRow.Click += new System.EventHandler(this.btnRemoveRow_Click);
             // 
             // btnMenosCantidad
             // 
@@ -223,7 +222,6 @@
             this.btnMenosCantidad.Size = new System.Drawing.Size(73, 50);
             this.btnMenosCantidad.TabIndex = 74;
             this.btnMenosCantidad.UseVisualStyleBackColor = false;
-            this.btnMenosCantidad.Click += new System.EventHandler(this.btnMenosCantidad_Click);
             // 
             // btnMasCantidad
             // 
@@ -238,7 +236,6 @@
             this.btnMasCantidad.Size = new System.Drawing.Size(73, 50);
             this.btnMasCantidad.TabIndex = 73;
             this.btnMasCantidad.UseVisualStyleBackColor = false;
-            this.btnMasCantidad.Click += new System.EventHandler(this.btnMasCantidad_Click);
             // 
             // btnPagar
             // 
@@ -251,7 +248,6 @@
             this.btnPagar.TabIndex = 117;
             this.btnPagar.Text = "PAGAR";
             this.btnPagar.UseVisualStyleBackColor = false;
-            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // pnlCategoria
             // 
@@ -305,7 +301,6 @@
             this.dgvProductos.ShowRowErrors = false;
             this.dgvProductos.Size = new System.Drawing.Size(474, 484);
             this.dgvProductos.TabIndex = 98;
-            this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
             // 
             // pkProducto
             // 
@@ -375,7 +370,6 @@
             this.btnCancelar.TabIndex = 114;
             this.btnCancelar.Text = "CERRAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblSubTotal
             // 
@@ -433,7 +427,6 @@
             this.btnNum9.TabIndex = 109;
             this.btnNum9.Text = "9";
             this.btnNum9.UseVisualStyleBackColor = false;
-            this.btnNum9.Click += new System.EventHandler(this.btnNum9_Click);
             // 
             // btnNum6
             // 
@@ -447,7 +440,6 @@
             this.btnNum6.TabIndex = 108;
             this.btnNum6.Text = "6";
             this.btnNum6.UseVisualStyleBackColor = false;
-            this.btnNum6.Click += new System.EventHandler(this.btnNum6_Click);
             // 
             // btnNum3
             // 
@@ -461,7 +453,6 @@
             this.btnNum3.TabIndex = 107;
             this.btnNum3.Text = "3";
             this.btnNum3.UseVisualStyleBackColor = false;
-            this.btnNum3.Click += new System.EventHandler(this.btnNum3_Click);
             // 
             // btnNum0
             // 
@@ -475,7 +466,6 @@
             this.btnNum0.TabIndex = 106;
             this.btnNum0.Text = "0";
             this.btnNum0.UseVisualStyleBackColor = false;
-            this.btnNum0.Click += new System.EventHandler(this.btnNum0_Click);
             // 
             // btnNum8
             // 
@@ -489,7 +479,6 @@
             this.btnNum8.TabIndex = 105;
             this.btnNum8.Text = "8";
             this.btnNum8.UseVisualStyleBackColor = false;
-            this.btnNum8.Click += new System.EventHandler(this.btnNum8_Click);
             // 
             // btnNum5
             // 
@@ -503,7 +492,6 @@
             this.btnNum5.TabIndex = 104;
             this.btnNum5.Text = "5";
             this.btnNum5.UseVisualStyleBackColor = false;
-            this.btnNum5.Click += new System.EventHandler(this.btnNum5_Click);
             // 
             // btnNum2
             // 
@@ -517,7 +505,6 @@
             this.btnNum2.TabIndex = 103;
             this.btnNum2.Text = "2";
             this.btnNum2.UseVisualStyleBackColor = false;
-            this.btnNum2.Click += new System.EventHandler(this.btnNum2_Click);
             // 
             // btnPunto
             // 
@@ -531,7 +518,6 @@
             this.btnPunto.TabIndex = 102;
             this.btnPunto.Text = "x";
             this.btnPunto.UseVisualStyleBackColor = false;
-            this.btnPunto.Click += new System.EventHandler(this.btnPunto_Click);
             // 
             // btnNum7
             // 
@@ -545,7 +531,6 @@
             this.btnNum7.TabIndex = 101;
             this.btnNum7.Text = "7";
             this.btnNum7.UseVisualStyleBackColor = false;
-            this.btnNum7.Click += new System.EventHandler(this.btnNum7_Click);
             // 
             // btnNum4
             // 
@@ -559,7 +544,6 @@
             this.btnNum4.TabIndex = 100;
             this.btnNum4.Text = "4";
             this.btnNum4.UseVisualStyleBackColor = false;
-            this.btnNum4.Click += new System.EventHandler(this.btnNum4_Click);
             // 
             // btnNum1
             // 
@@ -574,7 +558,6 @@
             this.btnNum1.TabIndex = 99;
             this.btnNum1.Text = "1";
             this.btnNum1.UseVisualStyleBackColor = false;
-            this.btnNum1.Click += new System.EventHandler(this.btnNum1_Click);
             // 
             // pnlPagar
             // 
@@ -772,7 +755,6 @@
             this.btnPagarCancelar.TabIndex = 153;
             this.btnPagarCancelar.Text = "CERRAR";
             this.btnPagarCancelar.UseVisualStyleBackColor = false;
-            this.btnPagarCancelar.Click += new System.EventHandler(this.btnPagarCancelar_Click);
             // 
             // btn
             // 
@@ -829,7 +811,6 @@
             this.btnEfectivo.TabIndex = 149;
             this.btnEfectivo.Text = "EFECTIVO";
             this.btnEfectivo.UseVisualStyleBackColor = false;
-            this.btnEfectivo.Click += new System.EventHandler(this.btnEfectivo_Click);
             // 
             // lblTotal2
             // 
@@ -970,7 +951,6 @@
             this.btnAll.TabIndex = 135;
             this.btnAll.Text = "TODO";
             this.btnAll.UseVisualStyleBackColor = false;
-            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // btn100Peso
             // 
@@ -984,7 +964,6 @@
             this.btn100Peso.TabIndex = 134;
             this.btn100Peso.Text = "100";
             this.btn100Peso.UseVisualStyleBackColor = false;
-            this.btn100Peso.Click += new System.EventHandler(this.btn100Peso_Click);
             // 
             // btn50Peso
             // 
@@ -998,7 +977,6 @@
             this.btn50Peso.TabIndex = 133;
             this.btn50Peso.Text = "50";
             this.btn50Peso.UseVisualStyleBackColor = false;
-            this.btn50Peso.Click += new System.EventHandler(this.btn50Peso_Click);
             // 
             // btn20Peso
             // 
@@ -1012,7 +990,6 @@
             this.btn20Peso.TabIndex = 132;
             this.btn20Peso.Text = "20";
             this.btn20Peso.UseVisualStyleBackColor = false;
-            this.btn20Peso.Click += new System.EventHandler(this.btn20Peso_Click);
             // 
             // btn10Peso
             // 
@@ -1026,7 +1003,6 @@
             this.btn10Peso.TabIndex = 131;
             this.btn10Peso.Text = "10";
             this.btn10Peso.UseVisualStyleBackColor = false;
-            this.btn10Peso.Click += new System.EventHandler(this.btn10Peso_Click);
             // 
             // btn5Peso
             // 
@@ -1040,7 +1016,6 @@
             this.btn5Peso.TabIndex = 130;
             this.btn5Peso.Text = "5";
             this.btn5Peso.UseVisualStyleBackColor = false;
-            this.btn5Peso.Click += new System.EventHandler(this.btn5Peso_Click);
             // 
             // btn1Peso
             // 
@@ -1054,7 +1029,6 @@
             this.btn1Peso.TabIndex = 129;
             this.btn1Peso.Text = "1";
             this.btn1Peso.UseVisualStyleBackColor = false;
-            this.btn1Peso.Click += new System.EventHandler(this.btn1Peso_Click);
             // 
             // lblTotalPagar
             // 
@@ -1090,7 +1064,6 @@
             this.btnClear.Size = new System.Drawing.Size(125, 97);
             this.btnClear.TabIndex = 126;
             this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnNo9
             // 
@@ -1104,7 +1077,6 @@
             this.btnNo9.TabIndex = 125;
             this.btnNo9.Text = "9";
             this.btnNo9.UseVisualStyleBackColor = false;
-            this.btnNo9.Click += new System.EventHandler(this.btnNo9_Click);
             // 
             // btnNo6
             // 
@@ -1118,7 +1090,6 @@
             this.btnNo6.TabIndex = 124;
             this.btnNo6.Text = "6";
             this.btnNo6.UseVisualStyleBackColor = false;
-            this.btnNo6.Click += new System.EventHandler(this.btnNo6_Click);
             // 
             // btnNo3
             // 
@@ -1132,7 +1103,6 @@
             this.btnNo3.TabIndex = 123;
             this.btnNo3.Text = "3";
             this.btnNo3.UseVisualStyleBackColor = false;
-            this.btnNo3.Click += new System.EventHandler(this.btnNo3_Click);
             // 
             // btnNo0
             // 
@@ -1146,7 +1116,6 @@
             this.btnNo0.TabIndex = 122;
             this.btnNo0.Text = "0";
             this.btnNo0.UseVisualStyleBackColor = false;
-            this.btnNo0.Click += new System.EventHandler(this.btnNo0_Click);
             // 
             // btnNo8
             // 
@@ -1160,7 +1129,6 @@
             this.btnNo8.TabIndex = 121;
             this.btnNo8.Text = "8";
             this.btnNo8.UseVisualStyleBackColor = false;
-            this.btnNo8.Click += new System.EventHandler(this.btnNo8_Click);
             // 
             // btnNo5
             // 
@@ -1174,7 +1142,6 @@
             this.btnNo5.TabIndex = 120;
             this.btnNo5.Text = "5";
             this.btnNo5.UseVisualStyleBackColor = false;
-            this.btnNo5.Click += new System.EventHandler(this.btnNo5_Click);
             // 
             // btnNo2
             // 
@@ -1188,7 +1155,6 @@
             this.btnNo2.TabIndex = 119;
             this.btnNo2.Text = "2";
             this.btnNo2.UseVisualStyleBackColor = false;
-            this.btnNo2.Click += new System.EventHandler(this.btnNo2_Click);
             // 
             // btnPuntoPagar
             // 
@@ -1202,7 +1168,6 @@
             this.btnPuntoPagar.TabIndex = 118;
             this.btnPuntoPagar.Text = ".";
             this.btnPuntoPagar.UseVisualStyleBackColor = false;
-            this.btnPuntoPagar.Click += new System.EventHandler(this.button9_Click);
             // 
             // btnNo7
             // 
@@ -1216,7 +1181,6 @@
             this.btnNo7.TabIndex = 117;
             this.btnNo7.Text = "7";
             this.btnNo7.UseVisualStyleBackColor = false;
-            this.btnNo7.Click += new System.EventHandler(this.btnNo7_Click);
             // 
             // btnNo4
             // 
@@ -1230,7 +1194,6 @@
             this.btnNo4.TabIndex = 116;
             this.btnNo4.Text = "4";
             this.btnNo4.UseVisualStyleBackColor = false;
-            this.btnNo4.Click += new System.EventHandler(this.btnNo4_Click);
             // 
             // btnNo1
             // 
@@ -1245,7 +1208,6 @@
             this.btnNo1.TabIndex = 115;
             this.btnNo1.Text = "1";
             this.btnNo1.UseVisualStyleBackColor = false;
-            this.btnNo1.Click += new System.EventHandler(this.btnNo1_Click);
             // 
             // label3
             // 
@@ -1302,7 +1264,6 @@
             this.Name = "FrmDetalleVentaComandera";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmDetalleVentaTemplete_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlDetalleVenta.ResumeLayout(false);
             this.pnlDetalleVenta.PerformLayout();

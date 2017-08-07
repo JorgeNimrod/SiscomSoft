@@ -49,5 +49,45 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        public static Inventario getProductoByInventario(int pk)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Inventarios.Include("fkProducto")
+                        .Where(r => r.fkProducto.pkProducto == pk).FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static void Modificar(Inventario nInventario, int pkProducto, int pkUsuario)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    Producto nProducto = ManejoProducto.getById(pkProducto);
+                    Usuario nUsuario = ManejoUsuario.getById(pkUsuario);
+                    nInventario.fkProducto = nProducto;
+                    nInventario.fkUsuario = nUsuario;
+                    ctx.Productos.Attach(nProducto);
+                    ctx.Usuarios.Attach(nUsuario);
+                    ctx.Entry(nInventario).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

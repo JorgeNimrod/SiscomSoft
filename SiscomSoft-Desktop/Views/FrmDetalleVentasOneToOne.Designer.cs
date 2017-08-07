@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleVentasOneToOne));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.pnlDetalleVenta = new System.Windows.Forms.Panel();
@@ -107,13 +107,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn1000pesos = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnFactura = new System.Windows.Forms.Button();
             this.lblCliente = new System.Windows.Forms.Label();
-            this.pnlCambio = new System.Windows.Forms.Panel();
-            this.lblCambio = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.dgvDetalleProductos = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,6 +148,11 @@
             this.btnNo7 = new System.Windows.Forms.Button();
             this.btnNo4 = new System.Windows.Forms.Button();
             this.btnNo1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.pnlCambio = new System.Windows.Forms.Panel();
+            this.lblCambio = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.pnlDetalleVenta.SuspendLayout();
             this.pnlAccionesProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -158,8 +160,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPagar.SuspendLayout();
             this.pnlDetalleMinimo.SuspendLayout();
-            this.pnlCambio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleProductos)).BeginInit();
+            this.pnlCambio.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -232,7 +234,6 @@
             this.button1.TabIndex = 131;
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblNomCliente
             // 
@@ -359,8 +360,8 @@
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.RowHeadersWidth = 45;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvProductos.RowTemplate.DividerHeight = 5;
             this.dgvProductos.RowTemplate.Height = 80;
             this.dgvProductos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -383,9 +384,9 @@
             // 
             // iCantidad
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.iCantidad.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.iCantidad.DefaultCellStyle = dataGridViewCellStyle21;
             this.iCantidad.HeaderText = "CANTIDAD";
             this.iCantidad.Name = "iCantidad";
             this.iCantidad.ReadOnly = true;
@@ -394,8 +395,8 @@
             // sDescripcion
             // 
             this.sDescripcion.DataPropertyName = "sDescripcion";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle22;
             this.sDescripcion.HeaderText = "DESCRIPCION";
             this.sDescripcion.Name = "sDescripcion";
             this.sDescripcion.ReadOnly = true;
@@ -403,19 +404,19 @@
             // 
             // dTotal
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "C2";
+            dataGridViewCellStyle23.NullValue = null;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dTotal.DefaultCellStyle = dataGridViewCellStyle23;
             this.dTotal.HeaderText = "TOTAL";
             this.dTotal.Name = "dTotal";
             this.dTotal.ReadOnly = true;
             // 
             // dCosto
             // 
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dCosto.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dCosto.DefaultCellStyle = dataGridViewCellStyle24;
             this.dCosto.HeaderText = "Costo";
             this.dCosto.Name = "dCosto";
             this.dCosto.ReadOnly = true;
@@ -692,16 +693,18 @@
             // pnlPagar
             // 
             this.pnlPagar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlPagar.Controls.Add(this.pnlCambio);
+            this.pnlPagar.Controls.Add(this.button4);
+            this.pnlPagar.Controls.Add(this.button3);
             this.pnlPagar.Controls.Add(this.lblTotalDolares);
             this.pnlPagar.Controls.Add(this.lbltotaldolarestexto);
             this.pnlPagar.Controls.Add(this.lblTotal2);
             this.pnlPagar.Controls.Add(this.lblMonto);
             this.pnlPagar.Controls.Add(this.pnlDetalleMinimo);
-            this.pnlPagar.Controls.Add(this.button4);
+            this.pnlPagar.Controls.Add(this.btn1000pesos);
             this.pnlPagar.Controls.Add(this.button2);
             this.pnlPagar.Controls.Add(this.btnFactura);
             this.pnlPagar.Controls.Add(this.lblCliente);
-            this.pnlPagar.Controls.Add(this.pnlCambio);
             this.pnlPagar.Controls.Add(this.dgvDetalleProductos);
             this.pnlPagar.Controls.Add(this.btnPagarCancelar);
             this.pnlPagar.Controls.Add(this.btn);
@@ -741,6 +744,7 @@
             // 
             // lblTotalDolares
             // 
+            this.lblTotalDolares.Enabled = false;
             this.lblTotalDolares.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalDolares.Location = new System.Drawing.Point(824, 132);
             this.lblTotalDolares.Name = "lblTotalDolares";
@@ -1007,17 +1011,19 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Importe:";
             // 
-            // button4
+            // btn1000pesos
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.DimGray;
-            this.button4.Location = new System.Drawing.Point(480, 584);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 70);
-            this.button4.TabIndex = 159;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btn1000pesos.BackColor = System.Drawing.Color.White;
+            this.btn1000pesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn1000pesos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn1000pesos.ForeColor = System.Drawing.Color.DimGray;
+            this.btn1000pesos.Location = new System.Drawing.Point(480, 194);
+            this.btn1000pesos.Name = "btn1000pesos";
+            this.btn1000pesos.Size = new System.Drawing.Size(125, 59);
+            this.btn1000pesos.TabIndex = 159;
+            this.btn1000pesos.Text = "1,000";
+            this.btn1000pesos.UseVisualStyleBackColor = false;
+            this.btn1000pesos.Click += new System.EventHandler(this.btn1000pesos_Click);
             // 
             // button2
             // 
@@ -1025,9 +1031,9 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.DimGray;
-            this.button2.Location = new System.Drawing.Point(611, 584);
+            this.button2.Location = new System.Drawing.Point(678, 586);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(256, 70);
+            this.button2.Size = new System.Drawing.Size(190, 68);
             this.button2.TabIndex = 158;
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -1037,9 +1043,9 @@
             this.btnFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFactura.ForeColor = System.Drawing.Color.DimGray;
-            this.btnFactura.Location = new System.Drawing.Point(873, 584);
+            this.btnFactura.Location = new System.Drawing.Point(874, 586);
             this.btnFactura.Name = "btnFactura";
-            this.btnFactura.Size = new System.Drawing.Size(256, 70);
+            this.btnFactura.Size = new System.Drawing.Size(256, 68);
             this.btnFactura.TabIndex = 157;
             this.btnFactura.Text = "FACTURA";
             this.btnFactura.UseVisualStyleBackColor = false;
@@ -1054,38 +1060,6 @@
             this.lblCliente.Size = new System.Drawing.Size(443, 18);
             this.lblCliente.TabIndex = 156;
             this.lblCliente.Visible = false;
-            // 
-            // pnlCambio
-            // 
-            this.pnlCambio.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlCambio.Controls.Add(this.lblCambio);
-            this.pnlCambio.Controls.Add(this.label8);
-            this.pnlCambio.Location = new System.Drawing.Point(480, 22);
-            this.pnlCambio.Name = "pnlCambio";
-            this.pnlCambio.Size = new System.Drawing.Size(649, 170);
-            this.pnlCambio.TabIndex = 155;
-            this.pnlCambio.Visible = false;
-            // 
-            // lblCambio
-            // 
-            this.lblCambio.Enabled = false;
-            this.lblCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCambio.Location = new System.Drawing.Point(151, 30);
-            this.lblCambio.Name = "lblCambio";
-            this.lblCambio.Size = new System.Drawing.Size(495, 44);
-            this.lblCambio.TabIndex = 163;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.DarkRed;
-            this.label8.Location = new System.Drawing.Point(3, 33);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(142, 37);
-            this.label8.TabIndex = 149;
-            this.label8.Text = "CAMBIO";
             // 
             // dgvDetalleProductos
             // 
@@ -1104,14 +1078,14 @@
             this.dataGridViewTextBoxColumn5,
             this.fkImpuesto,
             this.Descuento});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalleProductos.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalleProductos.DefaultCellStyle = dataGridViewCellStyle30;
             this.dgvDetalleProductos.EnableHeadersVisualStyles = false;
             this.dgvDetalleProductos.GridColor = System.Drawing.Color.White;
             this.dgvDetalleProductos.Location = new System.Drawing.Point(0, 22);
@@ -1140,9 +1114,9 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewTextBoxColumn2.HeaderText = "CANTIDAD";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -1151,8 +1125,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "sDescripcion";
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridViewTextBoxColumn3.HeaderText = "DESCRIPCION";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -1160,11 +1134,11 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "C2";
-            dataGridViewCellStyle8.NullValue = null;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle28.Format = "C2";
+            dataGridViewCellStyle28.NullValue = null;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewTextBoxColumn4.HeaderText = "TOTAL";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -1172,8 +1146,8 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridViewTextBoxColumn5.HeaderText = "Costo";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -1230,6 +1204,7 @@
             this.btnVouncher.Name = "btnVouncher";
             this.btnVouncher.Size = new System.Drawing.Size(203, 122);
             this.btnVouncher.TabIndex = 151;
+            this.btnVouncher.Text = "CREDITO";
             this.btnVouncher.UseVisualStyleBackColor = false;
             // 
             // btnCredito
@@ -1243,7 +1218,7 @@
             this.btnCredito.Name = "btnCredito";
             this.btnCredito.Size = new System.Drawing.Size(203, 122);
             this.btnCredito.TabIndex = 150;
-            this.btnCredito.Text = "CREDITO";
+            this.btnCredito.Text = "TARJETA DE CREDITO";
             this.btnCredito.UseVisualStyleBackColor = false;
             // 
             // btnEfectivo
@@ -1289,9 +1264,9 @@
             this.btnDolares.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDolares.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDolares.ForeColor = System.Drawing.Color.DimGray;
-            this.btnDolares.Location = new System.Drawing.Point(1004, 508);
+            this.btnDolares.Location = new System.Drawing.Point(1004, 519);
             this.btnDolares.Name = "btnDolares";
-            this.btnDolares.Size = new System.Drawing.Size(125, 70);
+            this.btnDolares.Size = new System.Drawing.Size(125, 59);
             this.btnDolares.TabIndex = 139;
             this.btnDolares.Text = "DOLARES";
             this.btnDolares.UseVisualStyleBackColor = false;
@@ -1303,9 +1278,9 @@
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.DimGray;
-            this.button11.Location = new System.Drawing.Point(1004, 432);
+            this.button11.Location = new System.Drawing.Point(1004, 389);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(125, 70);
+            this.button11.Size = new System.Drawing.Size(125, 59);
             this.button11.TabIndex = 138;
             this.button11.UseVisualStyleBackColor = false;
             // 
@@ -1315,9 +1290,9 @@
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.DimGray;
-            this.button12.Location = new System.Drawing.Point(1004, 356);
+            this.button12.Location = new System.Drawing.Point(1004, 324);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(125, 70);
+            this.button12.Size = new System.Drawing.Size(125, 59);
             this.button12.TabIndex = 137;
             this.button12.UseVisualStyleBackColor = false;
             // 
@@ -1327,9 +1302,9 @@
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.Color.DimGray;
-            this.button13.Location = new System.Drawing.Point(1004, 280);
+            this.button13.Location = new System.Drawing.Point(1004, 259);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(125, 70);
+            this.button13.Size = new System.Drawing.Size(125, 59);
             this.button13.TabIndex = 136;
             this.button13.UseVisualStyleBackColor = false;
             // 
@@ -1339,9 +1314,9 @@
             this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAll.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAll.Location = new System.Drawing.Point(1004, 204);
+            this.btnAll.Location = new System.Drawing.Point(1004, 194);
             this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(125, 70);
+            this.btnAll.Size = new System.Drawing.Size(125, 59);
             this.btnAll.TabIndex = 135;
             this.btnAll.Text = "TODO";
             this.btnAll.UseVisualStyleBackColor = false;
@@ -1353,9 +1328,9 @@
             this.btn50Peso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn50Peso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn50Peso.ForeColor = System.Drawing.Color.DimGray;
-            this.btn50Peso.Location = new System.Drawing.Point(480, 432);
+            this.btn50Peso.Location = new System.Drawing.Point(480, 454);
             this.btn50Peso.Name = "btn50Peso";
-            this.btn50Peso.Size = new System.Drawing.Size(125, 70);
+            this.btn50Peso.Size = new System.Drawing.Size(125, 59);
             this.btn50Peso.TabIndex = 133;
             this.btn50Peso.Text = "50";
             this.btn50Peso.UseVisualStyleBackColor = false;
@@ -1367,9 +1342,9 @@
             this.btn20Peso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn20Peso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn20Peso.ForeColor = System.Drawing.Color.DimGray;
-            this.btn20Peso.Location = new System.Drawing.Point(480, 508);
+            this.btn20Peso.Location = new System.Drawing.Point(480, 519);
             this.btn20Peso.Name = "btn20Peso";
-            this.btn20Peso.Size = new System.Drawing.Size(125, 70);
+            this.btn20Peso.Size = new System.Drawing.Size(125, 59);
             this.btn20Peso.TabIndex = 132;
             this.btn20Peso.Text = "20";
             this.btn20Peso.UseVisualStyleBackColor = false;
@@ -1381,9 +1356,9 @@
             this.btn100Peso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn100Peso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn100Peso.ForeColor = System.Drawing.Color.DimGray;
-            this.btn100Peso.Location = new System.Drawing.Point(480, 356);
+            this.btn100Peso.Location = new System.Drawing.Point(480, 389);
             this.btn100Peso.Name = "btn100Peso";
-            this.btn100Peso.Size = new System.Drawing.Size(125, 70);
+            this.btn100Peso.Size = new System.Drawing.Size(125, 59);
             this.btn100Peso.TabIndex = 131;
             this.btn100Peso.Text = "100";
             this.btn100Peso.UseVisualStyleBackColor = false;
@@ -1395,9 +1370,9 @@
             this.btn200pesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn200pesos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn200pesos.ForeColor = System.Drawing.Color.DimGray;
-            this.btn200pesos.Location = new System.Drawing.Point(480, 280);
+            this.btn200pesos.Location = new System.Drawing.Point(480, 324);
             this.btn200pesos.Name = "btn200pesos";
-            this.btn200pesos.Size = new System.Drawing.Size(125, 70);
+            this.btn200pesos.Size = new System.Drawing.Size(125, 59);
             this.btn200pesos.TabIndex = 130;
             this.btn200pesos.Text = "200";
             this.btn200pesos.UseVisualStyleBackColor = false;
@@ -1409,9 +1384,9 @@
             this.btn500pesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn500pesos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn500pesos.ForeColor = System.Drawing.Color.DimGray;
-            this.btn500pesos.Location = new System.Drawing.Point(480, 204);
+            this.btn500pesos.Location = new System.Drawing.Point(480, 259);
             this.btn500pesos.Name = "btn500pesos";
-            this.btn500pesos.Size = new System.Drawing.Size(125, 70);
+            this.btn500pesos.Size = new System.Drawing.Size(125, 59);
             this.btn500pesos.TabIndex = 129;
             this.btn500pesos.Text = "500";
             this.btn500pesos.UseVisualStyleBackColor = false;
@@ -1424,9 +1399,9 @@
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.Location = new System.Drawing.Point(873, 489);
+            this.btnClear.Location = new System.Drawing.Point(873, 487);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(125, 89);
+            this.btnClear.Size = new System.Drawing.Size(125, 92);
             this.btnClear.TabIndex = 126;
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -1437,9 +1412,9 @@
             this.btnNo9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo9.ForeColor = System.Drawing.Color.White;
-            this.btnNo9.Location = new System.Drawing.Point(873, 393);
+            this.btnNo9.Location = new System.Drawing.Point(873, 390);
             this.btnNo9.Name = "btnNo9";
-            this.btnNo9.Size = new System.Drawing.Size(125, 89);
+            this.btnNo9.Size = new System.Drawing.Size(125, 92);
             this.btnNo9.TabIndex = 125;
             this.btnNo9.Text = "9";
             this.btnNo9.UseVisualStyleBackColor = false;
@@ -1451,9 +1426,9 @@
             this.btnNo6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo6.ForeColor = System.Drawing.Color.White;
-            this.btnNo6.Location = new System.Drawing.Point(873, 298);
+            this.btnNo6.Location = new System.Drawing.Point(873, 293);
             this.btnNo6.Name = "btnNo6";
-            this.btnNo6.Size = new System.Drawing.Size(125, 89);
+            this.btnNo6.Size = new System.Drawing.Size(125, 92);
             this.btnNo6.TabIndex = 124;
             this.btnNo6.Text = "6";
             this.btnNo6.UseVisualStyleBackColor = false;
@@ -1465,9 +1440,9 @@
             this.btnNo3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo3.ForeColor = System.Drawing.Color.White;
-            this.btnNo3.Location = new System.Drawing.Point(873, 203);
+            this.btnNo3.Location = new System.Drawing.Point(873, 195);
             this.btnNo3.Name = "btnNo3";
-            this.btnNo3.Size = new System.Drawing.Size(125, 89);
+            this.btnNo3.Size = new System.Drawing.Size(125, 92);
             this.btnNo3.TabIndex = 123;
             this.btnNo3.Text = "3";
             this.btnNo3.UseVisualStyleBackColor = false;
@@ -1479,9 +1454,9 @@
             this.btnNo0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo0.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo0.ForeColor = System.Drawing.Color.White;
-            this.btnNo0.Location = new System.Drawing.Point(742, 489);
+            this.btnNo0.Location = new System.Drawing.Point(742, 488);
             this.btnNo0.Name = "btnNo0";
-            this.btnNo0.Size = new System.Drawing.Size(125, 89);
+            this.btnNo0.Size = new System.Drawing.Size(125, 92);
             this.btnNo0.TabIndex = 122;
             this.btnNo0.Text = "0";
             this.btnNo0.UseVisualStyleBackColor = false;
@@ -1493,9 +1468,9 @@
             this.btnNo8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo8.ForeColor = System.Drawing.Color.White;
-            this.btnNo8.Location = new System.Drawing.Point(742, 393);
+            this.btnNo8.Location = new System.Drawing.Point(742, 390);
             this.btnNo8.Name = "btnNo8";
-            this.btnNo8.Size = new System.Drawing.Size(125, 89);
+            this.btnNo8.Size = new System.Drawing.Size(125, 92);
             this.btnNo8.TabIndex = 121;
             this.btnNo8.Text = "8";
             this.btnNo8.UseVisualStyleBackColor = false;
@@ -1507,9 +1482,9 @@
             this.btnNo5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo5.ForeColor = System.Drawing.Color.White;
-            this.btnNo5.Location = new System.Drawing.Point(742, 298);
+            this.btnNo5.Location = new System.Drawing.Point(742, 292);
             this.btnNo5.Name = "btnNo5";
-            this.btnNo5.Size = new System.Drawing.Size(125, 89);
+            this.btnNo5.Size = new System.Drawing.Size(125, 92);
             this.btnNo5.TabIndex = 120;
             this.btnNo5.Text = "5";
             this.btnNo5.UseVisualStyleBackColor = false;
@@ -1521,9 +1496,9 @@
             this.btnNo2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo2.ForeColor = System.Drawing.Color.White;
-            this.btnNo2.Location = new System.Drawing.Point(742, 203);
+            this.btnNo2.Location = new System.Drawing.Point(742, 194);
             this.btnNo2.Name = "btnNo2";
-            this.btnNo2.Size = new System.Drawing.Size(125, 89);
+            this.btnNo2.Size = new System.Drawing.Size(125, 92);
             this.btnNo2.TabIndex = 119;
             this.btnNo2.Text = "2";
             this.btnNo2.UseVisualStyleBackColor = false;
@@ -1535,9 +1510,9 @@
             this.btnPuntoPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPuntoPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPuntoPagar.ForeColor = System.Drawing.Color.White;
-            this.btnPuntoPagar.Location = new System.Drawing.Point(611, 489);
+            this.btnPuntoPagar.Location = new System.Drawing.Point(611, 488);
             this.btnPuntoPagar.Name = "btnPuntoPagar";
-            this.btnPuntoPagar.Size = new System.Drawing.Size(125, 89);
+            this.btnPuntoPagar.Size = new System.Drawing.Size(125, 92);
             this.btnPuntoPagar.TabIndex = 118;
             this.btnPuntoPagar.Text = ".";
             this.btnPuntoPagar.UseVisualStyleBackColor = false;
@@ -1549,9 +1524,9 @@
             this.btnNo7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo7.ForeColor = System.Drawing.Color.White;
-            this.btnNo7.Location = new System.Drawing.Point(611, 394);
+            this.btnNo7.Location = new System.Drawing.Point(611, 390);
             this.btnNo7.Name = "btnNo7";
-            this.btnNo7.Size = new System.Drawing.Size(125, 89);
+            this.btnNo7.Size = new System.Drawing.Size(125, 92);
             this.btnNo7.TabIndex = 117;
             this.btnNo7.Text = "7";
             this.btnNo7.UseVisualStyleBackColor = false;
@@ -1563,9 +1538,9 @@
             this.btnNo4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo4.ForeColor = System.Drawing.Color.White;
-            this.btnNo4.Location = new System.Drawing.Point(611, 299);
+            this.btnNo4.Location = new System.Drawing.Point(611, 292);
             this.btnNo4.Name = "btnNo4";
-            this.btnNo4.Size = new System.Drawing.Size(125, 89);
+            this.btnNo4.Size = new System.Drawing.Size(125, 92);
             this.btnNo4.TabIndex = 116;
             this.btnNo4.Text = "4";
             this.btnNo4.UseVisualStyleBackColor = false;
@@ -1578,13 +1553,69 @@
             this.btnNo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo1.ForeColor = System.Drawing.Color.White;
             this.btnNo1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnNo1.Location = new System.Drawing.Point(611, 204);
+            this.btnNo1.Location = new System.Drawing.Point(611, 194);
             this.btnNo1.Name = "btnNo1";
-            this.btnNo1.Size = new System.Drawing.Size(125, 89);
+            this.btnNo1.Size = new System.Drawing.Size(125, 92);
             this.btnNo1.TabIndex = 115;
             this.btnNo1.Text = "1";
             this.btnNo1.UseVisualStyleBackColor = false;
             this.btnNo1.Click += new System.EventHandler(this.btnNo1_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.DimGray;
+            this.button3.Location = new System.Drawing.Point(480, 586);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(192, 68);
+            this.button3.TabIndex = 168;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.DimGray;
+            this.button4.Location = new System.Drawing.Point(1004, 454);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(125, 59);
+            this.button4.TabIndex = 169;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // pnlCambio
+            // 
+            this.pnlCambio.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlCambio.Controls.Add(this.lblCambio);
+            this.pnlCambio.Controls.Add(this.label8);
+            this.pnlCambio.Location = new System.Drawing.Point(480, 22);
+            this.pnlCambio.Name = "pnlCambio";
+            this.pnlCambio.Size = new System.Drawing.Size(649, 166);
+            this.pnlCambio.TabIndex = 156;
+            this.pnlCambio.Visible = false;
+            // 
+            // lblCambio
+            // 
+            this.lblCambio.Enabled = false;
+            this.lblCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCambio.Location = new System.Drawing.Point(151, 30);
+            this.lblCambio.Name = "lblCambio";
+            this.lblCambio.Size = new System.Drawing.Size(495, 44);
+            this.lblCambio.TabIndex = 163;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DarkRed;
+            this.label8.Location = new System.Drawing.Point(3, 33);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(142, 37);
+            this.label8.TabIndex = 149;
+            this.label8.Text = "CAMBIO";
             // 
             // FrmDetalleVentasOneToOne
             // 
@@ -1621,9 +1652,9 @@
             this.pnlPagar.PerformLayout();
             this.pnlDetalleMinimo.ResumeLayout(false);
             this.pnlDetalleMinimo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleProductos)).EndInit();
             this.pnlCambio.ResumeLayout(false);
             this.pnlCambio.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1664,8 +1695,6 @@
         private System.Windows.Forms.Label lblNumVenta;
         private System.Windows.Forms.Panel pnlPagar;
         private System.Windows.Forms.Label lblCliente;
-        private System.Windows.Forms.Panel pnlCambio;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgvDetalleProductos;
         private System.Windows.Forms.Button btnPagarCancelar;
         private System.Windows.Forms.Button btn;
@@ -1695,7 +1724,7 @@
         private System.Windows.Forms.Button btnNo7;
         private System.Windows.Forms.Button btnNo4;
         private System.Windows.Forms.Button btnNo1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn1000pesos;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnFactura;
         private System.Windows.Forms.Button btn500pesos;
@@ -1741,6 +1770,10 @@
         private System.Windows.Forms.TextBox lblTotalDolares;
         private System.Windows.Forms.Label lbltotaldolarestexto;
         private System.Windows.Forms.TextBox lblTotal2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel pnlCambio;
         private System.Windows.Forms.TextBox lblCambio;
+        private System.Windows.Forms.Label label8;
     }
 }

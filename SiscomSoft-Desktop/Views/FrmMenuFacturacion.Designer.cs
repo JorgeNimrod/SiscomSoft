@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuFacturacion));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
@@ -339,7 +339,6 @@
             // 
             // pnlCreateFactura
             // 
-            this.pnlCreateFactura.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCreateFactura.Controls.Add(this.groupBox2);
             this.pnlCreateFactura.Controls.Add(this.groupBox1);
             this.pnlCreateFactura.Controls.Add(this.gbDetalleFactura);
@@ -392,18 +391,21 @@
             this.txtFolio.Location = new System.Drawing.Point(235, 41);
             this.txtFolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFolio.Name = "txtFolio";
+            this.txtFolio.ReadOnly = true;
             this.txtFolio.Size = new System.Drawing.Size(103, 24);
             this.txtFolio.TabIndex = 85;
             // 
             // cmbSucursal
             // 
+            this.cmbSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSucursal.DropDownWidth = 300;
             this.cmbSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSucursal.FormattingEnabled = true;
             this.cmbSucursal.Location = new System.Drawing.Point(7, 41);
             this.cmbSucursal.Name = "cmbSucursal";
             this.cmbSucursal.Size = new System.Drawing.Size(222, 24);
             this.cmbSucursal.TabIndex = 27;
-            this.cmbSucursal.Text = "Seleccione una opción";
+            this.cmbSucursal.SelectedIndexChanged += new System.EventHandler(this.cmbSucursal_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -479,6 +481,8 @@
             // 
             // cmbTipoDeComprobante
             // 
+            this.cmbTipoDeComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoDeComprobante.DropDownWidth = 133;
             this.cmbTipoDeComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoDeComprobante.FormattingEnabled = true;
             this.cmbTipoDeComprobante.Items.AddRange(new object[] {
@@ -491,7 +495,6 @@
             this.cmbTipoDeComprobante.Name = "cmbTipoDeComprobante";
             this.cmbTipoDeComprobante.Size = new System.Drawing.Size(133, 24);
             this.cmbTipoDeComprobante.TabIndex = 9;
-            this.cmbTipoDeComprobante.Text = "Seleccione una opción";
             // 
             // cmbFormaDePago
             // 
@@ -499,8 +502,9 @@
             "PUE",
             "PPD",
             "PIP"});
-            this.cmbFormaDePago.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbFormaDePago.DisplayMember = "PUE";
+            this.cmbFormaDePago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFormaDePago.DropDownWidth = 250;
             this.cmbFormaDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFormaDePago.FormattingEnabled = true;
             this.cmbFormaDePago.Items.AddRange(new object[] {
@@ -528,7 +532,6 @@
             this.cmbFormaDePago.Name = "cmbFormaDePago";
             this.cmbFormaDePago.Size = new System.Drawing.Size(153, 24);
             this.cmbFormaDePago.TabIndex = 7;
-            this.cmbFormaDePago.Text = "Seleccione una opción";
             this.cmbFormaDePago.ValueMember = "PUE";
             // 
             // label5
@@ -547,8 +550,9 @@
             "PUE",
             "PPD",
             "PIP"});
-            this.cmbMetodoDePago.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbMetodoDePago.DisplayMember = "PUE";
+            this.cmbMetodoDePago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMetodoDePago.DropDownWidth = 154;
             this.cmbMetodoDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMetodoDePago.FormattingEnabled = true;
             this.cmbMetodoDePago.Items.AddRange(new object[] {
@@ -559,7 +563,6 @@
             this.cmbMetodoDePago.Name = "cmbMetodoDePago";
             this.cmbMetodoDePago.Size = new System.Drawing.Size(154, 24);
             this.cmbMetodoDePago.TabIndex = 8;
-            this.cmbMetodoDePago.Text = "Seleccione una opción";
             this.cmbMetodoDePago.ValueMember = "PUE";
             // 
             // cmbUsoCFDI
@@ -568,8 +571,9 @@
             "PUE",
             "PPD",
             "PIP"});
-            this.cmbUsoCFDI.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbUsoCFDI.DisplayMember = "PUE";
+            this.cmbUsoCFDI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUsoCFDI.DropDownWidth = 700;
             this.cmbUsoCFDI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUsoCFDI.FormattingEnabled = true;
             this.cmbUsoCFDI.Items.AddRange(new object[] {
@@ -601,7 +605,6 @@
             this.cmbUsoCFDI.Name = "cmbUsoCFDI";
             this.cmbUsoCFDI.Size = new System.Drawing.Size(121, 24);
             this.cmbUsoCFDI.TabIndex = 6;
-            this.cmbUsoCFDI.Text = "Seleccione una opción";
             this.cmbUsoCFDI.ValueMember = "PUE";
             // 
             // label2
@@ -616,16 +619,16 @@
             // 
             // cmbMoneda
             // 
+            this.cmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMoneda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMoneda.FormattingEnabled = true;
             this.cmbMoneda.Items.AddRange(new object[] {
-            "PESOS",
-            "DOLARES"});
+            "MXN",
+            "USD"});
             this.cmbMoneda.Location = new System.Drawing.Point(317, 100);
             this.cmbMoneda.Name = "cmbMoneda";
             this.cmbMoneda.Size = new System.Drawing.Size(130, 24);
             this.cmbMoneda.TabIndex = 5;
-            this.cmbMoneda.Text = "Seleccione una opción";
             // 
             // label4
             // 
@@ -900,7 +903,7 @@
             // lblTotal
             // 
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(992, 301);
+            this.lblTotal.Location = new System.Drawing.Point(992, 236);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblTotal.Size = new System.Drawing.Size(166, 18);
@@ -911,7 +914,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(911, 299);
+            this.label14.Location = new System.Drawing.Point(911, 234);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(37, 15);
             this.label14.TabIndex = 75;
@@ -942,8 +945,8 @@
             this.dgvProductos.AllowUserToDeleteRows = false;
             this.dgvProductos.AllowUserToResizeColumns = false;
             this.dgvProductos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProductos.BackgroundColor = System.Drawing.Color.White;
             this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -974,8 +977,8 @@
             // 
             // pkProductos
             // 
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.pkProductos.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.pkProductos.DefaultCellStyle = dataGridViewCellStyle2;
             this.pkProductos.HeaderText = "No.";
             this.pkProductos.Name = "pkProductos";
             this.pkProductos.ReadOnly = true;
@@ -983,27 +986,27 @@
             // 
             // sClaveProd
             // 
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            this.sClaveProd.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.sClaveProd.DefaultCellStyle = dataGridViewCellStyle3;
             this.sClaveProd.HeaderText = "CLAVE";
             this.sClaveProd.Name = "sClaveProd";
             this.sClaveProd.ReadOnly = true;
             // 
             // sDescripcion
             // 
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle4;
             this.sDescripcion.HeaderText = "DESCRIPCION";
             this.sDescripcion.Name = "sDescripcion";
             this.sDescripcion.ReadOnly = true;
-            this.sDescripcion.Width = 300;
+            this.sDescripcion.Width = 400;
             // 
             // sMarca
             // 
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sMarca.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sMarca.DefaultCellStyle = dataGridViewCellStyle5;
             this.sMarca.HeaderText = "MARCA";
             this.sMarca.Name = "sMarca";
             this.sMarca.ReadOnly = true;
@@ -1011,53 +1014,54 @@
             // 
             // sUnidadMed
             // 
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sUnidadMed.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sUnidadMed.DefaultCellStyle = dataGridViewCellStyle6;
             this.sUnidadMed.HeaderText = "UDM";
             this.sUnidadMed.Name = "sUnidadMed";
             this.sUnidadMed.ReadOnly = true;
-            this.sUnidadMed.Width = 80;
             // 
             // dCosto
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "N2";
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dCosto.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dCosto.DefaultCellStyle = dataGridViewCellStyle7;
             this.dCosto.HeaderText = "COSTO";
             this.dCosto.Name = "dCosto";
             this.dCosto.ReadOnly = true;
+            this.dCosto.Width = 131;
             // 
             // sCantidad
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.NullValue = null;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sCantidad.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.NullValue = null;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sCantidad.DefaultCellStyle = dataGridViewCellStyle8;
             this.sCantidad.HeaderText = "CANTIDAD";
             this.sCantidad.Name = "sCantidad";
             this.sCantidad.ReadOnly = true;
             // 
             // sTotal
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "N2";
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sTotal.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sTotal.DefaultCellStyle = dataGridViewCellStyle9;
             this.sTotal.HeaderText = "IMPORTE";
             this.sTotal.Name = "sTotal";
             this.sTotal.ReadOnly = true;
+            this.sTotal.Width = 150;
             // 
             // btnBuscarProductos
             // 
             this.btnBuscarProductos.BackColor = System.Drawing.Color.DarkCyan;
             this.btnBuscarProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarProductos.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarProductos.Location = new System.Drawing.Point(1083, 12);
+            this.btnBuscarProductos.Location = new System.Drawing.Point(1046, 12);
             this.btnBuscarProductos.Name = "btnBuscarProductos";
-            this.btnBuscarProductos.Size = new System.Drawing.Size(75, 27);
+            this.btnBuscarProductos.Size = new System.Drawing.Size(112, 27);
             this.btnBuscarProductos.TabIndex = 10;
-            this.btnBuscarProductos.Text = "Buscar";
+            this.btnBuscarProductos.Text = "BUSCAR";
             this.btnBuscarProductos.UseVisualStyleBackColor = false;
             this.btnBuscarProductos.Click += new System.EventHandler(this.btnBuscarProductos_Click);
             // 
@@ -1152,7 +1156,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1378, 780);
+            this.ClientSize = new System.Drawing.Size(1370, 772);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnMenuPrincipal);
             this.Controls.Add(this.pnlCreateFactura);
@@ -1245,14 +1249,6 @@
         private System.Windows.Forms.Label lblSubTotal;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sUnidadMed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTotal;
         private System.Windows.Forms.Label lblIVA4;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label lblIVA11;
@@ -1268,5 +1264,13 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sUnidadMed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTotal;
     }
 }

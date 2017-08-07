@@ -47,7 +47,7 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static void RegistrarNuevaVenta(Venta nVenta, Cliente nCliente, Factura nFactura)
+        public static void RegistrarNuevaVenta(Venta nVenta, Cliente nCliente, Factura nFactura, Usuario nUsuario)
         {
             try
             {
@@ -55,6 +55,7 @@ namespace SiscomSoft.Controller
                 {
                     nVenta.fkCliente = nCliente;
                     nVenta.fkFactura = nFactura;
+                    nVenta.fkUsuario = nUsuario;
                     if (nCliente != null)
                     {
                         ctx.Clientes.Attach(nCliente);
@@ -63,8 +64,25 @@ namespace SiscomSoft.Controller
                     {
                         ctx.Facturas.Attach(nFactura);
                     }
+                    ctx.Usuarios.Attach(nUsuario);
                     ctx.Ventas.Add(nVenta);
                     ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static int getVentasCount()
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Ventas.Count();
                 }
             }
             catch (Exception)

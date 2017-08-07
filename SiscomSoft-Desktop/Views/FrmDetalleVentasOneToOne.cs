@@ -45,8 +45,7 @@ namespace SiscomSoft_Desktop.Views
 
         public void numeroVenta()
         {
-            List<Venta> nVenta = ManejoVenta.getAll();
-            lblNumVenta.Text = "#" + nVenta.Count.ToString();
+            lblNumVenta.Text = "#" + ManejoVenta.getVentasCount();
         }
 
         private void FrmDetalleVentasOneToOne_Load(object sender, EventArgs e)
@@ -333,6 +332,7 @@ namespace SiscomSoft_Desktop.Views
                     lblCliente.Text = lblNomCliente.Text;
                     pnlDetalleVenta.Visible = false;
                     pnlPagar.Visible = true;
+                    lblMonto.Focus();
                 }
             }
         }
@@ -841,7 +841,10 @@ namespace SiscomSoft_Desktop.Views
         {
             pesos = true;
             noBilletes += 500;
-            noBilletes += Convert.ToDecimal(lblMonto.Text);
+            if (lblMonto.Text != "")
+            {
+                noBilletes += Convert.ToDecimal(lblMonto.Text);
+            }
             lblMonto.Text = noBilletes.ToString("N");
             noBilletes = 0;
 
@@ -855,7 +858,10 @@ namespace SiscomSoft_Desktop.Views
         {
             pesos = true;
             noBilletes += 200;
-            noBilletes += Convert.ToDecimal(lblMonto.Text);
+            if (lblMonto.Text != "")
+            {
+                noBilletes += Convert.ToDecimal(lblMonto.Text);
+            }
             lblMonto.Text = noBilletes.ToString("N");
             noBilletes = 0;
 
@@ -869,7 +875,10 @@ namespace SiscomSoft_Desktop.Views
         {
             pesos = true;
             noBilletes += 100;
-            noBilletes += Convert.ToDecimal(lblMonto.Text);
+            if (lblMonto.Text != "")
+            {
+                noBilletes += Convert.ToDecimal(lblMonto.Text);
+            }
             lblMonto.Text = noBilletes.ToString("N");
             noBilletes = 0;
 
@@ -883,7 +892,10 @@ namespace SiscomSoft_Desktop.Views
         {
             pesos = true;
             noBilletes += 50;
-            noBilletes += Convert.ToDecimal(lblMonto.Text);
+            if (lblMonto.Text != "")
+            {
+                noBilletes += Convert.ToDecimal(lblMonto.Text);
+            }
             lblMonto.Text = noBilletes.ToString("N");
             noBilletes = 0;
 
@@ -897,7 +909,10 @@ namespace SiscomSoft_Desktop.Views
         {
             pesos = true;
             noBilletes += 20;
-            noBilletes += Convert.ToDecimal(lblMonto.Text);
+            if (lblMonto.Text != "")
+            {
+                noBilletes += Convert.ToDecimal(lblMonto.Text);
+            }
             lblMonto.Text = noBilletes.ToString("N");
             noBilletes = 0;
 
@@ -906,7 +921,22 @@ namespace SiscomSoft_Desktop.Views
             btnVouncher.Enabled = true;
             btn.Enabled = true;
         }
+        private void btn1000pesos_Click(object sender, EventArgs e)
+        {
+            pesos = true;
+            noBilletes += 1000;
+            if (lblMonto.Text != "")
+            {
+                noBilletes += Convert.ToDecimal(lblMonto.Text);
+            }
+            lblMonto.Text = noBilletes.ToString("N");
+            noBilletes = 0;
 
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnVouncher.Enabled = true;
+            btn.Enabled = true;
+        }
         #endregion
 
         #region BOTONES NUMERICOS DINERO
@@ -1228,7 +1258,7 @@ namespace SiscomSoft_Desktop.Views
             lblMonto.Text = "";
             decimal TotalPesos = Convert.ToDecimal(lblTotal2.Text);
             decimal TotalDolar = 0;
-            decimal TipoCambio = Convert.ToDecimal(17.6943); //  Convert.ToDecimal(FrmMenu.uHelper.usuario.fkSucursal.sTipoCambio);
+            decimal TipoCambio = Convert.ToDecimal(FrmMenu.uHelper.usuario.fkSucursal.sTipoCambio);
             if (dolar != true)
             {
                 TotalDolar = (TotalPesos * 1) / TipoCambio;
@@ -1253,7 +1283,7 @@ namespace SiscomSoft_Desktop.Views
         #region BOTONES METODOS DE PAGO
         private void btnPagarCancelar_Click(object sender, EventArgs e)
         {
-            if (lblMonto.Text == "0")
+            if (lblMonto.Text == "")
             {
                 dgvDetalleProductos.Rows.Clear();
                 pnlPagar.Visible = false;
@@ -1288,7 +1318,7 @@ namespace SiscomSoft_Desktop.Views
 
                 btnFactura.Enabled = true;
                 button2.Enabled = true;
-                button4.Enabled = true;
+                btn1000pesos.Enabled = true;
                 btnDolares.Enabled = true;
                 button11.Enabled = true;
                 button12.Enabled = true;
@@ -1296,6 +1326,9 @@ namespace SiscomSoft_Desktop.Views
 
                 lblCambio.Text = "0";
                 pnlCambio.Visible = false;
+
+                dgvDetalleProductos.Height = 632;
+                pnlDetalleMinimo.Visible = false;
 
                 dolar = false;
             }
@@ -1315,7 +1348,7 @@ namespace SiscomSoft_Desktop.Views
                 if (faltaDolar > 0)
                 {
                     lblTotalDolares.Text = faltaDolar.ToString();
-                    lblMonto.Text = "0";
+                    lblMonto.Text = "";
                     btnEfectivo.Enabled = false;
                     btnCredito.Enabled = false;
                     btnVouncher.Enabled = false;
@@ -1355,7 +1388,7 @@ namespace SiscomSoft_Desktop.Views
 
                         btnFactura.Enabled = false;
                         button2.Enabled = false;
-                        button4.Enabled = false;
+                        btn1000pesos.Enabled = false;
                         btnDolares.Enabled = false;
                         button11.Enabled = false;
                         button12.Enabled = false;
@@ -1397,7 +1430,7 @@ namespace SiscomSoft_Desktop.Views
                 if (falta > 0)
                 {
                     lblTotal2.Text = falta.ToString();
-                    lblMonto.Text = "0";
+                    lblMonto.Text = "";
                     pnlDetalleMinimo.Visible = true;
                     lblImporte.Text = total.ToString();
                     lblMontoRecibido.Text = monto.ToString();
@@ -1448,7 +1481,7 @@ namespace SiscomSoft_Desktop.Views
 
                         btnFactura.Enabled = false;
                         button2.Enabled = false;
-                        button4.Enabled = false;
+                        btn1000pesos.Enabled = false;
                         btnDolares.Enabled = false;
                         button11.Enabled = false;
                         button12.Enabled = false;
@@ -1482,6 +1515,8 @@ namespace SiscomSoft_Desktop.Views
             Venta mVenta = new Venta();
             DetalleVenta mDetalle = new DetalleVenta();
             Periodo mPeriodo = ManejoPeriodo.getByUser(FrmMenu.uHelper.usuario.pkUsuario);
+            int n = ManejoVenta.getVentasCount() + 1;
+            mVenta.sFolio = "V" + n;
             if (lblCambio.Text=="")
             {
                 mVenta.dCambio = 0;
@@ -1499,7 +1534,9 @@ namespace SiscomSoft_Desktop.Views
                 mVenta.sMoneda = "MXM";
             }
             mVenta.sTipoPago = "EFECTIVO";
-            ManejoVenta.RegistrarNuevaVenta(mVenta, mCliente, mFactura);
+            mVenta.iCaja = Convert.ToInt32(mPeriodo.sCaja);
+            mVenta.iTurno = mPeriodo.iTurno;
+            ManejoVenta.RegistrarNuevaVenta(mVenta, mCliente, mFactura, FrmMenu.uHelper.usuario);
             foreach (DataGridViewRow row in dgvDetalleProductos.Rows)
             {
                 if (!row.IsNewRow)
@@ -1509,6 +1546,15 @@ namespace SiscomSoft_Desktop.Views
                     mDetalle.sDescripcion = row.Cells[2].Value.ToString();
                     mDetalle.dPreUnitario = Convert.ToDecimal(row.Cells[4].Value);
                     ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalle, mProducto, mVenta);
+
+                    Inventario mInventario = ManejoInventario.getProductoByInventario(mProducto.pkProducto);
+                    if (mInventario.dExistencia > 0)
+                    {
+                        decimal subtotal = 0;
+                        subtotal = mInventario.dExistencia - mDetalle.dCantidad;
+                        mInventario.dExistencia = subtotal;
+                        ManejoInventario.Modificar(mInventario, mProducto.pkProducto, FrmMenu.uHelper.usuario.pkUsuario);
+                    }
                 }
             }
 
@@ -1523,7 +1569,7 @@ namespace SiscomSoft_Desktop.Views
 
             noPagar = 0;
             noCantidad = "";
-            lblMonto.Text = "0";
+            lblMonto.Text = "";
             lblSubTotal.Text = "$0";
             btnEfectivo.Enabled = false;
             btnCredito.Enabled = false;
@@ -1537,12 +1583,6 @@ namespace SiscomSoft_Desktop.Views
             numeroVenta();
         }
         #endregion
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            txtCantidad.Text = "";
-            punto = true;
-        }
 
     }
 }

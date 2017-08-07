@@ -21,6 +21,7 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmMenuFacturacion : Form
     {
+        #region VARIABLES
         string strSello = string.Empty;
         decimal SubTotal = 0;
         decimal DESCUENTO = 0;
@@ -31,6 +32,7 @@ namespace SiscomSoft_Desktop.Views
         decimal IEPS53 = 0;
         decimal IEPS30 = 0;
         decimal IEPS26 = 0;
+        #endregion
 
         public FrmMenuFacturacion()
         {
@@ -38,6 +40,7 @@ namespace SiscomSoft_Desktop.Views
             this.dgvProductos.AutoGenerateColumns = false;
         }
 
+        #region FUNCTION
         public void cargarSucursales()
         {
             cmbSucursal.DataSource = ManejoSucursal.getAll(1);
@@ -75,9 +78,9 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        public void cargarDetalleFactura()
+        public void cargarDetalleFactura(int pk)
         {
-            Producto nProducto = ManejoProducto.getById(FrmLookingForProducts.PKPRODUCTO);
+            Producto nProducto = ManejoProducto.getById(pk);
             if (nProducto != null)
             {
                 DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
@@ -186,14 +189,14 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        public void cargarCaliente()
+        public void cargarCaliente(int pk)
         {
-            Cliente nCliente = ManejoCliente.getById(FrmLookingForCustoms.PKCLIENTE);
+            Cliente nCliente = ManejoCliente.getById(pk);
             this.txtRFC.Text = nCliente.sRfc;
             this.txtNombre.Text = nCliente.sNombre;
             this.txtDireccion.Text = nCliente.sCalle;
             this.txtTelefono.Text = nCliente.sTelMovil;
-            this.cmbFormaDePago.SelectedIndex = Convert.ToInt16(nCliente.sTipoPago)-1;
+            this.cmbFormaDePago.SelectedIndex = Convert.ToInt16(nCliente.sTipoPago) - 1;
             this.txtCondicionesDePago.Text = nCliente.sConPago;
         }
 
@@ -212,8 +215,8 @@ namespace SiscomSoft_Desktop.Views
             #region Datos Generales
             cfdi.Version = "3.3";
             //TODO: Poner la serie y el folio.
-            cfdi.Serie = "FA";
-            cfdi.Folio = "458795";
+            cfdi.Serie = "F";
+            cfdi.Folio = txtFolio.Text;
             cfdi.Fecha = DateTime.Now;
 
             //No se muestra
@@ -320,7 +323,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 cfdi.Moneda = c_Moneda.USD;
                 //TODO: Poner el tipo de cambio para dolar, pesos y asi.
-                cfdi.TipoCambio = Convert.ToDecimal("17.8637");
+                cfdi.TipoCambio = Convert.ToDecimal(nSucursal.sTipoCambio);
             }
             #endregion
 
@@ -370,7 +373,7 @@ namespace SiscomSoft_Desktop.Views
             //TOTO: Terminar la parte del codigo postal
             if (nSucursal.iCodPostal == 1)
             {
-                cfdi.LugarExpedicion = c_CodigoPostal.Item83220;
+                cfdi.LugarExpedicion = nSucursal.iCodPostal.ToString();
             }
             #endregion
 
@@ -390,11 +393,8 @@ namespace SiscomSoft_Desktop.Views
 
             #region Datos del Emisor
             cfdi.Emisor = new ComprobanteEmisor();
-            //TODO: Poner el rfc y el nombre del vendedor que este logeado.
-            //FrmMenu.uHelper.usuario.sRfc
-            cfdi.Emisor.Rfc = "1515155151";
-            cfdi.Emisor.Nombre = "Nombre";
-            //FrmMenu.uHelper.usuario.sNombre;
+            cfdi.Emisor.Rfc = FrmMenu.uHelper.usuario.sRfc;
+            cfdi.Emisor.Nombre = FrmMenu.uHelper.usuario.sNombre;
 
             #region RegimenFiscal
             //TODO: Terminar el regimen fiscal: el regimen fiscal se sacara de la tabla de empresa.
@@ -485,6 +485,8 @@ namespace SiscomSoft_Desktop.Views
             #endregion
 
             #endregion
+
+
 
             #region Datos del Receptor
             cfdi.Receptor = new ComprobanteReceptor();
@@ -593,18 +595,18 @@ namespace SiscomSoft_Desktop.Views
                 cfdi.Conceptos[i].ClaveProdServ = c_ClaveProdServ.Item01010101;
                 cfdi.Conceptos[i].Cantidad = Convert.ToInt32(this.dgvProductos.CurrentRow.Cells[6].Value);
                 cfdi.Conceptos[i].ClaveUnidad = c_ClaveUnidad.KGM;
-                cfdi.Conceptos[i].Unidad = "KILO";
-                cfdi.Conceptos[i].Descripcion = this.dgvProductos.CurrentRow.Cells[1].Value.ToString(); ;
+                cfdi.Conceptos[i].Unidad = dgvProductos.CurrentRow.Cells[4].Value.ToString();
+                cfdi.Conceptos[i].Descripcion = this.dgvProductos.CurrentRow.Cells[2].Value.ToString(); ;
                 cfdi.Conceptos[i].ValorUnitario = Convert.ToDecimal(this.dgvProductos.CurrentRow.Cells[5].Value);
-                cfdi.Conceptos[i].Importe = Convert.ToDecimal(this.dgvProductos.CurrentRow.Cells[8].Value);
+                cfdi.Conceptos[i].Importe = Convert.ToDecimal(this.dgvProductos.CurrentRow.Cells[7].Value);
             }
             #endregion
-
-
+            
             //Nose qp aun
             #region Impuestos
             //cfdi.Impuestos = new ComprobanteImpuestos();
             //cfdi.Impuestos.TotalImpuestosTrasladados = Convert.ToDecimal(3);
+            //cfdi.Impuestos.TotalImpuestosRetenidos = 
 
             #region Impuestos Traslados
             //cfdi.Impuestos.Traslados = new ComprobanteImpuestosTraslado[1];
@@ -618,9 +620,8 @@ namespace SiscomSoft_Desktop.Views
 
             //Nose qp aun
             #region Complemento
-            // cfdi.Complemento = new ComprobanteComplemento();
+            //cfdi.Complemento = new ComprobanteComplemento();
             #endregion
-
 
             #region Creas los namespaces requeridos
             XmlSerializerNamespaces xmlNameSpace = new XmlSerializerNamespaces();
@@ -686,6 +687,13 @@ namespace SiscomSoft_Desktop.Views
             strSello = Convert.ToBase64String(bytesFirmados);  // Y aquí está el sello
         }
 
+        public void folios()
+        {
+            int n = ManejoFacturacion.getBillCount() + 1;
+            txtFolio.Text = "F" + n;
+        }
+        #endregion
+
         #region Botones estorbosos
         private void btnBussines_Click(object sender, EventArgs e)
         {
@@ -728,7 +736,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnBuscarProductos_Click(object sender, EventArgs e)
         {
-            FrmLookingForProducts v = new FrmLookingForProducts(this);
+            FrmBuscarProductos v = new FrmBuscarProductos(this);
             v.ShowDialog();
         }
 
@@ -739,7 +747,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmLookingForCustoms v = new FrmLookingForCustoms(this);
+            FrmBuscarCiente v = new FrmBuscarCiente(this);
             v.ShowDialog();
         }
 
@@ -764,11 +772,22 @@ namespace SiscomSoft_Desktop.Views
         {
             timer1.Start();
             cargarSucursales();
+            folios();
+            cmbFormaDePago.SelectedIndex = 0;
+            cmbMetodoDePago.SelectedIndex = 0;
+            cmbMoneda.SelectedIndex = 0;
+            cmbTipoDeComprobante.SelectedIndex = 0;
+            cmbUsoCFDI.SelectedIndex = 0;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+        }
+
+        private void cmbSucursal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 } 

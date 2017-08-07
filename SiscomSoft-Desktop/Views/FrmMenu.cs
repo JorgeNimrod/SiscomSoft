@@ -17,7 +17,6 @@ namespace SiscomSoft_Desktop.Views
     public partial class FrmMenu : Form
     {
         public static UsuarioHelper uHelper;
-        public static List<InventarioEntrada> nVenta;
         public FrmMenu()
         {
             InitializeComponent();
