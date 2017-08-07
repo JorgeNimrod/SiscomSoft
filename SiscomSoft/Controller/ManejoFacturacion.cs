@@ -25,5 +25,25 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        public static List<DetalleFacturacion> getDetalleByBill(int pkFactura)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    var a = ctx.DetalleFacturacion.Where(r => r.fkFactura.pkFactura == pkFactura && r.bStatus == true).ToList();
+
+                    return a;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
     }
 }

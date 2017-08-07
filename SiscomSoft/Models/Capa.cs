@@ -28,8 +28,6 @@ namespace SiscomSoft.Models
         public DateTime dtFechaCaducidad { get; set; }
 
         public DateTime dtFechaFabricacion { get; set; }
-
-
     }
 }
  

@@ -20,11 +20,8 @@ namespace SiscomSoft.Models
 
         public String sNumFactura { get; set; }
        
-       public string sMoneda { get; set; }
-
-        public string sDescripcion { get; set; }
-
-
+        public string sMoneda { get; set; }
+        
         public decimal dTipoCambio { get; set; }
         public string sTipoCompra { get; set; }
 
@@ -36,6 +33,7 @@ namespace SiscomSoft.Models
 
         public ICollection<DetalleAlmacen> DetalleAlmacen { get; set; }
 
+        public ICollection<Existencia> Existencias { get; set; }
 
         public Almacen()
         {
