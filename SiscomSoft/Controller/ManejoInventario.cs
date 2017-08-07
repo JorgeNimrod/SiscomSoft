@@ -49,5 +49,22 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        public static Inventario getProductoByInventario(int pk)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Inventarios.Include("fkProducto")
+                        .Where(r => r.fkProducto.pkProducto == pk).FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -1258,7 +1258,7 @@ namespace SiscomSoft_Desktop.Views
             lblMonto.Text = "";
             decimal TotalPesos = Convert.ToDecimal(lblTotal2.Text);
             decimal TotalDolar = 0;
-            decimal TipoCambio = Convert.ToDecimal(17.6943); //  Convert.ToDecimal(FrmMenu.uHelper.usuario.fkSucursal.sTipoCambio);
+            decimal TipoCambio = Convert.ToDecimal(FrmMenu.uHelper.usuario.fkSucursal.sTipoCambio);
             if (dolar != true)
             {
                 TotalDolar = (TotalPesos * 1) / TipoCambio;
@@ -1546,6 +1546,12 @@ namespace SiscomSoft_Desktop.Views
                     mDetalle.sDescripcion = row.Cells[2].Value.ToString();
                     mDetalle.dPreUnitario = Convert.ToDecimal(row.Cells[4].Value);
                     ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalle, mProducto, mVenta);
+
+                    Inventario mInventario = ManejoInventario.getProductoByInventario(mProducto.pkProducto);
+                    decimal subtotal = 0;
+                    decimal cantidad = mInventario.;
+
+                    mInventario.dExistencia = subtotal;
                 }
             }
 

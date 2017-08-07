@@ -60,7 +60,21 @@
   <ItemGroup>
     <Compile Include="Comun\LoginTool.cs" />
     <Compile Include="Comun\ToolImagen.cs" />
+    <Compile Include="Controller\Catalogos\ClaveProdServ.cs" />
+    <Compile Include="Controller\Catalogos\ClaveUnidad.cs" />
+    <Compile Include="Controller\Catalogos\FormaPago.cs" />
+    <Compile Include="Controller\Catalogos\Impuesto.cs" />
+    <Compile Include="Controller\Catalogos\MetodoPago.cs" />
+    <Compile Include="Controller\Catalogos\Moneda.cs" />
+    <Compile Include="Controller\Catalogos\Pais.cs" />
+    <Compile Include="Controller\Catalogos\RegimenFiscal.cs" />
+    <Compile Include="Controller\Catalogos\TipoComprobante.cs" />
+    <Compile Include="Controller\Catalogos\TipoFactor.cs" />
+    <Compile Include="Controller\Catalogos\TipoRelacion.cs" />
+    <Compile Include="Controller\Catalogos\UsoCFDI.cs" />
+    <Compile Include="Controller\ManejoCFDIv33.cs" />
     <Compile Include="Controller\ManejoDescuento.cs" />
+    <Compile Include="Controller\ManejoFacturacion.cs" />
     <Compile Include="Controller\ManejoInventario.cs" />
     <Compile Include="Controller\ManejoAlmacen.cs" />
     <Compile Include="Controller\ManejoDescuentoProducto.cs" />
@@ -69,19 +83,17 @@
     <Compile Include="Controller\Helpers\UsuarioHelper.cs" />
     <Compile Include="Controller\ManejoCategoria.cs" />
     <Compile Include="Controller\ManejoCertificado.cs" />
-    <Compile Include="Controller\ManejoCFDIv33.cs" />
     <Compile Include="Controller\ManejoCliente.cs" />
     <Compile Include="Controller\ManejoDetallePeriodo.cs" />
     <Compile Include="Controller\ManejoImpuestoProducto.cs" />
     <Compile Include="Controller\ManejoDetalleVenta.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
-    <Compile Include="Controller\ManejoEntrada.cs" />
     <Compile Include="Controller\ManejoPeriodo.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201708022355290_Almacen.cs" />
-    <Compile Include="Migrations\201708022355290_Almacen.Designer.cs">
-      <DependentUpon>201708022355290_Almacen.cs</DependentUpon>
+    <Compile Include="Migrations\201708071811384_INICIAL.cs" />
+    <Compile Include="Migrations\201708071811384_INICIAL.Designer.cs">
+      <DependentUpon>201708071811384_INICIAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\Descuento.cs" />
@@ -109,7 +121,6 @@
     <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Impuesto.cs" />
-    <Compile Include="Models\InventarioEntrada.cs" />
     <Compile Include="Models\Periodo.cs" />
     <Compile Include="Models\PeriodoReporte.cs" />
     <Compile Include="Models\PeriodoVentas.cs" />
@@ -133,8 +144,8 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708022355290_Almacen.resx">
-      <DependentUpon>201708022355290_Almacen.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708071811384_INICIAL.resx">
+      <DependentUpon>201708071811384_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -215,7 +215,7 @@ namespace SiscomSoft_Desktop.Views
             #region Datos Generales
             cfdi.Version = "3.3";
             //TODO: Poner la serie y el folio.
-            cfdi.Serie = "FA";
+            cfdi.Serie = "F";
             cfdi.Folio = txtFolio.Text;
             cfdi.Fecha = DateTime.Now;
 
@@ -485,6 +485,8 @@ namespace SiscomSoft_Desktop.Views
             #endregion
 
             #endregion
+
+
 
             #region Datos del Receptor
             cfdi.Receptor = new ComprobanteReceptor();
