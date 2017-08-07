@@ -1546,15 +1546,6 @@ namespace SiscomSoft_Desktop.Views
                     mDetalle.sDescripcion = row.Cells[2].Value.ToString();
                     mDetalle.dPreUnitario = Convert.ToDecimal(row.Cells[4].Value);
                     ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalle, mProducto, mVenta);
-
-                    Inventario mInventario = ManejoInventario.getProductoByInventario(mProducto.pkProducto);
-                    if (mInventario.dExistencia > 0)
-                    {
-                        decimal subtotal = 0;
-                        subtotal = mInventario.dExistencia - mDetalle.dCantidad;
-                        mInventario.dExistencia = subtotal;
-                        ManejoInventario.Modificar(mInventario, mProducto.pkProducto, FrmMenu.uHelper.usuario.pkUsuario);
-                    }
                 }
             }
 

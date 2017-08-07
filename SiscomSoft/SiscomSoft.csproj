@@ -100,7 +100,9 @@
     <Compile Include="Models\DescuentoProducto.cs" />
     <Compile Include="Models\DetalleAlmacen.cs" />
     <Compile Include="Models\DetalleFacturacion.cs" />
+    <Compile Include="Models\DetalleInventario.cs" />
     <Compile Include="Models\DetallePeriodo.cs" />
+    <Compile Include="Models\Existencia.cs" />
     <Compile Include="Models\ImpuestoProducto.cs" />
     <Compile Include="Models\DetalleVenta.cs" />
     <Compile Include="Models\Inventario.cs" />
