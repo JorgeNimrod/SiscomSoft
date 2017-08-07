@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWareHouse));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,6 +39,21 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgrDatosAlmacen = new System.Windows.Forms.DataGridView();
+            this.pkDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descuento = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fe = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Descuentoss = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IVADIEZSEIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IVAONCE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IVACUATRO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IEPSCINCUENTAYTRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IEPSTREINTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IEPSVEINTEYTRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFolio = new System.Windows.Forms.TextBox();
             this.txtNoFactura = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -104,21 +119,8 @@
             this.dataGridViewComboBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbxTipoCompra = new System.Windows.Forms.ComboBox();
             this.cbxMoneda = new System.Windows.Forms.ComboBox();
-            this.pkDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descuento = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fe = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Descuentoss = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IVADIEZSEIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IVAONCE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IVACUATRO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IEPSCINCUENTAYTRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IEPSTREINTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IEPSVEINTEYTRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtComentario = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlDetalleMinimo.SuspendLayout();
@@ -236,6 +238,113 @@
             this.dgrDatosAlmacen.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgrDatosAlmacen_EditingControlShowing);
             this.dgrDatosAlmacen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgrDatosAlmacen_KeyPress);
             // 
+            // pkDetalle
+            // 
+            this.pkDetalle.HeaderText = "No";
+            this.pkDetalle.Name = "pkDetalle";
+            this.pkDetalle.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre Producto";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Nombre.Width = 390;
+            // 
+            // costo
+            // 
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.costo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.costo.HeaderText = "Costo";
+            this.costo.Name = "costo";
+            this.costo.Width = 150;
+            // 
+            // Unidad
+            // 
+            this.Unidad.HeaderText = "Unidad ";
+            this.Unidad.Name = "Unidad";
+            this.Unidad.ReadOnly = true;
+            this.Unidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Unidad.Width = 150;
+            // 
+            // Descuento
+            // 
+            this.Descuento.HeaderText = "Descuento";
+            this.Descuento.Name = "Descuento";
+            this.Descuento.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Descuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Descuento.Width = 150;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad ";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 150;
+            // 
+            // Importe
+            // 
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Importe.FillWeight = 200F;
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
+            this.Importe.Width = 190;
+            // 
+            // fe
+            // 
+            this.fe.HeaderText = "Caducidades";
+            this.fe.Name = "fe";
+            this.fe.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.fe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.fe.Visible = false;
+            this.fe.Width = 150;
+            // 
+            // Descuentoss
+            // 
+            this.Descuentoss.HeaderText = "Descuentos";
+            this.Descuentoss.Name = "Descuentoss";
+            this.Descuentoss.Visible = false;
+            // 
+            // IVADIEZSEIS
+            // 
+            this.IVADIEZSEIS.HeaderText = "IVA16";
+            this.IVADIEZSEIS.Name = "IVADIEZSEIS";
+            this.IVADIEZSEIS.Visible = false;
+            // 
+            // IVAONCE
+            // 
+            this.IVAONCE.HeaderText = "IVA11";
+            this.IVAONCE.Name = "IVAONCE";
+            this.IVAONCE.Visible = false;
+            // 
+            // IVACUATRO
+            // 
+            this.IVACUATRO.HeaderText = "IVA4";
+            this.IVACUATRO.Name = "IVACUATRO";
+            this.IVACUATRO.Visible = false;
+            // 
+            // IEPSCINCUENTAYTRES
+            // 
+            this.IEPSCINCUENTAYTRES.HeaderText = "IEPS53";
+            this.IEPSCINCUENTAYTRES.Name = "IEPSCINCUENTAYTRES";
+            this.IEPSCINCUENTAYTRES.Visible = false;
+            // 
+            // IEPSTREINTA
+            // 
+            this.IEPSTREINTA.HeaderText = "IEPS30";
+            this.IEPSTREINTA.Name = "IEPSTREINTA";
+            this.IEPSTREINTA.Visible = false;
+            // 
+            // IEPSVEINTEYTRES
+            // 
+            this.IEPSVEINTEYTRES.HeaderText = "IEPS23";
+            this.IEPSVEINTEYTRES.Name = "IEPSVEINTEYTRES";
+            this.IEPSVEINTEYTRES.Visible = false;
+            // 
             // txtFolio
             // 
             this.txtFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -315,11 +424,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(320, 117);
+            this.label4.Location = new System.Drawing.Point(371, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.Size = new System.Drawing.Size(80, 20);
             this.label4.TabIndex = 45;
-            this.label4.Text = "Cliente: ";
+            this.label4.Text = "Provedor: ";
             // 
             // ErrorProvider
             // 
@@ -588,9 +697,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(664, 49);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(692, 56);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(163, 24);
+            this.label9.Size = new System.Drawing.Size(136, 20);
             this.label9.TabIndex = 167;
             this.label9.Text = "Fecha de Compra";
             // 
@@ -937,112 +1047,24 @@
             this.cbxMoneda.SelectedIndexChanged += new System.EventHandler(this.cbxMoneda_SelectedIndexChanged);
             this.cbxMoneda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxMoneda_KeyPress);
             // 
-            // pkDetalle
+            // txtComentario
             // 
-            this.pkDetalle.HeaderText = "No";
-            this.pkDetalle.Name = "pkDetalle";
-            this.pkDetalle.Visible = false;
+            this.txtComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComentario.Location = new System.Drawing.Point(834, 94);
+            this.txtComentario.Multiline = true;
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Size = new System.Drawing.Size(241, 46);
+            this.txtComentario.TabIndex = 172;
             // 
-            // Nombre
+            // label11
             // 
-            this.Nombre.HeaderText = "Nombre Producto";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Nombre.Width = 390;
-            // 
-            // costo
-            // 
-            dataGridViewCellStyle17.Format = "N2";
-            dataGridViewCellStyle17.NullValue = null;
-            this.costo.DefaultCellStyle = dataGridViewCellStyle17;
-            this.costo.HeaderText = "Costo";
-            this.costo.Name = "costo";
-            this.costo.Width = 150;
-            // 
-            // Unidad
-            // 
-            this.Unidad.HeaderText = "Unidad ";
-            this.Unidad.Name = "Unidad";
-            this.Unidad.ReadOnly = true;
-            this.Unidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Unidad.Width = 150;
-            // 
-            // Descuento
-            // 
-            this.Descuento.HeaderText = "Descuento";
-            this.Descuento.Name = "Descuento";
-            this.Descuento.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Descuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Descuento.Width = 150;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad ";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 150;
-            // 
-            // Importe
-            // 
-            dataGridViewCellStyle18.Format = "N2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle18;
-            this.Importe.FillWeight = 200F;
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
-            this.Importe.ReadOnly = true;
-            this.Importe.Width = 190;
-            // 
-            // fe
-            // 
-            this.fe.HeaderText = "Caducidades";
-            this.fe.Name = "fe";
-            this.fe.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.fe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.fe.Visible = false;
-            this.fe.Width = 150;
-            // 
-            // Descuentoss
-            // 
-            this.Descuentoss.HeaderText = "Descuentos";
-            this.Descuentoss.Name = "Descuentoss";
-            this.Descuentoss.Visible = false;
-            // 
-            // IVADIEZSEIS
-            // 
-            this.IVADIEZSEIS.HeaderText = "IVA16";
-            this.IVADIEZSEIS.Name = "IVADIEZSEIS";
-            this.IVADIEZSEIS.Visible = false;
-            // 
-            // IVAONCE
-            // 
-            this.IVAONCE.HeaderText = "IVA11";
-            this.IVAONCE.Name = "IVAONCE";
-            this.IVAONCE.Visible = false;
-            // 
-            // IVACUATRO
-            // 
-            this.IVACUATRO.HeaderText = "IVA4";
-            this.IVACUATRO.Name = "IVACUATRO";
-            this.IVACUATRO.Visible = false;
-            // 
-            // IEPSCINCUENTAYTRES
-            // 
-            this.IEPSCINCUENTAYTRES.HeaderText = "IEPS53";
-            this.IEPSCINCUENTAYTRES.Name = "IEPSCINCUENTAYTRES";
-            this.IEPSCINCUENTAYTRES.Visible = false;
-            // 
-            // IEPSTREINTA
-            // 
-            this.IEPSTREINTA.HeaderText = "IEPS30";
-            this.IEPSTREINTA.Name = "IEPSTREINTA";
-            this.IEPSTREINTA.Visible = false;
-            // 
-            // IEPSVEINTEYTRES
-            // 
-            this.IEPSVEINTEYTRES.HeaderText = "IEPS23";
-            this.IEPSVEINTEYTRES.Name = "IEPSVEINTEYTRES";
-            this.IEPSVEINTEYTRES.Visible = false;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(729, 97);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(99, 20);
+            this.label11.TabIndex = 171;
+            this.label11.Text = "Comentario :";
             // 
             // FrmWareHouse
             // 
@@ -1051,6 +1073,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1362, 764);
             this.ControlBox = false;
+            this.Controls.Add(this.txtComentario);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.cbxMoneda);
             this.Controls.Add(this.cbxTipoCompra);
             this.Controls.Add(this.panel1);
@@ -1189,5 +1213,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IEPSCINCUENTAYTRES;
         private System.Windows.Forms.DataGridViewTextBoxColumn IEPSTREINTA;
         private System.Windows.Forms.DataGridViewTextBoxColumn IEPSVEINTEYTRES;
+        private System.Windows.Forms.TextBox txtComentario;
+        private System.Windows.Forms.Label label11;
     }
 }

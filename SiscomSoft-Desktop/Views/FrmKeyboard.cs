@@ -794,10 +794,17 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            if (txtTeclado == null)
+            {
 
-            txtTeclado.Text = txtTeclado.Text.Substring(0, txtTeclado.Text.Count() - 1);
-            teclado = txtTeclado.Text;
-            informacion = teclado;
+               
+            }
+            else
+            {
+                txtTeclado.Text = txtTeclado.Text.Substring(0, txtTeclado.Text.Count() - 1);
+                teclado = txtTeclado.Text;
+                informacion = teclado;
+            }
 
 
 

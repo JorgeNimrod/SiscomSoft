@@ -22,6 +22,8 @@ namespace SiscomSoft.Models
        
        public string sMoneda { get; set; }
 
+        public string sDescripcion { get; set; }
+
 
         public decimal dTipoCambio { get; set; }
         public string sTipoCompra { get; set; }

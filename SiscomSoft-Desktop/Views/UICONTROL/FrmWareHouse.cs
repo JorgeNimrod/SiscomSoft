@@ -270,6 +270,12 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 this.ErrorProvider.SetError(this.cbxCliente, "Insertar Cliente");
                 this.cbxCliente.Focus();
             }
+            else if (this.txtComentario.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtComentario, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtComentario, "Insertar Cliente");
+                this.txtComentario.Focus();
+            }
 
 
             else
@@ -284,6 +290,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 nAlmacen.dtFechaCompra = Convert.ToDateTime(dtpFechaCompra.Text);
                 nAlmacen.dtFechaMovimiento = DateTime.Now;
                 nAlmacen.sMoneda = cbxMoneda.Text;
+                nAlmacen.sDescripcion = txtComentario.Text;
                 int fkCliente = Convert.ToInt32(cbxCliente.SelectedValue.ToString());
 
                 ManejoAlmacen.RegistrarNuevoAlmacen(nAlmacen, fkCliente);
@@ -378,10 +385,16 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
                         mProducto.dPreVenta = Importe;
                         ManejoProducto.Modificar(mProducto);
+                        
+                        //if (mInven ftario.dExistencia > 0)
+                        //{
+                        //    decimal subtotal = 0;
+                        //    subtotal = mInventario.dExistencia + Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[5].Value);
+                        //    mInventario.dExistencia = subtotal;
+                        //    ManejoInventario.Modificar(mInventario, mProducto.pkProducto, FrmMenu.uHelper.usuario.pkUsuario);
+                        //}
 
-                        Inventario nInventario = new Inventario();
-                        nInventario.sFolio = txtFolio.Text;
-                        nInventario.dtFecha = Convert.ToDateTime(dtpFechaCompra.Text);
+
 
                     }
                 }

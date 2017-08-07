@@ -26,7 +26,7 @@ namespace SiscomSoft_Desktop.Views
 
         public void cargarProductos()
         {
-            dgvProductos.DataSource = ManejoProducto.BuscarProductoCategoria(txtBuscar.Text, Convert.ToInt32(cmbCategoria.SelectedValue));
+          //dgvProductos.DataSource = ManejoProducto.BuscarProductoCategoria(txtBuscar.Text, Convert.ToInt32(cmbCategoria.SelectedValue));
         }
 
         public void cargarCategorias()
