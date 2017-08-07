@@ -21,11 +21,11 @@ namespace SiscomSoft_Desktop.Views
 
     public partial class FrmAdministrador : Form
     {
-        
 
 
-      
 
+
+       
 
 
         Boolean flagRol = false;
@@ -735,6 +735,7 @@ namespace SiscomSoft_Desktop.Views
             cbxUpdatePrecioProd.SelectedItem = nProducto.fkPrecio.pkPrecios;
 
             pcbUpdateImgProd.Image = ToolImagen.Base64StringToBitmap(nProducto.sFoto);
+
 
            
 
@@ -3650,7 +3651,7 @@ namespace SiscomSoft_Desktop.Views
                 nEmpresa.sCalle = txtAddCalleEmpresa.Text;
                 nEmpresa.iNumInterir = Convert.ToInt32(txtAddNumInteriorEmpresa.Text);
                 nEmpresa.iNumExterior = Convert.ToInt32(txtAddNumExteriorEmpresa.Text);
-                nEmpresa.iCodPostal = cmbCodigoPostal.SelectedIndex + 1;
+                nEmpresa.iCodPostal = Convert.ToInt32(txtAddCodigoPostalEmpresa.Text);
                 ManejoEmpresa.registrarnuevaempresa(nEmpresa);
                 cargarEmpresas();
                 MessageBox.Show("¡Empresa Registrada!");
@@ -3743,7 +3744,7 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateCalleEmpresa.Text = nEmpresa.sCalle;
             txtUpdateNumInteriorEmpresa.Text = nEmpresa.iNumInterir.ToString();
             txtUpdateNumExteriorEmpresa.Text = nEmpresa.iNumExterior.ToString();
-            //nEmpresa.iCodPostal = 
+         //   nEmpresa.iCodPostal = Convert.ToString(nEmpresa.iCodPostal.ToString());
         }
 
         private void dgvDatosEmpresa_DoubleClick(object sender, EventArgs e)
@@ -3858,7 +3859,7 @@ namespace SiscomSoft_Desktop.Views
                 nEmpresa.sCalle = txtUpdateCalleEmpresa.Text;
                 nEmpresa.iNumInterir = Convert.ToInt32(txtUpdateNumInteriorEmpresa.Text);
                 nEmpresa.iNumExterior = Convert.ToInt32(txtUpdateNumExteriorEmpresa.Text);
-                //nEmpresa.iCodPostal = 
+                nEmpresa.iCodPostal = Convert.ToInt32(txtUpdateCPEmpresa.Text); 
                 ManejoEmpresa.Modificar(nEmpresa);
                 MessageBox.Show("¡Empresa Actualizada!");
                 tbcGeneral.TabPages.Remove(tbpUpdateEmpresa);
@@ -6030,7 +6031,641 @@ namespace SiscomSoft_Desktop.Views
             
         }
 
-      
+        private void txtTasaDescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox dText = new TextBox();
+
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < dText.Text.Length; i++)
+            {
+                if (dText.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtTasaDescuentoEx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox dText = new TextBox();
+
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < dText.Text.Length; i++)
+            {
+                if (dText.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtUpdateTasaDesc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox dText = new TextBox();
+
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < dText.Text.Length; i++)
+            {
+                if (dText.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtUpdateDescEx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox dText = new TextBox();
+
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < dText.Text.Length; i++)
+            {
+                if (dText.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtUpdateDescEx_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateDescEx.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateTasaDesc_MouseClick(object sender, MouseEventArgs e)
+        {
+           
+
+            txtUpdateTasaDesc.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtTasaDescuento_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTasaDescuento.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtTasaDescuentoEx_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTasaDescuentoEx.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateNoCertificado_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateValidoDe_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateValidoHasta_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddNoCertficado_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddValidoDe_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddValidoHasta_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddNumSerieSucursal_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddNumSerieSucursal.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddPaiSucursal_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddPaiSucursal.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddNombreSucursal_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddNombreSucursal.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddMunicipioSucursal_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtAddMunicipioSucursal.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtBuscarImpuesto_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtBuscarImpuesto.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtBuscarCategoria_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBuscarCategoria.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtBuscarUsuario_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBuscarUsuario.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtBuscarRol_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBuscarRol.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtNombre_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtNombre.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtComentario_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtComentario.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateNombre_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateNombre.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateComentario_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateComentario.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtNombreCategoria_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtNombreCategoria.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtSubcategoria_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtSubcategoria.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtActualizarNomCat_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtActualizarNomCat.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtActualizarSubCat_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtActualizarSubCat.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtTipoImpuesto_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTipoImpuesto.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtImpuesto_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtImpuesto.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtTasaImpuesto_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtTasaImpuesto.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtActualiImpu_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtActualiImpu.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtActualiTasaImpu_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtActualiTasaImpu.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtRFC_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtRFC.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtNombreUsuario_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtNombreUsuario.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtContraseña_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtContraseña.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUsuario_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUsuario.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtCorreo_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtCorreo.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtTelefono_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTelefono.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtPin_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtPin.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtComentUsua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           txtComentUsua.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateRFCUser_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateRFCUser.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateContrasena_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateContrasena.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateUser_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateUser.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateCorreo_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateCorreo.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdatePhone_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdatePhone.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdatePin_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdatePin.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateComment_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateComment.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtClaveaddprod_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtClaveaddprod.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtCostoAddProd_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtCostoAddProd.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtLoteAddProd_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtLoteAddProd.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtMarcaaddProd_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtMarcaaddProd.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtDescripcionAddProd_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtDescripcionAddProd.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtPrecioVenta_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtPrecioVenta.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateClavProd_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtPrecioVenta.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateCostoProd_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateCostoProd.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateLoteProd_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtUpdateLoteProd.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateMarcProd_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateMarcProd.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateDesProd_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateDesProd.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdatePVProd_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdatePVProd.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddPrecio_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddPrecio.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdatePrecio_MouseClick(object sender, MouseEventArgs e)
+        {
+           txtUpdatePrecio.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtBuscarEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBuscarEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddNombreComercialEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddNombreComercialEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddNombreContactoEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddNombreContactoEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddRazonSocialEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddRazonSocialEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddTelefonoEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddTelefonoEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddCorreoElectronicoEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddCorreoElectronicoEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddPaisEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddPaisEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddEstadoEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddEstadoEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddMunicipioEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddMunicipioEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddCalleEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddCalleEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddColoniaEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddColoniaEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddLocalidadEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddLocalidadEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddNumInteriorEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddNumInteriorEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddNumExteriorEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtAddNumExteriorEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtAddCodigoPostalEmpresa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtAddCodigoPostalEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateCPEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateCPEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateCPEmpresa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtUpdateCPEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtUpdateColoniaEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateColoniaEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateLocalidadEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateLocalidadEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateNumInteriorEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateNumInteriorEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateCalleEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateCalleEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateMunicipioEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateMunicipioEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdatePaisEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdatePaisEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateEstadoEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateEstadoEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateCorreoEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateCorreoEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateTelefonoEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateTelefonoEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateRazonSocialEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateRazonSocialEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateNombContactoEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateNombContactoEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtUpdateNomComercialEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUpdateNomComercialEmpresa.Text = FrmKeyboard.informacion;
+        }
+
+        private void txtBuscarCliente_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBuscarCliente.Text = FrmKeyboard.informacion;
+        }
     }
 }
 
