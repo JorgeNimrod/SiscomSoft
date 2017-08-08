@@ -93,13 +93,9 @@
     <Compile Include="Controller\ManejoPeriodo.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201708072053113_OFICIALBRUNO.cs" />
-    <Compile Include="Migrations\201708072053113_OFICIALBRUNO.Designer.cs">
-      <DependentUpon>201708072053113_OFICIALBRUNO.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708072359529_OFICIALBRUNO2.cs" />
-    <Compile Include="Migrations\201708072359529_OFICIALBRUNO2.Designer.cs">
-      <DependentUpon>201708072359529_OFICIALBRUNO2.cs</DependentUpon>
+    <Compile Include="Migrations\201708080144361_INICIAL.cs" />
+    <Compile Include="Migrations\201708080144361_INICIAL.Designer.cs">
+      <DependentUpon>201708080144361_INICIAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\Descuento.cs" />
@@ -152,11 +148,8 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708072053113_OFICIALBRUNO.resx">
-      <DependentUpon>201708072053113_OFICIALBRUNO.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708072359529_OFICIALBRUNO2.resx">
-      <DependentUpon>201708072359529_OFICIALBRUNO2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708080144361_INICIAL.resx">
+      <DependentUpon>201708080144361_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

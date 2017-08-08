@@ -7,13 +7,13 @@ namespace SiscomSoft.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class OFICIALBRUNO : IMigrationMetadata
+    public sealed partial class INICIAL : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(OFICIALBRUNO));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(INICIAL));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708072053113_OFICIALBRUNO"; }
+            get { return "201708080144361_INICIAL"; }
         }
         
         string IMigrationMetadata.Source

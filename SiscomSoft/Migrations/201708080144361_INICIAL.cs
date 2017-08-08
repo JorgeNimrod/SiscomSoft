@@ -3,7 +3,7 @@ namespace SiscomSoft.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class OFICIALBRUNO : DbMigration
+    public partial class INICIAL : DbMigration
     {
         public override void Up()
         {
@@ -425,10 +425,13 @@ namespace SiscomSoft.Migrations
                         dtFecha = c.DateTime(nullable: false, precision: 0),
                         sTipoMov = c.String(unicode: false),
                         bStatus = c.Boolean(nullable: false),
+                        fkAlmacen_pkAlmacen = c.Int(),
                         fkUsuario_pkUsuario = c.Int(),
                     })
                 .PrimaryKey(t => t.pkInventario)
+                .ForeignKey("dbo.Almacenes", t => t.fkAlmacen_pkAlmacen)
                 .ForeignKey("dbo.Usuarios", t => t.fkUsuario_pkUsuario)
+                .Index(t => t.fkAlmacen_pkAlmacen)
                 .Index(t => t.fkUsuario_pkUsuario);
             
             CreateTable(
@@ -522,6 +525,7 @@ namespace SiscomSoft.Migrations
             DropForeignKey("dbo.Existencias", "fkAlmacen_pkAlmacen", "dbo.Almacenes");
             DropForeignKey("dbo.DetalleInventario", "fkProducto_pkProducto", "dbo.Productos");
             DropForeignKey("dbo.Inventario", "fkUsuario_pkUsuario", "dbo.Usuarios");
+            DropForeignKey("dbo.Inventario", "fkAlmacen_pkAlmacen", "dbo.Almacenes");
             DropForeignKey("dbo.DetalleInventario", "fkInventario_pkInventario", "dbo.Inventario");
             DropForeignKey("dbo.DetalleFacturacion", "fkProducto_pkProducto", "dbo.Productos");
             DropForeignKey("dbo.Facturas", "fkUsuario_pkUsuario", "dbo.Usuarios");
@@ -554,6 +558,7 @@ namespace SiscomSoft.Migrations
             DropIndex("dbo.Existencias", new[] { "fkProducto_pkProducto" });
             DropIndex("dbo.Existencias", new[] { "fkAlmacen_pkAlmacen" });
             DropIndex("dbo.Inventario", new[] { "fkUsuario_pkUsuario" });
+            DropIndex("dbo.Inventario", new[] { "fkAlmacen_pkAlmacen" });
             DropIndex("dbo.DetalleInventario", new[] { "fkProducto_pkProducto" });
             DropIndex("dbo.DetalleInventario", new[] { "fkInventario_pkInventario" });
             DropIndex("dbo.DetalleVentas", new[] { "fkVenta_pkVenta" });

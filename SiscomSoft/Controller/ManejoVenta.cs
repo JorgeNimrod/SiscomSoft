@@ -91,5 +91,23 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        public static string Folio()
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    var n = ctx.Ventas.Count() + 1;
+                    var folio = "V" + n;
+                    return folio;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
