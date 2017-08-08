@@ -27,9 +27,10 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static void RegistrarNuevoInventario(Inventario nInventario, int pkUsuario)
+        public static void RegistrarNuevoInventario(Inventario nInventario, int pkUsuario, int pkAlmacen)
         {
             Usuario usuario = ManejoUsuario.getById(pkUsuario);
+            Almacen almacen = ManejoAlmacen.getById(pkAlmacen);
 
             try
             {
@@ -38,6 +39,11 @@ namespace SiscomSoft.Controller
                     //nInventario.fkProducto = producto;
                     ctx.Inventarios.Add(nInventario);
                     ctx.Usuarios.Attach(usuario);
+                    if (almacen!=null)
+                    {
+
+                    ctx.Almacenes.Attach(almacen);
+                    }
                     ctx.SaveChanges();
                 }
             }

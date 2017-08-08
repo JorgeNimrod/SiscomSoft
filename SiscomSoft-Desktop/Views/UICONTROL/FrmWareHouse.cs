@@ -303,9 +303,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 mInventario.dtFecha = DateTime.Now;
                 mInventario.sFolio = ManejoInventario.Folio();
                 mInventario.sTipoMov = "Entrada";
-                mInventario.fkUsuario = FrmMenu.uHelper.usuario;
-                //mInventario.fkAlmacen = nAlmacen;
-                ManejoInventario.RegistrarNuevoInventario(mInventario, FrmMenu.uHelper.usuario.pkUsuario);
+                ManejoInventario.RegistrarNuevoInventario(mInventario, FrmMenu.uHelper.usuario.pkUsuario, nAlmacen.pkAlmacen);
                 #endregion
 
                 foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
