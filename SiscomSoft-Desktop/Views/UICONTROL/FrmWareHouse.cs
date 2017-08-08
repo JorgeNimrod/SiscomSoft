@@ -280,6 +280,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
             else
             {
+                #region ALMACEN
                 Almacen nAlmacen = new Almacen();
                 DetalleAlmacen mDetalle = new DetalleAlmacen();
 
@@ -294,21 +295,32 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 int fkCliente = Convert.ToInt32(cbxCliente.SelectedValue.ToString());
 
                 ManejoAlmacen.RegistrarNuevoAlmacen(nAlmacen, fkCliente);
+                #endregion
+
+                #region INVENTARIO
+                Inventario mInventario = new Inventario();
+                DetalleInventario mDetalleInventario = new DetalleInventario();
+                mInventario.dtFecha = DateTime.Now;
+                mInventario.sFolio = ManejoInventario.Folio();
+                mInventario.sTipoMov = "Entrada";
+                mInventario.fkUsuario = FrmMenu.uHelper.usuario;
+                //mInventario.fkAlmacen = nAlmacen;
+                ManejoInventario.RegistrarNuevoInventario(mInventario, FrmMenu.uHelper.usuario.pkUsuario);
+                #endregion
 
                 foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
                 {
                     if (row.Cells[0].Value != null)
                     {
-
+                        #region DETALLE VENTA
                         Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
                         mDetalle.iCantidad = Convert.ToInt32(row.Cells[5].Value);
                         mDetalle.sDescripcion = Convert.ToString(row.Cells[1].Value);
                         mDetalle.dCosto = Convert.ToDecimal(row.Cells[2].Value);
-
-
-
                         ManejoDetalleAlmacen.RegistrarNuevoDetalle(mDetalle, nAlmacen, mProducto);
+                        #endregion
 
+                        #region PRECIO VENTA
                         decimal prePorcentaje = 0;
                         decimal costo = 0;
                         decimal TasaImpuestoIVA16 = 0;
@@ -385,17 +397,38 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
                         mProducto.dPreVenta = Importe;
                         ManejoProducto.Modificar(mProducto);
-                        
-                        //if (mInven ftario.dExistencia > 0)
-                        //{
-                        //    decimal subtotal = 0;
-                        //    subtotal = mInventario.dExistencia + Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[5].Value);
-                        //    mInventario.dExistencia = subtotal;
-                        //    ManejoInventario.Modificar(mInventario, mProducto.pkProducto, FrmMenu.uHelper.usuario.pkUsuario);
-                        //}
+                        #endregion
 
+                        #region DETALLE INVENTARIO
+                        mDetalleInventario.dCantidad = Convert.ToDecimal(row.Cells[5].Value);
+                        mDetalleInventario.dPreVenta = Importe;
+                        if (mProducto.dCosto != Convert.ToDecimal(row.Cells[2].Value))
+                        {
+                            mDetalleInventario.dLastCosto = Convert.ToDecimal(row.Cells[2].Value);
+                        }
+                        else
+                        {
+                            mDetalleInventario.dLastCosto = mProducto.dCosto;
+                        }
+                        ManejoDetalleInventario.RegistrarNuevoDetalleInventario(mDetalleInventario, mProducto.pkProducto, mInventario.pkInventario);
+                        #endregion
 
-
+                        #region EXISTENCIAS
+                        Existencia mExistencia = ManejoExistencia.getById(mProducto.pkProducto);
+                        if (mExistencia!=null)
+                        {
+                            decimal total = mExistencia.dCantidad + Convert.ToDecimal(row.Cells[5].Value);
+                            mExistencia.dCantidad = total;
+                            mExistencia.dExistencia = mExistencia.dCantidad;
+                            ManejoExistencia.Modificar(mExistencia, mProducto.pkProducto, nAlmacen.pkAlmacen);
+                        }else
+                        {
+                            Existencia nExistencia = new Existencia();
+                            nExistencia.dCantidad = Convert.ToDecimal(row.Cells[5].Value);
+                            nExistencia.dExistencia = nExistencia.dCantidad;
+                            ManejoExistencia.RegistrarNuevaExistencia(nExistencia, mProducto.pkProducto, nAlmacen.pkAlmacen);
+                        }
+                        #endregion
                     }
                 }
 

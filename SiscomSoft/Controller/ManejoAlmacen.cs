@@ -90,7 +90,9 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Almacenes.Where(r => r.bStatus == true && r.pkAlmacen == pkAlmacen).FirstOrDefault();
+                    return ctx.Almacenes
+                        .Include("fkCliente")
+                        .Where(r => r.bStatus == true && r.pkAlmacen == pkAlmacen).FirstOrDefault();
                 }
             }
             catch (Exception)

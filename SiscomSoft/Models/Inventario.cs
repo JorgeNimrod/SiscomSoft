@@ -19,6 +19,7 @@ namespace SiscomSoft.Models
         public string sTipoMov { get; set; }
         public Boolean bStatus { get; set; }
         public ICollection<DetalleInventario> DetalleInventario { get; set; }
+        public virtual Almacen fkAlmacen { get; set; }
 
         public Inventario()
         {

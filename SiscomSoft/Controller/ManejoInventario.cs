@@ -27,18 +27,16 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static void RegistrarNuevoInventario(Inventario nInventario, int pkProducto,int pkUsuario)
+        public static void RegistrarNuevoInventario(Inventario nInventario, int pkUsuario)
         {
-            Producto producto = ManejoProducto.getById(pkProducto);
             Usuario usuario = ManejoUsuario.getById(pkUsuario);
 
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nInventario.fkProducto = producto;
+                    //nInventario.fkProducto = producto;
                     ctx.Inventarios.Add(nInventario);
-                    ctx.Productos.Attach(producto);
                     ctx.Usuarios.Attach(usuario);
                     ctx.SaveChanges();
                 }
@@ -50,7 +48,7 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static Inventario getProductoByInventario(int pk)
+        /*public static Inventario getProductoByInventario(int pk)
         {
             try
             {
@@ -65,7 +63,7 @@ namespace SiscomSoft.Controller
 
                 throw;
             }
-        }
+        }*/
 
         public static void Modificar(Inventario nInventario, int pkProducto, int pkUsuario)
         {
@@ -75,12 +73,48 @@ namespace SiscomSoft.Controller
                 {
                     Producto nProducto = ManejoProducto.getById(pkProducto);
                     Usuario nUsuario = ManejoUsuario.getById(pkUsuario);
-                    nInventario.fkProducto = nProducto;
                     nInventario.fkUsuario = nUsuario;
                     ctx.Productos.Attach(nProducto);
                     ctx.Usuarios.Attach(nUsuario);
                     ctx.Entry(nInventario).State = EntityState.Modified;
                     ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static string Folio()
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    var n = ctx.Inventarios.Count() + 1;
+                    var folio = "I" + n;
+                    return folio;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static Inventario getById(int pkInventario)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Inventarios
+                      //  .Include("fkInventario")
+                        .Include("fkUsuario")
+                        .Where(r => r.pkInventario == pkInventario)
+                        .FirstOrDefault();
                 }
             }
             catch (Exception)
