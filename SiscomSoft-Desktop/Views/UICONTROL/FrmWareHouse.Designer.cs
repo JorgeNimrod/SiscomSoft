@@ -424,11 +424,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(371, 120);
+            this.label4.Location = new System.Drawing.Point(362, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 20);
+            this.label4.Size = new System.Drawing.Size(89, 20);
             this.label4.TabIndex = 45;
-            this.label4.Text = "Provedor: ";
+            this.label4.Text = "Proveedor: ";
             // 
             // ErrorProvider
             // 
@@ -727,9 +727,9 @@
             this.panel1.Controls.Add(this.dgrMostrarAlmacen);
             this.panel1.Controls.Add(this.btnAlmacenDetalle);
             this.panel1.Controls.Add(this.dgrMostrarDetalles);
-            this.panel1.Location = new System.Drawing.Point(1225, 408);
+            this.panel1.Location = new System.Drawing.Point(1230, 419);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(89, 104);
+            this.panel1.Size = new System.Drawing.Size(65, 76);
             this.panel1.TabIndex = 168;
             this.panel1.UseWaitCursor = true;
             this.panel1.Visible = false;

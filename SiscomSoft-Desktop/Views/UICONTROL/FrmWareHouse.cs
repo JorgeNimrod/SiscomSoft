@@ -1267,6 +1267,8 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 txtTipoCambio.Text = FrmMenu.uHelper.usuario.fkSucursal.sTipoCambio;
             }
         }
+
+        
     }
 }
 
