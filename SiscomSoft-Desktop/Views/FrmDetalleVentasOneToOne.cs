@@ -1512,11 +1512,11 @@ namespace SiscomSoft_Desktop.Views
 
         private void guardarVenta()
         {
+            #region VENTA
             Venta mVenta = new Venta();
-            DetalleVenta mDetalle = new DetalleVenta();
+            DetalleVenta mDetalleVenta = new DetalleVenta();
             Periodo mPeriodo = ManejoPeriodo.getByUser(FrmMenu.uHelper.usuario.pkUsuario);
-            int n = ManejoVenta.getVentasCount() + 1;
-            mVenta.sFolio = "V" + n;
+            mVenta.sFolio = ManejoVenta.Folio();
             if (lblCambio.Text=="")
             {
                 mVenta.dCambio = 0;
@@ -1537,19 +1537,57 @@ namespace SiscomSoft_Desktop.Views
             mVenta.iCaja = Convert.ToInt32(mPeriodo.sCaja);
             mVenta.iTurno = mPeriodo.iTurno;
             ManejoVenta.RegistrarNuevaVenta(mVenta, mCliente, mFactura, FrmMenu.uHelper.usuario);
+            #endregion
+
+            #region INVENTARIO
+            Inventario mInventario = new Inventario();
+            DetalleInventario mDetalleInventario = new DetalleInventario();
+            mInventario.dtFecha = DateTime.Now;
+            mInventario.sFolio = ManejoInventario.Folio();
+            mInventario.sTipoMov = "Salida";
+            Almacen mAlmacen = new Almacen();
+            ManejoInventario.RegistrarNuevoInventario(mInventario, FrmMenu.uHelper.usuario.pkUsuario, mAlmacen.pkAlmacen);
+            #endregion
+
             foreach (DataGridViewRow row in dgvDetalleProductos.Rows)
             {
                 if (!row.IsNewRow)
                 {
+                    #region DETALLE VENTA
                     Producto mProducto = ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
-                    mDetalle.dCantidad = Convert.ToInt32(row.Cells[1].Value);
-                    mDetalle.sDescripcion = row.Cells[2].Value.ToString();
-                    mDetalle.dPreUnitario = Convert.ToDecimal(row.Cells[4].Value);
-                    ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalle, mProducto, mVenta);
+                    mDetalleVenta.dCantidad = Convert.ToInt32(row.Cells[1].Value);
+                    mDetalleVenta.sDescripcion = row.Cells[2].Value.ToString();
+                    mDetalleVenta.dPreUnitario = Convert.ToDecimal(row.Cells[4].Value);
+                    ManejoDetalleVenta.RegistrarNuevoDetalle(mDetalleVenta, mProducto, mVenta);
+                    #endregion
+
+                    #region DETALLE INVENTARIO
+                    mDetalleInventario.dCantidad = Convert.ToDecimal(row.Cells[1].Value);
+                    mDetalleInventario.dPreVenta = mProducto.dPreVenta;
+                    mDetalleInventario.dLastCosto = mProducto.dCosto;
+                    ManejoDetalleInventario.RegistrarNuevoDetalleInventario(mDetalleInventario, mProducto.pkProducto, mInventario.pkInventario);
+                    #endregion
+
+                    #region EXISTENCIAS
+                    Existencia mExistencia = ManejoExistencia.getById(mProducto.pkProducto);
+                    if (mExistencia != null)
+                    {
+                        decimal total = mExistencia.dCantidad - Convert.ToDecimal(row.Cells[1].Value);
+                        mExistencia.dCantidad = total;
+                        mExistencia.dExistencia = mExistencia.dCantidad;
+                        mExistencia.dSalida = total;
+                        ManejoExistencia.Modificar(mExistencia, mProducto.pkProducto, mAlmacen.pkAlmacen);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Test");
+                    }
+                    #endregion
                 }
             }
 
-            ManejoDetallePeriodo.Guardar(mPeriodo, mVenta);
+            DetallePeriodo nDetallePeriodo = new DetallePeriodo();
+            ManejoDetallePeriodo.Guardar(nDetallePeriodo, mPeriodo, mVenta);
 
             mPeriodo = null;
             nVenta = null;

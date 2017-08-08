@@ -10,16 +10,14 @@ namespace SiscomSoft.Controller
 {
     public class ManejoDetallePeriodo
     {
-        public static void Guardar(Periodo nPeriodo, Venta nVenta)
+        public static void Guardar(DetallePeriodo nDetallePeriodo, Periodo nPeriodo, Venta nVenta)
         {
-            DetallePeriodo nDetallePeriodo = new Models.DetallePeriodo();
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nDetallePeriodo.fkVenta = nVenta;
                     nDetallePeriodo.fkPeriodo = nPeriodo;
-
+                    nDetallePeriodo.fkVenta = nVenta;
                     ctx.Periodos.Attach(nPeriodo);
                     ctx.Ventas.Attach(nVenta);
                     ctx.DetallePeriodos.Add(nDetallePeriodo);

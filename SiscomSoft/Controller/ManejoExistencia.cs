@@ -79,7 +79,10 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     ctx.Productos.Attach(producto);
-                    ctx.Almacenes.Attach(almacen);
+                    if (almacen!=null)
+                    {
+                        ctx.Almacenes.Attach(almacen);
+                    }
                     ctx.Entry(nExistencia).State = EntityState.Modified;
                     ctx.SaveChanges();
                 }
