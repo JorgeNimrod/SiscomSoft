@@ -13,15 +13,15 @@ namespace SiscomSoft.Models
     public class PermisoNegadoRol
     {
         [Key]
-        public int pkPermisoNegadoRol { get; set; }
+        public int idPermisoNegadoRol { get; set; }
 
         // llave foranea de roles
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        public virtual Rol fkRol { get; set; }
+        public virtual Rol rol_id { get; set; }
 
         // llave foranea de permisos
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        public virtual Permiso fkPermiso { get; set; }
+        public virtual Permiso permiso_id { get; set; }
 
         public Boolean bStatus { get; set; }
 

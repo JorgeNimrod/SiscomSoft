@@ -13,11 +13,11 @@ namespace SiscomSoft.Models
     public class DetallePeriodo
     {
         [Key]
-        public int pkDetallePeriodo { get; set; }
+        public int idDetallePeriodo { get; set; }
 
-        public virtual Periodo fkPeriodo { get; set; }
+        public virtual Periodo periodo_id { get; set; }
 
-        public virtual Venta fkVenta { get; set; }
+        public virtual Venta venta_id { get; set; }
 
         public Boolean bStatus { get; set; }
 

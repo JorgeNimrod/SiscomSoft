@@ -13,11 +13,7 @@ namespace SiscomSoft.Models
     public class Venta
     {
         [Key]
-        public int pkVenta { get; set; }
-
-        public virtual Cliente fkCliente { get; set; }
-
-        public virtual Factura fkFactura { get; set; }
+        public int idVenta { get; set; }
 
         public DateTime dtFechaVenta { get; set; }
 
@@ -35,15 +31,20 @@ namespace SiscomSoft.Models
 
         public string sFolio { get; set; }
 
-        public virtual Usuario fkUsuario { get; set; }
+        public virtual Cliente cliente_id { get; set; }
 
-        public ICollection<DetalleVenta> DetalleVentas { get; set; }
+        public virtual Factura factura_id { get; set; }
 
-        public ICollection<DetallePeriodo> DetallePeriodos { get; set; }
+        public virtual Usuario usuario_id { get; set; }
+
+        public virtual ICollection<DetalleVenta> DetalleVentas { get; set; }
+
+        public virtual ICollection<DetallePeriodo> DetallePeriodos { get; set; }
 
         public Venta()
         {
             this.bStatus = true;
+            DetalleVentas = new HashSet<DetalleVenta>();
         }
     }
 }

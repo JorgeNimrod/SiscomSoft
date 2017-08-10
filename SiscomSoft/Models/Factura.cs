@@ -13,13 +13,13 @@ namespace SiscomSoft.Models
     public class Factura
     {
         [Key]
-        public int pkFactura { get; set; }
+        public int idFactura { get; set; }
 
-        public virtual Usuario fkUsuario { get; set; }
+        public virtual Usuario usuario_id { get; set; }
 
-        public virtual Sucursal fkSucursal { get; set; }
+        public virtual Sucursal sucursal_id { get; set; }
 
-        public virtual Cliente fkCliente { get; set; }
+        public virtual Cliente cliente_id { get; set; }
 
         public string sTipoCambio { get; set; }
 
@@ -31,9 +31,9 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<Venta> Ventas { get; set; }
+        public virtual ICollection<Venta> Ventas { get; set; }
 
-        public ICollection<DetalleFacturacion> DetalleFacturacion { get; set; }
+        public virtual ICollection<DetalleFacturacion> DetalleFacturacion { get; set; }
 
         public Factura()
         {

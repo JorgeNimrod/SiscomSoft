@@ -50,7 +50,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Certificados.Where(r =>   r.pkCertificado == pkCertificado).FirstOrDefault();
+                    return ctx.Certificados.Where(r => r.idCertificado == pkCertificado).FirstOrDefault();
                 }
             }
             catch (Exception)

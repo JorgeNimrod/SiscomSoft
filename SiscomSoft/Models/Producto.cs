@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Producto
     {
         [Key]
-        public int pkProducto { get; set; }
+        public int idProducto { get; set; }
 
         public int iClaveProd { get; set; }
 
@@ -33,25 +33,25 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
         
-        public virtual Categoria fkCategoria { get; set; }
+        public virtual Categoria categoria_id { get; set; }
         
-        public virtual Catalogo fkCatalogo { get; set; }
+        public virtual Catalogo catalogo_id { get; set; }
         
-        public virtual Precio fkPrecio { get; set; }
+        public virtual Precio precio_id { get; set; }
 
-        public ICollection<DetalleVenta> DetalleVentas { get; set; }
+        public virtual ICollection<DetalleVenta> DetalleVentas { get; set; }
 
-        public ICollection<ImpuestoProducto> ImpuestosProductos { get; set; }
+        public virtual ICollection<ImpuestoProducto> ImpuestosProductos { get; set; }
 
-        public ICollection<DetalleAlmacen> DetalleAlmacen { get; set; }
+        public virtual ICollection<DetalleAlmacen> DetalleAlmacen { get; set; }
 
-        public ICollection<DescuentoProducto> DescuentosProducto { get; set; }
+        public virtual ICollection<DescuentoProducto> DescuentosProducto { get; set; }
 
-        public ICollection<DetalleInventario> DetalleInventario { get; set; }
+        public virtual ICollection<DetalleInventario> DetalleInventario { get; set; }
 
-        public ICollection<DetalleFacturacion> DetalleFacturacion { get; set; }
+        public virtual ICollection<DetalleFacturacion> DetalleFacturacion { get; set; }
 
-        public ICollection<Existencia> Existencias { get; set; }
+        public virtual ICollection<Existencia> Existencias { get; set; }
 
         public Producto()
         {

@@ -732,7 +732,7 @@
             // 
             // detalle
             // 
-            this.detalle.DataPropertyName = "pkDetalleVenta";
+            this.detalle.DataPropertyName = "idDetalleVenta";
             this.detalle.HeaderText = "No. Detalle venta";
             this.detalle.Name = "detalle";
             this.detalle.ReadOnly = true;
@@ -740,7 +740,7 @@
             // 
             // producto
             // 
-            this.producto.DataPropertyName = "pkProducto";
+            this.producto.DataPropertyName = "idProducto";
             this.producto.HeaderText = "No. producto";
             this.producto.Name = "producto";
             this.producto.ReadOnly = true;
@@ -775,7 +775,7 @@
             // 
             // no
             // 
-            this.no.DataPropertyName = "pkPeriodo";
+            this.no.DataPropertyName = "idPeriodo";
             this.no.HeaderText = "No.";
             this.no.Name = "no";
             this.no.ReadOnly = true;
@@ -821,7 +821,7 @@
             // 
             // venta
             // 
-            this.venta.DataPropertyName = "pkVenta";
+            this.venta.DataPropertyName = "idVenta";
             this.venta.HeaderText = "venta";
             this.venta.Name = "venta";
             this.venta.ReadOnly = true;
@@ -922,17 +922,17 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtFolioVenta;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn no;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn efectivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn credito;
         private System.Windows.Forms.DataGridViewTextBoxColumn tcredito;
         private System.Windows.Forms.DataGridViewTextBoxColumn venta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
     }
 }

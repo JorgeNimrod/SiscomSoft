@@ -34,10 +34,10 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Ventas
-                        .Include("fkUsuario")
-                        .Include("fkCliente")
-                        .Include("fkFactura")
-                        .Where(r => r.pkVenta == pkVenta && r.bStatus==true).FirstOrDefault();
+                        .Include("usuario_id")
+                        .Include("cliente_id")
+                        .Include("factura_id")
+                        .Where(r => r.idVenta == pkVenta && r.bStatus==true).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -53,9 +53,9 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nVenta.fkCliente = nCliente;
-                    nVenta.fkFactura = nFactura;
-                    nVenta.fkUsuario = nUsuario;
+                    nVenta.cliente_id = nCliente;
+                    nVenta.factura_id = nFactura;
+                    nVenta.usuario_id = nUsuario;
                     if (nCliente != null)
                     {
                         ctx.Clientes.Attach(nCliente);

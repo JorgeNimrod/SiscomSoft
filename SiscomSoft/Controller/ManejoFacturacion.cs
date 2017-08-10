@@ -32,7 +32,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    var a = ctx.DetalleFacturacion.Where(r => r.fkFactura.pkFactura == pkFactura && r.bStatus == true).ToList();
+                    var a = ctx.DetalleFacturacion.Where(r => r.factura_id.idFactura == pkFactura && r.bStatus == true).ToList();
 
                     return a;
                 }

@@ -13,13 +13,13 @@ namespace SiscomSoft.Models
     public class Precio
     {
         [Key]
-        public int pkPrecios { get; set; }
+        public int idPrecios { get; set; }
 
         public int iPrePorcen { get; set; }
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<Producto> Productos { get; set; }
+        public virtual ICollection<Producto> Productos { get; set; }
         
         public Precio()
         {

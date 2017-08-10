@@ -13,22 +13,17 @@ namespace SiscomSoft.Models
     public class Catalogo
     {
         [Key]
-        public int pkCatalogo { get; set; }
+        public int idCatalogo { get; set; }
 
         public string sUDM { get; set; }
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<Producto> Productos { get; set; }
-
-        public ICollection<Factura> Facturas { get; set; }
-
-       
-
+        public virtual ICollection<Producto> Productos { get; set; }
+        
         public Catalogo()
         {
             this.bStatus = true;
         }
-
     }
 }

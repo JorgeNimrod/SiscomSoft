@@ -35,7 +35,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Almacenes
-                        .Include("fkCliente")
+                        .Include("cliente_id")
                         .Where(r => r.bStatus == Status && r.sFolio.Contains(valor))
                         .ToList();
                        
@@ -56,7 +56,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nAlmacen.fkCliente = cliente;
+                    nAlmacen.cliente_id = cliente;
                    
                     ctx.Clientes.Attach(cliente);
                     ctx.Almacenes.Add(nAlmacen);
@@ -91,8 +91,8 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Almacenes
-                        .Include("fkCliente")
-                        .Where(r => r.bStatus == true && r.pkAlmacen == pkAlmacen).FirstOrDefault();
+                        .Include("cliente_id")
+                        .Where(r => r.bStatus == true && r.idAlmacen == pkAlmacen).FirstOrDefault();
                 }
             }
             catch (Exception)

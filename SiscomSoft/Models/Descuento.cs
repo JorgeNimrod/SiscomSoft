@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Descuento
     {
         [Key]
-        public int pkDescuento { get; set; }
+        public int idDescuento { get; set; }
 
         public decimal dTasaDesc { get; set; }
 
@@ -21,7 +21,7 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<DescuentoProducto> Descuentosproducto { get; set; }
+        public virtual ICollection<DescuentoProducto> DescuentosProductos { get; set; }
 
         public Descuento()
         {

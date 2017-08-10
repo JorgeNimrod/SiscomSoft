@@ -12,14 +12,19 @@ namespace SiscomSoft.Models
     public class DetalleAlmacen
     {
         [Key]
-        public int pkDetalle { get; set; }
-        public string sDescripcion { get; set; }
-        public virtual Almacen fkAlmacen { get; set; }
-        public virtual Producto fkProducto { get; set; }
-        public int iCantidad { get; set; }
-        public decimal dCosto { get; set; }
-        public Boolean bStatus { get; set; }
+        public int idDetalle { get; set; }
 
+        public string sDescripcion { get; set; }
+
+        public virtual Almacen almacen_id { get; set; }
+
+        public virtual Producto producto_id { get; set; }
+
+        public int iCantidad { get; set; }
+
+        public decimal dCosto { get; set; }
+
+        public Boolean bStatus { get; set; }
 
         public DetalleAlmacen()
         {

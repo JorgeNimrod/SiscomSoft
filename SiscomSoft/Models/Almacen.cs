@@ -12,11 +12,11 @@ namespace SiscomSoft.Models
     public class Almacen
     {
         [Key]
-        public int pkAlmacen { get; set; }
+        public int idAlmacen { get; set; }
 
         public string sFolio { get; set; }
      
-        public virtual Cliente fkCliente {get; set;}
+        public virtual Cliente cliente_id {get; set;}
 
         public String sNumFactura { get; set; }
        
@@ -32,11 +32,13 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<DetalleAlmacen> DetalleAlmacen { get; set; }
+        public virtual ICollection<DetalleAlmacen> DetalleAlmacen { get; set; }
 
-        public ICollection<Existencia> Existencias { get; set; }
+        public virtual ICollection<Existencia> Existencias { get; set; }
 
-        public ICollection<Inventario> Inventarios { get; set; }
+        public virtual ICollection<Inventario> Inventarios { get; set; }
+
+        public virtual ICollection<Capa> Capas { get; set; }
 
         public Almacen()
         {

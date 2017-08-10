@@ -23,15 +23,21 @@ namespace SiscomSoft_Desktop.Views
     {
         #region VARIABLES
         string strSello = string.Empty;
+        Boolean dolar = false;
         decimal SubTotal = 0;
         decimal DESCUENTO = 0;
         decimal DESCUENTOEXTRA = 0;
-        decimal IVA16 = 0;
-        decimal IVA11 = 0;
-        decimal IVA4 = 0;
-        decimal IEPS53 = 0;
-        decimal IEPS30 = 0;
-        decimal IEPS26 = 0;
+        decimal TIVA16 = 0;
+        decimal TIVA11 = 0;
+        decimal TIVA4 = 0;
+        decimal TIEPS53 = 0;
+        decimal TIEPS30 = 0;
+        decimal TIEPS26 = 0;
+        decimal RIVA16 = 0;
+        decimal RIVA1067 = 0;
+        decimal RIVA733 = 0;
+        decimal RIVA4 = 0;
+        decimal RISR10 = 0;
         #endregion
 
         public FrmMenuFacturacion()
@@ -45,7 +51,7 @@ namespace SiscomSoft_Desktop.Views
         {
             cmbSucursal.DataSource = ManejoSucursal.getAll(1);
             cmbSucursal.DisplayMember = "sNombre";
-            cmbSucursal.ValueMember = "pkSucursal";
+            cmbSucursal.ValueMember = "idSucursal";
         }
 
         public void crearCarpetaRaiz()
@@ -84,62 +90,119 @@ namespace SiscomSoft_Desktop.Views
             if (nProducto != null)
             {
                 DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
-                row.Cells[0].Value = nProducto.pkProducto;
+                row.Cells[0].Value = nProducto.idProducto;
                 row.Cells[1].Value = nProducto.iClaveProd;
                 row.Cells[2].Value = nProducto.sDescripcion;
                 row.Cells[3].Value = nProducto.sMarca;
-                row.Cells[4].Value = nProducto.fkCatalogo.sUDM;
+                row.Cells[4].Value = nProducto.catalogo_id.sUDM;
                 row.Cells[5].Value = nProducto.dCosto;
                 row.Cells[6].Value = 1;
 
                 decimal Total = 0;
                 decimal PreUnitario = nProducto.dCosto;
-                decimal TasaImpuestoIVA16 = 0;
-                decimal TasaImpuestoIVA11 = 0;
-                decimal TasaImpuestoIVA4 = 0;
-                decimal TasaImpuestoIEPS53 = 0;
-                decimal TasaImpuestoIEPS26 = 0;
-                decimal TasaImpuestoIEPS30 = 0;
+                decimal TTasaImpuestoIVA16 = 0;
+                decimal TTasaImpuestoIVA11 = 0;
+                decimal TTasaImpuestoIVA4 = 0;
+                decimal TTasaImpuestoIEPS53 = 0;
+                decimal TTasaImpuestoIEPS26 = 0;
+                decimal TTasaImpuestoIEPS30 = 0;
+
+                decimal RTasaImpuestoIVA16 = 0;
+                decimal RTasaImpuestoIVA1067 = 0;
+                decimal RTasaImpuestoIVA733 = 0;
+                decimal RTasaImpuestoIVA4 = 0;
+                decimal RTasaImpuestoISR10 = 0;
+
                 decimal TasaDescuento = 0;
                 decimal TasaDescuentoExtra = 0;
                 int Cantidad = Convert.ToInt32(row.Cells[6].Value);
                 #region Impuestos
-                List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
+                List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.idProducto));
                 foreach (ImpuestoProducto rImpuesto in mImpuesto)
                 {
-                    if (rImpuesto.fkImpuesto.sTipoImpuesto == "TRASLADO")
+                    #region TRASLADO
+                    if (rImpuesto.impuesto_id.sTipoImpuesto == "TRASLADO")
                     {
-                        if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
+                        // IVA
+                        if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
                         {
-                            TasaImpuestoIVA16 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                            TTasaImpuestoIVA16 += rImpuesto.impuesto_id.dTasaImpuesto;
                         }
-                        else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
+                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(11.00))
                         {
-                            TasaImpuestoIVA11 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                            TTasaImpuestoIVA11 += rImpuesto.impuesto_id.dTasaImpuesto;
                         }
-                        else if (rImpuesto.fkImpuesto.sImpuesto == "IVA" && rImpuesto.fkImpuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
+                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
                         {
-                            TasaImpuestoIVA4 += rImpuesto.fkImpuesto.dTasaImpuesto;
+                            TTasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                        }
+                        //IEPS
+                        else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(53.00))
+                        {
+                            TTasaImpuestoIEPS53 += rImpuesto.impuesto_id.dTasaImpuesto;
+                        }
+                        else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(30.00))
+                        {
+                            TTasaImpuestoIEPS30 += rImpuesto.impuesto_id.dTasaImpuesto;
+                        }
+                        else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(26.50))
+                        {
+                            TTasaImpuestoIEPS26 += rImpuesto.impuesto_id.dTasaImpuesto;
                         }
                     }
+                    #endregion
+                    #region RETENIDO
+                    if (rImpuesto.impuesto_id.sTipoImpuesto == "RETENIDO")
+                    {
+                        // IVA
+                        if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                        {
+                            RTasaImpuestoIVA16 += rImpuesto.impuesto_id.dTasaImpuesto;
+                        }
+                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(10.67))
+                        {
+                            RTasaImpuestoIVA1067 += rImpuesto.impuesto_id.dTasaImpuesto;
+                        }
+                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(7.33))
+                        {
+                            RTasaImpuestoIVA733 += rImpuesto.impuesto_id.dTasaImpuesto;
+                        }
+                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                        {
+                            RTasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                        }
+                        //ISR
+                        else if (rImpuesto.impuesto_id.sImpuesto == "ISR" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(10.00))
+                        {
+                            RTasaImpuestoISR10 += rImpuesto.impuesto_id.dTasaImpuesto;
+                        }
+                    }
+                    #endregion
                 }
                 #endregion
                 #region Descuentos
-                List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(nProducto.pkProducto));
+                List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(nProducto.idProducto));
                 foreach (DescuentoProducto rDescuento in mDescuento)
                 {
-                    TasaDescuento = rDescuento.fkDescuento.dTasaDesc;
-                    TasaDescuentoExtra = rDescuento.fkDescuento.dTasaDescEx;
+                    TasaDescuento = rDescuento.descuento_id.dTasaDesc;
+                    TasaDescuentoExtra = rDescuento.descuento_id.dTasaDescEx;
                 }
                 #endregion
 
                 decimal Importe = 0;
-                decimal ImporteWithImpuestoIVA16 = 0;
-                decimal ImporteWithImpuestoIVA11 = 0;
-                decimal ImporteWithImpuestoIVA4 = 0;
-                decimal ImporteWithImpuestosIEPS53 = 0;
-                decimal ImporteWithImpuestosIEPS30 = 0;
-                decimal ImporteWithImpuestosIEPS26 = 0;
+                decimal ImporteWithTImpuestoIVA16 = 0;
+                decimal ImporteWithTImpuestoIVA11 = 0;
+                decimal ImporteWithTImpuestoIVA4 = 0;
+                decimal ImporteWithTImpuestosIEPS53 = 0;
+                decimal ImporteWithTImpuestosIEPS30 = 0;
+                decimal ImporteWithTImpuestosIEPS26 = 0;
+
+                decimal ImporteWithRImpuestoIVA16 = 0;
+                decimal ImporteWithRImpuestoIVA1067 = 0;
+                decimal ImporteWithRImpuestoIVA733 = 0;
+                decimal ImporteWithRImpuestosIVA4 = 0;
+                decimal ImporteWithRImpuestosISR10 = 0;
+
                 decimal PreUnitarioWithDescuento = 0;
                 decimal PriceForLot = 0;
                 decimal Descuento = 0;
@@ -157,17 +220,51 @@ namespace SiscomSoft_Desktop.Views
                 SubTotal += Cantidad * PreUnitario;
                 PreUnitarioWithDescuento = PreUnitario - Descuento - DescuentoExtra;
                 PriceForLot = Cantidad * PreUnitarioWithDescuento;
+                
+                //TODO: AGREGAR LAS COLUMNAS EN EL GRID
+                #region TRASLADO
+                ImporteWithTImpuestoIVA16 = PriceForLot * (TTasaImpuestoIVA16 / 100);
+                TIVA16 = ImporteWithTImpuestoIVA16;
+                row.Cells[8].Value = TIVA16;
+                ImporteWithTImpuestoIVA11 = PriceForLot * (TTasaImpuestoIVA11 / 100);
+                TIVA11 = ImporteWithTImpuestoIVA11;
+                row.Cells[9].Value = TIVA11;
+                ImporteWithTImpuestoIVA4 = PriceForLot * (TTasaImpuestoIVA4 / 100);
+                TIVA4 = ImporteWithTImpuestoIVA4;
+                row.Cells[10].Value = TIVA4;
+                ImporteWithTImpuestosIEPS53 = PriceForLot * (TTasaImpuestoIEPS53 / 100);
+                TIEPS53 = ImporteWithTImpuestosIEPS53;
+                row.Cells[11].Value = TIEPS53;
+                ImporteWithTImpuestosIEPS30 = PriceForLot * (TTasaImpuestoIEPS30 / 100);
+                TIEPS30 = ImporteWithTImpuestosIEPS30;
+                row.Cells[12].Value = TIEPS30;
+                ImporteWithTImpuestosIEPS26 = PriceForLot * (TTasaImpuestoIEPS26 / 100);
+                TIEPS26 = ImporteWithTImpuestosIEPS26;
+                row.Cells[13].Value = TIEPS26;
+                #endregion
+                #region RETENIDO
+                ImporteWithRImpuestoIVA16 = PriceForLot * (RTasaImpuestoIVA16 / 100);
+                RIVA16 = ImporteWithRImpuestoIVA16;
+                row.Cells[14].Value = RIVA16;
+                ImporteWithRImpuestoIVA1067 = PriceForLot * (RTasaImpuestoIVA1067 / 100);
+                RIVA1067 = ImporteWithRImpuestoIVA1067;
+                row.Cells[15].Value = RIVA1067;
+                ImporteWithRImpuestoIVA733 = PriceForLot * (RTasaImpuestoIVA733 / 100);
+                RIVA733 = ImporteWithRImpuestoIVA733;
+                row.Cells[16].Value = RIVA733;
+                ImporteWithRImpuestosIVA4 = PriceForLot * (RTasaImpuestoIVA4 / 100);
+                RIVA4 = ImporteWithRImpuestosIVA4;
+                row.Cells[17].Value = RIVA4;
+                ImporteWithRImpuestosISR10 = PriceForLot * (RTasaImpuestoISR10 / 100);
+                RISR10 = ImporteWithRImpuestosISR10;
+                row.Cells[18].Value = RISR10;
+                #endregion
 
-                ImporteWithImpuestoIVA16 = PriceForLot * (TasaImpuestoIVA16 / 100);
-                ImporteWithImpuestoIVA11 = PriceForLot * (TasaImpuestoIVA11 / 100);
-                ImporteWithImpuestoIVA4 = PriceForLot * (TasaImpuestoIVA4 / 100);
-                ImporteWithImpuestosIEPS53 = PriceForLot * (TasaImpuestoIEPS53 / 100);
-                ImporteWithImpuestosIEPS30 = PriceForLot * (TasaImpuestoIEPS30 / 100);
-                ImporteWithImpuestosIEPS26 = PriceForLot * (TasaImpuestoIEPS26 / 100);
+                Importe = PriceForLot + ImporteWithTImpuestoIVA16 + ImporteWithTImpuestoIVA11 +
+                    ImporteWithTImpuestoIVA4 + ImporteWithTImpuestosIEPS53 + ImporteWithTImpuestosIEPS30 +
+                    ImporteWithTImpuestosIEPS26;
 
-                Importe = PriceForLot + ImporteWithImpuestoIVA16 + ImporteWithImpuestoIVA11 +
-                    ImporteWithImpuestoIVA4 + ImporteWithImpuestosIEPS53 + ImporteWithImpuestosIEPS30 +
-                    ImporteWithImpuestosIEPS26;
+                //TODO: SACAR EL RETENIDO DEL IMPORTE
 
                 row.Cells[7].Value = Importe.ToString("N");
                 row.Height = 30;
@@ -178,14 +275,23 @@ namespace SiscomSoft_Desktop.Views
                     Total += Convert.ToDecimal(rItem.Cells[7].Value);
                 }
 
+                if (dolar!=false)
+                {
+                    decimal TotalDolar = 0;
+                    decimal TipoCambio = Convert.ToDecimal(FrmMenu.uHelper.usuario.sucursal_id.sTipoCambio);
+                    TotalDolar = (Total * 1) / TipoCambio;
+                    lblTotalDolar.Text = TotalDolar.ToString("N");
+                }
+
                 lblSubTotal.Text = SubTotal.ToString("N");
                 lblTotal.Text = Total.ToString("N");
-                lblIVA16.Text = IVA16.ToString("N");
-                lblIVA11.Text = IVA11.ToString("N");
-                lblIVA4.Text = IVA4.ToString("N");
-                lblIEPS53.Text = IEPS53.ToString("N");
-                lblIEPS30.Text = IEPS30.ToString("N");
-                lblIEPS26.Text = IEPS26.ToString("N");
+                lblIVA16.Text = TIVA16.ToString("N");
+                lblIVA11.Text = TIVA11.ToString("N");
+                lblIVA4.Text = TIVA4.ToString("N");
+                lblIEPS53.Text = TIEPS53.ToString("N");
+                lblIEPS30.Text = TIEPS30.ToString("N");
+                lblIEPS26.Text = TIEPS26.ToString("N");
+                //TODO: LABELS PARA EL IMPUESTO RETENIDO
             }
         }
 
@@ -398,87 +504,87 @@ namespace SiscomSoft_Desktop.Views
 
             #region RegimenFiscal
             //TODO: Terminar el regimen fiscal: el regimen fiscal se sacara de la tabla de empresa.
-            if (nSucursal.fkEmpresa.sRegFiscal == 1.ToString())
+            if (nSucursal.empresa_id.sRegFiscal == 1.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item601;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 2.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 2.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item603;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 3.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 3.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item605;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 4.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 4.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item606;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 5.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 5.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item608;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 6.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 6.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item609;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 7.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 7.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item610;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 8.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 8.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item611;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 9.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 9.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item612;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 10.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 10.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item614;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 11.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 11.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item616;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 12.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 12.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item620;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 13.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 13.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item621;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 14.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 14.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item622;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 15.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 15.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item623;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 16.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 16.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item624;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 17.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 17.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item628;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 18.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 18.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item607;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 19.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 19.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item629;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 20.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 20.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item630;
             }
-            else if (nSucursal.fkEmpresa.sRegFiscal == 21.ToString())
+            else if (nSucursal.empresa_id.sRegFiscal == 21.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item615;
             }
@@ -672,8 +778,8 @@ namespace SiscomSoft_Desktop.Views
             string cadenaOriginal = str.ToString();
 
             /* Creacion del sello */
-            string strPathLlave = nSucursal.fkCertificado.sRutaArch + @"\" + nSucursal.fkCertificado.sArchkey;
-            string strLlavePwd = nSucursal.fkCertificado.sContrasena;
+            string strPathLlave = nSucursal.certificado_id.sRutaArch + @"\" + nSucursal.certificado_id.sArchkey;
+            string strLlavePwd = nSucursal.certificado_id.sContrasena;
             string strCadenaOriginal = cadenaOriginal; // Aquí ya haber generado la cadena original //simon
 
             System.Security.SecureString passwordSeguro = new System.Security.SecureString();
@@ -788,6 +894,230 @@ namespace SiscomSoft_Desktop.Views
         private void cmbSucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbMoneda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMoneda.SelectedIndex == 0)
+            {
+                lbltotaldolares.Visible = false;
+                lblTotalDolar.Visible = false;
+                dolar = false;
+            }
+            else if (cmbMoneda.SelectedIndex == 1)
+            {
+                decimal total = 0;
+                foreach (DataGridViewRow row in dgvProductos.Rows)
+                {
+                    total += Convert.ToDecimal(row.Cells[7].Value);
+                }
+
+                decimal TotalDolar = 0;
+                decimal TipoCambio = Convert.ToDecimal(FrmMenu.uHelper.usuario.sucursal_id.sTipoCambio);
+                TotalDolar = (total * 1) / TipoCambio;
+                lbltotaldolares.Visible = true;
+                lblTotalDolar.Visible = true;
+                lblTotalDolar.Text = TotalDolar.ToString("N");
+                dolar = true;
+            }
+        }
+
+        private void dgvProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            string a = dgvProductos.Columns[e.ColumnIndex].Name;
+            if (a == "sCantidad")
+            {
+                if (dgvProductos.CurrentRow != null)
+                {
+                    if (!dgvProductos.CurrentRow.IsNewRow)
+                    {
+                        decimal Cantidad = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[6].Value);
+                        if (Cantidad != 0)
+                        {
+                            Producto nProducto = ManejoProducto.getById(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value));
+                            if (nProducto != null)
+                            {
+                                //TODO: ESTO ES PARA ELIMINAR UN PRODUCTO
+                                decimal PreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[5].Value);
+                                decimal DgvTIva16 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[8].Value);
+                                decimal DgvTIva11 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[9].Value);
+                                decimal DgvTIva4 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[10].Value);
+                                decimal DgvTIep53 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[11].Value);
+                                decimal DgvTIep30 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[12].Value);
+                                decimal DgvTIep26 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[13].Value);
+                                decimal DgvRIva16 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[14].Value);
+                                decimal DgvRIva1067 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[15].Value);
+                                decimal DgvRIva733 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[16].Value);
+                                decimal DgvRIva4 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[17].Value);
+                                decimal DgvRIsr10 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[18].Value);
+                                decimal dgvDescuento = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[19].Value);
+                                decimal dgvDescuentoExt = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[20].Value);
+                                decimal descuento = 0;
+                                decimal descuentoExt = 0;
+
+                                TIVA16 -= DgvTIva16;
+                                TIVA11 -= DgvTIva11;
+                                TIVA4 -= DgvTIva4;
+                                TIEPS53 -= DgvTIep53;
+                                TIEPS30 -= DgvTIep30;
+                                TIEPS26 -= DgvTIep26;
+
+                                RIVA16 -= DgvRIva16;
+                                RIVA1067 -= DgvRIva1067;
+                                RIVA733 -= DgvRIva733;
+                                RIVA4 -= DgvRIva4;
+                                RISR10 -= DgvRIsr10;
+
+                                descuento = PreUnitario * (dgvDescuento / 100);
+                                descuentoExt = PreUnitario * (dgvDescuentoExt / 100);
+
+                                //sumatoriadescuentos -= desacuento;
+
+                                decimal TrasladoTasaImpuestoIVA16 = 0;
+                                decimal TrasladoTasaImpuestoIVA11 = 0;
+                                decimal TrasladoTasaImpuestoIVA4 = 0;
+                                decimal TrasladoTasaImpuestoIEPS53 = 0;
+                                decimal TrasladoTasaImpuestoIEPS26 = 0;
+                                decimal TrasladoTasaImpuestoIEPS30 = 0;
+
+                                decimal RetenidoTasaImpuestoIVA16 = 0;
+                                decimal RetenidoTasaImpuestoIVA1067 = 0;
+                                decimal RetenidoTasaImpuestoIVA733;
+                                decimal RetenidoTasaImpuestoIVA4 = 0;
+                                decimal RetenidoTasaImpuestoIEPS53 = 0;
+                                decimal RetenidoTasaImpuestoIEPS26 = 0;
+                                decimal RetenidoTasaImpuestoIEPS30 = 0;
+
+                                #region Impuestos
+                                List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.idProducto));
+                                foreach (ImpuestoProducto rImpuesto in mImpuesto)
+                                {
+                                    #region TRASLADO
+                                    if (rImpuesto.impuesto_id.sTipoImpuesto == "TRASLADO")
+                                    {
+                                        // IVA
+                                        if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                                        {
+                                            TrasladoTasaImpuestoIVA16 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        }
+                                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(11.00))
+                                        {
+                                            TrasladoTasaImpuestoIVA11 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        }
+                                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                                        {
+                                            TrasladoTasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        }
+                                        //IEPS
+                                        else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(53.00))
+                                        {
+                                            TrasladoTasaImpuestoIEPS53 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        }
+                                        else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(30.00))
+                                        {
+                                            TrasladoTasaImpuestoIEPS30 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        }
+                                        else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(26.50))
+                                        {
+                                            TrasladoTasaImpuestoIEPS26 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        }
+                                    }
+                                    #endregion
+                                    #region RETENIDO
+                                    if (rImpuesto.impuesto_id.sTipoImpuesto == "RETENIDO")
+                                    {
+                                        // IVA
+                                        if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                                        {
+                                            TrasladoTasaImpuestoIVA16 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        }
+                                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(10.67))
+                                        {
+                                            TrasladoTasaImpuestoIVA11 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        }
+                                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(7.33))
+                                        {
+                                            TrasladoTasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        }
+                                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                                        {
+                                            TrasladoTasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        }
+                                        //ISR
+                                        else if (rImpuesto.impuesto_id.sImpuesto == "ISR" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(10.00))
+                                        {
+                                            TrasladoTasaImpuestoIEPS53 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        }
+                                    }
+                                    #endregion
+                                }
+                                #endregion
+
+                                decimal Importe = 0;
+                                decimal ImporteWithImpuestoIVA16 = 0;
+                                decimal ImporteWithImpuestoIVA11 = 0;
+                                decimal ImporteWithImpuestoIVA4 = 0;
+                                decimal ImporteWithImpuestosIEPS53 = 0;
+                                decimal ImporteWithImpuestosIEPS30 = 0;
+                                decimal ImporteWithImpuestosIEPS26 = 0;
+                                decimal PreUnitarioWithDescuento = 0;
+                                decimal PriceForLot = 0;
+                                decimal trampa = 0;
+                                /*
+                                desacuento = PreUnitario * (nepe / 100);
+                                trampa = Cantidad * desacuento;
+                                sumatoriadescuentos += trampa;
+
+                                PreUnitarioWithDescuento = PreUnitario - desacuento;
+                                PriceForLot = Cantidad * PreUnitarioWithDescuento;
+
+
+
+                                
+                                ImporteWithImpuestoIVA16 = PriceForLot * (TrasladoTasaImpuestoIVA16 / 100);
+                                IVA16 += ImporteWithImpuestoIVA16;
+                                dgrDatosAlmacen.CurrentRow.Cells[9].Value = ImporteWithImpuestoIVA16;
+                                ImporteWithImpuestoIVA11 = PriceForLot * (TrasladoTasaImpuestoIVA11 / 100);
+                                IVA11 += ImporteWithImpuestoIVA11;
+                                dgrDatosAlmacen.CurrentRow.Cells[10].Value = ImporteWithImpuestoIVA11;
+                                ImporteWithImpuestoIVA4 = PriceForLot * (TrasladoTasaImpuestoIVA4 / 100);
+                                IVA4 += ImporteWithImpuestoIVA4;
+                                dgrDatosAlmacen.CurrentRow.Cells[11].Value = ImporteWithImpuestoIVA4;
+                                ImporteWithImpuestosIEPS53 = PriceForLot * (TrasladoTasaImpuestoIEPS53 / 100);
+                                IEPS53 += ImporteWithImpuestosIEPS53;
+                                dgrDatosAlmacen.CurrentRow.Cells[12].Value = ImporteWithImpuestosIEPS53;
+                                ImporteWithImpuestosIEPS30 = PriceForLot * (TrasladoTasaImpuestoIEPS30 / 100);
+                                IEPS30 += ImporteWithImpuestosIEPS30;
+                                dgrDatosAlmacen.CurrentRow.Cells[13].Value = ImporteWithImpuestosIEPS30;
+                                ImporteWithImpuestosIEPS26 = PriceForLot * (TrasladoTasaImpuestoIEPS26 / 100);
+                                IEPS26 += ImporteWithImpuestosIEPS26;
+                                dgrDatosAlmacen.CurrentRow.Cells[14].Value = ImporteWithImpuestosIEPS26;
+
+
+                                Importe = PriceForLot + ImporteWithImpuestoIVA16 + ImporteWithImpuestoIVA11 +
+                                    ImporteWithImpuestoIVA4 + ImporteWithImpuestosIEPS53 + ImporteWithImpuestosIEPS30 +
+                                    ImporteWithImpuestosIEPS26;
+                                    
+                                dgrDatosAlmacen.CurrentRow.Cells[6].Value = Importe.ToString("N");
+
+                                Decimal sumatoria = 0;
+                                foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
+                                {
+                                    sumatoria += Convert.ToDecimal(row.Cells[6].Value);
+                                }
+                                lblImporte.Text = sumatoria.ToString("N");
+                                lblDescuento.Text = sumatoriadescuentos.ToString("N");
+                                lblIVA16.Text = IVA16.ToString("N");
+                                lblIVA11.Text = IVA11.ToString("N");
+                                lblIVA4.Text = IVA4.ToString("N");
+                                lblIEPS53.Text = IEPS53.ToString("N");
+                                lblIEPS30.Text = IEPS30.ToString("N");
+                                lblIEPS26.Text = IEPS26.ToString("N");*/
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 } 

@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Empresa
     {
         [Key]
-        public int pkEmpresa { get; set; }
+        public int idEmpresa { get; set; }
         
         public string sRazonSocial { get; set; }
         
@@ -48,9 +48,7 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<Sucursal> Sucursales { get; set; }
-
-        public ICollection<Factura> Facturas { get; set; }
+        public virtual ICollection<Sucursal> Sucursales { get; set; }
 
         public Empresa()
         {

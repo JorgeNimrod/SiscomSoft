@@ -80,7 +80,7 @@
             // 
             // pk
             // 
-            this.pk.DataPropertyName = "pkProducto";
+            this.pk.DataPropertyName = "idProducto";
             this.pk.HeaderText = "No";
             this.pk.Name = "pk";
             this.pk.ReadOnly = true;

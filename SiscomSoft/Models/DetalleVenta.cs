@@ -13,11 +13,11 @@ namespace SiscomSoft.Models
     public class DetalleVenta
     {
         [Key]
-        public int pkDetalleVenta { get; set; }
+        public int idDetalleVenta { get; set; }
 
-        public virtual Venta fkVenta { get; set; }
+        //public virtual Venta venta_id { get; set; }
 
-        public virtual Producto fkProducto { get; set; }
+        public virtual Producto producto_id { get; set; }
 
         public string sDescripcion { get; set; }
 

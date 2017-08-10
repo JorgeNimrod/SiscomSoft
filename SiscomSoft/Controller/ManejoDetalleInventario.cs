@@ -20,8 +20,8 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nDetalle.fkProducto = Producto;
-                    nDetalle.fkInventario = Inventario;
+                    nDetalle.producto_id = Producto;
+                    //nDetalle.inventario_id = Inventario;
                     ctx.Inventarios.Attach(Inventario);
                     ctx.Productos.Attach(Producto);
                     ctx.DetalleInventario.Add(nDetalle);

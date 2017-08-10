@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Permiso
     {
         [Key]
-        public int pkPermiso { get; set; }
+        public int idPermiso { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string sNombre { get; set; }
@@ -23,7 +23,7 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<PermisoNegadoRol> PermisosNegadosRol { get; set; }
+        public virtual ICollection<PermisoNegadoRol> PermisosNegadosRol { get; set; }
 
         public Permiso()
         {

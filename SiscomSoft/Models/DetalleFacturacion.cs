@@ -14,11 +14,11 @@ namespace SiscomSoft.Models
     public class DetalleFacturacion
     {
         [Key]
-        public int pkDetalleFacturacion { get; set; }
+        public int idDetalleFacturacion { get; set; }
 
-        public virtual Factura fkFactura { get; set; }
+        public virtual Factura factura_id { get; set; }
 
-        public virtual Producto fkProducto  { get; set; }
+        public virtual Producto producto_id  { get; set; }
 
         public string sDescripcion { get; set; }
 

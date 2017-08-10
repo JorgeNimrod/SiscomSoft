@@ -114,45 +114,45 @@ namespace SiscomSoft_Desktop.Views
         {
 
             //ComboBox de Registrar sucursales
-            cmbEmpresasSucursales.ValueMember = "pkEmpresa";
             cmbEmpresasSucursales.DisplayMember = "sNomComercial";
+            cmbEmpresasSucursales.ValueMember = "idEmpresa";
             cmbEmpresasSucursales.DataSource = ManejoEmpresa.getAll(true);
 
             //ComboBox de Actualizar sucursales
             cmbUpdateEmpresa.DisplayMember = "sNomComercial";
-            cmbUpdateEmpresa.ValueMember = "pkEmpresa";
+            cmbUpdateEmpresa.ValueMember = "idEmpresa";
             cmbUpdateEmpresa.DataSource = ManejoEmpresa.getAll(true);
 
             //ComboBox de Registrar Usuarios
             cbxRol.DisplayMember = "sNombre";
-            cbxRol.ValueMember = "pkRol";
+            cbxRol.ValueMember = "idRol";
             cbxRol.DataSource = ManejoRol.getAll(true);
 
             //ComboBox de Actualizar Usuarios
             cbxUpdateProfile.DisplayMember = "sNombre";
-            cbxUpdateProfile.ValueMember = "pkRol";
+            cbxUpdateProfile.ValueMember = "idRol";
             cbxUpdateProfile.DataSource = ManejoRol.getAll(true);
 
             //Combo's de Registrar Productos
             cbxPrecioAddProd.DisplayMember = "iPrePorcen";
-            cbxPrecioAddProd.ValueMember = "pkPrecios";
+            cbxPrecioAddProd.ValueMember = "idPrecios";
             cbxPrecioAddProd.DataSource = ManejoPrecio.getAll();
 
             cbxCatalogoAddProd.DisplayMember = "sUDM";
-            cbxCatalogoAddProd.ValueMember = "pkCatalogo";
+            cbxCatalogoAddProd.ValueMember = "idCatalogo";
             cbxCatalogoAddProd.DataSource = ManejoCatalogo.getAll();
 
             cbxAddProdCategoria.DisplayMember = "sNombre";
-            cbxAddProdCategoria.ValueMember = "pkCategoria";
+            cbxAddProdCategoria.ValueMember = "idCategoria";
             cbxAddProdCategoria.DataSource = ManejoCategoria.getAll(true);
             
             //Combobox de Actualizar Producto
             cbxUpdatePrecioProd.DisplayMember = "iPrePorcen";
-            cbxUpdatePrecioProd.ValueMember = "pkPrecios";
+            cbxUpdatePrecioProd.ValueMember = "idPrecios";
             cbxUpdatePrecioProd.DataSource = ManejoPrecio.getAll();
             
             cbxUpdateUMDProd.DisplayMember = "sUDM";
-            cbxUpdateUMDProd.ValueMember = "pkCatalogo";
+            cbxUpdateUMDProd.ValueMember = "idCatalogo";
             cbxUpdateUMDProd.DataSource = ManejoCatalogo.getAll();
 
         }
@@ -640,7 +640,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Rol nRol = new Rol();
-                nRol.pkRol = PKROL;
+                nRol.idRol = PKROL;
                 nRol.sNombre = txtUpdateNombre.Text;
                 nRol.sComentario = txtUpdateComentario.Text;
 
@@ -715,24 +715,22 @@ namespace SiscomSoft_Desktop.Views
         public void ActualizarProducto()
         {
             Producto nProducto = ManejoProducto.getById(PKPRODUCTO);
-            Categoria nCategoria = ManejoCategoria.getById(nProducto.fkCategoria.pkCategoria);
-            PKCATEGORIA = nCategoria.pkCategoria;
+            Categoria nCategoria = ManejoCategoria.getById(nProducto.categoria_id.idCategoria);
+            PKCATEGORIA = nCategoria.idCategoria;
             txtUpdateClavProd.Text = nProducto.iClaveProd.ToString();
             txtUpdateMarcProd.Text = nProducto.sMarca;
             dtpUpdateFechaProd.Value = nProducto.dtCaducidad;
             txtUpdateCostoProd.Text = nProducto.dCosto.ToString();
        
-            
-
             txtUpdateDesProd.Text = nProducto.sDescripcion;
-            cbxUpdatePrecioProd.Text = nProducto.fkPrecio.ToString();
+            cbxUpdatePrecioProd.Text = nProducto.precio_id.ToString();
             txtUpdateLoteProd.Text = nProducto.iLote.ToString();
          
             txtUpdatePVProd.Text = nProducto.dPreVenta.ToString();
          
           
-            cbxUpdateUMDProd.SelectedItem = nProducto.fkCatalogo.pkCatalogo;
-            cbxUpdatePrecioProd.SelectedItem = nProducto.fkPrecio.pkPrecios;
+            cbxUpdateUMDProd.SelectedItem = nProducto.catalogo_id.idCatalogo;
+            cbxUpdatePrecioProd.SelectedItem = nProducto.precio_id.idPrecios;
 
             pcbUpdateImgProd.Image = ToolImagen.Base64StringToBitmap(nProducto.sFoto);
 
@@ -993,7 +991,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Categoria nCategoria = new Categoria();
-                nCategoria.pkCategoria = PKCATEGORIA;
+                nCategoria.idCategoria = PKCATEGORIA;
                 nCategoria.sNombre = txtActualizarNomCat.Text;
                 nCategoria.sNomSubCat = txtActualizarSubCat.Text;
 
@@ -1254,7 +1252,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Impuesto nImpuesto = new Impuesto();
-                nImpuesto.pkImpuesto = PKIMPUESTO;
+                nImpuesto.idImpuesto = PKIMPUESTO;
                 nImpuesto.sTipoImpuesto = txtTipoImpuesto.Text;
                 nImpuesto.sImpuesto = txtImpuesto.Text;
                 nImpuesto.dTasaImpuesto = Convert.ToDecimal(txtTasaImpuesto.Text);
@@ -1518,7 +1516,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 Usuario nUsuario = new Usuario();
 
-                nUsuario.pkUsuario = PKUSUARIO;
+                nUsuario.idUsuario = PKUSUARIO;
                 nUsuario.sRfc = txtUpdateRFCUser.Text;
                 nUsuario.sNombre = txtUpdateNameUser.Text;
                 nUsuario.sContrasena = LoginTool.GetMD5(txtUpdateContrasena.Text);
@@ -1651,7 +1649,7 @@ namespace SiscomSoft_Desktop.Views
                         else
                         {
                         PKDESC = Convert.ToInt32(row.Cells[0].Value);
-                                ManejoDescuentoProducto.registrarDescuentoProducto(PKDESC, nProducto.pkProducto);
+                                ManejoDescuentoProducto.registrarDescuentoProducto(PKDESC, nProducto.idProducto);
                             chk.Value = chk.TrueValue;
                         }
                                
@@ -1672,7 +1670,7 @@ namespace SiscomSoft_Desktop.Views
                         else
                         {
                             PKIMP = Convert.ToInt32(row.Cells[0].Value);
-                            ManejoImpuestoProducto.registrarImpuestoProducto(PKIMP, nProducto.pkProducto);
+                            ManejoImpuestoProducto.registrarImpuestoProducto(PKIMP, nProducto.idProducto);
                             chk.Value = chk.TrueValue;
                         }
 
@@ -1806,7 +1804,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Precio nPrecio = new Precio();
-                nPrecio.pkPrecios = PKPRECIO;
+                nPrecio.idPrecios = PKPRECIO;
                 nPrecio.iPrePorcen = Convert.ToInt32(txtUpdatePrecio.Text);
 
 
@@ -1961,7 +1959,7 @@ namespace SiscomSoft_Desktop.Views
              /*   ManejoCategoria.Modificar(nCategoria)*/;
 
                 Producto nProducto = new Producto();
-                nProducto.pkProducto = PKPRODUCTO;
+                nProducto.idProducto = PKPRODUCTO;
                 nProducto.iClaveProd = Convert.ToInt32(txtUpdateClavProd.Text);
                 nProducto.sDescripcion = txtUpdateDesProd.Text;
                 nProducto.sMarca = txtUpdateMarcProd.Text;
@@ -2871,7 +2869,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Cliente nCliente = new Cliente();
-                nCliente.pkCliente = PKCLIENTE;
+                nCliente.idCliente = PKCLIENTE;
                 nCliente.sRfc = txtRfcUpdateCli.Text;
                 nCliente.sRazonSocial = txtRazonUpdateCli.Text;
                 nCliente.iPersona = Convert.ToInt32(txtPersonaUpdateCli.Text);
@@ -3844,7 +3842,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Empresa nEmpresa = new Empresa();
-                nEmpresa.pkEmpresa = PKEMPRESA;
+                nEmpresa.idEmpresa = PKEMPRESA;
                 nEmpresa.sNomComercial = txtUpdateNomComercialEmpresa.Text;
                 nEmpresa.sNomContacto = txtUpdateNombContactoEmpresa.Text;
                 nEmpresa.sRazonSocial = txtUpdateRazonSocialEmpresa.Text;
@@ -4001,8 +3999,8 @@ namespace SiscomSoft_Desktop.Views
         private void ActualizarSucursales()
         {
             Sucursal nSucursal = ManejoSucursal.getById(PKSUCURSAL);
-            Preferencia nPreferencia = ManejoPreferencia.getById(nSucursal.fkPreferencia.pkPreferencia);
-            Certificado nCertificado = ManejoCertificado.getById(nSucursal.fkCertificado.pkCertificado);
+            Preferencia nPreferencia = ManejoPreferencia.getById(nSucursal.preferencia_id.idPreferencia);
+            Certificado nCertificado = ManejoCertificado.getById(nSucursal.certificado_id.idCertificado);
             txtUpdateNombre.Text = nSucursal.sNombre;
             txtUpdatePais.Text = nSucursal.sPais;
             txtUpdateEstado.Text = nSucursal.sEstado;
@@ -4017,7 +4015,7 @@ namespace SiscomSoft_Desktop.Views
             ckbUpdateEnvFactura.Checked = nPreferencia.bEnvFactura;
             pcbUpdateLogoSucursal.Image = ToolImagen.Base64StringToBitmap(nPreferencia.sLogotipo);
 
-            cmbUpdateEmpresa.SelectedItem = nSucursal.fkEmpresa.pkEmpresa;
+            cmbUpdateEmpresa.SelectedItem = nSucursal.empresa_id.idEmpresa;
 
             txtUpdateFolderCertificados.Text = nCertificado.sRutaArch;
             txtUpdateCertificado.Text = nCertificado.sArchCer;
@@ -4027,9 +4025,9 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateValidoDe.Text = nCertificado.sValidoDe;
             txtUpdateValidoHasta.Text = nCertificado.sValidoHasta;
 
-            PKPREFERENCIA = nSucursal.fkPreferencia.pkPreferencia;
-            PKCERTIFICADO = nSucursal.fkCertificado.pkCertificado;
-            PKEMPRESA = nSucursal.fkEmpresa.pkEmpresa;
+            PKPREFERENCIA = nSucursal.preferencia_id.idPreferencia;
+            PKCERTIFICADO = nSucursal.certificado_id.idCertificado;
+            PKEMPRESA = nSucursal.empresa_id.idEmpresa;
         }
 
         private void btnBorrarSucursal_Click(object sender, EventArgs e)
@@ -4642,14 +4640,14 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Preferencia nPreferencia = new Preferencia();
-                nPreferencia.pkPreferencia = PKPREFERENCIA;
+                nPreferencia.idPreferencia = PKPREFERENCIA;
                 nPreferencia.sLogotipo = ImagenString;
                 nPreferencia.sNumSerie = txtUpdateNoSerie.Text;
                 nPreferencia.bForImpreso = ckbUpdateForImpreso.Checked;
                 nPreferencia.bEnvFactura = ckbUpdateEnvFactura.Checked;
 
                 Certificado nCertificado = new Certificado();
-                nCertificado.pkCertificado = PKCERTIFICADO;
+                nCertificado.idCertificado = PKCERTIFICADO;
                 nCertificado.sArchCer = txtUpdateCertificado.Text;
                 nCertificado.sArchkey = txtUpdateKey.Text;
                 nCertificado.sContrasena = txtUpdateContrasena.Text;
@@ -4659,7 +4657,7 @@ namespace SiscomSoft_Desktop.Views
                 nCertificado.sValidoHasta = txtUpdateValidoHasta.Text;
 
                 Sucursal nSucursal = new Sucursal();
-                nSucursal.pkSucursal = PKSUCURSAL;
+                nSucursal.idSucursal = PKSUCURSAL;
                 //TODO: Con selectedValue se puede sacar la pk del combo: awebo :D
                 nSucursal.sNombre = txtUpdateNombre.Text;
                 nSucursal.sPais = txtUpdatePais.Text;
@@ -5539,7 +5537,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Catalogo nUMD = new Catalogo();
-                nUMD.pkCatalogo = PKUMD;
+                nUMD.idCatalogo = PKUMD;
                 nUMD.sUDM = txtUpdateUMD.Text;
 
 
@@ -5982,7 +5980,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Descuento nDescuento = new Descuento();
-                nDescuento.pkDescuento = PKDESCUENTO;
+                nDescuento.idDescuento = PKDESCUENTO;
                 nDescuento.dTasaDesc = Convert.ToDecimal(txtUpdateTasaDesc.Text);
 
                 nDescuento.dTasaDescEx = Convert.ToDecimal(txtUpdateDescEx.Text);

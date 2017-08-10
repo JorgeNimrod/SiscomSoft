@@ -83,6 +83,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.gbDetalleFactura = new System.Windows.Forms.GroupBox();
+            this.lblTotalDolar = new System.Windows.Forms.Label();
+            this.lbltotaldolares = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -629,6 +631,7 @@
             this.cmbMoneda.Name = "cmbMoneda";
             this.cmbMoneda.Size = new System.Drawing.Size(130, 24);
             this.cmbMoneda.TabIndex = 5;
+            this.cmbMoneda.SelectedIndexChanged += new System.EventHandler(this.cmbMoneda_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -728,6 +731,8 @@
             // 
             // gbDetalleFactura
             // 
+            this.gbDetalleFactura.Controls.Add(this.lblTotalDolar);
+            this.gbDetalleFactura.Controls.Add(this.lbltotaldolares);
             this.gbDetalleFactura.Controls.Add(this.label13);
             this.gbDetalleFactura.Controls.Add(this.label16);
             this.gbDetalleFactura.Controls.Add(this.label22);
@@ -759,6 +764,28 @@
             this.gbDetalleFactura.TabIndex = 81;
             this.gbDetalleFactura.TabStop = false;
             this.gbDetalleFactura.Text = "DETALLES DE FACTURA";
+            // 
+            // lblTotalDolar
+            // 
+            this.lblTotalDolar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDolar.Location = new System.Drawing.Point(1011, 257);
+            this.lblTotalDolar.Name = "lblTotalDolar";
+            this.lblTotalDolar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblTotalDolar.Size = new System.Drawing.Size(147, 18);
+            this.lblTotalDolar.TabIndex = 92;
+            this.lblTotalDolar.Text = "0";
+            this.lblTotalDolar.Visible = false;
+            // 
+            // lbltotaldolares
+            // 
+            this.lbltotaldolares.AutoSize = true;
+            this.lbltotaldolares.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotaldolares.Location = new System.Drawing.Point(911, 257);
+            this.lbltotaldolares.Name = "lbltotaldolares";
+            this.lbltotaldolares.Size = new System.Drawing.Size(98, 15);
+            this.lbltotaldolares.TabIndex = 91;
+            this.lbltotaldolares.Text = "Total en dolares:";
+            this.lbltotaldolares.Visible = false;
             // 
             // label13
             // 
@@ -914,7 +941,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(911, 234);
+            this.label14.Location = new System.Drawing.Point(911, 236);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(37, 15);
             this.label14.TabIndex = 75;
@@ -962,7 +989,6 @@
             this.sTotal});
             this.dgvProductos.Location = new System.Drawing.Point(8, 45);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvProductos.RowTemplate.Height = 30;
@@ -974,6 +1000,7 @@
             this.dgvProductos.ShowRowErrors = false;
             this.dgvProductos.Size = new System.Drawing.Size(1150, 161);
             this.dgvProductos.TabIndex = 72;
+            this.dgvProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellEndEdit);
             // 
             // pkProductos
             // 
@@ -981,7 +1008,6 @@
             this.pkProductos.DefaultCellStyle = dataGridViewCellStyle2;
             this.pkProductos.HeaderText = "No.";
             this.pkProductos.Name = "pkProductos";
-            this.pkProductos.ReadOnly = true;
             this.pkProductos.Visible = false;
             // 
             // sClaveProd
@@ -1039,7 +1065,6 @@
             this.sCantidad.DefaultCellStyle = dataGridViewCellStyle8;
             this.sCantidad.HeaderText = "CANTIDAD";
             this.sCantidad.Name = "sCantidad";
-            this.sCantidad.ReadOnly = true;
             // 
             // sTotal
             // 
@@ -1272,5 +1297,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
         private System.Windows.Forms.DataGridViewTextBoxColumn sCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn sTotal;
+        private System.Windows.Forms.Label lblTotalDolar;
+        private System.Windows.Forms.Label lbltotaldolares;
     }
 }

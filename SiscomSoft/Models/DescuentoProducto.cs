@@ -13,11 +13,11 @@ namespace SiscomSoft.Models
     public class DescuentoProducto
     {         
         [Key]
-        public int pkDescuentoProducto { get; set; }
+        public int idDescuentoProducto { get; set; }
 
-        public virtual Descuento fkDescuento { get; set; }
+        public virtual Descuento descuento_id { get; set; }
 
-        public virtual Producto fkProducto { get; set; }
+        public virtual Producto producto_id { get; set; }
 
         public Boolean bStatus { get; set; }
 

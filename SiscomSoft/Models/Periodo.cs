@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Periodo
     {
         [Key]
-        public int pkPeriodo { get; set; }
+        public int idPeriodo { get; set; }
 
         public DateTime dtInicio { get; set; }
 
@@ -27,7 +27,7 @@ namespace SiscomSoft.Models
 
         public decimal dFondo { get; set; }
 
-        public virtual Usuario fkUsuario { get; set; }
+        public virtual Usuario usuario_id { get; set; }
 
         public Boolean bStatus { get; set; }
 
@@ -36,6 +36,6 @@ namespace SiscomSoft.Models
             this.bStatus = true;
         }
 
-        public ICollection<DetallePeriodo> DetallePeriodos { get; set; }
+        public virtual ICollection<DetallePeriodo> DetallePeriodos { get; set; }
     }
 }

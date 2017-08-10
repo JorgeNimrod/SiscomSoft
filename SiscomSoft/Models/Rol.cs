@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Rol
     {
         [Key]
-        public int pkRol { get; set; }
+        public int idRol { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string sNombre { get; set; }
@@ -25,7 +25,7 @@ namespace SiscomSoft.Models
 
         public ICollection<Usuario> Usuarios { get; set; }
 
-        public ICollection<PermisoNegadoRol> PermisosNegadosRol { get; set; }
+        public virtual ICollection<PermisoNegadoRol> PermisosNegadosRol { get; set; }
 
         public Rol()
         {

@@ -20,8 +20,8 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nExistencia.fkProducto = Producto;
-                    nExistencia.fkAlmacen = Almacen;
+                    nExistencia.producto_id = Producto;
+                    nExistencia.almacen_id = Almacen;
                     ctx.Productos.Attach(Producto);
                     ctx.Almacenes.Attach(Almacen);
                     ctx.Existencias.Add(nExistencia);
@@ -40,7 +40,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Existencias.Where(r =>  r.fkProducto.pkProducto == pkExistencia).FirstOrDefault();
+                    return ctx.Existencias.Where(r =>  r.producto_id.idProducto == pkExistencia).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -83,6 +83,26 @@ namespace SiscomSoft.Controller
                     {
                         ctx.Almacenes.Attach(almacen);
                     }
+                    ctx.Entry(nExistencia).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static void Modificar(Existencia nExistencia, int pkProducto)
+        {
+            Producto producto = ManejoProducto.getById(pkProducto);
+            try
+            {
+
+                using (var ctx = new DataModel())
+                {
+                    ctx.Productos.Attach(producto);
                     ctx.Entry(nExistencia).State = EntityState.Modified;
                     ctx.SaveChanges();
                 }

@@ -88,15 +88,11 @@
     <Compile Include="Controller\ManejoCliente.cs" />
     <Compile Include="Controller\ManejoDetallePeriodo.cs" />
     <Compile Include="Controller\ManejoImpuestoProducto.cs" />
-    <Compile Include="Controller\ManejoDetalleVenta.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
     <Compile Include="Controller\ManejoPeriodo.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201708080144361_INICIAL.cs" />
-    <Compile Include="Migrations\201708080144361_INICIAL.Designer.cs">
-      <DependentUpon>201708080144361_INICIAL.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\Descuento.cs" />
     <Compile Include="Models\DescuentoProducto.cs" />
@@ -108,7 +104,7 @@
     <Compile Include="Models\ImpuestoProducto.cs" />
     <Compile Include="Models\DetalleVenta.cs" />
     <Compile Include="Models\Inventario.cs" />
-    <Compile Include="Models\ManejoImpuesto.cs" />
+    <Compile Include="Controller\ManejoImpuesto.cs" />
     <Compile Include="Controller\ManejoPermiso.cs" />
     <Compile Include="Controller\ManejoPrecio.cs" />
     <Compile Include="Controller\ManejoPreferencia.cs" />
@@ -116,7 +112,6 @@
     <Compile Include="Controller\ManejoRol.cs" />
     <Compile Include="Controller\ManejoSucursal.cs" />
     <Compile Include="Controller\ManejoUsuario.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Catalogo.cs" />
     <Compile Include="Models\Certificado.cs" />
@@ -146,11 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708080144361_INICIAL.resx">
-      <DependentUpon>201708080144361_INICIAL.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

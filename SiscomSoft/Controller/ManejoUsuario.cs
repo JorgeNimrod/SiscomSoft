@@ -56,10 +56,10 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Usuarios.Include("fkRol")
-                        .Include("fkRol.PermisosNegadosRol")
-                        .Include("fkRol.PermisosNegadosRol.fkPermiso")
-                        .Include("fkSucursal")
+                    return ctx.Usuarios.Include("rol_id")
+                        .Include("rol_id.PermisosNegadosRol")
+                        .Include("rol_id.PermisosNegadosRol.permiso_id")
+                        .Include("sucursal_id")
                          .Where(r => r.sPin == empleado && r.bStatus == true).FirstOrDefault();
                 }
             }
@@ -77,7 +77,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nUsuario.fkRol = rol;
+                    nUsuario.rol_id = rol;
                     ctx.Usuarios.Add(nUsuario);
                     ctx.Roles.Attach(rol);
                     ctx.SaveChanges();
@@ -95,7 +95,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Usuarios.Where(r => r.bStatus == true && r.pkUsuario == pkUsuario).FirstOrDefault();
+                    return ctx.Usuarios.Where(r => r.bStatus == true && r.idUsuario == pkUsuario).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -162,7 +162,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Roles.Where(r => r.bStatus == true && r.pkRol == pkrol).FirstOrDefault();
+                    return ctx.Roles.Where(r => r.bStatus == true && r.idRol == pkrol).FirstOrDefault();
                 }
             }
             catch (Exception)

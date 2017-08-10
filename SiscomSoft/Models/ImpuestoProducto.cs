@@ -13,11 +13,11 @@ namespace SiscomSoft.Models
     public class ImpuestoProducto
     {
         [Key]
-        public int pkDetalleProducto { get; set; }
+        public int idDetalleProducto { get; set; }
 
-        public virtual Impuesto fkImpuesto { get; set; }
+        public virtual Impuesto impuesto_id { get; set; }
 
-        public virtual Producto fkProducto { get; set; }
+        public virtual Producto producto_id { get; set; }
 
         public Boolean bStatus { get; set; }
 

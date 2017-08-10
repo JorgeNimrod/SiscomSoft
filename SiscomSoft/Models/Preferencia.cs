@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Preferencia
     {
         [Key]
-        public int pkPreferencia { get; set; }
+        public int idPreferencia { get; set; }
 
         public string sLogotipo { get; set; }
 
@@ -25,7 +25,7 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<Sucursal> Sucursales { get; set; }
+        public virtual ICollection<Sucursal> Sucursales { get; set; }
 
         public Preferencia()
         {

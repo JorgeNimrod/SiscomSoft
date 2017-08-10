@@ -17,9 +17,9 @@ namespace SiscomSoft.Controller.Helpers
         public Boolean TienePermiso(int idPermiso)
         {
             Boolean tiene = true;
-            foreach (PermisoNegadoRol item in usuario.fkRol.PermisosNegadosRol)
+            foreach (PermisoNegadoRol item in usuario.rol_id.PermisosNegadosRol)
             {
-                if (item.fkPermiso.pkPermiso == idPermiso)
+                if (item.permiso_id.idPermiso == idPermiso)
                 {
                     tiene = false;
                     break;

@@ -18,7 +18,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Inventarios.Include("fkUsuario")
-                        .Where(r => r.fkUsuario.pkUsuario == pkUsuario).FirstOrDefault();
+                        .Where(r => r.usuario_id.idUsuario == pkUsuario).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -27,23 +27,42 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static void RegistrarNuevoInventario(Inventario nInventario, int pkUsuario, int pkAlmacen)
-        {
-            Usuario usuario = ManejoUsuario.getById(pkUsuario);
-            Almacen almacen = ManejoAlmacen.getById(pkAlmacen);
 
+        public static void RegistrarNuevoInventario(Inventario nInventario, Usuario nUsuario, Almacen nAlmacen)
+        {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    //nInventario.fkProducto = producto;
-                    ctx.Inventarios.Add(nInventario);
-                    ctx.Usuarios.Attach(usuario);
-                    if (almacen!=null)
-                    {
+                    nInventario.usuario_id = nUsuario;
+                    nInventario.almacen_id = nAlmacen;
 
-                    ctx.Almacenes.Attach(almacen);
+                    ctx.Usuarios.Attach(nUsuario);
+                    if (nAlmacen!=null)
+                    {
+                        ctx.Almacenes.Attach(nAlmacen);
                     }
+                    ctx.Inventarios.Add(nInventario);
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static void RegistrarNuevoInventario(Inventario nInventario, Usuario nUsuario)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    nInventario.usuario_id = nUsuario;
+
+                    ctx.Usuarios.Attach(nUsuario);
+                    ctx.Inventarios.Add(nInventario);
                     ctx.SaveChanges();
                 }
             }
@@ -71,16 +90,17 @@ namespace SiscomSoft.Controller
             }
         }*/
 
-        public static void Modificar(Inventario nInventario, int pkProducto, int pkUsuario)
+        public static void Modificar(Inventario nInventario, int pkAlmacen, int pkUsuario)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    Producto nProducto = ManejoProducto.getById(pkProducto);
+                    Almacen nAlmacen = ManejoAlmacen.getById(pkAlmacen);
                     Usuario nUsuario = ManejoUsuario.getById(pkUsuario);
-                    nInventario.fkUsuario = nUsuario;
-                    ctx.Productos.Attach(nProducto);
+                    nInventario.almacen_id = nAlmacen;
+                    nInventario.usuario_id = nUsuario;
+                    ctx.Almacenes.Attach(nAlmacen);
                     ctx.Usuarios.Attach(nUsuario);
                     ctx.Entry(nInventario).State = EntityState.Modified;
                     ctx.SaveChanges();
@@ -110,16 +130,16 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static Inventario getById(int pkInventario)
+        public static Inventario getById(int idInventario)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
                     return ctx.Inventarios
-                      //  .Include("fkInventario")
-                        .Include("fkUsuario")
-                        .Where(r => r.pkInventario == pkInventario)
+                        .Include("almacen_id")
+                        .Include("usuario_id")
+                        .Where(r => r.idInventario == idInventario)
                         .FirstOrDefault();
                 }
             }

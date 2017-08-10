@@ -32,7 +32,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-            pkCategoriaUI = nCategoria.pkCategoria;
+            pkCategoriaUI = nCategoria.idCategoria;
             //vMain.CargarProductos(pkCategoriaUI);
         }
     }

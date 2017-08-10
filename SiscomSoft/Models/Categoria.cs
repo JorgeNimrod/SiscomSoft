@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Categoria
     {
         [Key]
-        public int pkCategoria { get; set; }
+        public int idCategoria { get; set; }
 
         public string sNombre { get; set; }
 
@@ -21,7 +21,7 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<Producto> Productos { get; set; }
+        public virtual ICollection<Producto> Productos { get; set; }
 
         public Categoria()
         {

@@ -12,16 +12,19 @@ namespace SiscomSoft.Models
     public class Capa
     {
         [Key]
-        public int pkCapa { get; set; }
+        public int idCapa { get; set; }
 
-        public virtual Almacen fkAlmacen { get; set; }
-        public virtual Producto fkProducto { get; set; }
+        public virtual Almacen almacen_id { get; set; }
+
+        public virtual Producto producto_id { get; set; }
+
         public DateTime dtFecha { get; set; }
          
         public decimal dTipoCambio { get; set;  }
 
         public int iNumeroLote { get; set; }
-        public int iCantidad { get; set; }
+
+        public decimal dCantidad { get; set; }
 
         public decimal dCosto { get; set; }
 

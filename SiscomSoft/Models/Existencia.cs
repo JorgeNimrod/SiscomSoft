@@ -13,11 +13,11 @@ namespace SiscomSoft.Models
     public class Existencia
     {
         [Key]
-        public int pkExistencia { get; set; }
+        public int idExistencia { get; set; }
 
-        public virtual Almacen fkAlmacen { get; set; }
+        public virtual Almacen almacen_id { get; set; }
 
-        public virtual Producto fkProducto { get; set; }
+        public virtual Producto producto_id { get; set; }
 
         public decimal dCantidad { get; set; }
 

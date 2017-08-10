@@ -979,7 +979,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Cliente nCliente = new Cliente();
-                nCliente.pkCliente = PKCLIENTE;
+                nCliente.idCliente = PKCLIENTE;
 
                 nCliente.sRfc = txtUpdateRFC.Text;
                 nCliente.sRazonSocial = txtUpdateRazonSocial.Text;

@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Impuesto
     {
         [Key]
-        public int pkImpuesto { get; set; }
+        public int idImpuesto { get; set; }
 
         public string sTipoImpuesto { get; set; }
 
@@ -23,12 +23,9 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<Factura> Facturas { get; set; }
+        public virtual ICollection<Factura> Facturas { get; set; }
 
-       
-
-
-       
+        public virtual ICollection<ImpuestoProducto> ImpuestosProductos { get; set; }
 
         public Impuesto()
         {

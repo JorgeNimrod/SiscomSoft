@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Certificado
     {
         [Key]
-        public int pkCertificado { get; set; }
+        public int idCertificado { get; set; }
         
         public string sArchCer { get; set; }
         
@@ -31,7 +31,7 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public ICollection<Sucursal> Sucursales { get; set; }
+        public virtual ICollection<Sucursal> Sucursales { get; set; }
 
         public Certificado()
         {

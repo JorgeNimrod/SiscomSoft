@@ -46,7 +46,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Descuentos.Where(r => r.bStatus == true && r.pkDescuento == pkDescuento).FirstOrDefault();
+                    return ctx.Descuentos.Where(r => r.bStatus == true && r.idDescuento == pkDescuento).FirstOrDefault();
                 }
             }
             catch (Exception)

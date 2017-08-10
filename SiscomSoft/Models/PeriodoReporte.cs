@@ -8,9 +8,9 @@ namespace SiscomSoft.Models
 {
     public class PeriodoReporte
     {
-        public int pkPeriodo { get; set; }
+        public int idPeriodo { get; set; }
 
-        public int pkVenta { get; set; }
+        public int idVenta { get; set; }
 
         public DateTime dtFecha { get; set; }
 

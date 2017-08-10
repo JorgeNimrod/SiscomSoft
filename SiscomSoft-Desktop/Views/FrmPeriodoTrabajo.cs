@@ -53,7 +53,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnIniciarPeriodo_Click(object sender, EventArgs e)
         {
-            Periodo mPeriodo = ManejoPeriodo.getByUser(FrmMenu.uHelper.usuario.pkUsuario);
+            Periodo mPeriodo = ManejoPeriodo.getByUser(FrmMenu.uHelper.usuario.idUsuario);
             if (mPeriodo!=null)
             {
                 MessageBox.Show("Ya hay un periodo iniciado para este usuario: " + FrmMenu.uHelper.usuario.sUsuario + ".");
@@ -74,7 +74,7 @@ namespace SiscomSoft_Desktop.Views
                 Periodo mPeriodo = ManejoPeriodo.getById(Convert.ToInt32(dgvPeriodos.CurrentRow.Cells[0].Value));
                 if (mPeriodo.dtFinal == dt)
                 {
-                    if (FrmMenu.uHelper.usuario.pkUsuario == mPeriodo.fkUsuario.pkUsuario)
+                    if (FrmMenu.uHelper.usuario.idUsuario == mPeriodo.usuario_id.idUsuario)
                     {
                         mPeriodo.dtFinal = DateTime.Now;
                         ManejoPeriodo.Modificar(mPeriodo, FrmMenu.uHelper.usuario);
@@ -223,8 +223,9 @@ namespace SiscomSoft_Desktop.Views
 
         private void dgvPeriodoFecha_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            /*
             Venta mVenta = ManejoVenta.getById(Convert.ToInt32(dgvPeriodoFecha.CurrentRow.Cells[5].Value));
-            List<PeriodoVentas> mDetalleVenta = ManejoPeriodo.getByDetalleVenta(mVenta.pkVenta);
+            List<PeriodoVentas> mDetalleVenta = ManejoPeriodo.getByDetalleVenta(mVenta.idVenta);
             txtFolioVenta.Text = mVenta.sFolio;
             txtFecha.Text = mVenta.dtFechaVenta.ToString();
             txtTipoPago.Text = mVenta.sTipoPago;
@@ -245,8 +246,8 @@ namespace SiscomSoft_Desktop.Views
             foreach (PeriodoVentas rDetalleVenta in mDetalleVenta)
             {
                 DataGridViewRow row = (DataGridViewRow)dgvDetalleVenta.Rows[0].Clone();
-                row.Cells[0].Value = rDetalleVenta.pkDetalleVenta;
-                row.Cells[1].Value = rDetalleVenta.pkProducto;
+                row.Cells[0].Value = rDetalleVenta.idDetalleVenta;
+                row.Cells[1].Value = rDetalleVenta.idProducto;
                 row.Cells[2].Value = rDetalleVenta.sDescripcion;
                 row.Cells[3].Value = rDetalleVenta.dCantidad;
                 row.Cells[4].Value = rDetalleVenta.dCosto;
@@ -267,15 +268,15 @@ namespace SiscomSoft_Desktop.Views
             txtTotal.Text = total.ToString("N");
             txtCambio.Text = mVenta.dCambio.ToString("N");
             
-            txtUsuario.Text = mVenta.fkUsuario.sNombre;
+            txtUsuario.Text = mVenta.usuario_id.sNombre;
 
-            if (mVenta.fkCliente != null)
+            if (mVenta.cliente_id != null)
             {
-                txtCliente.Text = mVenta.fkCliente.sNombre;
+                txtCliente.Text = mVenta.cliente_id.sNombre;
             }
-            if (mVenta.fkFactura!=null)
+            if (mVenta.factura_id!=null)
             {
-                txtFolio.Text = mVenta.fkFactura.sFolio;
+                txtFolio.Text = mVenta.factura_id.sFolio;
             }
 
             dgvPeriodos.Visible = false;
@@ -285,7 +286,7 @@ namespace SiscomSoft_Desktop.Views
             btnFinalizarPeriodo.Visible = false;
             pnlReporte.Visible = false;
             pnlTotalGeneral.Visible = false;
-            pnlDetallePeriodo.Visible = true;
+            pnlDetallePeriodo.Visible = true;*/
         }
         #endregion
 

@@ -126,7 +126,7 @@
             // 
             // pk
             // 
-            this.pk.DataPropertyName = "pkCliente";
+            this.pk.DataPropertyName = "idCliente";
             this.pk.HeaderText = "No";
             this.pk.Name = "pk";
             this.pk.ReadOnly = true;

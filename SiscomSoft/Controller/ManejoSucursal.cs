@@ -17,12 +17,21 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nSucursal.fkPreferencia = nPreferencia;
-                    nSucursal.fkEmpresa = nEmpresa;
-                    nSucursal.fkCertificado = nCertificado;
-                    ctx.Empresas.Attach(nEmpresa);
-                    ctx.Preferencias.Attach(nPreferencia);
-                    ctx.Certificados.Attach(nCertificado);
+                    nSucursal.preferencia_id = nPreferencia;
+                    nSucursal.empresa_id = nEmpresa;
+                    nSucursal.certificado_id = nCertificado;
+                    if (nEmpresa!=null)
+                    {
+                        ctx.Empresas.Attach(nEmpresa);
+                    }
+                    if (nPreferencia!=null)
+                    {
+                        ctx.Preferencias.Attach(nPreferencia);
+                    }
+                    if (nCertificado!=null)
+                    {
+                        ctx.Certificados.Attach(nCertificado);
+                    }
                     ctx.Sucursales.Add(nSucursal);
                     ctx.SaveChanges();
                 }
@@ -41,10 +50,10 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Sucursales
-                        .Include("fkPreferencia")
-                        .Include("fkEmpresa")
-                        .Include("fkCertificado")
-                        .Where(r => r.iStatus == 1 && r.pkSucursal == pkSucursal).FirstOrDefault();
+                        .Include("preferencia_id")
+                        .Include("empresa_id")
+                        .Include("certificado_id")
+                        .Where(r => r.iStatus == 1 && r.idSucursal == pkSucursal).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -96,7 +105,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nSucursal.fkEmpresa = nEmpresa;
+                    nSucursal.empresa_id = nEmpresa;
                     ctx.Empresas.Attach(nEmpresa);
                     ctx.Entry(nSucursal).State = EntityState.Modified;
                     ctx.SaveChanges();

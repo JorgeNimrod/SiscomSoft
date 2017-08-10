@@ -59,7 +59,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnMenuVentas_Click(object sender, EventArgs e)
         {
-            Periodo mPeriodo = ManejoPeriodo.getByUser(uHelper.usuario.pkUsuario);
+            Periodo mPeriodo = ManejoPeriodo.getByUser(uHelper.usuario.idUsuario);
             if (mPeriodo!=null)
             {
                 this.Hide();

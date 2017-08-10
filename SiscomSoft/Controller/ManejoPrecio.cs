@@ -32,7 +32,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Precios.Where(r => r.bStatus == true && r.pkPrecios == pkPrecio).FirstOrDefault();
+                    return ctx.Precios.Where(r => r.bStatus == true && r.idPrecios == pkPrecio).FirstOrDefault();
                 }
             }
             catch (Exception)

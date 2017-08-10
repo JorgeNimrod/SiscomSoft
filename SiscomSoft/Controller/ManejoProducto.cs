@@ -39,7 +39,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Productos.Where(r => r.pkProducto == pkProducto).ToList();
+                    return ctx.Productos.Where(r => r.idProducto == pkProducto).ToList();
                 }
             }
             catch (Exception)
@@ -60,9 +60,9 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nProducto.fkPrecio = precio;
-                    nProducto.fkCatalogo = catalogo;
-                    nProducto.fkCategoria = categoria;
+                    nProducto.precio_id = precio;
+                    nProducto.catalogo_id = catalogo;
+                    nProducto.categoria_id = categoria;
                     ctx.Productos.Add(nProducto);
                   
                     ctx.Precios.Attach(precio);
@@ -84,10 +84,10 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Productos
-                        .Include("fkCatalogo")
-                        .Include("fkCategoria")
-                        .Include("fkPrecio")
-                        .Where(r => r.bStatus == true && r.pkProducto == pkProducto)
+                        .Include("catalogo_id")
+                        .Include("categoria_id")
+                        .Include("precio_id")
+                        .Where(r => r.bStatus == true && r.idProducto == pkProducto)
                         .FirstOrDefault();
                 }
             }
@@ -123,9 +123,9 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Productos
-                        .Include("fkCatalogo")
-                        .Include("fkCategoria")
-                        .Include("fkPrecio")
+                        .Include("catalogo_id")
+                        .Include("categoria_id")
+                        .Include("precio_id")
                         .Where(r => r.bStatus == Status && r.sDescripcion.Contains(valor))
                         .ToList();
                 }
@@ -144,9 +144,9 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Productos
-                        .Include("fkCatalogo")
-                        .Include("fkCategoria")
-                        .Include("fkPrecio")
+                        .Include("catalogo_id")
+                        .Include("categoria_id")
+                        .Include("precio_id")
                         .Where(r => r.bStatus == true && r.sDescripcion.Contains(valor))
                         .FirstOrDefault();
                 }
@@ -180,7 +180,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Impuestos.Where(r => r.bStatus == true && r.pkImpuesto == pkImpuesto).FirstOrDefault();
+                    return ctx.Impuestos.Where(r => r.bStatus == true && r.idImpuesto == pkImpuesto).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -218,13 +218,14 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static List<Producto> BuscarProductoCategoria(Categoria nCategoria)
+        public static List<Producto> BuscarProductoCategoria(string valor, int pkCategoria)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Productos.Where(r=>r.fkCategoria.pkCategoria == nCategoria.pkCategoria && r.bStatus == true).ToList();
+                    Categoria mCategoria = ManejoCategoria.getById(pkCategoria);
+                    return ctx.Productos.Where(r=>r.catalogo_id.idCatalogo == mCategoria.idCategoria && r.sDescripcion.Contains(valor) && r.bStatus == true).ToList();
                 }
             }
             catch (Exception)

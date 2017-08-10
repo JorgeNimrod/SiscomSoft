@@ -33,7 +33,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void pcbImagen_Click(object sender, EventArgs e)
         {
-            pkProductoUI = nProducto.pkProducto;
+            pkProductoUI = nProducto.idProducto;
             //vMain.cargarDetalleVenta(pkProductoUI);
         }
     }

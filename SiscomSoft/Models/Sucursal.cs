@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Sucursal
     {
         [Key]
-        public int pkSucursal { get; set; }
+        public int idSucursal { get; set; }
 
         public string sNombre { get; set; }
 
@@ -46,15 +46,17 @@ namespace SiscomSoft.Models
         public string sTipoCambio { get; set; }
 
         // llave foranea de Empresa
-        public virtual Empresa fkEmpresa { get; set; }
+        public virtual Empresa empresa_id { get; set; }
 
         // llave foranea de preferencias
-        public virtual Preferencia fkPreferencia { get; set; }
+        public virtual Preferencia preferencia_id { get; set; }
 
         // llave foranea de certificado
-        public virtual Certificado fkCertificado { get; set; }
+        public virtual Certificado certificado_id { get; set; }
 
-        public ICollection<Usuario> Usuarios { get; set; }
+        public virtual ICollection<Usuario> Usuarios { get; set; }
+
+        public virtual ICollection<Factura> Facturas { get; set; }
 
         public Sucursal()
         {

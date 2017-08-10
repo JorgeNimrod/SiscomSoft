@@ -13,7 +13,7 @@ namespace SiscomSoft.Models
     public class Cliente
     {
         [Key]
-        public int pkCliente { get; set; }
+        public int idCliente { get; set; }
 
         public string sRfc { get; set; }
 
@@ -68,11 +68,11 @@ namespace SiscomSoft.Models
 
         public string sLogo { get; set; }
 
-        public ICollection<Factura> Facturas { get; set; }
+        public virtual ICollection<Factura> Facturas { get; set; }
 
-        public ICollection<Venta> Ventas { get; set; }
+        public virtual ICollection<Venta> Ventas { get; set; }
 
-        public ICollection<Almacen> Almacen { get; set; }
+        public virtual ICollection<Almacen> Almacen { get; set; }
 
         public Cliente()
         {

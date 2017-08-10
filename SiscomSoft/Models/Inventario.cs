@@ -12,18 +12,26 @@ namespace SiscomSoft.Models
     public class Inventario
     {
         [Key]
-        public int pkInventario { get; set; }
+        public int idInventario { get; set; }
+
         public string sFolio { get; set; }
+
         public DateTime dtFecha { get; set; }
-        public virtual Usuario fkUsuario { get; set; }
+
         public string sTipoMov { get; set; }
+
         public Boolean bStatus { get; set; }
-        public ICollection<DetalleInventario> DetalleInventario { get; set; }
-        public virtual Almacen fkAlmacen { get; set; }
+
+        public virtual Usuario usuario_id { get; set; }
+
+        public virtual Almacen almacen_id { get; set; }
+
+        public virtual ICollection<DetalleInventario> DetalleInventario { get; set; }
 
         public Inventario()
         {
             this.bStatus = true;
+            DetalleInventario = new HashSet<DetalleInventario>();
         }
     }
 }

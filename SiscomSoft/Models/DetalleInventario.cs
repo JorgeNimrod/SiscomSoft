@@ -14,10 +14,15 @@ namespace SiscomSoft.Models
     {
         [Key]
         public int pkDetalleInventario { get; set; }
-        public virtual Inventario fkInventario { get; set; }
-        public virtual Producto fkProducto { get; set; }
+
+        //public virtual Inventario inventario_id { get; set; }
+
+        public virtual Producto producto_id { get; set; }
+
         public decimal dCantidad { get; set; }
+
         public decimal dLastCosto { get; set; }
+
         public decimal dPreVenta { get; set; }
     }
 }

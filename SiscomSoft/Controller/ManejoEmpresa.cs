@@ -51,7 +51,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Empresas
-                        .Where(r => r.bStatus == true && r.pkEmpresa == pkEmpresa).FirstOrDefault();
+                        .Where(r => r.bStatus == true && r.idEmpresa == pkEmpresa).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -117,7 +117,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Certificados.Where(r =>  r.pkCertificado == pkcertificado).FirstOrDefault();
+                    return ctx.Certificados.Where(r =>  r.idCertificado == pkcertificado).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -132,7 +132,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Sucursales.Where(r => r.pkSucursal == pkSucursal).FirstOrDefault();
+                    return ctx.Sucursales.Where(r => r.idSucursal == pkSucursal).FirstOrDefault();
                 }
             }
             catch (Exception)

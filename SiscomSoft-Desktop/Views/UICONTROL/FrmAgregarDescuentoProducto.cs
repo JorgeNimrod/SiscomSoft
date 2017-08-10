@@ -258,7 +258,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
                 
                 FrmWareHouse.Descuentos = Convert.ToDecimal(descuento1) + Convert.ToDecimal(descuento2) + Convert.ToDecimal(descuento3) + Convert.ToDecimal(descuento4) + Convert.ToDecimal(descuento5) + Convert.ToDecimal(descuento6) + Convert.ToDecimal(descuento7) + Convert.ToDecimal(descuento8) + Convert.ToDecimal(descuento9) + Convert.ToDecimal(descuento10);
-                vMain.mapeardescuento(FrmWareHouse.PKPRODUCTO);
+                //vMain.mapeardescuento(FrmWareHouse.PKPRODUCTO);
 
                 this.Close();
             }

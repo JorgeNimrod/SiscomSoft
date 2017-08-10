@@ -13,12 +13,11 @@ namespace SiscomSoft.Models
     public class Usuario
     {
         [Key]
-        public int pkUsuario { get; set; }
+        public int idUsuario { get; set; }
 
         //rfc unico por empresa
         public string sRfc { get; set; }
-
-
+        
         [Required(ErrorMessage = "Este campo es necesario")]
         public string sUsuario { get; set; }
 
@@ -30,8 +29,7 @@ namespace SiscomSoft.Models
 
         [Required(ErrorMessage = "Este campo es necesario")]
         public string sPin { get; set; }
-
-
+        
         [Required(ErrorMessage = "Este campo es necesario")]
         public string sNumero { get; set; }
 
@@ -42,9 +40,9 @@ namespace SiscomSoft.Models
         public string sComentario { get; set; }
 
         // llave foranea de rol
-        public virtual Rol fkRol { get; set; }
+        public virtual Rol rol_id { get; set; }
 
-        public virtual Sucursal fkSucursal { get; set; }
+        public virtual Sucursal sucursal_id { get; set; }
 
         public Boolean bStatus { get; set; }
 
