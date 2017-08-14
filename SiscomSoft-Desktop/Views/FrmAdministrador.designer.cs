@@ -320,6 +320,7 @@
             this.txtBuscarEmpresa = new System.Windows.Forms.TextBox();
             this.label118 = new System.Windows.Forms.Label();
             this.tbpAddEmpresa = new System.Windows.Forms.TabPage();
+            this.txtAddCodigoPostalEmpresa = new System.Windows.Forms.TextBox();
             this.cmbAddRegimenFiscalEmpresa = new System.Windows.Forms.ComboBox();
             this.label134 = new System.Windows.Forms.Label();
             this.txtAddRazonSocialEmpresa = new System.Windows.Forms.TextBox();
@@ -351,6 +352,7 @@
             this.label133 = new System.Windows.Forms.Label();
             this.btnGuardarEmpresa = new System.Windows.Forms.Button();
             this.tbpUpdateEmpresa = new System.Windows.Forms.TabPage();
+            this.txtUpdateCPEmpresa = new System.Windows.Forms.TextBox();
             this.cmbUpdateRegimenFiscalEmpresa = new System.Windows.Forms.ComboBox();
             this.label121 = new System.Windows.Forms.Label();
             this.txtUpdateRazonSocialEmpresa = new System.Windows.Forms.TextBox();
@@ -685,8 +687,6 @@
             this.btnCustomersList = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnTeclado = new System.Windows.Forms.Button();
-            this.txtAddCodigoPostalEmpresa = new System.Windows.Forms.TextBox();
-            this.txtUpdateCPEmpresa = new System.Windows.Forms.TextBox();
             this.pnlPrincipal.SuspendLayout();
             this.pnlProducto.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -2231,6 +2231,7 @@
             this.tbpAddCategoria.TabIndex = 8;
             this.tbpAddCategoria.Text = "Registrar Categoria";
             this.tbpAddCategoria.UseVisualStyleBackColor = true;
+            this.tbpAddCategoria.Click += new System.EventHandler(this.tbpAddCategoria_Click);
             // 
             // btnGuardarCategoria
             // 
@@ -2380,7 +2381,7 @@
             // 
             // txtTasaImpuesto
             // 
-            this.txtTasaImpuesto.Location = new System.Drawing.Point(18, 191);
+            this.txtTasaImpuesto.Location = new System.Drawing.Point(15, 179);
             this.txtTasaImpuesto.Name = "txtTasaImpuesto";
             this.txtTasaImpuesto.Size = new System.Drawing.Size(278, 24);
             this.txtTasaImpuesto.TabIndex = 9;
@@ -2391,7 +2392,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 159);
+            this.label11.Location = new System.Drawing.Point(17, 147);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(126, 18);
             this.label11.TabIndex = 10;
@@ -2399,7 +2400,7 @@
             // 
             // txtImpuesto
             // 
-            this.txtImpuesto.Location = new System.Drawing.Point(18, 122);
+            this.txtImpuesto.Location = new System.Drawing.Point(15, 110);
             this.txtImpuesto.Name = "txtImpuesto";
             this.txtImpuesto.Size = new System.Drawing.Size(278, 24);
             this.txtImpuesto.TabIndex = 7;
@@ -2410,7 +2411,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(20, 90);
+            this.label13.Location = new System.Drawing.Point(17, 78);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(69, 18);
             this.label13.TabIndex = 8;
@@ -2418,7 +2419,7 @@
             // 
             // txtTipoImpuesto
             // 
-            this.txtTipoImpuesto.Location = new System.Drawing.Point(18, 49);
+            this.txtTipoImpuesto.Location = new System.Drawing.Point(15, 37);
             this.txtTipoImpuesto.Name = "txtTipoImpuesto";
             this.txtTipoImpuesto.Size = new System.Drawing.Size(278, 24);
             this.txtTipoImpuesto.TabIndex = 6;
@@ -2429,7 +2430,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(15, 22);
+            this.label15.Location = new System.Drawing.Point(12, 10);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(122, 18);
             this.label15.TabIndex = 5;
@@ -4068,6 +4069,17 @@
             this.tbpAddEmpresa.Text = "Registrar Empresa";
             this.tbpAddEmpresa.UseVisualStyleBackColor = true;
             // 
+            // txtAddCodigoPostalEmpresa
+            // 
+            this.txtAddCodigoPostalEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddCodigoPostalEmpresa.Location = new System.Drawing.Point(221, 238);
+            this.txtAddCodigoPostalEmpresa.Name = "txtAddCodigoPostalEmpresa";
+            this.txtAddCodigoPostalEmpresa.Size = new System.Drawing.Size(156, 24);
+            this.txtAddCodigoPostalEmpresa.TabIndex = 89;
+            this.txtAddCodigoPostalEmpresa.Text = "0";
+            this.txtAddCodigoPostalEmpresa.TextChanged += new System.EventHandler(this.txtAddCodigoPostalEmpresa_TextChanged);
+            this.txtAddCodigoPostalEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddCodigoPostalEmpresa_KeyPress);
+            // 
             // cmbAddRegimenFiscalEmpresa
             // 
             this.cmbAddRegimenFiscalEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4454,6 +4466,18 @@
             this.tbpUpdateEmpresa.TabIndex = 20;
             this.tbpUpdateEmpresa.Text = "Actualizar Empresa";
             this.tbpUpdateEmpresa.UseVisualStyleBackColor = true;
+            // 
+            // txtUpdateCPEmpresa
+            // 
+            this.txtUpdateCPEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdateCPEmpresa.Location = new System.Drawing.Point(203, 222);
+            this.txtUpdateCPEmpresa.Name = "txtUpdateCPEmpresa";
+            this.txtUpdateCPEmpresa.Size = new System.Drawing.Size(156, 24);
+            this.txtUpdateCPEmpresa.TabIndex = 120;
+            this.txtUpdateCPEmpresa.Text = "0";
+            this.txtUpdateCPEmpresa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateCPEmpresa_MouseClick);
+            this.txtUpdateCPEmpresa.TextChanged += new System.EventHandler(this.txtUpdateCPEmpresa_TextChanged);
+            this.txtUpdateCPEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateCPEmpresa_KeyPress);
             // 
             // cmbUpdateRegimenFiscalEmpresa
             // 
@@ -8166,29 +8190,6 @@
             this.btnTeclado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnTeclado.UseVisualStyleBackColor = false;
             this.btnTeclado.Click += new System.EventHandler(this.btnTeclado_Click);
-            // 
-            // txtAddCodigoPostalEmpresa
-            // 
-            this.txtAddCodigoPostalEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddCodigoPostalEmpresa.Location = new System.Drawing.Point(221, 238);
-            this.txtAddCodigoPostalEmpresa.Name = "txtAddCodigoPostalEmpresa";
-            this.txtAddCodigoPostalEmpresa.Size = new System.Drawing.Size(156, 24);
-            this.txtAddCodigoPostalEmpresa.TabIndex = 89;
-            this.txtAddCodigoPostalEmpresa.Text = "0";
-            this.txtAddCodigoPostalEmpresa.TextChanged += new System.EventHandler(this.txtAddCodigoPostalEmpresa_TextChanged);
-            this.txtAddCodigoPostalEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddCodigoPostalEmpresa_KeyPress);
-            // 
-            // txtUpdateCPEmpresa
-            // 
-            this.txtUpdateCPEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdateCPEmpresa.Location = new System.Drawing.Point(203, 222);
-            this.txtUpdateCPEmpresa.Name = "txtUpdateCPEmpresa";
-            this.txtUpdateCPEmpresa.Size = new System.Drawing.Size(156, 24);
-            this.txtUpdateCPEmpresa.TabIndex = 120;
-            this.txtUpdateCPEmpresa.Text = "0";
-            this.txtUpdateCPEmpresa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateCPEmpresa_MouseClick);
-            this.txtUpdateCPEmpresa.TextChanged += new System.EventHandler(this.txtUpdateCPEmpresa_TextChanged);
-            this.txtUpdateCPEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateCPEmpresa_KeyPress);
             // 
             // FrmAdministrador
             // 

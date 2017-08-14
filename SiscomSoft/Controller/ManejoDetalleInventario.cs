@@ -10,7 +10,7 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoDetalleInventario
     {
-        public static void RegistrarNuevoDetalleInventario(DetalleInventario nDetalle, int pkProducto, int pkInventario)
+        public static void RegistrarNuevoDetalleInventario(DetalleInventario nDetalleInventario, int pkProducto, int pkInventario)
         {
             Producto Producto = ManejoProducto.getById(pkProducto);
             Inventario Inventario = ManejoInventario.getById(pkInventario);
@@ -20,11 +20,11 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nDetalle.producto_id = Producto;
-                    //nDetalle.inventario_id = Inventario;
+                    nDetalleInventario.producto_id = Producto;
+                   nDetalleInventario.inventario_id = Inventario;
                     ctx.Inventarios.Attach(Inventario);
                     ctx.Productos.Attach(Producto);
-                    ctx.DetalleInventario.Add(nDetalle);
+                    ctx.DetalleInventario.Add(nDetalleInventario);
                     ctx.SaveChanges();
                 }
             }

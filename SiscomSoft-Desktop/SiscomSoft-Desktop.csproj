@@ -191,6 +191,12 @@
     <Compile Include="Views\FrmPeriodoTrabajo.Designer.cs">
       <DependentUpon>FrmPeriodoTrabajo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmReporteAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmReporteAlmacen.Designer.cs">
+      <DependentUpon>FrmReporteAlmacen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmSplahScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,23 +215,35 @@
     <Compile Include="Views\FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UICONTROL\FrmAddDescunetos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\UICONTROL\FrmAddDescunetos.Designer.cs">
-      <DependentUpon>FrmAddDescunetos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\UICONTROL\FrmAgregarDescuentoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\UICONTROL\FrmAgregarDescuentoProducto.Designer.cs">
       <DependentUpon>FrmAgregarDescuentoProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UICONTROL\FrmDescuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UICONTROL\FrmDescuento.Designer.cs">
+      <DependentUpon>FrmDescuento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UICONTROL\FrmDescuentosForProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UICONTROL\FrmDescuentosForProduct.Designer.cs">
+      <DependentUpon>FrmDescuentosForProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UICONTROL\FrmWareHouse.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\UICONTROL\FrmWareHouse.Designer.cs">
       <DependentUpon>FrmWareHouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UICONTROL\FrmWaverHouseSalidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UICONTROL\FrmWaverHouseSalidas.Designer.cs">
+      <DependentUpon>FrmWaverHouseSalidas.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UICONTROL\ucImagenProducto.cs">
       <SubType>UserControl</SubType>
@@ -292,6 +310,9 @@
     <EmbeddedResource Include="Views\FrmPeriodoTrabajo.resx">
       <DependentUpon>FrmPeriodoTrabajo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmReporteAlmacen.resx">
+      <DependentUpon>FrmReporteAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmSplahScreen.resx">
       <DependentUpon>FrmSplahScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,14 +322,20 @@
     <EmbeddedResource Include="Views\FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UICONTROL\FrmAddDescunetos.resx">
-      <DependentUpon>FrmAddDescunetos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\UICONTROL\FrmAgregarDescuentoProducto.resx">
       <DependentUpon>FrmAgregarDescuentoProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UICONTROL\FrmDescuento.resx">
+      <DependentUpon>FrmDescuento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UICONTROL\FrmDescuentosForProduct.resx">
+      <DependentUpon>FrmDescuentosForProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UICONTROL\FrmWareHouse.resx">
       <DependentUpon>FrmWareHouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UICONTROL\FrmWaverHouseSalidas.resx">
+      <DependentUpon>FrmWaverHouseSalidas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UICONTROL\ucImagenProducto.resx">
       <DependentUpon>ucImagenProducto.cs</DependentUpon>

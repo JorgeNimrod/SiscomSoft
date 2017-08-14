@@ -10,6 +10,20 @@ namespace SiscomSoft.Controller
 {
    public class ManejoExistencia
     {
+        public static List<Existencia> getAll()
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Existencias.ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public static void RegistrarNuevaExistencia(Existencia nExistencia, int pkProducto,int pkAlmacen)
         {
             Producto Producto = ManejoProducto.getById(pkProducto);

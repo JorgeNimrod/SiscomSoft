@@ -11,6 +11,20 @@ namespace SiscomSoft.Controller
 {
   public class ManejoAlmacen
     {
+        //public static List<Almacen> getAll()
+        //{
+        //    try
+        //    {
+        //        using (var ctx = new DataModel())
+        //        {
+        //            return ctx.Almacenes.Where(r => r.bStatus == true).ToList();
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
         public static int getAlmacenCount()
         {
             try

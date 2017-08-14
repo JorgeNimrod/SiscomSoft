@@ -92,9 +92,9 @@
     <Compile Include="Controller\ManejoPeriodo.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201708101714352_INICIAL.cs" />
-    <Compile Include="Migrations\201708101714352_INICIAL.Designer.cs">
-      <DependentUpon>201708101714352_INICIAL.cs</DependentUpon>
+    <Compile Include="Migrations\201708112155495_COYOTES.cs" />
+    <Compile Include="Migrations\201708112155495_COYOTES.Designer.cs">
+      <DependentUpon>201708112155495_COYOTES.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Almacen.cs" />
@@ -147,8 +147,8 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708101714352_INICIAL.resx">
-      <DependentUpon>201708101714352_INICIAL.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708112155495_COYOTES.resx">
+      <DependentUpon>201708112155495_COYOTES.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

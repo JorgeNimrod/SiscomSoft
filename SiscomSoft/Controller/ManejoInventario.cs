@@ -130,7 +130,7 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static Inventario getById(int idInventario)
+        public static Inventario getById(int pkInventario)
         {
             try
             {
@@ -139,8 +139,9 @@ namespace SiscomSoft.Controller
                     return ctx.Inventarios
                         .Include("almacen_id")
                         .Include("usuario_id")
-                        .Where(r => r.idInventario == idInventario)
+                        .Where(r => r.bStatus == true && r.idInventario == pkInventario)
                         .FirstOrDefault();
+                        
                 }
             }
             catch (Exception)
@@ -149,5 +150,24 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+        //public static Inventario getById(int idInventario)
+        //{
+        //    try
+        //    {
+        //        using (var ctx = new DataModel())
+        //        {
+        //            return ctx.Inventarios
+        //                .Include("almacen_id")
+        //                .Include("usuario_id")
+        //                .Where(r => r.idInventario == idInventario)
+        //                .FirstOrDefault();
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //}
     }
 }

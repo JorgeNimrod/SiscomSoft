@@ -11,6 +11,7 @@ using SiscomSoft.Comun;
 using SiscomSoft.Controller;
 using SiscomSoft.Models;
 using System.Globalization;
+using System.IO;
 
 namespace SiscomSoft_Desktop.Views.UICONTROL
 {
@@ -268,7 +269,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             else if (this.txtComentario.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtComentario, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtComentario, "Insertar Cliente");
+                this.ErrorProvider.SetError(this.txtComentario, "Campo Necesario");
                 this.txtComentario.Focus();
             }
 
@@ -298,7 +299,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 mInventario.dtFecha = DateTime.Now;
                 mInventario.sFolio = ManejoInventario.Folio();
                 mInventario.sTipoMov = "Entrada";
-                //ManejoInventario.RegistrarNuevoInventario(mInventario);
+                ManejoInventario.RegistrarNuevoInventario(mInventario,FrmMenu.uHelper.usuario,nAlmacen);
                 #endregion
 
                 foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
@@ -403,7 +404,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         {
                             mDetalleInventario.dLastCosto = mProducto.dCosto;
                         }
-                        ManejoDetalleInventario.RegistrarNuevoDetalleInventario(mDetalleInventario, nAlmacen.idAlmacen, mInventario.idInventario);
+                        ManejoDetalleInventario.RegistrarNuevoDetalleInventario(mDetalleInventario,mProducto.idProducto,mInventario.idInventario);
                         #endregion
 
                         #region EXISTENCIAS
@@ -425,18 +426,101 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     }
                 }
 
-                MessageBox.Show("¡Registros Guardados!");
-                this.Folios();
-                txtFolio.Refresh();
-             
-                cbxMoneda.ResetText();
-                cbxTipoCompra.ResetText();
-                txtNoFactura.Clear();
+                if (MessageBox.Show("Desea Imprimir el Reporte?", "¡Atencion!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    string path = "reporte.html";
 
-                txtTipoCambio.Clear();
+                    File.Delete(path);
 
-                dgrDatosAlmacen.Rows.Clear();
-                dgrDatosAlmacen.Refresh();
+                    if (!File.Exists(path))
+                    {
+                        // Create a file to write to.
+                        using (StreamWriter sw = File.CreateText(path))
+                        {
+                            sw.WriteLine("<html><head> <meta charset=UTF - 8> </head><body>");
+                            // reporte
+                            sw.WriteLine("<h1 align=center><caption> Reporte Almacen </h1></caption> ");
+                         
+                            sw.WriteLine("<link href= style.css rel=stylesheet>");
+                             sw.WriteLine("<table border=1  align=center cellpadding=5  width=300  height=150>");
+                            sw.WriteLine("<tr><th align=center height=10> Descripcion: <td align=center>"+txtComentario.Text+" </td> <th align=center> Folio: <td align=center>" + txtFolio.Text+ "</td> <th align=center> Tipo:</th> <td align=center> Entrada </td> </th> </tr>");
+                      
+                            sw.WriteLine("<tr> <th align=center> Fecha: <td align=center>" + dtpFechaCompra.Text+ "</td> <th align=center> Usuario: </th> <td align=center>" + FrmMenu.uHelper.usuario.sUsuario+"</td> </th> </tr>");
+                          
+                            sw.WriteLine("<tr> <th align=center>Producto</th> <th align=center>Importe</th>  <th align=center>Unidad de Medida</th> <th align=center>Cantidad</th> <th align=center>Costo</th> </tr>");
+                            
+                            foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
+                            {
+                                sw.WriteLine("<tr>");
+                                sw.WriteLine("<td align=center>" +  row.Cells[1].Value+"</td>");
+                                sw.WriteLine("<td align=center>" + Convert.ToDecimal(row.Cells[6].Value)+"</td>");
+                             
+                                sw.WriteLine("<td align=center>" + row.Cells[3].Value+"</td>");
+                                sw.WriteLine("<td align=center>" + row.Cells[5].Value+"</td>");
+                                sw.WriteLine("<td align=center>" + Convert.ToDecimal(row.Cells[2].Value)+"</td>");
+                            sw.WriteLine("</tr>");
+                              
+
+                            }
+                            decimal sumatoria = 0;
+                            foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
+                            {
+                                sumatoria += Convert.ToDecimal(row.Cells[6].Value);
+                            }
+                            sw.WriteLine("<tr> <th align=center> Total <td align=right>" + sumatoria+"</td>  </th> </tr>");
+
+                            //sw.WriteLine("<td>" +  sumatoria + "</td> </th>");
+                          
+
+
+
+
+                            sw.WriteLine("</table>");
+
+
+
+                            sw.WriteLine("</body></html>");
+                        }
+                    }
+
+                    
+
+
+                    FrmReporteAlmacen report = new FrmReporteAlmacen();
+                    report.Show();
+
+
+
+                    this.Folios();
+                    txtFolio.Refresh();
+
+                    cbxMoneda.ResetText();
+                    cbxTipoCompra.ResetText();
+                    txtNoFactura.Clear();
+                    txtComentario.Clear();
+                    txtTipoCambio.Clear();
+
+                    dgrDatosAlmacen.Rows.Clear();
+                    dgrDatosAlmacen.Refresh();
+
+                }
+                else
+                {
+
+
+
+                    this.Folios();
+                    txtFolio.Refresh();
+
+                    cbxMoneda.ResetText();
+                    cbxTipoCompra.ResetText();
+                    txtNoFactura.Clear();
+                    txtComentario.Clear();
+                    txtTipoCambio.Clear();
+
+                    dgrDatosAlmacen.Rows.Clear();
+                    dgrDatosAlmacen.Refresh();
+                }
             }
         }
 
@@ -599,7 +683,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     switch (ch1.Value.ToString())
                     {
                         case "False":
-                            UICONTROL.FrmAgregarDescuentoProducto desc = new FrmAgregarDescuentoProducto(this);
+                            UICONTROL.FrmDescuento desc = new FrmDescuento(this);
                             idProducto = Convert.ToInt32(dgrDatosAlmacen.CurrentRow.Cells[0].Value);
                             desc.ShowDialog();
                             ch1.Value = true;
@@ -1255,7 +1339,12 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             }
         }
 
-        
+        private void btnSalida_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmWaverHouseSalidas f = new FrmWaverHouseSalidas();
+            f.Show();
+        }
     }
 }
 

@@ -6664,6 +6664,11 @@ namespace SiscomSoft_Desktop.Views
         {
             txtBuscarCliente.Text = FrmKeyboard.informacion;
         }
+
+        private void tbpAddCategoria_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

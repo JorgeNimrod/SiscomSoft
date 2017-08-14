@@ -121,6 +121,7 @@
             this.cbxMoneda = new System.Windows.Forms.ComboBox();
             this.txtComentario = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnSalida = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlDetalleMinimo.SuspendLayout();
@@ -727,7 +728,7 @@
             this.panel1.Controls.Add(this.dgrMostrarAlmacen);
             this.panel1.Controls.Add(this.btnAlmacenDetalle);
             this.panel1.Controls.Add(this.dgrMostrarDetalles);
-            this.panel1.Location = new System.Drawing.Point(1230, 419);
+            this.panel1.Location = new System.Drawing.Point(1207, 32);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(65, 76);
             this.panel1.TabIndex = 168;
@@ -1066,6 +1067,17 @@
             this.label11.TabIndex = 171;
             this.label11.Text = "Comentario :";
             // 
+            // btnSalida
+            // 
+            this.btnSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalida.Location = new System.Drawing.Point(1206, 408);
+            this.btnSalida.Name = "btnSalida";
+            this.btnSalida.Size = new System.Drawing.Size(151, 71);
+            this.btnSalida.TabIndex = 173;
+            this.btnSalida.Text = "Salidas";
+            this.btnSalida.UseVisualStyleBackColor = true;
+            this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
+            // 
             // FrmWareHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -1073,6 +1085,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1362, 764);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSalida);
             this.Controls.Add(this.txtComentario);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cbxMoneda);
@@ -1215,5 +1228,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IEPSVEINTEYTRES;
         private System.Windows.Forms.TextBox txtComentario;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnSalida;
     }
 }
