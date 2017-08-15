@@ -35,11 +35,15 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         {
             InitializeComponent();
             this.dgrDatosAlmacen.AutoGenerateColumns = false;
-            this.dgrMostrarAlmacen.AutoGenerateColumns = false;
-            this.dgrMostrarDetalles.AutoGenerateColumns = false;
+            this.dgrMostrarInventario.AutoGenerateColumns = false;
+ 
 
 
 
+        }
+        private void CargarInventarios()
+        {
+            this.dgrMostrarInventario.DataSource = ManejoInventario.Buscar(txtBuscarDetalle.Text, cbkStatusDetalle.Checked);
         }
 
 
@@ -166,14 +170,8 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         }
 
 
-        public void cargarWaver()
-        {
-            this.dgrMostrarAlmacen.DataSource = ManejoAlmacen.Buscar(txtBuscarAlmacen.Text, ckbStatusAlmacen.Checked);
-        }
-        public void cargarDetails()
-        {
-            this.dgrMostrarDetalles.DataSource = ManejoDetalleAlmacen.Buscar(txtBuscarDetalle.Text, cbkStatusDetalle.Checked);
-        }
+     
+      
 
         private void btnEliminar_MouseMove(object sender, MouseEventArgs e)
         {
@@ -194,13 +192,13 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         public void cargarCombos()
         {
-            cbxCliente.DataSource = ManejoCliente.getAll(1);
             cbxCliente.DisplayMember = "sNombre";
             cbxCliente.ValueMember = "idCliente";
+            cbxCliente.DataSource = ManejoCliente.getAll(1);  
 
-            cbxPkProd.DataSource = ManejoProducto.getAll(true);
             cbxPkProd.DisplayMember = "sDescripcion";
             cbxPkProd.ValueMember = "idProducto";
+            cbxPkProd.DataSource = ManejoProducto.getAll(true);
             
         }
 
@@ -216,8 +214,8 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             this.Folios();
             timer1.Start();
             cargarCombos();
-            cargarWaver();
-            cargarDetails();
+
+            CargarInventarios();
          
         }
         public void Folios()
@@ -337,7 +335,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
                         prePorcentaje = mProducto.precio_id.iPrePorcen;
                         costo = mProducto.dCosto;
-
+                        
                         #region Impuestos
                         List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(mProducto.idProducto));
                         foreach (ImpuestoProducto rImpuesto in mImpuesto)
@@ -442,41 +440,64 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                             sw.WriteLine("<h1 align=center><caption> Reporte Almacen </h1></caption> ");
                          
                             sw.WriteLine("<link href= style.css rel=stylesheet>");
-                             sw.WriteLine("<table border=1  align=center cellpadding=5  width=300  height=150>");
-                            sw.WriteLine("<tr><th align=center height=10> Descripcion: <td align=center>"+txtComentario.Text+" </td> <th align=center> Folio: <td align=center>" + txtFolio.Text+ "</td> <th align=center> Tipo:</th> <td align=center> Entrada </td> </th> </tr>");
-                      
-                            sw.WriteLine("<tr> <th align=center> Fecha: <td align=center>" + dtpFechaCompra.Text+ "</td> <th align=center> Usuario: </th> <td align=center>" + FrmMenu.uHelper.usuario.sUsuario+"</td> </th> </tr>");
+                          //  sw.WriteLine("<div class=Encabezado>");
+                            sw.WriteLine("<table border=1  align=center cellpadding=5  width=10  height=10>");
+                            sw.WriteLine("<div class=User>");
+                            //         sw.WriteLine("<tr> <th align=center>Sucursal</th> <th align=center>Municipio</th>  <th align=center>Colonia</th> <th align=center>Calle</th></tr>");
+                            sw.WriteLine("<tr><td align=left>" + FrmMenu.uHelper.usuario.sucursal_id.sNombre + " </td>  <td align=left> " + FrmMenu.uHelper.usuario.sucursal_id.sMunicipio + "  </td>  <td align = center > " + FrmMenu.uHelper.usuario.sucursal_id.sColonia + "  </td>  <td align = center > " + FrmMenu.uHelper.usuario.sucursal_id.sCalle + "<td> #"+FrmMenu.uHelper.usuario.sucursal_id.iNumExterior+"</td> <td>" + FrmMenu.uHelper.usuario.sucursal_id.iCodPostal+ " </td>  </th> </tr>");
+
+                            sw.WriteLine("</div>");
+                            sw.WriteLine("</table>");
                           
-                            sw.WriteLine("<tr> <th align=center>Producto</th> <th align=center>Importe</th>  <th align=center>Unidad de Medida</th> <th align=center>Cantidad</th> <th align=center>Costo</th> </tr>");
+                            sw.WriteLine("<p>");
+                            sw.WriteLine("</p>");
+
+
+                            sw.WriteLine("<table border=1  align=center cellpadding=5");
+                            sw.WriteLine("<tr><th align=center width=100> Referencia: <td align=center>" + txtComentario.Text+" </td> <th align=center> Folio: <td align=center>" + txtFolio.Text+ "</td> <th align=center> Tipo:</th> <td align=center> Entrada </td> </th> </tr>");
+                            sw.WriteLine("<tr> <th align=center> Fecha: <td align=center>" + dtpFechaCompra.Text+ "</td> <th align=center> Usuario: </th> <td align=center>" + FrmMenu.uHelper.usuario.sNombre+ "</td>  <th align=center> Proveedor: </th> <td align=center>" + cbxCliente.Text + "</td> </th> </tr>");
+                            sw.WriteLine("</table>");
+                            sw.WriteLine("<p>");
+                            sw.WriteLine("</p>");
+                            sw.WriteLine("<table border=1  align=center cellpadding=5  width=10  height=10>");
+                            sw.WriteLine("<tr>  <th align=center>Clave</th> <th align=center width=500>Producto</th> <th align=center width=250>Unidad de Medida</th>  <th align=center >Cantidad</th> <th align=center>Costo</th> <th align=center>Importe</th> </tr>");
                             
                             foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
                             {
-                                sw.WriteLine("<tr>");
-                                sw.WriteLine("<td align=center>" +  row.Cells[1].Value+"</td>");
-                                sw.WriteLine("<td align=center>" + Convert.ToDecimal(row.Cells[6].Value)+"</td>");
-                             
-                                sw.WriteLine("<td align=center>" + row.Cells[3].Value+"</td>");
-                                sw.WriteLine("<td align=center>" + row.Cells[5].Value+"</td>");
-                                sw.WriteLine("<td align=center>" + Convert.ToDecimal(row.Cells[2].Value)+"</td>");
-                            sw.WriteLine("</tr>");
-                              
+                                if (row.Cells[0].Value != null)
+                                {
+
+                                    sw.WriteLine("<tr>");
+                                    sw.WriteLine("<td align=right>" + row.Cells[15].Value + "</td>");
+                                    sw.WriteLine("<td align=right>" + row.Cells[1].Value + "</td>");
+
+                                    sw.WriteLine("<td align=right>" + row.Cells[3].Value + "</td>");
+                                    sw.WriteLine("<td align=right>" + row.Cells[5].Value + "</td>");
+                                    sw.WriteLine("<td align=right>" + Convert.ToDecimal(row.Cells[2].Value) + "</td>");
+                                    sw.WriteLine("<td align=right>" + Convert.ToDecimal(row.Cells[6].Value) + "</td>");
+                                    sw.WriteLine("</tr>");
+                                }
 
                             }
+                                    sw.WriteLine("</table>");
                             decimal sumatoria = 0;
                             foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
                             {
                                 sumatoria += Convert.ToDecimal(row.Cells[6].Value);
                             }
-                            sw.WriteLine("<tr> <th align=center> Total <td align=right>" + sumatoria+"</td>  </th> </tr>");
-
-                            //sw.WriteLine("<td>" +  sumatoria + "</td> </th>");
-                          
-
-
+                            sw.WriteLine("<div class=Precio>");
+                            sw.WriteLine("<table border=2  align=center>");
+                            sw.WriteLine("<tr> <th align=right border=2> IVA 16%  $" + lblIVA16.Text + " </th> </tr>");
+                            sw.WriteLine("<tr> <th align=right> IVA 11%  $" + lblIVA11.Text + " </th> </tr>");
+                            sw.WriteLine("<tr> <th align=right> IVA 4%  $" + lblIVA4.Text + " </th> </tr>");
+                            sw.WriteLine("<tr> <th align=right> IEP 53%  $" + lblIEPS53.Text + " </th> </tr>");
+                            sw.WriteLine("<tr> <th align=right> IEP 30% $" + lblIEPS30.Text + " </th> </tr>");
+                            sw.WriteLine("<tr> <th align=right> IEP 26%  $" + lblIEPS26.Text + " </th> </tr>");
+                            sw.WriteLine("<tr> <th align=right> Total  $" + sumatoria +" </th> </tr>");
 
 
                             sw.WriteLine("</table>");
-
+                            sw.WriteLine("</div>");
 
 
                             sw.WriteLine("</body></html>");
@@ -572,34 +593,12 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void btnWare_Click(object sender, EventArgs e)
         {
-            pnlDetalleMinimo.Visible = true;
+            pnlInventario.Visible = true;
         }
 
         private void btnAlmacenDetalle_Click(object sender, EventArgs e)
         {
-            if (status == false)
-            {
-                cbkStatusDetalle.Visible = true;
-                btnAlmacenDetalle.Text = "Mostrar Almacen";
-                txtBuscarDetalle.Visible = true;
-                dgrMostrarAlmacen.Visible = false;
-                dgrMostrarDetalles.Visible = true;
-                status = true;
-                btnAlmacenDetalle.BackColor = Color.Gold;
-
-            }
-
-            else
-            {
-                ckbStatusAlmacen.Visible = true;
-                txtBuscarAlmacen.Visible = false;
-                btnAlmacenDetalle.Text = "Mostrar Detalles";
-                dgrMostrarAlmacen.Visible = true;
-                dgrMostrarDetalles.Visible = false;
-                status = false;
-                btnAlmacenDetalle.BackColor = Color.BlanchedAlmond;
-
-            }
+           
 
         }
 
@@ -615,29 +614,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void btnAlmacenDetalle_Click_1(object sender, EventArgs e)
         {
-            if (status == false)
-            {
-                //   cbkStatusDetalle.Visible = true;
-                btnAlmacenDetalle.Text = "Mostrar Almacen";
-                //  txtBuscarDetalle.Visible = true;
-                dgrMostrarAlmacen.Visible = false;
-                dgrMostrarDetalles.Visible = true;
-                status = true;
-                btnAlmacenDetalle.BackColor = Color.Gold;
-
-            }
-
-            else
-            {
-                //  ckbStatusAlmacen.Visible = true;
-                //   txtBuscarAlmacen.Visible = false;
-                btnAlmacenDetalle.Text = "Mostrar Detalles";
-                dgrMostrarAlmacen.Visible = true;
-                dgrMostrarDetalles.Visible = false;
-                status = false;
-                btnAlmacenDetalle.BackColor = Color.BlanchedAlmond;
-
-            }
+           
         }
 
         private void txtFolio_TextChanged(object sender, EventArgs e)
@@ -707,8 +684,6 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void cbxPkProd_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
             Producto nProducto = ManejoProducto.Buscar(cbxPkProd.Text);
             if (dgrDatosAlmacen.CurrentRow != null)
             {
@@ -722,6 +697,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         row.Cells[2].Value = nProducto.dCosto;
                         row.Cells[3].Value = nProducto.catalogo_id.sUDM;
                         row.Cells[5].Value = 1;
+                        row.Cells[15].Value = nProducto.iClaveProd;
 
                         decimal PreUnitario = Convert.ToDecimal(row.Cells[2].Value);
                         decimal TasaImpuestoIVA16 = 0;
@@ -839,6 +815,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     dgrDatosAlmacen.CurrentRow.Cells[1].Value = nProducto.sDescripcion;
                     dgrDatosAlmacen.CurrentRow.Cells[2].Value = nProducto.dCosto;
                     dgrDatosAlmacen.CurrentRow.Cells[3].Value = nProducto.catalogo_id.sUDM;
+                    dgrDatosAlmacen.CurrentRow.Cells[15].Value = nProducto.iClaveProd;
 
 
                     decimal DgvIva16 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[9].Value);
@@ -1191,29 +1168,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void btnAlmacenDetalle_Click_2(object sender, EventArgs e)
         {
-            if (status == false)
-            {
-                cbkStatusDetalle.Visible = true;
-                btnAlmacenDetalle.Text = "Mostrar Almacen";
-                txtBuscarDetalle.Visible = true;
-                dgrMostrarAlmacen.Visible = false;
-                dgrMostrarDetalles.Visible = true;
-                status = true;
-                btnAlmacenDetalle.BackColor = Color.Gold;
-
-            }
-
-            else
-            {
-                ckbStatusAlmacen.Visible = true;
-                txtBuscarAlmacen.Visible = false;
-                btnAlmacenDetalle.Text = "Mostrar Detalles";
-                dgrMostrarAlmacen.Visible = true;
-                dgrMostrarDetalles.Visible = false;
-                status = false;
-                btnAlmacenDetalle.BackColor = Color.BlanchedAlmond;
-
-            }
+           
 
         }
 
@@ -1344,6 +1299,46 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             this.Close();
             FrmWaverHouseSalidas f = new FrmWaverHouseSalidas();
             f.Show();
+        }
+
+        private void btnSalida_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void btnSalida_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnSalida.BackColor = Color.Crimson;
+        }
+
+        private void btnSalida_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalida.BackColor = Color.White;
+        }
+
+        private void btnCerrar_Click_3(object sender, EventArgs e)
+        {
+            pnlInventario.Visible = false;
+        }
+
+        private void pnlInventario_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgrMostrarInventario_DataSourceChanged(object sender, EventArgs e)
+        {
+           lnlRegistros.Text = "Registros: " + dgrMostrarInventario.Rows.Count;
+        }
+
+        private void txtBuscarDetalle_TextChanged(object sender, EventArgs e)
+        {
+            this.CargarInventarios();
+        }
+
+        private void cbkStatusDetalle_CheckedChanged(object sender, EventArgs e)
+        {
+            this.CargarInventarios();
         }
     }
 }

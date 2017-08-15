@@ -37,7 +37,7 @@
             this.WbsReporte.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.WbsReporte.MinimumSize = new System.Drawing.Size(30, 31);
             this.WbsReporte.Name = "WbsReporte";
-            this.WbsReporte.Size = new System.Drawing.Size(715, 500);
+            this.WbsReporte.Size = new System.Drawing.Size(833, 500);
             this.WbsReporte.TabIndex = 0;
             // 
             // FrmReporteAlmacen
@@ -45,7 +45,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(715, 502);
+            this.ClientSize = new System.Drawing.Size(834, 502);
             this.Controls.Add(this.WbsReporte);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
