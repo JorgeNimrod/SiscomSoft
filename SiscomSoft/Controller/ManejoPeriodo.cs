@@ -194,7 +194,7 @@ namespace SiscomSoft.Controller
                 {
                     return ctx.Periodos.ToList();
                     /*var a = ctx.DetalleVentas
-                                .Join(ctx.Ventas, dv => dv.venta_id.idVenta, v => v.idVenta, (dv, v) => new { dv, v })
+                                .Join(ctx.Ventas, dv => dv., v => v.idVenta, (dv, v) => new { dv, v })
                                 .Where(x => x.dv.venta_id.idVenta == idVenta && x.v.bStatus == true && x.dv.bStatus == true)
                                 .Select(s => new PeriodoVentas
                                 {
