@@ -30,7 +30,7 @@ namespace SiscomSoft_Web.ViewModel
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Empresas.Where(r => r.pkEmpresa == pkEmpresa).FirstOrDefault();
+                    return ctx.Empresas.Where(r => r.idEmpresa == pkEmpresa).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -43,7 +43,7 @@ namespace SiscomSoft_Web.ViewModel
             //se crean la funcion para buscar el alumno dependiendo de los datos
             Empresa dato = BuscarporID(Datos.txtpkEmpresa);
 
-            dato.pkEmpresa = Datos.txtpkEmpresa;
+            dato.idEmpresa = Datos.txtpkEmpresa;
             dato.sRazonSocial = Datos.txtRazonSocial;
             dato.sNomComercial = Datos.txtNomComercial;
             dato.sNomContacto = Datos.txtNomContacto;
@@ -98,7 +98,7 @@ namespace SiscomSoft_Web.ViewModel
         public static void Guardar(EmpresasViewModel Datos)
         {
             Empresa dato = new Empresa();
-            dato.pkEmpresa = Datos.txtpkEmpresa;
+            dato.idEmpresa = Datos.txtpkEmpresa;
             dato.sRazonSocial = Datos.txtRazonSocial;
             dato.sNomComercial = Datos.txtNomComercial;
             dato.sNomContacto = Datos.txtNomContacto;

@@ -30,7 +30,7 @@ namespace SiscomSoft_Web.ViewModel
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Permisos.Where(r => r.pkPermiso == pkPermiso).FirstOrDefault();
+                    return ctx.Permisos.Where(r => r.idPermiso == pkPermiso).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -85,7 +85,7 @@ namespace SiscomSoft_Web.ViewModel
         public static void Guardar(PermisosViewModel Datos)
         {
             Permiso dato = new Permiso();
-            dato.pkPermiso = Datos.txtPkPermiso;
+            dato.idPermiso = Datos.txtPkPermiso;
             dato.sNombre = Datos.txtNombre;
             dato.sComentario = Datos.txtComentario;
             try

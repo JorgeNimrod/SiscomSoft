@@ -51,7 +51,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 if (Convert.ToInt32(dgvProductos.CurrentRow.Cells[1].Value) == 1)
                 {
-                    vPadre.cargarCaliente(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value));
+                    vPadre.cargarCliente(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value));
                     this.Close();
                 }
                 else

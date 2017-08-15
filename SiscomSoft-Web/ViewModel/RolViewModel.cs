@@ -30,7 +30,7 @@ namespace SiscomSoft_Web.ViewModel
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Roles.Where(r => r.pkRol == pkRol).FirstOrDefault();
+                    return ctx.Roles.Where(r => r.idRol == pkRol).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -85,7 +85,7 @@ namespace SiscomSoft_Web.ViewModel
         public static void Guardar(RolesViewModel Datos)
         {
             Rol dato = new Rol();
-            dato.pkRol = Datos.txtPkRol;
+            dato.idRol = Datos.txtPkRol;
             dato.sNombre = Datos.txtNombre;
             dato.sComentario = Datos.txtComentario;
             try

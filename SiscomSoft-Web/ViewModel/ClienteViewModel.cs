@@ -30,7 +30,7 @@ namespace SiscomSoft_Web.ViewModel
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Clientes.Where(r => r.pkCliente == pkCliente).FirstOrDefault();
+                    return ctx.Clientes.Where(r => r.idCliente == pkCliente).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -43,7 +43,7 @@ namespace SiscomSoft_Web.ViewModel
             //se crean la funcion para buscar el alumno dependiendo de los datos
             Cliente dato = BuscarporID(Datos.txtpkCliente);
 
-            dato.pkCliente = Datos.txtpkCliente;
+            dato.idCliente = Datos.txtpkCliente;
             dato.sRfc = Datos.txtRfc;
             dato.sRazonSocial = Datos.txtRazonSocial;
             dato.iPersona = Datos.txtPersona;

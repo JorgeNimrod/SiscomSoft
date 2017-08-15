@@ -39,9 +39,10 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Usuarios.Include("fkRol")
-                        .Include("fkRol.PermisosNegadosRol")
-                        .Include("fkRol.PermisosNegadosRol.fkPermiso")
+                    return ctx.Usuarios.Include("rol_id")
+                        .Include("rol_id.PermisosNegadosRol")
+                        .Include("rol_id.PermisosNegadosRol.permiso_id")
+                        .Include("sucursal_id")
                         .Where(r => r.sRfc == empleado && r.bStatus == true).FirstOrDefault();
                 }
             }
@@ -95,7 +96,9 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Usuarios.Where(r => r.bStatus == true && r.idUsuario == pkUsuario).FirstOrDefault();
+                    return ctx.Usuarios
+                        .Include("sucursal_id")
+                        .Where(r => r.bStatus == true && r.idUsuario == pkUsuario).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -129,7 +132,9 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Usuarios.Where(r => r.bStatus == Status && r.sRfc.Contains(valor)).ToList();
+                    return ctx.Usuarios
+                        .Include("sucursal_id")
+                        .Where(r => r.bStatus == Status && r.sRfc.Contains(valor)).ToList();
                 }
             }
             catch (Exception)
@@ -155,23 +160,5 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-
-        public static Rol getById2(int pkrol)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    return ctx.Roles.Where(r => r.bStatus == true && r.idRol == pkrol).FirstOrDefault();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-
     }
 }

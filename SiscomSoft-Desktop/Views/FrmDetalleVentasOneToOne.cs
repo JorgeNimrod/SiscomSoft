@@ -1582,6 +1582,7 @@ namespace SiscomSoft_Desktop.Views
                     #endregion
                 }
             }
+
             ManejoVenta.RegistrarNuevaVenta(mVenta, mCliente, mFactura, FrmMenu.uHelper.usuario);
             ManejoInventario.RegistrarNuevoInventario(mInventario, FrmMenu.uHelper.usuario);
 

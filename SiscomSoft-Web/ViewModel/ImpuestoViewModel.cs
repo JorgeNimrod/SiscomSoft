@@ -30,7 +30,7 @@ namespace SiscomSoft_Web.ViewModel
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Impuestos.Where(r => r.pkImpuesto == pkImpuesto).FirstOrDefault();
+                    return ctx.Impuestos.Where(r => r.idImpuesto == pkImpuesto).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -43,7 +43,7 @@ namespace SiscomSoft_Web.ViewModel
             //se crean la funcion para buscar el alumno dependiendo de los datos
             Impuesto dato = BuscarporID(Datos.txtpkImpuesto);
 
-            dato.pkImpuesto = Datos.txtpkImpuesto;
+            dato.idImpuesto = Datos.txtpkImpuesto;
             dato.sTipoImpuesto = Datos.txtTipoImpuesto;
             dato.sImpuesto = Datos.txtImpuesto;
             dato.dTasaImpuesto = Datos.txtTasaImpuesto;

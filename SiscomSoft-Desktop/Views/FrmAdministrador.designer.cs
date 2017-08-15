@@ -8196,7 +8196,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1350, 746);
+            this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.btnTeclado);
             this.Controls.Add(this.pnlEmpresas);
             this.Controls.Add(this.pnlCliente);
