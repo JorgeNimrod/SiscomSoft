@@ -7,13 +7,13 @@ namespace SiscomSoft.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class bUHOS : IMigrationMetadata
+    public sealed partial class Extracurricular : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(bUHOS));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Extracurricular));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708150132307_bUHOS"; }
+            get { return "201708151801175_Extracurricular"; }
         }
         
         string IMigrationMetadata.Source

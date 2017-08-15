@@ -90,13 +90,9 @@
     <Compile Include="Controller\ManejoPeriodo.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201708112155495_COYOTES.cs" />
-    <Compile Include="Migrations\201708112155495_COYOTES.Designer.cs">
-      <DependentUpon>201708112155495_COYOTES.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708150132307_bUHOS.cs" />
-    <Compile Include="Migrations\201708150132307_bUHOS.Designer.cs">
-      <DependentUpon>201708150132307_bUHOS.cs</DependentUpon>
+    <Compile Include="Migrations\201708151801175_Extracurricular.cs" />
+    <Compile Include="Migrations\201708151801175_Extracurricular.Designer.cs">
+      <DependentUpon>201708151801175_Extracurricular.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Almacen.cs" />
@@ -149,11 +145,8 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708112155495_COYOTES.resx">
-      <DependentUpon>201708112155495_COYOTES.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708150132307_bUHOS.resx">
-      <DependentUpon>201708150132307_bUHOS.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708151801175_Extracurricular.resx">
+      <DependentUpon>201708151801175_Extracurricular.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
