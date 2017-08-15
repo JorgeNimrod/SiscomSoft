@@ -10,6 +10,21 @@ namespace SiscomSoft.Controller
 {
    public class ManejoInventario
     {
+        public static List<Inventario> Buscar(string valor, Boolean Status)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Inventarios.Where(r => r.bStatus == Status && r.sFolio.Contains(valor)).ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public static Inventario getByUser(int pkUsuario)
         {
             try
