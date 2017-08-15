@@ -143,12 +143,13 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Productos
+                    var A = ctx.Productos
                         .Include("catalogo_id")
                         .Include("categoria_id")
                         .Include("precio_id")
                         .Where(r => r.bStatus == true && r.sDescripcion.Contains(valor))
                         .FirstOrDefault();
+                    return A;
                 }
             }
             catch (Exception)

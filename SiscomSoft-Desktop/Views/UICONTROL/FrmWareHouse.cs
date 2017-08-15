@@ -41,9 +41,26 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
 
         }
-        private void CargarInventarios()
+        private void CargarExistencias()
         {
-            this.dgrMostrarInventario.DataSource = ManejoInventario.Buscar(txtBuscarDetalle.Text, cbkStatusDetalle.Checked);
+            List<Existencia> lsExistencia = ManejoExistencia.BuscarProducto(txtBuscarDetalle.Text);
+            if (lsExistencia != null)
+            {
+                foreach (Existencia nExistencia in lsExistencia)
+                {
+                    DataGridViewRow row = (DataGridViewRow)dgrMostrarInventario.Rows[0].Clone();
+                    row.Cells[0].Value = nExistencia.idExistencia;
+                    row.Cells[1].Value = nExistencia.almacen_id.sFolio;
+                    row.Cells[2].Value = nExistencia.producto_id.sDescripcion;
+                    row.Cells[3].Value = nExistencia.dCantidad;
+                    row.Cells[4].Value = nExistencia.dSalida;
+                    row.Cells[5].Value = nExistencia.dBaja;
+                    row.Cells[6].Value = nExistencia.dExistencia;
+
+                    dgrMostrarInventario.Rows.Add(row);
+
+                }
+            }
         }
 
 
@@ -204,18 +221,19 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void FrmWareHouse_Load(object sender, EventArgs e)
         {
+            pnlInventario.Cursor = Cursors.Arrow;
             dgrDatosAlmacen.CurrentCell = dgrDatosAlmacen.Rows[0].Cells[1];
 
             cbxPkProd.SelectedIndex = -1;
             this.cbxPkProd.AutoCompleteCustomSource.AddRange(ManejoProducto.getProductosRegistrados(cbxPkProd.Text).ToArray());
             this.cbxPkProd.AutoCompleteMode = AutoCompleteMode.Suggest;
             this.cbxPkProd.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
+            CargarExistencias();
             this.Folios();
             timer1.Start();
             cargarCombos();
 
-            CargarInventarios();
+        //    CargarInventarios();
          
         }
         public void Folios()
@@ -684,7 +702,8 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void cbxPkProd_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Producto nProducto = ManejoProducto.Buscar(cbxPkProd.Text);
+          Producto nProducto = ManejoProducto.Buscar(cbxPkProd.Text);
+          //  Producto nProducto = null;
             if (dgrDatosAlmacen.CurrentRow != null)
             {
                 if (dgrDatosAlmacen.CurrentRow.IsNewRow)
@@ -1333,12 +1352,15 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void txtBuscarDetalle_TextChanged(object sender, EventArgs e)
         {
-            this.CargarInventarios();
+            
+                this.CargarExistencias();
+            
+            
         }
 
         private void cbkStatusDetalle_CheckedChanged(object sender, EventArgs e)
         {
-            this.CargarInventarios();
+          
         }
     }
 }

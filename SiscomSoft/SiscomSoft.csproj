@@ -94,6 +94,10 @@
     <Compile Include="Migrations\201708112155495_COYOTES.Designer.cs">
       <DependentUpon>201708112155495_COYOTES.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708150132307_bUHOS.cs" />
+    <Compile Include="Migrations\201708150132307_bUHOS.Designer.cs">
+      <DependentUpon>201708150132307_bUHOS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\Descuento.cs" />
@@ -147,6 +151,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708112155495_COYOTES.resx">
       <DependentUpon>201708112155495_COYOTES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708150132307_bUHOS.resx">
+      <DependentUpon>201708150132307_bUHOS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

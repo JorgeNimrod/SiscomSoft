@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWareHouse));
             this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -96,27 +96,24 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnSalida = new System.Windows.Forms.Button();
             this.pnlInventario = new System.Windows.Forms.Panel();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.dgrMostrarInventario = new System.Windows.Forms.DataGridView();
-            this.btnAlmacenDetalle = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lnlRegistros = new System.Windows.Forms.Label();
             this.cbkStatusDetalle = new System.Windows.Forms.CheckBox();
             this.txtBuscarDetalle = new System.Windows.Forms.TextBox();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.dgrMostrarInventario = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lnlRegistros = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.Existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDatosAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.pnlDetalleMinimo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlInventario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrMostrarInventario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,9 +241,9 @@
             // 
             // costo
             // 
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.costo.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.costo.DefaultCellStyle = dataGridViewCellStyle1;
             this.costo.HeaderText = "Costo";
             this.costo.Name = "costo";
             this.costo.Width = 150;
@@ -275,9 +272,9 @@
             // 
             // Importe
             // 
-            dataGridViewCellStyle10.Format = "N2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle2;
             this.Importe.FillWeight = 200F;
             this.Importe.HeaderText = "Importe";
             this.Importe.Name = "Importe";
@@ -776,49 +773,64 @@
             this.pnlInventario.Controls.Add(this.lnlRegistros);
             this.pnlInventario.Controls.Add(this.cbkStatusDetalle);
             this.pnlInventario.Controls.Add(this.txtBuscarDetalle);
-            this.pnlInventario.Controls.Add(this.lblFecha);
-            this.pnlInventario.Controls.Add(this.pictureBox1);
             this.pnlInventario.Controls.Add(this.btnCerrar);
             this.pnlInventario.Controls.Add(this.dgrMostrarInventario);
-            this.pnlInventario.Controls.Add(this.btnAlmacenDetalle);
             this.pnlInventario.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.pnlInventario.Location = new System.Drawing.Point(1, 0);
+            this.pnlInventario.Location = new System.Drawing.Point(1, 47);
             this.pnlInventario.Name = "pnlInventario";
-            this.pnlInventario.Size = new System.Drawing.Size(1359, 764);
+            this.pnlInventario.Size = new System.Drawing.Size(1359, 717);
             this.pnlInventario.TabIndex = 174;
             this.pnlInventario.UseWaitCursor = true;
             this.pnlInventario.Visible = false;
             this.pnlInventario.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlInventario_Paint);
             // 
-            // lblFecha
+            // label12
             // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblFecha.Location = new System.Drawing.Point(1035, 59);
-            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(302, 18);
-            this.lblFecha.TabIndex = 63;
-            this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
-            this.lblFecha.UseWaitCursor = true;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(35, 101);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 24);
+            this.label12.TabIndex = 69;
+            this.label12.Text = "Buscar:";
+            this.label12.UseWaitCursor = true;
             // 
-            // pictureBox1
+            // lnlRegistros
             // 
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(181, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 62;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.UseWaitCursor = true;
+            this.lnlRegistros.AutoSize = true;
+            this.lnlRegistros.Location = new System.Drawing.Point(24, 593);
+            this.lnlRegistros.Name = "lnlRegistros";
+            this.lnlRegistros.Size = new System.Drawing.Size(88, 24);
+            this.lnlRegistros.TabIndex = 68;
+            this.lnlRegistros.Text = "Registros";
+            this.lnlRegistros.UseWaitCursor = true;
+            // 
+            // cbkStatusDetalle
+            // 
+            this.cbkStatusDetalle.AutoSize = true;
+            this.cbkStatusDetalle.Checked = true;
+            this.cbkStatusDetalle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbkStatusDetalle.Location = new System.Drawing.Point(1137, 589);
+            this.cbkStatusDetalle.Name = "cbkStatusDetalle";
+            this.cbkStatusDetalle.Size = new System.Drawing.Size(79, 28);
+            this.cbkStatusDetalle.TabIndex = 67;
+            this.cbkStatusDetalle.Text = "Status";
+            this.cbkStatusDetalle.UseVisualStyleBackColor = true;
+            this.cbkStatusDetalle.UseWaitCursor = true;
+            this.cbkStatusDetalle.CheckedChanged += new System.EventHandler(this.cbkStatusDetalle_CheckedChanged);
+            // 
+            // txtBuscarDetalle
+            // 
+            this.txtBuscarDetalle.Location = new System.Drawing.Point(131, 96);
+            this.txtBuscarDetalle.Name = "txtBuscarDetalle";
+            this.txtBuscarDetalle.Size = new System.Drawing.Size(1083, 29);
+            this.txtBuscarDetalle.TabIndex = 65;
+            this.txtBuscarDetalle.UseWaitCursor = true;
+            this.txtBuscarDetalle.TextChanged += new System.EventHandler(this.txtBuscarDetalle_TextChanged);
             // 
             // btnCerrar
             // 
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(1223, 274);
+            this.btnCerrar.Location = new System.Drawing.Point(1222, 133);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(126, 71);
             this.btnCerrar.TabIndex = 61;
@@ -839,53 +851,20 @@
             this.Fecha,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
+            this.dataGridViewTextBoxColumn10,
+            this.Existencia});
             this.dgrMostrarInventario.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.dgrMostrarInventario.EnableHeadersVisualStyles = false;
             this.dgrMostrarInventario.GridColor = System.Drawing.Color.Chocolate;
-            this.dgrMostrarInventario.Location = new System.Drawing.Point(19, 186);
+            this.dgrMostrarInventario.Location = new System.Drawing.Point(19, 133);
             this.dgrMostrarInventario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgrMostrarInventario.Name = "dgrMostrarInventario";
             this.dgrMostrarInventario.ReadOnly = true;
             this.dgrMostrarInventario.RowHeadersVisible = false;
-            this.dgrMostrarInventario.Size = new System.Drawing.Size(1197, 391);
+            this.dgrMostrarInventario.Size = new System.Drawing.Size(1197, 444);
             this.dgrMostrarInventario.TabIndex = 60;
             this.dgrMostrarInventario.UseWaitCursor = true;
             this.dgrMostrarInventario.DataSourceChanged += new System.EventHandler(this.dgrMostrarInventario_DataSourceChanged);
-            // 
-            // btnAlmacenDetalle
-            // 
-            this.btnAlmacenDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlmacenDetalle.Location = new System.Drawing.Point(1223, 186);
-            this.btnAlmacenDetalle.Name = "btnAlmacenDetalle";
-            this.btnAlmacenDetalle.Size = new System.Drawing.Size(126, 71);
-            this.btnAlmacenDetalle.TabIndex = 59;
-            this.btnAlmacenDetalle.Text = "Mostrar Almacen";
-            this.btnAlmacenDetalle.UseVisualStyleBackColor = true;
-            this.btnAlmacenDetalle.UseWaitCursor = true;
-            // 
-            // cbkStatusDetalle
-            // 
-            this.cbkStatusDetalle.AutoSize = true;
-            this.cbkStatusDetalle.Checked = true;
-            this.cbkStatusDetalle.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbkStatusDetalle.Location = new System.Drawing.Point(1137, 589);
-            this.cbkStatusDetalle.Name = "cbkStatusDetalle";
-            this.cbkStatusDetalle.Size = new System.Drawing.Size(79, 28);
-            this.cbkStatusDetalle.TabIndex = 67;
-            this.cbkStatusDetalle.Text = "Status";
-            this.cbkStatusDetalle.UseVisualStyleBackColor = true;
-            this.cbkStatusDetalle.UseWaitCursor = true;
-            this.cbkStatusDetalle.CheckedChanged += new System.EventHandler(this.cbkStatusDetalle_CheckedChanged);
-            // 
-            // txtBuscarDetalle
-            // 
-            this.txtBuscarDetalle.Location = new System.Drawing.Point(133, 146);
-            this.txtBuscarDetalle.Name = "txtBuscarDetalle";
-            this.txtBuscarDetalle.Size = new System.Drawing.Size(1083, 29);
-            this.txtBuscarDetalle.TabIndex = 65;
-            this.txtBuscarDetalle.UseWaitCursor = true;
-            this.txtBuscarDetalle.TextChanged += new System.EventHandler(this.txtBuscarDetalle_TextChanged);
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -898,7 +877,7 @@
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "sFolio";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Folio";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Almacen";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 200;
@@ -906,23 +885,23 @@
             // Fecha
             // 
             this.Fecha.DataPropertyName = "dtFecha";
-            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.HeaderText = "Producto";
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 200;
+            this.Fecha.Width = 250;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "sTipoMov";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Tipo de Movimiento";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Cantidad";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 300;
+            this.dataGridViewTextBoxColumn8.Width = 250;
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "Almacen";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Almacen";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Salida";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             this.dataGridViewTextBoxColumn9.Width = 200;
@@ -931,28 +910,17 @@
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "Usuario";
             this.dataGridViewTextBoxColumn10.FillWeight = 200F;
-            this.dataGridViewTextBoxColumn10.HeaderText = "Usuario";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Baja";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Width = 150;
             // 
-            // lnlRegistros
+            // Existencia
             // 
-            this.lnlRegistros.AutoSize = true;
-            this.lnlRegistros.Location = new System.Drawing.Point(24, 593);
-            this.lnlRegistros.Name = "lnlRegistros";
-            this.lnlRegistros.Size = new System.Drawing.Size(88, 24);
-            this.lnlRegistros.TabIndex = 68;
-            this.lnlRegistros.Text = "Registros";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(37, 145);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 24);
-            this.label12.TabIndex = 69;
-            this.label12.Text = "Buscar:";
+            this.Existencia.HeaderText = "Existencia";
+            this.Existencia.Name = "Existencia";
+            this.Existencia.ReadOnly = true;
+            this.Existencia.Width = 150;
             // 
             // FrmWareHouse
             // 
@@ -1005,7 +973,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlInventario.ResumeLayout(false);
             this.pnlInventario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrMostrarInventario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1080,18 +1047,16 @@
         private System.Windows.Forms.Panel pnlInventario;
         private System.Windows.Forms.CheckBox cbkStatusDetalle;
         private System.Windows.Forms.TextBox txtBuscarDetalle;
-        private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView dgrMostrarInventario;
+        private System.Windows.Forms.Label lnlRegistros;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.Button btnAlmacenDetalle;
-        private System.Windows.Forms.Label lnlRegistros;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Existencia;
     }
 }
