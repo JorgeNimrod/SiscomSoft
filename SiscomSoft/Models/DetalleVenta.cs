@@ -15,7 +15,7 @@ namespace SiscomSoft.Models
         [Key]
         public int idDetalleVenta { get; set; }
 
-        //public virtual Venta venta_id { get; set; }
+        public virtual Venta venta_id { get; set; }
 
         public virtual Producto producto_id { get; set; }
 

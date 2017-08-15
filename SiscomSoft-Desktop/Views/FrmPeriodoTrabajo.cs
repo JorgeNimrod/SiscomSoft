@@ -223,8 +223,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void dgvPeriodoFecha_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*
-            Venta mVenta = ManejoVenta.getById(Convert.ToInt32(dgvPeriodoFecha.CurrentRow.Cells[5].Value));
+            /*Venta mVenta = ManejoVenta.getById(Convert.ToInt32(dgvPeriodoFecha.CurrentRow.Cells[5].Value));
             List<PeriodoVentas> mDetalleVenta = ManejoPeriodo.getByDetalleVenta(mVenta.idVenta);
             txtFolioVenta.Text = mVenta.sFolio;
             txtFecha.Text = mVenta.dtFechaVenta.ToString();
