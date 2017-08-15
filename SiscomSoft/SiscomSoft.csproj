@@ -60,8 +60,6 @@
   <ItemGroup>
     <Compile Include="Comun\LoginTool.cs" />
     <Compile Include="Comun\ToolImagen.cs" />
-    <Compile Include="Controller\Catalogos\ClaveProdServ.cs" />
-    <Compile Include="Controller\Catalogos\ClaveUnidad.cs" />
     <Compile Include="Controller\Catalogos\FormaPago.cs" />
     <Compile Include="Controller\Catalogos\Impuesto.cs" />
     <Compile Include="Controller\Catalogos\MetodoPago.cs" />

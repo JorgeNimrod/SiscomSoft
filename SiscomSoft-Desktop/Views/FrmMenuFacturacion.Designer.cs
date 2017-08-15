@@ -30,15 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuFacturacion));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
@@ -55,6 +49,8 @@
             this.btnCancelarBill = new System.Windows.Forms.Button();
             this.btnCreateBill = new System.Windows.Forms.Button();
             this.pnlCreateFactura = new System.Windows.Forms.Panel();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.tbnEnviarCorreo = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -83,6 +79,41 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.gbDetalleFactura = new System.Windows.Forms.GroupBox();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipuestoiva16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timpuestoiva11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timpuestoiva4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timpuestoieps53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timpuestoieps30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timpuestoieps26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.lblRISR10 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.lblRIVA4 = new System.Windows.Forms.Label();
+            this.lblRIVA4lbll = new System.Windows.Forms.Label();
+            this.lblRIVA733 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.lblRIVA1067 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.lblRIVA16 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.lblTotalDolar = new System.Windows.Forms.Label();
             this.lbltotaldolares = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -103,21 +134,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.lblIVA16 = new System.Windows.Forms.Label();
             this.lblSubTotal = new System.Windows.Forms.Label();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sUnidadMed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscarProductos = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnTimFactura = new System.Windows.Forms.Button();
-            this.btnGenPdf = new System.Windows.Forms.Button();
-            this.tbnEnvCorreo = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -341,18 +360,47 @@
             // 
             // pnlCreateFactura
             // 
+            this.pnlCreateFactura.Controls.Add(this.btnImprimir);
+            this.pnlCreateFactura.Controls.Add(this.tbnEnviarCorreo);
             this.pnlCreateFactura.Controls.Add(this.groupBox2);
             this.pnlCreateFactura.Controls.Add(this.groupBox1);
             this.pnlCreateFactura.Controls.Add(this.gbDetalleFactura);
-            this.pnlCreateFactura.Controls.Add(this.btnTimFactura);
-            this.pnlCreateFactura.Controls.Add(this.btnGenPdf);
-            this.pnlCreateFactura.Controls.Add(this.tbnEnvCorreo);
             this.pnlCreateFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlCreateFactura.ForeColor = System.Drawing.Color.Black;
             this.pnlCreateFactura.Location = new System.Drawing.Point(177, 50);
             this.pnlCreateFactura.Name = "pnlCreateFactura";
             this.pnlCreateFactura.Size = new System.Drawing.Size(1172, 636);
             this.pnlCreateFactura.TabIndex = 26;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnImprimir.Location = new System.Drawing.Point(1050, 609);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(117, 27);
+            this.btnImprimir.TabIndex = 89;
+            this.btnImprimir.Text = "IMPRIMIR";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // tbnEnviarCorreo
+            // 
+            this.tbnEnviarCorreo.BackColor = System.Drawing.Color.DarkOrange;
+            this.tbnEnviarCorreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tbnEnviarCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbnEnviarCorreo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.tbnEnviarCorreo.Location = new System.Drawing.Point(887, 609);
+            this.tbnEnviarCorreo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbnEnviarCorreo.Name = "tbnEnviarCorreo";
+            this.tbnEnviarCorreo.Size = new System.Drawing.Size(157, 27);
+            this.tbnEnviarCorreo.TabIndex = 90;
+            this.tbnEnviarCorreo.Text = "ENVIAR CORREO";
+            this.tbnEnviarCorreo.UseVisualStyleBackColor = false;
+            this.tbnEnviarCorreo.Click += new System.EventHandler(this.tbnEnviarCorreo_Click);
             // 
             // groupBox2
             // 
@@ -450,7 +498,7 @@
             this.btnBuscarCliente.TabIndex = 73;
             this.btnBuscarCliente.Text = "(?)";
             this.btnBuscarCliente.UseVisualStyleBackColor = false;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.button1_Click);
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // label6
             // 
@@ -470,6 +518,7 @@
             this.txtCondicionesDePago.Name = "txtCondicionesDePago";
             this.txtCondicionesDePago.Size = new System.Drawing.Size(178, 24);
             this.txtCondicionesDePago.TabIndex = 83;
+            this.txtCondicionesDePago.Text = "3 meses sin intereses";
             // 
             // label3
             // 
@@ -661,6 +710,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(103, 24);
             this.txtTelefono.TabIndex = 4;
+            this.txtTelefono.Text = "6623502340";
             // 
             // label17
             // 
@@ -690,6 +740,7 @@
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Size = new System.Drawing.Size(130, 24);
             this.txtRFC.TabIndex = 1;
+            this.txtRFC.Text = "AAA010101AAA";
             // 
             // txtNombre
             // 
@@ -699,6 +750,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(280, 24);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.Text = "Lopez Lopez Lorenso";
             // 
             // txtDireccion
             // 
@@ -708,6 +760,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(425, 24);
             this.txtDireccion.TabIndex = 3;
+            this.txtDireccion.Text = "P. Sherman Calle Wallaby 42, Sidney";
             // 
             // label8
             // 
@@ -731,6 +784,18 @@
             // 
             // gbDetalleFactura
             // 
+            this.gbDetalleFactura.Controls.Add(this.dgvProductos);
+            this.gbDetalleFactura.Controls.Add(this.btnBorrar);
+            this.gbDetalleFactura.Controls.Add(this.lblRISR10);
+            this.gbDetalleFactura.Controls.Add(this.label36);
+            this.gbDetalleFactura.Controls.Add(this.lblRIVA4);
+            this.gbDetalleFactura.Controls.Add(this.lblRIVA4lbll);
+            this.gbDetalleFactura.Controls.Add(this.lblRIVA733);
+            this.gbDetalleFactura.Controls.Add(this.label28);
+            this.gbDetalleFactura.Controls.Add(this.lblRIVA1067);
+            this.gbDetalleFactura.Controls.Add(this.label30);
+            this.gbDetalleFactura.Controls.Add(this.lblRIVA16);
+            this.gbDetalleFactura.Controls.Add(this.label32);
             this.gbDetalleFactura.Controls.Add(this.lblTotalDolar);
             this.gbDetalleFactura.Controls.Add(this.lbltotaldolares);
             this.gbDetalleFactura.Controls.Add(this.label13);
@@ -751,7 +816,6 @@
             this.gbDetalleFactura.Controls.Add(this.label14);
             this.gbDetalleFactura.Controls.Add(this.lblIVA16);
             this.gbDetalleFactura.Controls.Add(this.lblSubTotal);
-            this.gbDetalleFactura.Controls.Add(this.dgvProductos);
             this.gbDetalleFactura.Controls.Add(this.btnBuscarProductos);
             this.gbDetalleFactura.Controls.Add(this.label11);
             this.gbDetalleFactura.Controls.Add(this.label10);
@@ -764,6 +828,320 @@
             this.gbDetalleFactura.TabIndex = 81;
             this.gbDetalleFactura.TabStop = false;
             this.gbDetalleFactura.Text = "DETALLES DE FACTURA";
+            // 
+            // dgvProductos
+            // 
+            this.dgvProductos.AllowUserToDeleteRows = false;
+            this.dgvProductos.AllowUserToResizeColumns = false;
+            this.dgvProductos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvProductos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pkProductos,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Cantidad,
+            this.Column7,
+            this.tipuestoiva16,
+            this.timpuestoiva11,
+            this.timpuestoiva4,
+            this.timpuestoieps53,
+            this.timpuestoieps30,
+            this.timpuestoieps26,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column6,
+            this.Column15});
+            this.dgvProductos.Location = new System.Drawing.Point(8, 45);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.RowHeadersVisible = false;
+            this.dgvProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvProductos.RowTemplate.Height = 30;
+            this.dgvProductos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductos.ShowCellErrors = false;
+            this.dgvProductos.ShowCellToolTips = false;
+            this.dgvProductos.ShowEditingIcon = false;
+            this.dgvProductos.ShowRowErrors = false;
+            this.dgvProductos.Size = new System.Drawing.Size(1150, 161);
+            this.dgvProductos.TabIndex = 114;
+            this.dgvProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellEndEdit);
+            this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
+            // 
+            // pkProductos
+            // 
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.pkProductos.DefaultCellStyle = dataGridViewCellStyle5;
+            this.pkProductos.HeaderText = "No.";
+            this.pkProductos.Name = "pkProductos";
+            this.pkProductos.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "CLAVE";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "DESCRIPCION";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 300;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "MARCA";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 200;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "UDM";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "COSTO";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 150;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "CANTIDAD";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 150;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "IMPORTE";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 150;
+            // 
+            // tipuestoiva16
+            // 
+            this.tipuestoiva16.HeaderText = "Traslado impuesto iva 16";
+            this.tipuestoiva16.Name = "tipuestoiva16";
+            this.tipuestoiva16.Visible = false;
+            // 
+            // timpuestoiva11
+            // 
+            this.timpuestoiva11.HeaderText = "Traslado impuesto iva 11";
+            this.timpuestoiva11.Name = "timpuestoiva11";
+            this.timpuestoiva11.Visible = false;
+            // 
+            // timpuestoiva4
+            // 
+            this.timpuestoiva4.HeaderText = "Traslado impuesto iva 4";
+            this.timpuestoiva4.Name = "timpuestoiva4";
+            this.timpuestoiva4.Visible = false;
+            // 
+            // timpuestoieps53
+            // 
+            this.timpuestoieps53.HeaderText = "Traslado impuesto ieps 53";
+            this.timpuestoieps53.Name = "timpuestoieps53";
+            this.timpuestoieps53.Visible = false;
+            // 
+            // timpuestoieps30
+            // 
+            this.timpuestoieps30.HeaderText = "Traslado impuesto ieps 30";
+            this.timpuestoieps30.Name = "timpuestoieps30";
+            this.timpuestoieps30.Visible = false;
+            // 
+            // timpuestoieps26
+            // 
+            this.timpuestoieps26.HeaderText = "Traslado impuesto ieps 26";
+            this.timpuestoieps26.Name = "timpuestoieps26";
+            this.timpuestoieps26.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Column8";
+            this.Column8.Name = "Column8";
+            this.Column8.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Column9";
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Column10";
+            this.Column10.Name = "Column10";
+            this.Column10.Visible = false;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Column11";
+            this.Column11.Name = "Column11";
+            this.Column11.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Column12";
+            this.Column12.Name = "Column12";
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Column13";
+            this.Column13.Name = "Column13";
+            this.Column13.Visible = false;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Column14";
+            this.Column14.Name = "Column14";
+            this.Column14.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Column6";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Column15";
+            this.Column15.Name = "Column15";
+            this.Column15.Visible = false;
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBorrar.Location = new System.Drawing.Point(946, 12);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(94, 27);
+            this.btnBorrar.TabIndex = 113;
+            this.btnBorrar.Text = "BORRAR";
+            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Visible = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // lblRISR10
+            // 
+            this.lblRISR10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRISR10.Location = new System.Drawing.Point(351, 300);
+            this.lblRISR10.Name = "lblRISR10";
+            this.lblRISR10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblRISR10.Size = new System.Drawing.Size(166, 18);
+            this.lblRISR10.TabIndex = 112;
+            this.lblRISR10.Text = "0";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(270, 300);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(78, 15);
+            this.label36.TabIndex = 111;
+            this.label36.Text = "R ISR (10%):";
+            // 
+            // lblRIVA4
+            // 
+            this.lblRIVA4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRIVA4.Location = new System.Drawing.Point(351, 279);
+            this.lblRIVA4.Name = "lblRIVA4";
+            this.lblRIVA4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblRIVA4.Size = new System.Drawing.Size(166, 18);
+            this.lblRIVA4.TabIndex = 110;
+            this.lblRIVA4.Text = "0";
+            // 
+            // lblRIVA4lbll
+            // 
+            this.lblRIVA4lbll.AutoSize = true;
+            this.lblRIVA4lbll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRIVA4lbll.Location = new System.Drawing.Point(270, 279);
+            this.lblRIVA4lbll.Name = "lblRIVA4lbll";
+            this.lblRIVA4lbll.Size = new System.Drawing.Size(68, 15);
+            this.lblRIVA4lbll.TabIndex = 109;
+            this.lblRIVA4lbll.Text = "R IVA (4%):";
+            // 
+            // lblRIVA733
+            // 
+            this.lblRIVA733.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRIVA733.Location = new System.Drawing.Point(88, 323);
+            this.lblRIVA733.Name = "lblRIVA733";
+            this.lblRIVA733.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblRIVA733.Size = new System.Drawing.Size(166, 18);
+            this.lblRIVA733.TabIndex = 108;
+            this.lblRIVA733.Text = "0";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(7, 321);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(85, 15);
+            this.label28.TabIndex = 107;
+            this.label28.Text = "R IVA (7.33%):";
+            // 
+            // lblRIVA1067
+            // 
+            this.lblRIVA1067.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRIVA1067.Location = new System.Drawing.Point(88, 300);
+            this.lblRIVA1067.Name = "lblRIVA1067";
+            this.lblRIVA1067.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblRIVA1067.Size = new System.Drawing.Size(166, 18);
+            this.lblRIVA1067.TabIndex = 106;
+            this.lblRIVA1067.Text = "0";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(7, 300);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(92, 15);
+            this.label30.TabIndex = 105;
+            this.label30.Text = "R IVA (10.67%):";
+            // 
+            // lblRIVA16
+            // 
+            this.lblRIVA16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRIVA16.Location = new System.Drawing.Point(88, 279);
+            this.lblRIVA16.Name = "lblRIVA16";
+            this.lblRIVA16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblRIVA16.Size = new System.Drawing.Size(166, 18);
+            this.lblRIVA16.TabIndex = 104;
+            this.lblRIVA16.Text = "0";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(7, 279);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(75, 15);
+            this.label32.TabIndex = 103;
+            this.label32.Text = "R IVA (16%):";
             // 
             // lblTotalDolar
             // 
@@ -790,7 +1168,7 @@
             // label13
             // 
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(233, 257);
+            this.label13.Location = new System.Drawing.Point(140, 235);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label13.Size = new System.Drawing.Size(166, 18);
@@ -801,7 +1179,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(100, 257);
+            this.label16.Location = new System.Drawing.Point(7, 235);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(127, 15);
             this.label16.TabIndex = 89;
@@ -810,7 +1188,7 @@
             // label22
             // 
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(233, 236);
+            this.label22.Location = new System.Drawing.Point(140, 214);
             this.label22.Name = "label22";
             this.label22.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label22.Size = new System.Drawing.Size(166, 18);
@@ -821,7 +1199,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(100, 236);
+            this.label24.Location = new System.Drawing.Point(7, 214);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(85, 15);
             this.label24.TabIndex = 87;
@@ -830,7 +1208,7 @@
             // lblIEPS26
             // 
             this.lblIEPS26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIEPS26.Location = new System.Drawing.Point(769, 280);
+            this.lblIEPS26.Location = new System.Drawing.Point(676, 258);
             this.lblIEPS26.Name = "lblIEPS26";
             this.lblIEPS26.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIEPS26.Size = new System.Drawing.Size(136, 18);
@@ -841,7 +1219,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(658, 278);
+            this.label23.Location = new System.Drawing.Point(565, 256);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(90, 15);
             this.label23.TabIndex = 85;
@@ -850,7 +1228,7 @@
             // lblIEPS30
             // 
             this.lblIEPS30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIEPS30.Location = new System.Drawing.Point(739, 257);
+            this.lblIEPS30.Location = new System.Drawing.Point(646, 235);
             this.lblIEPS30.Name = "lblIEPS30";
             this.lblIEPS30.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIEPS30.Size = new System.Drawing.Size(166, 18);
@@ -861,7 +1239,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(658, 257);
+            this.label25.Location = new System.Drawing.Point(565, 235);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(73, 15);
             this.label25.TabIndex = 83;
@@ -870,7 +1248,7 @@
             // lblIEPS53
             // 
             this.lblIEPS53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIEPS53.Location = new System.Drawing.Point(739, 236);
+            this.lblIEPS53.Location = new System.Drawing.Point(646, 214);
             this.lblIEPS53.Name = "lblIEPS53";
             this.lblIEPS53.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIEPS53.Size = new System.Drawing.Size(166, 18);
@@ -881,7 +1259,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(658, 236);
+            this.label27.Location = new System.Drawing.Point(565, 214);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(73, 15);
             this.label27.TabIndex = 81;
@@ -890,7 +1268,7 @@
             // lblIVA4
             // 
             this.lblIVA4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIVA4.Location = new System.Drawing.Point(486, 280);
+            this.lblIVA4.Location = new System.Drawing.Point(393, 258);
             this.lblIVA4.Name = "lblIVA4";
             this.lblIVA4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIVA4.Size = new System.Drawing.Size(166, 18);
@@ -901,7 +1279,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(405, 278);
+            this.label21.Location = new System.Drawing.Point(312, 256);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(56, 15);
             this.label21.TabIndex = 79;
@@ -910,7 +1288,7 @@
             // lblIVA11
             // 
             this.lblIVA11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIVA11.Location = new System.Drawing.Point(486, 257);
+            this.lblIVA11.Location = new System.Drawing.Point(393, 235);
             this.lblIVA11.Name = "lblIVA11";
             this.lblIVA11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIVA11.Size = new System.Drawing.Size(166, 18);
@@ -921,7 +1299,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(405, 257);
+            this.label15.Location = new System.Drawing.Point(312, 235);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(63, 15);
             this.label15.TabIndex = 77;
@@ -950,7 +1328,7 @@
             // lblIVA16
             // 
             this.lblIVA16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIVA16.Location = new System.Drawing.Point(486, 236);
+            this.lblIVA16.Location = new System.Drawing.Point(393, 214);
             this.lblIVA16.Name = "lblIVA16";
             this.lblIVA16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIVA16.Size = new System.Drawing.Size(166, 18);
@@ -966,116 +1344,6 @@
             this.lblSubTotal.Size = new System.Drawing.Size(166, 18);
             this.lblSubTotal.TabIndex = 73;
             this.lblSubTotal.Text = "0";
-            // 
-            // dgvProductos
-            // 
-            this.dgvProductos.AllowUserToDeleteRows = false;
-            this.dgvProductos.AllowUserToResizeColumns = false;
-            this.dgvProductos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProductos.BackgroundColor = System.Drawing.Color.White;
-            this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pkProductos,
-            this.sClaveProd,
-            this.sDescripcion,
-            this.sMarca,
-            this.sUnidadMed,
-            this.dCosto,
-            this.sCantidad,
-            this.sTotal});
-            this.dgvProductos.Location = new System.Drawing.Point(8, 45);
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.RowHeadersVisible = false;
-            this.dgvProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvProductos.RowTemplate.Height = 30;
-            this.dgvProductos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.ShowCellErrors = false;
-            this.dgvProductos.ShowCellToolTips = false;
-            this.dgvProductos.ShowEditingIcon = false;
-            this.dgvProductos.ShowRowErrors = false;
-            this.dgvProductos.Size = new System.Drawing.Size(1150, 161);
-            this.dgvProductos.TabIndex = 72;
-            this.dgvProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellEndEdit);
-            // 
-            // pkProductos
-            // 
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.pkProductos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.pkProductos.HeaderText = "No.";
-            this.pkProductos.Name = "pkProductos";
-            this.pkProductos.Visible = false;
-            // 
-            // sClaveProd
-            // 
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.sClaveProd.DefaultCellStyle = dataGridViewCellStyle3;
-            this.sClaveProd.HeaderText = "CLAVE";
-            this.sClaveProd.Name = "sClaveProd";
-            this.sClaveProd.ReadOnly = true;
-            // 
-            // sDescripcion
-            // 
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle4;
-            this.sDescripcion.HeaderText = "DESCRIPCION";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            this.sDescripcion.Width = 400;
-            // 
-            // sMarca
-            // 
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sMarca.DefaultCellStyle = dataGridViewCellStyle5;
-            this.sMarca.HeaderText = "MARCA";
-            this.sMarca.Name = "sMarca";
-            this.sMarca.ReadOnly = true;
-            this.sMarca.Width = 167;
-            // 
-            // sUnidadMed
-            // 
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sUnidadMed.DefaultCellStyle = dataGridViewCellStyle6;
-            this.sUnidadMed.HeaderText = "UDM";
-            this.sUnidadMed.Name = "sUnidadMed";
-            this.sUnidadMed.ReadOnly = true;
-            // 
-            // dCosto
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dCosto.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dCosto.HeaderText = "COSTO";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
-            this.dCosto.Width = 131;
-            // 
-            // sCantidad
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.NullValue = null;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sCantidad.DefaultCellStyle = dataGridViewCellStyle8;
-            this.sCantidad.HeaderText = "CANTIDAD";
-            this.sCantidad.Name = "sCantidad";
-            // 
-            // sTotal
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sTotal.DefaultCellStyle = dataGridViewCellStyle9;
-            this.sTotal.HeaderText = "IMPORTE";
-            this.sTotal.Name = "sTotal";
-            this.sTotal.ReadOnly = true;
-            this.sTotal.Width = 150;
             // 
             // btnBuscarProductos
             // 
@@ -1094,7 +1362,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(405, 236);
+            this.label11.Location = new System.Drawing.Point(312, 214);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 15);
             this.label11.TabIndex = 37;
@@ -1109,41 +1377,6 @@
             this.label10.Size = new System.Drawing.Size(62, 15);
             this.label10.TabIndex = 31;
             this.label10.Text = "Sub Total:";
-            // 
-            // btnTimFactura
-            // 
-            this.btnTimFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimFactura.Location = new System.Drawing.Point(241, 605);
-            this.btnTimFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnTimFactura.Name = "btnTimFactura";
-            this.btnTimFactura.Size = new System.Drawing.Size(136, 27);
-            this.btnTimFactura.TabIndex = 80;
-            this.btnTimFactura.Text = "Timbrar Factura";
-            this.btnTimFactura.UseVisualStyleBackColor = true;
-            this.btnTimFactura.Click += new System.EventHandler(this.btnTimFactura_Click);
-            // 
-            // btnGenPdf
-            // 
-            this.btnGenPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenPdf.Location = new System.Drawing.Point(3, 605);
-            this.btnGenPdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGenPdf.Name = "btnGenPdf";
-            this.btnGenPdf.Size = new System.Drawing.Size(117, 27);
-            this.btnGenPdf.TabIndex = 78;
-            this.btnGenPdf.Text = "Generar PDF";
-            this.btnGenPdf.UseVisualStyleBackColor = true;
-            // 
-            // tbnEnvCorreo
-            // 
-            this.tbnEnvCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbnEnvCorreo.Location = new System.Drawing.Point(126, 605);
-            this.tbnEnvCorreo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbnEnvCorreo.Name = "tbnEnvCorreo";
-            this.tbnEnvCorreo.Size = new System.Drawing.Size(109, 27);
-            this.tbnEnvCorreo.TabIndex = 79;
-            this.tbnEnvCorreo.Text = "Enviar Correo\r\n";
-            this.tbnEnvCorreo.UseVisualStyleBackColor = true;
-            this.tbnEnvCorreo.Click += new System.EventHandler(this.tbnEnvCorreo_Click);
             // 
             // label7
             // 
@@ -1253,13 +1486,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox gbDetalleFactura;
-        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnBuscarProductos;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnTimFactura;
-        private System.Windows.Forms.Button btnGenPdf;
-        private System.Windows.Forms.Button tbnEnvCorreo;
         private System.Windows.Forms.ComboBox cmbSucursal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1289,15 +1518,44 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sUnidadMed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTotal;
         private System.Windows.Forms.Label lblTotalDolar;
         private System.Windows.Forms.Label lbltotaldolares;
+        private System.Windows.Forms.Label lblRISR10;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label lblRIVA4;
+        private System.Windows.Forms.Label lblRIVA4lbll;
+        private System.Windows.Forms.Label lblRIVA733;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lblRIVA1067;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lblRIVA16;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button tbnEnviarCorreo;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipuestoiva16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timpuestoiva11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timpuestoiva4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timpuestoieps53;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timpuestoieps30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timpuestoieps26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
     }
 }

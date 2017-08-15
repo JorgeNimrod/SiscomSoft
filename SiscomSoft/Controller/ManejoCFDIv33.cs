@@ -30,7 +30,7 @@ public partial class Comprobante {
     
     private string folioField;
     
-    private System.DateTime fechaField;
+    private string fechaField;
     
     private string selloField;
     
@@ -179,7 +179,7 @@ public partial class Comprobante {
     
     /// <comentarios/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
-    public System.DateTime Fecha {
+    public string Fecha {
         get {
             return this.fechaField;
         }
@@ -601,13 +601,13 @@ public partial class ComprobanteConcepto {
     
     private ComprobanteConceptoParte[] parteField;
     
-    private c_ClaveProdServ claveProdServField;
+    private string claveProdServField;
     
     private string noIdentificacionField;
     
     private decimal cantidadField;
     
-    private c_ClaveUnidad claveUnidadField;
+    private string claveUnidadField;
     
     private string unidadField;
     
@@ -675,7 +675,7 @@ public partial class ComprobanteConcepto {
     
     /// <comentarios/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
-    public c_ClaveProdServ ClaveProdServ {
+    public string ClaveProdServ {
         get {
             return this.claveProdServField;
         }
@@ -708,7 +708,7 @@ public partial class ComprobanteConcepto {
     
     /// <comentarios/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
-    public c_ClaveUnidad ClaveUnidad {
+    public string ClaveUnidad {
         get {
             return this.claveUnidadField;
         }
@@ -1071,7 +1071,7 @@ public partial class ComprobanteConceptoParte {
     
     private ComprobanteConceptoParteInformacionAduanera[] informacionAduaneraField;
     
-    private c_ClaveProdServ claveProdServField;
+    private string claveProdServField;
     
     private string noIdentificacionField;
     
@@ -1102,7 +1102,7 @@ public partial class ComprobanteConceptoParte {
     
     /// <comentarios/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
-    public c_ClaveProdServ ClaveProdServ {
+    public string ClaveProdServ {
         get {
             return this.claveProdServField;
         }

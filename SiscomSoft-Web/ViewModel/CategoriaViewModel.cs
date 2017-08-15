@@ -32,7 +32,7 @@ namespace SiscomSoft_Web.ViewModel
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Categorias.Where(r => r.pkCategoria == pkCategoria).FirstOrDefault();
+                    return ctx.Categorias.Where(r => r.idCategoria == pkCategoria).FirstOrDefault();
                 }
             }
             catch (Exception)
