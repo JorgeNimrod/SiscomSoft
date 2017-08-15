@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SiscomSoft.Controller
 {
-   public class ManejoExistencia
+    public class ManejoExistencia
     {
         public static List<Existencia> getAll()
         {
@@ -24,7 +24,7 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static void RegistrarNuevaExistencia(Existencia nExistencia, int pkProducto,int pkAlmacen)
+        public static void RegistrarNuevaExistencia(Existencia nExistencia, int pkProducto, int pkAlmacen)
         {
             Producto Producto = ManejoProducto.getById(pkProducto);
             Almacen Almacen = ManejoAlmacen.getById(pkAlmacen);
@@ -54,7 +54,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Existencias.Where(r =>  r.producto_id.idProducto == pkExistencia).FirstOrDefault();
+                    return ctx.Existencias.Where(r => r.producto_id.idProducto == pkExistencia).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -70,7 +70,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     Existencia nExistencia = ManejoExistencia.getById(pkExistencia);
-                   
+
 
                     ctx.Entry(nExistencia).State = EntityState.Modified;
                     ctx.SaveChanges();
@@ -82,7 +82,7 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-       
+
         public static void Modificar(Existencia nExistencia, int pkProducto, int pkAlmacen)
         {
             Producto producto = ManejoProducto.getById(pkProducto);
@@ -93,7 +93,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     ctx.Productos.Attach(producto);
-                    if (almacen!=null)
+                    if (almacen != null)
                     {
                         ctx.Almacenes.Attach(almacen);
                     }
@@ -128,5 +128,22 @@ namespace SiscomSoft.Controller
             }
         }
 
+        public static List<Existencia> BuscarProducto(string Producto)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Existencias.Include("producto_id").Include("almacen_id").Where(r => r.producto_id.sDescripcion.Contains(Producto)).ToList();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
     }
 }
