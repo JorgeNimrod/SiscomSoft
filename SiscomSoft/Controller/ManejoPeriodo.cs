@@ -47,6 +47,24 @@ namespace SiscomSoft.Controller
             }
         }
 
+        public static string Folio()
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    var n = ctx.Periodos.Count() + 1;
+                    var folio = "P" + n;
+                    return folio;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static void Guardar(Periodo nPeriodo, Usuario nUsuario)
         {
             try

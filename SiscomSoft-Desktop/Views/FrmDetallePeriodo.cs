@@ -74,14 +74,29 @@ namespace SiscomSoft_Desktop.Views
 
         private void FrmDetallePeriodo_Load(object sender, EventArgs e)
         {
+            txtFolio.Text = ManejoPeriodo.Folio();
             cmbTurno.SelectedIndex = 0;
         }
 
         private void txtFondo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
-            if (char.IsNumber(e.KeyChar) || e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator || e.KeyChar == 8)
+            if (e.KeyChar == 8)
+            {
                 e.Handled = false;
+                return;
+            }
+
+            bool IsDec = false;
+
+            if (txtFondo.Text.Contains("."))
+            {
+                IsDec = true;
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
             else
                 e.Handled = true;
         }
