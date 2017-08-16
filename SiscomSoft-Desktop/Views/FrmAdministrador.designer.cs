@@ -53,12 +53,6 @@
             this.btnActualizarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -69,17 +63,11 @@
             this.btnBorrarPrecio = new System.Windows.Forms.Button();
             this.lblRegistroPrecio = new System.Windows.Forms.Label();
             this.dgvDatosPrecio = new System.Windows.Forms.DataGridView();
-            this.pkPrecios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iPrePorcen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpImpuestos = new System.Windows.Forms.TabPage();
             this.btnRegistrarImpuesto = new System.Windows.Forms.Button();
             this.btnActualizarImpuesto = new System.Windows.Forms.Button();
             this.btnBorrarImpuesto = new System.Windows.Forms.Button();
             this.dgvDatosImpuesto = new System.Windows.Forms.DataGridView();
-            this.s = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTipoImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dTasaImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroImpuesto = new System.Windows.Forms.Label();
             this.ckbStatusImpuesto = new System.Windows.Forms.CheckBox();
             this.txtBuscarImpuesto = new System.Windows.Forms.TextBox();
@@ -91,9 +79,6 @@
             this.lblRegistroCat = new System.Windows.Forms.Label();
             this.ckbStatusCategoria = new System.Windows.Forms.CheckBox();
             this.dgvDatosCategoria = new System.Windows.Forms.DataGridView();
-            this.pkCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sNomSubCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarCategoria = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tbpUsuario = new System.Windows.Forms.TabPage();
@@ -101,13 +86,6 @@
             this.btnActualizarUsuario = new System.Windows.Forms.Button();
             this.btnBorrarUsuario = new System.Windows.Forms.Button();
             this.dgvDatosUsuario = new System.Windows.Forms.DataGridView();
-            this.pkUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SRfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroUsuarios = new System.Windows.Forms.Label();
             this.ckbStatusUsuario = new System.Windows.Forms.CheckBox();
             this.txtBuscarUsuario = new System.Windows.Forms.TextBox();
@@ -116,9 +94,6 @@
             this.pnlCatalogoRoles = new System.Windows.Forms.Panel();
             this.btnRegistrarRol = new System.Windows.Forms.Button();
             this.dgvDatosRol = new System.Windows.Forms.DataGridView();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sComentario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizarRol = new System.Windows.Forms.Button();
             this.btnBorrarRol = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
@@ -308,15 +283,6 @@
             this.lblCantidadEmpresas = new System.Windows.Forms.Label();
             this.ckbStatusEmpresa = new System.Windows.Forms.CheckBox();
             this.dgvDatosEmpresa = new System.Windows.Forms.DataGridView();
-            this.pkEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sNomComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarEmpresa = new System.Windows.Forms.TextBox();
             this.label118 = new System.Windows.Forms.Label();
             this.tbpAddEmpresa = new System.Windows.Forms.TabPage();
@@ -388,19 +354,6 @@
             this.label69 = new System.Windows.Forms.Label();
             this.lblRegistrosCli = new System.Windows.Forms.Label();
             this.dgvDatosCliente = new System.Windows.Forms.DataGridView();
-            this.pkClientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCurp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMunicipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sColonia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iCodPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTelMovil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTipoPAgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iNumCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.label71 = new System.Windows.Forms.Label();
             this.btnActualizarCli = new System.Windows.Forms.Button();
@@ -510,15 +463,6 @@
             this.cmbStatusSucursal = new System.Windows.Forms.ComboBox();
             this.lblCantidadSucursal = new System.Windows.Forms.Label();
             this.dgvDatosSucursal = new System.Windows.Forms.DataGridView();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iNumCertificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarSucursal = new System.Windows.Forms.TextBox();
             this.label148 = new System.Windows.Forms.Label();
             this.btnBorrarSucursal = new System.Windows.Forms.Button();
@@ -638,8 +582,6 @@
             this.ckbStatusUMD = new System.Windows.Forms.CheckBox();
             this.lblCantidadUMD = new System.Windows.Forms.Label();
             this.dgrDatosUMD = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarUMD = new System.Windows.Forms.TextBox();
             this.label181 = new System.Windows.Forms.Label();
             this.btnDeleteUMD = new System.Windows.Forms.Button();
@@ -658,9 +600,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dgrDatosDescuento = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblCatidadDescuento = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tbpAddDescuento = new System.Windows.Forms.TabPage();
@@ -687,6 +626,67 @@
             this.btnCustomersList = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnTeclado = new System.Windows.Forms.Button();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pkPrecios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iPrePorcen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.s = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTipoImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dTasaImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pkUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SRfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sComentario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNomComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pkClientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCurp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMunicipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sColonia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iCodPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTelMovil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTipoPAgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iNumCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iNumCertificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlPrincipal.SuspendLayout();
             this.pnlProducto.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -1165,48 +1165,6 @@
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
             // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "pkProducto";
-            this.pkProductos.HeaderText = "Producto";
-            this.pkProductos.Name = "pkProductos";
-            this.pkProductos.ReadOnly = true;
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Clave";
-            this.iClaveProd.Name = "iClaveProd";
-            this.iClaveProd.ReadOnly = true;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            this.sMarca.ReadOnly = true;
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
-            // 
-            // iLote
-            // 
-            this.iLote.DataPropertyName = "iLote";
-            this.iLote.HeaderText = "Lote";
-            this.iLote.Name = "iLote";
-            this.iLote.ReadOnly = true;
-            // 
             // lblRegistroProducto
             // 
             this.lblRegistroProducto.AutoSize = true;
@@ -1325,22 +1283,6 @@
             this.dgvDatosPrecio.TabIndex = 54;
             this.dgvDatosPrecio.DataSourceChanged += new System.EventHandler(this.dgvDatosPrecio_DataSourceChanged);
             // 
-            // pkPrecios
-            // 
-            this.pkPrecios.DataPropertyName = "pkPrecios";
-            this.pkPrecios.HeaderText = "No. Precio";
-            this.pkPrecios.Name = "pkPrecios";
-            this.pkPrecios.ReadOnly = true;
-            this.pkPrecios.Width = 250;
-            // 
-            // iPrePorcen
-            // 
-            this.iPrePorcen.DataPropertyName = "iPrePorcen";
-            this.iPrePorcen.HeaderText = "Precio";
-            this.iPrePorcen.Name = "iPrePorcen";
-            this.iPrePorcen.ReadOnly = true;
-            this.iPrePorcen.Width = 250;
-            // 
             // tbpImpuestos
             // 
             this.tbpImpuestos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1414,36 +1356,6 @@
             this.dgvDatosImpuesto.TabIndex = 48;
             this.dgvDatosImpuesto.DataSourceChanged += new System.EventHandler(this.dgvDatosImpuesto_DataSourceChanged);
             this.dgvDatosImpuesto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosImpuesto_CellDoubleClick);
-            // 
-            // s
-            // 
-            this.s.DataPropertyName = "pkImpuesto";
-            this.s.HeaderText = "No. ";
-            this.s.Name = "s";
-            this.s.ReadOnly = true;
-            // 
-            // sTipoImpuesto
-            // 
-            this.sTipoImpuesto.DataPropertyName = "sTipoImpuesto";
-            this.sTipoImpuesto.HeaderText = "Tipo Impuesto";
-            this.sTipoImpuesto.Name = "sTipoImpuesto";
-            this.sTipoImpuesto.ReadOnly = true;
-            this.sTipoImpuesto.Width = 200;
-            // 
-            // sImpuesto
-            // 
-            this.sImpuesto.DataPropertyName = "sImpuesto";
-            this.sImpuesto.HeaderText = "Impuesto";
-            this.sImpuesto.Name = "sImpuesto";
-            this.sImpuesto.ReadOnly = true;
-            this.sImpuesto.Width = 150;
-            // 
-            // dTasaImpuesto
-            // 
-            this.dTasaImpuesto.DataPropertyName = "dTasaImpuesto";
-            this.dTasaImpuesto.HeaderText = "Tasa Impuesto";
-            this.dTasaImpuesto.Name = "dTasaImpuesto";
-            this.dTasaImpuesto.ReadOnly = true;
             // 
             // lblRegistroImpuesto
             // 
@@ -1567,9 +1479,9 @@
             this.dgvDatosCategoria.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pkCategoria,
-            this.dataGridViewTextBoxColumn3,
-            this.sNomSubCat});
+            this.id,
+            this.Categoria,
+            this.SubCategoria});
             this.dgvDatosCategoria.Location = new System.Drawing.Point(3, 32);
             this.dgvDatosCategoria.Name = "dgvDatosCategoria";
             this.dgvDatosCategoria.ReadOnly = true;
@@ -1579,30 +1491,6 @@
             this.dgvDatosCategoria.TabIndex = 67;
             this.dgvDatosCategoria.DataSourceChanged += new System.EventHandler(this.dgvDatosCategoria_DataSourceChanged);
             this.dgvDatosCategoria.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCategoria_CellDoubleClick);
-            // 
-            // pkCategoria
-            // 
-            this.pkCategoria.DataPropertyName = "pkCategoria";
-            this.pkCategoria.HeaderText = "Categoria";
-            this.pkCategoria.Name = "pkCategoria";
-            this.pkCategoria.ReadOnly = true;
-            this.pkCategoria.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "sNombre";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 200;
-            // 
-            // sNomSubCat
-            // 
-            this.sNomSubCat.DataPropertyName = "sNomSubCat";
-            this.sNomSubCat.HeaderText = "Subcategoria";
-            this.sNomSubCat.Name = "sNomSubCat";
-            this.sNomSubCat.ReadOnly = true;
-            this.sNomSubCat.Width = 200;
             // 
             // txtBuscarCategoria
             // 
@@ -1696,55 +1584,6 @@
             this.dgvDatosUsuario.Size = new System.Drawing.Size(703, 480);
             this.dgvDatosUsuario.TabIndex = 48;
             this.dgvDatosUsuario.DataSourceChanged += new System.EventHandler(this.dgvDatosUsuario_DataSourceChanged);
-            // 
-            // pkUsuarios
-            // 
-            this.pkUsuarios.DataPropertyName = "pkUsuario";
-            this.pkUsuarios.HeaderText = "No.";
-            this.pkUsuarios.Name = "pkUsuarios";
-            this.pkUsuarios.ReadOnly = true;
-            // 
-            // SRfc
-            // 
-            this.SRfc.DataPropertyName = "sRfc";
-            this.SRfc.HeaderText = "RFC";
-            this.SRfc.Name = "SRfc";
-            this.SRfc.ReadOnly = true;
-            // 
-            // sUsuario
-            // 
-            this.sUsuario.DataPropertyName = "sUsuario";
-            this.sUsuario.HeaderText = "Usuario";
-            this.sUsuario.Name = "sUsuario";
-            this.sUsuario.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "sNombre";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // sNumero
-            // 
-            this.sNumero.DataPropertyName = "sNumero";
-            this.sNumero.HeaderText = "Telefono";
-            this.sNumero.Name = "sNumero";
-            this.sNumero.ReadOnly = true;
-            // 
-            // sCorreo
-            // 
-            this.sCorreo.DataPropertyName = "sCorreo";
-            this.sCorreo.HeaderText = "Correo";
-            this.sCorreo.Name = "sCorreo";
-            this.sCorreo.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "sComentario";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Comentario";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // lblRegistroUsuarios
             // 
@@ -1843,29 +1682,6 @@
             this.dgvDatosRol.DataSourceChanged += new System.EventHandler(this.dgvDatosRol_DataSourceChanged_1);
             this.dgvDatosRol.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosRol_CellContentClick);
             this.dgvDatosRol.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosRol_CellDoubleClick);
-            // 
-            // Rol
-            // 
-            this.Rol.DataPropertyName = "pkRol";
-            this.Rol.HeaderText = "No.";
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
-            // 
-            // sNombre
-            // 
-            this.sNombre.DataPropertyName = "sNombre";
-            this.sNombre.HeaderText = "Nombre";
-            this.sNombre.Name = "sNombre";
-            this.sNombre.ReadOnly = true;
-            this.sNombre.Width = 200;
-            // 
-            // sComentario
-            // 
-            this.sComentario.DataPropertyName = "sComentario";
-            this.sComentario.HeaderText = "Comentario";
-            this.sComentario.Name = "sComentario";
-            this.sComentario.ReadOnly = true;
-            this.sComentario.Width = 487;
             // 
             // btnActualizarRol
             // 
@@ -3934,7 +3750,7 @@
             this.dgvDatosEmpresa.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosEmpresa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosEmpresa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pkEmpresa,
+            this.No,
             this.sNomComercial,
             this.sTelefono,
             this.dataGridViewTextBoxColumn7,
@@ -3951,64 +3767,6 @@
             this.dgvDatosEmpresa.TabIndex = 28;
             this.dgvDatosEmpresa.DataSourceChanged += new System.EventHandler(this.dgvDatosEmpresa_DataSourceChanged_1);
             this.dgvDatosEmpresa.DoubleClick += new System.EventHandler(this.dgvDatosEmpresa_DoubleClick);
-            // 
-            // pkEmpresa
-            // 
-            this.pkEmpresa.DataPropertyName = "pkEmpresa";
-            this.pkEmpresa.HeaderText = "No.";
-            this.pkEmpresa.Name = "pkEmpresa";
-            // 
-            // sNomComercial
-            // 
-            this.sNomComercial.DataPropertyName = "sNomComercial";
-            this.sNomComercial.HeaderText = "Nombre";
-            this.sNomComercial.Name = "sNomComercial";
-            this.sNomComercial.Width = 150;
-            // 
-            // sTelefono
-            // 
-            this.sTelefono.DataPropertyName = "sTelefono";
-            this.sTelefono.HeaderText = "Telefono";
-            this.sTelefono.Name = "sTelefono";
-            this.sTelefono.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "sCorreo";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Correo";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "sEstado";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "sMunicipio";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Municipio";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "sColonia";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Colonia";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "sCalle";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Calle";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "iCodPostal";
-            this.dataGridViewTextBoxColumn12.HeaderText = "C.P.";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
             // txtBuscarEmpresa
             // 
@@ -4901,85 +4659,6 @@
             this.dgvDatosCliente.TabIndex = 37;
             this.dgvDatosCliente.DataSourceChanged += new System.EventHandler(this.dgvDatosCliente_DataSourceChanged);
             this.dgvDatosCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCliente_CellContentClick);
-            // 
-            // pkClientes
-            // 
-            this.pkClientes.DataPropertyName = "pkCliente";
-            this.pkClientes.HeaderText = "Cliente";
-            this.pkClientes.Name = "pkClientes";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "sRfc";
-            this.dataGridViewTextBoxColumn4.HeaderText = "RFC";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // sCurp
-            // 
-            this.sCurp.DataPropertyName = "sCurp";
-            this.sCurp.HeaderText = "CURP";
-            this.sCurp.Name = "sCurp";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "sNombre";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 90;
-            // 
-            // sEstado
-            // 
-            this.sEstado.DataPropertyName = "sEstado";
-            this.sEstado.HeaderText = "Estado";
-            this.sEstado.Name = "sEstado";
-            // 
-            // sMunicipio
-            // 
-            this.sMunicipio.DataPropertyName = "sMunicipio";
-            this.sMunicipio.HeaderText = "Municipio";
-            this.sMunicipio.Name = "sMunicipio";
-            // 
-            // sColonia
-            // 
-            this.sColonia.DataPropertyName = "sColonia";
-            this.sColonia.HeaderText = "Colonia";
-            this.sColonia.Name = "sColonia";
-            // 
-            // sCalle
-            // 
-            this.sCalle.DataPropertyName = "sCalle";
-            this.sCalle.HeaderText = "Calle";
-            this.sCalle.Name = "sCalle";
-            // 
-            // iCodPostal
-            // 
-            this.iCodPostal.DataPropertyName = "iCodPostal";
-            this.iCodPostal.HeaderText = "Codigo Postal";
-            this.iCodPostal.Name = "iCodPostal";
-            // 
-            // sTelMovil
-            // 
-            this.sTelMovil.DataPropertyName = "sTelMovil";
-            this.sTelMovil.HeaderText = "Celular";
-            this.sTelMovil.Name = "sTelMovil";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "sCorreo";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Correo";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // sTipoPAgo
-            // 
-            this.sTipoPAgo.DataPropertyName = "sTipoPAgo";
-            this.sTipoPAgo.HeaderText = "Tipo Pago";
-            this.sTipoPAgo.Name = "sTipoPAgo";
-            // 
-            // iNumCuenta
-            // 
-            this.iNumCuenta.DataPropertyName = "sNumCuenta";
-            this.iNumCuenta.HeaderText = "Numero de Cuenta";
-            this.iNumCuenta.Name = "iNumCuenta";
             // 
             // txtBuscarCliente
             // 
@@ -6163,73 +5842,6 @@
             this.dgvDatosSucursal.Size = new System.Drawing.Size(1021, 477);
             this.dgvDatosSucursal.TabIndex = 36;
             this.dgvDatosSucursal.DataSourceChanged += new System.EventHandler(this.dgvDatosSucursal_DataSourceChanged);
-            // 
-            // Sucursal
-            // 
-            this.Sucursal.DataPropertyName = "pkSucursal";
-            this.Sucursal.HeaderText = "No.";
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.ReadOnly = true;
-            this.Sucursal.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "sNombre";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 200;
-            // 
-            // iNumCertificado
-            // 
-            this.iNumCertificado.DataPropertyName = "sNoCertifi";
-            this.iNumCertificado.HeaderText = "No. Certificado";
-            this.iNumCertificado.Name = "iNumCertificado";
-            this.iNumCertificado.ReadOnly = true;
-            this.iNumCertificado.Width = 150;
-            // 
-            // sPais
-            // 
-            this.sPais.DataPropertyName = "sPais";
-            this.sPais.HeaderText = "Pais";
-            this.sPais.Name = "sPais";
-            this.sPais.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "sEstado";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "sMunicipio";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Municipio";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "sColonia";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Colonia";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "sCalle";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Calle";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "iCodPostal";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Codigo Postal";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // txtBuscarSucursal
             // 
@@ -7627,22 +7239,6 @@
             this.dgrDatosUMD.TabIndex = 47;
             this.dgrDatosUMD.DataSourceChanged += new System.EventHandler(this.dgrDatosUMD_DataSourceChanged);
             // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "pkCatalogo";
-            this.dataGridViewTextBoxColumn19.HeaderText = "No.";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "sUDM";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Unidad de Medida";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Width = 800;
-            // 
             // txtBuscarUMD
             // 
             this.txtBuscarUMD.Location = new System.Drawing.Point(69, 10);
@@ -7859,29 +7455,6 @@
             this.dgrDatosDescuento.Size = new System.Drawing.Size(554, 476);
             this.dgrDatosDescuento.TabIndex = 92;
             this.dgrDatosDescuento.DataSourceChanged += new System.EventHandler(this.dgrDatosDescuento_DataSourceChanged);
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "pkDescuento";
-            this.dataGridViewTextBoxColumn21.HeaderText = "No. ";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "dTasaDesc";
-            this.dataGridViewTextBoxColumn24.HeaderText = "Tasa Descuento";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            this.dataGridViewTextBoxColumn24.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "dTasaDescEx";
-            this.dataGridViewTextBoxColumn23.HeaderText = "Descuento Extra";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            this.dataGridViewTextBoxColumn23.Width = 250;
             // 
             // lblCatidadDescuento
             // 
@@ -8191,6 +7764,433 @@
             this.btnTeclado.UseVisualStyleBackColor = false;
             this.btnTeclado.Click += new System.EventHandler(this.btnTeclado_Click);
             // 
+            // pkProductos
+            // 
+            this.pkProductos.DataPropertyName = "idProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            this.pkProductos.ReadOnly = true;
+            // 
+            // iClaveProd
+            // 
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            this.iClaveProd.HeaderText = "Clave";
+            this.iClaveProd.Name = "iClaveProd";
+            this.iClaveProd.ReadOnly = true;
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            this.sMarca.ReadOnly = true;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
+            // 
+            // iLote
+            // 
+            this.iLote.DataPropertyName = "iLote";
+            this.iLote.HeaderText = "Lote";
+            this.iLote.Name = "iLote";
+            this.iLote.ReadOnly = true;
+            // 
+            // pkPrecios
+            // 
+            this.pkPrecios.DataPropertyName = "idprecios";
+            this.pkPrecios.HeaderText = "No. Precio";
+            this.pkPrecios.Name = "pkPrecios";
+            this.pkPrecios.ReadOnly = true;
+            this.pkPrecios.Width = 250;
+            // 
+            // iPrePorcen
+            // 
+            this.iPrePorcen.DataPropertyName = "iPrePorcen";
+            this.iPrePorcen.HeaderText = "Precio";
+            this.iPrePorcen.Name = "iPrePorcen";
+            this.iPrePorcen.ReadOnly = true;
+            this.iPrePorcen.Width = 250;
+            // 
+            // s
+            // 
+            this.s.DataPropertyName = "idImpuesto";
+            this.s.HeaderText = "No. ";
+            this.s.Name = "s";
+            this.s.ReadOnly = true;
+            // 
+            // sTipoImpuesto
+            // 
+            this.sTipoImpuesto.DataPropertyName = "sTipoImpuesto";
+            this.sTipoImpuesto.HeaderText = "Tipo Impuesto";
+            this.sTipoImpuesto.Name = "sTipoImpuesto";
+            this.sTipoImpuesto.ReadOnly = true;
+            this.sTipoImpuesto.Width = 200;
+            // 
+            // sImpuesto
+            // 
+            this.sImpuesto.DataPropertyName = "sImpuesto";
+            this.sImpuesto.HeaderText = "Impuesto";
+            this.sImpuesto.Name = "sImpuesto";
+            this.sImpuesto.ReadOnly = true;
+            this.sImpuesto.Width = 150;
+            // 
+            // dTasaImpuesto
+            // 
+            this.dTasaImpuesto.DataPropertyName = "dTasaImpuesto";
+            this.dTasaImpuesto.HeaderText = "Tasa Impuesto";
+            this.dTasaImpuesto.Name = "dTasaImpuesto";
+            this.dTasaImpuesto.ReadOnly = true;
+            // 
+            // pkUsuarios
+            // 
+            this.pkUsuarios.DataPropertyName = "idUsuario";
+            this.pkUsuarios.HeaderText = "No.";
+            this.pkUsuarios.Name = "pkUsuarios";
+            this.pkUsuarios.ReadOnly = true;
+            // 
+            // SRfc
+            // 
+            this.SRfc.DataPropertyName = "sRfc";
+            this.SRfc.HeaderText = "RFC";
+            this.SRfc.Name = "SRfc";
+            this.SRfc.ReadOnly = true;
+            // 
+            // sUsuario
+            // 
+            this.sUsuario.DataPropertyName = "sUsuario";
+            this.sUsuario.HeaderText = "Usuario";
+            this.sUsuario.Name = "sUsuario";
+            this.sUsuario.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "sNombre";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sNumero
+            // 
+            this.sNumero.DataPropertyName = "sNumero";
+            this.sNumero.HeaderText = "Telefono";
+            this.sNumero.Name = "sNumero";
+            this.sNumero.ReadOnly = true;
+            // 
+            // sCorreo
+            // 
+            this.sCorreo.DataPropertyName = "sCorreo";
+            this.sCorreo.HeaderText = "Correo";
+            this.sCorreo.Name = "sCorreo";
+            this.sCorreo.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "sComentario";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Comentario";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Rol
+            // 
+            this.Rol.DataPropertyName = "idRol";
+            this.Rol.HeaderText = "No.";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            // 
+            // sNombre
+            // 
+            this.sNombre.DataPropertyName = "sNombre";
+            this.sNombre.HeaderText = "Nombre";
+            this.sNombre.Name = "sNombre";
+            this.sNombre.ReadOnly = true;
+            this.sNombre.Width = 200;
+            // 
+            // sComentario
+            // 
+            this.sComentario.DataPropertyName = "sComentario";
+            this.sComentario.HeaderText = "Comentario";
+            this.sComentario.Name = "sComentario";
+            this.sComentario.ReadOnly = true;
+            this.sComentario.Width = 487;
+            // 
+            // No
+            // 
+            this.No.DataPropertyName = "idEmpresa";
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            // 
+            // sNomComercial
+            // 
+            this.sNomComercial.DataPropertyName = "sNomComercial";
+            this.sNomComercial.HeaderText = "Nombre";
+            this.sNomComercial.Name = "sNomComercial";
+            this.sNomComercial.Width = 150;
+            // 
+            // sTelefono
+            // 
+            this.sTelefono.DataPropertyName = "sTelefono";
+            this.sTelefono.HeaderText = "Telefono";
+            this.sTelefono.Name = "sTelefono";
+            this.sTelefono.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "sCorreo";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Correo";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "sEstado";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "sMunicipio";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Municipio";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "sColonia";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Colonia";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "sCalle";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Calle";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "iCodPostal";
+            this.dataGridViewTextBoxColumn12.HeaderText = "C.P.";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // pkClientes
+            // 
+            this.pkClientes.DataPropertyName = "idCliente";
+            this.pkClientes.HeaderText = "Cliente";
+            this.pkClientes.Name = "pkClientes";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "sRfc";
+            this.dataGridViewTextBoxColumn4.HeaderText = "RFC";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // sCurp
+            // 
+            this.sCurp.DataPropertyName = "sCurp";
+            this.sCurp.HeaderText = "CURP";
+            this.sCurp.Name = "sCurp";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "sNombre";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 90;
+            // 
+            // sEstado
+            // 
+            this.sEstado.DataPropertyName = "sEstado";
+            this.sEstado.HeaderText = "Estado";
+            this.sEstado.Name = "sEstado";
+            // 
+            // sMunicipio
+            // 
+            this.sMunicipio.DataPropertyName = "sMunicipio";
+            this.sMunicipio.HeaderText = "Municipio";
+            this.sMunicipio.Name = "sMunicipio";
+            // 
+            // sColonia
+            // 
+            this.sColonia.DataPropertyName = "sColonia";
+            this.sColonia.HeaderText = "Colonia";
+            this.sColonia.Name = "sColonia";
+            // 
+            // sCalle
+            // 
+            this.sCalle.DataPropertyName = "sCalle";
+            this.sCalle.HeaderText = "Calle";
+            this.sCalle.Name = "sCalle";
+            // 
+            // iCodPostal
+            // 
+            this.iCodPostal.DataPropertyName = "iCodPostal";
+            this.iCodPostal.HeaderText = "Codigo Postal";
+            this.iCodPostal.Name = "iCodPostal";
+            // 
+            // sTelMovil
+            // 
+            this.sTelMovil.DataPropertyName = "sTelMovil";
+            this.sTelMovil.HeaderText = "Celular";
+            this.sTelMovil.Name = "sTelMovil";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "sCorreo";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Correo";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // sTipoPAgo
+            // 
+            this.sTipoPAgo.DataPropertyName = "sTipoPAgo";
+            this.sTipoPAgo.HeaderText = "Tipo Pago";
+            this.sTipoPAgo.Name = "sTipoPAgo";
+            // 
+            // iNumCuenta
+            // 
+            this.iNumCuenta.DataPropertyName = "sNumCuenta";
+            this.iNumCuenta.HeaderText = "Numero de Cuenta";
+            this.iNumCuenta.Name = "iNumCuenta";
+            // 
+            // Sucursal
+            // 
+            this.Sucursal.DataPropertyName = "idSucursal";
+            this.Sucursal.HeaderText = "No.";
+            this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
+            this.Sucursal.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "sNombre";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 200;
+            // 
+            // iNumCertificado
+            // 
+            this.iNumCertificado.DataPropertyName = "sNoCertifi";
+            this.iNumCertificado.HeaderText = "No. Certificado";
+            this.iNumCertificado.Name = "iNumCertificado";
+            this.iNumCertificado.ReadOnly = true;
+            this.iNumCertificado.Width = 150;
+            // 
+            // sPais
+            // 
+            this.sPais.DataPropertyName = "sPais";
+            this.sPais.HeaderText = "Pais";
+            this.sPais.Name = "sPais";
+            this.sPais.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "sEstado";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "sMunicipio";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Municipio";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "sColonia";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Colonia";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "sCalle";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Calle";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "iCodPostal";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Codigo Postal";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "idCatalogo";
+            this.dataGridViewTextBoxColumn19.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "sUDM";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Unidad de Medida";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Width = 800;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "idDescuento";
+            this.dataGridViewTextBoxColumn21.HeaderText = "No. ";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "dTasaDesc";
+            this.dataGridViewTextBoxColumn24.HeaderText = "Tasa Descuento";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            this.dataGridViewTextBoxColumn24.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "dTasaDescEx";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Descuento Extra";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            this.dataGridViewTextBoxColumn23.Width = 250;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "idCategoria";
+            this.id.HeaderText = "No";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 150;
+            // 
+            // Categoria
+            // 
+            this.Categoria.DataPropertyName = "sNombre";
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 220;
+            // 
+            // SubCategoria
+            // 
+            this.SubCategoria.DataPropertyName = "sNomSubCat";
+            this.SubCategoria.HeaderText = "SubCategoria";
+            this.SubCategoria.Name = "SubCategoria";
+            this.SubCategoria.ReadOnly = true;
+            this.SubCategoria.Width = 220;
+            // 
             // FrmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -8376,9 +8376,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvDatosRol;
         private System.Windows.Forms.Button btnRegistrarRol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sComentario;
         private System.Windows.Forms.TabPage tbpAddRol;
         private System.Windows.Forms.Panel pnlAddRol;
         private System.Windows.Forms.TextBox txtComentario;
@@ -8419,23 +8416,9 @@
         private System.Windows.Forms.Label lblRegistroCat;
         private System.Windows.Forms.CheckBox ckbStatusCategoria;
         private System.Windows.Forms.DataGridView dgvDatosCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sNomSubCat;
         private System.Windows.Forms.TextBox txtBuscarCategoria;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkUsuarios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SRfc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sNumero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridView dgvDatosImpuesto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn s;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTipoImpuesto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sImpuesto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dTasaImpuesto;
         private System.Windows.Forms.Label lblRegistroImpuesto;
         private System.Windows.Forms.CheckBox ckbStatusImpuesto;
         private System.Windows.Forms.TextBox txtBuscarImpuesto;
@@ -8445,8 +8428,6 @@
         private System.Windows.Forms.Button btnBorrarPrecio;
         private System.Windows.Forms.Label lblRegistroPrecio;
         private System.Windows.Forms.DataGridView dgvDatosPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkPrecios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iPrePorcen;
         private System.Windows.Forms.Button btnRegistrarImpuesto;
         private System.Windows.Forms.Button btnActualizarImpuesto;
         private System.Windows.Forms.Button btnBorrarImpuesto;
@@ -8592,19 +8573,6 @@
         private System.Windows.Forms.Button btnBorrarCli;
         private System.Windows.Forms.Label lblRegistrosCli;
         private System.Windows.Forms.DataGridView dgvDatosCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkClientes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sCurp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMunicipio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sColonia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sCalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iCodPostal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTelMovil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTipoPAgo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iNumCuenta;
         private System.Windows.Forms.TextBox txtBuscarCliente;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.TextBox txtPaisAddCli;
@@ -8711,15 +8679,6 @@
         private System.Windows.Forms.Label lblCantidadEmpresas;
         private System.Windows.Forms.CheckBox ckbStatusEmpresa;
         private System.Windows.Forms.DataGridView dgvDatosEmpresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkEmpresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sNomComercial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.TextBox txtBuscarEmpresa;
         private System.Windows.Forms.Label label118;
         private System.Windows.Forms.TextBox txtAddRazonSocialEmpresa;
@@ -8820,15 +8779,6 @@
         private System.Windows.Forms.Label label170;
         private System.Windows.Forms.CheckBox ckbAddEnvFactura;
         private System.Windows.Forms.CheckBox ckbAddForImpreso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iNumCertificado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sPais;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.Label label189;
         private System.Windows.Forms.Button btnAddExaminarLogo;
         private System.Windows.Forms.PictureBox pcbAddLogo;
@@ -8933,14 +8883,6 @@
         private System.Windows.Forms.Button btnActualizarUDM;
         private System.Windows.Forms.TextBox txtUpdateUMD;
         private System.Windows.Forms.Label label184;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
         private System.Windows.Forms.TextBox txtPrecioVenta;
         private System.Windows.Forms.Label label180;
         private System.Windows.Forms.TextBox txtUpdatePVProd;
@@ -8965,9 +8907,6 @@
         private System.Windows.Forms.TextBox txtUpdateTasaDesc;
         private System.Windows.Forms.Label label190;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.Panel pnlDescuentos;
         private System.Windows.Forms.Panel pnlImpuestos;
         private System.Windows.Forms.CheckBox cbkDescuentos;
@@ -9004,5 +8943,66 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
         private System.Windows.Forms.TextBox txtAddCodigoPostalEmpresa;
         private System.Windows.Forms.TextBox txtUpdateCPEmpresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkPrecios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iPrePorcen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn s;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTipoImpuesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sImpuesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dTasaImpuesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkUsuarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SRfc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sCorreo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sComentario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sNomComercial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkClientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sCurp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMunicipio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sColonia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sCalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iCodPostal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTelMovil;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTipoPAgo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iNumCuenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iNumCertificado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sPais;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
     }
 }

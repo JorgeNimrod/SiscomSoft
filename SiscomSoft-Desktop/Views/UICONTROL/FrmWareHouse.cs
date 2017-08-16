@@ -233,7 +233,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             timer1.Start();
             cargarCombos();
 
-        //    CargarInventarios();
+    
          
         }
         public void Folios()

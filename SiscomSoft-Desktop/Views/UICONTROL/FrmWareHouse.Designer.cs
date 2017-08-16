@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWareHouse));
             this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -241,9 +241,9 @@
             // 
             // costo
             // 
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.costo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.costo.DefaultCellStyle = dataGridViewCellStyle3;
             this.costo.HeaderText = "Costo";
             this.costo.Name = "costo";
             this.costo.Width = 150;
@@ -272,9 +272,9 @@
             // 
             // Importe
             // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle4;
             this.Importe.FillWeight = 200F;
             this.Importe.HeaderText = "Importe";
             this.Importe.Name = "Importe";
@@ -793,6 +793,7 @@
             this.label12.TabIndex = 69;
             this.label12.Text = "Buscar:";
             this.label12.UseWaitCursor = true;
+            this.label12.Visible = false;
             // 
             // lnlRegistros
             // 
@@ -816,6 +817,7 @@
             this.cbkStatusDetalle.Text = "Status";
             this.cbkStatusDetalle.UseVisualStyleBackColor = true;
             this.cbkStatusDetalle.UseWaitCursor = true;
+            this.cbkStatusDetalle.Visible = false;
             this.cbkStatusDetalle.CheckedChanged += new System.EventHandler(this.cbkStatusDetalle_CheckedChanged);
             // 
             // txtBuscarDetalle
@@ -825,6 +827,7 @@
             this.txtBuscarDetalle.Size = new System.Drawing.Size(1083, 29);
             this.txtBuscarDetalle.TabIndex = 65;
             this.txtBuscarDetalle.UseWaitCursor = true;
+            this.txtBuscarDetalle.Visible = false;
             this.txtBuscarDetalle.TextChanged += new System.EventHandler(this.txtBuscarDetalle_TextChanged);
             // 
             // btnCerrar
@@ -961,6 +964,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmWareHouse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
