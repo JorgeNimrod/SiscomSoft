@@ -90,14 +90,6 @@
     <Compile Include="Controller\ManejoPeriodo.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201708112155495_COYOTES.cs" />
-    <Compile Include="Migrations\201708112155495_COYOTES.Designer.cs">
-      <DependentUpon>201708112155495_COYOTES.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708150132307_bUHOS.cs" />
-    <Compile Include="Migrations\201708150132307_bUHOS.Designer.cs">
-      <DependentUpon>201708150132307_bUHOS.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\Descuento.cs" />
@@ -147,14 +139,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708112155495_COYOTES.resx">
-      <DependentUpon>201708112155495_COYOTES.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708150132307_bUHOS.resx">
-      <DependentUpon>201708150132307_bUHOS.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

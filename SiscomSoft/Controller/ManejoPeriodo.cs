@@ -121,14 +121,12 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static List<Periodo> getAllDate()
+        public static List<PeriodoReporte> getAllDate()
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Periodos.ToList();
-                    /*
                     return ctx.Periodos.Join(ctx.DetallePeriodos, p => p.idPeriodo, dp => dp.periodo_id.idPeriodo, (p, dp) => new { p, dp })
                                 .Join(ctx.Ventas, dp => dp.dp.venta_id.idVenta, v => v.idVenta, (dp, v) => new { dp, v })
                                 .Join(ctx.DetalleVentas, v => v.v.idVenta, dv => dv.venta_id.idVenta, (v, dv) => new { dv, v })
@@ -143,7 +141,7 @@ namespace SiscomSoft.Controller
                                     dTotalCredito = x.Key.sTipoPago == "CREDITO" ? x.Sum(z => z.dv.dCantidad * z.dv.dPreUnitario) : 0,
                                     dTotalTCredito = x.Key.sTipoPago == "TCREDITO" ? x.Sum(z => z.dv.dCantidad * z.dv.dPreUnitario) : 0,
                                 })
-                                .ToList();*/
+                                .ToList();
                 }
             }
             catch (Exception)
@@ -153,14 +151,12 @@ namespace SiscomSoft.Controller
             }
         }
         
-        public static List<Periodo> getByDate(DateTime dateInicio, DateTime dateFin)
+        public static List<PeriodoReporte> getByDate(DateTime dateInicio, DateTime dateFin)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Periodos.ToList();
-                        /*
                     var mes = DateTime.Now.Month;
                     return ctx.Periodos.Join(ctx.DetallePeriodos, p => p.idPeriodo, dp => dp.periodo_id.idPeriodo, (p, dp) => new { p, dp })
                                        .Join(ctx.Ventas, dp => dp.dp.venta_id.idVenta, v => v.idVenta, (dp, v) => new { dp, v })
@@ -176,7 +172,7 @@ namespace SiscomSoft.Controller
                                            dTotalCredito = x.Key.sTipoPago == "CREDITO" ? x.Sum(z => z.dv.dCantidad * z.dv.dPreUnitario) : 0,
                                            dTotalTCredito = x.Key.sTipoPago == "TCREDITO" ? x.Sum(z => z.dv.dCantidad * z.dv.dPreUnitario) : 0,
                                        })
-                                       .ToList();*/
+                                       .ToList();
                 }
             }
             catch (Exception)
@@ -186,15 +182,14 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static List<Periodo> getByDetalleVenta(int idVenta)
+        public static List<PeriodoVentas> getByDetalleVenta(int idVenta)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Periodos.ToList();
-                    /*var a = ctx.DetalleVentas
-                                .Join(ctx.Ventas, dv => dv., v => v.idVenta, (dv, v) => new { dv, v })
+                    return ctx.DetalleVentas
+                                .Join(ctx.Ventas, dv => dv.venta_id.idVenta, v => v.idVenta, (dv, v) => new { dv, v })
                                 .Where(x => x.dv.venta_id.idVenta == idVenta && x.v.bStatus == true && x.dv.bStatus == true)
                                 .Select(s => new PeriodoVentas
                                 {
@@ -205,7 +200,6 @@ namespace SiscomSoft.Controller
                                     dCosto = s.dv.dPreUnitario
                                 })
                                 .ToList();
-                    return a;*/
                 }
             }
             catch (Exception)
