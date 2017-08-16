@@ -155,6 +155,11 @@ namespace SiscomSoft_Desktop.Views
             cbxUpdateUMDProd.ValueMember = "idCatalogo";
             cbxUpdateUMDProd.DataSource = ManejoCatalogo.getAll();
 
+            cbxUpdateCategoriaProd.DisplayMember = "sNombre";
+            cbxUpdateCategoriaProd.ValueMember = "idCategoria";
+            cbxUpdateCategoriaProd.DataSource = ManejoCategoria.getAll(true);
+
+
         }
 
         public void cargarEmpresas()
@@ -668,7 +673,7 @@ namespace SiscomSoft_Desktop.Views
             Cliente nCliente = ManejoCliente.getById(PKCLIENTE);
             txtRfcUpdateCli.Text = nCliente.sRfc;
             txtRazonUpdateCli.Text = nCliente.sRazonSocial;
-            txtPersonaUpdateCli.Text = nCliente.iPersona.ToString();
+            cbxUpdatePersonaCli.Text = nCliente.iPersona.ToString();
             txtCurpUpdateCli.Text = nCliente.sCurp;
             txtNombreUpdateCli.Text = nCliente.sNombre;
             txtPaisUpdateCli.Text = nCliente.sPais;
@@ -685,6 +690,17 @@ namespace SiscomSoft_Desktop.Views
             txtReferenciaUpdateCli.Text = nCliente.sReferencia;
             cbxTipoCliUpdateCli.Text = nCliente.sTipoCliente;
             cbxEstadoCliUpdateCli.Text = nCliente.iStatus.ToString();
+
+            if (nCliente.iPersona == 1)
+            {
+                cbxUpdatePersonaCli.SelectedIndex = 0;
+            }
+            else if (nCliente.iPersona == 2)
+            {
+                cbxUpdatePersonaCli.SelectedIndex = 1;
+            }
+
+
             if (nCliente.iStatus == 1)
             {
                 cbxEstadoCliUpdateCli.SelectedIndex = 0;
@@ -769,13 +785,37 @@ namespace SiscomSoft_Desktop.Views
             txtUpdatePhone.Text = nUsuario.sNumero;
             txtUpdateCorreo.Text = nUsuario.sCorreo;
             txtUpdateComment.Text = nUsuario.sComentario;
+            txtUpdatePin.Text = nUsuario.sPin;
         }
         public void ActualizarImpuesto()
         {
             Impuesto nImpuesto = ManejoImpuesto.getById(PKIMPUESTO);
+            if (nImpuesto.sImpuesto == "IVA")
+            {
+                cbxUpdateImpuesto.SelectedIndex = 0;
+            }
+            else if(nImpuesto.sImpuesto == "IEPS")
+            {
+                cbxUpdateImpuesto.SelectedIndex = 1;
+            }
+            else if (nImpuesto.sImpuesto == "ISR")
+            {
+                cbxUpdateImpuesto.SelectedIndex = 2;
+            }
 
-            txtActualiImpu.Text = nImpuesto.sImpuesto;
-            txtActualiTipoImpues.Text = nImpuesto.sTipoImpuesto;
+
+            if (nImpuesto.sTipoImpuesto == "TRASLADO")
+            {
+                cbxUpdateTipoImpuesto.SelectedIndex = 0;
+            }
+            else if (nImpuesto.sTipoImpuesto == "RETENIDO")
+            {
+                cbxUpdateTipoImpuesto.SelectedIndex = 1;
+            }
+
+
+
+           
             txtActualiTasaImpu.Text = nImpuesto.dTasaImpuesto.ToString();
         }
 
@@ -828,13 +868,12 @@ namespace SiscomSoft_Desktop.Views
         {
             if (this.dgvDatosUsuario.RowCount >= 1)
             {
-                tbcGeneral.TabPages.Remove(tbpUpdateUsuario);
+                tbcGeneral.TabPages.Remove(tbpUpdateUser);
                 PKUSUARIO = Convert.ToInt32(this.dgvDatosUsuario.CurrentRow.Cells[0].Value);
 
                 tbcGeneral.TabPages.Add(tbpUpdateUser);
                 ActualizarUsuario();
                 tbcGeneral.SelectedTab = tbpUpdateUser;
-
 
             }
         }
@@ -1083,17 +1122,17 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnGuardarImpuesto_Click(object sender, EventArgs e)
         {
-            if (this.txtTipoImpuesto.Text == "")
+            if (this.cbxTipoImpuestoAdd.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtTipoImpuesto, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtTipoImpuesto, "Campo necesario");
-                this.txtTipoImpuesto.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxTipoImpuestoAdd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxTipoImpuestoAdd, "Campo necesario");
+                this.cbxTipoImpuestoAdd.Focus();
             }
-            else if (this.txtImpuesto.Text == "")
+            else if (this.cbxImpuestoAdd.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtImpuesto, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtImpuesto, "Campo necesario");
-                this.txtImpuesto.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxImpuestoAdd, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxImpuestoAdd, "Campo necesario");
+                this.cbxImpuestoAdd.Focus();
             }
             else if (this.txtTasaImpuesto.Text == "")
             {
@@ -1105,15 +1144,15 @@ namespace SiscomSoft_Desktop.Views
             {
                 Impuesto nImpuesto = new Impuesto();
 
-                nImpuesto.sTipoImpuesto = txtTipoImpuesto.Text;
-                nImpuesto.sImpuesto = txtImpuesto.Text;
+                nImpuesto.sTipoImpuesto = cbxTipoImpuestoAdd.Text;
+                nImpuesto.sImpuesto = cbxImpuestoAdd.Text;
                 nImpuesto.dTasaImpuesto = Convert.ToDecimal(txtTasaImpuesto.Text);
 
                 ManejoImpuesto.RegistrarNuevoImpuesto(nImpuesto);
 
                 MessageBox.Show("¡Impuesto Registrado!");
-                txtImpuesto.Clear();
-                txtTipoImpuesto.Clear();
+                cbxImpuestoAdd.ResetText();
+                cbxTipoImpuestoAdd.ResetText();
                 txtTasaImpuesto.Clear();
                 cargarImpuestos();
 
@@ -1231,17 +1270,17 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnacatualiImpu_Click(object sender, EventArgs e)
         {
-            if (this.txtActualiTipoImpues.Text == "")
+            if (this.cbxUpdateTipoImpuesto.Text == "Seleccione Una Opcion")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtActualiTipoImpues, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtActualiTipoImpues, "Campo necesario");
-                this.txtActualiTipoImpues.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxUpdateTipoImpuesto, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxUpdateTipoImpuesto, "Campo necesario");
+                this.cbxUpdateTipoImpuesto.Focus();
             }
-            else if (this.txtActualiImpu.Text == "")
+            else if (this.cbxUpdateImpuesto.Text == "Seleccione Una Opcion")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtActualiImpu, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtActualiImpu, "Campo necesario");
-                this.txtActualiImpu.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxUpdateImpuesto, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxUpdateImpuesto, "Campo necesario");
+                this.cbxUpdateImpuesto.Focus();
             }
             else if (this.txtActualiTasaImpu.Text == "")
             {
@@ -1253,8 +1292,8 @@ namespace SiscomSoft_Desktop.Views
             {
                 Impuesto nImpuesto = new Impuesto();
                 nImpuesto.idImpuesto = PKIMPUESTO;
-                nImpuesto.sTipoImpuesto = txtTipoImpuesto.Text;
-                nImpuesto.sImpuesto = txtImpuesto.Text;
+                nImpuesto.sTipoImpuesto = cbxUpdateTipoImpuesto.Text;
+                nImpuesto.sImpuesto = cbxUpdateImpuesto.Text;
                 nImpuesto.dTasaImpuesto = Convert.ToDecimal(txtTasaImpuesto.Text);
 
                 ManejoImpuesto.Modificar(nImpuesto);
@@ -1978,10 +2017,10 @@ namespace SiscomSoft_Desktop.Views
 
 
 
-           
-              
+
+                int Categoria = cbxUpdateCategoriaProd.SelectedIndex + 1;
                 int fkPrecio = cbxUpdatePrecioProd.SelectedIndex + 1;
-                int fkCategoria = cbxUpdateUMDProd.SelectedIndex + 1;
+                int fkUnidad = cbxUpdateUMDProd.SelectedIndex + 1;
 
 
                 ManejoProducto.Modificar(nProducto);
@@ -2483,11 +2522,11 @@ namespace SiscomSoft_Desktop.Views
                 this.txtRazonAddCli.Focus();
             }
 
-            else if (this.txtPersonaAddCli.Text == "")
+            else if (this.cbxAddPersonaCli.Text == "Seleccione Una Opcion")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtPersonaAddCli, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtPersonaAddCli, "Campo necesario");
-                this.txtPersonaAddCli.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxAddPersonaCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxAddPersonaCli, "Seleccione una Opcion");
+                this.cbxAddPersonaCli.Focus();
             }
             else if (this.txtCurpAddCli.Text == "")
             {
@@ -2609,6 +2648,12 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.cbxTipoClienteAddCli, "Favor de Seleccionar Una Opcion");
                 this.cbxTipoClienteAddCli.Focus();
             }
+            else if (this.pcbimgAddCli.Image == null)
+            {
+                this.ErrorProvider.SetIconAlignment(this.pcbimgAddCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.pcbimgAddCli, "Ingrese una Imagen");
+                this.pcbimgAddCli.Focus();
+            }
 
 
             else
@@ -2618,7 +2663,7 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.sRfc = txtRFCAddCli.Text;
                 nCliente.sRazonSocial = txtRazonAddCli.Text;
 
-                nCliente.iPersona = Convert.ToInt32(txtPersonaAddCli.Text);
+              
                 nCliente.sCurp = txtCurpAddCli.Text;
                 nCliente.sNombre = txtNombreAddCli.Text;
                 nCliente.sPais = txtPaisAddCli.Text;
@@ -2633,6 +2678,16 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.sTelFijo = txtTelFijoAddCli.Text;
                 nCliente.sTelMovil = txtTelMvilAddCli.Text;
                 nCliente.sCorreo = txtCorreoAddCli.Text;
+
+                if (cbxAddPersonaCli.SelectedIndex == 0)
+                {
+                    nCliente.iPersona= 1;
+                }
+                else if (cbxAddPersonaCli.SelectedIndex == 1)
+                {
+                    nCliente.iPersona = 2;
+                }
+
 
                 if (cbxEstadoCliAddCli.SelectedIndex == 0)
                 {
@@ -2667,9 +2722,9 @@ namespace SiscomSoft_Desktop.Views
                 ManejoCliente.RegistrarNuevoCliente(nCliente);
 
                 MessageBox.Show("¡Cliente Registrado!");
-                txtRFC.Clear();
+                txtRFCAddCli.Clear();
                 txtRazonAddCli.Clear();
-                txtPersonaAddCli.Clear();
+           
                 txtCurpAddCli.Clear();
                 txtNombreAddCli.Clear();
                 txtPaisAddCli.Clear();
@@ -2688,7 +2743,8 @@ namespace SiscomSoft_Desktop.Views
                 txtReferenciaAddCli.Clear();
                 txtNumCuentaAddCli.Clear();
                 txtCondicionesPagoAddCli.Clear();
-
+                cbxAddPersonaCli.ResetText();
+                cbxEstadoCliAddCli.ResetText();
 
                 pcbimgAddCli.Image = null;
                 cargarClientes();
@@ -2734,11 +2790,11 @@ namespace SiscomSoft_Desktop.Views
                 this.txtRazonUpdateCli.Focus();
             }
 
-            else if (this.txtPersonaUpdateCli.Text == "")
+            else if (this.cbxUpdatePersonaCli.Text == "")
             {
-                this.ErrorProvider.SetIconAlignment(this.txtPersonaUpdateCli, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtPersonaUpdateCli, "Campo necesario");
-                this.txtPersonaUpdateCli.Focus();
+                this.ErrorProvider.SetIconAlignment(this.cbxUpdatePersonaCli, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.cbxUpdatePersonaCli, "Seleccione Una Opcion");
+                this.cbxUpdatePersonaCli.Focus();
             }
             else if (this.txtCurpUpdateCli.Text == "")
             {
@@ -2872,7 +2928,7 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.idCliente = PKCLIENTE;
                 nCliente.sRfc = txtRfcUpdateCli.Text;
                 nCliente.sRazonSocial = txtRazonUpdateCli.Text;
-                nCliente.iPersona = Convert.ToInt32(txtPersonaUpdateCli.Text);
+              
                 nCliente.sCurp = txtCurpUpdateCli.Text;
                 nCliente.sNombre = txtNombreUpdateCli.Text;
                 nCliente.sPais = txtPaisUpdateCli.Text;
@@ -2892,6 +2948,18 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.sNumCuenta = txtNumCuentaUpdateCli.Text;
                 nCliente.sConPago = txtCondicionesUpdateCli.Text;
                 nCliente.sTipoCliente = cbxTipoCliUpdateCli.Text;
+
+                if (cbxUpdatePersonaCli.SelectedIndex == 0)
+                {
+                    nCliente.iPersona = 1;
+                }
+                else if (cbxUpdatePersonaCli.SelectedIndex == 1)
+                {
+                    nCliente.iPersona = 2;
+                }
+
+
+
                 if (cbxEstadoCliUpdateCli.SelectedIndex == 0)
                 {
                     nCliente.iStatus = 1;
@@ -4119,7 +4187,7 @@ namespace SiscomSoft_Desktop.Views
                 this.pnlAddPreferencias.Visible = true;
                 this.txtAddNumSerieSucursal.Focus();
             }
-            else if (this.pcbAddLogo == null)
+            else if (this.pcbAddLogo.Image == null)
             {
                 this.ErrorProvider.SetIconAlignment(this.pcbAddLogo, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.pcbAddLogo, "Campo necesario");
@@ -6305,26 +6373,16 @@ namespace SiscomSoft_Desktop.Views
             txtActualizarSubCat.Text = FrmKeyboard.informacion;
         }
 
-        private void txtTipoImpuesto_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtTipoImpuesto.Text = FrmKeyboard.informacion;
-        }
+       
 
-        private void txtImpuesto_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtImpuesto.Text = FrmKeyboard.informacion;
-        }
+      
 
         private void txtTasaImpuesto_MouseClick(object sender, MouseEventArgs e)
         {
            txtTasaImpuesto.Text = FrmKeyboard.informacion;
         }
 
-        private void txtActualiImpu_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtActualiImpu.Text = FrmKeyboard.informacion;
-        }
-
+    
         private void txtActualiTasaImpu_MouseClick(object sender, MouseEventArgs e)
         {
             txtActualiTasaImpu.Text = FrmKeyboard.informacion;
@@ -6367,7 +6425,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtComentUsua_KeyPress(object sender, KeyPressEventArgs e)
         {
-           txtComentUsua.Text = FrmKeyboard.informacion;
+          
         }
 
         private void txtUpdateRFCUser_MouseClick(object sender, MouseEventArgs e)
@@ -6668,6 +6726,30 @@ namespace SiscomSoft_Desktop.Views
         private void tbpAddCategoria_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBorrarUsuario_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosUsuario.RowCount >= 1)
+            {
+                if (
+                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ManejoUsuario.Eliminar(Convert.ToInt32(dgvDatosUsuario.CurrentRow.Cells[0].Value));
+                    cargarUsuarios();
+                }
+            }
+        }
+
+        private void txtComentUsua_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtComentUsua.Text = FrmKeyboard.informacion;
+        }
+
+        private void cbxUpdatePersonaCli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

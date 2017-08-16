@@ -130,6 +130,20 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+        public static List<Cliente> getForProveers(int proveedor)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Clientes.Where(r => r.iPersona==proveedor).ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public static List<Cliente> BuscarPorRFC(String valor)
         {
             try

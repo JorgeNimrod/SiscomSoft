@@ -53,7 +53,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void FrmWaverHouseSalidas_Load(object sender, EventArgs e)
         {
-          
+              
             cargarCombos();
         }
 
@@ -104,7 +104,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                                 {
                                     TasaImpuestoIVA11 += rImpuesto.impuesto_id.dTasaImpuesto;
                                 }
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                                 else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
                                 {
                                     TasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
                                 }

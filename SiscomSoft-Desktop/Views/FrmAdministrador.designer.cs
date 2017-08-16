@@ -53,6 +53,12 @@
             this.btnActualizarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -63,11 +69,17 @@
             this.btnBorrarPrecio = new System.Windows.Forms.Button();
             this.lblRegistroPrecio = new System.Windows.Forms.Label();
             this.dgvDatosPrecio = new System.Windows.Forms.DataGridView();
+            this.pkPrecios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iPrePorcen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpImpuestos = new System.Windows.Forms.TabPage();
             this.btnRegistrarImpuesto = new System.Windows.Forms.Button();
             this.btnActualizarImpuesto = new System.Windows.Forms.Button();
             this.btnBorrarImpuesto = new System.Windows.Forms.Button();
             this.dgvDatosImpuesto = new System.Windows.Forms.DataGridView();
+            this.s = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTipoImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dTasaImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroImpuesto = new System.Windows.Forms.Label();
             this.ckbStatusImpuesto = new System.Windows.Forms.CheckBox();
             this.txtBuscarImpuesto = new System.Windows.Forms.TextBox();
@@ -79,6 +91,9 @@
             this.lblRegistroCat = new System.Windows.Forms.Label();
             this.ckbStatusCategoria = new System.Windows.Forms.CheckBox();
             this.dgvDatosCategoria = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarCategoria = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tbpUsuario = new System.Windows.Forms.TabPage();
@@ -86,6 +101,13 @@
             this.btnActualizarUsuario = new System.Windows.Forms.Button();
             this.btnBorrarUsuario = new System.Windows.Forms.Button();
             this.dgvDatosUsuario = new System.Windows.Forms.DataGridView();
+            this.pkUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SRfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroUsuarios = new System.Windows.Forms.Label();
             this.ckbStatusUsuario = new System.Windows.Forms.CheckBox();
             this.txtBuscarUsuario = new System.Windows.Forms.TextBox();
@@ -94,6 +116,9 @@
             this.pnlCatalogoRoles = new System.Windows.Forms.Panel();
             this.btnRegistrarRol = new System.Windows.Forms.Button();
             this.dgvDatosRol = new System.Windows.Forms.DataGridView();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sComentario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizarRol = new System.Windows.Forms.Button();
             this.btnBorrarRol = new System.Windows.Forms.Button();
             this.lblRegistros = new System.Windows.Forms.Label();
@@ -137,20 +162,20 @@
             this.txtActualizarNomCat = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.tbpAddImpuesto = new System.Windows.Forms.TabPage();
+            this.cbxImpuestoAdd = new System.Windows.Forms.ComboBox();
+            this.cbxTipoImpuestoAdd = new System.Windows.Forms.ComboBox();
             this.btnGuardarImpuesto = new System.Windows.Forms.Button();
             this.txtTasaImpuesto = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtImpuesto = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtTipoImpuesto = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tbpUpdateImpuesto = new System.Windows.Forms.TabPage();
+            this.cbxUpdateImpuesto = new System.Windows.Forms.ComboBox();
+            this.cbxUpdateTipoImpuesto = new System.Windows.Forms.ComboBox();
             this.btnacatualiImpu = new System.Windows.Forms.Button();
             this.txtActualiTasaImpu = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtActualiImpu = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.txtActualiTipoImpues = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.tbpAddUsuario = new System.Windows.Forms.TabPage();
             this.txtPin = new System.Windows.Forms.TextBox();
@@ -232,6 +257,8 @@
             this.label52 = new System.Windows.Forms.Label();
             this.pcbimgAddProd = new System.Windows.Forms.PictureBox();
             this.tbpUpdateProducto = new System.Windows.Forms.TabPage();
+            this.cbxUpdateCategoriaProd = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
             this.pnlDescuentos = new System.Windows.Forms.Panel();
             this.dgrUpdateDesc = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -283,6 +310,15 @@
             this.lblCantidadEmpresas = new System.Windows.Forms.Label();
             this.ckbStatusEmpresa = new System.Windows.Forms.CheckBox();
             this.dgvDatosEmpresa = new System.Windows.Forms.DataGridView();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNomComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarEmpresa = new System.Windows.Forms.TextBox();
             this.label118 = new System.Windows.Forms.Label();
             this.tbpAddEmpresa = new System.Windows.Forms.TabPage();
@@ -354,12 +390,26 @@
             this.label69 = new System.Windows.Forms.Label();
             this.lblRegistrosCli = new System.Windows.Forms.Label();
             this.dgvDatosCliente = new System.Windows.Forms.DataGridView();
+            this.pkClientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCurp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMunicipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sColonia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sCalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iCodPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTelMovil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTipoPAgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iNumCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.label71 = new System.Windows.Forms.Label();
             this.btnActualizarCli = new System.Windows.Forms.Button();
             this.btnRegistrarCli = new System.Windows.Forms.Button();
             this.btnBorrarCli = new System.Windows.Forms.Button();
             this.tbpAddCliente = new System.Windows.Forms.TabPage();
+            this.cbxAddPersonaCli = new System.Windows.Forms.ComboBox();
             this.txtPaisAddCli = new System.Windows.Forms.TextBox();
             this.cbxEstadoCliAddCli = new System.Windows.Forms.ComboBox();
             this.cbxTipoClienteAddCli = new System.Windows.Forms.ComboBox();
@@ -401,7 +451,6 @@
             this.label89 = new System.Windows.Forms.Label();
             this.txtCurpAddCli = new System.Windows.Forms.TextBox();
             this.label90 = new System.Windows.Forms.Label();
-            this.txtPersonaAddCli = new System.Windows.Forms.TextBox();
             this.label91 = new System.Windows.Forms.Label();
             this.txtRazonAddCli = new System.Windows.Forms.TextBox();
             this.label92 = new System.Windows.Forms.Label();
@@ -410,6 +459,7 @@
             this.btnGuardarCliente = new System.Windows.Forms.Button();
             this.pcbimgAddCli = new System.Windows.Forms.PictureBox();
             this.tbpUpdateCliente = new System.Windows.Forms.TabPage();
+            this.cbxUpdatePersonaCli = new System.Windows.Forms.ComboBox();
             this.txtPaisUpdateCli = new System.Windows.Forms.TextBox();
             this.cbxEstadoCliUpdateCli = new System.Windows.Forms.ComboBox();
             this.cbxTipoCliUpdateCli = new System.Windows.Forms.ComboBox();
@@ -451,7 +501,6 @@
             this.label112 = new System.Windows.Forms.Label();
             this.txtCurpUpdateCli = new System.Windows.Forms.TextBox();
             this.label113 = new System.Windows.Forms.Label();
-            this.txtPersonaUpdateCli = new System.Windows.Forms.TextBox();
             this.label114 = new System.Windows.Forms.Label();
             this.txtRazonUpdateCli = new System.Windows.Forms.TextBox();
             this.label115 = new System.Windows.Forms.Label();
@@ -463,6 +512,15 @@
             this.cmbStatusSucursal = new System.Windows.Forms.ComboBox();
             this.lblCantidadSucursal = new System.Windows.Forms.Label();
             this.dgvDatosSucursal = new System.Windows.Forms.DataGridView();
+            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iNumCertificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarSucursal = new System.Windows.Forms.TextBox();
             this.label148 = new System.Windows.Forms.Label();
             this.btnBorrarSucursal = new System.Windows.Forms.Button();
@@ -582,6 +640,8 @@
             this.ckbStatusUMD = new System.Windows.Forms.CheckBox();
             this.lblCantidadUMD = new System.Windows.Forms.Label();
             this.dgrDatosUMD = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarUMD = new System.Windows.Forms.TextBox();
             this.label181 = new System.Windows.Forms.Label();
             this.btnDeleteUMD = new System.Windows.Forms.Button();
@@ -600,6 +660,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dgrDatosDescuento = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblCatidadDescuento = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tbpAddDescuento = new System.Windows.Forms.TabPage();
@@ -626,67 +689,6 @@
             this.btnCustomersList = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnTeclado = new System.Windows.Forms.Button();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pkPrecios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iPrePorcen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.s = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTipoImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dTasaImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pkUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SRfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sComentario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sNomComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pkClientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCurp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMunicipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sColonia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iCodPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTelMovil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTipoPAgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iNumCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iNumCertificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlPrincipal.SuspendLayout();
             this.pnlProducto.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -1148,6 +1150,7 @@
             // 
             this.dgvDatosProducto.AllowUserToDeleteRows = false;
             this.dgvDatosProducto.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDatosProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDatosProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pkProductos,
@@ -1164,6 +1167,51 @@
             this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
+            // 
+            // pkProductos
+            // 
+            this.pkProductos.DataPropertyName = "idProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            this.pkProductos.ReadOnly = true;
+            // 
+            // iClaveProd
+            // 
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            this.iClaveProd.HeaderText = "Clave";
+            this.iClaveProd.Name = "iClaveProd";
+            this.iClaveProd.ReadOnly = true;
+            this.iClaveProd.Width = 150;
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
+            this.sDescripcion.Width = 200;
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            this.sMarca.ReadOnly = true;
+            this.sMarca.Width = 150;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
+            // 
+            // iLote
+            // 
+            this.iLote.DataPropertyName = "iLote";
+            this.iLote.HeaderText = "Lote";
+            this.iLote.Name = "iLote";
+            this.iLote.ReadOnly = true;
             // 
             // lblRegistroProducto
             // 
@@ -1283,6 +1331,22 @@
             this.dgvDatosPrecio.TabIndex = 54;
             this.dgvDatosPrecio.DataSourceChanged += new System.EventHandler(this.dgvDatosPrecio_DataSourceChanged);
             // 
+            // pkPrecios
+            // 
+            this.pkPrecios.DataPropertyName = "idprecios";
+            this.pkPrecios.HeaderText = "No. Precio";
+            this.pkPrecios.Name = "pkPrecios";
+            this.pkPrecios.ReadOnly = true;
+            this.pkPrecios.Width = 250;
+            // 
+            // iPrePorcen
+            // 
+            this.iPrePorcen.DataPropertyName = "iPrePorcen";
+            this.iPrePorcen.HeaderText = "Precio";
+            this.iPrePorcen.Name = "iPrePorcen";
+            this.iPrePorcen.ReadOnly = true;
+            this.iPrePorcen.Width = 250;
+            // 
             // tbpImpuestos
             // 
             this.tbpImpuestos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1356,6 +1420,36 @@
             this.dgvDatosImpuesto.TabIndex = 48;
             this.dgvDatosImpuesto.DataSourceChanged += new System.EventHandler(this.dgvDatosImpuesto_DataSourceChanged);
             this.dgvDatosImpuesto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosImpuesto_CellDoubleClick);
+            // 
+            // s
+            // 
+            this.s.DataPropertyName = "idImpuesto";
+            this.s.HeaderText = "No. ";
+            this.s.Name = "s";
+            this.s.ReadOnly = true;
+            // 
+            // sTipoImpuesto
+            // 
+            this.sTipoImpuesto.DataPropertyName = "sTipoImpuesto";
+            this.sTipoImpuesto.HeaderText = "Tipo Impuesto";
+            this.sTipoImpuesto.Name = "sTipoImpuesto";
+            this.sTipoImpuesto.ReadOnly = true;
+            this.sTipoImpuesto.Width = 200;
+            // 
+            // sImpuesto
+            // 
+            this.sImpuesto.DataPropertyName = "sImpuesto";
+            this.sImpuesto.HeaderText = "Impuesto";
+            this.sImpuesto.Name = "sImpuesto";
+            this.sImpuesto.ReadOnly = true;
+            this.sImpuesto.Width = 150;
+            // 
+            // dTasaImpuesto
+            // 
+            this.dTasaImpuesto.DataPropertyName = "dTasaImpuesto";
+            this.dTasaImpuesto.HeaderText = "Tasa Impuesto";
+            this.dTasaImpuesto.Name = "dTasaImpuesto";
+            this.dTasaImpuesto.ReadOnly = true;
             // 
             // lblRegistroImpuesto
             // 
@@ -1492,6 +1586,30 @@
             this.dgvDatosCategoria.DataSourceChanged += new System.EventHandler(this.dgvDatosCategoria_DataSourceChanged);
             this.dgvDatosCategoria.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCategoria_CellDoubleClick);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "idCategoria";
+            this.id.HeaderText = "No";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 150;
+            // 
+            // Categoria
+            // 
+            this.Categoria.DataPropertyName = "sNombre";
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 220;
+            // 
+            // SubCategoria
+            // 
+            this.SubCategoria.DataPropertyName = "sNomSubCat";
+            this.SubCategoria.HeaderText = "SubCategoria";
+            this.SubCategoria.Name = "SubCategoria";
+            this.SubCategoria.ReadOnly = true;
+            this.SubCategoria.Width = 220;
+            // 
             // txtBuscarCategoria
             // 
             this.txtBuscarCategoria.Location = new System.Drawing.Point(72, 2);
@@ -1562,6 +1680,7 @@
             this.btnBorrarUsuario.Size = new System.Drawing.Size(143, 57);
             this.btnBorrarUsuario.TabIndex = 80;
             this.btnBorrarUsuario.UseVisualStyleBackColor = false;
+            this.btnBorrarUsuario.Click += new System.EventHandler(this.btnBorrarUsuario_Click);
             // 
             // dgvDatosUsuario
             // 
@@ -1584,6 +1703,55 @@
             this.dgvDatosUsuario.Size = new System.Drawing.Size(703, 480);
             this.dgvDatosUsuario.TabIndex = 48;
             this.dgvDatosUsuario.DataSourceChanged += new System.EventHandler(this.dgvDatosUsuario_DataSourceChanged);
+            // 
+            // pkUsuarios
+            // 
+            this.pkUsuarios.DataPropertyName = "idUsuario";
+            this.pkUsuarios.HeaderText = "No.";
+            this.pkUsuarios.Name = "pkUsuarios";
+            this.pkUsuarios.ReadOnly = true;
+            // 
+            // SRfc
+            // 
+            this.SRfc.DataPropertyName = "sRfc";
+            this.SRfc.HeaderText = "RFC";
+            this.SRfc.Name = "SRfc";
+            this.SRfc.ReadOnly = true;
+            // 
+            // sUsuario
+            // 
+            this.sUsuario.DataPropertyName = "sUsuario";
+            this.sUsuario.HeaderText = "Usuario";
+            this.sUsuario.Name = "sUsuario";
+            this.sUsuario.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "sNombre";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sNumero
+            // 
+            this.sNumero.DataPropertyName = "sNumero";
+            this.sNumero.HeaderText = "Telefono";
+            this.sNumero.Name = "sNumero";
+            this.sNumero.ReadOnly = true;
+            // 
+            // sCorreo
+            // 
+            this.sCorreo.DataPropertyName = "sCorreo";
+            this.sCorreo.HeaderText = "Correo";
+            this.sCorreo.Name = "sCorreo";
+            this.sCorreo.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "sComentario";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Comentario";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // lblRegistroUsuarios
             // 
@@ -1682,6 +1850,29 @@
             this.dgvDatosRol.DataSourceChanged += new System.EventHandler(this.dgvDatosRol_DataSourceChanged_1);
             this.dgvDatosRol.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosRol_CellContentClick);
             this.dgvDatosRol.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosRol_CellDoubleClick);
+            // 
+            // Rol
+            // 
+            this.Rol.DataPropertyName = "idRol";
+            this.Rol.HeaderText = "No.";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            // 
+            // sNombre
+            // 
+            this.sNombre.DataPropertyName = "sNombre";
+            this.sNombre.HeaderText = "Nombre";
+            this.sNombre.Name = "sNombre";
+            this.sNombre.ReadOnly = true;
+            this.sNombre.Width = 200;
+            // 
+            // sComentario
+            // 
+            this.sComentario.DataPropertyName = "sComentario";
+            this.sComentario.HeaderText = "Comentario";
+            this.sComentario.Name = "sComentario";
+            this.sComentario.ReadOnly = true;
+            this.sComentario.Width = 487;
             // 
             // btnActualizarRol
             // 
@@ -2168,12 +2359,12 @@
             // 
             // tbpAddImpuesto
             // 
+            this.tbpAddImpuesto.Controls.Add(this.cbxImpuestoAdd);
+            this.tbpAddImpuesto.Controls.Add(this.cbxTipoImpuestoAdd);
             this.tbpAddImpuesto.Controls.Add(this.btnGuardarImpuesto);
             this.tbpAddImpuesto.Controls.Add(this.txtTasaImpuesto);
             this.tbpAddImpuesto.Controls.Add(this.label11);
-            this.tbpAddImpuesto.Controls.Add(this.txtImpuesto);
             this.tbpAddImpuesto.Controls.Add(this.label13);
-            this.tbpAddImpuesto.Controls.Add(this.txtTipoImpuesto);
             this.tbpAddImpuesto.Controls.Add(this.label15);
             this.tbpAddImpuesto.Location = new System.Drawing.Point(4, 27);
             this.tbpAddImpuesto.Name = "tbpAddImpuesto";
@@ -2182,6 +2373,31 @@
             this.tbpAddImpuesto.Text = "Registrar Impuesto";
             this.tbpAddImpuesto.UseVisualStyleBackColor = true;
             this.tbpAddImpuesto.Click += new System.EventHandler(this.tbpAddImpuesto_Click);
+            // 
+            // cbxImpuestoAdd
+            // 
+            this.cbxImpuestoAdd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxImpuestoAdd.FormattingEnabled = true;
+            this.cbxImpuestoAdd.Items.AddRange(new object[] {
+            "IVA",
+            "IEPS",
+            "ISR"});
+            this.cbxImpuestoAdd.Location = new System.Drawing.Point(15, 99);
+            this.cbxImpuestoAdd.Name = "cbxImpuestoAdd";
+            this.cbxImpuestoAdd.Size = new System.Drawing.Size(278, 26);
+            this.cbxImpuestoAdd.TabIndex = 184;
+            // 
+            // cbxTipoImpuestoAdd
+            // 
+            this.cbxTipoImpuestoAdd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoImpuestoAdd.FormattingEnabled = true;
+            this.cbxTipoImpuestoAdd.Items.AddRange(new object[] {
+            "TRASLADO",
+            "RETENIDO"});
+            this.cbxTipoImpuestoAdd.Location = new System.Drawing.Point(15, 32);
+            this.cbxTipoImpuestoAdd.Name = "cbxTipoImpuestoAdd";
+            this.cbxTipoImpuestoAdd.Size = new System.Drawing.Size(278, 26);
+            this.cbxTipoImpuestoAdd.TabIndex = 183;
             // 
             // btnGuardarImpuesto
             // 
@@ -2214,16 +2430,6 @@
             this.label11.TabIndex = 10;
             this.label11.Text = "Tasa de Impuesto";
             // 
-            // txtImpuesto
-            // 
-            this.txtImpuesto.Location = new System.Drawing.Point(15, 110);
-            this.txtImpuesto.Name = "txtImpuesto";
-            this.txtImpuesto.Size = new System.Drawing.Size(278, 24);
-            this.txtImpuesto.TabIndex = 7;
-            this.txtImpuesto.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtImpuesto_MouseClick);
-            this.txtImpuesto.TextChanged += new System.EventHandler(this.txtImpuesto_TextChanged);
-            this.txtImpuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImpuesto_KeyPress);
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -2232,16 +2438,6 @@
             this.label13.Size = new System.Drawing.Size(69, 18);
             this.label13.TabIndex = 8;
             this.label13.Text = "Impuesto";
-            // 
-            // txtTipoImpuesto
-            // 
-            this.txtTipoImpuesto.Location = new System.Drawing.Point(15, 37);
-            this.txtTipoImpuesto.Name = "txtTipoImpuesto";
-            this.txtTipoImpuesto.Size = new System.Drawing.Size(278, 24);
-            this.txtTipoImpuesto.TabIndex = 6;
-            this.txtTipoImpuesto.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTipoImpuesto_MouseClick);
-            this.txtTipoImpuesto.TextChanged += new System.EventHandler(this.txtTipoImpuesto_TextChanged);
-            this.txtTipoImpuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTipoImpuesto_KeyPress);
             // 
             // label15
             // 
@@ -2254,12 +2450,12 @@
             // 
             // tbpUpdateImpuesto
             // 
+            this.tbpUpdateImpuesto.Controls.Add(this.cbxUpdateImpuesto);
+            this.tbpUpdateImpuesto.Controls.Add(this.cbxUpdateTipoImpuesto);
             this.tbpUpdateImpuesto.Controls.Add(this.btnacatualiImpu);
             this.tbpUpdateImpuesto.Controls.Add(this.txtActualiTasaImpu);
             this.tbpUpdateImpuesto.Controls.Add(this.label16);
-            this.tbpUpdateImpuesto.Controls.Add(this.txtActualiImpu);
             this.tbpUpdateImpuesto.Controls.Add(this.label22);
-            this.tbpUpdateImpuesto.Controls.Add(this.txtActualiTipoImpues);
             this.tbpUpdateImpuesto.Controls.Add(this.label23);
             this.tbpUpdateImpuesto.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateImpuesto.Name = "tbpUpdateImpuesto";
@@ -2267,6 +2463,31 @@
             this.tbpUpdateImpuesto.TabIndex = 11;
             this.tbpUpdateImpuesto.Text = "Actualizar Impuesto";
             this.tbpUpdateImpuesto.UseVisualStyleBackColor = true;
+            // 
+            // cbxUpdateImpuesto
+            // 
+            this.cbxUpdateImpuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxUpdateImpuesto.FormattingEnabled = true;
+            this.cbxUpdateImpuesto.Items.AddRange(new object[] {
+            "IVA",
+            "IEPS",
+            "ISR"});
+            this.cbxUpdateImpuesto.Location = new System.Drawing.Point(17, 95);
+            this.cbxUpdateImpuesto.Name = "cbxUpdateImpuesto";
+            this.cbxUpdateImpuesto.Size = new System.Drawing.Size(273, 26);
+            this.cbxUpdateImpuesto.TabIndex = 186;
+            // 
+            // cbxUpdateTipoImpuesto
+            // 
+            this.cbxUpdateTipoImpuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxUpdateTipoImpuesto.FormattingEnabled = true;
+            this.cbxUpdateTipoImpuesto.Items.AddRange(new object[] {
+            "TRASLADO",
+            "RETENIDO"});
+            this.cbxUpdateTipoImpuesto.Location = new System.Drawing.Point(12, 26);
+            this.cbxUpdateTipoImpuesto.Name = "cbxUpdateTipoImpuesto";
+            this.cbxUpdateTipoImpuesto.Size = new System.Drawing.Size(278, 26);
+            this.cbxUpdateTipoImpuesto.TabIndex = 185;
             // 
             // btnacatualiImpu
             // 
@@ -2299,16 +2520,6 @@
             this.label16.TabIndex = 17;
             this.label16.Text = "Tasa de Impuesto";
             // 
-            // txtActualiImpu
-            // 
-            this.txtActualiImpu.Location = new System.Drawing.Point(12, 105);
-            this.txtActualiImpu.Name = "txtActualiImpu";
-            this.txtActualiImpu.Size = new System.Drawing.Size(278, 24);
-            this.txtActualiImpu.TabIndex = 14;
-            this.txtActualiImpu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtActualiImpu_MouseClick);
-            this.txtActualiImpu.TextChanged += new System.EventHandler(this.txtActualiImpu_TextChanged);
-            this.txtActualiImpu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActualiImpu_KeyPress);
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -2317,15 +2528,6 @@
             this.label22.Size = new System.Drawing.Size(69, 18);
             this.label22.TabIndex = 15;
             this.label22.Text = "Impuesto";
-            // 
-            // txtActualiTipoImpues
-            // 
-            this.txtActualiTipoImpues.Location = new System.Drawing.Point(12, 32);
-            this.txtActualiTipoImpues.Name = "txtActualiTipoImpues";
-            this.txtActualiTipoImpues.Size = new System.Drawing.Size(278, 24);
-            this.txtActualiTipoImpues.TabIndex = 13;
-            this.txtActualiTipoImpues.TextChanged += new System.EventHandler(this.txtActualiTipoImpues_TextChanged);
-            this.txtActualiTipoImpues.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActualiTipoImpues_KeyPress);
             // 
             // label23
             // 
@@ -2430,6 +2632,7 @@
             this.txtComentUsua.Name = "txtComentUsua";
             this.txtComentUsua.Size = new System.Drawing.Size(172, 89);
             this.txtComentUsua.TabIndex = 27;
+            this.txtComentUsua.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtComentUsua_MouseClick);
             this.txtComentUsua.TextChanged += new System.EventHandler(this.txtComentUsua_TextChanged);
             this.txtComentUsua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtComentUsua_KeyPress);
             // 
@@ -2848,7 +3051,7 @@
             this.cbxAddProdCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxAddProdCategoria.ForeColor = System.Drawing.Color.White;
             this.cbxAddProdCategoria.FormattingEnabled = true;
-            this.cbxAddProdCategoria.Location = new System.Drawing.Point(845, 139);
+            this.cbxAddProdCategoria.Location = new System.Drawing.Point(481, 63);
             this.cbxAddProdCategoria.Name = "cbxAddProdCategoria";
             this.cbxAddProdCategoria.Size = new System.Drawing.Size(211, 26);
             this.cbxAddProdCategoria.TabIndex = 179;
@@ -2856,7 +3059,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(758, 143);
+            this.label40.Location = new System.Drawing.Point(394, 67);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(80, 18);
             this.label40.TabIndex = 178;
@@ -2890,7 +3093,7 @@
             // 
             // PrimaryKey
             // 
-            this.PrimaryKey.DataPropertyName = "pkDescuento";
+            this.PrimaryKey.DataPropertyName = "idDescuento";
             this.PrimaryKey.HeaderText = "PrimaryKeyNotNull";
             this.PrimaryKey.Name = "PrimaryKey";
             this.PrimaryKey.Visible = false;
@@ -2945,7 +3148,7 @@
             // 
             // PimaryKey
             // 
-            this.PimaryKey.DataPropertyName = "pkImpuesto";
+            this.PimaryKey.DataPropertyName = "idImpuesto";
             this.PimaryKey.HeaderText = "PrimariKey";
             this.PimaryKey.Name = "PimaryKey";
             this.PimaryKey.Visible = false;
@@ -3055,15 +3258,15 @@
             this.cbxPrecioAddProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxPrecioAddProd.ForeColor = System.Drawing.Color.White;
             this.cbxPrecioAddProd.FormattingEnabled = true;
-            this.cbxPrecioAddProd.Location = new System.Drawing.Point(856, 61);
+            this.cbxPrecioAddProd.Location = new System.Drawing.Point(481, 103);
             this.cbxPrecioAddProd.Name = "cbxPrecioAddProd";
-            this.cbxPrecioAddProd.Size = new System.Drawing.Size(200, 26);
+            this.cbxPrecioAddProd.Size = new System.Drawing.Size(211, 26);
             this.cbxPrecioAddProd.TabIndex = 118;
             // 
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(779, 66);
+            this.label44.Location = new System.Drawing.Point(415, 108);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(59, 18);
             this.label44.TabIndex = 133;
@@ -3087,7 +3290,7 @@
             this.cbxCatalogoAddProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxCatalogoAddProd.ForeColor = System.Drawing.Color.White;
             this.cbxCatalogoAddProd.FormattingEnabled = true;
-            this.cbxCatalogoAddProd.Location = new System.Drawing.Point(161, 143);
+            this.cbxCatalogoAddProd.Location = new System.Drawing.Point(481, 143);
             this.cbxCatalogoAddProd.Name = "cbxCatalogoAddProd";
             this.cbxCatalogoAddProd.Size = new System.Drawing.Size(211, 26);
             this.cbxCatalogoAddProd.TabIndex = 121;
@@ -3095,7 +3298,7 @@
             // 
             // txtLoteAddProd
             // 
-            this.txtLoteAddProd.Location = new System.Drawing.Point(161, 104);
+            this.txtLoteAddProd.Location = new System.Drawing.Point(843, 143);
             this.txtLoteAddProd.Name = "txtLoteAddProd";
             this.txtLoteAddProd.Size = new System.Drawing.Size(213, 24);
             this.txtLoteAddProd.TabIndex = 119;
@@ -3123,7 +3326,7 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(103, 110);
+            this.label47.Location = new System.Drawing.Point(785, 149);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(45, 18);
             this.label47.TabIndex = 129;
@@ -3131,7 +3334,7 @@
             // 
             // txtCostoAddProd
             // 
-            this.txtCostoAddProd.Location = new System.Drawing.Point(161, 60);
+            this.txtCostoAddProd.Location = new System.Drawing.Point(843, 59);
             this.txtCostoAddProd.Name = "txtCostoAddProd";
             this.txtCostoAddProd.Size = new System.Drawing.Size(213, 24);
             this.txtCostoAddProd.TabIndex = 116;
@@ -3144,7 +3347,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(95, 61);
+            this.label49.Location = new System.Drawing.Point(777, 60);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(57, 18);
             this.label49.TabIndex = 123;
@@ -3172,7 +3375,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(87, 151);
+            this.label51.Location = new System.Drawing.Point(402, 151);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(51, 18);
             this.label51.TabIndex = 112;
@@ -3180,7 +3383,7 @@
             // 
             // txtDescripcionAddProd
             // 
-            this.txtDescripcionAddProd.Location = new System.Drawing.Point(481, 60);
+            this.txtDescripcionAddProd.Location = new System.Drawing.Point(168, 66);
             this.txtDescripcionAddProd.Multiline = true;
             this.txtDescripcionAddProd.Name = "txtDescripcionAddProd";
             this.txtDescripcionAddProd.Size = new System.Drawing.Size(206, 105);
@@ -3192,7 +3395,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(380, 63);
+            this.label52.Location = new System.Drawing.Point(67, 69);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(95, 18);
             this.label52.TabIndex = 110;
@@ -3210,6 +3413,8 @@
             // 
             // tbpUpdateProducto
             // 
+            this.tbpUpdateProducto.Controls.Add(this.cbxUpdateCategoriaProd);
+            this.tbpUpdateProducto.Controls.Add(this.label41);
             this.tbpUpdateProducto.Controls.Add(this.pnlDescuentos);
             this.tbpUpdateProducto.Controls.Add(this.pnlImpuestos);
             this.tbpUpdateProducto.Controls.Add(this.cbkDescuentos);
@@ -3243,6 +3448,27 @@
             this.tbpUpdateProducto.UseVisualStyleBackColor = true;
             this.tbpUpdateProducto.Click += new System.EventHandler(this.tbpUpdateProducto_Click);
             // 
+            // cbxUpdateCategoriaProd
+            // 
+            this.cbxUpdateCategoriaProd.BackColor = System.Drawing.Color.DarkCyan;
+            this.cbxUpdateCategoriaProd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxUpdateCategoriaProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxUpdateCategoriaProd.ForeColor = System.Drawing.Color.White;
+            this.cbxUpdateCategoriaProd.FormattingEnabled = true;
+            this.cbxUpdateCategoriaProd.Location = new System.Drawing.Point(474, 67);
+            this.cbxUpdateCategoriaProd.Name = "cbxUpdateCategoriaProd";
+            this.cbxUpdateCategoriaProd.Size = new System.Drawing.Size(211, 26);
+            this.cbxUpdateCategoriaProd.TabIndex = 181;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(387, 71);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(80, 18);
+            this.label41.TabIndex = 180;
+            this.label41.Text = "Categoria :";
+            // 
             // pnlDescuentos
             // 
             this.pnlDescuentos.Controls.Add(this.dgrUpdateDesc);
@@ -3270,7 +3496,7 @@
             // 
             // dataGridViewTextBoxColumn22
             // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "pkDescuento";
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "idDescuento";
             this.dataGridViewTextBoxColumn22.HeaderText = "PrimaryKeyNotNull";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.Visible = false;
@@ -3323,7 +3549,7 @@
             // 
             // dataGridViewTextBoxColumn27
             // 
-            this.dataGridViewTextBoxColumn27.DataPropertyName = "pkImpuesto";
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "idImpuesto";
             this.dataGridViewTextBoxColumn27.HeaderText = "PrimariKey";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.Visible = false;
@@ -3431,15 +3657,15 @@
             this.cbxUpdatePrecioProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxUpdatePrecioProd.ForeColor = System.Drawing.Color.White;
             this.cbxUpdatePrecioProd.FormattingEnabled = true;
-            this.cbxUpdatePrecioProd.Location = new System.Drawing.Point(854, 60);
+            this.cbxUpdatePrecioProd.Location = new System.Drawing.Point(472, 108);
             this.cbxUpdatePrecioProd.Name = "cbxUpdatePrecioProd";
-            this.cbxUpdatePrecioProd.Size = new System.Drawing.Size(200, 26);
+            this.cbxUpdatePrecioProd.Size = new System.Drawing.Size(213, 26);
             this.cbxUpdatePrecioProd.TabIndex = 147;
             // 
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(777, 65);
+            this.label59.Location = new System.Drawing.Point(408, 113);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(59, 18);
             this.label59.TabIndex = 162;
@@ -3458,7 +3684,7 @@
             // 
             // txtUpdateLoteProd
             // 
-            this.txtUpdateLoteProd.Location = new System.Drawing.Point(159, 103);
+            this.txtUpdateLoteProd.Location = new System.Drawing.Point(841, 140);
             this.txtUpdateLoteProd.Name = "txtUpdateLoteProd";
             this.txtUpdateLoteProd.Size = new System.Drawing.Size(213, 24);
             this.txtUpdateLoteProd.TabIndex = 148;
@@ -3483,7 +3709,7 @@
             this.cbxUpdateUMDProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxUpdateUMDProd.ForeColor = System.Drawing.Color.White;
             this.cbxUpdateUMDProd.FormattingEnabled = true;
-            this.cbxUpdateUMDProd.Location = new System.Drawing.Point(159, 143);
+            this.cbxUpdateUMDProd.Location = new System.Drawing.Point(472, 143);
             this.cbxUpdateUMDProd.Name = "cbxUpdateUMDProd";
             this.cbxUpdateUMDProd.Size = new System.Drawing.Size(213, 26);
             this.cbxUpdateUMDProd.TabIndex = 155;
@@ -3500,7 +3726,7 @@
             // label62
             // 
             this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(101, 109);
+            this.label62.Location = new System.Drawing.Point(783, 146);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(45, 18);
             this.label62.TabIndex = 158;
@@ -3508,7 +3734,7 @@
             // 
             // txtUpdateCostoProd
             // 
-            this.txtUpdateCostoProd.Location = new System.Drawing.Point(159, 59);
+            this.txtUpdateCostoProd.Location = new System.Drawing.Point(841, 59);
             this.txtUpdateCostoProd.Name = "txtUpdateCostoProd";
             this.txtUpdateCostoProd.Size = new System.Drawing.Size(213, 24);
             this.txtUpdateCostoProd.TabIndex = 145;
@@ -3519,7 +3745,7 @@
             // label64
             // 
             this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(93, 60);
+            this.label64.Location = new System.Drawing.Point(775, 60);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(57, 18);
             this.label64.TabIndex = 152;
@@ -3546,7 +3772,7 @@
             // label66
             // 
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(95, 146);
+            this.label66.Location = new System.Drawing.Point(408, 146);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(51, 18);
             this.label66.TabIndex = 141;
@@ -3554,7 +3780,7 @@
             // 
             // txtUpdateDesProd
             // 
-            this.txtUpdateDesProd.Location = new System.Drawing.Point(479, 57);
+            this.txtUpdateDesProd.Location = new System.Drawing.Point(166, 62);
             this.txtUpdateDesProd.Multiline = true;
             this.txtUpdateDesProd.Name = "txtUpdateDesProd";
             this.txtUpdateDesProd.Size = new System.Drawing.Size(206, 105);
@@ -3565,7 +3791,7 @@
             // label67
             // 
             this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(378, 60);
+            this.label67.Location = new System.Drawing.Point(65, 65);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(95, 18);
             this.label67.TabIndex = 139;
@@ -3767,6 +3993,64 @@
             this.dgvDatosEmpresa.TabIndex = 28;
             this.dgvDatosEmpresa.DataSourceChanged += new System.EventHandler(this.dgvDatosEmpresa_DataSourceChanged_1);
             this.dgvDatosEmpresa.DoubleClick += new System.EventHandler(this.dgvDatosEmpresa_DoubleClick);
+            // 
+            // No
+            // 
+            this.No.DataPropertyName = "idEmpresa";
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            // 
+            // sNomComercial
+            // 
+            this.sNomComercial.DataPropertyName = "sNomComercial";
+            this.sNomComercial.HeaderText = "Nombre";
+            this.sNomComercial.Name = "sNomComercial";
+            this.sNomComercial.Width = 150;
+            // 
+            // sTelefono
+            // 
+            this.sTelefono.DataPropertyName = "sTelefono";
+            this.sTelefono.HeaderText = "Telefono";
+            this.sTelefono.Name = "sTelefono";
+            this.sTelefono.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "sCorreo";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Correo";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "sEstado";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "sMunicipio";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Municipio";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "sColonia";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Colonia";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "sCalle";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Calle";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "iCodPostal";
+            this.dataGridViewTextBoxColumn12.HeaderText = "C.P.";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
             // txtBuscarEmpresa
             // 
@@ -4653,12 +4937,105 @@
             this.iNumCuenta});
             this.dgvDatosCliente.Location = new System.Drawing.Point(3, 43);
             this.dgvDatosCliente.Name = "dgvDatosCliente";
+            this.dgvDatosCliente.ReadOnly = true;
             this.dgvDatosCliente.RowHeadersVisible = false;
             this.dgvDatosCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosCliente.Size = new System.Drawing.Size(955, 473);
             this.dgvDatosCliente.TabIndex = 37;
             this.dgvDatosCliente.DataSourceChanged += new System.EventHandler(this.dgvDatosCliente_DataSourceChanged);
             this.dgvDatosCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCliente_CellContentClick);
+            // 
+            // pkClientes
+            // 
+            this.pkClientes.DataPropertyName = "idCliente";
+            this.pkClientes.HeaderText = "Cliente";
+            this.pkClientes.Name = "pkClientes";
+            this.pkClientes.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "sRfc";
+            this.dataGridViewTextBoxColumn4.HeaderText = "RFC";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // sCurp
+            // 
+            this.sCurp.DataPropertyName = "sCurp";
+            this.sCurp.HeaderText = "CURP";
+            this.sCurp.Name = "sCurp";
+            this.sCurp.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "sNombre";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 90;
+            // 
+            // sEstado
+            // 
+            this.sEstado.DataPropertyName = "sEstado";
+            this.sEstado.HeaderText = "Estado";
+            this.sEstado.Name = "sEstado";
+            this.sEstado.ReadOnly = true;
+            // 
+            // sMunicipio
+            // 
+            this.sMunicipio.DataPropertyName = "sMunicipio";
+            this.sMunicipio.HeaderText = "Municipio";
+            this.sMunicipio.Name = "sMunicipio";
+            this.sMunicipio.ReadOnly = true;
+            // 
+            // sColonia
+            // 
+            this.sColonia.DataPropertyName = "sColonia";
+            this.sColonia.HeaderText = "Colonia";
+            this.sColonia.Name = "sColonia";
+            this.sColonia.ReadOnly = true;
+            // 
+            // sCalle
+            // 
+            this.sCalle.DataPropertyName = "sCalle";
+            this.sCalle.HeaderText = "Calle";
+            this.sCalle.Name = "sCalle";
+            this.sCalle.ReadOnly = true;
+            // 
+            // iCodPostal
+            // 
+            this.iCodPostal.DataPropertyName = "iCodPostal";
+            this.iCodPostal.HeaderText = "Codigo Postal";
+            this.iCodPostal.Name = "iCodPostal";
+            this.iCodPostal.ReadOnly = true;
+            // 
+            // sTelMovil
+            // 
+            this.sTelMovil.DataPropertyName = "sTelMovil";
+            this.sTelMovil.HeaderText = "Celular";
+            this.sTelMovil.Name = "sTelMovil";
+            this.sTelMovil.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "sCorreo";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Correo";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // sTipoPAgo
+            // 
+            this.sTipoPAgo.DataPropertyName = "sTipoPAgo";
+            this.sTipoPAgo.HeaderText = "Tipo Pago";
+            this.sTipoPAgo.Name = "sTipoPAgo";
+            this.sTipoPAgo.ReadOnly = true;
+            // 
+            // iNumCuenta
+            // 
+            this.iNumCuenta.DataPropertyName = "sNumCuenta";
+            this.iNumCuenta.HeaderText = "Numero de Cuenta";
+            this.iNumCuenta.Name = "iNumCuenta";
+            this.iNumCuenta.ReadOnly = true;
             // 
             // txtBuscarCliente
             // 
@@ -4716,6 +5093,7 @@
             // 
             // tbpAddCliente
             // 
+            this.tbpAddCliente.Controls.Add(this.cbxAddPersonaCli);
             this.tbpAddCliente.Controls.Add(this.txtPaisAddCli);
             this.tbpAddCliente.Controls.Add(this.cbxEstadoCliAddCli);
             this.tbpAddCliente.Controls.Add(this.cbxTipoClienteAddCli);
@@ -4757,7 +5135,6 @@
             this.tbpAddCliente.Controls.Add(this.label89);
             this.tbpAddCliente.Controls.Add(this.txtCurpAddCli);
             this.tbpAddCliente.Controls.Add(this.label90);
-            this.tbpAddCliente.Controls.Add(this.txtPersonaAddCli);
             this.tbpAddCliente.Controls.Add(this.label91);
             this.tbpAddCliente.Controls.Add(this.txtRazonAddCli);
             this.tbpAddCliente.Controls.Add(this.label92);
@@ -4771,6 +5148,21 @@
             this.tbpAddCliente.TabIndex = 25;
             this.tbpAddCliente.Text = "Registrar Cliente";
             this.tbpAddCliente.UseVisualStyleBackColor = true;
+            // 
+            // cbxAddPersonaCli
+            // 
+            this.cbxAddPersonaCli.BackColor = System.Drawing.Color.DarkCyan;
+            this.cbxAddPersonaCli.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxAddPersonaCli.ForeColor = System.Drawing.Color.White;
+            this.cbxAddPersonaCli.FormattingEnabled = true;
+            this.cbxAddPersonaCli.Items.AddRange(new object[] {
+            "Cliente",
+            "Proveedor"});
+            this.cbxAddPersonaCli.Location = new System.Drawing.Point(834, 26);
+            this.cbxAddPersonaCli.Name = "cbxAddPersonaCli";
+            this.cbxAddPersonaCli.Size = new System.Drawing.Size(236, 26);
+            this.cbxAddPersonaCli.TabIndex = 106;
+            this.cbxAddPersonaCli.Text = "Seleccione Una Opcion";
             // 
             // txtPaisAddCli
             // 
@@ -5173,15 +5565,6 @@
             this.label90.TabIndex = 63;
             this.label90.Text = "Curp  :";
             // 
-            // txtPersonaAddCli
-            // 
-            this.txtPersonaAddCli.Location = new System.Drawing.Point(834, 25);
-            this.txtPersonaAddCli.Name = "txtPersonaAddCli";
-            this.txtPersonaAddCli.Size = new System.Drawing.Size(236, 24);
-            this.txtPersonaAddCli.TabIndex = 59;
-            this.txtPersonaAddCli.TextChanged += new System.EventHandler(this.txtPersonaAddCli_TextChanged);
-            this.txtPersonaAddCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPersonaAddCli_KeyPress);
-            // 
             // label91
             // 
             this.label91.AutoSize = true;
@@ -5250,6 +5633,7 @@
             // 
             // tbpUpdateCliente
             // 
+            this.tbpUpdateCliente.Controls.Add(this.cbxUpdatePersonaCli);
             this.tbpUpdateCliente.Controls.Add(this.txtPaisUpdateCli);
             this.tbpUpdateCliente.Controls.Add(this.cbxEstadoCliUpdateCli);
             this.tbpUpdateCliente.Controls.Add(this.cbxTipoCliUpdateCli);
@@ -5291,7 +5675,6 @@
             this.tbpUpdateCliente.Controls.Add(this.label112);
             this.tbpUpdateCliente.Controls.Add(this.txtCurpUpdateCli);
             this.tbpUpdateCliente.Controls.Add(this.label113);
-            this.tbpUpdateCliente.Controls.Add(this.txtPersonaUpdateCli);
             this.tbpUpdateCliente.Controls.Add(this.label114);
             this.tbpUpdateCliente.Controls.Add(this.txtRazonUpdateCli);
             this.tbpUpdateCliente.Controls.Add(this.label115);
@@ -5305,6 +5688,22 @@
             this.tbpUpdateCliente.TabIndex = 26;
             this.tbpUpdateCliente.Text = "Actualizar Cliente";
             this.tbpUpdateCliente.UseVisualStyleBackColor = true;
+            // 
+            // cbxUpdatePersonaCli
+            // 
+            this.cbxUpdatePersonaCli.BackColor = System.Drawing.Color.DarkCyan;
+            this.cbxUpdatePersonaCli.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxUpdatePersonaCli.ForeColor = System.Drawing.Color.White;
+            this.cbxUpdatePersonaCli.FormattingEnabled = true;
+            this.cbxUpdatePersonaCli.Items.AddRange(new object[] {
+            "Cliente",
+            "Proveedor"});
+            this.cbxUpdatePersonaCli.Location = new System.Drawing.Point(834, 27);
+            this.cbxUpdatePersonaCli.Name = "cbxUpdatePersonaCli";
+            this.cbxUpdatePersonaCli.Size = new System.Drawing.Size(236, 26);
+            this.cbxUpdatePersonaCli.TabIndex = 155;
+            this.cbxUpdatePersonaCli.Text = "Seleccione Una Opcion";
+            this.cbxUpdatePersonaCli.SelectedIndexChanged += new System.EventHandler(this.cbxUpdatePersonaCli_SelectedIndexChanged);
             // 
             // txtPaisUpdateCli
             // 
@@ -5705,15 +6104,6 @@
             this.label113.TabIndex = 114;
             this.label113.Text = "Curp  :";
             // 
-            // txtPersonaUpdateCli
-            // 
-            this.txtPersonaUpdateCli.Location = new System.Drawing.Point(834, 24);
-            this.txtPersonaUpdateCli.Name = "txtPersonaUpdateCli";
-            this.txtPersonaUpdateCli.Size = new System.Drawing.Size(236, 24);
-            this.txtPersonaUpdateCli.TabIndex = 110;
-            this.txtPersonaUpdateCli.TextChanged += new System.EventHandler(this.txtPersonaUpdateCli_TextChanged);
-            this.txtPersonaUpdateCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPersonaUpdateCli_KeyPress);
-            // 
             // label114
             // 
             this.label114.AutoSize = true;
@@ -5843,6 +6233,73 @@
             this.dgvDatosSucursal.TabIndex = 36;
             this.dgvDatosSucursal.DataSourceChanged += new System.EventHandler(this.dgvDatosSucursal_DataSourceChanged);
             // 
+            // Sucursal
+            // 
+            this.Sucursal.DataPropertyName = "idSucursal";
+            this.Sucursal.HeaderText = "No.";
+            this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
+            this.Sucursal.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "sNombre";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 200;
+            // 
+            // iNumCertificado
+            // 
+            this.iNumCertificado.DataPropertyName = "sNoCertifi";
+            this.iNumCertificado.HeaderText = "No. Certificado";
+            this.iNumCertificado.Name = "iNumCertificado";
+            this.iNumCertificado.ReadOnly = true;
+            this.iNumCertificado.Width = 150;
+            // 
+            // sPais
+            // 
+            this.sPais.DataPropertyName = "sPais";
+            this.sPais.HeaderText = "Pais";
+            this.sPais.Name = "sPais";
+            this.sPais.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "sEstado";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "sMunicipio";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Municipio";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "sColonia";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Colonia";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "sCalle";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Calle";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "iCodPostal";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Codigo Postal";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
             // txtBuscarSucursal
             // 
             this.txtBuscarSucursal.Location = new System.Drawing.Point(68, 9);
@@ -5931,7 +6388,7 @@
             this.pnlAddCertificado.Controls.Add(this.label198);
             this.pnlAddCertificado.Location = new System.Drawing.Point(158, 0);
             this.pnlAddCertificado.Name = "pnlAddCertificado";
-            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 19);
+            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 455);
             this.pnlAddCertificado.TabIndex = 136;
             this.pnlAddCertificado.Visible = false;
             // 
@@ -6120,7 +6577,7 @@
             this.pnlAddPreferencias.Controls.Add(this.btnAddExaminarLogo);
             this.pnlAddPreferencias.Location = new System.Drawing.Point(158, 0);
             this.pnlAddPreferencias.Name = "pnlAddPreferencias";
-            this.pnlAddPreferencias.Size = new System.Drawing.Size(997, 36);
+            this.pnlAddPreferencias.Size = new System.Drawing.Size(997, 488);
             this.pnlAddPreferencias.TabIndex = 136;
             this.pnlAddPreferencias.Visible = false;
             // 
@@ -6420,7 +6877,7 @@
             // btnGuardarSucursales
             // 
             this.btnGuardarSucursales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarSucursales.Location = new System.Drawing.Point(762, 269);
+            this.btnGuardarSucursales.Location = new System.Drawing.Point(876, 505);
             this.btnGuardarSucursales.Name = "btnGuardarSucursales";
             this.btnGuardarSucursales.Size = new System.Drawing.Size(113, 36);
             this.btnGuardarSucursales.TabIndex = 112;
@@ -7239,6 +7696,22 @@
             this.dgrDatosUMD.TabIndex = 47;
             this.dgrDatosUMD.DataSourceChanged += new System.EventHandler(this.dgrDatosUMD_DataSourceChanged);
             // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "idCatalogo";
+            this.dataGridViewTextBoxColumn19.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "sUDM";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Unidad de Medida";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Width = 800;
+            // 
             // txtBuscarUMD
             // 
             this.txtBuscarUMD.Location = new System.Drawing.Point(69, 10);
@@ -7455,6 +7928,29 @@
             this.dgrDatosDescuento.Size = new System.Drawing.Size(554, 476);
             this.dgrDatosDescuento.TabIndex = 92;
             this.dgrDatosDescuento.DataSourceChanged += new System.EventHandler(this.dgrDatosDescuento_DataSourceChanged);
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "idDescuento";
+            this.dataGridViewTextBoxColumn21.HeaderText = "No. ";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "dTasaDesc";
+            this.dataGridViewTextBoxColumn24.HeaderText = "Tasa Descuento";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            this.dataGridViewTextBoxColumn24.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "dTasaDescEx";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Descuento Extra";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            this.dataGridViewTextBoxColumn23.Width = 250;
             // 
             // lblCatidadDescuento
             // 
@@ -7764,433 +8260,6 @@
             this.btnTeclado.UseVisualStyleBackColor = false;
             this.btnTeclado.Click += new System.EventHandler(this.btnTeclado_Click);
             // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "idProducto";
-            this.pkProductos.HeaderText = "Producto";
-            this.pkProductos.Name = "pkProductos";
-            this.pkProductos.ReadOnly = true;
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Clave";
-            this.iClaveProd.Name = "iClaveProd";
-            this.iClaveProd.ReadOnly = true;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            this.sMarca.ReadOnly = true;
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
-            // 
-            // iLote
-            // 
-            this.iLote.DataPropertyName = "iLote";
-            this.iLote.HeaderText = "Lote";
-            this.iLote.Name = "iLote";
-            this.iLote.ReadOnly = true;
-            // 
-            // pkPrecios
-            // 
-            this.pkPrecios.DataPropertyName = "idprecios";
-            this.pkPrecios.HeaderText = "No. Precio";
-            this.pkPrecios.Name = "pkPrecios";
-            this.pkPrecios.ReadOnly = true;
-            this.pkPrecios.Width = 250;
-            // 
-            // iPrePorcen
-            // 
-            this.iPrePorcen.DataPropertyName = "iPrePorcen";
-            this.iPrePorcen.HeaderText = "Precio";
-            this.iPrePorcen.Name = "iPrePorcen";
-            this.iPrePorcen.ReadOnly = true;
-            this.iPrePorcen.Width = 250;
-            // 
-            // s
-            // 
-            this.s.DataPropertyName = "idImpuesto";
-            this.s.HeaderText = "No. ";
-            this.s.Name = "s";
-            this.s.ReadOnly = true;
-            // 
-            // sTipoImpuesto
-            // 
-            this.sTipoImpuesto.DataPropertyName = "sTipoImpuesto";
-            this.sTipoImpuesto.HeaderText = "Tipo Impuesto";
-            this.sTipoImpuesto.Name = "sTipoImpuesto";
-            this.sTipoImpuesto.ReadOnly = true;
-            this.sTipoImpuesto.Width = 200;
-            // 
-            // sImpuesto
-            // 
-            this.sImpuesto.DataPropertyName = "sImpuesto";
-            this.sImpuesto.HeaderText = "Impuesto";
-            this.sImpuesto.Name = "sImpuesto";
-            this.sImpuesto.ReadOnly = true;
-            this.sImpuesto.Width = 150;
-            // 
-            // dTasaImpuesto
-            // 
-            this.dTasaImpuesto.DataPropertyName = "dTasaImpuesto";
-            this.dTasaImpuesto.HeaderText = "Tasa Impuesto";
-            this.dTasaImpuesto.Name = "dTasaImpuesto";
-            this.dTasaImpuesto.ReadOnly = true;
-            // 
-            // pkUsuarios
-            // 
-            this.pkUsuarios.DataPropertyName = "idUsuario";
-            this.pkUsuarios.HeaderText = "No.";
-            this.pkUsuarios.Name = "pkUsuarios";
-            this.pkUsuarios.ReadOnly = true;
-            // 
-            // SRfc
-            // 
-            this.SRfc.DataPropertyName = "sRfc";
-            this.SRfc.HeaderText = "RFC";
-            this.SRfc.Name = "SRfc";
-            this.SRfc.ReadOnly = true;
-            // 
-            // sUsuario
-            // 
-            this.sUsuario.DataPropertyName = "sUsuario";
-            this.sUsuario.HeaderText = "Usuario";
-            this.sUsuario.Name = "sUsuario";
-            this.sUsuario.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "sNombre";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // sNumero
-            // 
-            this.sNumero.DataPropertyName = "sNumero";
-            this.sNumero.HeaderText = "Telefono";
-            this.sNumero.Name = "sNumero";
-            this.sNumero.ReadOnly = true;
-            // 
-            // sCorreo
-            // 
-            this.sCorreo.DataPropertyName = "sCorreo";
-            this.sCorreo.HeaderText = "Correo";
-            this.sCorreo.Name = "sCorreo";
-            this.sCorreo.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "sComentario";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Comentario";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // Rol
-            // 
-            this.Rol.DataPropertyName = "idRol";
-            this.Rol.HeaderText = "No.";
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
-            // 
-            // sNombre
-            // 
-            this.sNombre.DataPropertyName = "sNombre";
-            this.sNombre.HeaderText = "Nombre";
-            this.sNombre.Name = "sNombre";
-            this.sNombre.ReadOnly = true;
-            this.sNombre.Width = 200;
-            // 
-            // sComentario
-            // 
-            this.sComentario.DataPropertyName = "sComentario";
-            this.sComentario.HeaderText = "Comentario";
-            this.sComentario.Name = "sComentario";
-            this.sComentario.ReadOnly = true;
-            this.sComentario.Width = 487;
-            // 
-            // No
-            // 
-            this.No.DataPropertyName = "idEmpresa";
-            this.No.HeaderText = "No";
-            this.No.Name = "No";
-            // 
-            // sNomComercial
-            // 
-            this.sNomComercial.DataPropertyName = "sNomComercial";
-            this.sNomComercial.HeaderText = "Nombre";
-            this.sNomComercial.Name = "sNomComercial";
-            this.sNomComercial.Width = 150;
-            // 
-            // sTelefono
-            // 
-            this.sTelefono.DataPropertyName = "sTelefono";
-            this.sTelefono.HeaderText = "Telefono";
-            this.sTelefono.Name = "sTelefono";
-            this.sTelefono.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "sCorreo";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Correo";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "sEstado";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "sMunicipio";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Municipio";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "sColonia";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Colonia";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "sCalle";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Calle";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "iCodPostal";
-            this.dataGridViewTextBoxColumn12.HeaderText = "C.P.";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // pkClientes
-            // 
-            this.pkClientes.DataPropertyName = "idCliente";
-            this.pkClientes.HeaderText = "Cliente";
-            this.pkClientes.Name = "pkClientes";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "sRfc";
-            this.dataGridViewTextBoxColumn4.HeaderText = "RFC";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // sCurp
-            // 
-            this.sCurp.DataPropertyName = "sCurp";
-            this.sCurp.HeaderText = "CURP";
-            this.sCurp.Name = "sCurp";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "sNombre";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 90;
-            // 
-            // sEstado
-            // 
-            this.sEstado.DataPropertyName = "sEstado";
-            this.sEstado.HeaderText = "Estado";
-            this.sEstado.Name = "sEstado";
-            // 
-            // sMunicipio
-            // 
-            this.sMunicipio.DataPropertyName = "sMunicipio";
-            this.sMunicipio.HeaderText = "Municipio";
-            this.sMunicipio.Name = "sMunicipio";
-            // 
-            // sColonia
-            // 
-            this.sColonia.DataPropertyName = "sColonia";
-            this.sColonia.HeaderText = "Colonia";
-            this.sColonia.Name = "sColonia";
-            // 
-            // sCalle
-            // 
-            this.sCalle.DataPropertyName = "sCalle";
-            this.sCalle.HeaderText = "Calle";
-            this.sCalle.Name = "sCalle";
-            // 
-            // iCodPostal
-            // 
-            this.iCodPostal.DataPropertyName = "iCodPostal";
-            this.iCodPostal.HeaderText = "Codigo Postal";
-            this.iCodPostal.Name = "iCodPostal";
-            // 
-            // sTelMovil
-            // 
-            this.sTelMovil.DataPropertyName = "sTelMovil";
-            this.sTelMovil.HeaderText = "Celular";
-            this.sTelMovil.Name = "sTelMovil";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "sCorreo";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Correo";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // sTipoPAgo
-            // 
-            this.sTipoPAgo.DataPropertyName = "sTipoPAgo";
-            this.sTipoPAgo.HeaderText = "Tipo Pago";
-            this.sTipoPAgo.Name = "sTipoPAgo";
-            // 
-            // iNumCuenta
-            // 
-            this.iNumCuenta.DataPropertyName = "sNumCuenta";
-            this.iNumCuenta.HeaderText = "Numero de Cuenta";
-            this.iNumCuenta.Name = "iNumCuenta";
-            // 
-            // Sucursal
-            // 
-            this.Sucursal.DataPropertyName = "idSucursal";
-            this.Sucursal.HeaderText = "No.";
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.ReadOnly = true;
-            this.Sucursal.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "sNombre";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 200;
-            // 
-            // iNumCertificado
-            // 
-            this.iNumCertificado.DataPropertyName = "sNoCertifi";
-            this.iNumCertificado.HeaderText = "No. Certificado";
-            this.iNumCertificado.Name = "iNumCertificado";
-            this.iNumCertificado.ReadOnly = true;
-            this.iNumCertificado.Width = 150;
-            // 
-            // sPais
-            // 
-            this.sPais.DataPropertyName = "sPais";
-            this.sPais.HeaderText = "Pais";
-            this.sPais.Name = "sPais";
-            this.sPais.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "sEstado";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "sMunicipio";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Municipio";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "sColonia";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Colonia";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "sCalle";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Calle";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "iCodPostal";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Codigo Postal";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "idCatalogo";
-            this.dataGridViewTextBoxColumn19.HeaderText = "No.";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "sUDM";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Unidad de Medida";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Width = 800;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "idDescuento";
-            this.dataGridViewTextBoxColumn21.HeaderText = "No. ";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "dTasaDesc";
-            this.dataGridViewTextBoxColumn24.HeaderText = "Tasa Descuento";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            this.dataGridViewTextBoxColumn24.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "dTasaDescEx";
-            this.dataGridViewTextBoxColumn23.HeaderText = "Descuento Extra";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            this.dataGridViewTextBoxColumn23.Width = 250;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "idCategoria";
-            this.id.HeaderText = "No";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 150;
-            // 
-            // Categoria
-            // 
-            this.Categoria.DataPropertyName = "sNombre";
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 220;
-            // 
-            // SubCategoria
-            // 
-            this.SubCategoria.DataPropertyName = "sNomSubCat";
-            this.SubCategoria.HeaderText = "SubCategoria";
-            this.SubCategoria.Name = "SubCategoria";
-            this.SubCategoria.ReadOnly = true;
-            this.SubCategoria.Width = 220;
-            // 
             // FrmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -8454,18 +8523,14 @@
         private System.Windows.Forms.TabPage tbpAddImpuesto;
         private System.Windows.Forms.TextBox txtTasaImpuesto;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtImpuesto;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtTipoImpuesto;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TabPage tbpUpdateImpuesto;
         private System.Windows.Forms.Button btnGuardarImpuesto;
         private System.Windows.Forms.Button btnacatualiImpu;
         private System.Windows.Forms.TextBox txtActualiTasaImpu;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtActualiImpu;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox txtActualiTipoImpues;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TabPage tbpAddUsuario;
         private System.Windows.Forms.TabPage tbpUpdateUser;
@@ -8618,7 +8683,6 @@
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.TextBox txtCurpAddCli;
         private System.Windows.Forms.Label label90;
-        private System.Windows.Forms.TextBox txtPersonaAddCli;
         private System.Windows.Forms.Label label91;
         private System.Windows.Forms.TextBox txtRazonAddCli;
         private System.Windows.Forms.Label label92;
@@ -8667,7 +8731,6 @@
         private System.Windows.Forms.Label label112;
         private System.Windows.Forms.TextBox txtCurpUpdateCli;
         private System.Windows.Forms.Label label113;
-        private System.Windows.Forms.TextBox txtPersonaUpdateCli;
         private System.Windows.Forms.Label label114;
         private System.Windows.Forms.TextBox txtRazonUpdateCli;
         private System.Windows.Forms.Label label115;
@@ -8921,34 +8984,10 @@
         private System.Windows.Forms.CheckBox cbkAddImpProd;
         private System.Windows.Forms.ComboBox cbxAddProdCategoria;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrimaryKey;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dTasaDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dTasaDescEx;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn CheckDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PimaryKey;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTipoImpuestos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Impuesto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TasaImpuesto;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn check;
         private System.Windows.Forms.DataGridView dgrUpdateDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridView dgrUpdateImp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
         private System.Windows.Forms.TextBox txtAddCodigoPostalEmpresa;
         private System.Windows.Forms.TextBox txtUpdateCPEmpresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkPrecios;
         private System.Windows.Forms.DataGridViewTextBoxColumn iPrePorcen;
         private System.Windows.Forms.DataGridViewTextBoxColumn s;
@@ -9004,5 +9043,37 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PimaryKey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTipoImpuestos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Impuesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TasaImpuesto;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn check;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrimaryKey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dTasaDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dTasaDescEx;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CheckDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
+        private System.Windows.Forms.ComboBox cbxAddPersonaCli;
+        private System.Windows.Forms.ComboBox cbxUpdatePersonaCli;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
+        private System.Windows.Forms.ComboBox cbxUpdateCategoriaProd;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.ComboBox cbxImpuestoAdd;
+        private System.Windows.Forms.ComboBox cbxTipoImpuestoAdd;
+        private System.Windows.Forms.ComboBox cbxUpdateImpuesto;
+        private System.Windows.Forms.ComboBox cbxUpdateTipoImpuesto;
     }
 }
