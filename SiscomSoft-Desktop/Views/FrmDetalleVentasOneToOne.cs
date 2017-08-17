@@ -67,7 +67,7 @@ namespace SiscomSoft_Desktop.Views
                 foreach (DetalleVenta rDetalleVenta in nVenta)
                 {
                     DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
-                    row.Cells[0].Value = rDetalleVenta.producto_id.idProducto;
+                    row.Cells[0].Value = rDetalleVenta.producto_id;
                     row.Cells[1].Value = rDetalleVenta.dCantidad;
                     row.Cells[2].Value = rDetalleVenta.sDescripcion;
 
@@ -82,7 +82,7 @@ namespace SiscomSoft_Desktop.Views
                     decimal TasaDescuentoExtra = 0;
                     int Cantidad = Convert.ToInt32(row.Cells[1].Value);
                     #region Impuestos
-                    List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(rDetalleVenta.producto_id.idProducto));
+                    List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(rDetalleVenta.producto_id));
                     foreach (ImpuestoProducto rImpuesto in mImpuesto)
                     {
                         if (rImpuesto.impuesto_id.sTipoImpuesto == "TRASLADO")
@@ -103,7 +103,7 @@ namespace SiscomSoft_Desktop.Views
                     }
                     #endregion
                     #region Descuentos
-                    List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(rDetalleVenta.producto_id.idProducto));
+                    List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(rDetalleVenta.producto_id));
                     foreach (DescuentoProducto rDescuento in mDescuento)
                     {
                         TasaDescuento = rDescuento.descuento_id.dTasaDesc;
@@ -202,7 +202,7 @@ namespace SiscomSoft_Desktop.Views
                         SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
                         nVenta.Add(new DetalleVenta
                         {
-                            producto_id = nProducto,
+                            producto_id = nProducto.idProducto,
                             dCantidad = Convert.ToDecimal(row.Cells[1].Value),
                             sDescripcion = row.Cells[2].Value.ToString(),
                             dPreUnitario = Convert.ToDecimal(row.Cells[4].Value)
@@ -214,7 +214,7 @@ namespace SiscomSoft_Desktop.Views
                     foreach (DetalleVenta rDetalleVenta in nVenta)
                     {
                         DataGridViewRow row = (DataGridViewRow)dgvDetalleProductos.Rows[0].Clone();
-                        row.Cells[0].Value = rDetalleVenta.producto_id.idProducto;
+                        row.Cells[0].Value = rDetalleVenta.producto_id;
                         row.Cells[1].Value = rDetalleVenta.dCantidad;
                         row.Cells[2].Value = rDetalleVenta.sDescripcion;
 
@@ -229,7 +229,7 @@ namespace SiscomSoft_Desktop.Views
                         decimal TasaDescuentoExtra = 0;
                         decimal Cantidad = Convert.ToDecimal(row.Cells[1].Value);
                         #region Impuestos
-                        List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(rDetalleVenta.producto_id.idProducto));
+                        List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(rDetalleVenta.producto_id));
                         foreach (ImpuestoProducto rImpuesto in mImpuesto)
                         {
                             if (rImpuesto.impuesto_id.sTipoImpuesto == "TRASLADO")
@@ -264,7 +264,7 @@ namespace SiscomSoft_Desktop.Views
                         }
                         #endregion
                         #region Descuentos
-                        List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(rDetalleVenta.producto_id.idProducto));
+                        List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(rDetalleVenta.producto_id));
                         foreach (DescuentoProducto rDescuento in mDescuento)
                         {
                             TasaDescuento = rDescuento.descuento_id.dTasaDesc;
@@ -821,7 +821,7 @@ namespace SiscomSoft_Desktop.Views
                     {
                         SiscomSoft.Models.Producto nProducto = SiscomSoft.Controller.ManejoProducto.getById(Convert.ToInt32(row.Cells[0].Value));
                         nVenta.Add(new DetalleVenta {
-                            producto_id = nProducto,
+                            producto_id = nProducto.idProducto,
                             dCantidad = Convert.ToInt32(row.Cells[1].Value),
                             sDescripcion = row.Cells[2].Value.ToString(),
                             dPreUnitario = Convert.ToDecimal(row.Cells[4].Value)
@@ -1553,8 +1553,8 @@ namespace SiscomSoft_Desktop.Views
                     mDetalleVenta.dCantidad = Convert.ToInt32(row.Cells[1].Value);
                     mDetalleVenta.sDescripcion = row.Cells[2].Value.ToString();
                     mDetalleVenta.dPreUnitario = Convert.ToDecimal(row.Cells[4].Value);
-                    mDetalleVenta.producto_id = mProducto;
-                    mVenta.DetalleVentas.Add(mDetalleVenta);
+                    mDetalleVenta.producto_id = mProducto.idProducto;
+                    //mVenta.DetalleVentas.Add(mDetalleVenta);
                     #endregion
 
                     #region DETALLE INVENTARIO
@@ -1584,10 +1584,10 @@ namespace SiscomSoft_Desktop.Views
                 }
             }
             ManejoInventario.RegistrarNuevoInventario(mInventario, FrmMenu.uHelper.usuario);
-            ManejoVenta.RegistrarNuevaVenta(mVenta, mCliente, mFactura, FrmMenu.uHelper.usuario);
+            ManejoVenta.RegistrarNuevaVenta(mVenta, mCliente.idCliente, mFactura.idFactura, FrmMenu.uHelper.usuario.idUsuario);
             DetallePeriodo nDetallePeriodo = new DetallePeriodo();
-            nDetallePeriodo.venta_id = mVenta;
-            mPeriodo.DetallePeriodos.Add(nDetallePeriodo);
+            nDetallePeriodo.venta_id = mVenta.idVenta;
+            //mPeriodo.DetallePeriodos.Add(nDetallePeriodo);
             ManejoPeriodo.Modificar(mPeriodo, FrmMenu.uHelper.usuario);
             
             

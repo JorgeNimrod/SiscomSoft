@@ -267,15 +267,15 @@ namespace SiscomSoft_Desktop.Views
             txtTotal.Text = total.ToString("N");
             txtCambio.Text = mVenta.dCambio.ToString("N");
             
-            txtUsuario.Text = mVenta.usuario_id.sNombre;
+            //txtUsuario.Text = mVenta.usuario_id;
 
             if (mVenta.cliente_id != null)
             {
-                txtCliente.Text = mVenta.cliente_id.sNombre;
+               // txtCliente.Text = mVenta.cliente_id;
             }
             if (mVenta.factura_id!=null)
             {
-                txtFolio.Text = mVenta.factura_id.sFolio;
+               // txtFolio.Text = mVenta.factura_id;
             }
 
             dgvPeriodos.Visible = false;
