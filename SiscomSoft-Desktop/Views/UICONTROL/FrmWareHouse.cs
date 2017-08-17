@@ -351,7 +351,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         decimal ImporteWithImpuestosIEPS30 = 0;
                         decimal ImporteWithImpuestosIEPS26 = 0;
 
-                        prePorcentaje = mProducto.precio_id.iPrePorcen;
+                        prePorcentaje = mProducto.precio_id;
                         costo = mProducto.dCosto;
                         
                         #region Impuestos
@@ -714,7 +714,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         row.Cells[0].Value = nProducto.idProducto;
                         row.Cells[1].Value = nProducto.sDescripcion;
                         row.Cells[2].Value = nProducto.dCosto;
-                        row.Cells[3].Value = nProducto.catalogo_id.sUDM;
+                        row.Cells[3].Value = nProducto.catalogo_id;
                         row.Cells[5].Value = 1;
                         row.Cells[15].Value = nProducto.iClaveProd;
 
@@ -833,7 +833,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     dgrDatosAlmacen.CurrentRow.Cells[0].Value = nProducto.idProducto;
                     dgrDatosAlmacen.CurrentRow.Cells[1].Value = nProducto.sDescripcion;
                     dgrDatosAlmacen.CurrentRow.Cells[2].Value = nProducto.dCosto;
-                    dgrDatosAlmacen.CurrentRow.Cells[3].Value = nProducto.catalogo_id.sUDM;
+                    dgrDatosAlmacen.CurrentRow.Cells[3].Value = nProducto.catalogo_id;
                     dgrDatosAlmacen.CurrentRow.Cells[15].Value = nProducto.iClaveProd;
 
 

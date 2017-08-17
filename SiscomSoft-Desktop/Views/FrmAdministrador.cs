@@ -731,7 +731,7 @@ namespace SiscomSoft_Desktop.Views
         public void ActualizarProducto()
         {
             Producto nProducto = ManejoProducto.getById(PKPRODUCTO);
-            Categoria nCategoria = ManejoCategoria.getById(nProducto.categoria_id.idCategoria);
+            Categoria nCategoria = ManejoCategoria.getById(nProducto.categoria_id);
             PKCATEGORIA = nCategoria.idCategoria;
             txtUpdateClavProd.Text = nProducto.iClaveProd.ToString();
             txtUpdateMarcProd.Text = nProducto.sMarca;
@@ -745,8 +745,8 @@ namespace SiscomSoft_Desktop.Views
             txtUpdatePVProd.Text = nProducto.dPreVenta.ToString();
          
           
-            cbxUpdateUMDProd.SelectedItem = nProducto.catalogo_id.idCatalogo;
-            cbxUpdatePrecioProd.SelectedItem = nProducto.precio_id.idPrecios;
+            cbxUpdateUMDProd.SelectedItem = nProducto.catalogo_id;
+            cbxUpdatePrecioProd.SelectedItem = nProducto.precio_id;
 
             pcbUpdateImgProd.Image = ToolImagen.Base64StringToBitmap(nProducto.sFoto);
 
