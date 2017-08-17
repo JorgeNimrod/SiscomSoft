@@ -25,9 +25,9 @@ namespace SiscomSoft_Desktop.Views
 
 
 
-       
 
-
+        decimal precioventa = 0;
+        decimal ImpuestoDgrAdd = 0;
         Boolean flagRol = false;
         Boolean flagUsuario = false;
         Boolean flagProducto = false;
@@ -735,12 +735,12 @@ namespace SiscomSoft_Desktop.Views
             PKCATEGORIA = nCategoria.idCategoria;
             txtUpdateClavProd.Text = nProducto.iClaveProd.ToString();
             txtUpdateMarcProd.Text = nProducto.sMarca;
-            dtpUpdateFechaProd.Value = nProducto.dtCaducidad;
+        
             txtUpdateCostoProd.Text = nProducto.dCosto.ToString();
        
             txtUpdateDesProd.Text = nProducto.sDescripcion;
             cbxUpdatePrecioProd.Text = nProducto.precio_id.ToString();
-            txtUpdateLoteProd.Text = nProducto.iLote.ToString();
+          
          
             txtUpdatePVProd.Text = nProducto.dPreVenta.ToString();
          
@@ -1242,9 +1242,9 @@ namespace SiscomSoft_Desktop.Views
 
         private void dgvDatosCategoria_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.dgvDatosRol.RowCount >= 1)
+            if (this.dgvDatosCategoria.RowCount >= 1)
             {
-                tbcGeneral.TabPages.Remove(tbpUpdateRol);
+                tbcGeneral.TabPages.Remove(tbpUpdateCategoria);
                 PKCATEGORIA = Convert.ToInt32(this.dgvDatosCategoria.CurrentRow.Cells[0].Value);
 
                 tbcGeneral.TabPages.Add(tbpUpdateCategoria);
@@ -1256,15 +1256,15 @@ namespace SiscomSoft_Desktop.Views
 
         private void dgvDatosRol_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (flagAddRoles == false)
+            if (this.dgvDatosRol.RowCount >= 1)
             {
-                tbcGeneral.TabPages.Add(tbpAddRol);
-                tbcGeneral.SelectedTab = tbpAddRol;
-                flagAddRoles = true;
-            }
-            else
-            {
-                tbcGeneral.SelectedTab = tbpAddRol;
+                tbcGeneral.TabPages.Remove(tbpUpdateRol);
+                PKROL = Convert.ToInt32(this.dgvDatosRol.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateRol);
+                ActualizarRol();
+                tbcGeneral.SelectedTab = tbpUpdateRol;
+
             }
         }
 
@@ -1294,7 +1294,7 @@ namespace SiscomSoft_Desktop.Views
                 nImpuesto.idImpuesto = PKIMPUESTO;
                 nImpuesto.sTipoImpuesto = cbxUpdateTipoImpuesto.Text;
                 nImpuesto.sImpuesto = cbxUpdateImpuesto.Text;
-                nImpuesto.dTasaImpuesto = Convert.ToDecimal(txtTasaImpuesto.Text);
+                nImpuesto.dTasaImpuesto = Convert.ToDecimal(txtActualiTasaImpu.Text);
 
                 ManejoImpuesto.Modificar(nImpuesto);
 
@@ -1613,13 +1613,7 @@ namespace SiscomSoft_Desktop.Views
                 this.cbxPrecioAddProd.Focus();
             }
 
-            else if (this.txtLoteAddProd.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtLoteAddProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtLoteAddProd, "Campo necesario");
-                this.txtLoteAddProd.Focus();
-            }
-         
+          
             else if (this.txtPrecioVenta.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtPrecioVenta, ErrorIconAlignment.MiddleRight);
@@ -1658,11 +1652,11 @@ namespace SiscomSoft_Desktop.Views
                 Producto nProducto = new Producto();
                 nProducto.iClaveProd = Convert.ToInt32(txtClaveaddprod.Text.ToString());
                 nProducto.sMarca = txtMarcaaddProd.Text;
-                nProducto.dtCaducidad = dtpFechaCaducidadProd.Value.Date;
+         
                 nProducto.dCosto = Convert.ToDecimal(txtCostoAddProd.Text);
                 //nProducto.iDescuento = Convert.ToInt32(txtDescuentoProd.Text.ToString());
                 nProducto.sFoto = ImagenString;
-                nProducto.iLote = Convert.ToInt32(txtLoteAddProd.Text.ToString());
+             
                 nProducto.dPreVenta = Convert.ToDecimal(txtPrecioVenta.Text);
 
                 nProducto.sDescripcion = txtDescripcionAddProd.Text;
@@ -1723,13 +1717,13 @@ namespace SiscomSoft_Desktop.Views
                 txtClaveaddprod.Clear();
                 txtMarcaaddProd.Clear();
                 txtPrecioVenta.Clear();
-                dtpFechaCaducidadProd.ResetText();
+            
               
                 pcbimgAddProd.Image = null;
                 ImagenString = null;
                 pnlAddDescProd.Visible = false;
                 pnlAddImpProd.Visible = false;
-                txtLoteAddProd.Clear();
+        
                 txtClaveaddprod.Focus();
                 cargarProductos();
             }
@@ -1949,12 +1943,7 @@ namespace SiscomSoft_Desktop.Views
             //    this.txtDescuentoProd.Focus();
             //}
 
-            else if (this.txtUpdateLoteProd.Text == "")
-            {
-                this.ErrorProvider.SetIconAlignment(this.txtUpdateLoteProd, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtUpdateLoteProd, "Campo necesario");
-                this.txtUpdateLoteProd.Focus();
-            }
+         
             else if (this.txtUpdatePVProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtUpdatePVProd, ErrorIconAlignment.MiddleRight);
@@ -2012,9 +2001,7 @@ namespace SiscomSoft_Desktop.Views
                 nProducto.sFoto = ImagenString;
                 
                
-                nProducto.dtCaducidad = dtpUpdateFechaProd.Value;
-                nProducto.iLote = Convert.ToInt32(txtUpdateLoteProd.Text);
-
+          
 
 
 
@@ -3456,17 +3443,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtCurpAddCli_Leave(object sender, EventArgs e)
         {
-            if (ValidarCurp(txtCurpAddCli.Text))
-            {
-
-            }
-            else
-            {
-                MessageBox.Show("Curp No Valida Debe de tener el formato : BOMC870421HDGRLS05, " +
-                    "Favor Sellecione Un Curp Valido", "Validacion De Curp", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtCurpAddCli.SelectAll();
-                txtCurpAddCli.Focus();
-            }
+          
         }
 
         private void txtNombreAddCli_KeyPress(object sender, KeyPressEventArgs e)
@@ -3600,17 +3577,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtCurpUpdateCli_Leave(object sender, EventArgs e)
         {
-            if (ValidarCurp(txtCurpUpdateCli.Text))
-            {
-
-            }
-            else
-            {
-                MessageBox.Show("Curp No Valida Debe de tener el formato : BOMC870421HDGRLS05, " +
-                    "Favor Sellecione Un Curp Valido", "Validacion De Curp", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtCurpUpdateCli.SelectAll();
-                txtCurpUpdateCli.Focus();
-            }
+           
         }
 
         private void txtPaisAddCli_KeyPress(object sender, KeyPressEventArgs e)
@@ -4082,7 +4049,7 @@ namespace SiscomSoft_Desktop.Views
             ckbUpdateForImpreso.Checked = nPreferencia.bForImpreso;
             ckbUpdateEnvFactura.Checked = nPreferencia.bEnvFactura;
             pcbUpdateLogoSucursal.Image = ToolImagen.Base64StringToBitmap(nPreferencia.sLogotipo);
-
+            txtCodigoPostal.Text = nSucursal.iCodPostal.ToString();
             cmbUpdateEmpresa.SelectedItem = nSucursal.empresa_id.idEmpresa;
 
             txtUpdateFolderCertificados.Text = nCertificado.sRutaArch;
@@ -4187,6 +4154,15 @@ namespace SiscomSoft_Desktop.Views
                 this.pnlAddPreferencias.Visible = true;
                 this.txtAddNumSerieSucursal.Focus();
             }
+            else if (this.txtAddCodigoPSucu.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAddCodigoPSucu, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAddCodigoPSucu, "Campo necesario");
+                this.pnlAddSucursal.Visible = false;
+                this.pnlAddCertificado.Visible = false;
+                this.pnlAddPreferencias.Visible = true;
+                this.txtAddNumSerieSucursal.Focus();
+            }
             else if (this.pcbAddLogo.Image == null)
             {
                 this.ErrorProvider.SetIconAlignment(this.pcbAddLogo, ErrorIconAlignment.MiddleRight);
@@ -4229,7 +4205,7 @@ namespace SiscomSoft_Desktop.Views
                 nSucursal.iNumExterior = Convert.ToInt32(txtAddnumExteriorSucursal.Text);
                 nSucursal.iNumInterior = Convert.ToInt32(txtAddNumInteriorSucursal.Text);
                 nSucursal.sNoCertifi = txtAddNoCertficado.Text;
-                nSucursal.iCodPostal = cmbCodigoPostalSucursales.SelectedIndex + 1;
+                nSucursal.iCodPostal = Convert.ToInt32(txtAddCodigoPSucu.Text);
 
                 ManejoPreferencia.RegistrarNuevaPreferencia(nPreferencia);
                 ManejoCertificado.RegistrarNuevoCertificado(nCertificado);
@@ -4862,9 +4838,91 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
+        public void nepeActualiza()
+        {
+
+
+            //decimal trampas = 0;
+            //precioventa = Convert.ToDecimal(txtUpdateCostoProd.Text) * (Convert.ToDecimal(cbxUpdatePrecioProd.Text) / 100);
+            //trampas = Convert.ToDecimal(txtCostoAddProd.Text) + precioventa;
+
+      
+
+
+
+
+            //txtUpdatePVProd.Text = trampas.ToString("N");
+
+        }
+
+        public void nepe()
+        {
+            if (txtCostoAddProd.TextLength > 0)
+            {
+
+                decimal trampas = 0;
+                precioventa = Convert.ToDecimal(txtCostoAddProd.Text) * (Convert.ToDecimal(cbxPrecioAddProd.Text) / 100);
+                trampas = Convert.ToDecimal(txtCostoAddProd.Text) + precioventa;
+
+
+                if (cbkAddDescProd.Checked == true)
+                {
+
+
+                    foreach (DataGridViewRow row in dgrAddDescProd.Rows)
+                    {
+
+                        DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[3];
+                        if (chk.Value == chk.TrueValue)
+                        {
+                            chk.Value = chk.FalseValue;
+                        }
+                        else
+                        {
+                          decimal   PKDESC = Convert.ToInt32(row.Cells[3].Value);
+
+                            chk.Value = chk.TrueValue;
+                        }
+
+
+                    }
+                }
+
+
+
+                if (cbkAddImpProd.Checked == true)
+                {
+
+                    foreach (DataGridViewRow row in dgrAddImpProd.Rows)
+                    {
+                      
+                        DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[4];
+                        if (chk.Value == chk.TrueValue)
+                        {
+                            chk.Value = chk.FalseValue;
+                        }
+                        else
+                        {
+                            ImpuestoDgrAdd = Convert.ToInt32(row.Cells[3].Value);
+                            chk.Value = chk.TrueValue;
+                        }
+
+
+                    }
+                }
+
+
+
+                txtPrecioVenta.Text = trampas.ToString("N");
+
+            }
+        }
 
         private void txtCostoAddProd_TextChanged_1(object sender, EventArgs e)
         {
+
+
+            nepe();
             ErrorProvider.Clear();
         }
 
@@ -5458,6 +5516,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtUpdateCostoProd_TextChanged(object sender, EventArgs e)
         {
+            nepeActualiza();
             ErrorProvider.Clear();
         }
 
@@ -5684,7 +5743,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtBuscarUMD_MouseClick(object sender, MouseEventArgs e)
         {
-            txtBuscarUMD.Text = FrmKeyboard.informacion;
+          //  txtBuscarUMD.Text = FrmKeyboard.informacion;
 
 
             //for (int i = 0; i < Application.OpenForms.Count; i++)
@@ -5714,7 +5773,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtUpdateUMD_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateUMD.Text = FrmKeyboard.informacion;
+          //  txtUpdateUMD.Text = FrmKeyboard.informacion;
         }
 
         private void txtBuscarUMD_MouseCaptureChanged(object sender, EventArgs e)
@@ -5724,68 +5783,73 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtUpdateNoCertificado_MouseClick(object sender, MouseEventArgs e)
         {
-           txtUpdateNoCertificado.Text = FrmKeyboard.informacion;
+          // txtUpdateNoCertificado.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateContraseñaCertificado_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateContraseñaCertificado.Text = FrmKeyboard.informacion;
+       //     txtUpdateContraseñaCertificado.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateValidoHasta_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateValidoHasta.Text = FrmKeyboard.informacion;
+         //   txtUpdateValidoHasta.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateValidoDe_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateValidoDe.Text = FrmKeyboard.informacion;
+           // txtUpdateValidoDe.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateNoSerie_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateNoSerie.Text = FrmKeyboard.informacion;
+        //    txtUpdateNoSerie.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateNomSucursal_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateNomSucursal.Text = FrmKeyboard.informacion;
+          //  txtUpdateNomSucursal.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdatePais_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdatePais.Text = FrmKeyboard.informacion;
+            //txtUpdatePais.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateEstado_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateEstado.Text = FrmKeyboard.informacion;
+            //txtUpdateEstado.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateMunicipio_MouseClick(object sender, MouseEventArgs e)
         {
             
-            txtUpdateMunicipio.Text = FrmKeyboard.informacion;
+            //txtUpdateMunicipio.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateCalle_MouseClick(object sender, MouseEventArgs e)
         {
-           txtUpdateCalle.Text = FrmKeyboard.informacion;
+       //    txtUpdateCalle.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateColonia_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateColonia.Text = FrmKeyboard.informacion;
+         //   txtUpdateColonia.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateLocalidad_MouseClick(object sender, MouseEventArgs e)
         {
-           txtUpdateLocalidad.Text = FrmKeyboard.informacion;
+           //txtUpdateLocalidad.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateNoInterior_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateNoInterior.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtUpdateNoInterior.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtUpdateNoExterior_MouseClick(object sender, MouseEventArgs e)
@@ -5801,7 +5865,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtBuscarProducto_MouseClick(object sender, MouseEventArgs e)
         {
-            txtBuscarProducto.Text = FrmKeyboard.informacion;
+            //txtBuscarProducto.Text = FrmKeyboard.informacion;
         }
 
         private void btnUMD_ChangeUICues(object sender, UICuesEventArgs e)
@@ -5950,7 +6014,7 @@ namespace SiscomSoft_Desktop.Views
             if (dgrDatosDescuento.RowCount >= 1)
             {
                 if (
-                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                    MessageBox.Show("Realmente quiere eliminar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoDescuento.Eliminar(Convert.ToInt32(dgrDatosDescuento.CurrentRow.Cells[0].Value));
@@ -6243,24 +6307,34 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtUpdateDescEx_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateDescEx.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtUpdateDescEx.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtUpdateTasaDesc_MouseClick(object sender, MouseEventArgs e)
         {
            
 
-            txtUpdateTasaDesc.Text = FrmKeyboard.informacion;
+            //txtUpdateTasaDesc.Text = FrmKeyboard.informacion;
         }
 
         private void txtTasaDescuento_MouseClick(object sender, MouseEventArgs e)
         {
-            txtTasaDescuento.Text = FrmKeyboard.informacion;
+            //txtTasaDescuento.Text = FrmKeyboard.informacion;
         }
 
         private void txtTasaDescuentoEx_MouseClick(object sender, MouseEventArgs e)
         {
-            txtTasaDescuentoEx.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtTasaDescuentoEx.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtUpdateNoCertificado_TextChanged(object sender, EventArgs e)
@@ -6295,82 +6369,83 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtAddNumSerieSucursal_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddNumSerieSucursal.Text = FrmKeyboard.informacion;
+            //txtAddNumSerieSucursal.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddPaiSucursal_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddPaiSucursal.Text = FrmKeyboard.informacion;
+            //txtAddPaiSucursal.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddNombreSucursal_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddNombreSucursal.Text = FrmKeyboard.informacion;
+            //txtAddNombreSucursal.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddMunicipioSucursal_MouseClick(object sender, MouseEventArgs e)
         {
-           txtAddMunicipioSucursal.Text = FrmKeyboard.informacion;
+           //txtAddMunicipioSucursal.Text = FrmKeyboard.informacion;
         }
 
         private void txtBuscarImpuesto_MouseClick(object sender, MouseEventArgs e)
         {
-           txtBuscarImpuesto.Text = FrmKeyboard.informacion;
+           //txtBuscarImpuesto.Text = FrmKeyboard.informacion;
         }
 
         private void txtBuscarCategoria_MouseClick(object sender, MouseEventArgs e)
         {
-            txtBuscarCategoria.Text = FrmKeyboard.informacion;
+            //txtBuscarCategoria.Text = FrmKeyboard.informacion;
         }
 
         private void txtBuscarUsuario_MouseClick(object sender, MouseEventArgs e)
         {
-            txtBuscarUsuario.Text = FrmKeyboard.informacion;
+            //txtBuscarUsuario.Text = FrmKeyboard.informacion;
         }
 
         private void txtBuscarRol_MouseClick(object sender, MouseEventArgs e)
         {
-            txtBuscarRol.Text = FrmKeyboard.informacion;
+            //txtBuscarRol.Text = FrmKeyboard.informacion;
         }
 
         private void txtNombre_MouseClick(object sender, MouseEventArgs e)
         {
-            txtNombre.Text = FrmKeyboard.informacion;
+            //txtNombre.Text = FrmKeyboard.informacion;
         }
 
         private void txtComentario_MouseClick(object sender, MouseEventArgs e)
         {
-            txtComentario.Text = FrmKeyboard.informacion;
+            //txtComentario.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateNombre_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateNombre.Text = FrmKeyboard.informacion;
+            //txtUpdateNombre.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateComentario_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateComentario.Text = FrmKeyboard.informacion;
+            //    txtUpdateComentario.Text = FrmKeyboard.informacion;
+            //}
         }
 
         private void txtNombreCategoria_MouseClick(object sender, MouseEventArgs e)
         {
-            txtNombreCategoria.Text = FrmKeyboard.informacion;
+            //txtNombreCategoria.Text = FrmKeyboard.informacion;
         }
 
         private void txtSubcategoria_MouseClick(object sender, MouseEventArgs e)
         {
-           txtSubcategoria.Text = FrmKeyboard.informacion;
+           //txtSubcategoria.Text = FrmKeyboard.informacion;
         }
 
         private void txtActualizarNomCat_MouseClick(object sender, MouseEventArgs e)
         {
-            txtActualizarNomCat.Text = FrmKeyboard.informacion;
+            //txtActualizarNomCat.Text = FrmKeyboard.informacion;
         }
 
         private void txtActualizarSubCat_MouseClick(object sender, MouseEventArgs e)
         {
-            txtActualizarSubCat.Text = FrmKeyboard.informacion;
+            //txtActualizarSubCat.Text = FrmKeyboard.informacion;
         }
 
        
@@ -6379,48 +6454,64 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtTasaImpuesto_MouseClick(object sender, MouseEventArgs e)
         {
-           txtTasaImpuesto.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtTasaImpuesto.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
     
         private void txtActualiTasaImpu_MouseClick(object sender, MouseEventArgs e)
         {
-            txtActualiTasaImpu.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //  txtActualiTasaImpu.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+
         }
 
         private void txtRFC_MouseClick(object sender, MouseEventArgs e)
         {
-            txtRFC.Text = FrmKeyboard.informacion;
+            //txtRFC.Text = FrmKeyboard.informacion;
         }
 
         private void txtNombreUsuario_MouseClick(object sender, MouseEventArgs e)
         {
-            txtNombreUsuario.Text = FrmKeyboard.informacion;
+            //txtNombreUsuario.Text = FrmKeyboard.informacion;
         }
 
         private void txtContraseña_MouseClick(object sender, MouseEventArgs e)
         {
-            txtContraseña.Text = FrmKeyboard.informacion;
+            //txtContraseña.Text = FrmKeyboard.informacion;
         }
 
         private void txtUsuario_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUsuario.Text = FrmKeyboard.informacion;
+            //txtUsuario.Text = FrmKeyboard.informacion;
         }
 
         private void txtCorreo_MouseClick(object sender, MouseEventArgs e)
         {
-            txtCorreo.Text = FrmKeyboard.informacion;
+            //txtCorreo.Text = FrmKeyboard.informacion;
         }
 
         private void txtTelefono_MouseClick(object sender, MouseEventArgs e)
         {
-            txtTelefono.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtTelefono.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtPin_MouseClick(object sender, MouseEventArgs e)
         {
-            txtPin.Text = FrmKeyboard.informacion;
+            //txtPin.Text = FrmKeyboard.informacion;
         }
 
         private void txtComentUsua_KeyPress(object sender, KeyPressEventArgs e)
@@ -6430,177 +6521,247 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtUpdateRFCUser_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateRFCUser.Text = FrmKeyboard.informacion;
+            //txtUpdateRFCUser.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateContrasena_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateContrasena.Text = FrmKeyboard.informacion;
+            //txtUpdateContrasena.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateUser_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateUser.Text = FrmKeyboard.informacion;
+            //txtUpdateUser.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateCorreo_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateCorreo.Text = FrmKeyboard.informacion;
+            //txtUpdateCorreo.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdatePhone_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdatePhone.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtUpdatePhone.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtUpdatePin_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdatePin.Text = FrmKeyboard.informacion;
+            //txtUpdatePin.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateComment_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateComment.Text = FrmKeyboard.informacion;
+            //txtUpdateComment.Text = FrmKeyboard.informacion;
         }
 
         private void txtClaveaddprod_MouseClick(object sender, MouseEventArgs e)
         {
-            txtClaveaddprod.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtClaveaddprod.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtCostoAddProd_MouseClick(object sender, MouseEventArgs e)
         {
-           txtCostoAddProd.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtCostoAddProd.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtLoteAddProd_MouseClick(object sender, MouseEventArgs e)
         {
-            txtLoteAddProd.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtLoteAddProd.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtMarcaaddProd_MouseClick(object sender, MouseEventArgs e)
         {
-            txtMarcaaddProd.Text = FrmKeyboard.informacion;
+            //txtMarcaaddProd.Text = FrmKeyboard.informacion;
         }
 
         private void txtDescripcionAddProd_MouseClick(object sender, MouseEventArgs e)
         {
-           txtDescripcionAddProd.Text = FrmKeyboard.informacion;
+           //txtDescripcionAddProd.Text = FrmKeyboard.informacion;
         }
 
         private void txtPrecioVenta_MouseClick(object sender, MouseEventArgs e)
         {
-           txtPrecioVenta.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtPrecioVenta.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtUpdateClavProd_MouseClick(object sender, MouseEventArgs e)
         {
-            txtPrecioVenta.Text = FrmKeyboard.informacion;
+            //    if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //    {
+
+            //        txtUpdateClavProd.Text = FrmKeyboard.informacion;
+            //        FrmKeyboard.statusKeyboard = false;
+            //    }
         }
 
         private void txtUpdateCostoProd_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateCostoProd.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtUpdateCostoProd.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtUpdateLoteProd_MouseClick(object sender, MouseEventArgs e)
         {
-           txtUpdateLoteProd.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtUpdateLoteProd.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtUpdateMarcProd_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateMarcProd.Text = FrmKeyboard.informacion;
+            //txtUpdateMarcProd.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateDesProd_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateDesProd.Text = FrmKeyboard.informacion;
+            //txtUpdateDesProd.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdatePVProd_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdatePVProd.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtUpdatePVProd.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtAddPrecio_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddPrecio.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtAddPrecio.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtUpdatePrecio_MouseClick(object sender, MouseEventArgs e)
         {
-           txtUpdatePrecio.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtUpdatePrecio.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtBuscarEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtBuscarEmpresa.Text = FrmKeyboard.informacion;
+            //txtBuscarEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddNombreComercialEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddNombreComercialEmpresa.Text = FrmKeyboard.informacion;
+            //txtAddNombreComercialEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddNombreContactoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddNombreContactoEmpresa.Text = FrmKeyboard.informacion;
+            //txtAddNombreContactoEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddRazonSocialEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddRazonSocialEmpresa.Text = FrmKeyboard.informacion;
+            //txtAddRazonSocialEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddTelefonoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddTelefonoEmpresa.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtAddTelefonoEmpresa.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtAddCorreoElectronicoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddCorreoElectronicoEmpresa.Text = FrmKeyboard.informacion;
+            //txtAddCorreoElectronicoEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddPaisEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddPaisEmpresa.Text = FrmKeyboard.informacion;
+            //txtAddPaisEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddEstadoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddEstadoEmpresa.Text = FrmKeyboard.informacion;
+            //txtAddEstadoEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddMunicipioEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddMunicipioEmpresa.Text = FrmKeyboard.informacion;
+            //txtAddMunicipioEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddCalleEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddCalleEmpresa.Text = FrmKeyboard.informacion;
+            //txtAddCalleEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddColoniaEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddColoniaEmpresa.Text = FrmKeyboard.informacion;
+            //txtAddColoniaEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddLocalidadEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddLocalidadEmpresa.Text = FrmKeyboard.informacion;
+            //txtAddLocalidadEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtAddNumInteriorEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddNumInteriorEmpresa.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //   txtAddNumInteriorEmpresa.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtAddNumExteriorEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtAddNumExteriorEmpresa.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtAddNumExteriorEmpresa.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtAddCodigoPostalEmpresa_KeyPress(object sender, KeyPressEventArgs e)
@@ -6630,7 +6791,12 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtUpdateCPEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateCPEmpresa.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtUpdateCPEmpresa.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtUpdateCPEmpresa_KeyPress(object sender, KeyPressEventArgs e)
@@ -6660,67 +6826,77 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtUpdateColoniaEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateColoniaEmpresa.Text = FrmKeyboard.informacion;
+            //txtUpdateColoniaEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateLocalidadEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateLocalidadEmpresa.Text = FrmKeyboard.informacion;
+            //txtUpdateLocalidadEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateNumInteriorEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateNumInteriorEmpresa.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //   txtUpdateNumInteriorEmpresa.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtUpdateCalleEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateCalleEmpresa.Text = FrmKeyboard.informacion;
+            //txtUpdateCalleEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateMunicipioEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateMunicipioEmpresa.Text = FrmKeyboard.informacion;
+            //txtUpdateMunicipioEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdatePaisEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdatePaisEmpresa.Text = FrmKeyboard.informacion;
+            //txtUpdatePaisEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateEstadoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateEstadoEmpresa.Text = FrmKeyboard.informacion;
+            //txtUpdateEstadoEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateCorreoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateCorreoEmpresa.Text = FrmKeyboard.informacion;
+            //txtUpdateCorreoEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateTelefonoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateTelefonoEmpresa.Text = FrmKeyboard.informacion;
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtUpdateTelefonoEmpresa.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
         }
 
         private void txtUpdateRazonSocialEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateRazonSocialEmpresa.Text = FrmKeyboard.informacion;
+            //txtUpdateRazonSocialEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateNombContactoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateNombContactoEmpresa.Text = FrmKeyboard.informacion;
+            //txtUpdateNombContactoEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtUpdateNomComercialEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUpdateNomComercialEmpresa.Text = FrmKeyboard.informacion;
+            //txtUpdateNomComercialEmpresa.Text = FrmKeyboard.informacion;
         }
 
         private void txtBuscarCliente_MouseClick(object sender, MouseEventArgs e)
         {
-            txtBuscarCliente.Text = FrmKeyboard.informacion;
+            //txtBuscarCliente.Text = FrmKeyboard.informacion;
         }
 
         private void tbpAddCategoria_Click(object sender, EventArgs e)
@@ -6744,12 +6920,326 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtComentUsua_MouseClick(object sender, MouseEventArgs e)
         {
-            txtComentUsua.Text = FrmKeyboard.informacion;
+            //txtComentUsua.Text = FrmKeyboard.informacion;
         }
 
         private void cbxUpdatePersonaCli_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void txtAddCodigoPSucu_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtAddCodigoPSucu.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+
+        }
+
+        private void txtAddCodigoPSucu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtAddnumExteriorSucursal_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddCodigoPSucu_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProvider.Clear();
+        }
+
+        private void txtAddnumExteriorSucursal_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //   txtAddnumExteriorSucursal.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+
+        }
+
+        private void txtAddNumInteriorSucursal_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtAddNumInteriorSucursal.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtCPUpdateCli_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtCPUpdateCli.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtTelMvlUpdateCli_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtTelMvlUpdateCli.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtNumInteUpdateCli_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtNumInteUpdateCli.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtNumExteUpdateCli_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtNumExteUpdateCli.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtTelFijoUpdateCli_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtTelFijoUpdateCli.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtNumCuentaUpdateCli_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtNumCuentaUpdateCli.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtCodigoPosAddCli_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtCodigoPosAddCli.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtNumExteAddCli_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtNumExteAddCli.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtNuminteAddCli_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtNuminteAddCli.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtTelMvilAddCli_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtTelMvilAddCli.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtTelFijoAddCli_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //   txtTelFijoAddCli.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtUpdateNumExteriorEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //   txtUpdateNumExteriorEmpresa.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void txtAddCodigoPostalEmpresa_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
+            //{
+
+            //    txtAddCodigoPostalEmpresa.Text = FrmKeyboard.informacion;
+            //    FrmKeyboard.statusKeyboard = false;
+            //}
+        }
+
+        private void cbxPrecioAddProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            nepe();
+        }
+
+        private void dgvDatosProducto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosProducto.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateProducto);
+             PKPRODUCTO = Convert.ToInt32(this.dgvDatosProducto.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateProducto);
+                ActualizarProducto();
+                tbcGeneral.SelectedTab = tbpUpdateProducto;
+
+            }
+        }
+
+        private void dgvDatosPrecio_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosPrecio.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdatePrecio);
+                PKPRECIO = Convert.ToInt32(this.dgvDatosPrecio.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdatePrecio);
+                ActualizarPrecio();
+                tbcGeneral.SelectedTab = tbpUpdatePrecio;
+
+            }
+        }
+
+        private void dgvDatosUsuario_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosUsuario.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateUser);
+                PKUSUARIO = Convert.ToInt32(this.dgvDatosUsuario.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateUser);
+                ActualizarUsuario();
+                tbcGeneral.SelectedTab = tbpUpdateUser;
+
+            }
+        }
+
+        private void dgvDatosEmpresa_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosEmpresa.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateEmpresa);
+                PKEMPRESA = Convert.ToInt32(this.dgvDatosEmpresa.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateEmpresa);
+                ActualizarEmpresa();
+                tbcGeneral.SelectedTab = tbpUpdateEmpresa;
+
+            }
+        }
+
+        private void dgvDatosCliente_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosCliente.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateCliente);
+                PKCLIENTE = Convert.ToInt32(this.dgvDatosCliente.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateCliente);
+                ActualizarCliente();
+                tbcGeneral.SelectedTab = tbpUpdateCliente;
+
+            }
+        }
+
+        private void dgvDatosSucursal_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvDatosSucursal.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpActualizarSucursal);
+                PKSUCURSAL = Convert.ToInt32(this.dgvDatosSucursal.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpActualizarSucursal);
+                ActualizarSucursales();
+                tbcGeneral.SelectedTab = tbpActualizarSucursal;
+
+            }
+        }
+
+        private void dgrDatosUMD_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgrDatosUMD.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbtUpdateUMD);
+                PKUMD = Convert.ToInt32(this.dgrDatosUMD.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbtUpdateUMD);
+                ActualizarUMD();
+                tbcGeneral.SelectedTab = tbtUpdateUMD;
+
+            }
+        }
+
+        private void dgrDatosDescuento_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgrDatosDescuento.RowCount >= 1)
+            {
+                tbcGeneral.TabPages.Remove(tbpUpdateDescuento);
+                PKDESCUENTO = Convert.ToInt32(this.dgrDatosDescuento.CurrentRow.Cells[0].Value);
+
+                tbcGeneral.TabPages.Add(tbpUpdateDescuento);
+                ActualizarDescuento();
+                tbcGeneral.SelectedTab = tbpUpdateDescuento;
+
+            }
+        }
+
+        private void cbxUpdatePrecioProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            nepeActualiza();
         }
     }
 }

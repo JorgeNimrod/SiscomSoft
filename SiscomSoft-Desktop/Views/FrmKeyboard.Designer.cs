@@ -897,6 +897,7 @@
             this.txtTeclado.Name = "txtTeclado";
             this.txtTeclado.Size = new System.Drawing.Size(1366, 39);
             this.txtTeclado.TabIndex = 63;
+            this.txtTeclado.TextChanged += new System.EventHandler(this.txtTeclado_TextChanged);
             // 
             // btnCloseKeyboard
             // 
