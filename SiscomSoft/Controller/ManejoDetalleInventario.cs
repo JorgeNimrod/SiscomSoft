@@ -14,16 +14,15 @@ namespace SiscomSoft.Controller
         {
             Producto Producto = ManejoProducto.getById(pkProducto);
             Inventario Inventario = ManejoInventario.getById(pkInventario);
-
-
+            
             try
             {
                 using (var ctx = new DataModel())
                 {
                     nDetalleInventario.producto_id = Producto;
-                   nDetalleInventario.inventario_id = Inventario;
-                    ctx.Inventarios.Attach(Inventario);
+                    nDetalleInventario.inventario_id = Inventario;
                     ctx.Productos.Attach(Producto);
+                    ctx.Inventarios.Attach(Inventario);
                     ctx.DetalleInventario.Add(nDetalleInventario);
                     ctx.SaveChanges();
                 }

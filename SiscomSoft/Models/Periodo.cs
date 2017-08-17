@@ -35,7 +35,5 @@ namespace SiscomSoft.Models
         {
             this.bStatus = true;
         }
-
-        public virtual ICollection<DetallePeriodo> DetallePeriodos { get; set; }
     }
 }

@@ -1513,6 +1513,7 @@ namespace SiscomSoft_Desktop.Views
         private void guardarVenta()
         {
             Venta mVenta = new Venta();
+            DetalleVenta mDetalleVenta = new DetalleVenta();
             Periodo mPeriodo = ManejoPeriodo.getByUser(FrmMenu.uHelper.usuario.idUsuario);
             mVenta.sFolio = ManejoVenta.Folio();
             if (lblCambio.Text=="")
@@ -1543,7 +1544,6 @@ namespace SiscomSoft_Desktop.Views
             mInventario.sTipoMov = "Salida";
             #endregion
 
-            DetalleVenta mDetalleVenta = new DetalleVenta();
             foreach (DataGridViewRow row in dgvDetalleProductos.Rows)
             {
                 if (!row.IsNewRow)
@@ -1563,6 +1563,7 @@ namespace SiscomSoft_Desktop.Views
                     mDetalleInventario.dLastCosto = mProducto.dCosto;
                     mDetalleInventario.producto_id = mProducto;
                     mInventario.DetalleInventario.Add(mDetalleInventario);
+                   // ManejoDetalleInventario.RegistrarNuevoDetalleInventario(mDetalleInventario, mProducto.idProducto, mInventario.idInventario);
                     #endregion
 
                     #region EXISTENCIAS
@@ -1582,14 +1583,14 @@ namespace SiscomSoft_Desktop.Views
                     #endregion
                 }
             }
-
-            ManejoVenta.RegistrarNuevaVenta(mVenta, mCliente, mFactura, FrmMenu.uHelper.usuario);
             ManejoInventario.RegistrarNuevoInventario(mInventario, FrmMenu.uHelper.usuario);
-
+            ManejoVenta.RegistrarNuevaVenta(mVenta, mCliente, mFactura, FrmMenu.uHelper.usuario);
             DetallePeriodo nDetallePeriodo = new DetallePeriodo();
-            nDetallePeriodo.periodo_id = mPeriodo;
             nDetallePeriodo.venta_id = mVenta;
-            ManejoDetallePeriodo.Guardar(nDetallePeriodo);
+            mPeriodo.DetallePeriodos.Add(nDetallePeriodo);
+            ManejoPeriodo.Modificar(mPeriodo, FrmMenu.uHelper.usuario);
+            
+            
 
             mPeriodo = null;
             nVenta = null;

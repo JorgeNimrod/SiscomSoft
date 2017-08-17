@@ -110,7 +110,8 @@ namespace SiscomSoft.Controller
                 DateTime dt = new DateTime(0001,01,01,00,00,00);
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Periodos.Include("usuario_id")
+                    return ctx.Periodos
+                        .Include(i => i.usuario_id)
                         .Where(r => r.usuario_id.idUsuario == pkUsuario && r.bStatus == true && r.dtFinal == dt).FirstOrDefault();
                 }
             }
@@ -127,9 +128,9 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Periodos.Join(ctx.DetallePeriodos, p => p.idPeriodo, dp => dp.periodo_id.idPeriodo, (p, dp) => new { p, dp })
-                                .Join(ctx.Ventas, dp => dp.dp.venta_id.idVenta, v => v.idVenta, (dp, v) => new { dp, v })
-                                .Join(ctx.DetalleVentas, v => v.v.idVenta, dv => dv.venta_id.idVenta, (v, dv) => new { dv, v })
+                    return ctx.Periodos.Join(ctx.DetallePeriodos, p => p.idPeriodo, dp => dp.periodo_id, (p, dp) => new { p, dp })
+                                .Join(ctx.Ventas, dp => dp.dp.venta_id, v => v.idVenta, (dp, v) => new { dp, v })
+                                .Join(ctx.DetalleVentas, v => v.v.idVenta, dv => dv.venta_id, (v, dv) => new { dv, v })
                                 .Where(x => x.v.dp.p.bStatus == true)
                                 .GroupBy(g => new { g.v.v.idVenta, g.v.dp.p.idPeriodo, g.v.dp.p.dtInicio, g.v.v.sTipoPago })
                                 .Select(x => new PeriodoReporte
@@ -158,9 +159,9 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     var mes = DateTime.Now.Month;
-                    return ctx.Periodos.Join(ctx.DetallePeriodos, p => p.idPeriodo, dp => dp.periodo_id.idPeriodo, (p, dp) => new { p, dp })
-                                       .Join(ctx.Ventas, dp => dp.dp.venta_id.idVenta, v => v.idVenta, (dp, v) => new { dp, v })
-                                       .Join(ctx.DetalleVentas, v => v.v.idVenta, dv => dv.venta_id.idVenta, (v, dv) => new { dv, v })
+                    return ctx.Periodos.Join(ctx.DetallePeriodos, p => p.idPeriodo, dp => dp.periodo_id, (p, dp) => new { p, dp })
+                                       .Join(ctx.Ventas, dp => dp.dp.venta_id, v => v.idVenta, (dp, v) => new { dp, v })
+                                       .Join(ctx.DetalleVentas, v => v.v.idVenta, dv => dv.venta_id, (v, dv) => new { dv, v })
                                        .Where(x => x.v.dp.p.bStatus == true && x.v.dp.p.dtInicio > dateInicio && x.v.dp.p.dtInicio < dateFin)
                                        .GroupBy(g => new { g.v.v.idVenta, g.v.dp.p.idPeriodo, g.v.dp.p.dtInicio, g.v.v.sTipoPago })
                                        .Select(x => new PeriodoReporte
@@ -189,12 +190,12 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.DetalleVentas
-                                .Join(ctx.Ventas, dv => dv.venta_id.idVenta, v => v.idVenta, (dv, v) => new { dv, v })
-                                .Where(x => x.dv.venta_id.idVenta == idVenta && x.v.bStatus == true && x.dv.bStatus == true)
+                                .Join(ctx.Ventas, dv => dv.venta_id, v => v.idVenta, (dv, v) => new { dv, v })
+                                .Where(x => x.dv.venta_id == idVenta && x.v.bStatus == true && x.dv.bStatus == true)
                                 .Select(s => new PeriodoVentas
                                 {
                                     idDetalleVenta = s.dv.idDetalleVenta,
-                                    idProducto = s.dv.producto_id.idProducto,
+                                    idProducto = s.dv.producto_id,
                                     sDescripcion = s.dv.sDescripcion,
                                     dCantidad = s.dv.dCantidad,
                                     dCosto = s.dv.dPreUnitario

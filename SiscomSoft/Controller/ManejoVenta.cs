@@ -47,24 +47,15 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static void RegistrarNuevaVenta(Venta nVenta, Cliente nCliente, Factura nFactura, Usuario nUsuario)
+        public static void RegistrarNuevaVenta(Venta nVenta, int idCliente, int idFactura, int idUsuario)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nVenta.cliente_id = nCliente;
-                    nVenta.factura_id = nFactura;
-                    nVenta.usuario_id = nUsuario;
-                    if (nCliente != null)
-                    {
-                        ctx.Clientes.Attach(nCliente);
-                    }
-                    if (nFactura!=null)
-                    {
-                        ctx.Facturas.Attach(nFactura);
-                    }
-                    ctx.Usuarios.Attach(nUsuario);
+                    nVenta.cliente_id = idCliente;
+                    nVenta.factura_id = idFactura;
+                    nVenta.usuario_id = idUsuario;
                     ctx.Ventas.Add(nVenta);
                     ctx.SaveChanges();
                 }

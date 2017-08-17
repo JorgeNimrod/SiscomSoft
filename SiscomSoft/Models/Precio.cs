@@ -18,8 +18,6 @@ namespace SiscomSoft.Models
         public int iPrePorcen { get; set; }
 
         public Boolean bStatus { get; set; }
-
-        public virtual ICollection<Producto> Productos { get; set; }
         
         public Precio()
         {

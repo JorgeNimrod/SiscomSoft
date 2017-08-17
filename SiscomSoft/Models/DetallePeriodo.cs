@@ -15,9 +15,9 @@ namespace SiscomSoft.Models
         [Key]
         public int idDetallePeriodo { get; set; }
 
-        public virtual Periodo periodo_id { get; set; }
+        public int periodo_id { get; set; }
 
-        public virtual Venta venta_id { get; set; }
+        public int venta_id { get; set; }
 
         public Boolean bStatus { get; set; }
 
