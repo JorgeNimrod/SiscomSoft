@@ -77,7 +77,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         row.Cells[0].Value = nProducto.idProducto;
                         row.Cells[1].Value = nProducto.sDescripcion;
                         row.Cells[2].Value = nProducto.dCosto;
-                        row.Cells[3].Value = nProducto.catalogo_id.sUDM;
+                        row.Cells[3].Value = nProducto.catalogo_id;
                         row.Cells[5].Value = 1;
 
                         decimal PreUnitario = Convert.ToDecimal(row.Cells[2].Value);
@@ -195,7 +195,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     dgrDatosAlmacenSalida.CurrentRow.Cells[0].Value = nProducto.idProducto;
                     dgrDatosAlmacenSalida.CurrentRow.Cells[1].Value = nProducto.sDescripcion;
                     dgrDatosAlmacenSalida.CurrentRow.Cells[2].Value = nProducto.dCosto;
-                    dgrDatosAlmacenSalida.CurrentRow.Cells[3].Value = nProducto.catalogo_id.sUDM;
+                    dgrDatosAlmacenSalida.CurrentRow.Cells[3].Value = nProducto.catalogo_id;
 
 
                     decimal DgvIva16 = Convert.ToDecimal(dgrDatosAlmacenSalida.CurrentRow.Cells[9].Value);
