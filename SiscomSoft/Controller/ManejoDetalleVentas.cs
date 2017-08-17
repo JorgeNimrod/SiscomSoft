@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Data.Entity;
 using SiscomSoft.Models;
 
 namespace SiscomSoft.Controller
 {
-    public class ManejoDetallePeriodo
+    public class ManejoDetalleVentas
     {
-        public static void Guardar(DetallePeriodo nDetallePeriodo)
+        public static void Guardar(DetalleVenta nDetalleVenta)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    ctx.Entry(nDetallePeriodo).State = System.Data.Entity.EntityState.Added;
+                    ctx.DetalleVentas.Add(nDetalleVenta);
                     ctx.SaveChanges();
                 }
             }

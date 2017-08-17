@@ -1,4 +1,4 @@
-﻿namespace SiscomSoft_Desktop.Views.UICONTROL
+﻿namespace SiscomSoft_Desktop.Views
 {
     partial class FrmWareHouse
     {
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWareHouse));
             this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -241,9 +241,9 @@
             // 
             // costo
             // 
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.costo.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.costo.DefaultCellStyle = dataGridViewCellStyle5;
             this.costo.HeaderText = "Costo";
             this.costo.Name = "costo";
             this.costo.Width = 150;
@@ -272,9 +272,9 @@
             // 
             // Importe
             // 
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle6;
             this.Importe.FillWeight = 200F;
             this.Importe.HeaderText = "Importe";
             this.Importe.Name = "Importe";
@@ -776,9 +776,9 @@
             this.pnlInventario.Controls.Add(this.btnCerrar);
             this.pnlInventario.Controls.Add(this.dgrMostrarInventario);
             this.pnlInventario.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.pnlInventario.Location = new System.Drawing.Point(1, 47);
+            this.pnlInventario.Location = new System.Drawing.Point(1, 386);
             this.pnlInventario.Name = "pnlInventario";
-            this.pnlInventario.Size = new System.Drawing.Size(1359, 717);
+            this.pnlInventario.Size = new System.Drawing.Size(1359, 378);
             this.pnlInventario.TabIndex = 174;
             this.pnlInventario.UseWaitCursor = true;
             this.pnlInventario.Visible = false;
@@ -930,7 +930,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1362, 764);
+            this.ClientSize = new System.Drawing.Size(1354, 756);
             this.ControlBox = false;
             this.Controls.Add(this.pnlInventario);
             this.Controls.Add(this.btnSalida);

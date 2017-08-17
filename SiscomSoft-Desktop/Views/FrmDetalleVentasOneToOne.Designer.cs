@@ -29,20 +29,19 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleVentasOneToOne));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.pnlDetalleVenta = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblNomCliente = new System.Windows.Forms.Label();
             this.lblNumVenta = new System.Windows.Forms.Label();
             this.pnlAccionesProductos = new System.Windows.Forms.Panel();
@@ -52,6 +51,11 @@
             this.btnPagar = new System.Windows.Forms.Button();
             this.pnlCategoria = new System.Windows.Forms.Panel();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.pkProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlProductos = new System.Windows.Forms.Panel();
             this.lblSubTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -77,7 +81,7 @@
             this.lblCambio = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDecuento = new System.Windows.Forms.Button();
             this.lblTotalDolares = new System.Windows.Forms.TextBox();
             this.lbltotaldolarestexto = new System.Windows.Forms.Label();
             this.lblTotal2 = new System.Windows.Forms.TextBox();
@@ -110,6 +114,11 @@
             this.btnFactura = new System.Windows.Forms.Button();
             this.lblCliente = new System.Windows.Forms.Label();
             this.dgvDetalleProductos = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPagarCancelar = new System.Windows.Forms.Button();
             this.btn = new System.Windows.Forms.Button();
             this.btnVouncher = new System.Windows.Forms.Button();
@@ -139,16 +148,6 @@
             this.btnNo7 = new System.Windows.Forms.Button();
             this.btnNo4 = new System.Windows.Forms.Button();
             this.btnNo1 = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pkProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlDetalleVenta.SuspendLayout();
             this.pnlAccionesProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -189,7 +188,6 @@
             // 
             // pnlDetalleVenta
             // 
-            this.pnlDetalleVenta.Controls.Add(this.button1);
             this.pnlDetalleVenta.Controls.Add(this.lblNomCliente);
             this.pnlDetalleVenta.Controls.Add(this.lblNumVenta);
             this.pnlDetalleVenta.Controls.Add(this.pnlAccionesProductos);
@@ -217,19 +215,6 @@
             this.pnlDetalleVenta.Size = new System.Drawing.Size(1338, 654);
             this.pnlDetalleVenta.TabIndex = 126;
             this.pnlDetalleVenta.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlDetalleVenta_MouseClick);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.DimGray;
-            this.button1.Location = new System.Drawing.Point(1288, 399);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 31);
-            this.button1.TabIndex = 131;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // lblNomCliente
             // 
@@ -368,6 +353,54 @@
             this.dgvProductos.TabIndex = 98;
             this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
             // 
+            // pkProducto
+            // 
+            this.pkProducto.DataPropertyName = "idProducto";
+            this.pkProducto.HeaderText = "No.";
+            this.pkProducto.Name = "pkProducto";
+            this.pkProducto.ReadOnly = true;
+            this.pkProducto.Visible = false;
+            // 
+            // iCantidad
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.iCantidad.DefaultCellStyle = dataGridViewCellStyle1;
+            this.iCantidad.HeaderText = "CANTIDAD";
+            this.iCantidad.Name = "iCantidad";
+            this.iCantidad.ReadOnly = true;
+            this.iCantidad.Width = 70;
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
+            this.sDescripcion.HeaderText = "DESCRIPCION";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
+            this.sDescripcion.Width = 270;
+            // 
+            // dTotal
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dTotal.HeaderText = "TOTAL";
+            this.dTotal.Name = "dTotal";
+            this.dTotal.ReadOnly = true;
+            // 
+            // dCosto
+            // 
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dCosto.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
+            this.dCosto.Visible = false;
+            // 
             // pnlProductos
             // 
             this.pnlProductos.AutoScroll = true;
@@ -404,7 +437,7 @@
             this.txtCantidad.ForeColor = System.Drawing.Color.Gray;
             this.txtCantidad.Location = new System.Drawing.Point(814, 399);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(468, 31);
+            this.txtCantidad.Size = new System.Drawing.Size(524, 31);
             this.txtCantidad.TabIndex = 1;
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
@@ -628,7 +661,7 @@
             this.pnlPagar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlPagar.Controls.Add(this.pnlCambio);
             this.pnlPagar.Controls.Add(this.button4);
-            this.pnlPagar.Controls.Add(this.button3);
+            this.pnlPagar.Controls.Add(this.btnDecuento);
             this.pnlPagar.Controls.Add(this.lblTotalDolares);
             this.pnlPagar.Controls.Add(this.lbltotaldolarestexto);
             this.pnlPagar.Controls.Add(this.lblTotal2);
@@ -682,7 +715,7 @@
             this.pnlCambio.Controls.Add(this.label8);
             this.pnlCambio.Location = new System.Drawing.Point(480, 22);
             this.pnlCambio.Name = "pnlCambio";
-            this.pnlCambio.Size = new System.Drawing.Size(649, 166);
+            this.pnlCambio.Size = new System.Drawing.Size(650, 166);
             this.pnlCambio.TabIndex = 156;
             this.pnlCambio.Visible = false;
             // 
@@ -719,17 +752,18 @@
             this.button4.TabIndex = 169;
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnDecuento
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.DimGray;
-            this.button3.Location = new System.Drawing.Point(480, 586);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(192, 68);
-            this.button3.TabIndex = 168;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnDecuento.BackColor = System.Drawing.Color.White;
+            this.btnDecuento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDecuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDecuento.ForeColor = System.Drawing.Color.DimGray;
+            this.btnDecuento.Location = new System.Drawing.Point(480, 586);
+            this.btnDecuento.Name = "btnDecuento";
+            this.btnDecuento.Size = new System.Drawing.Size(192, 68);
+            this.btnDecuento.TabIndex = 168;
+            this.btnDecuento.Text = "Descuento";
+            this.btnDecuento.UseVisualStyleBackColor = false;
             // 
             // lblTotalDolares
             // 
@@ -1090,6 +1124,55 @@
             this.dgvDetalleProductos.ShowRowErrors = false;
             this.dgvDetalleProductos.Size = new System.Drawing.Size(474, 632);
             this.dgvDetalleProductos.TabIndex = 154;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "idProducto";
+            this.dataGridViewTextBoxColumn1.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewTextBoxColumn2.HeaderText = "CANTIDAD";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "sDescripcion";
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn3.HeaderText = "DESCRIPCION";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn4.HeaderText = "TOTAL";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 105;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Costo";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
             // 
             // btnPagarCancelar
             // 
@@ -1487,103 +1570,6 @@
             this.btnNo1.UseVisualStyleBackColor = false;
             this.btnNo1.Click += new System.EventHandler(this.btnNo1_Click);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "idProducto";
-            this.dataGridViewTextBoxColumn1.HeaderText = "No.";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewTextBoxColumn2.HeaderText = "CANTIDAD";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "sDescripcion";
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn3.HeaderText = "DESCRIPCION";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 300;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "C2";
-            dataGridViewCellStyle8.NullValue = null;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn4.HeaderText = "TOTAL";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 105;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Costo";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Visible = false;
-            // 
-            // pkProducto
-            // 
-            this.pkProducto.DataPropertyName = "idProducto";
-            this.pkProducto.HeaderText = "No.";
-            this.pkProducto.Name = "pkProducto";
-            this.pkProducto.ReadOnly = true;
-            this.pkProducto.Visible = false;
-            // 
-            // iCantidad
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.iCantidad.DefaultCellStyle = dataGridViewCellStyle1;
-            this.iCantidad.HeaderText = "CANTIDAD";
-            this.iCantidad.Name = "iCantidad";
-            this.iCantidad.ReadOnly = true;
-            this.iCantidad.Width = 70;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.sDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
-            this.sDescripcion.HeaderText = "DESCRIPCION";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            this.sDescripcion.Width = 270;
-            // 
-            // dTotal
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dTotal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dTotal.HeaderText = "TOTAL";
-            this.dTotal.Name = "dTotal";
-            this.dTotal.ReadOnly = true;
-            // 
-            // dCosto
-            // 
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dCosto.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
-            this.dCosto.Visible = false;
-            // 
             // FrmDetalleVentasOneToOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -1718,13 +1704,12 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblImporteDolares;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox lblMonto;
         private System.Windows.Forms.TextBox lblTotalDolares;
         private System.Windows.Forms.Label lbltotaldolarestexto;
         private System.Windows.Forms.TextBox lblTotal2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDecuento;
         private System.Windows.Forms.Panel pnlCambio;
         private System.Windows.Forms.TextBox lblCambio;
         private System.Windows.Forms.Label label8;

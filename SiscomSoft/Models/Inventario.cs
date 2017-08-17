@@ -22,16 +22,14 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public virtual Usuario usuario_id { get; set; }
+        public int usuario_id { get; set; }
 
-        public virtual Almacen almacen_id { get; set; }
-
-        public virtual ICollection<DetalleInventario> DetalleInventario { get; set; }
+        public int almacen_id { get; set; }
 
         public Inventario()
         {
             this.bStatus = true;
-            DetalleInventario = new HashSet<DetalleInventario>();
+            this.almacen_id = 0;
         }
     }
 }

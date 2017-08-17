@@ -7,16 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SiscomSoft.Comun;
-using SiscomSoft.Controller;
-using SiscomSoft.Models;
 
-namespace SiscomSoft_Desktop.Views.UICONTROL
+namespace SiscomSoft_Desktop.Views
 {
-    public partial class FrmAgregarDescuentoProducto : Form
+
+    public partial class FrmDescuentosForProduct : Form
     {
-        
-        int status=1;
+        decimal acumulador = 0;
+        int status = 1;
         public static decimal descuento1 = 0;
         public static decimal descuento2 = 0;
         public static decimal descuento3 = 0;
@@ -28,27 +26,222 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         public static decimal descuento9 = 0;
         public static decimal descuento10 = 0;
         FrmWareHouse vMain;
-        public FrmAgregarDescuentoProducto(FrmWareHouse vmain)
+
+        public FrmDescuentosForProduct(FrmWareHouse vmain)
         {
             InitializeComponent();
             vMain = vmain;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-     
-
-
-        private void FrmAgregarDescuentoProducto_Load(object sender, EventArgs e)
+        private void FrmDescuentosForProduct_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void btnMasCantidad_Click(object sender, EventArgs e)
+        private void txtDescuento1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void txtDescuento2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescuento3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescuento4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+       
+
+        private void txtDescuento6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescuento7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescuento8_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescuento9_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescuento10_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescuento5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnMas_Click(object sender, EventArgs e)
+        {
             if (status == 1)
             {
                 status += 1;
@@ -59,48 +252,46 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 status += 1;
                 txtDescuento3.Visible = true;
             }
-           else if (status == 3)
+            else if (status == 3)
             {
                 status += 1;
-                txtDescuenti4.Visible = true;
+                txtDescuento4.Visible = true;
             }
-           else if (status == 4)
+            else if (status == 4)
             {
                 status += 1;
                 txtDescuento5.Visible = true;
             }
-           else if (status == 5)
+            else if (status == 5)
             {
                 status += 1;
                 txtDescuento6.Visible = true;
             }
-           else if (status == 6)
+            else if (status == 6)
             {
                 status += 1;
-                txtDescuenti7.Visible = true;
+                txtDescuento7.Visible = true;
             }
-           else if (status == 7)
+            else if (status == 7)
             {
                 status += 1;
                 txtDescuento8.Visible = true;
             }
-           else if (status == 8)
+            else if (status == 8)
             {
                 status += 1;
                 txtDescuento9.Visible = true;
             }
-           else if (status == 9)
+            else if (status == 9)
             {
                 status += 1;
                 txtDescuento10.Visible = true;
             }
 
-
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnAaceptar_Click(object sender, EventArgs e)
         {
-
 
             if (txtDescuento1.Text == null)
             {
@@ -124,11 +315,11 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 this.txtDescuento3.Focus();
 
             }
-            else if (txtDescuenti4.Text == null)
+            else if (txtDescuento4.Text == null)
             {
-                this.ErrorProvider.SetIconAlignment(this.txtDescuenti4, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtDescuenti4, "Campo necesario");
-                this.txtDescuenti4.Focus();
+                this.ErrorProvider.SetIconAlignment(this.txtDescuento4, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtDescuento4, "Campo necesario");
+                this.txtDescuento4.Focus();
 
             }
             else if (txtDescuento5.Text == null)
@@ -145,11 +336,11 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 this.txtDescuento6.Focus();
 
             }
-            else if (txtDescuenti7.Text == null)
+            else if (txtDescuento7.Text == null)
             {
-                this.ErrorProvider.SetIconAlignment(this.txtDescuenti7, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtDescuenti7, "Campo necesario");
-                this.txtDescuenti7.Focus();
+                this.ErrorProvider.SetIconAlignment(this.txtDescuento7, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtDescuento7, "Campo necesario");
+                this.txtDescuento7.Focus();
 
             }
             else if (txtDescuento8.Text == null)
@@ -181,7 +372,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 }
                 else
                 {
-                 descuento1 = Convert.ToDecimal(txtDescuento1.Text);
+                    descuento1 = Convert.ToDecimal(txtDescuento1.Text);
                 }
                 if (txtDescuento2.Text == "")
                 {
@@ -199,13 +390,13 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 {
                     descuento3 = Convert.ToDecimal(txtDescuento3.Text);
                 }
-                if (txtDescuenti4.Text == "")
+                if (txtDescuento4.Text == "")
                 {
-                    txtDescuenti4.Text = "0";
+                    txtDescuento4.Text = "0";
                 }
                 else
                 {
-                    descuento4 = Convert.ToDecimal(txtDescuenti4.Text);
+                    descuento4 = Convert.ToDecimal(txtDescuento4.Text);
                 }
                 if (txtDescuento5.Text == "")
                 {
@@ -223,13 +414,13 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 {
                     descuento6 = Convert.ToDecimal(txtDescuento6.Text);
                 }
-                if (txtDescuenti7.Text == "")
+                if (txtDescuento7.Text == "")
                 {
-                    txtDescuenti7.Text = "0";
+                    txtDescuento7.Text = "0";
                 }
                 else
                 {
-                    descuento7 = Convert.ToDecimal(txtDescuenti7.Text);
+                    descuento7 = Convert.ToDecimal(txtDescuento7.Text);
                 }
                 if (txtDescuento8.Text == "")
                 {
@@ -256,24 +447,28 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     descuento10 = Convert.ToDecimal(txtDescuento10.Text);
                 }
 
-                
                 FrmWareHouse.Descuentos = Convert.ToDecimal(descuento1) + Convert.ToDecimal(descuento2) + Convert.ToDecimal(descuento3) + Convert.ToDecimal(descuento4) + Convert.ToDecimal(descuento5) + Convert.ToDecimal(descuento6) + Convert.ToDecimal(descuento7) + Convert.ToDecimal(descuento8) + Convert.ToDecimal(descuento9) + Convert.ToDecimal(descuento10);
-                //vMain.mapeardescuento(FrmWareHouse.PKPRODUCTO);
-
-                this.Close();
+                if (FrmWareHouse.Descuentos <= 100)
+                {
+                    vMain.mapeardescuento(FrmWareHouse.idProducto);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El descuento acumulado debe ser menor a 100%");
+                }
             }
-
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRemoveRow_Click(object sender, EventArgs e)
-        {
           
+              
+                
+            
+               
+                
+           
+        }
+
+        private void btnMenos_Click(object sender, EventArgs e)
+        {
             if (status == 10)
             {
                 status -= 1;
@@ -292,11 +487,11 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 txtDescuento8.Visible = false;
                 txtDescuento8.Clear();
             }
-            else if (status == 7 )
+            else if (status == 7)
             {
                 status -= 1;
-                txtDescuenti7.Visible = false;
-                txtDescuenti7.Clear();
+                txtDescuento7.Visible = false;
+                txtDescuento7.Clear();
             }
             else if (status == 6)
             {
@@ -313,8 +508,8 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             else if (status == 4)
             {
                 status -= 1;
-                txtDescuenti4.Visible = false;
-                txtDescuenti4.Clear();
+                txtDescuento4.Visible = false;
+                txtDescuento4.Clear();
             }
             else if (status == 3)
             {
@@ -328,11 +523,6 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 txtDescuento2.Visible = false;
                 txtDescuento2.Clear();
             }
-        }
-
-        private void pnlAccionesDesc_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void txtDescuento1_TextChanged(object sender, EventArgs e)
@@ -350,7 +540,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             ErrorProvider.Clear();
         }
 
-        private void txtDescuenti4_TextChanged(object sender, EventArgs e)
+        private void txtDescuento4_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
@@ -365,7 +555,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             ErrorProvider.Clear();
         }
 
-        private void txtDescuenti7_TextChanged(object sender, EventArgs e)
+        private void txtDescuento7_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }

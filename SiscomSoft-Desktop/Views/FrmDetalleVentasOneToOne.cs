@@ -16,6 +16,8 @@ namespace SiscomSoft_Desktop.Views
     public partial class FrmDetalleVentasOneToOne : Form
     {
         #region MAIN
+
+        #region VARIABLES
         Boolean pesos = false;
         Boolean dolar = false;
         Boolean punto = true;
@@ -36,6 +38,7 @@ namespace SiscomSoft_Desktop.Views
         public static List<DetalleVenta> nVenta;
         public static Cliente mCliente;
         public static Factura mFactura;
+        #endregion
 
         public FrmDetalleVentasOneToOne()
         {
@@ -185,9 +188,12 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
-            Close();
-            FrmMenu V = new Views.FrmMenu();
-            V.ShowDialog();
+            if (dgvProductos.RowCount == 1 && dgvDetalleProductos.RowCount == 1)
+            {
+                Close();
+                FrmMenu V = new Views.FrmMenu();
+                V.ShowDialog();
+            }
         }
 
         private void btnPagar_Click(object sender, EventArgs e)
@@ -1357,64 +1363,56 @@ namespace SiscomSoft_Desktop.Views
                 else
                 {
                     cambioDolar = montoDolar - totalDolar;
-                    if (cambioDolar == 0)
-                    {
-                        guardarVenta();
-                        pnlPagar.Visible = false;
-                        pnlDetalleVenta.Visible = true;
-                    }
-                    else
-                    {
 
-                        btn500pesos.Enabled = false;
-                        btn200pesos.Enabled = false;
-                        btn100Peso.Enabled = false;
-                        btn50Peso.Enabled = false;
-                        btn20Peso.Enabled = false;
+                    btn500pesos.Enabled = false;
+                    btn200pesos.Enabled = false;
+                    btn100Peso.Enabled = false;
+                    btn50Peso.Enabled = false;
+                    btn20Peso.Enabled = false;
 
-                        btnNo0.Enabled = false;
-                        btnNo1.Enabled = false;
-                        btnNo2.Enabled = false;
-                        btnNo3.Enabled = false;
-                        btnNo4.Enabled = false;
-                        btnNo5.Enabled = false;
-                        btnNo6.Enabled = false;
-                        btnNo7.Enabled = false;
-                        btnNo8.Enabled = false;
-                        btnNo9.Enabled = false;
-                        btnPuntoPagar.Enabled = false;
-                        btnClear.Enabled = false;
-                        btnAll.Enabled = false;
+                    btnNo0.Enabled = false;
+                    btnNo1.Enabled = false;
+                    btnNo2.Enabled = false;
+                    btnNo3.Enabled = false;
+                    btnNo4.Enabled = false;
+                    btnNo5.Enabled = false;
+                    btnNo6.Enabled = false;
+                    btnNo7.Enabled = false;
+                    btnNo8.Enabled = false;
+                    btnNo9.Enabled = false;
+                    btnPuntoPagar.Enabled = false;
+                    btnClear.Enabled = false;
+                    btnAll.Enabled = false;
 
-                        btnFactura.Enabled = false;
-                        button2.Enabled = false;
-                        btn1000pesos.Enabled = false;
-                        btnDolares.Enabled = false;
-                        button11.Enabled = false;
-                        button12.Enabled = false;
-                        button13.Enabled = false;
+                    btnFactura.Enabled = false;
+                    button2.Enabled = false;
+                    btn1000pesos.Enabled = false;
+                    btnDolares.Enabled = false;
+                    button11.Enabled = false;
+                    button12.Enabled = false;
+                    button13.Enabled = false;
+                    btnDecuento.Enabled = false;
 
-                        lbltotaldolarestexto.Visible = false;
-                        lblTotalDolares.Visible = false;
-                        lblCambio.Text = cambioDolar.ToString();
-                        pnlCambio.Visible = true;
+                    lbltotaldolarestexto.Visible = false;
+                    lblTotalDolares.Visible = false;
+                    lblCambio.Text = cambioDolar.ToString();
+                    pnlCambio.Visible = true;
 
-                        pnlDetalleMinimo.Visible = true;
-                        lblImporte.Text = lblTotal2.Text;
-                        lblImporteDolares.Text = totalDolar.ToString("N");
-                        lblMontoRecibido.Text = montoDolar.ToString("N");
-                        lblCambioDado.Text = cambioDolar.ToString("N");
-                        lblIVA16.Text = IVA16.ToString("N");
-                        lblIVA11.Text = IVA11.ToString("N");
-                        lblIVA4.Text = IVA4.ToString("N");
-                        lblIEPS53.Text = IEPS53.ToString("N");
-                        lblIEPS30.Text = IEPS30.ToString("N");
-                        lblIEPS26.Text = IEPS26.ToString("N");
-                        lblDescuento.Text = DESCUENTO.ToString("N");
+                    pnlDetalleMinimo.Visible = true;
+                    lblImporte.Text = lblTotal2.Text;
+                    lblImporteDolares.Text = totalDolar.ToString("N");
+                    lblMontoRecibido.Text = montoDolar.ToString("N");
+                    lblCambioDado.Text = cambioDolar.ToString("N");
+                    lblIVA16.Text = IVA16.ToString("N");
+                    lblIVA11.Text = IVA11.ToString("N");
+                    lblIVA4.Text = IVA4.ToString("N");
+                    lblIEPS53.Text = IEPS53.ToString("N");
+                    lblIEPS30.Text = IEPS30.ToString("N");
+                    lblIEPS26.Text = IEPS26.ToString("N");
+                    lblDescuento.Text = DESCUENTO.ToString("N");
 
-                        dgvDetalleProductos.Height = 440;
-                        guardarVenta();
-                    }
+                    dgvDetalleProductos.Height = 440;
+                    guardarVenta();
                 }
                 #endregion
             }
@@ -1450,61 +1448,52 @@ namespace SiscomSoft_Desktop.Views
                 else
                 {
                     cambio = monto - total;
-                    if (cambio == 0)
-                    {
-                        guardarVenta();
-                        pnlPagar.Visible = false;
-                        pnlDetalleVenta.Visible = true;
-                    }
-                    else
-                    {
+                    btn500pesos.Enabled = false;
+                    btn200pesos.Enabled = false;
+                    btn100Peso.Enabled = false;
+                    btn50Peso.Enabled = false;
+                    btn20Peso.Enabled = false;
 
-                        btn500pesos.Enabled = false;
-                        btn200pesos.Enabled = false;
-                        btn100Peso.Enabled = false;
-                        btn50Peso.Enabled = false;
-                        btn20Peso.Enabled = false;
+                    btnNo0.Enabled = false;
+                    btnNo1.Enabled = false;
+                    btnNo2.Enabled = false;
+                    btnNo3.Enabled = false;
+                    btnNo4.Enabled = false;
+                    btnNo5.Enabled = false;
+                    btnNo6.Enabled = false;
+                    btnNo7.Enabled = false;
+                    btnNo8.Enabled = false;
+                    btnNo9.Enabled = false;
+                    btnPuntoPagar.Enabled = false;
+                    btnClear.Enabled = false;
+                    btnAll.Enabled = false;
 
-                        btnNo0.Enabled = false;
-                        btnNo1.Enabled = false;
-                        btnNo2.Enabled = false;
-                        btnNo3.Enabled = false;
-                        btnNo4.Enabled = false;
-                        btnNo5.Enabled = false;
-                        btnNo6.Enabled = false;
-                        btnNo7.Enabled = false;
-                        btnNo8.Enabled = false;
-                        btnNo9.Enabled = false;
-                        btnPuntoPagar.Enabled = false;
-                        btnClear.Enabled = false;
-                        btnAll.Enabled = false;
+                    btnFactura.Enabled = false;
+                    button2.Enabled = false;
+                    btn1000pesos.Enabled = false;
+                    btnDolares.Enabled = false;
+                    button11.Enabled = false;
+                    button12.Enabled = false;
+                    button13.Enabled = false;
+                    btnDecuento.Enabled = false;
 
-                        btnFactura.Enabled = false;
-                        button2.Enabled = false;
-                        btn1000pesos.Enabled = false;
-                        btnDolares.Enabled = false;
-                        button11.Enabled = false;
-                        button12.Enabled = false;
-                        button13.Enabled = false;
+                    lblCambio.Text = cambio.ToString();
+                    pnlCambio.Visible = true;
 
-                        lblCambio.Text = cambio.ToString();
-                        pnlCambio.Visible = true;
+                    pnlDetalleMinimo.Visible = true;
+                    lblImporte.Text = total.ToString();
+                    lblMontoRecibido.Text = monto.ToString();
+                    lblCambioDado.Text = cambio.ToString();
+                    lblIVA16.Text = IVA16.ToString("N");
+                    lblIVA11.Text = IVA11.ToString("N");
+                    lblIVA4.Text = IVA4.ToString("N");
+                    lblIEPS53.Text = IEPS53.ToString("N");
+                    lblIEPS30.Text = IEPS30.ToString("N");
+                    lblIEPS26.Text = IEPS26.ToString("N");
+                    lblDescuento.Text = DESCUENTO.ToString("N");
 
-                        pnlDetalleMinimo.Visible = true;
-                        lblImporte.Text = total.ToString();
-                        lblMontoRecibido.Text = monto.ToString();
-                        lblCambioDado.Text = cambio.ToString();
-                        lblIVA16.Text = IVA16.ToString("N");
-                        lblIVA11.Text = IVA11.ToString("N");
-                        lblIVA4.Text = IVA4.ToString("N");
-                        lblIEPS53.Text = IEPS53.ToString("N");
-                        lblIEPS30.Text = IEPS30.ToString("N");
-                        lblIEPS26.Text = IEPS26.ToString("N");
-                        lblDescuento.Text = DESCUENTO.ToString("N");
-
-                        dgvDetalleProductos.Height = 440;
-                        guardarVenta();
-                    }
+                    dgvDetalleProductos.Height = 440;
+                    guardarVenta();
                 }
                 #endregion
             }
@@ -1512,6 +1501,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void guardarVenta()
         {
+            #region VENTA
             Venta mVenta = new Venta();
             DetalleVenta mDetalleVenta = new DetalleVenta();
             Periodo mPeriodo = ManejoPeriodo.getByUser(FrmMenu.uHelper.usuario.idUsuario);
@@ -1535,6 +1525,17 @@ namespace SiscomSoft_Desktop.Views
             mVenta.sTipoPago = "EFECTIVO";
             mVenta.iCaja = Convert.ToInt32(mPeriodo.sCaja);
             mVenta.iTurno = mPeriodo.iTurno;
+            if (mCliente!=null)
+            {
+                mVenta.cliente_id = mCliente.idCliente;
+            }
+            if (mFactura!=null)
+            {
+                mVenta.factura_id = mFactura.idFactura;
+            }
+            mVenta.usuario_id = FrmMenu.uHelper.usuario.idUsuario;
+            ManejoVenta.RegistrarNuevaVenta(mVenta);
+            #endregion
 
             #region INVENTARIO
             Inventario mInventario = new Inventario();
@@ -1542,6 +1543,8 @@ namespace SiscomSoft_Desktop.Views
             mInventario.dtFecha = DateTime.Now;
             mInventario.sFolio = ManejoInventario.Folio();
             mInventario.sTipoMov = "Salida";
+            mInventario.usuario_id = FrmMenu.uHelper.usuario.idUsuario;
+            ManejoInventario.RegistrarNuevoInventario(mInventario);
             #endregion
 
             foreach (DataGridViewRow row in dgvDetalleProductos.Rows)
@@ -1554,16 +1557,17 @@ namespace SiscomSoft_Desktop.Views
                     mDetalleVenta.sDescripcion = row.Cells[2].Value.ToString();
                     mDetalleVenta.dPreUnitario = Convert.ToDecimal(row.Cells[4].Value);
                     mDetalleVenta.producto_id = mProducto.idProducto;
-                    //mVenta.DetalleVentas.Add(mDetalleVenta);
+                    mDetalleVenta.venta_id = mVenta.idVenta;
+                    ManejoDetalleVentas.Guardar(mDetalleVenta);
                     #endregion
 
                     #region DETALLE INVENTARIO
                     mDetalleInventario.dCantidad = Convert.ToDecimal(row.Cells[1].Value);
                     mDetalleInventario.dPreVenta = mProducto.dPreVenta;
                     mDetalleInventario.dLastCosto = mProducto.dCosto;
-                    mDetalleInventario.producto_id = mProducto;
-                    mInventario.DetalleInventario.Add(mDetalleInventario);
-                   // ManejoDetalleInventario.RegistrarNuevoDetalleInventario(mDetalleInventario, mProducto.idProducto, mInventario.idInventario);
+                    mDetalleInventario.producto_id = mProducto.idProducto;
+                    mDetalleInventario.inventario_id = mInventario.idInventario;
+                    ManejoDetalleInventario.RegistrarNuevoDetalleInventario(mDetalleInventario);
                     #endregion
 
                     #region EXISTENCIAS
@@ -1578,20 +1582,20 @@ namespace SiscomSoft_Desktop.Views
                     }
                     else
                     {
-                        MessageBox.Show("Test");
+                        MessageBox.Show("El producto: " + mProducto.sDescripcion + "no tiene existencias");
                     }
                     #endregion
                 }
             }
-            ManejoInventario.RegistrarNuevoInventario(mInventario, FrmMenu.uHelper.usuario);
-            ManejoVenta.RegistrarNuevaVenta(mVenta, mCliente.idCliente, mFactura.idFactura, FrmMenu.uHelper.usuario.idUsuario);
-            DetallePeriodo nDetallePeriodo = new DetallePeriodo();
-            nDetallePeriodo.venta_id = mVenta.idVenta;
-            //mPeriodo.DetallePeriodos.Add(nDetallePeriodo);
-            ManejoPeriodo.Modificar(mPeriodo, FrmMenu.uHelper.usuario);
-            
-            
 
+            #region PERIODO
+            DetallePeriodo nDetallePeriodo = new DetallePeriodo();
+            nDetallePeriodo.periodo_id = mPeriodo.idPeriodo;
+            nDetallePeriodo.venta_id = mVenta.idVenta;
+            ManejoDetallePeriodo.Guardar(nDetallePeriodo);
+            #endregion
+
+            #region LIMPIAR
             mPeriodo = null;
             nVenta = null;
             mCliente = null;
@@ -1613,6 +1617,7 @@ namespace SiscomSoft_Desktop.Views
             pnlAccionesProductos.Visible = false;
             pnlAccionesGenerales.Visible = true;
             numeroVenta();
+            #endregion
         }
         #endregion
 

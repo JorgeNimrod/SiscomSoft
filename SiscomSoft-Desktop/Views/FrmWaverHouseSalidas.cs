@@ -16,7 +16,7 @@ using SiscomSoft.Controller;
 using SiscomSoft.Models;
 using System.Globalization;
 
-namespace SiscomSoft_Desktop.Views.UICONTROL
+namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmWaverHouseSalidas : Form
     {

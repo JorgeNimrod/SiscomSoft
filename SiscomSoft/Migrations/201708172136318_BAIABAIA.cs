@@ -360,35 +360,16 @@ namespace SiscomSoft.Migrations
                 c => new
                     {
                         pkDetalleInventario = c.Int(nullable: false, identity: true),
+                        inventario_id = c.Int(nullable: false),
+                        producto_id = c.Int(nullable: false),
                         dCantidad = c.Decimal(nullable: false, precision: 18, scale: 2),
                         dLastCosto = c.Decimal(nullable: false, precision: 18, scale: 2),
                         dPreVenta = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        inventario_id_idInventario = c.Int(),
-                        producto_id_idProducto = c.Int(),
+                        Producto_idProducto = c.Int(),
                     })
                 .PrimaryKey(t => t.pkDetalleInventario)
-                .ForeignKey("dbo.Inventario", t => t.inventario_id_idInventario)
-                .ForeignKey("dbo.Productos", t => t.producto_id_idProducto)
-                .Index(t => t.inventario_id_idInventario)
-                .Index(t => t.producto_id_idProducto);
-            
-            CreateTable(
-                "dbo.Inventario",
-                c => new
-                    {
-                        idInventario = c.Int(nullable: false, identity: true),
-                        sFolio = c.String(unicode: false),
-                        dtFecha = c.DateTime(nullable: false, precision: 0),
-                        sTipoMov = c.String(unicode: false),
-                        bStatus = c.Boolean(nullable: false),
-                        almacen_id_idAlmacen = c.Int(),
-                        usuario_id_idUsuario = c.Int(),
-                    })
-                .PrimaryKey(t => t.idInventario)
-                .ForeignKey("dbo.Almacenes", t => t.almacen_id_idAlmacen)
-                .ForeignKey("dbo.Usuarios", t => t.usuario_id_idUsuario)
-                .Index(t => t.almacen_id_idAlmacen)
-                .Index(t => t.usuario_id_idUsuario);
+                .ForeignKey("dbo.Productos", t => t.Producto_idProducto)
+                .Index(t => t.Producto_idProducto);
             
             CreateTable(
                 "dbo.Existencias",
@@ -434,6 +415,23 @@ namespace SiscomSoft.Migrations
                         bStatus = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.idImpuesto);
+            
+            CreateTable(
+                "dbo.Inventario",
+                c => new
+                    {
+                        idInventario = c.Int(nullable: false, identity: true),
+                        sFolio = c.String(unicode: false),
+                        dtFecha = c.DateTime(nullable: false, precision: 0),
+                        sTipoMov = c.String(unicode: false),
+                        bStatus = c.Boolean(nullable: false),
+                        usuario_id = c.Int(nullable: false),
+                        almacen_id = c.Int(nullable: false),
+                        Almacen_idAlmacen = c.Int(),
+                    })
+                .PrimaryKey(t => t.idInventario)
+                .ForeignKey("dbo.Almacenes", t => t.Almacen_idAlmacen)
+                .Index(t => t.Almacen_idAlmacen);
             
             CreateTable(
                 "dbo.Catalogos",
@@ -515,16 +513,14 @@ namespace SiscomSoft.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Periodos", "usuario_id_idUsuario", "dbo.Usuarios");
+            DropForeignKey("dbo.Inventario", "Almacen_idAlmacen", "dbo.Almacenes");
             DropForeignKey("dbo.Capa", "producto_id_idProducto", "dbo.Productos");
             DropForeignKey("dbo.ImpuestosProducto", "producto_id_idProducto", "dbo.Productos");
             DropForeignKey("dbo.ImpuestosProducto", "impuesto_id_idImpuesto", "dbo.Impuestos");
             DropForeignKey("dbo.Facturas", "Impuesto_idImpuesto", "dbo.Impuestos");
             DropForeignKey("dbo.Existencias", "producto_id_idProducto", "dbo.Productos");
             DropForeignKey("dbo.Existencias", "almacen_id_idAlmacen", "dbo.Almacenes");
-            DropForeignKey("dbo.DetalleInventario", "producto_id_idProducto", "dbo.Productos");
-            DropForeignKey("dbo.Inventario", "usuario_id_idUsuario", "dbo.Usuarios");
-            DropForeignKey("dbo.DetalleInventario", "inventario_id_idInventario", "dbo.Inventario");
-            DropForeignKey("dbo.Inventario", "almacen_id_idAlmacen", "dbo.Almacenes");
+            DropForeignKey("dbo.DetalleInventario", "Producto_idProducto", "dbo.Productos");
             DropForeignKey("dbo.DetalleFacturacion", "producto_id_idProducto", "dbo.Productos");
             DropForeignKey("dbo.Ventas", "Factura_idFactura", "dbo.Facturas");
             DropForeignKey("dbo.Facturas", "usuario_id_idUsuario", "dbo.Usuarios");
@@ -546,14 +542,12 @@ namespace SiscomSoft.Migrations
             DropForeignKey("dbo.DescuentosProducto", "descuento_id_idDescuento", "dbo.Descuentos");
             DropForeignKey("dbo.Capa", "almacen_id_idAlmacen", "dbo.Almacenes");
             DropIndex("dbo.Periodos", new[] { "usuario_id_idUsuario" });
+            DropIndex("dbo.Inventario", new[] { "Almacen_idAlmacen" });
             DropIndex("dbo.ImpuestosProducto", new[] { "producto_id_idProducto" });
             DropIndex("dbo.ImpuestosProducto", new[] { "impuesto_id_idImpuesto" });
             DropIndex("dbo.Existencias", new[] { "producto_id_idProducto" });
             DropIndex("dbo.Existencias", new[] { "almacen_id_idAlmacen" });
-            DropIndex("dbo.Inventario", new[] { "usuario_id_idUsuario" });
-            DropIndex("dbo.Inventario", new[] { "almacen_id_idAlmacen" });
-            DropIndex("dbo.DetalleInventario", new[] { "producto_id_idProducto" });
-            DropIndex("dbo.DetalleInventario", new[] { "inventario_id_idInventario" });
+            DropIndex("dbo.DetalleInventario", new[] { "Producto_idProducto" });
             DropIndex("dbo.PermisosNegadosRol", new[] { "rol_id_idRol" });
             DropIndex("dbo.PermisosNegadosRol", new[] { "permiso_id_idPermiso" });
             DropIndex("dbo.Usuarios", new[] { "sucursal_id_idSucursal" });
@@ -582,10 +576,10 @@ namespace SiscomSoft.Migrations
             DropTable("dbo.DetallePeriodos");
             DropTable("dbo.Categorias");
             DropTable("dbo.Catalogos");
+            DropTable("dbo.Inventario");
             DropTable("dbo.Impuestos");
             DropTable("dbo.ImpuestosProducto");
             DropTable("dbo.Existencias");
-            DropTable("dbo.Inventario");
             DropTable("dbo.DetalleInventario");
             DropTable("dbo.Permisos");
             DropTable("dbo.PermisosNegadosRol");

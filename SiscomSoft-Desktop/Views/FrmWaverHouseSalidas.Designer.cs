@@ -1,4 +1,4 @@
-﻿namespace SiscomSoft_Desktop.Views.UICONTROL
+﻿namespace SiscomSoft_Desktop.Views
 {
     partial class FrmWaverHouseSalidas
     {

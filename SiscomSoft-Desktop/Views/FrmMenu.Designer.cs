@@ -81,10 +81,10 @@
             // 
             // lblNombre
             // 
-            this.lblNombre.BackColor = System.Drawing.Color.White;
+            this.lblNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblNombre.Location = new System.Drawing.Point(12, 732);
+            this.lblNombre.Location = new System.Drawing.Point(6, 733);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblNombre.Size = new System.Drawing.Size(1338, 20);
@@ -255,7 +255,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.ClientSize = new System.Drawing.Size(1370, 772);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblNombre);

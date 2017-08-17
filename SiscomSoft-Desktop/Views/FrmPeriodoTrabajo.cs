@@ -224,6 +224,9 @@ namespace SiscomSoft_Desktop.Views
         private void dgvPeriodoFecha_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Venta mVenta = ManejoVenta.getById(Convert.ToInt32(dgvPeriodoFecha.CurrentRow.Cells[5].Value));
+            Cliente mCliente = ManejoCliente.getById(mVenta.cliente_id);
+            Factura mFactura = ManejoFacturacion.getById(mVenta.factura_id);
+            Usuario mUsuario = ManejoUsuario.getById(mVenta.usuario_id);
             List<PeriodoVentas> mDetalleVenta = ManejoPeriodo.getByDetalleVenta(mVenta.idVenta);
             txtFolioVenta.Text = mVenta.sFolio;
             txtFecha.Text = mVenta.dtFechaVenta.ToString();
@@ -267,15 +270,15 @@ namespace SiscomSoft_Desktop.Views
             txtTotal.Text = total.ToString("N");
             txtCambio.Text = mVenta.dCambio.ToString("N");
             
-            //txtUsuario.Text = mVenta.usuario_id;
+            txtUsuario.Text = mUsuario.sNombre;
 
-            if (mVenta.cliente_id != null)
+            if (mVenta.cliente_id != 0)
             {
-               // txtCliente.Text = mVenta.cliente_id;
+                txtCliente.Text = mCliente.sNombre;
             }
-            if (mVenta.factura_id!=null)
+            if (mVenta.factura_id != 0)
             {
-               // txtFolio.Text = mVenta.factura_id;
+                txtFolio.Text = mFactura.sFolio;
             }
 
             dgvPeriodos.Visible = false;

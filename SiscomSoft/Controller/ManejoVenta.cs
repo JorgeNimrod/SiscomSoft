@@ -44,15 +44,12 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static void RegistrarNuevaVenta(Venta nVenta, int idCliente, int idFactura, int idUsuario)
+        public static void RegistrarNuevaVenta(Venta nVenta)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nVenta.cliente_id = idCliente;
-                    nVenta.factura_id = idFactura;
-                    nVenta.usuario_id = idUsuario;
                     ctx.Ventas.Add(nVenta);
                     ctx.SaveChanges();
                 }
@@ -70,7 +67,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Ventas.Count();
+                    return ctx.Ventas.Count() + 1;
                 }
             }
             catch (Exception)

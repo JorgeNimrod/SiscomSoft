@@ -11,6 +11,22 @@ namespace SiscomSoft.Controller
 {
     public class ManejoFacturacion
     {
+        public static Factura getById(int idFactura)
+        {
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    return ctx.Facturas.Where(r => r.idFactura == idFactura && r.bStatus == true).FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static string Folio()
         {
             try

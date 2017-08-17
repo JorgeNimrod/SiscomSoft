@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPeriodoTrabajo));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.dgvPeriodos = new System.Windows.Forms.DataGridView();
@@ -60,6 +60,12 @@
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.btnimprimir = new System.Windows.Forms.Button();
             this.dgvPeriodoFecha = new System.Windows.Forms.DataGridView();
+            this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.efectivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.credito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tcredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPeriodo = new System.Windows.Forms.Button();
             this.cmbPeriodo = new System.Windows.Forms.ComboBox();
             this.pnlDetallePeriodo = new System.Windows.Forms.Panel();
@@ -93,12 +99,6 @@
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.efectivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.credito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tcredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeriodos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlReporte.SuspendLayout();
@@ -427,6 +427,60 @@
             this.dgvPeriodoFecha.TabIndex = 144;
             this.dgvPeriodoFecha.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPeriodoFecha_CellDoubleClick);
             // 
+            // no
+            // 
+            this.no.DataPropertyName = "idPeriodo";
+            this.no.HeaderText = "No.";
+            this.no.Name = "no";
+            this.no.ReadOnly = true;
+            this.no.Width = 200;
+            // 
+            // fecha
+            // 
+            this.fecha.DataPropertyName = "dtFecha";
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            this.fecha.Width = 300;
+            // 
+            // efectivo
+            // 
+            this.efectivo.DataPropertyName = "dTotalEfectivo";
+            dataGridViewCellStyle2.Format = "N2";
+            this.efectivo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.efectivo.HeaderText = "Total efectivo";
+            this.efectivo.Name = "efectivo";
+            this.efectivo.ReadOnly = true;
+            this.efectivo.Width = 200;
+            // 
+            // credito
+            // 
+            this.credito.DataPropertyName = "dTotalCredito";
+            dataGridViewCellStyle3.Format = "N2";
+            this.credito.DefaultCellStyle = dataGridViewCellStyle3;
+            this.credito.HeaderText = "Total Credito";
+            this.credito.Name = "credito";
+            this.credito.ReadOnly = true;
+            this.credito.Width = 200;
+            // 
+            // tcredito
+            // 
+            this.tcredito.DataPropertyName = "dTotalTCredito";
+            dataGridViewCellStyle4.Format = "N2";
+            this.tcredito.DefaultCellStyle = dataGridViewCellStyle4;
+            this.tcredito.HeaderText = "Total Tarjeta Credito";
+            this.tcredito.Name = "tcredito";
+            this.tcredito.ReadOnly = true;
+            this.tcredito.Width = 207;
+            // 
+            // venta
+            // 
+            this.venta.DataPropertyName = "idVenta";
+            this.venta.HeaderText = "venta";
+            this.venta.Name = "venta";
+            this.venta.ReadOnly = true;
+            this.venta.Visible = false;
+            // 
             // btnPeriodo
             // 
             this.btnPeriodo.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -498,6 +552,7 @@
             this.txtFolioVenta.Enabled = false;
             this.txtFolioVenta.Location = new System.Drawing.Point(8, 30);
             this.txtFolioVenta.Name = "txtFolioVenta";
+            this.txtFolioVenta.ReadOnly = true;
             this.txtFolioVenta.Size = new System.Drawing.Size(129, 22);
             this.txtFolioVenta.TabIndex = 166;
             // 
@@ -515,6 +570,7 @@
             this.txtUsuario.Enabled = false;
             this.txtUsuario.Location = new System.Drawing.Point(266, 74);
             this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(252, 22);
             this.txtUsuario.TabIndex = 164;
             // 
@@ -532,6 +588,7 @@
             this.txtFolio.Enabled = false;
             this.txtFolio.Location = new System.Drawing.Point(830, 30);
             this.txtFolio.Name = "txtFolio";
+            this.txtFolio.ReadOnly = true;
             this.txtFolio.Size = new System.Drawing.Size(129, 22);
             this.txtFolio.TabIndex = 162;
             // 
@@ -549,6 +606,7 @@
             this.txtCliente.Enabled = false;
             this.txtCliente.Location = new System.Drawing.Point(8, 74);
             this.txtCliente.Name = "txtCliente";
+            this.txtCliente.ReadOnly = true;
             this.txtCliente.Size = new System.Drawing.Size(252, 22);
             this.txtCliente.TabIndex = 160;
             // 
@@ -566,6 +624,7 @@
             this.txtCambio.Enabled = false;
             this.txtCambio.Location = new System.Drawing.Point(659, 74);
             this.txtCambio.Name = "txtCambio";
+            this.txtCambio.ReadOnly = true;
             this.txtCambio.Size = new System.Drawing.Size(129, 22);
             this.txtCambio.TabIndex = 158;
             // 
@@ -583,6 +642,7 @@
             this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(524, 74);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(129, 22);
             this.txtTotal.TabIndex = 156;
             // 
@@ -600,6 +660,7 @@
             this.txtCaja.Enabled = false;
             this.txtCaja.Location = new System.Drawing.Point(695, 30);
             this.txtCaja.Name = "txtCaja";
+            this.txtCaja.ReadOnly = true;
             this.txtCaja.Size = new System.Drawing.Size(129, 22);
             this.txtCaja.TabIndex = 154;
             // 
@@ -617,6 +678,7 @@
             this.txtTurno.Enabled = false;
             this.txtTurno.Location = new System.Drawing.Point(572, 30);
             this.txtTurno.Name = "txtTurno";
+            this.txtTurno.ReadOnly = true;
             this.txtTurno.Size = new System.Drawing.Size(117, 22);
             this.txtTurno.TabIndex = 152;
             // 
@@ -634,6 +696,7 @@
             this.txtMoneda.Enabled = false;
             this.txtMoneda.Location = new System.Drawing.Point(457, 30);
             this.txtMoneda.Name = "txtMoneda";
+            this.txtMoneda.ReadOnly = true;
             this.txtMoneda.Size = new System.Drawing.Size(109, 22);
             this.txtMoneda.TabIndex = 150;
             // 
@@ -651,6 +714,7 @@
             this.txtTipoPago.Enabled = false;
             this.txtTipoPago.Location = new System.Drawing.Point(313, 30);
             this.txtTipoPago.Name = "txtTipoPago";
+            this.txtTipoPago.ReadOnly = true;
             this.txtTipoPago.Size = new System.Drawing.Size(138, 22);
             this.txtTipoPago.TabIndex = 148;
             // 
@@ -668,6 +732,7 @@
             this.txtFecha.Enabled = false;
             this.txtFecha.Location = new System.Drawing.Point(143, 30);
             this.txtFecha.Name = "txtFecha";
+            this.txtFecha.ReadOnly = true;
             this.txtFecha.Size = new System.Drawing.Size(164, 22);
             this.txtFecha.TabIndex = 146;
             // 
@@ -772,60 +837,6 @@
             this.total.HeaderText = "SUBTOTAL";
             this.total.Name = "total";
             this.total.ReadOnly = true;
-            // 
-            // no
-            // 
-            this.no.DataPropertyName = "idPeriodo";
-            this.no.HeaderText = "No.";
-            this.no.Name = "no";
-            this.no.ReadOnly = true;
-            this.no.Width = 200;
-            // 
-            // fecha
-            // 
-            this.fecha.DataPropertyName = "dtFecha";
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            this.fecha.Width = 300;
-            // 
-            // efectivo
-            // 
-            this.efectivo.DataPropertyName = "dTotalEfectivo";
-            dataGridViewCellStyle2.Format = "N2";
-            this.efectivo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.efectivo.HeaderText = "Total efectivo";
-            this.efectivo.Name = "efectivo";
-            this.efectivo.ReadOnly = true;
-            this.efectivo.Width = 200;
-            // 
-            // credito
-            // 
-            this.credito.DataPropertyName = "dTotalCredito";
-            dataGridViewCellStyle3.Format = "N2";
-            this.credito.DefaultCellStyle = dataGridViewCellStyle3;
-            this.credito.HeaderText = "Total Credito";
-            this.credito.Name = "credito";
-            this.credito.ReadOnly = true;
-            this.credito.Width = 200;
-            // 
-            // tcredito
-            // 
-            this.tcredito.DataPropertyName = "dTotalTCredito";
-            dataGridViewCellStyle4.Format = "N2";
-            this.tcredito.DefaultCellStyle = dataGridViewCellStyle4;
-            this.tcredito.HeaderText = "Total Tarjeta Credito";
-            this.tcredito.Name = "tcredito";
-            this.tcredito.ReadOnly = true;
-            this.tcredito.Width = 207;
-            // 
-            // venta
-            // 
-            this.venta.DataPropertyName = "idVenta";
-            this.venta.HeaderText = "venta";
-            this.venta.Name = "venta";
-            this.venta.ReadOnly = true;
-            this.venta.Visible = false;
             // 
             // FrmPeriodoTrabajo
             // 

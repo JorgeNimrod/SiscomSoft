@@ -98,7 +98,7 @@ namespace SiscomSoft_Desktop.Views
         private void btnMenuInventario_Click(object sender, EventArgs e)
         {
             this.Hide();
-            UICONTROL.FrmWareHouse v = new UICONTROL.FrmWareHouse();
+            FrmWareHouse v = new FrmWareHouse();
             v.ShowDialog();
 
         }

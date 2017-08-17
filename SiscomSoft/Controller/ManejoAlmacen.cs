@@ -25,14 +25,15 @@ namespace SiscomSoft.Controller
         //        throw;
         //    }
         //}
-        public static int getAlmacenCount()
+        public static string Folio()
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Almacenes.Count();
-
+                    var n =  ctx.Almacenes.Count() + 1;
+                    var folio = "I" + n;
+                    return folio;
                 }
             }
             catch (Exception)

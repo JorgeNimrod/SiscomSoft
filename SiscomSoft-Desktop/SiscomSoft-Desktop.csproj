@@ -215,34 +215,34 @@
     <Compile Include="Views\FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UICONTROL\FrmAgregarDescuentoProducto.cs">
+    <Compile Include="Views\FrmAgregarDescuentoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UICONTROL\FrmAgregarDescuentoProducto.Designer.cs">
+    <Compile Include="Views\FrmAgregarDescuentoProducto.Designer.cs">
       <DependentUpon>FrmAgregarDescuentoProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UICONTROL\FrmDescuento.cs">
+    <Compile Include="Views\FrmDescuento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UICONTROL\FrmDescuento.Designer.cs">
+    <Compile Include="Views\FrmDescuento.Designer.cs">
       <DependentUpon>FrmDescuento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UICONTROL\FrmDescuentosForProduct.cs">
+    <Compile Include="Views\FrmDescuentosForProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UICONTROL\FrmDescuentosForProduct.Designer.cs">
+    <Compile Include="Views\FrmDescuentosForProduct.Designer.cs">
       <DependentUpon>FrmDescuentosForProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UICONTROL\FrmWareHouse.cs">
+    <Compile Include="Views\FrmWareHouse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UICONTROL\FrmWareHouse.Designer.cs">
+    <Compile Include="Views\FrmWareHouse.Designer.cs">
       <DependentUpon>FrmWareHouse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UICONTROL\FrmWaverHouseSalidas.cs">
+    <Compile Include="Views\FrmWaverHouseSalidas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UICONTROL\FrmWaverHouseSalidas.Designer.cs">
+    <Compile Include="Views\FrmWaverHouseSalidas.Designer.cs">
       <DependentUpon>FrmWaverHouseSalidas.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UICONTROL\ucImagenProducto.cs">
@@ -322,19 +322,19 @@
     <EmbeddedResource Include="Views\FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UICONTROL\FrmAgregarDescuentoProducto.resx">
+    <EmbeddedResource Include="Views\FrmAgregarDescuentoProducto.resx">
       <DependentUpon>FrmAgregarDescuentoProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UICONTROL\FrmDescuento.resx">
+    <EmbeddedResource Include="Views\FrmDescuento.resx">
       <DependentUpon>FrmDescuento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UICONTROL\FrmDescuentosForProduct.resx">
+    <EmbeddedResource Include="Views\FrmDescuentosForProduct.resx">
       <DependentUpon>FrmDescuentosForProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UICONTROL\FrmWareHouse.resx">
+    <EmbeddedResource Include="Views\FrmWareHouse.resx">
       <DependentUpon>FrmWareHouse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UICONTROL\FrmWaverHouseSalidas.resx">
+    <EmbeddedResource Include="Views\FrmWaverHouseSalidas.resx">
       <DependentUpon>FrmWaverHouseSalidas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UICONTROL\ucImagenProducto.resx">

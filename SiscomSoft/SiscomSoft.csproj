@@ -73,6 +73,7 @@
     <Compile Include="Controller\ManejoCFDIv33.cs" />
     <Compile Include="Controller\ManejoDescuento.cs" />
     <Compile Include="Controller\ManejoDetalleInventario.cs" />
+    <Compile Include="Controller\ManejoDetalleVentas.cs" />
     <Compile Include="Controller\ManejoExistencia.cs" />
     <Compile Include="Controller\ManejoFacturacion.cs" />
     <Compile Include="Controller\ManejoInventario.cs" />
@@ -90,9 +91,9 @@
     <Compile Include="Controller\ManejoPeriodo.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201708172008464_BAIABAIA.cs" />
-    <Compile Include="Migrations\201708172008464_BAIABAIA.Designer.cs">
-      <DependentUpon>201708172008464_BAIABAIA.cs</DependentUpon>
+    <Compile Include="Migrations\201708172136318_BAIABAIA.cs" />
+    <Compile Include="Migrations\201708172136318_BAIABAIA.Designer.cs">
+      <DependentUpon>201708172136318_BAIABAIA.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Almacen.cs" />
@@ -145,8 +146,8 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708172008464_BAIABAIA.resx">
-      <DependentUpon>201708172008464_BAIABAIA.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708172136318_BAIABAIA.resx">
+      <DependentUpon>201708172136318_BAIABAIA.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

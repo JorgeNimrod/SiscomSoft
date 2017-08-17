@@ -13,7 +13,7 @@ using SiscomSoft.Models;
 using System.Globalization;
 using System.IO;
 
-namespace SiscomSoft_Desktop.Views.UICONTROL
+namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmWareHouse : Form
     {
@@ -225,6 +225,8 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             dgrDatosAlmacen.CurrentCell = dgrDatosAlmacen.Rows[0].Cells[1];
 
             cbxPkProd.SelectedIndex = -1;
+            cbxMoneda.SelectedIndex = 0;
+            cbxTipoCompra.SelectedIndex = 1;
             this.cbxPkProd.AutoCompleteCustomSource.AddRange(ManejoProducto.getProductosRegistrados(cbxPkProd.Text).ToArray());
             this.cbxPkProd.AutoCompleteMode = AutoCompleteMode.Suggest;
             this.cbxPkProd.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -232,14 +234,10 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
             this.Folios();
             timer1.Start();
             cargarCombos();
-
-    
-         
         }
         public void Folios()
         {
-            int n = ManejoAlmacen.getAlmacenCount() + 1;
-            txtFolio.Text = "A" + n;
+            txtFolio.Text = ManejoAlmacen.Folio();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -315,7 +313,9 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                 mInventario.dtFecha = DateTime.Now;
                 mInventario.sFolio = ManejoInventario.Folio();
                 mInventario.sTipoMov = "Entrada";
-                ManejoInventario.RegistrarNuevoInventario(mInventario,FrmMenu.uHelper.usuario,nAlmacen);
+                mInventario.almacen_id = nAlmacen.idAlmacen;
+                mInventario.usuario_id = FrmMenu.uHelper.usuario.idUsuario;
+                ManejoInventario.RegistrarNuevoInventario(mInventario);
                 #endregion
 
                 foreach (DataGridViewRow row in dgrDatosAlmacen.Rows)
@@ -420,7 +420,9 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                         {
                             mDetalleInventario.dLastCosto = mProducto.dCosto;
                         }
-                        ManejoDetalleInventario.RegistrarNuevoDetalleInventario(mDetalleInventario,mProducto.idProducto,mInventario.idInventario);
+                        mDetalleInventario.producto_id = mProducto.idProducto;
+                        mDetalleInventario.inventario_id = mInventario.idInventario;
+                        ManejoDetalleInventario.RegistrarNuevoDetalleInventario(mDetalleInventario);
                         #endregion
 
                         #region EXISTENCIAS
@@ -442,6 +444,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     }
                 }
 
+                #region REPORTE
                 if (MessageBox.Show("Desea Imprimir el Reporte?", "¡Atencion!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     string path = "reporte.html";
@@ -521,14 +524,10 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                             sw.WriteLine("</body></html>");
                         }
                     }
-
                     
-
-
                     FrmReporteAlmacen report = new FrmReporteAlmacen();
                     report.Show();
-
-
+                    #endregion
 
                     this.Folios();
                     txtFolio.Refresh();
@@ -678,7 +677,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
                     switch (ch1.Value.ToString())
                     {
                         case "False":
-                            UICONTROL.FrmDescuento desc = new FrmDescuento(this);
+                            FrmDescuento desc = new FrmDescuento(this);
                             idProducto = Convert.ToInt32(dgrDatosAlmacen.CurrentRow.Cells[0].Value);
                             desc.ShowDialog();
                             ch1.Value = true;
