@@ -412,6 +412,54 @@
   <ItemGroup>
     <None Include="Resources\ic_developer_board_white_36dp_2x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anadir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anadir %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paquete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paquete %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-anadir-redondeado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flechas-de-actualizacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-redondo-eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-anadir-redondeado %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flechas-de-actualizacion %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-redondo-eliminar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-redondo-eliminar %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-redondo-eliminar %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-anadir-redondeado %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flechas-de-actualizacion %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-anadir-redondeado %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-anadir-redondeado %284%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

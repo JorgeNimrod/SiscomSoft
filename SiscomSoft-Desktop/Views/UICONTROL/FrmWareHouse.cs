@@ -211,7 +211,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
         {
             cbxCliente.DisplayMember = "sNombre";
             cbxCliente.ValueMember = "idCliente";
-            cbxCliente.DataSource = ManejoCliente.getForProveers(1);  
+            cbxCliente.DataSource = ManejoCliente.getAll(1);  
 
             cbxPkProd.DisplayMember = "sDescripcion";
             cbxPkProd.ValueMember = "idProducto";
