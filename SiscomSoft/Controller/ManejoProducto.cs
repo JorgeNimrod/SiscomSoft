@@ -52,22 +52,22 @@ namespace SiscomSoft.Controller
         public static void RegistrarNuevoProducto(Producto nProducto,int pkPrecio, int pkCategoria,int pkCatalogo)
         {
             
-            Precio precio = ManejoPrecio.getById(pkPrecio);
-            Catalogo catalogo = ManejoCatalogo.getById(pkCatalogo);
-            Categoria categoria = ManejoCategoria.getById(pkCategoria);
+            //Precio precio = ManejoPrecio.getById(pkPrecio);
+            //Catalogo catalogo = ManejoCatalogo.getById(pkCatalogo);
+            //Categoria categoria = ManejoCategoria.getById(pkCategoria);
 
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nProducto.precio_id = precio;
-                    nProducto.catalogo_id = catalogo;
-                    nProducto.categoria_id = categoria;
+                    nProducto.precio_id = pkPrecio;
+                    nProducto.catalogo_id = pkCatalogo;
+                    nProducto.categoria_id = pkCategoria;
                     ctx.Productos.Add(nProducto);
                   
-                    ctx.Precios.Attach(precio);
-                    ctx.Catalogos.Attach(catalogo);
-                    ctx.Categorias.Attach(categoria);
+                    //ctx.Precios.Attach(precio);
+                    //ctx.Catalogos.Attach(catalogo);
+                    //ctx.Categorias.Attach(categoria);
                     ctx.SaveChanges();
                 }
             }
@@ -226,7 +226,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     Categoria mCategoria = ManejoCategoria.getById(pkCategoria);
-                    return ctx.Productos.Where(r=>r.catalogo_id.idCatalogo == mCategoria.idCategoria && r.sDescripcion.Contains(valor) && r.bStatus == true).ToList();
+                    return ctx.Productos.Where(r=>r.catalogo_id == mCategoria.idCategoria && r.sDescripcion.Contains(valor) && r.bStatus == true).ToList();
                 }
             }
             catch (Exception)

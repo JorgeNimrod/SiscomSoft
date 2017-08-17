@@ -31,20 +31,15 @@ namespace SiscomSoft.Models
 
         public string sFolio { get; set; }
 
-        public virtual Cliente cliente_id { get; set; }
+        public int cliente_id { get; set; }
 
-        public virtual Factura factura_id { get; set; }
+        public int factura_id { get; set; }
 
-        public virtual Usuario usuario_id { get; set; }
-
-        public virtual ICollection<DetalleVenta> DetalleVentas { get; set; }
-
-        public virtual ICollection<DetallePeriodo> DetallePeriodos { get; set; }
+        public int usuario_id { get; set; }
 
         public Venta()
         {
             this.bStatus = true;
-            DetalleVentas = new HashSet<DetalleVenta>();
         }
     }
 }

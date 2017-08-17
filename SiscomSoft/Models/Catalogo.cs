@@ -20,8 +20,6 @@ namespace SiscomSoft.Models
         public string sClaveUnidad { get; set; }
 
         public Boolean bStatus { get; set; }
-
-        public virtual ICollection<Producto> Productos { get; set; }
         
         public Catalogo()
         {

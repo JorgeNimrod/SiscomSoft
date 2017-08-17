@@ -27,19 +27,13 @@ namespace SiscomSoft.Models
 
         public string sFoto { get; set; }
 
-        public DateTime dtCaducidad { get; set; }
-
-        public int iLote { get; set; }
-
         public Boolean bStatus { get; set; }
         
-        public virtual Categoria categoria_id { get; set; }
+        public int categoria_id { get; set; }
         
-        public virtual Catalogo catalogo_id { get; set; }
+        public int catalogo_id { get; set; }
         
-        public virtual Precio precio_id { get; set; }
-
-        public virtual ICollection<DetalleVenta> DetalleVentas { get; set; }
+        public int precio_id { get; set; }
 
         public virtual ICollection<ImpuestoProducto> ImpuestosProductos { get; set; }
 
