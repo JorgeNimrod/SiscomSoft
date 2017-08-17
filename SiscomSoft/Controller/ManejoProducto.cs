@@ -84,9 +84,6 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Productos
-                        .Include("catalogo_id")
-                        .Include("categoria_id")
-                        .Include("precio_id")
                         .Where(r => r.bStatus == true && r.idProducto == pkProducto)
                         .FirstOrDefault();
                 }
@@ -123,9 +120,6 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Productos
-                        .Include("catalogo_id")
-                        .Include("categoria_id")
-                        .Include("precio_id")
                         .Where(r => r.bStatus == Status && r.sDescripcion.Contains(valor))
                         .ToList();
                 }
@@ -144,9 +138,6 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     var A = ctx.Productos
-                        .Include("catalogo_id")
-                        .Include("categoria_id")
-                        .Include("precio_id")
                         .Where(r => r.bStatus == true && r.sDescripcion.Contains(valor))
                         .FirstOrDefault();
                     return A;

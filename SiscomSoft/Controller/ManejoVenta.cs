@@ -34,9 +34,6 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Ventas
-                        .Include("usuario_id")
-                        .Include("cliente_id")
-                        .Include("factura_id")
                         .Where(r => r.idVenta == pkVenta && r.bStatus==true).FirstOrDefault();
                 }
             }
