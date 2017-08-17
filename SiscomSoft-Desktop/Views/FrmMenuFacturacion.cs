@@ -110,7 +110,7 @@ namespace SiscomSoft_Desktop.Views
                 row.Cells[1].Value = nProducto.iClaveProd;
                 row.Cells[2].Value = nProducto.sDescripcion;
                 row.Cells[3].Value = nProducto.sMarca;
-                row.Cells[4].Value = nProducto.catalogo_id.sUDM;
+                row.Cells[4].Value = nProducto.catalogo_id;
                 row.Cells[5].Value = nProducto.dCosto;
                 row.Cells[6].Value = 1;
 
@@ -285,7 +285,7 @@ namespace SiscomSoft_Desktop.Views
 
                 row.Cells[7].Value = Importe.ToString("N");
                 row.Cells[21].Value = ImporteWithoutExtras.ToString("N");
-                row.Cells[22].Value = nProducto.catalogo_id.sClaveUnidad;
+                row.Cells[22].Value = nProducto.catalogo_id;
                 row.Height = 30;
                 dgvProductos.Rows.Add(row);
 
