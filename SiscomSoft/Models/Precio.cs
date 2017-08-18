@@ -15,6 +15,8 @@ namespace SiscomSoft.Models
         [Key]
         public int idPrecios { get; set; }
 
+        public string sNombre { get; set; }
+
         public int iPrePorcen { get; set; }
 
         public Boolean bStatus { get; set; }

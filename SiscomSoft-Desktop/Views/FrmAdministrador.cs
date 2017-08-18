@@ -760,6 +760,7 @@ namespace SiscomSoft_Desktop.Views
         {
             Precio nPrecio = ManejoPrecio.getById(PKPRECIO);
             txtUpdatePrecio.Text = nPrecio.iPrePorcen.ToString();
+            txtupdateNamePrecio.Text = nPrecio.sNombre;
 
         }
         public void ActualizarCategoria()
@@ -771,7 +772,10 @@ namespace SiscomSoft_Desktop.Views
         public void ActualizarUMD()
         {
           Catalogo  nCatalogo = ManejoCatalogo.getById(PKUMD);
+            txtUpdateCodigoUmd.Text = nCatalogo.sClaveUnidad;
+            txtUpdateValor.Text = nCatalogo.iValor.ToString();
             txtUpdateUMD.Text = nCatalogo.sUDM;
+            txtUpdateAbrevUMD.Text = nCatalogo.sAbreviacion;
            
         }
         public void ActualizarUsuario()
@@ -1783,7 +1787,14 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnAgregarPrecio_Click(object sender, EventArgs e)
         {
-            if (this.txtAddPrecio.Text == "")
+            if (this.txtNombrePrecio.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNombrePrecio, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNombrePrecio, "Campo necesario");
+                this.txtNombrePrecio.Focus();
+            }
+
+           else if (this.txtAddPrecio.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtAddPrecio, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtAddPrecio, "Campo necesario");
@@ -1793,7 +1804,7 @@ namespace SiscomSoft_Desktop.Views
             else
             {
                 Precio nPrecio = new Precio();
-
+                nPrecio.sNombre = txtNombrePrecio.Text;
                 nPrecio.iPrePorcen = Convert.ToInt32(txtAddPrecio.Text);
 
 
@@ -1801,7 +1812,8 @@ namespace SiscomSoft_Desktop.Views
 
                 MessageBox.Show("¡Precio Registrado!");
                 txtAddPrecio.Clear();
-                txtAddPrecio.Focus();
+                txtNombrePrecio.Clear();
+                txtNombrePrecio.Focus();
                 cargarPrecios();
 
 
@@ -1826,8 +1838,13 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnUpdatePrecio_Click(object sender, EventArgs e)
         {
-
-            if (this.txtUpdatePrecio.Text == "")
+            if (this.txtupdateNamePrecio.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtupdateNamePrecio, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtupdateNamePrecio, "Campo necesario");
+                this.txtupdateNamePrecio.Focus();
+            }
+          else  if (this.txtUpdatePrecio.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtUpdatePrecio, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtUpdatePrecio, "Campo necesario");
@@ -1838,6 +1855,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 Precio nPrecio = new Precio();
                 nPrecio.idPrecios = PKPRECIO;
+                nPrecio.sNombre = txtupdateNamePrecio.Text;
                 nPrecio.iPrePorcen = Convert.ToInt32(txtUpdatePrecio.Text);
 
 
@@ -5666,6 +5684,9 @@ namespace SiscomSoft_Desktop.Views
                 Catalogo nUMD = new Catalogo();
                 nUMD.idCatalogo = PKUMD;
                 nUMD.sUDM = txtUpdateUMD.Text;
+                nUMD.sAbreviacion = txtUpdateAbrevUMD.Text;
+                nUMD.sClaveUnidad = txtUpdateCodigoUmd.Text;
+                nUMD.iValor = Convert.ToInt32(txtUpdateValor.Text);
 
 
 
@@ -5687,17 +5708,38 @@ namespace SiscomSoft_Desktop.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (this.txtAddUMD.Text == "")
+            if (this.txtCodigoUDM.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCodigoUDM, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCodigoUDM, "Campo necesario");
+                this.txtCodigoUDM.Focus();
+            }
+          else  if (this.txtAbreudm.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtAbreudm, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtAbreudm, "Campo necesario");
+                this.txtAbreudm.Focus();
+            }
+           else if (this.txtAddUMD.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtAddUMD, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtAddUMD, "Campo necesario");
                 this.txtAddUMD.Focus();
             }
 
+           else if (this.txtValorudm.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtValorudm, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtValorudm, "Campo necesario");
+                this.txtValorudm.Focus();
+            }
+
             else
             {
                 Catalogo nUMD = new Catalogo();
-
+                nUMD.iValor = Convert.ToInt32(txtValorudm.Text);
+                nUMD.sAbreviacion = txtAbreudm.Text;
+                nUMD.sClaveUnidad = txtCodigoUDM.Text;
                 nUMD.sUDM = txtAddUMD.Text;
 
 

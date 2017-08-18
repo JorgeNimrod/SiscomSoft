@@ -17,6 +17,10 @@ namespace SiscomSoft.Models
 
         public string sUDM { get; set; }
 
+        public string sAbreviacion { get; set; }
+
+        public int iValor { get; set; }
+
         public string sClaveUnidad { get; set; }
 
         public Boolean bStatus { get; set; }

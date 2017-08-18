@@ -91,9 +91,13 @@
     <Compile Include="Controller\ManejoPeriodo.cs" />
     <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201708172136318_BAIABAIA.cs" />
-    <Compile Include="Migrations\201708172136318_BAIABAIA.Designer.cs">
-      <DependentUpon>201708172136318_BAIABAIA.cs</DependentUpon>
+    <Compile Include="Migrations\201708181657037_RunThis.cs" />
+    <Compile Include="Migrations\201708181657037_RunThis.Designer.cs">
+      <DependentUpon>201708181657037_RunThis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708181851131_tuf.cs" />
+    <Compile Include="Migrations\201708181851131_tuf.Designer.cs">
+      <DependentUpon>201708181851131_tuf.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Almacen.cs" />
@@ -146,8 +150,11 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708172136318_BAIABAIA.resx">
-      <DependentUpon>201708172136318_BAIABAIA.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708181657037_RunThis.resx">
+      <DependentUpon>201708181657037_RunThis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708181851131_tuf.resx">
+      <DependentUpon>201708181851131_tuf.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
