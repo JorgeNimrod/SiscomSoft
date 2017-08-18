@@ -702,6 +702,7 @@ namespace SiscomSoft_Desktop.Views
         private void cbxPkProd_SelectedIndexChanged(object sender, EventArgs e)
         {
           Producto nProducto = ManejoProducto.Buscar(cbxPkProd.Text);
+                        Catalogo nCatalogo = ManejoCatalogo.getById(nProducto.catalogo_id);
           //  Producto nProducto = null;
             if (dgrDatosAlmacen.CurrentRow != null)
             {
@@ -713,7 +714,7 @@ namespace SiscomSoft_Desktop.Views
                         row.Cells[0].Value = nProducto.idProducto;
                         row.Cells[1].Value = nProducto.sDescripcion;
                         row.Cells[2].Value = nProducto.dCosto;
-                        row.Cells[3].Value = nProducto.catalogo_id;
+                        row.Cells[3].Value = nCatalogo.sUDM;
                         row.Cells[5].Value = 1;
                         row.Cells[15].Value = nProducto.iClaveProd;
 
@@ -832,7 +833,7 @@ namespace SiscomSoft_Desktop.Views
                     dgrDatosAlmacen.CurrentRow.Cells[0].Value = nProducto.idProducto;
                     dgrDatosAlmacen.CurrentRow.Cells[1].Value = nProducto.sDescripcion;
                     dgrDatosAlmacen.CurrentRow.Cells[2].Value = nProducto.dCosto;
-                    dgrDatosAlmacen.CurrentRow.Cells[3].Value = nProducto.catalogo_id;
+                    dgrDatosAlmacen.CurrentRow.Cells[3].Value = nCatalogo.sUDM;
                     dgrDatosAlmacen.CurrentRow.Cells[15].Value = nProducto.iClaveProd;
 
 
@@ -1346,7 +1347,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void dgrMostrarInventario_DataSourceChanged(object sender, EventArgs e)
         {
-           lnlRegistros.Text = "Registros: " + dgrMostrarInventario.Rows.Count;
+            lnlRegistros.Text = "Registros: " + dgrMostrarInventario.Rows.Count;
         }
 
         private void txtBuscarDetalle_TextChanged(object sender, EventArgs e)
@@ -1360,6 +1361,11 @@ namespace SiscomSoft_Desktop.Views
         private void cbkStatusDetalle_CheckedChanged(object sender, EventArgs e)
         {
           
+        }
+
+        private void dgrMostrarInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -53,12 +53,6 @@
             this.btnActualizarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -682,6 +676,12 @@
             this.btnTeclado = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label43 = new System.Windows.Forms.Label();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dPreVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlPrincipal.SuspendLayout();
             this.pnlProducto.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -1106,7 +1106,7 @@
             this.btnRegistrarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarProducto.ForeColor = System.Drawing.Color.Transparent;
             this.btnRegistrarProducto.Image = global::SiscomSoft_Desktop.Properties.Resources.boton_anadir_redondeado__4_;
-            this.btnRegistrarProducto.Location = new System.Drawing.Point(819, 37);
+            this.btnRegistrarProducto.Location = new System.Drawing.Point(817, 37);
             this.btnRegistrarProducto.Name = "btnRegistrarProducto";
             this.btnRegistrarProducto.Size = new System.Drawing.Size(100, 76);
             this.btnRegistrarProducto.TabIndex = 93;
@@ -1120,7 +1120,7 @@
             this.btnActualizarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarProducto.ForeColor = System.Drawing.Color.Transparent;
             this.btnActualizarProducto.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_update_white_24dp_2x;
-            this.btnActualizarProducto.Location = new System.Drawing.Point(819, 198);
+            this.btnActualizarProducto.Location = new System.Drawing.Point(817, 198);
             this.btnActualizarProducto.Name = "btnActualizarProducto";
             this.btnActualizarProducto.Size = new System.Drawing.Size(100, 76);
             this.btnActualizarProducto.TabIndex = 91;
@@ -1134,7 +1134,7 @@
             this.btnBorrarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrarProducto.ForeColor = System.Drawing.Color.Transparent;
             this.btnBorrarProducto.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_delete_forever_white_24dp_2x;
-            this.btnBorrarProducto.Location = new System.Drawing.Point(819, 116);
+            this.btnBorrarProducto.Location = new System.Drawing.Point(817, 116);
             this.btnBorrarProducto.Name = "btnBorrarProducto";
             this.btnBorrarProducto.Size = new System.Drawing.Size(100, 76);
             this.btnBorrarProducto.TabIndex = 92;
@@ -1154,61 +1154,16 @@
             this.sDescripcion,
             this.sMarca,
             this.dCosto,
-            this.iLote});
+            this.dPreVenta});
             this.dgvDatosProducto.Location = new System.Drawing.Point(6, 37);
             this.dgvDatosProducto.Name = "dgvDatosProducto";
             this.dgvDatosProducto.ReadOnly = true;
             this.dgvDatosProducto.RowHeadersVisible = false;
             this.dgvDatosProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatosProducto.Size = new System.Drawing.Size(804, 471);
+            this.dgvDatosProducto.Size = new System.Drawing.Size(805, 471);
             this.dgvDatosProducto.TabIndex = 40;
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
             this.dgvDatosProducto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosProducto_CellDoubleClick);
-            // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "idProducto";
-            this.pkProductos.HeaderText = "Producto";
-            this.pkProductos.Name = "pkProductos";
-            this.pkProductos.ReadOnly = true;
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Clave";
-            this.iClaveProd.Name = "iClaveProd";
-            this.iClaveProd.ReadOnly = true;
-            this.iClaveProd.Width = 150;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            this.sDescripcion.Width = 200;
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            this.sMarca.ReadOnly = true;
-            this.sMarca.Width = 150;
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
-            // 
-            // iLote
-            // 
-            this.iLote.DataPropertyName = "iLote";
-            this.iLote.HeaderText = "Lote";
-            this.iLote.Name = "iLote";
-            this.iLote.ReadOnly = true;
             // 
             // lblRegistroProducto
             // 
@@ -1224,7 +1179,7 @@
             this.ckbStatusProducto.AutoSize = true;
             this.ckbStatusProducto.Checked = true;
             this.ckbStatusProducto.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbStatusProducto.Location = new System.Drawing.Point(741, 10);
+            this.ckbStatusProducto.Location = new System.Drawing.Point(742, 12);
             this.ckbStatusProducto.Name = "ckbStatusProducto";
             this.ckbStatusProducto.Size = new System.Drawing.Size(69, 22);
             this.ckbStatusProducto.TabIndex = 37;
@@ -1236,7 +1191,7 @@
             // 
             this.txtBuscarProducto.Location = new System.Drawing.Point(74, 10);
             this.txtBuscarProducto.Name = "txtBuscarProducto";
-            this.txtBuscarProducto.Size = new System.Drawing.Size(661, 24);
+            this.txtBuscarProducto.Size = new System.Drawing.Size(662, 24);
             this.txtBuscarProducto.TabIndex = 36;
             this.txtBuscarProducto.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtBuscarProducto_MouseClick);
             this.txtBuscarProducto.TextChanged += new System.EventHandler(this.txtBuscarProducto_TextChanged);
@@ -1261,7 +1216,7 @@
             this.tbpPrecio.Location = new System.Drawing.Point(4, 27);
             this.tbpPrecio.Name = "tbpPrecio";
             this.tbpPrecio.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpPrecio.Size = new System.Drawing.Size(1151, 546);
+            this.tbpPrecio.Size = new System.Drawing.Size(1162, 596);
             this.tbpPrecio.TabIndex = 1;
             this.tbpPrecio.Text = "Precios";
             this.tbpPrecio.UseVisualStyleBackColor = true;
@@ -1361,7 +1316,7 @@
             this.tbpImpuestos.Controls.Add(this.label14);
             this.tbpImpuestos.Location = new System.Drawing.Point(4, 27);
             this.tbpImpuestos.Name = "tbpImpuestos";
-            this.tbpImpuestos.Size = new System.Drawing.Size(1151, 546);
+            this.tbpImpuestos.Size = new System.Drawing.Size(1162, 596);
             this.tbpImpuestos.TabIndex = 2;
             this.tbpImpuestos.Text = "Impuestos";
             this.tbpImpuestos.UseVisualStyleBackColor = true;
@@ -1508,7 +1463,7 @@
             this.tbpCategoria.Controls.Add(this.label12);
             this.tbpCategoria.Location = new System.Drawing.Point(4, 27);
             this.tbpCategoria.Name = "tbpCategoria";
-            this.tbpCategoria.Size = new System.Drawing.Size(1151, 546);
+            this.tbpCategoria.Size = new System.Drawing.Size(1162, 596);
             this.tbpCategoria.TabIndex = 3;
             this.tbpCategoria.Text = "Categorias";
             this.tbpCategoria.UseVisualStyleBackColor = true;
@@ -1648,7 +1603,7 @@
             this.tbpUsuario.Controls.Add(this.label10);
             this.tbpUsuario.Location = new System.Drawing.Point(4, 27);
             this.tbpUsuario.Name = "tbpUsuario";
-            this.tbpUsuario.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUsuario.Size = new System.Drawing.Size(1162, 596);
             this.tbpUsuario.TabIndex = 4;
             this.tbpUsuario.Text = "Usuarios";
             this.tbpUsuario.UseVisualStyleBackColor = true;
@@ -1810,7 +1765,7 @@
             this.tbpRol.Controls.Add(this.pnlCatalogoRoles);
             this.tbpRol.Location = new System.Drawing.Point(4, 27);
             this.tbpRol.Name = "tbpRol";
-            this.tbpRol.Size = new System.Drawing.Size(1151, 546);
+            this.tbpRol.Size = new System.Drawing.Size(1162, 596);
             this.tbpRol.TabIndex = 5;
             this.tbpRol.Text = "Roles";
             this.tbpRol.UseVisualStyleBackColor = true;
@@ -1955,7 +1910,7 @@
             this.tbpAddRol.Controls.Add(this.pnlAddRolesPermisos);
             this.tbpAddRol.Location = new System.Drawing.Point(4, 27);
             this.tbpAddRol.Name = "tbpAddRol";
-            this.tbpAddRol.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddRol.Size = new System.Drawing.Size(1162, 596);
             this.tbpAddRol.TabIndex = 6;
             this.tbpAddRol.Text = "Registrar Rol";
             this.tbpAddRol.UseVisualStyleBackColor = true;
@@ -2098,7 +2053,7 @@
             this.tbpUpdateRol.Controls.Add(this.PnlUpdteRolesPermisos);
             this.tbpUpdateRol.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateRol.Name = "tbpUpdateRol";
-            this.tbpUpdateRol.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateRol.Size = new System.Drawing.Size(1162, 596);
             this.tbpUpdateRol.TabIndex = 7;
             this.tbpUpdateRol.Text = "Actualizar Rol";
             this.tbpUpdateRol.UseVisualStyleBackColor = true;
@@ -2245,7 +2200,7 @@
             this.tbpAddCategoria.Controls.Add(this.label19);
             this.tbpAddCategoria.Location = new System.Drawing.Point(4, 27);
             this.tbpAddCategoria.Name = "tbpAddCategoria";
-            this.tbpAddCategoria.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddCategoria.Size = new System.Drawing.Size(1162, 596);
             this.tbpAddCategoria.TabIndex = 8;
             this.tbpAddCategoria.Text = "Registrar Categoria";
             this.tbpAddCategoria.UseVisualStyleBackColor = true;
@@ -2311,7 +2266,7 @@
             this.tbpUpdateCategoria.Controls.Add(this.label21);
             this.tbpUpdateCategoria.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateCategoria.Name = "tbpUpdateCategoria";
-            this.tbpUpdateCategoria.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateCategoria.Size = new System.Drawing.Size(1162, 596);
             this.tbpUpdateCategoria.TabIndex = 9;
             this.tbpUpdateCategoria.Text = "Actualizar Categoria";
             this.tbpUpdateCategoria.UseVisualStyleBackColor = true;
@@ -2379,7 +2334,7 @@
             this.tbpAddImpuesto.Controls.Add(this.btnGuardarImpuesto);
             this.tbpAddImpuesto.Location = new System.Drawing.Point(4, 27);
             this.tbpAddImpuesto.Name = "tbpAddImpuesto";
-            this.tbpAddImpuesto.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddImpuesto.Size = new System.Drawing.Size(1162, 596);
             this.tbpAddImpuesto.TabIndex = 10;
             this.tbpAddImpuesto.Text = "Registrar Impuesto";
             this.tbpAddImpuesto.UseVisualStyleBackColor = true;
@@ -2470,7 +2425,7 @@
             this.tbpUpdateImpuesto.Controls.Add(this.btnacatualiImpu);
             this.tbpUpdateImpuesto.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateImpuesto.Name = "tbpUpdateImpuesto";
-            this.tbpUpdateImpuesto.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateImpuesto.Size = new System.Drawing.Size(1162, 596);
             this.tbpUpdateImpuesto.TabIndex = 11;
             this.tbpUpdateImpuesto.Text = "Actualizar Impuesto";
             this.tbpUpdateImpuesto.UseVisualStyleBackColor = true;
@@ -2572,7 +2527,7 @@
             this.tbpAddUsuario.Controls.Add(this.btnRegistrarUsu);
             this.tbpAddUsuario.Location = new System.Drawing.Point(4, 27);
             this.tbpAddUsuario.Name = "tbpAddUsuario";
-            this.tbpAddUsuario.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddUsuario.Size = new System.Drawing.Size(1162, 596);
             this.tbpAddUsuario.TabIndex = 12;
             this.tbpAddUsuario.Text = "Registrar Usuario";
             this.tbpAddUsuario.UseVisualStyleBackColor = true;
@@ -2809,7 +2764,7 @@
             this.tbpUpdateUser.Controls.Add(this.btnUpdateGuardar);
             this.tbpUpdateUser.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateUser.Name = "tbpUpdateUser";
-            this.tbpUpdateUser.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateUser.Size = new System.Drawing.Size(1162, 596);
             this.tbpUpdateUser.TabIndex = 13;
             this.tbpUpdateUser.Text = "Actualizar Usuario";
             this.tbpUpdateUser.UseVisualStyleBackColor = true;
@@ -3045,7 +3000,7 @@
             this.tbpAddProducto.Controls.Add(this.pcbimgAddProd);
             this.tbpAddProducto.Location = new System.Drawing.Point(4, 27);
             this.tbpAddProducto.Name = "tbpAddProducto";
-            this.tbpAddProducto.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddProducto.Size = new System.Drawing.Size(1162, 596);
             this.tbpAddProducto.TabIndex = 14;
             this.tbpAddProducto.Text = "Registrar Producto";
             this.tbpAddProducto.UseVisualStyleBackColor = true;
@@ -3066,7 +3021,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(394, 67);
+            this.label40.Location = new System.Drawing.Point(395, 66);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(80, 18);
             this.label40.TabIndex = 178;
@@ -3262,7 +3217,7 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(415, 108);
+            this.label44.Location = new System.Drawing.Point(416, 106);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(59, 18);
             this.label44.TabIndex = 133;
@@ -3335,7 +3290,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(402, 151);
+            this.label51.Location = new System.Drawing.Point(424, 146);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(51, 18);
             this.label51.TabIndex = 112;
@@ -3410,7 +3365,7 @@
             this.tbpUpdateProducto.Controls.Add(this.pcbUpdateImgProd);
             this.tbpUpdateProducto.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateProducto.Name = "tbpUpdateProducto";
-            this.tbpUpdateProducto.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateProducto.Size = new System.Drawing.Size(1162, 596);
             this.tbpUpdateProducto.TabIndex = 15;
             this.tbpUpdateProducto.Text = "Actualizar Producto";
             this.tbpUpdateProducto.UseVisualStyleBackColor = true;
@@ -3431,7 +3386,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(387, 71);
+            this.label41.Location = new System.Drawing.Point(388, 70);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(80, 18);
             this.label41.TabIndex = 180;
@@ -3696,7 +3651,7 @@
             // label66
             // 
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(408, 146);
+            this.label66.Location = new System.Drawing.Point(416, 146);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(51, 18);
             this.label66.TabIndex = 141;
@@ -3751,7 +3706,7 @@
             this.tbpAddPrecio.Controls.Add(this.label53);
             this.tbpAddPrecio.Location = new System.Drawing.Point(4, 27);
             this.tbpAddPrecio.Name = "tbpAddPrecio";
-            this.tbpAddPrecio.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddPrecio.Size = new System.Drawing.Size(1162, 596);
             this.tbpAddPrecio.TabIndex = 16;
             this.tbpAddPrecio.Text = "Registrar Precio";
             this.tbpAddPrecio.UseVisualStyleBackColor = true;
@@ -3794,7 +3749,7 @@
             this.tbpUpdatePrecio.Controls.Add(this.label54);
             this.tbpUpdatePrecio.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdatePrecio.Name = "tbpUpdatePrecio";
-            this.tbpUpdatePrecio.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdatePrecio.Size = new System.Drawing.Size(1162, 596);
             this.tbpUpdatePrecio.TabIndex = 17;
             this.tbpUpdatePrecio.Text = "Actualizar Precio";
             this.tbpUpdatePrecio.UseVisualStyleBackColor = true;
@@ -3844,7 +3799,7 @@
             this.tbpEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpEmpresa.Name = "tbpEmpresa";
             this.tbpEmpresa.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpEmpresa.Size = new System.Drawing.Size(1151, 546);
+            this.tbpEmpresa.Size = new System.Drawing.Size(1162, 596);
             this.tbpEmpresa.TabIndex = 18;
             this.tbpEmpresa.Text = "Empresas";
             this.tbpEmpresa.UseVisualStyleBackColor = true;
@@ -4043,7 +3998,7 @@
             this.tbpAddEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbpAddEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpAddEmpresa.Name = "tbpAddEmpresa";
-            this.tbpAddEmpresa.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddEmpresa.Size = new System.Drawing.Size(1162, 596);
             this.tbpAddEmpresa.TabIndex = 19;
             this.tbpAddEmpresa.Text = "Registrar Empresa";
             this.tbpAddEmpresa.UseVisualStyleBackColor = true;
@@ -4442,7 +4397,7 @@
             this.tbpUpdateEmpresa.Controls.Add(this.btnUpdateEmpresa);
             this.tbpUpdateEmpresa.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateEmpresa.Name = "tbpUpdateEmpresa";
-            this.tbpUpdateEmpresa.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateEmpresa.Size = new System.Drawing.Size(1162, 596);
             this.tbpUpdateEmpresa.TabIndex = 20;
             this.tbpUpdateEmpresa.Text = "Actualizar Empresa";
             this.tbpUpdateEmpresa.UseVisualStyleBackColor = true;
@@ -4819,7 +4774,7 @@
             this.tbpClientes.Controls.Add(this.btnBorrarCli);
             this.tbpClientes.Location = new System.Drawing.Point(4, 27);
             this.tbpClientes.Name = "tbpClientes";
-            this.tbpClientes.Size = new System.Drawing.Size(1151, 546);
+            this.tbpClientes.Size = new System.Drawing.Size(1162, 596);
             this.tbpClientes.TabIndex = 24;
             this.tbpClientes.Text = "Clientes";
             this.tbpClientes.UseVisualStyleBackColor = true;
@@ -5084,7 +5039,7 @@
             this.tbpAddCliente.Controls.Add(this.pcbimgAddCli);
             this.tbpAddCliente.Location = new System.Drawing.Point(4, 27);
             this.tbpAddCliente.Name = "tbpAddCliente";
-            this.tbpAddCliente.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddCliente.Size = new System.Drawing.Size(1162, 596);
             this.tbpAddCliente.TabIndex = 25;
             this.tbpAddCliente.Text = "Registrar Cliente";
             this.tbpAddCliente.UseVisualStyleBackColor = true;
@@ -5629,7 +5584,7 @@
             this.tbpUpdateCliente.Controls.Add(this.pcbImgUpdatCli);
             this.tbpUpdateCliente.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateCliente.Name = "tbpUpdateCliente";
-            this.tbpUpdateCliente.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateCliente.Size = new System.Drawing.Size(1162, 596);
             this.tbpUpdateCliente.TabIndex = 26;
             this.tbpUpdateCliente.Text = "Actualizar Cliente";
             this.tbpUpdateCliente.UseVisualStyleBackColor = true;
@@ -6132,7 +6087,7 @@
             this.tbpSucursal.Controls.Add(this.btnRegistrarSucursal);
             this.tbpSucursal.Location = new System.Drawing.Point(4, 27);
             this.tbpSucursal.Name = "tbpSucursal";
-            this.tbpSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpSucursal.Size = new System.Drawing.Size(1162, 596);
             this.tbpSucursal.TabIndex = 27;
             this.tbpSucursal.Text = "Sucursales";
             this.tbpSucursal.UseVisualStyleBackColor = true;
@@ -6313,7 +6268,7 @@
             this.tbpRegistrarSucursal.Controls.Add(this.pnlAddSucursalPreferenciaCertificado);
             this.tbpRegistrarSucursal.Location = new System.Drawing.Point(4, 27);
             this.tbpRegistrarSucursal.Name = "tbpRegistrarSucursal";
-            this.tbpRegistrarSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpRegistrarSucursal.Size = new System.Drawing.Size(1162, 596);
             this.tbpRegistrarSucursal.TabIndex = 28;
             this.tbpRegistrarSucursal.Text = "Registrar sucursal";
             this.tbpRegistrarSucursal.UseVisualStyleBackColor = true;
@@ -6338,9 +6293,9 @@
             this.pnlAddCertificado.Controls.Add(this.txtAddCertificado);
             this.pnlAddCertificado.Controls.Add(this.label197);
             this.pnlAddCertificado.Controls.Add(this.label198);
-            this.pnlAddCertificado.Location = new System.Drawing.Point(158, 344);
+            this.pnlAddCertificado.Location = new System.Drawing.Point(158, 0);
             this.pnlAddCertificado.Name = "pnlAddCertificado";
-            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 202);
+            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 546);
             this.pnlAddCertificado.TabIndex = 136;
             this.pnlAddCertificado.Visible = false;
             // 
@@ -6528,9 +6483,9 @@
             this.pnlAddPreferencias.Controls.Add(this.label170);
             this.pnlAddPreferencias.Controls.Add(this.pcbAddLogo);
             this.pnlAddPreferencias.Controls.Add(this.btnAddExaminarLogo);
-            this.pnlAddPreferencias.Location = new System.Drawing.Point(158, 263);
+            this.pnlAddPreferencias.Location = new System.Drawing.Point(158, 0);
             this.pnlAddPreferencias.Name = "pnlAddPreferencias";
-            this.pnlAddPreferencias.Size = new System.Drawing.Size(997, 283);
+            this.pnlAddPreferencias.Size = new System.Drawing.Size(997, 546);
             this.pnlAddPreferencias.TabIndex = 136;
             this.pnlAddPreferencias.Visible = false;
             // 
@@ -6956,7 +6911,7 @@
             this.tbpActualizarSucursal.Controls.Add(this.pnlIUpdateSucursalPreferenciasCertificado);
             this.tbpActualizarSucursal.Location = new System.Drawing.Point(4, 27);
             this.tbpActualizarSucursal.Name = "tbpActualizarSucursal";
-            this.tbpActualizarSucursal.Size = new System.Drawing.Size(1151, 546);
+            this.tbpActualizarSucursal.Size = new System.Drawing.Size(1162, 596);
             this.tbpActualizarSucursal.TabIndex = 29;
             this.tbpActualizarSucursal.Text = "Actualizar Sucursal";
             this.tbpActualizarSucursal.UseVisualStyleBackColor = true;
@@ -7609,7 +7564,7 @@
             this.tbpUMD.Location = new System.Drawing.Point(4, 27);
             this.tbpUMD.Name = "tbpUMD";
             this.tbpUMD.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpUMD.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUMD.Size = new System.Drawing.Size(1162, 596);
             this.tbpUMD.TabIndex = 32;
             this.tbpUMD.Text = "Unidades de Medida";
             this.tbpUMD.UseVisualStyleBackColor = true;
@@ -7648,7 +7603,7 @@
             this.dgrDatosUMD.ReadOnly = true;
             this.dgrDatosUMD.RowHeadersVisible = false;
             this.dgrDatosUMD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrDatosUMD.Size = new System.Drawing.Size(1021, 477);
+            this.dgrDatosUMD.Size = new System.Drawing.Size(1004, 477);
             this.dgrDatosUMD.TabIndex = 47;
             this.dgrDatosUMD.DataSourceChanged += new System.EventHandler(this.dgrDatosUMD_DataSourceChanged);
             this.dgrDatosUMD.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosUMD_CellDoubleClick);
@@ -7694,7 +7649,7 @@
             this.btnDeleteUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteUMD.ForeColor = System.Drawing.Color.Transparent;
             this.btnDeleteUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_delete_forever_white_24dp_2x;
-            this.btnDeleteUMD.Location = new System.Drawing.Point(1029, 118);
+            this.btnDeleteUMD.Location = new System.Drawing.Point(1014, 118);
             this.btnDeleteUMD.Name = "btnDeleteUMD";
             this.btnDeleteUMD.Size = new System.Drawing.Size(100, 75);
             this.btnDeleteUMD.TabIndex = 44;
@@ -7707,7 +7662,7 @@
             this.btnUpdateUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateUMD.ForeColor = System.Drawing.Color.Transparent;
             this.btnUpdateUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_update_white_24dp_2x;
-            this.btnUpdateUMD.Location = new System.Drawing.Point(1028, 199);
+            this.btnUpdateUMD.Location = new System.Drawing.Point(1013, 199);
             this.btnUpdateUMD.Name = "btnUpdateUMD";
             this.btnUpdateUMD.Size = new System.Drawing.Size(101, 75);
             this.btnUpdateUMD.TabIndex = 43;
@@ -7720,7 +7675,7 @@
             this.btnAddUMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddUMD.ForeColor = System.Drawing.Color.Transparent;
             this.btnAddUMD.Image = global::SiscomSoft_Desktop.Properties.Resources.boton_anadir_redondeado__4_;
-            this.btnAddUMD.Location = new System.Drawing.Point(1030, 40);
+            this.btnAddUMD.Location = new System.Drawing.Point(1015, 40);
             this.btnAddUMD.Name = "btnAddUMD";
             this.btnAddUMD.Size = new System.Drawing.Size(99, 75);
             this.btnAddUMD.TabIndex = 45;
@@ -7735,7 +7690,7 @@
             this.tbtaddUMD.Location = new System.Drawing.Point(4, 27);
             this.tbtaddUMD.Name = "tbtaddUMD";
             this.tbtaddUMD.Padding = new System.Windows.Forms.Padding(3);
-            this.tbtaddUMD.Size = new System.Drawing.Size(1151, 546);
+            this.tbtaddUMD.Size = new System.Drawing.Size(1162, 596);
             this.tbtaddUMD.TabIndex = 30;
             this.tbtaddUMD.Text = "Registrar Unidad de Medida";
             this.tbtaddUMD.UseVisualStyleBackColor = true;
@@ -7780,7 +7735,7 @@
             this.tbtUpdateUMD.Location = new System.Drawing.Point(4, 27);
             this.tbtUpdateUMD.Name = "tbtUpdateUMD";
             this.tbtUpdateUMD.Padding = new System.Windows.Forms.Padding(3);
-            this.tbtUpdateUMD.Size = new System.Drawing.Size(1151, 546);
+            this.tbtUpdateUMD.Size = new System.Drawing.Size(1162, 596);
             this.tbtUpdateUMD.TabIndex = 31;
             this.tbtUpdateUMD.Text = "Actualizar Unidad de Medida";
             this.tbtUpdateUMD.UseVisualStyleBackColor = true;
@@ -7830,7 +7785,7 @@
             this.tbpDescuento.Location = new System.Drawing.Point(4, 27);
             this.tbpDescuento.Name = "tbpDescuento";
             this.tbpDescuento.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpDescuento.Size = new System.Drawing.Size(1151, 546);
+            this.tbpDescuento.Size = new System.Drawing.Size(1162, 596);
             this.tbpDescuento.TabIndex = 33;
             this.tbpDescuento.Text = "Descuento";
             this.tbpDescuento.Click += new System.EventHandler(this.tbpDescuento_Click);
@@ -7946,7 +7901,7 @@
             this.tbpAddDescuento.Controls.Add(this.label188);
             this.tbpAddDescuento.Location = new System.Drawing.Point(4, 27);
             this.tbpAddDescuento.Name = "tbpAddDescuento";
-            this.tbpAddDescuento.Size = new System.Drawing.Size(1151, 546);
+            this.tbpAddDescuento.Size = new System.Drawing.Size(1162, 596);
             this.tbpAddDescuento.TabIndex = 34;
             this.tbpAddDescuento.Text = "Registrar Descuento";
             this.tbpAddDescuento.UseVisualStyleBackColor = true;
@@ -8011,7 +7966,7 @@
             this.tbpUpdateDescuento.Controls.Add(this.label190);
             this.tbpUpdateDescuento.Location = new System.Drawing.Point(4, 27);
             this.tbpUpdateDescuento.Name = "tbpUpdateDescuento";
-            this.tbpUpdateDescuento.Size = new System.Drawing.Size(1151, 546);
+            this.tbpUpdateDescuento.Size = new System.Drawing.Size(1162, 596);
             this.tbpUpdateDescuento.TabIndex = 35;
             this.tbpUpdateDescuento.Text = "Actulizar Descuento";
             this.tbpUpdateDescuento.UseVisualStyleBackColor = true;
@@ -8236,12 +8191,57 @@
     "________________________________________________________________________________" +
     "____";
             // 
+            // pkProductos
+            // 
+            this.pkProductos.DataPropertyName = "idProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            this.pkProductos.ReadOnly = true;
+            // 
+            // iClaveProd
+            // 
+            this.iClaveProd.DataPropertyName = "iClaveProd";
+            this.iClaveProd.HeaderText = "Clave";
+            this.iClaveProd.Name = "iClaveProd";
+            this.iClaveProd.ReadOnly = true;
+            this.iClaveProd.Width = 150;
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
+            this.sDescripcion.Width = 200;
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            this.sMarca.ReadOnly = true;
+            this.sMarca.Width = 150;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
+            // 
+            // dPreVenta
+            // 
+            this.dPreVenta.DataPropertyName = "dPreVenta";
+            this.dPreVenta.HeaderText = "Precio de Venta";
+            this.dPreVenta.Name = "dPreVenta";
+            this.dPreVenta.ReadOnly = true;
+            // 
             // FrmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1370, 772);
+            this.ClientSize = new System.Drawing.Size(1370, 750);
             this.Controls.Add(this.label43);
             this.Controls.Add(this.btnTeclado);
             this.Controls.Add(this.pnlEmpresas);
@@ -9030,12 +9030,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
         private System.Windows.Forms.ComboBox cbxAddPersonaCli;
         private System.Windows.Forms.ComboBox cbxUpdatePersonaCli;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iLote;
         private System.Windows.Forms.ComboBox cbxUpdateCategoriaProd;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.ComboBox cbxImpuestoAdd;
@@ -9045,5 +9039,11 @@
         private System.Windows.Forms.TextBox txtAddCodigoPSucu;
         private System.Windows.Forms.TextBox txtCodigoPostal;
         private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dPreVenta;
     }
 }

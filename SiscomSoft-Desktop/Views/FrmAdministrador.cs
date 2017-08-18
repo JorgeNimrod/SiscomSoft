@@ -1297,7 +1297,7 @@ namespace SiscomSoft_Desktop.Views
                 nImpuesto.dTasaImpuesto = Convert.ToDecimal(txtActualiTasaImpu.Text);
 
                 ManejoImpuesto.Modificar(nImpuesto);
-
+                MessageBox.Show("¡Impuesto Actualizado!");
                 cargarImpuestos();
 
 

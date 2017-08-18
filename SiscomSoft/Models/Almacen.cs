@@ -36,7 +36,7 @@ namespace SiscomSoft.Models
 
         public virtual ICollection<Existencia> Existencias { get; set; }
 
-        public virtual ICollection<Inventario> Inventarios { get; set; }
+      
 
         public virtual ICollection<Capa> Capas { get; set; }
 

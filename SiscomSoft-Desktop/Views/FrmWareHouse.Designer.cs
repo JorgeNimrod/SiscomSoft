@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWareHouse));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWareHouse));
             this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -98,7 +102,6 @@
             this.pnlInventario = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.lnlRegistros = new System.Windows.Forms.Label();
-            this.cbkStatusDetalle = new System.Windows.Forms.CheckBox();
             this.txtBuscarDetalle = new System.Windows.Forms.TextBox();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.dgrMostrarInventario = new System.Windows.Forms.DataGridView();
@@ -241,9 +244,9 @@
             // 
             // costo
             // 
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.costo.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.costo.DefaultCellStyle = dataGridViewCellStyle1;
             this.costo.HeaderText = "Costo";
             this.costo.Name = "costo";
             this.costo.Width = 150;
@@ -272,9 +275,9 @@
             // 
             // Importe
             // 
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle2;
             this.Importe.FillWeight = 200F;
             this.Importe.HeaderText = "Importe";
             this.Importe.Name = "Importe";
@@ -666,7 +669,7 @@
             // 
             this.lblNepe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNepe.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblNepe.Location = new System.Drawing.Point(834, 26);
+            this.lblNepe.Location = new System.Drawing.Point(832, 26);
             this.lblNepe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNepe.Name = "lblNepe";
             this.lblNepe.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -771,14 +774,13 @@
             // 
             this.pnlInventario.Controls.Add(this.label12);
             this.pnlInventario.Controls.Add(this.lnlRegistros);
-            this.pnlInventario.Controls.Add(this.cbkStatusDetalle);
             this.pnlInventario.Controls.Add(this.txtBuscarDetalle);
             this.pnlInventario.Controls.Add(this.btnCerrar);
             this.pnlInventario.Controls.Add(this.dgrMostrarInventario);
             this.pnlInventario.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.pnlInventario.Location = new System.Drawing.Point(1, 386);
+            this.pnlInventario.Location = new System.Drawing.Point(1, 50);
             this.pnlInventario.Name = "pnlInventario";
-            this.pnlInventario.Size = new System.Drawing.Size(1359, 378);
+            this.pnlInventario.Size = new System.Drawing.Size(1356, 641);
             this.pnlInventario.TabIndex = 174;
             this.pnlInventario.UseWaitCursor = true;
             this.pnlInventario.Visible = false;
@@ -804,21 +806,6 @@
             this.lnlRegistros.TabIndex = 68;
             this.lnlRegistros.Text = "Registros";
             this.lnlRegistros.UseWaitCursor = true;
-            // 
-            // cbkStatusDetalle
-            // 
-            this.cbkStatusDetalle.AutoSize = true;
-            this.cbkStatusDetalle.Checked = true;
-            this.cbkStatusDetalle.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbkStatusDetalle.Location = new System.Drawing.Point(1137, 589);
-            this.cbkStatusDetalle.Name = "cbkStatusDetalle";
-            this.cbkStatusDetalle.Size = new System.Drawing.Size(79, 28);
-            this.cbkStatusDetalle.TabIndex = 67;
-            this.cbkStatusDetalle.Text = "Status";
-            this.cbkStatusDetalle.UseVisualStyleBackColor = true;
-            this.cbkStatusDetalle.UseWaitCursor = true;
-            this.cbkStatusDetalle.Visible = false;
-            this.cbkStatusDetalle.CheckedChanged += new System.EventHandler(this.cbkStatusDetalle_CheckedChanged);
             // 
             // txtBuscarDetalle
             // 
@@ -868,10 +855,11 @@
             this.dgrMostrarInventario.TabIndex = 60;
             this.dgrMostrarInventario.UseWaitCursor = true;
             this.dgrMostrarInventario.DataSourceChanged += new System.EventHandler(this.dgrMostrarInventario_DataSourceChanged);
+            this.dgrMostrarInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrMostrarInventario_CellContentClick);
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "pkAlmacen";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "idAlmacen";
             this.dataGridViewTextBoxColumn6.HeaderText = "No";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -896,6 +884,9 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "sTipoMov";
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn8.HeaderText = "Cantidad";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -904,6 +895,9 @@
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "Almacen";
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn9.HeaderText = "Salida";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
@@ -912,6 +906,11 @@
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "Usuario";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn10.FillWeight = 200F;
             this.dataGridViewTextBoxColumn10.HeaderText = "Baja";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
@@ -920,6 +919,10 @@
             // 
             // Existencia
             // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.Existencia.DefaultCellStyle = dataGridViewCellStyle6;
             this.Existencia.HeaderText = "Existencia";
             this.Existencia.Name = "Existencia";
             this.Existencia.ReadOnly = true;
@@ -930,7 +933,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1354, 756);
+            this.ClientSize = new System.Drawing.Size(1384, 756);
             this.ControlBox = false;
             this.Controls.Add(this.pnlInventario);
             this.Controls.Add(this.btnSalida);
@@ -1049,7 +1052,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IEPSVEINTEYTRES;
         private System.Windows.Forms.DataGridViewTextBoxColumn Clave;
         private System.Windows.Forms.Panel pnlInventario;
-        private System.Windows.Forms.CheckBox cbkStatusDetalle;
         private System.Windows.Forms.TextBox txtBuscarDetalle;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView dgrMostrarInventario;
