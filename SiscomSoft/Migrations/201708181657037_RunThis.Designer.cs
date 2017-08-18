@@ -7,13 +7,13 @@ namespace SiscomSoft.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class BAIABAIA : IMigrationMetadata
+    public sealed partial class RunThis : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(BAIABAIA));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RunThis));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708172136318_BAIABAIA"; }
+            get { return "201708181657037_RunThis"; }
         }
         
         string IMigrationMetadata.Source

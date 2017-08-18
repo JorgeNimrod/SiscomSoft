@@ -3,7 +3,7 @@ namespace SiscomSoft.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class BAIABAIA : DbMigration
+    public partial class RunThis : DbMigration
     {
         public override void Up()
         {
@@ -417,23 +417,6 @@ namespace SiscomSoft.Migrations
                 .PrimaryKey(t => t.idImpuesto);
             
             CreateTable(
-                "dbo.Inventario",
-                c => new
-                    {
-                        idInventario = c.Int(nullable: false, identity: true),
-                        sFolio = c.String(unicode: false),
-                        dtFecha = c.DateTime(nullable: false, precision: 0),
-                        sTipoMov = c.String(unicode: false),
-                        bStatus = c.Boolean(nullable: false),
-                        usuario_id = c.Int(nullable: false),
-                        almacen_id = c.Int(nullable: false),
-                        Almacen_idAlmacen = c.Int(),
-                    })
-                .PrimaryKey(t => t.idInventario)
-                .ForeignKey("dbo.Almacenes", t => t.Almacen_idAlmacen)
-                .Index(t => t.Almacen_idAlmacen);
-            
-            CreateTable(
                 "dbo.Catalogos",
                 c => new
                     {
@@ -481,6 +464,20 @@ namespace SiscomSoft.Migrations
                 .PrimaryKey(t => t.idDetalleVenta);
             
             CreateTable(
+                "dbo.Inventario",
+                c => new
+                    {
+                        idInventario = c.Int(nullable: false, identity: true),
+                        sFolio = c.String(unicode: false),
+                        dtFecha = c.DateTime(nullable: false, precision: 0),
+                        sTipoMov = c.String(unicode: false),
+                        bStatus = c.Boolean(nullable: false),
+                        usuario_id = c.Int(nullable: false),
+                        almacen_id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.idInventario);
+            
+            CreateTable(
                 "dbo.Periodos",
                 c => new
                     {
@@ -503,6 +500,7 @@ namespace SiscomSoft.Migrations
                 c => new
                     {
                         idPrecios = c.Int(nullable: false, identity: true),
+                        sNombre = c.String(unicode: false),
                         iPrePorcen = c.Int(nullable: false),
                         bStatus = c.Boolean(nullable: false),
                     })
@@ -513,7 +511,6 @@ namespace SiscomSoft.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Periodos", "usuario_id_idUsuario", "dbo.Usuarios");
-            DropForeignKey("dbo.Inventario", "Almacen_idAlmacen", "dbo.Almacenes");
             DropForeignKey("dbo.Capa", "producto_id_idProducto", "dbo.Productos");
             DropForeignKey("dbo.ImpuestosProducto", "producto_id_idProducto", "dbo.Productos");
             DropForeignKey("dbo.ImpuestosProducto", "impuesto_id_idImpuesto", "dbo.Impuestos");
@@ -542,7 +539,6 @@ namespace SiscomSoft.Migrations
             DropForeignKey("dbo.DescuentosProducto", "descuento_id_idDescuento", "dbo.Descuentos");
             DropForeignKey("dbo.Capa", "almacen_id_idAlmacen", "dbo.Almacenes");
             DropIndex("dbo.Periodos", new[] { "usuario_id_idUsuario" });
-            DropIndex("dbo.Inventario", new[] { "Almacen_idAlmacen" });
             DropIndex("dbo.ImpuestosProducto", new[] { "producto_id_idProducto" });
             DropIndex("dbo.ImpuestosProducto", new[] { "impuesto_id_idImpuesto" });
             DropIndex("dbo.Existencias", new[] { "producto_id_idProducto" });
@@ -572,11 +568,11 @@ namespace SiscomSoft.Migrations
             DropIndex("dbo.Almacenes", new[] { "cliente_id_idCliente" });
             DropTable("dbo.Precios");
             DropTable("dbo.Periodos");
+            DropTable("dbo.Inventario");
             DropTable("dbo.DetalleVentas");
             DropTable("dbo.DetallePeriodos");
             DropTable("dbo.Categorias");
             DropTable("dbo.Catalogos");
-            DropTable("dbo.Inventario");
             DropTable("dbo.Impuestos");
             DropTable("dbo.ImpuestosProducto");
             DropTable("dbo.Existencias");
