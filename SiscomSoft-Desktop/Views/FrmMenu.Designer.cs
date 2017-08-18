@@ -102,7 +102,6 @@
             this.lblFecha.Size = new System.Drawing.Size(439, 18);
             this.lblFecha.TabIndex = 26;
             this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
-            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
             // label3
             // 
@@ -184,15 +183,14 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.Location = new System.Drawing.Point(904, 271);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(440, 215);
             this.button8.TabIndex = 6;
-            this.button8.Text = "Actualizaciones";
             this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // btnMenuAdmin
             // 
@@ -243,6 +241,7 @@
             this.btnMenuReportes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMenuReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnMenuReportes.UseVisualStyleBackColor = false;
+            this.btnMenuReportes.Click += new System.EventHandler(this.btnMenuReportes_Click);
             // 
             // timer1
             // 
@@ -255,7 +254,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1370, 772);
+            this.ClientSize = new System.Drawing.Size(1354, 733);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblNombre);

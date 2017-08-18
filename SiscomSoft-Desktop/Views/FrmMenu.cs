@@ -103,16 +103,9 @@ namespace SiscomSoft_Desktop.Views
 
         }
 
-        private void lblFecha_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            Hide();
-            FrmMenuVentas v = new Views.FrmMenuVentas();
-            v.ShowDialog();
+            MessageBox.Show("¡En construcción!");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -125,6 +118,16 @@ namespace SiscomSoft_Desktop.Views
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("¡En construcción!");
+        }
+
+        private void btnMenuReportes_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("¡En construcción!");
         }
     }
 }
