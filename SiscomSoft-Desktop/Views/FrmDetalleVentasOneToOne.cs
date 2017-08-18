@@ -38,6 +38,7 @@ namespace SiscomSoft_Desktop.Views
         public static List<DetalleVenta> nVenta;
         public static Cliente mCliente;
         public static Factura mFactura;
+        public static decimal DESCPROD = 0;
         #endregion
 
         public FrmDetalleVentasOneToOne()
@@ -191,8 +192,8 @@ namespace SiscomSoft_Desktop.Views
             if (dgvProductos.RowCount == 1 && dgvDetalleProductos.RowCount == 1)
             {
                 Close();
-                FrmMenu V = new Views.FrmMenu();
-                V.ShowDialog();
+                FrmMenu m = new Views.FrmMenu();
+                m.ShowDialog();
             }
         }
 
@@ -1328,7 +1329,8 @@ namespace SiscomSoft_Desktop.Views
                 btnDolares.Enabled = true;
                 button11.Enabled = true;
                 button12.Enabled = true;
-                button13.Enabled = true;
+                btnDividir.Enabled = true;
+                btnDecuento.Enabled = true;
 
                 lblCambio.Text = "0";
                 pnlCambio.Visible = false;
@@ -1390,7 +1392,7 @@ namespace SiscomSoft_Desktop.Views
                     btnDolares.Enabled = false;
                     button11.Enabled = false;
                     button12.Enabled = false;
-                    button13.Enabled = false;
+                    btnDividir.Enabled = false;
                     btnDecuento.Enabled = false;
 
                     lbltotaldolarestexto.Visible = false;
@@ -1474,7 +1476,7 @@ namespace SiscomSoft_Desktop.Views
                     btnDolares.Enabled = false;
                     button11.Enabled = false;
                     button12.Enabled = false;
-                    button13.Enabled = false;
+                    btnDividir.Enabled = false;
                     btnDecuento.Enabled = false;
 
                     lblCambio.Text = cambio.ToString();
@@ -1621,5 +1623,42 @@ namespace SiscomSoft_Desktop.Views
         }
         #endregion
 
+        private void btnDecuento_Click(object sender, EventArgs e)
+        {
+            if (dgvDetalleProductos.RowCount > 1)
+            {
+                if (dgvDetalleProductos.CurrentRow!=null)
+                {
+                    FrmDescuentoProducto v = new Views.FrmDescuentoProducto();
+                    v.ShowDialog();
+                    decimal cantidad = Convert.ToDecimal(dgvDetalleProductos.CurrentRow.Cells[1].Value);
+                    decimal costo = Convert.ToDecimal(dgvDetalleProductos.CurrentRow.Cells[3].Value);
+                    decimal totalDescuento = 0;
+                    decimal subTotal = 0;
+                    decimal total = 0;
+
+                    totalDescuento = costo * (DESCPROD / 100);
+                    subTotal = costo - totalDescuento;
+                    dgvDetalleProductos.CurrentRow.Cells[3].Value = subTotal.ToString("N");
+
+                    foreach (DataGridViewRow row in dgvDetalleProductos.Rows)
+                    {
+                        total += Convert.ToDecimal(row.Cells[3].Value);
+                    }
+                    lblTotal2.Text = total.ToString("N");
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un producto de la lista para aplicarle un descuento.");
+                }
+            }
+        }
+
+        private void btnDividir_Click(object sender, EventArgs e)
+        {
+            FrmDividirCuenta.TOTAL = Convert.ToDecimal(lblTotal2.Text);
+            FrmDividirCuenta v = new Views.FrmDividirCuenta();
+            v.ShowDialog();
+        }
     }
 }
