@@ -124,7 +124,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 if (txtEfectivo.Text != "")
                 {
-                    MessageBox.Show("Test");
+
                 }
                 if (txtTarjetaCredito.Text != "")
                 {
