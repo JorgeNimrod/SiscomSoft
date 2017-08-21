@@ -461,6 +461,9 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
+
+            }
+            {
                 tbcGeneral.SelectedTab = tbpProducto;
             }
 
@@ -512,7 +515,7 @@ namespace SiscomSoft_Desktop.Views
             if (dgvDatosRol.RowCount >= 1)
             {
                 if (
-                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                    MessageBox.Show("Realmente quiere eliminar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoRol.Eliminar(Convert.ToInt32(dgvDatosRol.CurrentRow.Cells[0].Value));
@@ -673,7 +676,7 @@ namespace SiscomSoft_Desktop.Views
             Cliente nCliente = ManejoCliente.getById(PKCLIENTE);
             txtRfcUpdateCli.Text = nCliente.sRfc;
             txtRazonUpdateCli.Text = nCliente.sRazonSocial;
-            cbxUpdatePersonaCli.Text = nCliente.iPersona.ToString();
+          //  cbxUpdatePersonaCli.Text = nCliente.iPersona.ToString();
             txtCurpUpdateCli.Text = nCliente.sCurp;
             txtNombreUpdateCli.Text = nCliente.sNombre;
             txtPaisUpdateCli.Text = nCliente.sPais;
@@ -688,8 +691,8 @@ namespace SiscomSoft_Desktop.Views
             txtTelFijoUpdateCli.Text = nCliente.sTelFijo;
             txtTelMvlUpdateCli.Text = nCliente.sTelMovil;
             txtReferenciaUpdateCli.Text = nCliente.sReferencia;
-            cbxTipoCliUpdateCli.Text = nCliente.sTipoCliente;
-            cbxEstadoCliUpdateCli.Text = nCliente.iStatus.ToString();
+          //  cbxTipoCliUpdateCli.Text = nCliente.iTipoCliente;
+         //   cbxEstadoCliUpdateCli.Text = nCliente.iStatus.ToString();
 
             if (nCliente.iPersona == 1)
             {
@@ -699,6 +702,16 @@ namespace SiscomSoft_Desktop.Views
             {
                 cbxUpdatePersonaCli.SelectedIndex = 1;
             }
+
+            if (nCliente.iTipoCliente == 1)
+            {
+                cbxTipoCliUpdateCli.SelectedIndex = 0;
+            }
+            else if (nCliente.iTipoCliente == 2)
+            {
+                cbxTipoCliUpdateCli.SelectedIndex = 1;
+            }
+
 
 
             if (nCliente.iStatus == 1)
@@ -1096,7 +1109,7 @@ namespace SiscomSoft_Desktop.Views
             if (dgvDatosCategoria.RowCount >= 1)
             {
                 if (
-                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                    MessageBox.Show("Realmente quiere eliminar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoCategoria.Eliminar(Convert.ToInt32(dgvDatosCategoria.CurrentRow.Cells[0].Value));
@@ -1388,7 +1401,7 @@ namespace SiscomSoft_Desktop.Views
             if (dgvDatosImpuesto.RowCount >= 1)
             {
                 if (
-                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                    MessageBox.Show("Realmente quiere eliminar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoImpuesto.Eliminar(Convert.ToInt32(dgvDatosImpuesto.CurrentRow.Cells[0].Value));
@@ -1762,7 +1775,7 @@ namespace SiscomSoft_Desktop.Views
             if (dgvDatosProducto.RowCount >= 1)
             {
                 if (
-                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                    MessageBox.Show("Realmente quiere eliminar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoProducto.Eliminar(Convert.ToInt32(dgvDatosProducto.CurrentRow.Cells[0].Value));
@@ -1870,7 +1883,7 @@ namespace SiscomSoft_Desktop.Views
             if (dgvDatosPrecio.RowCount >= 1)
             {
                 if (
-                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                    MessageBox.Show("Realmente quiere eliminar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoPrecio.Eliminar(Convert.ToInt32(dgvDatosPrecio.CurrentRow.Cells[0].Value));
@@ -2693,6 +2706,15 @@ namespace SiscomSoft_Desktop.Views
                     nCliente.iPersona = 2;
                 }
 
+                if (cbxTipoClienteAddCli.SelectedIndex == 0)
+                {
+                    nCliente.iTipoCliente = 1;
+                }
+                else if (cbxTipoClienteAddCli.SelectedIndex == 1)
+                {
+                    nCliente.iTipoCliente = 2;
+                }
+
 
                 if (cbxEstadoCliAddCli.SelectedIndex == 0)
                 {
@@ -2717,7 +2739,7 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.sTipoPago = cbxMetodoPagoAddCli.Text;
                 nCliente.sNumCuenta = txtNumCuentaAddCli.Text;
                 nCliente.sConPago = txtCondicionesPagoAddCli.Text;
-                nCliente.sTipoCliente = cbxTipoClienteAddCli.Text;
+            
                 nCliente.sLogo = ImagenString;
 
 
@@ -2933,7 +2955,7 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.idCliente = PKCLIENTE;
                 nCliente.sRfc = txtRfcUpdateCli.Text;
                 nCliente.sRazonSocial = txtRazonUpdateCli.Text;
-              
+                nCliente.sLogo = ImagenString;
                 nCliente.sCurp = txtCurpUpdateCli.Text;
                 nCliente.sNombre = txtNombreUpdateCli.Text;
                 nCliente.sPais = txtPaisUpdateCli.Text;
@@ -2949,11 +2971,11 @@ namespace SiscomSoft_Desktop.Views
                 nCliente.sTelMovil = txtTelMvlUpdateCli.Text;
                 nCliente.sCorreo = txtCorreoUpdateCli.Text;
                 nCliente.sReferencia = txtReferenciaUpdateCli.Text;
-                nCliente.sTipoPago = cbxTipoCliUpdateCli.Text;
+                nCliente.sTipoPago = cbxMetodoPagoUpdateCli.Text;
                 nCliente.sNumCuenta = txtNumCuentaUpdateCli.Text;
                 nCliente.sConPago = txtCondicionesUpdateCli.Text;
-                nCliente.sTipoCliente = cbxTipoCliUpdateCli.Text;
-
+          //      nCliente.iTipoCliente = cbxTipoCliUpdateCli.Text;
+             
                 if (cbxUpdatePersonaCli.SelectedIndex == 0)
                 {
                     nCliente.iPersona = 1;
@@ -2962,6 +2984,16 @@ namespace SiscomSoft_Desktop.Views
                 {
                     nCliente.iPersona = 2;
                 }
+
+                if (cbxTipoCliUpdateCli.SelectedIndex == 0)
+                {
+                    nCliente.iTipoCliente = 1;
+                }
+                else if (cbxTipoCliUpdateCli.SelectedIndex == 1)
+                {
+                    nCliente.iTipoCliente = 2;
+                }
+
 
 
 
@@ -2981,6 +3013,10 @@ namespace SiscomSoft_Desktop.Views
                 {
                     nCliente.iStatus = 4;
                 }
+
+                ImagenBitmap = new System.Drawing.Bitmap(pcbImgUpdatCli.Image);
+                ImagenString = ToolImagen.ToBase64String(ImagenBitmap, ImageFormat.Jpeg);
+
 
                 nCliente.sLogo = ImagenString;
 
@@ -3049,7 +3085,7 @@ namespace SiscomSoft_Desktop.Views
             if (dgvDatosCliente.RowCount >= 1)
             {
                 if (
-                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                    MessageBox.Show("Realmente quiere eliminar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoCliente.Eliminar(Convert.ToInt32(dgvDatosCliente.CurrentRow.Cells[0].Value));
@@ -3756,7 +3792,7 @@ namespace SiscomSoft_Desktop.Views
             if (dgvDatosEmpresa.RowCount >= 1)
             {
                 if (
-                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                    MessageBox.Show("Realmente quiere eliminar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoEmpresa.Eliminar(Convert.ToInt32(dgvDatosEmpresa.CurrentRow.Cells[0].Value));
@@ -4088,7 +4124,7 @@ namespace SiscomSoft_Desktop.Views
             if (dgvDatosSucursal.RowCount >= 1)
             {
                 if (
-                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                    MessageBox.Show("Realmente quiere eliminar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoSucursal.Eliminar(Convert.ToInt32(dgvDatosSucursal.CurrentRow.Cells[0].Value));
@@ -4465,6 +4501,7 @@ namespace SiscomSoft_Desktop.Views
         private void txtAddCalleSucursal_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
+            
         }
 
         private void txtAddColoniaSucursal_TextChanged(object sender, EventArgs e)
@@ -5746,8 +5783,11 @@ namespace SiscomSoft_Desktop.Views
                 ManejoCatalogo.RegistrarNuevoUDM(nUMD);
 
                 MessageBox.Show("¡Unidad Registrada!");
+                txtAbreudm.Clear();
+                txtCodigoUDM.Clear();
+                txtValorudm.Clear();
                 txtAddUMD.Clear();
-                txtAddUMD.Focus();
+                txtCodigoUDM.Focus();
                 cargarUMD();
 
 
@@ -5764,7 +5804,7 @@ namespace SiscomSoft_Desktop.Views
             if (dgrDatosUMD.RowCount >= 1)
             {
                 if (
-                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                    MessageBox.Show("Realmente quiere eliminar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoCatalogo.Eliminar(Convert.ToInt32(dgrDatosUMD.CurrentRow.Cells[0].Value));
@@ -6951,7 +6991,7 @@ namespace SiscomSoft_Desktop.Views
             if (dgvDatosUsuario.RowCount >= 1)
             {
                 if (
-                    MessageBox.Show("Realmente quiere elimar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
+                    MessageBox.Show("Realmente quiere eliminar este registro?", "Aviso...!!", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ManejoUsuario.Eliminar(Convert.ToInt32(dgvDatosUsuario.CurrentRow.Cells[0].Value));
@@ -7275,13 +7315,18 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.TabPages.Add(tbpUpdateDescuento);
                 ActualizarDescuento();
                 tbcGeneral.SelectedTab = tbpUpdateDescuento;
-
+               
             }
         }
 
         private void cbxUpdatePrecioProd_SelectedIndexChanged(object sender, EventArgs e)
         {
             nepeActualiza();
+        }
+
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

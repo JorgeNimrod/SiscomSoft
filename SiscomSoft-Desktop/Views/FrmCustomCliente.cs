@@ -110,7 +110,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 txtUpdateReferencia.Text = nCliente.sReferencia;
             }
-            if (nCliente.sTipoCliente == "1")
+            if (nCliente.iTipoCliente == 1)
             {
                 cmbUpdateTipoCliente.SelectedIndex = 0;
             }
@@ -674,11 +674,11 @@ namespace SiscomSoft_Desktop.Views
 
                     if (cmbAddTipoCliente.SelectedIndex == 0)
                     {
-                        nCliente.sTipoCliente = "1";
+                        nCliente.iTipoCliente = 1;
                     }
                     else if (cmbAddTipoCliente.SelectedIndex == 1)
                     {
-                        nCliente.sTipoCliente = "2";
+                        nCliente.iTipoCliente = 2;
                     }
                     nCliente.sLogo = ImagenString;
 
