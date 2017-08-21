@@ -99,6 +99,10 @@
     <Compile Include="Migrations\201708181851131_tuf.Designer.cs">
       <DependentUpon>201708181851131_tuf.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708211810129_Desesperearion.cs" />
+    <Compile Include="Migrations\201708211810129_Desesperearion.Designer.cs">
+      <DependentUpon>201708211810129_Desesperearion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\Descuento.cs" />
@@ -155,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708181851131_tuf.resx">
       <DependentUpon>201708181851131_tuf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708211810129_Desesperearion.resx">
+      <DependentUpon>201708211810129_Desesperearion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -69,6 +69,9 @@
             this.btnBorrarPrecio = new System.Windows.Forms.Button();
             this.lblRegistroPrecio = new System.Windows.Forms.Label();
             this.dgvDatosPrecio = new System.Windows.Forms.DataGridView();
+            this.pkPrecios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iPrePorcen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpImpuestos = new System.Windows.Forms.TabPage();
             this.btnRegistrarImpuesto = new System.Windows.Forms.Button();
             this.btnActualizarImpuesto = new System.Windows.Forms.Button();
@@ -286,10 +289,14 @@
             this.btnActualizarProd = new System.Windows.Forms.Button();
             this.pcbUpdateImgProd = new System.Windows.Forms.PictureBox();
             this.tbpAddPrecio = new System.Windows.Forms.TabPage();
+            this.txtNombrePrecio = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
             this.btnAgregarPrecio = new System.Windows.Forms.Button();
             this.txtAddPrecio = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
             this.tbpUpdatePrecio = new System.Windows.Forms.TabPage();
+            this.txtupdateNamePrecio = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
             this.btnUpdatePrecio = new System.Windows.Forms.Button();
             this.txtUpdatePrecio = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
@@ -630,16 +637,33 @@
             this.ckbStatusUMD = new System.Windows.Forms.CheckBox();
             this.lblCantidadUMD = new System.Windows.Forms.Label();
             this.dgrDatosUMD = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarUMD = new System.Windows.Forms.TextBox();
             this.label181 = new System.Windows.Forms.Label();
             this.btnDeleteUMD = new System.Windows.Forms.Button();
             this.btnUpdateUMD = new System.Windows.Forms.Button();
             this.btnAddUMD = new System.Windows.Forms.Button();
             this.tbtaddUMD = new System.Windows.Forms.TabPage();
+            this.txtValorudm = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.txtAbreudm = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.txtCodigoUDM = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
             this.btnSaveUMD = new System.Windows.Forms.Button();
             this.txtAddUMD = new System.Windows.Forms.TextBox();
             this.label182 = new System.Windows.Forms.Label();
             this.tbtUpdateUMD = new System.Windows.Forms.TabPage();
+            this.txtUpdateValor = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.txtUpdateAbrevUMD = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.txtUpdateCodigoUmd = new System.Windows.Forms.TextBox();
+            this.label61 = new System.Windows.Forms.Label();
             this.btnActualizarUDM = new System.Windows.Forms.Button();
             this.txtUpdateUMD = new System.Windows.Forms.TextBox();
             this.label184 = new System.Windows.Forms.Label();
@@ -678,30 +702,6 @@
             this.btnTeclado = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.pkPrecios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iPrePorcen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtNombrePrecio = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.txtupdateNamePrecio = new System.Windows.Forms.TextBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.abr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtCodigoUDM = new System.Windows.Forms.TextBox();
-            this.label47 = new System.Windows.Forms.Label();
-            this.txtAbreudm = new System.Windows.Forms.TextBox();
-            this.label55 = new System.Windows.Forms.Label();
-            this.txtValorudm = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.txtUpdateValor = new System.Windows.Forms.TextBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.txtUpdateAbrevUMD = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.txtUpdateCodigoUmd = new System.Windows.Forms.TextBox();
-            this.label61 = new System.Windows.Forms.Label();
             this.pnlPrincipal.SuspendLayout();
             this.pnlProducto.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -1352,6 +1352,30 @@
             this.dgvDatosPrecio.TabIndex = 54;
             this.dgvDatosPrecio.DataSourceChanged += new System.EventHandler(this.dgvDatosPrecio_DataSourceChanged);
             this.dgvDatosPrecio.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosPrecio_CellDoubleClick);
+            // 
+            // pkPrecios
+            // 
+            this.pkPrecios.DataPropertyName = "idprecios";
+            this.pkPrecios.HeaderText = "No. Precio";
+            this.pkPrecios.Name = "pkPrecios";
+            this.pkPrecios.ReadOnly = true;
+            this.pkPrecios.Width = 150;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "sNombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 200;
+            // 
+            // iPrePorcen
+            // 
+            this.iPrePorcen.DataPropertyName = "iPrePorcen";
+            this.iPrePorcen.HeaderText = "Porcentaje";
+            this.iPrePorcen.Name = "iPrePorcen";
+            this.iPrePorcen.ReadOnly = true;
+            this.iPrePorcen.Width = 250;
             // 
             // tbpImpuestos
             // 
@@ -3763,6 +3787,22 @@
             this.tbpAddPrecio.Text = "Registrar Precio";
             this.tbpAddPrecio.UseVisualStyleBackColor = true;
             // 
+            // txtNombrePrecio
+            // 
+            this.txtNombrePrecio.Location = new System.Drawing.Point(17, 49);
+            this.txtNombrePrecio.Name = "txtNombrePrecio";
+            this.txtNombrePrecio.Size = new System.Drawing.Size(390, 24);
+            this.txtNombrePrecio.TabIndex = 1;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(14, 18);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(70, 18);
+            this.label45.TabIndex = 107;
+            this.label45.Text = "Nombre :";
+            // 
             // btnAgregarPrecio
             // 
             this.btnAgregarPrecio.BackColor = System.Drawing.Color.DarkCyan;
@@ -3807,6 +3847,22 @@
             this.tbpUpdatePrecio.TabIndex = 17;
             this.tbpUpdatePrecio.Text = "Actualizar Precio";
             this.tbpUpdatePrecio.UseVisualStyleBackColor = true;
+            // 
+            // txtupdateNamePrecio
+            // 
+            this.txtupdateNamePrecio.Location = new System.Drawing.Point(17, 49);
+            this.txtupdateNamePrecio.Name = "txtupdateNamePrecio";
+            this.txtupdateNamePrecio.Size = new System.Drawing.Size(390, 24);
+            this.txtupdateNamePrecio.TabIndex = 0;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(14, 18);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(70, 18);
+            this.label46.TabIndex = 110;
+            this.label46.Text = "Nombre :";
             // 
             // btnUpdatePrecio
             // 
@@ -5105,8 +5161,8 @@
             this.cbxAddPersonaCli.ForeColor = System.Drawing.Color.White;
             this.cbxAddPersonaCli.FormattingEnabled = true;
             this.cbxAddPersonaCli.Items.AddRange(new object[] {
-            "Cliente",
-            "Proveedor"});
+            "Fisica",
+            "Moral"});
             this.cbxAddPersonaCli.Location = new System.Drawing.Point(834, 26);
             this.cbxAddPersonaCli.Name = "cbxAddPersonaCli";
             this.cbxAddPersonaCli.Size = new System.Drawing.Size(236, 26);
@@ -5148,8 +5204,8 @@
             this.cbxTipoClienteAddCli.ForeColor = System.Drawing.Color.White;
             this.cbxTipoClienteAddCli.FormattingEnabled = true;
             this.cbxTipoClienteAddCli.Items.AddRange(new object[] {
-            "Vendedor",
-            "Comprador"});
+            "Cliente",
+            "Proveedor"});
             this.cbxTipoClienteAddCli.Location = new System.Drawing.Point(866, 267);
             this.cbxTipoClienteAddCli.Name = "cbxTipoClienteAddCli";
             this.cbxTipoClienteAddCli.Size = new System.Drawing.Size(204, 26);
@@ -5650,8 +5706,8 @@
             this.cbxUpdatePersonaCli.ForeColor = System.Drawing.Color.White;
             this.cbxUpdatePersonaCli.FormattingEnabled = true;
             this.cbxUpdatePersonaCli.Items.AddRange(new object[] {
-            "Cliente",
-            "Proveedor"});
+            "Fisica",
+            "Moral"});
             this.cbxUpdatePersonaCli.Location = new System.Drawing.Point(834, 27);
             this.cbxUpdatePersonaCli.Name = "cbxUpdatePersonaCli";
             this.cbxUpdatePersonaCli.Size = new System.Drawing.Size(236, 26);
@@ -5693,8 +5749,8 @@
             this.cbxTipoCliUpdateCli.ForeColor = System.Drawing.Color.White;
             this.cbxTipoCliUpdateCli.FormattingEnabled = true;
             this.cbxTipoCliUpdateCli.Items.AddRange(new object[] {
-            "Vendedor",
-            "Comprador"});
+            "Cliente",
+            "Proveedor"});
             this.cbxTipoCliUpdateCli.Location = new System.Drawing.Point(866, 266);
             this.cbxTipoCliUpdateCli.Name = "cbxTipoCliUpdateCli";
             this.cbxTipoCliUpdateCli.Size = new System.Drawing.Size(204, 26);
@@ -7665,6 +7721,46 @@
             this.dgrDatosUMD.DataSourceChanged += new System.EventHandler(this.dgrDatosUMD_DataSourceChanged);
             this.dgrDatosUMD.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDatosUMD_CellDoubleClick);
             // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "idCatalogo";
+            this.dataGridViewTextBoxColumn19.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Width = 200;
+            // 
+            // Code
+            // 
+            this.Code.DataPropertyName = "sClaveUnidad";
+            this.Code.HeaderText = "Codigo";
+            this.Code.Name = "Code";
+            this.Code.ReadOnly = true;
+            this.Code.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "sUDM";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Unidad de Medida";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Width = 250;
+            // 
+            // abr
+            // 
+            this.abr.DataPropertyName = "sAbreviacion";
+            this.abr.HeaderText = "Abreviatura";
+            this.abr.Name = "abr";
+            this.abr.ReadOnly = true;
+            this.abr.Width = 150;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "iValor";
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            this.Valor.Width = 150;
+            // 
             // txtBuscarUMD
             // 
             this.txtBuscarUMD.Location = new System.Drawing.Point(69, 10);
@@ -7742,6 +7838,54 @@
             this.tbtaddUMD.Text = "Registrar Unidad de Medida";
             this.tbtaddUMD.UseVisualStyleBackColor = true;
             // 
+            // txtValorudm
+            // 
+            this.txtValorudm.Location = new System.Drawing.Point(390, 119);
+            this.txtValorudm.Name = "txtValorudm";
+            this.txtValorudm.Size = new System.Drawing.Size(342, 24);
+            this.txtValorudm.TabIndex = 3;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(387, 90);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(50, 18);
+            this.label56.TabIndex = 18;
+            this.label56.Text = "Valor :";
+            // 
+            // txtAbreudm
+            // 
+            this.txtAbreudm.Location = new System.Drawing.Point(390, 49);
+            this.txtAbreudm.Name = "txtAbreudm";
+            this.txtAbreudm.Size = new System.Drawing.Size(342, 24);
+            this.txtAbreudm.TabIndex = 1;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(387, 20);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(84, 18);
+            this.label55.TabIndex = 16;
+            this.label55.Text = "Abrevición :";
+            // 
+            // txtCodigoUDM
+            // 
+            this.txtCodigoUDM.Location = new System.Drawing.Point(24, 49);
+            this.txtCodigoUDM.Name = "txtCodigoUDM";
+            this.txtCodigoUDM.Size = new System.Drawing.Size(342, 24);
+            this.txtCodigoUDM.TabIndex = 0;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(21, 20);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(64, 18);
+            this.label47.TabIndex = 14;
+            this.label47.Text = "Codígo :";
+            // 
             // btnSaveUMD
             // 
             this.btnSaveUMD.BackColor = System.Drawing.Color.DarkCyan;
@@ -7760,7 +7904,7 @@
             this.txtAddUMD.Location = new System.Drawing.Point(24, 119);
             this.txtAddUMD.Name = "txtAddUMD";
             this.txtAddUMD.Size = new System.Drawing.Size(342, 24);
-            this.txtAddUMD.TabIndex = 10;
+            this.txtAddUMD.TabIndex = 2;
             this.txtAddUMD.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtAddUMD_MouseClick);
             this.txtAddUMD.TextChanged += new System.EventHandler(this.txtAddUMD_TextChanged);
             this.txtAddUMD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddUMD_KeyPress);
@@ -7793,6 +7937,54 @@
             this.tbtUpdateUMD.Text = "Actualizar Unidad de Medida";
             this.tbtUpdateUMD.UseVisualStyleBackColor = true;
             // 
+            // txtUpdateValor
+            // 
+            this.txtUpdateValor.Location = new System.Drawing.Point(390, 124);
+            this.txtUpdateValor.Name = "txtUpdateValor";
+            this.txtUpdateValor.Size = new System.Drawing.Size(342, 24);
+            this.txtUpdateValor.TabIndex = 3;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(387, 95);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(50, 18);
+            this.label58.TabIndex = 24;
+            this.label58.Text = "Valor :";
+            // 
+            // txtUpdateAbrevUMD
+            // 
+            this.txtUpdateAbrevUMD.Location = new System.Drawing.Point(390, 54);
+            this.txtUpdateAbrevUMD.Name = "txtUpdateAbrevUMD";
+            this.txtUpdateAbrevUMD.Size = new System.Drawing.Size(342, 24);
+            this.txtUpdateAbrevUMD.TabIndex = 1;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(387, 25);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(84, 18);
+            this.label60.TabIndex = 22;
+            this.label60.Text = "Abrevición :";
+            // 
+            // txtUpdateCodigoUmd
+            // 
+            this.txtUpdateCodigoUmd.Location = new System.Drawing.Point(24, 54);
+            this.txtUpdateCodigoUmd.Name = "txtUpdateCodigoUmd";
+            this.txtUpdateCodigoUmd.Size = new System.Drawing.Size(342, 24);
+            this.txtUpdateCodigoUmd.TabIndex = 0;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(21, 25);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(64, 18);
+            this.label61.TabIndex = 20;
+            this.label61.Text = "Codígo :";
+            // 
             // btnActualizarUDM
             // 
             this.btnActualizarUDM.BackColor = System.Drawing.Color.DarkCyan;
@@ -7811,7 +8003,7 @@
             this.txtUpdateUMD.Location = new System.Drawing.Point(24, 124);
             this.txtUpdateUMD.Name = "txtUpdateUMD";
             this.txtUpdateUMD.Size = new System.Drawing.Size(342, 24);
-            this.txtUpdateUMD.TabIndex = 10;
+            this.txtUpdateUMD.TabIndex = 2;
             this.txtUpdateUMD.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdateUMD_MouseClick);
             this.txtUpdateUMD.TextChanged += new System.EventHandler(this.txtUpdateUMD_TextChanged);
             // 
@@ -8090,6 +8282,7 @@
             this.lblFecha.Size = new System.Drawing.Size(390, 18);
             this.lblFecha.TabIndex = 25;
             this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
+            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
             // button1
             // 
@@ -8243,195 +8436,6 @@
             this.label43.Text = "_________________________________________________________________________________" +
     "________________________________________________________________________________" +
     "____";
-            // 
-            // pkPrecios
-            // 
-            this.pkPrecios.DataPropertyName = "idprecios";
-            this.pkPrecios.HeaderText = "No. Precio";
-            this.pkPrecios.Name = "pkPrecios";
-            this.pkPrecios.ReadOnly = true;
-            this.pkPrecios.Width = 150;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "sNombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 200;
-            // 
-            // iPrePorcen
-            // 
-            this.iPrePorcen.DataPropertyName = "iPrePorcen";
-            this.iPrePorcen.HeaderText = "Porcentaje";
-            this.iPrePorcen.Name = "iPrePorcen";
-            this.iPrePorcen.ReadOnly = true;
-            this.iPrePorcen.Width = 250;
-            // 
-            // txtNombrePrecio
-            // 
-            this.txtNombrePrecio.Location = new System.Drawing.Point(17, 49);
-            this.txtNombrePrecio.Name = "txtNombrePrecio";
-            this.txtNombrePrecio.Size = new System.Drawing.Size(390, 24);
-            this.txtNombrePrecio.TabIndex = 1;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(14, 18);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(70, 18);
-            this.label45.TabIndex = 107;
-            this.label45.Text = "Nombre :";
-            // 
-            // txtupdateNamePrecio
-            // 
-            this.txtupdateNamePrecio.Location = new System.Drawing.Point(17, 49);
-            this.txtupdateNamePrecio.Name = "txtupdateNamePrecio";
-            this.txtupdateNamePrecio.Size = new System.Drawing.Size(390, 24);
-            this.txtupdateNamePrecio.TabIndex = 0;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(14, 18);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(70, 18);
-            this.label46.TabIndex = 110;
-            this.label46.Text = "Nombre :";
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "idCatalogo";
-            this.dataGridViewTextBoxColumn19.HeaderText = "No.";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Width = 200;
-            // 
-            // Code
-            // 
-            this.Code.HeaderText = "Codigo";
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
-            this.Code.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "sUDM";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Unidad de Medida";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Width = 250;
-            // 
-            // abr
-            // 
-            this.abr.HeaderText = "Abreviatura";
-            this.abr.Name = "abr";
-            this.abr.ReadOnly = true;
-            this.abr.Width = 150;
-            // 
-            // Valor
-            // 
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
-            this.Valor.ReadOnly = true;
-            this.Valor.Width = 150;
-            // 
-            // txtCodigoUDM
-            // 
-            this.txtCodigoUDM.Location = new System.Drawing.Point(24, 49);
-            this.txtCodigoUDM.Name = "txtCodigoUDM";
-            this.txtCodigoUDM.Size = new System.Drawing.Size(342, 24);
-            this.txtCodigoUDM.TabIndex = 15;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(21, 20);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(64, 18);
-            this.label47.TabIndex = 14;
-            this.label47.Text = "Codígo :";
-            // 
-            // txtAbreudm
-            // 
-            this.txtAbreudm.Location = new System.Drawing.Point(390, 49);
-            this.txtAbreudm.Name = "txtAbreudm";
-            this.txtAbreudm.Size = new System.Drawing.Size(342, 24);
-            this.txtAbreudm.TabIndex = 17;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(387, 20);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(84, 18);
-            this.label55.TabIndex = 16;
-            this.label55.Text = "Abrevición :";
-            // 
-            // txtValorudm
-            // 
-            this.txtValorudm.Location = new System.Drawing.Point(390, 119);
-            this.txtValorudm.Name = "txtValorudm";
-            this.txtValorudm.Size = new System.Drawing.Size(342, 24);
-            this.txtValorudm.TabIndex = 19;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(387, 90);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(50, 18);
-            this.label56.TabIndex = 18;
-            this.label56.Text = "Valor :";
-            // 
-            // txtUpdateValor
-            // 
-            this.txtUpdateValor.Location = new System.Drawing.Point(390, 124);
-            this.txtUpdateValor.Name = "txtUpdateValor";
-            this.txtUpdateValor.Size = new System.Drawing.Size(342, 24);
-            this.txtUpdateValor.TabIndex = 25;
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(387, 95);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(50, 18);
-            this.label58.TabIndex = 24;
-            this.label58.Text = "Valor :";
-            // 
-            // txtUpdateAbrevUMD
-            // 
-            this.txtUpdateAbrevUMD.Location = new System.Drawing.Point(390, 54);
-            this.txtUpdateAbrevUMD.Name = "txtUpdateAbrevUMD";
-            this.txtUpdateAbrevUMD.Size = new System.Drawing.Size(342, 24);
-            this.txtUpdateAbrevUMD.TabIndex = 23;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(387, 25);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(84, 18);
-            this.label60.TabIndex = 22;
-            this.label60.Text = "Abrevición :";
-            // 
-            // txtUpdateCodigoUmd
-            // 
-            this.txtUpdateCodigoUmd.Location = new System.Drawing.Point(24, 54);
-            this.txtUpdateCodigoUmd.Name = "txtUpdateCodigoUmd";
-            this.txtUpdateCodigoUmd.Size = new System.Drawing.Size(342, 24);
-            this.txtUpdateCodigoUmd.TabIndex = 21;
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(21, 25);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(64, 18);
-            this.label61.TabIndex = 20;
-            this.label61.Text = "Codígo :";
             // 
             // FrmAdministrador
             // 
@@ -9245,11 +9249,6 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TextBox txtupdateNamePrecio;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn abr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
         private System.Windows.Forms.TextBox txtValorudm;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.TextBox txtAbreudm;
@@ -9262,5 +9261,10 @@
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.TextBox txtUpdateCodigoUmd;
         private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn abr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
     }
 }

@@ -61,7 +61,7 @@ namespace SiscomSoft.Models
         public string sConPago { get; set; }
 
         // VENDEDOR/COMPRADOR
-        public string sTipoCliente { get; set; }
+        public int iTipoCliente { get; set; }
         
         // ESTADO(ACTIVO, BAJA, SUSPENDIDO, OTRO)
         public int iStatus { get; set; }
