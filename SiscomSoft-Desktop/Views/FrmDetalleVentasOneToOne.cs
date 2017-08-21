@@ -18,13 +18,12 @@ namespace SiscomSoft_Desktop.Views
         #region MAIN
 
         #region VARIABLES
-        Boolean pesos = false;
-        Boolean dolar = false;
-        Boolean punto = true;
-        Boolean all = false;
+        Boolean flagPesos = false;
+        Boolean flagPunto = true;
+        Boolean flagAll = false;
+        Boolean flagDividir = false;
+        string tipoMovimiento = null;
         string noCantidad = null;
-        Decimal noBilletes = 0;
-        Decimal noPagar = 0;
         decimal DESCUENTO = 0;
         decimal DESCUENTOEXTRA = 0;
         decimal IVA16 = 0;
@@ -33,8 +32,14 @@ namespace SiscomSoft_Desktop.Views
         decimal IEPS53 = 0;
         decimal IEPS30 = 0;
         decimal IEPS26 = 0;
-        Decimal monto = 0;
+        decimal monto = 0;
+        decimal noBilletes = 0;
+        decimal noPagar = 0;
 
+        public static Boolean flagEfectivo = false;
+        public static Boolean flagTarjetaCredito = false;
+        public static Boolean flagCredito = false;
+        public static Boolean flagDolar = false;
         public static List<DetalleVenta> nVenta;
         public static Cliente mCliente;
         public static Factura mFactura;
@@ -410,21 +415,21 @@ namespace SiscomSoft_Desktop.Views
         {
             if (!txtCantidad.Text.Contains("."))
             {
-                punto = true;
+                flagPunto = true;
             }
-            if (punto)
+            if (flagPunto)
             {
                 if (txtCantidad.Text != "")
                 {
                     noCantidad = txtCantidad.Text;
                     txtCantidad.Text = noCantidad + ".";
-                    punto = false;
+                    flagPunto = false;
                 }
                 else
                 {
                     noCantidad = "0";
                     txtCantidad.Text = noCantidad + ".";
-                    punto = false;
+                    flagPunto = false;
                 }
             }
         }
@@ -433,13 +438,13 @@ namespace SiscomSoft_Desktop.Views
         {
             if (en.KeyChar == 46)
             {
-                if (punto)
+                if (flagPunto)
                 {
-                    punto = false;
+                    flagPunto = false;
                 }
                 if (!txtCantidad.Text.Contains("."))
                 {
-                    punto = true;
+                    flagPunto = true;
                 }
                 else en.Handled = true;
             }
@@ -846,7 +851,7 @@ namespace SiscomSoft_Desktop.Views
         #region BOTONES BILLETES
         private void btn500pesos_Click(object sender, EventArgs e)
         {
-            pesos = true;
+            flagPesos = true;
             noBilletes += 500;
             if (lblMonto.Text != "")
             {
@@ -863,7 +868,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btn200pesos_Click(object sender, EventArgs e)
         {
-            pesos = true;
+            flagPesos = true;
             noBilletes += 200;
             if (lblMonto.Text != "")
             {
@@ -880,7 +885,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btn100Peso_Click(object sender, EventArgs e)
         {
-            pesos = true;
+            flagPesos = true;
             noBilletes += 100;
             if (lblMonto.Text != "")
             {
@@ -897,7 +902,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btn50Peso_Click(object sender, EventArgs e)
         {
-            pesos = true;
+            flagPesos = true;
             noBilletes += 50;
             if (lblMonto.Text != "")
             {
@@ -914,7 +919,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btn20Peso_Click(object sender, EventArgs e)
         {
-            pesos = true;
+            flagPesos = true;
             noBilletes += 20;
             if (lblMonto.Text != "")
             {
@@ -930,7 +935,7 @@ namespace SiscomSoft_Desktop.Views
         }
         private void btn1000pesos_Click(object sender, EventArgs e)
         {
-            pesos = true;
+            flagPesos = true;
             noBilletes += 1000;
             if (lblMonto.Text != "")
             {
@@ -949,12 +954,12 @@ namespace SiscomSoft_Desktop.Views
         #region BOTONES NUMERICOS DINERO
         private void btnNo1_Click(object sender, EventArgs e)
         {
-            if (all == true)
+            if (flagAll == true)
             {
                 lblMonto.Text = "";
-                all = false;
+                flagAll = false;
             }
-            if (pesos != true)
+            if (flagPesos != true)
             {
                 noPagar = Convert.ToDecimal(lblMonto.Text + 1);
                 lblMonto.Text = noPagar.ToString();
@@ -963,7 +968,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 noCantidad = "";
                 lblMonto.Text = "1";
-                pesos = false;
+                flagPesos = false;
             }
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -973,12 +978,12 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnNo2_Click(object sender, EventArgs e)
         {
-            if (all == true)
+            if (flagAll == true)
             {
                 lblMonto.Text = "";
-                all = false;
+                flagAll = false;
             }
-            if (pesos != true)
+            if (flagPesos != true)
             {
                 noPagar = Convert.ToDecimal(lblMonto.Text + 2);
                 lblMonto.Text = noPagar.ToString();
@@ -987,7 +992,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 noPagar = 0;
                 lblMonto.Text = "2";
-                pesos = false;
+                flagPesos = false;
             }
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -997,7 +1002,7 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnNo3_Click(object sender, EventArgs e)
         {
-            if (pesos != true)
+            if (flagPesos != true)
             {
                 noPagar = Convert.ToDecimal(lblMonto.Text + 3);
                 lblMonto.Text = noPagar.ToString();
@@ -1006,7 +1011,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 noCantidad = "";
                 lblMonto.Text = "3";
-                pesos = false;
+                flagPesos = false;
             }
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -1016,12 +1021,12 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnNo4_Click(object sender, EventArgs e)
         {
-            if (all == true)
+            if (flagAll == true)
             {
                 lblMonto.Text = "";
-                all = false;
+                flagAll = false;
             }
-            if (pesos != true)
+            if (flagPesos != true)
             {
                 noPagar = Convert.ToDecimal(lblMonto.Text + 4);
                 lblMonto.Text = noPagar.ToString();
@@ -1030,7 +1035,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 noCantidad = "";
                 lblMonto.Text = "4";
-                pesos = false;
+                flagPesos = false;
             }
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -1040,12 +1045,12 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnNo5_Click(object sender, EventArgs e)
         {
-            if (all == true)
+            if (flagAll == true)
             {
                 lblMonto.Text = "";
-                all = false;
+                flagAll = false;
             }
-            if (pesos != true)
+            if (flagPesos != true)
             {
                 noPagar = Convert.ToDecimal(lblMonto.Text + 5);
                 lblMonto.Text = noPagar.ToString();
@@ -1054,7 +1059,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 noCantidad = "";
                 lblMonto.Text = "5";
-                pesos = false;
+                flagPesos = false;
             }
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -1064,12 +1069,12 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnNo6_Click(object sender, EventArgs e)
         {
-            if (all == true)
+            if (flagAll == true)
             {
                 lblMonto.Text = "";
-                all = false;
+                flagAll = false;
             }
-            if (pesos != true)
+            if (flagPesos != true)
             {
                 noPagar = Convert.ToDecimal(lblMonto.Text + 6);
                 lblMonto.Text = noPagar.ToString();
@@ -1078,7 +1083,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 noCantidad = "";
                 lblMonto.Text = "6";
-                pesos = false;
+                flagPesos = false;
             }
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -1088,12 +1093,12 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnNo7_Click(object sender, EventArgs e)
         {
-            if (all == true)
+            if (flagAll == true)
             {
                 lblMonto.Text = "";
-                all = false;
+                flagAll = false;
             }
-            if (pesos != true)
+            if (flagPesos != true)
             {
                 noPagar = Convert.ToDecimal(lblMonto.Text + 7);
                 lblMonto.Text = noPagar.ToString();
@@ -1102,7 +1107,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 noCantidad = "";
                 lblMonto.Text = "7";
-                pesos = false;
+                flagPesos = false;
             }
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -1112,12 +1117,12 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnNo8_Click(object sender, EventArgs e)
         {
-            if (all == true)
+            if (flagAll == true)
             {
                 lblMonto.Text = "";
-                all = false;
+                flagAll = false;
             }
-            if (pesos != true)
+            if (flagPesos != true)
             {
                 noPagar = Convert.ToDecimal(lblMonto.Text + 8);
                 lblMonto.Text = noPagar.ToString();
@@ -1126,7 +1131,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 noCantidad = "";
                 lblMonto.Text = "8";
-                pesos = false;
+                flagPesos = false;
             }
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -1136,12 +1141,12 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnNo9_Click(object sender, EventArgs e)
         {
-            if (all == true)
+            if (flagAll == true)
             {
                 lblMonto.Text = "";
-                all = false;
+                flagAll = false;
             }
-            if (pesos != true)
+            if (flagPesos != true)
             {
                 noPagar = Convert.ToDecimal(lblMonto.Text + 9);
                 lblMonto.Text = noPagar.ToString();
@@ -1150,7 +1155,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 noCantidad = "";
                 lblMonto.Text = "9";
-                pesos = false;
+                flagPesos = false;
             }
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -1160,12 +1165,12 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnNo0_Click(object sender, EventArgs e)
         {
-            if (all == true)
+            if (flagAll == true)
             {
                 lblMonto.Text = "";
-                all = false;
+                flagAll = false;
             }
-            if (pesos != true)
+            if (flagPesos != true)
             {
                 noPagar = Convert.ToDecimal(lblMonto.Text + 0);
                 lblMonto.Text = noPagar.ToString();
@@ -1174,7 +1179,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 noCantidad = "";
                 lblMonto.Text = "0";
-                pesos = false;
+                flagPesos = false;
             }
             btnEfectivo.Enabled = true;
             btnCredito.Enabled = true;
@@ -1186,21 +1191,21 @@ namespace SiscomSoft_Desktop.Views
         {
             if (!lblMonto.Text.Contains("."))
             {
-                punto = true;
+                flagPunto = true;
             }
-            if (punto)
+            if (flagPunto)
             {
                 if (lblMonto.Text != "")
                 {
                     noCantidad = lblMonto.Text;
                     lblMonto.Text = noCantidad + ".";
-                    punto = false;
+                    flagPunto = false;
                 }
                 else
                 {
                     noCantidad = "0";
                     lblMonto.Text = noCantidad + ".";
-                    punto = false;
+                    flagPunto = false;
                 }
             }
         }
@@ -1209,13 +1214,13 @@ namespace SiscomSoft_Desktop.Views
         {
             if (e.KeyChar == 46)
             {
-                if (punto)
+                if (flagPunto)
                 {
-                    punto = false;
+                    flagPunto = false;
                 }
                 if (!lblMonto.Text.Contains("."))
                 {
-                    punto = true;
+                    flagPunto = true;
                 }
                 else e.Handled = true;
             }
@@ -1236,7 +1241,7 @@ namespace SiscomSoft_Desktop.Views
         #region BOTONES ACCIONES PAGAR
         private void btnAll_Click(object sender, EventArgs e)
         {
-            if (dolar==true)
+            if (flagDolar==true)
             {
                 noPagar = 0;
                 noCantidad = "";
@@ -1245,7 +1250,7 @@ namespace SiscomSoft_Desktop.Views
                 btnCredito.Enabled = true;
                 btnVouncher.Enabled = true;
                 btn.Enabled = true;
-                all = true;
+                flagAll = true;
             }
             else
             {
@@ -1256,7 +1261,7 @@ namespace SiscomSoft_Desktop.Views
                 btnCredito.Enabled = true;
                 btnVouncher.Enabled = true;
                 btn.Enabled = true;
-                all = true;
+                flagAll = true;
             }
         }
 
@@ -1266,21 +1271,21 @@ namespace SiscomSoft_Desktop.Views
             decimal TotalPesos = Convert.ToDecimal(lblTotal2.Text);
             decimal TotalDolar = 0;
             decimal TipoCambio = Convert.ToDecimal(FrmMenu.uHelper.usuario.sucursal_id.sTipoCambio);
-            if (dolar != true)
+            if (flagDolar != true)
             {
                 TotalDolar = (TotalPesos * 1) / TipoCambio;
                 lbltotaldolarestexto.Visible = true;
                 lblTotalDolares.Visible = true;
                 lblTotalDolares.Text = TotalDolar.ToString("N");
 
-                dolar = true;
+                flagDolar = true;
                 btnDolares.Text = "Pesos";
             }
             else
             {
                 lbltotaldolarestexto.Visible = false;
                 lblTotalDolares.Visible = false;
-                dolar = false;
+                flagDolar = false;
                 btnDolares.Text = "Dolares";
                 lblMonto.Text = "";
             }
@@ -1338,23 +1343,29 @@ namespace SiscomSoft_Desktop.Views
                 dgvDetalleProductos.Height = 632;
                 pnlDetalleMinimo.Visible = false;
 
-                dolar = false;
+                flagDolar = false;
             }
         }
 
         private void btnEfectivo_Click(object sender, EventArgs e)
         {
-            if (dolar == true)
+            flagEfectivo = true;
+            tipoMovimiento = "EFECTIVO";
+            if (flagDolar == true)
             {
                 #region Dolar
                 Decimal cambioDolar = 0;
                 Decimal faltaDolar = 0;
                 Decimal totalDolar = Convert.ToDecimal(lblTotalDolares.Text);
                 Decimal montoDolar = Convert.ToDecimal(lblMonto.Text);
-
+                
                 faltaDolar = totalDolar - montoDolar;
                 if (faltaDolar > 0)
                 {
+                    if (!flagDividir)
+                    {
+
+                    }
                     lblTotalDolares.Text = faltaDolar.ToString();
                     lblMonto.Text = "";
                     btnEfectivo.Enabled = false;
@@ -1412,13 +1423,13 @@ namespace SiscomSoft_Desktop.Views
                     lblIEPS30.Text = IEPS30.ToString("N");
                     lblIEPS26.Text = IEPS26.ToString("N");
                     lblDescuento.Text = DESCUENTO.ToString("N");
-
+                    tipoMovimiento = null;
                     dgvDetalleProductos.Height = 440;
                     guardarVenta();
                 }
                 #endregion
             }
-            else if (dolar == false)
+            else
             {
                 #region Pesos
                 Decimal cambio = 0;
@@ -1429,19 +1440,12 @@ namespace SiscomSoft_Desktop.Views
                 falta = total - monto;
                 if (falta > 0)
                 {
+                    if (!flagDividir)
+                    {
+
+                    }
                     lblTotal2.Text = falta.ToString();
                     lblMonto.Text = "";
-                    pnlDetalleMinimo.Visible = true;
-                    lblImporte.Text = total.ToString();
-                    lblMontoRecibido.Text = monto.ToString();
-                    lblCambioDado.Text = cambio.ToString();
-                    lblIVA16.Text = IVA16.ToString("N");
-                    lblIVA11.Text = IVA11.ToString("N");
-                    lblIVA4.Text = IVA4.ToString("N");
-                    lblIEPS53.Text = IEPS53.ToString("N");
-                    lblIEPS30.Text = IEPS30.ToString("N");
-                    lblIEPS26.Text = IEPS26.ToString("N");
-                    lblDescuento.Text = DESCUENTO.ToString("N");
                     btnEfectivo.Enabled = false;
                     btnCredito.Enabled = false;
                     btnVouncher.Enabled = false;
@@ -1517,14 +1521,30 @@ namespace SiscomSoft_Desktop.Views
                 mVenta.dCambio = Convert.ToDecimal(lblCambio.Text);
             }
             mVenta.dtFechaVenta = DateTime.Now;
-            if (dolar==true)
+            if (!flagDolar)
             {
                 mVenta.sMoneda = "USA";
-            }else
-            {
-                mVenta.sMoneda = "MXM";
             }
-            mVenta.sTipoPago = "EFECTIVO";
+            else
+            {
+                mVenta.sMoneda = "MXN";
+            }
+            if (!flagEfectivo)
+            {
+                mVenta.sTipoPago = tipoMovimiento;
+            }
+            else if (!flagTarjetaCredito)
+            {
+                mVenta.sTipoPago = tipoMovimiento;
+            }
+            else if(!flagCredito)
+            {
+                mVenta.sTipoPago = tipoMovimiento;
+            }
+            else if (!flagDividir)
+            {
+                mVenta.sTipoPago = tipoMovimiento;
+            }
             mVenta.iCaja = Convert.ToInt32(mPeriodo.sCaja);
             mVenta.iTurno = mPeriodo.iTurno;
             if (mCliente!=null)
@@ -1619,6 +1639,9 @@ namespace SiscomSoft_Desktop.Views
             pnlAccionesProductos.Visible = false;
             pnlAccionesGenerales.Visible = true;
             numeroVenta();
+            flagEfectivo = false;
+            flagTarjetaCredito = false;
+            flagCredito = false;
             #endregion
         }
         #endregion
@@ -1656,9 +1679,16 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnDividir_Click(object sender, EventArgs e)
         {
-            FrmDividirCuenta.TOTAL = Convert.ToDecimal(lblTotal2.Text);
-            FrmDividirCuenta v = new Views.FrmDividirCuenta();
-            v.ShowDialog();
+            if (!flagDividir)
+            {
+                flagDividir = true;
+                btnDividir.Text = "N/A";
+            }
+            else
+            {
+                flagDividir = false;
+                btnDividir.Text = "Dividir";
+            }
         }
     }
 }
