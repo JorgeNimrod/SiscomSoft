@@ -167,12 +167,6 @@
     <Compile Include="Views\FrmDetalleVentaComandera.Designer.cs">
       <DependentUpon>FrmDetalleVentaComandera.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmDividirCuenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmDividirCuenta.Designer.cs">
-      <DependentUpon>FrmDividirCuenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmKeyboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,9 +303,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmDetalleVentaComandera.resx">
       <DependentUpon>FrmDetalleVentaComandera.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmDividirCuenta.resx">
-      <DependentUpon>FrmDividirCuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmKeyboard.resx">
       <DependentUpon>FrmKeyboard.cs</DependentUpon>
