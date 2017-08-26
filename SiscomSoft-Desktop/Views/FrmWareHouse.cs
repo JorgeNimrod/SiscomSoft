@@ -215,7 +215,7 @@ namespace SiscomSoft_Desktop.Views
         {
             cbxCliente.DisplayMember = "sNombre";
             cbxCliente.ValueMember = "idCliente";
-            cbxCliente.DataSource = ManejoCliente.getAll(1);  
+            cbxCliente.DataSource = ManejoCliente.getForProveers();  
 
             cbxPkProd.DisplayMember = "sDescripcion";
             cbxPkProd.ValueMember = "idProducto";

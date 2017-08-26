@@ -5163,11 +5163,12 @@
             this.cbxAddPersonaCli.Items.AddRange(new object[] {
             "Fisica",
             "Moral"});
-            this.cbxAddPersonaCli.Location = new System.Drawing.Point(834, 26);
+            this.cbxAddPersonaCli.Location = new System.Drawing.Point(82, 31);
             this.cbxAddPersonaCli.Name = "cbxAddPersonaCli";
             this.cbxAddPersonaCli.Size = new System.Drawing.Size(236, 26);
             this.cbxAddPersonaCli.TabIndex = 106;
             this.cbxAddPersonaCli.Text = "Seleccione Una Opcion";
+            this.cbxAddPersonaCli.SelectedIndexChanged += new System.EventHandler(this.cbxAddPersonaCli_SelectedIndexChanged);
             // 
             // txtPaisAddCli
             // 
@@ -5242,7 +5243,7 @@
             // 
             // btnExaminar
             // 
-            this.btnExaminar.Location = new System.Drawing.Point(957, 436);
+            this.btnExaminar.Location = new System.Drawing.Point(883, 436);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(167, 27);
             this.btnExaminar.TabIndex = 90;
@@ -5578,7 +5579,7 @@
             // label91
             // 
             this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(756, 28);
+            this.label91.Location = new System.Drawing.Point(4, 33);
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(72, 18);
             this.label91.TabIndex = 60;
@@ -5586,7 +5587,7 @@
             // 
             // txtRazonAddCli
             // 
-            this.txtRazonAddCli.Location = new System.Drawing.Point(447, 25);
+            this.txtRazonAddCli.Location = new System.Drawing.Point(788, 33);
             this.txtRazonAddCli.Name = "txtRazonAddCli";
             this.txtRazonAddCli.Size = new System.Drawing.Size(282, 24);
             this.txtRazonAddCli.TabIndex = 58;
@@ -5596,7 +5597,7 @@
             // label92
             // 
             this.label92.AutoSize = true;
-            this.label92.Location = new System.Drawing.Point(332, 28);
+            this.label92.Location = new System.Drawing.Point(673, 36);
             this.label92.Name = "label92";
             this.label92.Size = new System.Drawing.Size(109, 18);
             this.label92.TabIndex = 57;
@@ -5604,7 +5605,7 @@
             // 
             // txtRFCAddCli
             // 
-            this.txtRFCAddCli.Location = new System.Drawing.Point(82, 25);
+            this.txtRFCAddCli.Location = new System.Drawing.Point(431, 33);
             this.txtRFCAddCli.Name = "txtRFCAddCli";
             this.txtRFCAddCli.Size = new System.Drawing.Size(236, 24);
             this.txtRFCAddCli.TabIndex = 56;
@@ -5613,7 +5614,7 @@
             // label93
             // 
             this.label93.AutoSize = true;
-            this.label93.Location = new System.Drawing.Point(29, 28);
+            this.label93.Location = new System.Drawing.Point(378, 36);
             this.label93.Name = "label93";
             this.label93.Size = new System.Drawing.Size(47, 18);
             this.label93.TabIndex = 55;
@@ -5633,7 +5634,7 @@
             // 
             // pcbimgAddCli
             // 
-            this.pcbimgAddCli.Location = new System.Drawing.Point(957, 317);
+            this.pcbimgAddCli.Location = new System.Drawing.Point(883, 317);
             this.pcbimgAddCli.Name = "pcbimgAddCli";
             this.pcbimgAddCli.Size = new System.Drawing.Size(167, 113);
             this.pcbimgAddCli.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -5708,9 +5709,9 @@
             this.cbxUpdatePersonaCli.Items.AddRange(new object[] {
             "Fisica",
             "Moral"});
-            this.cbxUpdatePersonaCli.Location = new System.Drawing.Point(834, 27);
+            this.cbxUpdatePersonaCli.Location = new System.Drawing.Point(95, 30);
             this.cbxUpdatePersonaCli.Name = "cbxUpdatePersonaCli";
-            this.cbxUpdatePersonaCli.Size = new System.Drawing.Size(236, 26);
+            this.cbxUpdatePersonaCli.Size = new System.Drawing.Size(223, 26);
             this.cbxUpdatePersonaCli.TabIndex = 155;
             this.cbxUpdatePersonaCli.Text = "Seleccione Una Opcion";
             this.cbxUpdatePersonaCli.SelectedIndexChanged += new System.EventHandler(this.cbxUpdatePersonaCli_SelectedIndexChanged);
@@ -5763,9 +5764,9 @@
             this.label94.AutoSize = true;
             this.label94.Location = new System.Drawing.Point(745, 270);
             this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(114, 18);
+            this.label94.Size = new System.Drawing.Size(110, 18);
             this.label94.TabIndex = 154;
-            this.label94.Text = "Tipo de Cliente :";
+            this.label94.Text = "Tipo de Cliente:";
             // 
             // txtCorreoUpdateCli
             // 
@@ -5781,13 +5782,13 @@
             this.label95.AutoSize = true;
             this.label95.Location = new System.Drawing.Point(388, 358);
             this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(67, 18);
+            this.label95.Size = new System.Drawing.Size(63, 18);
             this.label95.TabIndex = 153;
-            this.label95.Text = "Correo  :";
+            this.label95.Text = "Correo :";
             // 
             // btnExaminarUpdateCli
             // 
-            this.btnExaminarUpdateCli.Location = new System.Drawing.Point(957, 435);
+            this.btnExaminarUpdateCli.Location = new System.Drawing.Point(903, 435);
             this.btnExaminarUpdateCli.Name = "btnExaminarUpdateCli";
             this.btnExaminarUpdateCli.Size = new System.Drawing.Size(167, 27);
             this.btnExaminarUpdateCli.TabIndex = 141;
@@ -5809,9 +5810,9 @@
             this.label96.AutoSize = true;
             this.label96.Location = new System.Drawing.Point(27, 403);
             this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(158, 18);
+            this.label96.Size = new System.Drawing.Size(154, 18);
             this.label96.TabIndex = 151;
-            this.label96.Text = "Condiciones de Pago :";
+            this.label96.Text = "Condiciones de Pago:";
             // 
             // cbxMetodoPagoUpdateCli
             // 
@@ -5854,18 +5855,18 @@
             this.label97.AutoSize = true;
             this.label97.Location = new System.Drawing.Point(352, 316);
             this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(103, 18);
+            this.label97.Size = new System.Drawing.Size(99, 18);
             this.label97.TabIndex = 150;
-            this.label97.Text = "Num Cuenta  :";
+            this.label97.Text = "Num Cuenta :";
             // 
             // label98
             // 
             this.label98.AutoSize = true;
             this.label98.Location = new System.Drawing.Point(45, 358);
             this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(106, 18);
+            this.label98.Size = new System.Drawing.Size(102, 18);
             this.label98.TabIndex = 149;
-            this.label98.Text = "Metodo Pago :";
+            this.label98.Text = "Metodo Pago:";
             // 
             // txtReferenciaUpdateCli
             // 
@@ -5880,18 +5881,18 @@
             this.label99.AutoSize = true;
             this.label99.Location = new System.Drawing.Point(354, 269);
             this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(87, 18);
+            this.label99.Size = new System.Drawing.Size(83, 18);
             this.label99.TabIndex = 148;
-            this.label99.Text = "Referencia :";
+            this.label99.Text = "Referencia:";
             // 
             // label100
             // 
             this.label100.AutoSize = true;
             this.label100.Location = new System.Drawing.Point(41, 313);
             this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(112, 18);
+            this.label100.Size = new System.Drawing.Size(108, 18);
             this.label100.TabIndex = 147;
-            this.label100.Text = "Estado Cliente :";
+            this.label100.Text = "Estado Cliente:";
             // 
             // txtTelMvlUpdateCli
             // 
@@ -5908,9 +5909,9 @@
             this.label101.AutoSize = true;
             this.label101.Location = new System.Drawing.Point(749, 220);
             this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(79, 18);
+            this.label101.Size = new System.Drawing.Size(75, 18);
             this.label101.TabIndex = 146;
-            this.label101.Text = "Tel Movil  :";
+            this.label101.Text = "Tel Movil :";
             // 
             // txtTelFijoUpdateCli
             // 
@@ -5927,9 +5928,9 @@
             this.label102.AutoSize = true;
             this.label102.Location = new System.Drawing.Point(44, 269);
             this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(64, 18);
+            this.label102.Size = new System.Drawing.Size(60, 18);
             this.label102.TabIndex = 145;
-            this.label102.Text = "Tel Fijo :";
+            this.label102.Text = "Tel Fijo:";
             // 
             // txtNumInteUpdateCli
             // 
@@ -5946,9 +5947,9 @@
             this.label103.AutoSize = true;
             this.label103.Location = new System.Drawing.Point(354, 220);
             this.label103.Name = "label103";
-            this.label103.Size = new System.Drawing.Size(101, 18);
+            this.label103.Size = new System.Drawing.Size(97, 18);
             this.label103.TabIndex = 143;
-            this.label103.Text = "Num. Interior :";
+            this.label103.Text = "Num. Interior:";
             // 
             // txtNumExteUpdateCli
             // 
@@ -6016,9 +6017,9 @@
             this.label107.AutoSize = true;
             this.label107.Location = new System.Drawing.Point(753, 128);
             this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(83, 18);
+            this.label107.Size = new System.Drawing.Size(75, 18);
             this.label107.TabIndex = 133;
-            this.label107.Text = "Localidad  :";
+            this.label107.Text = "Localidad:";
             // 
             // txtMunicipioUpdateCli
             // 
@@ -6034,9 +6035,9 @@
             this.label108.AutoSize = true;
             this.label108.Location = new System.Drawing.Point(37, 174);
             this.label108.Name = "label108";
-            this.label108.Size = new System.Drawing.Size(79, 18);
+            this.label108.Size = new System.Drawing.Size(75, 18);
             this.label108.TabIndex = 129;
-            this.label108.Text = "Municipio :";
+            this.label108.Text = "Municipio:";
             // 
             // txtEstadoUpdateCli
             // 
@@ -6052,9 +6053,9 @@
             this.label109.AutoSize = true;
             this.label109.Location = new System.Drawing.Point(366, 128);
             this.label109.Name = "label109";
-            this.label109.Size = new System.Drawing.Size(67, 18);
+            this.label109.Size = new System.Drawing.Size(59, 18);
             this.label109.TabIndex = 127;
-            this.label109.Text = "Estado  :";
+            this.label109.Text = "Estado:";
             // 
             // txtCPUpdateCli
             // 
@@ -6071,18 +6072,18 @@
             this.label110.AutoSize = true;
             this.label110.Location = new System.Drawing.Point(32, 125);
             this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(110, 18);
+            this.label110.Size = new System.Drawing.Size(106, 18);
             this.label110.TabIndex = 124;
-            this.label110.Text = "Codigo Postal :";
+            this.label110.Text = "Codigo Postal:";
             // 
             // label111
             // 
             this.label111.AutoSize = true;
             this.label111.Location = new System.Drawing.Point(771, 77);
             this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(49, 18);
+            this.label111.Size = new System.Drawing.Size(41, 18);
             this.label111.TabIndex = 121;
-            this.label111.Text = "Pais  :";
+            this.label111.Text = "Pais:";
             // 
             // txtNombreUpdateCli
             // 
@@ -6098,9 +6099,9 @@
             this.label112.AutoSize = true;
             this.label112.Location = new System.Drawing.Point(359, 77);
             this.label112.Name = "label112";
-            this.label112.Size = new System.Drawing.Size(70, 18);
+            this.label112.Size = new System.Drawing.Size(66, 18);
             this.label112.TabIndex = 118;
-            this.label112.Text = "Nombre :";
+            this.label112.Text = "Nombre:";
             // 
             // txtCurpUpdateCli
             // 
@@ -6116,22 +6117,22 @@
             this.label113.AutoSize = true;
             this.label113.Location = new System.Drawing.Point(29, 77);
             this.label113.Name = "label113";
-            this.label113.Size = new System.Drawing.Size(52, 18);
+            this.label113.Size = new System.Drawing.Size(44, 18);
             this.label113.TabIndex = 114;
-            this.label113.Text = "Curp  :";
+            this.label113.Text = "Curp:";
             // 
             // label114
             // 
             this.label114.AutoSize = true;
-            this.label114.Location = new System.Drawing.Point(756, 27);
+            this.label114.Location = new System.Drawing.Point(17, 30);
             this.label114.Name = "label114";
-            this.label114.Size = new System.Drawing.Size(72, 18);
+            this.label114.Size = new System.Drawing.Size(68, 18);
             this.label114.TabIndex = 111;
-            this.label114.Text = "Persona :";
+            this.label114.Text = "Persona:";
             // 
             // txtRazonUpdateCli
             // 
-            this.txtRazonUpdateCli.Location = new System.Drawing.Point(447, 24);
+            this.txtRazonUpdateCli.Location = new System.Drawing.Point(788, 32);
             this.txtRazonUpdateCli.Name = "txtRazonUpdateCli";
             this.txtRazonUpdateCli.Size = new System.Drawing.Size(282, 24);
             this.txtRazonUpdateCli.TabIndex = 109;
@@ -6140,15 +6141,15 @@
             // label115
             // 
             this.label115.AutoSize = true;
-            this.label115.Location = new System.Drawing.Point(332, 27);
+            this.label115.Location = new System.Drawing.Point(673, 35);
             this.label115.Name = "label115";
-            this.label115.Size = new System.Drawing.Size(109, 18);
+            this.label115.Size = new System.Drawing.Size(105, 18);
             this.label115.TabIndex = 108;
-            this.label115.Text = "Razon Social  :";
+            this.label115.Text = "Razon Social :";
             // 
             // txtRfcUpdateCli
             // 
-            this.txtRfcUpdateCli.Location = new System.Drawing.Point(82, 24);
+            this.txtRfcUpdateCli.Location = new System.Drawing.Point(420, 32);
             this.txtRfcUpdateCli.Name = "txtRfcUpdateCli";
             this.txtRfcUpdateCli.Size = new System.Drawing.Size(236, 24);
             this.txtRfcUpdateCli.TabIndex = 107;
@@ -6157,11 +6158,11 @@
             // label116
             // 
             this.label116.AutoSize = true;
-            this.label116.Location = new System.Drawing.Point(29, 27);
+            this.label116.Location = new System.Drawing.Point(367, 35);
             this.label116.Name = "label116";
-            this.label116.Size = new System.Drawing.Size(47, 18);
+            this.label116.Size = new System.Drawing.Size(43, 18);
             this.label116.TabIndex = 106;
-            this.label116.Text = "RFC :";
+            this.label116.Text = "RFC:";
             // 
             // BtnAcualizarCli
             // 
@@ -6177,7 +6178,7 @@
             // 
             // pcbImgUpdatCli
             // 
-            this.pcbImgUpdatCli.Location = new System.Drawing.Point(957, 316);
+            this.pcbImgUpdatCli.Location = new System.Drawing.Point(903, 316);
             this.pcbImgUpdatCli.Name = "pcbImgUpdatCli";
             this.pcbImgUpdatCli.Size = new System.Drawing.Size(167, 113);
             this.pcbImgUpdatCli.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -8412,6 +8413,7 @@
             this.btnTeclado.Text = "Teclado";
             this.btnTeclado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnTeclado.UseVisualStyleBackColor = false;
+            this.btnTeclado.Visible = false;
             this.btnTeclado.Click += new System.EventHandler(this.btnTeclado_Click);
             // 
             // pictureBox1
