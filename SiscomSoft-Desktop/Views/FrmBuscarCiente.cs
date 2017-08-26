@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using SiscomSoft.Models;
 using SiscomSoft.Controller;
 
 namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmBuscarCiente : Form
     {
+        #region VARIABLES
         public static int PKCLIENTE;
         FrmMenuFacturacion vPadre;
+        #endregion
+
+        #region MAIN
         public FrmBuscarCiente(FrmMenuFacturacion vHija)
         {
             InitializeComponent();
@@ -24,17 +20,21 @@ namespace SiscomSoft_Desktop.Views
             vPadre = vHija;
         }
 
-        public void cargarClientes()
-        {
-            dgvProductos.DataSource = ManejoCliente.Buscar(txtBuscar.Text,cmbCategoria.SelectedIndex + 1);
-        }
-
         private void FrmBuscarCiente_Load(object sender, EventArgs e)
         {
             cmbCategoria.SelectedIndex = 0;
             cargarClientes();
         }
+        #endregion
 
+        #region FUNCIONES
+        public void cargarClientes()
+        {
+            dgvProductos.DataSource = ManejoCliente.Buscar(txtBuscar.Text,cmbCategoria.SelectedIndex + 1);
+        }
+        #endregion
+
+        #region EVENTOS
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             cargarClientes();
@@ -60,5 +60,6 @@ namespace SiscomSoft_Desktop.Views
                 }
             }
         }
+        #endregion
     }
 }

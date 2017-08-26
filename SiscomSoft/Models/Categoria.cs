@@ -15,7 +15,7 @@ namespace SiscomSoft.Models
         [Key]
         public int idCategoria { get; set; }
 
-        public string sNombre { get; set; }
+        public string sNomCat { get; set; }
 
         public string sNomSubCat { get; set; }
 

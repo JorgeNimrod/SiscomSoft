@@ -12,22 +12,13 @@ namespace SiscomSoft.Controller
     {
         public static void RegistrarNuevoDetail(DetalleAlmacen nDetalle, int pkAlmacen, int pkProducto)
         {
-          
-            Almacen Almacen = ManejoAlmacen.getById(pkAlmacen);
-            Producto producto = ManejoProducto.getById(pkProducto);
-        
-
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nDetalle.almacen_id = Almacen;
-                    nDetalle.producto_id = producto;
-
-                    ctx.Almacenes.Attach(Almacen);
-                    ctx.Productos.Attach(producto);
+                    nDetalle.almacen_id = pkAlmacen;
+                    nDetalle.producto_id = pkProducto;
                     ctx.DetalleAlmacen.Add(nDetalle);
-               
                     ctx.SaveChanges();
                 }
             }
@@ -44,12 +35,8 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                   
-                    nDetalle.almacen_id = nAlmacen;
-                    nDetalle.producto_id = nProducto;
-                   
-                    ctx.Almacenes.Attach(nAlmacen);
-                    ctx.Productos.Attach(nProducto);
-                   
+                    nDetalle.almacen_id = nAlmacen.idAlmacen;
+                    nDetalle.producto_id = nProducto.idProducto;
                     ctx.DetalleAlmacen.Add(nDetalle);
                     ctx.SaveChanges();
                 }
@@ -67,8 +54,6 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.DetalleAlmacen
-                        .Include("almacen_id")
-                        .Include("producto_id")
                         .Where(r => r.bStatus == true && r.idDetalle == pkDetalle)
                         .FirstOrDefault();
                 }
@@ -89,10 +74,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.DetalleAlmacen
-                        .Include("almacen_id")
-                        .Include("producto_id")
-
-                        .Where(r => r.bStatus == true).ToList();
+                              .Where(r => r.bStatus == true).ToList();
                 }
             }
             catch (Exception)
@@ -126,10 +108,8 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.DetalleAlmacen
-                        .Include("almacen_id")
-                        .Include("producto_id")
-                         .Where(r => r.bStatus == Status && r.sDescripcion.Contains(valor))
-                        .ToList();
+                              .Where(r => r.bStatus == Status && r.sDescripcion.Contains(valor))
+                              .ToList();
                 }
             }
             catch (Exception)

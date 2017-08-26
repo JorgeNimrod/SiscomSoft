@@ -15,25 +15,29 @@ namespace SiscomSoft.Models
         [Key]
         public int idFactura { get; set; }
 
-        public virtual Usuario usuario_id { get; set; }
+        public int usuario_id { get; set; }
 
-        public virtual Sucursal sucursal_id { get; set; }
+        public int sucursal_id { get; set; }
 
-        public virtual Cliente cliente_id { get; set; }
+        public int cliente_id { get; set; }
+
+        public DateTime dtFecha { get; set; }
+
+        public string sFolio { get; set; }
 
         public string sTipoCambio { get; set; }
 
-        public DateTime dtFecha { get; set; }
-        
-        public string sFolio { get; set; }
+        public string sMoneda { get; set; }
 
-        public string sComentario { get; set; }
+        public string sUsoCfdi { get; set; }
+
+        public string sFormaPago { get; set; }
+
+        public string sMetodoPago { get; set; }
+
+        public string sTipoCompro { get; set; }
 
         public Boolean bStatus { get; set; }
-
-        public virtual ICollection<Venta> Ventas { get; set; }
-
-        public virtual ICollection<DetalleFacturacion> DetalleFacturacion { get; set; }
 
         public Factura()
         {

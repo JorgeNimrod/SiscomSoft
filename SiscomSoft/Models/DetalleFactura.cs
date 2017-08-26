@@ -10,19 +10,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SiscomSoft.Models
 {
-    [Table("DetalleFacturacion")]
-    public class DetalleFacturacion
+    [Table("DetalleFacturas")]
+    public class DetalleFactura
     {
         [Key]
-        public int idDetalleFacturacion { get; set; }
+        public int idDetalleFactura { get; set; }
 
-        public virtual Factura factura_id { get; set; }
+        public int factura_id { get; set; }
 
-        public virtual Producto producto_id  { get; set; }
-
-        public string sDescripcion { get; set; }
+        public int producto_id  { get; set; }
 
         public string sClave { get; set; }
+
+        public string sDescripcion { get; set; }
 
         public int iCantidad { get; set; }
 
@@ -30,7 +30,7 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public DetalleFacturacion()
+        public DetalleFactura()
         {
             this.bStatus = true;
         }

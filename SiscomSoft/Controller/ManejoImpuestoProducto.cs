@@ -18,9 +18,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.ImpuestosProductos
-                        .Include("impuesto_id")
-                        .Include("producto_id")
-                        .Where(r => r.bStatus == true && r.producto_id.idProducto == pkProducto)
+                        .Where(r => r.bStatus == true && r.producto_id == pkProducto)
                         .ToList();
                 }
             }
@@ -38,12 +36,8 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     ImpuestoProducto mimpuprod = new ImpuestoProducto();
-                    Impuesto mImpu = ManejoImpuesto.getById(pkImpuesto);
-                    Producto mProd = ManejoProducto.getById(pkProducto);
-                    mimpuprod.impuesto_id = mImpu;
-                    mimpuprod.producto_id = mProd;
-                    ctx.Impuestos.Attach(mImpu);
-                    ctx.Productos.Attach(mProd);
+                    mimpuprod.impuesto_id = pkImpuesto;
+                    mimpuprod.producto_id = pkProducto;
                     ctx.ImpuestosProductos.Add(mimpuprod);
                     ctx.SaveChanges();
                 }

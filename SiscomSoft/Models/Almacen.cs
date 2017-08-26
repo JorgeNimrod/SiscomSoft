@@ -16,14 +16,16 @@ namespace SiscomSoft.Models
 
         public string sFolio { get; set; }
      
-        public virtual Cliente cliente_id {get; set;}
+        public int cliente_id {get; set;}
 
         public String sNumFactura { get; set; }
        
         public string sMoneda { get; set; }
+
         public string sDescripcion { get; set; }
 
         public decimal dTipoCambio { get; set; }
+
         public string sTipoCompra { get; set; }
 
         public DateTime dtFechaCompra { get; set; }
@@ -31,14 +33,6 @@ namespace SiscomSoft.Models
         public DateTime dtFechaMovimiento { get; set; }
 
         public Boolean bStatus { get; set; }
-
-        public virtual ICollection<DetalleAlmacen> DetalleAlmacen { get; set; }
-
-        public virtual ICollection<Existencia> Existencias { get; set; }
-
-      
-
-        public virtual ICollection<Capa> Capas { get; set; }
 
         public Almacen()
         {

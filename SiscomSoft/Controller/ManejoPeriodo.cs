@@ -19,7 +19,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Periodos.Include("usuario_id")
+                    return ctx.Periodos
                         .Where(r => r.bStatus == status).ToList();
                 }
             }
@@ -36,7 +36,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Periodos.Include("usuario_id")
+                    return ctx.Periodos
                         .Where(r => r.idPeriodo == idPeriodo && r.bStatus == true).FirstOrDefault();
                 }
             }
@@ -71,7 +71,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nPeriodo.usuario_id = nUsuario;
+                    nPeriodo.usuario_id = nUsuario.idUsuario;
                     ctx.Usuarios.Attach(nUsuario);
                     ctx.Periodos.Add(nPeriodo);
                     ctx.SaveChanges();
@@ -90,8 +90,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    nPeriodo.usuario_id = nUsuario;
-                    ctx.Usuarios.Attach(nUsuario);
+                    nPeriodo.usuario_id = nUsuario.idUsuario;
                     ctx.Entry(nPeriodo).State = EntityState.Modified;
                     ctx.SaveChanges();
                 }
@@ -112,7 +111,7 @@ namespace SiscomSoft.Controller
                 {
                     return ctx.Periodos
                         .Include(i => i.usuario_id)
-                        .Where(r => r.usuario_id.idUsuario == pkUsuario && r.bStatus == true && r.dtFinal == dt).FirstOrDefault();
+                        .Where(r => r.usuario_id == pkUsuario && r.bStatus == true && r.dtFinal == dt).FirstOrDefault();
                 }
             }
             catch (Exception)

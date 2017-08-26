@@ -21,8 +21,6 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public virtual ICollection<DescuentoProducto> DescuentosProductos { get; set; }
-
         public Descuento()
         {
             this.bStatus = true;

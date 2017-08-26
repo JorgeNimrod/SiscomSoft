@@ -48,8 +48,6 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public virtual ICollection<Sucursal> Sucursales { get; set; }
-
         public Empresa()
         {
             this.bStatus = true;

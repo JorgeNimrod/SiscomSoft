@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SiscomSoft.Models
 {
-    [Table("Inventario")]
+    [Table("Inventarios")]
     public class Inventario
     {
         [Key]

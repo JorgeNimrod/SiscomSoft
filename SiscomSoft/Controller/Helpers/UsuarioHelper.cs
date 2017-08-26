@@ -17,14 +17,14 @@ namespace SiscomSoft.Controller.Helpers
         public Boolean TienePermiso(int idPermiso)
         {
             Boolean tiene = true;
-            foreach (PermisoNegadoRol item in usuario.rol_id.PermisosNegadosRol)
-            {
-                if (item.permiso_id.idPermiso == idPermiso)
-                {
-                    tiene = false;
-                    break;
-                }
-            }
+            //foreach (PermisoNegadoRol item in usuario.rol_id.PermisosNegadosRol)
+            //{
+            //    if (item.permiso_id == idPermiso)
+            //    {
+            //        tiene = false;
+            //        break;
+            //    }
+            //}
             return tiene;
         }
 

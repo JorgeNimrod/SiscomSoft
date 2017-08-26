@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DLLFinkok, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DLLFinkok.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -49,6 +53,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -70,6 +76,7 @@
     <Compile Include="Controller\Catalogos\TipoFactor.cs" />
     <Compile Include="Controller\Catalogos\TipoRelacion.cs" />
     <Compile Include="Controller\Catalogos\UsoCFDI.cs" />
+    <Compile Include="Controller\ManejoDetalleFactura.cs" />
     <Compile Include="Controller\ManejoCFDIv33.cs" />
     <Compile Include="Controller\ManejoDescuento.cs" />
     <Compile Include="Controller\ManejoDetalleInventario.cs" />
@@ -89,26 +96,17 @@
     <Compile Include="Controller\ManejoImpuestoProducto.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
     <Compile Include="Controller\ManejoPeriodo.cs" />
-    <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201708181657037_RunThis.cs" />
-    <Compile Include="Migrations\201708181657037_RunThis.Designer.cs">
-      <DependentUpon>201708181657037_RunThis.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708181851131_tuf.cs" />
-    <Compile Include="Migrations\201708181851131_tuf.Designer.cs">
-      <DependentUpon>201708181851131_tuf.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708211810129_Desesperearion.cs" />
-    <Compile Include="Migrations\201708211810129_Desesperearion.Designer.cs">
-      <DependentUpon>201708211810129_Desesperearion.cs</DependentUpon>
+    <Compile Include="Migrations\201708252353364_INICIAL.cs" />
+    <Compile Include="Migrations\201708252353364_INICIAL.Designer.cs">
+      <DependentUpon>201708252353364_INICIAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\Descuento.cs" />
     <Compile Include="Models\DescuentoProducto.cs" />
     <Compile Include="Models\DetalleAlmacen.cs" />
-    <Compile Include="Models\DetalleFacturacion.cs" />
+    <Compile Include="Models\DetalleFactura.cs" />
     <Compile Include="Models\DetalleInventario.cs" />
     <Compile Include="Models\DetallePeriodo.cs" />
     <Compile Include="Models\Existencia.cs" />
@@ -154,14 +152,8 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708181657037_RunThis.resx">
-      <DependentUpon>201708181657037_RunThis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708181851131_tuf.resx">
-      <DependentUpon>201708181851131_tuf.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708211810129_Desesperearion.resx">
-      <DependentUpon>201708211810129_Desesperearion.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708252353364_INICIAL.resx">
+      <DependentUpon>201708252353364_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

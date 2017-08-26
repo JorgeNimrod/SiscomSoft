@@ -1,6 +1,6 @@
 ﻿namespace SiscomSoft_Desktop.Views
 {
-    partial class FrmAdministrador
+    partial class FrmMenuAdministrador
     {
         /// <summary>
         /// Required designer variable.
@@ -2733,7 +2733,7 @@
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombreUsuario.Location = new System.Drawing.Point(333, 49);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
@@ -2966,7 +2966,7 @@
             // 
             // txtUpdateNameUser
             // 
-            this.txtUpdateNameUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtUpdateNameUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUpdateNameUser.Location = new System.Drawing.Point(332, 49);
             this.txtUpdateNameUser.Name = "txtUpdateNameUser";
@@ -6405,14 +6405,14 @@
             this.pnlAddCertificado.Controls.Add(this.label198);
             this.pnlAddCertificado.Location = new System.Drawing.Point(158, 0);
             this.pnlAddCertificado.Name = "pnlAddCertificado";
-            this.pnlAddCertificado.Size = new System.Drawing.Size(993, 546);
+            this.pnlAddCertificado.Size = new System.Drawing.Size(788, 546);
             this.pnlAddCertificado.TabIndex = 136;
             this.pnlAddCertificado.Visible = false;
             // 
             // btnAddExaminarCarpetaCertificados
             // 
             this.btnAddExaminarCarpetaCertificados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddExaminarCarpetaCertificados.Location = new System.Drawing.Point(369, 95);
+            this.btnAddExaminarCarpetaCertificados.Location = new System.Drawing.Point(370, 98);
             this.btnAddExaminarCarpetaCertificados.Name = "btnAddExaminarCarpetaCertificados";
             this.btnAddExaminarCarpetaCertificados.Size = new System.Drawing.Size(95, 24);
             this.btnAddExaminarCarpetaCertificados.TabIndex = 163;
@@ -6424,7 +6424,7 @@
             // 
             this.txtAddFolcerCertificados.Enabled = false;
             this.txtAddFolcerCertificados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddFolcerCertificados.Location = new System.Drawing.Point(63, 96);
+            this.txtAddFolcerCertificados.Location = new System.Drawing.Point(64, 99);
             this.txtAddFolcerCertificados.Name = "txtAddFolcerCertificados";
             this.txtAddFolcerCertificados.Size = new System.Drawing.Size(300, 24);
             this.txtAddFolcerCertificados.TabIndex = 162;
@@ -6434,7 +6434,7 @@
             // 
             this.label191.AutoSize = true;
             this.label191.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label191.Location = new System.Drawing.Point(60, 73);
+            this.label191.Location = new System.Drawing.Point(61, 78);
             this.label191.Name = "label191";
             this.label191.Size = new System.Drawing.Size(156, 13);
             this.label191.TabIndex = 161;
@@ -6444,9 +6444,9 @@
             // 
             this.txtAddValidoHasta.Enabled = false;
             this.txtAddValidoHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddValidoHasta.Location = new System.Drawing.Point(467, 284);
+            this.txtAddValidoHasta.Location = new System.Drawing.Point(470, 269);
             this.txtAddValidoHasta.Name = "txtAddValidoHasta";
-            this.txtAddValidoHasta.Size = new System.Drawing.Size(303, 24);
+            this.txtAddValidoHasta.Size = new System.Drawing.Size(300, 24);
             this.txtAddValidoHasta.TabIndex = 159;
             this.txtAddValidoHasta.TextChanged += new System.EventHandler(this.txtAddValidoHasta_TextChanged);
             // 
@@ -6454,7 +6454,7 @@
             // 
             this.label192.AutoSize = true;
             this.label192.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label192.Location = new System.Drawing.Point(464, 263);
+            this.label192.Location = new System.Drawing.Point(467, 248);
             this.label192.Name = "label192";
             this.label192.Size = new System.Drawing.Size(85, 13);
             this.label192.TabIndex = 160;
@@ -6503,7 +6503,7 @@
             // btnAddExaminarKey
             // 
             this.btnAddExaminarKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddExaminarKey.Location = new System.Drawing.Point(369, 217);
+            this.btnAddExaminarKey.Location = new System.Drawing.Point(370, 217);
             this.btnAddExaminarKey.Name = "btnAddExaminarKey";
             this.btnAddExaminarKey.Size = new System.Drawing.Size(95, 24);
             this.btnAddExaminarKey.TabIndex = 154;
@@ -6514,10 +6514,10 @@
             // txtAddContraseña
             // 
             this.txtAddContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddContraseña.Location = new System.Drawing.Point(60, 285);
+            this.txtAddContraseña.Location = new System.Drawing.Point(64, 269);
             this.txtAddContraseña.Name = "txtAddContraseña";
             this.txtAddContraseña.PasswordChar = '*';
-            this.txtAddContraseña.Size = new System.Drawing.Size(303, 24);
+            this.txtAddContraseña.Size = new System.Drawing.Size(300, 24);
             this.txtAddContraseña.TabIndex = 148;
             this.txtAddContraseña.Text = "12345678a";
             this.txtAddContraseña.TextChanged += new System.EventHandler(this.txtAddContraseña_TextChanged);
@@ -6526,7 +6526,7 @@
             // 
             this.label196.AutoSize = true;
             this.label196.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label196.Location = new System.Drawing.Point(57, 264);
+            this.label196.Location = new System.Drawing.Point(61, 250);
             this.label196.Name = "label196";
             this.label196.Size = new System.Drawing.Size(81, 13);
             this.label196.TabIndex = 150;
@@ -6535,7 +6535,7 @@
             // btnAddExaminarCertificado
             // 
             this.btnAddExaminarCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddExaminarCertificado.Location = new System.Drawing.Point(369, 156);
+            this.btnAddExaminarCertificado.Location = new System.Drawing.Point(370, 156);
             this.btnAddExaminarCertificado.Name = "btnAddExaminarCertificado";
             this.btnAddExaminarCertificado.Size = new System.Drawing.Size(95, 24);
             this.btnAddExaminarCertificado.TabIndex = 149;
@@ -6547,7 +6547,7 @@
             // 
             this.txtAddKey.Enabled = false;
             this.txtAddKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddKey.Location = new System.Drawing.Point(63, 217);
+            this.txtAddKey.Location = new System.Drawing.Point(64, 217);
             this.txtAddKey.Name = "txtAddKey";
             this.txtAddKey.Size = new System.Drawing.Size(300, 24);
             this.txtAddKey.TabIndex = 147;
@@ -6557,7 +6557,7 @@
             // 
             this.txtAddCertificado.Enabled = false;
             this.txtAddCertificado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddCertificado.Location = new System.Drawing.Point(63, 156);
+            this.txtAddCertificado.Location = new System.Drawing.Point(64, 156);
             this.txtAddCertificado.Name = "txtAddCertificado";
             this.txtAddCertificado.Size = new System.Drawing.Size(300, 24);
             this.txtAddCertificado.TabIndex = 145;
@@ -6567,7 +6567,7 @@
             // 
             this.label197.AutoSize = true;
             this.label197.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label197.Location = new System.Drawing.Point(57, 195);
+            this.label197.Location = new System.Drawing.Point(61, 198);
             this.label197.Name = "label197";
             this.label197.Size = new System.Drawing.Size(28, 13);
             this.label197.TabIndex = 146;
@@ -6577,7 +6577,7 @@
             // 
             this.label198.AutoSize = true;
             this.label198.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label198.Location = new System.Drawing.Point(60, 135);
+            this.label198.Location = new System.Drawing.Point(61, 138);
             this.label198.Name = "label198";
             this.label198.Size = new System.Drawing.Size(78, 13);
             this.label198.TabIndex = 144;
@@ -6595,7 +6595,7 @@
             this.pnlAddPreferencias.Controls.Add(this.btnAddExaminarLogo);
             this.pnlAddPreferencias.Location = new System.Drawing.Point(158, 0);
             this.pnlAddPreferencias.Name = "pnlAddPreferencias";
-            this.pnlAddPreferencias.Size = new System.Drawing.Size(997, 546);
+            this.pnlAddPreferencias.Size = new System.Drawing.Size(856, 546);
             this.pnlAddPreferencias.TabIndex = 136;
             this.pnlAddPreferencias.Visible = false;
             // 
@@ -8442,7 +8442,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1370, 750);
+            this.ClientSize = new System.Drawing.Size(1354, 733);
             this.Controls.Add(this.label43);
             this.Controls.Add(this.btnTeclado);
             this.Controls.Add(this.pnlEmpresas);
@@ -8459,7 +8459,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmAdministrador";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmAdministrador_Load);

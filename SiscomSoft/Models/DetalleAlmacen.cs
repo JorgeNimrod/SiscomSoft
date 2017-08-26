@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SiscomSoft.Models
 {
-    [Table("DetalleAlmacen")]
+    [Table("DetalleAlmacenes")]
     public class DetalleAlmacen
     {
         [Key]
@@ -16,9 +16,9 @@ namespace SiscomSoft.Models
 
         public string sDescripcion { get; set; }
 
-        public virtual Almacen almacen_id { get; set; }
+        public int almacen_id { get; set; }
 
-        public virtual Producto producto_id { get; set; }
+        public int producto_id { get; set; }
 
         public int iCantidad { get; set; }
 

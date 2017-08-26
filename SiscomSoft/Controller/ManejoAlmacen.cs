@@ -50,7 +50,6 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Almacenes
-                        .Include("cliente_id")
                         .Where(r => r.bStatus == Status && r.sFolio.Contains(valor))
                         .ToList();
                        
@@ -64,18 +63,12 @@ namespace SiscomSoft.Controller
         }
         public static void RegistrarNuevoAlmacen(Almacen nAlmacen, int pkCliente)
         {
-            Cliente cliente = ManejoCliente.getById(pkCliente);
-      
-
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nAlmacen.cliente_id = cliente;
-                   
-                    ctx.Clientes.Attach(cliente);
+                    nAlmacen.cliente_id = pkCliente;
                     ctx.Almacenes.Add(nAlmacen);
-                  
                     ctx.SaveChanges();
                 }
             }
@@ -106,7 +99,6 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Almacenes
-                        .Include("cliente_id")
                         .Where(r => r.bStatus == true && r.idAlmacen == pkAlmacen).FirstOrDefault();
                 }
             }

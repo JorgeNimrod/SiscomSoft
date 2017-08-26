@@ -23,10 +23,6 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public virtual ICollection<Factura> Facturas { get; set; }
-
-        public virtual ICollection<ImpuestoProducto> ImpuestosProductos { get; set; }
-
         public Impuesto()
         {
             this.bStatus = true;

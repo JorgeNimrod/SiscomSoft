@@ -61,7 +61,7 @@ namespace SiscomSoft_Desktop.Views
                 mPeriodo.sCaja = txtCaja.Text;
                 mPeriodo.dFondo = Convert.ToDecimal(txtFondo.Text);
 
-                ManejoPeriodo.Guardar(mPeriodo, FrmMenu.uHelper.usuario);
+                ManejoPeriodo.Guardar(mPeriodo, FrmMenuMain.uHelper.usuario);
                 vMain.cargarPeriodos();
                 Close();
             }

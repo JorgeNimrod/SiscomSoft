@@ -15,9 +15,9 @@ namespace SiscomSoft.Models
         [Key]
         public int idDescuentoProducto { get; set; }
 
-        public virtual Descuento descuento_id { get; set; }
+        public int descuento_id { get; set; }
 
-        public virtual Producto producto_id { get; set; }
+        public int producto_id { get; set; }
 
         public Boolean bStatus { get; set; }
 

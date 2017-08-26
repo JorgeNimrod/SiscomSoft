@@ -93,33 +93,34 @@ namespace SiscomSoft_Desktop.Views
                         List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.idProducto));
                         foreach (ImpuestoProducto rImpuesto in mImpuesto)
                         {
-                            if (rImpuesto.impuesto_id.sTipoImpuesto == "TRASLADO")
+                            var impuesto = ManejoImpuesto.getById(rImpuesto.impuesto_id);
+                            if (impuesto.sTipoImpuesto == "TRASLADO")
                             {
                                 // IVA
-                                if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                                if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                                 {
-                                    TasaImpuestoIVA16 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                    TasaImpuestoIVA16 += impuesto.dTasaImpuesto;
                                 }
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(11.00))
+                                else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
                                 {
-                                    TasaImpuestoIVA11 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                    TasaImpuestoIVA11 += impuesto.dTasaImpuesto;
                                 }
-                                 else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                                 else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
                                 {
-                                    TasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                    TasaImpuestoIVA4 += impuesto.dTasaImpuesto;
                                 }
                                 //IEPS
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(53.00))
+                                else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
                                 {
-                                    TasaImpuestoIEPS53 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                    TasaImpuestoIEPS53 += impuesto.dTasaImpuesto;
                                 }
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(30.00))
+                                else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(30.00))
                                 {
-                                    TasaImpuestoIEPS30 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                    TasaImpuestoIEPS30 += impuesto.dTasaImpuesto;
                                 }
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(26.50))
+                                else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(26.50))
                                 {
-                                    TasaImpuestoIEPS26 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                    TasaImpuestoIEPS26 += impuesto.dTasaImpuesto;
                                 }
                             }
                         }
@@ -234,33 +235,34 @@ namespace SiscomSoft_Desktop.Views
                     List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.idProducto));
                     foreach (ImpuestoProducto rImpuesto in mImpuesto)
                     {
-                        if (rImpuesto.impuesto_id.sTipoImpuesto == "TRASLADO")
+                        var impuesto = ManejoImpuesto.getById(rImpuesto.impuesto_id);
+                        if (impuesto.sTipoImpuesto == "TRASLADO")
                         {
                             // IVA
-                            if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                            if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                             {
-                                TasaImpuestoIVA16 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                TasaImpuestoIVA16 += impuesto.dTasaImpuesto;
                             }
-                            else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(11.00))
+                            else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
                             {
-                                TasaImpuestoIVA11 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                TasaImpuestoIVA11 += impuesto.dTasaImpuesto;
                             }
-                            else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                            else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
                             {
-                                TasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                TasaImpuestoIVA4 += impuesto.dTasaImpuesto;
                             }
                             //IEPS
-                            else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(53.00))
+                            else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
                             {
-                                TasaImpuestoIEPS53 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                TasaImpuestoIEPS53 += impuesto.dTasaImpuesto;
                             }
-                            else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(30.00))
+                            else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(30.00))
                             {
-                                TasaImpuestoIEPS30 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                TasaImpuestoIEPS30 += impuesto.dTasaImpuesto;
                             }
-                            else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(26.50))
+                            else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(26.50))
                             {
-                                TasaImpuestoIEPS26 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                TasaImpuestoIEPS26 += impuesto.dTasaImpuesto;
                             }
                         }
                     }
@@ -452,31 +454,32 @@ namespace SiscomSoft_Desktop.Views
                                 List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.idProducto));
                                 foreach (ImpuestoProducto rImpuesto in mImpuesto)
                                 {
+                                    var impuesto = ManejoImpuesto.getById(rImpuesto.impuesto_id);
                                     // IVA
-                                    if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                                    if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                                     {
-                                        TasaImpuestoIVA16 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        TasaImpuestoIVA16 += impuesto.dTasaImpuesto;
                                     }
-                                    else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(11.00))
+                                    else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
                                     {
-                                        TasaImpuestoIVA11 += rImpuesto.impuesto_id.dTasaImpuesto; 
+                                        TasaImpuestoIVA11 += impuesto.dTasaImpuesto; 
                                     }
-                                    else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                                    else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
                                     {
-                                        TasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        TasaImpuestoIVA4 += impuesto.dTasaImpuesto;
                                     }
                                     //IEPS
-                                    else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(53.00))
+                                    else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
                                     {
-                                        TasaImpuestoIEPS53 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        TasaImpuestoIEPS53 += impuesto.dTasaImpuesto;
                                     }
-                                    else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(30.00))
+                                    else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(30.00))
                                     {
-                                        TasaImpuestoIEPS30 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        TasaImpuestoIEPS30 += impuesto.dTasaImpuesto;
                                     }
-                                    else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(26.50))
+                                    else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(26.50))
                                     {
-                                        TasaImpuestoIEPS26 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                        TasaImpuestoIEPS26 += impuesto.dTasaImpuesto;
                                     }
                                 }
                                 #endregion

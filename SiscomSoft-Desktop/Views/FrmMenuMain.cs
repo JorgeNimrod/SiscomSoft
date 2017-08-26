@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SiscomSoft.Controller;
@@ -14,14 +7,47 @@ using SiscomSoft.Models;
 
 namespace SiscomSoft_Desktop.Views
 {
-    public partial class FrmMenu : Form
+    public partial class FrmMenuMain : Form
     {
+        #region VARIABLES
         public static UsuarioHelper uHelper;
-        public FrmMenu()
+        #endregion
+
+        #region MAIN
+        public FrmMenuMain()
         {
             InitializeComponent();
         }
 
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+            if (uHelper == null)
+            {
+                FrmLogin vLogin = new FrmLogin();
+                vLogin.ShowDialog();
+            }
+            if (uHelper.esValido && uHelper != null)
+            {
+                //ProcesarPermisos();
+                lblNombre.Text = "Bienvenido " + uHelper.usuario.sUsuario;
+            }
+            else
+            {
+                MessageBox.Show("Se require se autentifique", "Eror..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+        }
+        #endregion
+
+        #region FUNCIONES
+        /// <summary>
+        /// FUNCION PARA ACTIVAR LOS COMPONENTES SEGUN EL PERMISO DEL USUARIO
+        /// </summary>
         //public void ProcesarPermisos()
         //{
         //    int permisos = 0;
@@ -36,27 +62,9 @@ namespace SiscomSoft_Desktop.Views
         //        }
         //    }
         //}
+        #endregion
 
-        private void FrmMenu_Load(object sender, EventArgs e)
-        {
-            timer1.Start();
-            if (uHelper == null)
-            {
-                FrmLogin vLogin = new FrmLogin();
-                vLogin.ShowDialog();
-            }
-            if (uHelper.esValido && uHelper != null)
-            {
-                //TODO: ACTIVAR TODOS LOS CONTROLES SEGUN EL PERMISO
-                //ProcesarPermisos();
-                lblNombre.Text = "Bienvenido " + uHelper.usuario.sNombre;
-            }
-            else
-            {
-                MessageBox.Show("Se require se autentifique", "Eror..", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+        #region BOTONES
         private void btnMenuVentas_Click(object sender, EventArgs e)
         {
             Periodo mPeriodo = ManejoPeriodo.getByUser(uHelper.usuario.idUsuario);
@@ -68,7 +76,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                MessageBox.Show("Inicie un periodo para acceder");
+                MessageBox.Show("Inicie un periodo para acceder.");
             }
             mPeriodo = null;
         }
@@ -83,15 +91,7 @@ namespace SiscomSoft_Desktop.Views
         private void btnMenuAdmin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmAdministrador v = new FrmAdministrador();
-            v.ShowDialog();
-        }
-
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            uHelper = null;
-            this.Hide();
-            FrmMenu v = new FrmMenu();
+            FrmMenuAdministrador v = new FrmMenuAdministrador();
             v.ShowDialog();
         }
 
@@ -102,32 +102,36 @@ namespace SiscomSoft_Desktop.Views
             v.ShowDialog();
 
         }
+        
+        private void btnMenuPeriodo_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FrmPeriodoTrabajo v = new Views.FrmPeriodoTrabajo();
+            v.ShowDialog();
+        }
+        
+        private void btnMenuReportes_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("¡En construcción!");
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            uHelper = null;
+            this.Hide();
+            FrmMenuMain v = new FrmMenuMain();
+            v.ShowDialog();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("¡En construcción!");
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Hide();
-            FrmPeriodoTrabajo v = new Views.FrmPeriodoTrabajo();
-            v.ShowDialog();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
-        }
-
         private void button8_Click(object sender, EventArgs e)
         {
             MessageBox.Show("¡En construcción!");
         }
-
-        private void btnMenuReportes_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("¡En construcción!");
-        }
+        #endregion
     }
 }

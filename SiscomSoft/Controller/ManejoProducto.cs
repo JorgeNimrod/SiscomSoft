@@ -51,11 +51,6 @@ namespace SiscomSoft.Controller
 
         public static void RegistrarNuevoProducto(Producto nProducto,int pkPrecio, int pkCategoria,int pkCatalogo)
         {
-            
-            //Precio precio = ManejoPrecio.getById(pkPrecio);
-            //Catalogo catalogo = ManejoCatalogo.getById(pkCatalogo);
-            //Categoria categoria = ManejoCategoria.getById(pkCategoria);
-
             try
             {
                 using (var ctx = new DataModel())
@@ -64,10 +59,6 @@ namespace SiscomSoft.Controller
                     nProducto.catalogo_id = pkCatalogo;
                     nProducto.categoria_id = pkCategoria;
                     ctx.Productos.Add(nProducto);
-                  
-                    //ctx.Precios.Attach(precio);
-                    //ctx.Catalogos.Attach(catalogo);
-                    //ctx.Categorias.Attach(categoria);
                     ctx.SaveChanges();
                 }
             }

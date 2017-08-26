@@ -333,7 +333,7 @@ namespace SiscomSoft_Desktop.Views
         private void btnMenu_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmMenu v = new FrmMenu();
+            FrmMenuMain v = new FrmMenuMain();
             v.Show();
         }
 

@@ -27,7 +27,7 @@ namespace SiscomSoft.Models
 
         public decimal dFondo { get; set; }
 
-        public virtual Usuario usuario_id { get; set; }
+        public int usuario_id { get; set; }
 
         public Boolean bStatus { get; set; }
 

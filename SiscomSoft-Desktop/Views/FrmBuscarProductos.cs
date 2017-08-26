@@ -15,8 +15,12 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmBuscarProductos : Form
     {
+        #region VARIABLES
         public static int PKPRODUCTO;
         FrmMenuFacturacion vPadre;
+        #endregion
+
+        #region MAIN
         public FrmBuscarProductos(FrmMenuFacturacion vHija)
         {
             InitializeComponent();
@@ -24,6 +28,13 @@ namespace SiscomSoft_Desktop.Views
             this.vPadre = vHija;
         }
 
+        private void FrmBuscarProductos_Load(object sender, EventArgs e)
+        {
+            cargarCategorias();
+        }
+        #endregion
+
+        #region FUNCIONES
         public void cargarProductos()
         {
             dgvProductos.DataSource = ManejoProducto.BuscarProductoCategoria(txtBuscar.Text, Convert.ToInt32(cmbCategoria.SelectedValue));
@@ -35,7 +46,9 @@ namespace SiscomSoft_Desktop.Views
             cmbCategoria.ValueMember = "idCategoria";
             cmbCategoria.DataSource = ManejoCategoria.getAll(true);
         }
+        #endregion
 
+        #region EVENTOS
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarProductos();
@@ -54,10 +67,6 @@ namespace SiscomSoft_Desktop.Views
                 this.Close();
             }
         }
-
-        private void FrmBuscarProductos_Load(object sender, EventArgs e)
-        {
-            cargarCategorias();
-        }
+        #endregion
     }
 }
