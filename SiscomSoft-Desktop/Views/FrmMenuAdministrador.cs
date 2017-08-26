@@ -68,6 +68,7 @@ namespace SiscomSoft_Desktop.Views
 
         public FrmMenuAdministrador()
         {
+          //  autocompletado();
             InitializeComponent();
             this.dgrUpdateDesc.AutoGenerateColumns = false;
             this.dgrUpdateImp.AutoGenerateColumns = false;
@@ -144,6 +145,111 @@ namespace SiscomSoft_Desktop.Views
             cargarUMD();
             cargarDescuentos();
             cargarImpuestosDescuentosForProducts();
+        }
+        public void autocompletado()
+        {
+            //CLIENTES
+            this.txtPaisAddCli.AutoCompleteCustomSource.AddRange(ManejoCliente.getPaises(txtPaisAddCli.Text).ToArray());
+            this.txtPaisAddCli.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtPaisAddCli.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtColoniaAddCli.AutoCompleteCustomSource.AddRange(ManejoCliente.getColonias(txtColoniaAddCli.Text).ToArray());
+            this.txtColoniaAddCli.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtColoniaAddCli.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtEstadoAddCli.AutoCompleteCustomSource.AddRange(ManejoCliente.getEstados(txtEstadoAddCli.Text).ToArray());
+            this.txtEstadoAddCli.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtEstadoAddCli.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtMunicipioAddCli.AutoCompleteCustomSource.AddRange(ManejoCliente.getMunicipios(txtMunicipioAddCli.Text).ToArray());
+            this.txtMunicipioAddCli.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtMunicipioAddCli.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtPaisUpdateCli.AutoCompleteCustomSource.AddRange(ManejoCliente.getPaises(txtPaisUpdateCli.Text).ToArray());
+            this.txtPaisUpdateCli.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtPaisUpdateCli.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtEstadoUpdateCli.AutoCompleteCustomSource.AddRange(ManejoCliente.getEstados(txtEstadoUpdateCli.Text).ToArray());
+            this.txtEstadoUpdateCli.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtEstadoUpdateCli.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtMunicipioUpdateCli.AutoCompleteCustomSource.AddRange(ManejoCliente.getMunicipios(txtMunicipioUpdateCli.Text).ToArray());
+            this.txtMunicipioUpdateCli.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtMunicipioUpdateCli.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtColoniaUpdateCli.AutoCompleteCustomSource.AddRange(ManejoCliente.getColonias(txtColoniaUpdateCli.Text).ToArray());
+            this.txtColoniaUpdateCli.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtColoniaUpdateCli.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            //EMPRESAS
+            this.txtAddPaisEmpresa.AutoCompleteCustomSource.AddRange(ManejoEmpresa.getPaises(txtAddPaisEmpresa.Text).ToArray());
+            this.txtAddPaisEmpresa.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtAddPaisEmpresa.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtAddColoniaEmpresa.AutoCompleteCustomSource.AddRange(ManejoEmpresa.getColonias(txtAddColoniaEmpresa.Text).ToArray());
+            this.txtAddColoniaEmpresa.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtAddColoniaEmpresa.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtAddEstadoEmpresa.AutoCompleteCustomSource.AddRange(ManejoEmpresa.getEstados(txtAddEstadoEmpresa.Text).ToArray());
+            this.txtAddEstadoEmpresa.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtAddEstadoEmpresa.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtAddMunicipioEmpresa.AutoCompleteCustomSource.AddRange(ManejoEmpresa.getMunicipios(txtAddMunicipioEmpresa.Text).ToArray());
+            this.txtAddMunicipioEmpresa.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtAddMunicipioEmpresa.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtUpdatePaisEmpresa.AutoCompleteCustomSource.AddRange(ManejoEmpresa.getPaises(txtUpdatePaisEmpresa.Text).ToArray());
+            this.txtUpdatePaisEmpresa.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtUpdatePaisEmpresa.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtUpdateEstadoEmpresa.AutoCompleteCustomSource.AddRange(ManejoEmpresa.getEstados(txtUpdateEstadoEmpresa.Text).ToArray());
+            this.txtUpdateEstadoEmpresa.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtUpdateEstadoEmpresa.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtUpdateMunicipioEmpresa.AutoCompleteCustomSource.AddRange(ManejoEmpresa.getMunicipios(txtUpdateMunicipioEmpresa.Text).ToArray());
+            this.txtUpdateMunicipioEmpresa.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtUpdateMunicipioEmpresa.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtUpdateColoniaEmpresa.AutoCompleteCustomSource.AddRange(ManejoEmpresa.getColonias(txtUpdateColoniaEmpresa.Text).ToArray());
+            this.txtUpdateColoniaEmpresa.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtUpdateColoniaEmpresa.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            //SUCURSALES
+            this.txtAddPaiSucursal.AutoCompleteCustomSource.AddRange(ManejoSucursal.getPaises(txtAddPaiSucursal.Text).ToArray());
+            this.txtAddPaiSucursal.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtAddPaiSucursal.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtAddColoniaSucursal.AutoCompleteCustomSource.AddRange(ManejoSucursal.getColonias(txtAddColoniaSucursal.Text).ToArray());
+            this.txtAddColoniaSucursal.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtAddColoniaSucursal.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtAddEstadoSucursal.AutoCompleteCustomSource.AddRange(ManejoSucursal.getEstados(txtAddEstadoSucursal.Text).ToArray());
+            this.txtAddEstadoSucursal.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtAddEstadoSucursal.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtAddMunicipioSucursal.AutoCompleteCustomSource.AddRange(ManejoSucursal.getMunicipios(txtAddMunicipioSucursal.Text).ToArray());
+            this.txtAddMunicipioSucursal.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtAddMunicipioSucursal.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtUpdatePais.AutoCompleteCustomSource.AddRange(ManejoSucursal.getPaises(txtUpdatePais.Text).ToArray());
+            this.txtUpdatePais.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtUpdatePais.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtUpdateEstado.AutoCompleteCustomSource.AddRange(ManejoSucursal.getEstados(txtUpdateEstado.Text).ToArray());
+            this.txtUpdateEstado.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtUpdateEstado.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtUpdateMunicipio.AutoCompleteCustomSource.AddRange(ManejoSucursal.getMunicipios(txtUpdateMunicipio.Text).ToArray());
+            this.txtUpdateMunicipio.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtUpdateMunicipio.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            this.txtUpdateColonia.AutoCompleteCustomSource.AddRange(ManejoSucursal.getColonias(txtUpdateColonia.Text).ToArray());
+            this.txtUpdateColonia.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.txtUpdateColonia.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+
+
+
         }
 
         public void cargarCombos()
@@ -248,7 +354,16 @@ namespace SiscomSoft_Desktop.Views
 
         public void cargarProductos()
         {
+          
+
+            
+           
+            
+
+          //    Producto nProducto = new Producto();
             this.dgvDatosProducto.DataSource = ManejoProducto.Buscar(txtBuscarProducto.Text, ckbStatusProducto.Checked);
+                   
+    //  dgvDatosProducto.CurrentRow.Cells[8] = ToolImagen.ByteArrayToImage(sFoto);
         }
 
         public void cargarClientes()
@@ -395,9 +510,9 @@ namespace SiscomSoft_Desktop.Views
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
 
         private void FrmAdministrador_Load(object sender, EventArgs e)
-        {
-            cargarCombos();
-            CargarTablas();
+        { 
+
+
             cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
@@ -3154,6 +3269,9 @@ namespace SiscomSoft_Desktop.Views
 
         private void txtPaisAddCli_TextChanged(object sender, EventArgs e)
         {
+            
+
+
             ErrorProvider.Clear();
         }
 
@@ -7062,7 +7180,24 @@ namespace SiscomSoft_Desktop.Views
 
         private void cbxUpdatePersonaCli_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (cbxUpdatePersonaCli.SelectedIndex == 0)
+            {
+                txtNombreUpdateCli.Visible = false;
+                txtCurpUpdateCli.Visible = false;
+                label112.Visible = false;
+                label113.Visible = false;
+                txtNombreUpdateCli.Text = "X";
+                txtCurpUpdateCli.Text = "X";
+            }
+            else if (cbxUpdatePersonaCli.SelectedIndex == 1)
+            {
+                txtNombreUpdateCli.Visible = true;
+               txtCurpUpdateCli.Visible = true;
+                label112.Visible = true;
+                label113.Visible = true;
+                txtNombreUpdateCli.Clear();
+                txtCurpUpdateCli.Clear();
+            }
         }
 
         private void txtAddCodigoPSucu_MouseClick(object sender, MouseEventArgs e)
@@ -7382,6 +7517,28 @@ namespace SiscomSoft_Desktop.Views
         private void lblFecha_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbxAddPersonaCli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxAddPersonaCli.SelectedIndex == 0)
+            {
+                txtNombreAddCli.Visible = false;
+                txtCurpAddCli.Visible = false;
+                label90.Visible = false;
+                label89.Visible = false;
+                txtNombreAddCli.Text = "X";
+                txtCurpAddCli.Text = "X";
+            }
+            else if (cbxAddPersonaCli.SelectedIndex == 1)
+            {
+                txtNombreAddCli.Visible = true;
+                txtCurpAddCli.Visible = true;
+                label90.Visible = true;
+                label89.Visible = true;
+                txtNombreAddCli.Clear();
+                txtCurpAddCli.Clear();
+            }
         }
     }
 }
