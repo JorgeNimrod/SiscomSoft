@@ -365,7 +365,7 @@ namespace SiscomSoft.Migrations
                 c => new
                     {
                         idProducto = c.Int(nullable: false, identity: true),
-                        iClaveProd = c.Int(nullable: false),
+                        sClaveProd = c.String(unicode: false),
                         sDescripcion = c.String(unicode: false),
                         sMarca = c.String(unicode: false),
                         dCosto = c.Decimal(nullable: false, precision: 18, scale: 2),

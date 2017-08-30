@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdministrador));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuAdministrador));
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.btnBussiness = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();

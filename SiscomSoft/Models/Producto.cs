@@ -15,7 +15,7 @@ namespace SiscomSoft.Models
         [Key]
         public int idProducto { get; set; }
 
-        public int iClaveProd { get; set; }
+        public string sClaveProd { get; set; }
 
         public string sDescripcion { get; set; }
 

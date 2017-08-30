@@ -186,20 +186,6 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static List<Producto> BuscarporCodigo(int pkCodi)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    return ctx.Productos.Where(r => r.iClaveProd == pkCodi).ToList();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
         public static List<Producto> BuscarProductoCategoria(string valor, int pkCategoria)
         {

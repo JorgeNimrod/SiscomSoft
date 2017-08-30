@@ -722,7 +722,7 @@ namespace SiscomSoft_Desktop.Views
                         row.Cells[2].Value = nProducto.dCosto;
                         row.Cells[3].Value = nCatalogo.sUDM;
                         row.Cells[5].Value = 1;
-                        row.Cells[15].Value = nProducto.iClaveProd;
+                        row.Cells[15].Value = nProducto.sClaveProd;
 
                         decimal PreUnitario = Convert.ToDecimal(row.Cells[2].Value);
                         decimal TasaImpuestoIVA16 = 0;
@@ -841,7 +841,7 @@ namespace SiscomSoft_Desktop.Views
                     dgrDatosAlmacen.CurrentRow.Cells[1].Value = nProducto.sDescripcion;
                     dgrDatosAlmacen.CurrentRow.Cells[2].Value = nProducto.dCosto;
                     dgrDatosAlmacen.CurrentRow.Cells[3].Value = nCatalogo.sUDM;
-                    dgrDatosAlmacen.CurrentRow.Cells[15].Value = nProducto.iClaveProd;
+                    dgrDatosAlmacen.CurrentRow.Cells[15].Value = nProducto.sClaveProd;
 
 
                     decimal DgvIva16 = Convert.ToDecimal(dgrDatosAlmacen.CurrentRow.Cells[9].Value);

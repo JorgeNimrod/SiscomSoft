@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using System.Collections.Generic;
 
 using SiscomSoft.Models;
-using DLLFinkok.stamp;
-using System.Xml;
 using System.IO;
+using System.Xml;
 using System.Xml.Serialization;
+using System.Net.Http;
+using SiscomSoft.ws;
 
 namespace SiscomSoft.Controller
 {
@@ -54,6 +56,7 @@ namespace SiscomSoft.Controller
                 StampSOAP selloSOAP = new StampSOAP();
                 stamp oStamp = new stamp();
                 stampResponse selloResponse = new stampResponse();
+                Incidencia incidencia = new Incidencia();
 
                 //Cargas tu archivo xml
                 XmlDocument xmlDocument = new XmlDocument();
@@ -65,20 +68,15 @@ namespace SiscomSoft.Controller
                 string stringByteXmlDocument = Convert.ToBase64String(byteXmlDocument);
                 //Convirtes el resultado nuevamente a byte
                 byteXmlDocument = Convert.FromBase64String(stringByteXmlDocument);
-
+                
                 //Timbras el archivo
                 oStamp.xml = byteXmlDocument;
                 oStamp.username = "robertoduarte@siscomsoft.com";
-                oStamp.password = "demo.siscom";
+                oStamp.password = "Siscomsoft4875.";
 
                 //Recibes la respuesta de timbrado
                 selloResponse = selloSOAP.stamp(oStamp);
                 /* Consumir web service de timbrado */
-
-                var finkok = new DLLFinkok.finkok();
-                string ruta = @"C:\SiscomSoft\Facturas\XML\" + nameFile;
-                object response = finkok.timbrar(0,"D",ruta, "robertoduarte@siscomsoft.com", "demo.siscom");
-
                 
                 /* Generar SOAP Request de timbrado */
                 string SOAPDirectory = @"C:\SiscomSoft\SOAP";
@@ -97,6 +95,40 @@ namespace SiscomSoft.Controller
 
                 throw;
             }
+        }
+
+        public static void timbrar(string nameFileXML)
+        {
+            //try
+            //{
+            //    String xml = "";
+            //    String usuario = "robertoduarte@siscomsoft.com";
+            //    String password = "demo.siscom";
+            //    string nameFile = Path.GetFileNameWithoutExtension(@"C:\SiscomSoft\Facturas\XML\" + nameFileXML);
+
+            //    xml = File.ReadAllText(@"C:\SiscomSoft\Facturas\XML\" + nameFileXML);
+
+            //    ws = new ws.WS();
+            //    mx.cepdi.timbrador.respuestaTimbrado respuesta = ws.TimbraXML(usuario, password, xml, new mx.cepdi.timbrador.datosExtra());
+
+            //    if (respuesta.Exitoso)
+            //    {
+            //        Console.WriteLine(respuesta.TFD);
+            //        Console.WriteLine(respuesta.UUID);
+            //        Console.WriteLine(respuesta.XMLTimbrado);
+            //    }
+            //    else
+            //    {
+            //        StreamWriter errors = new StreamWriter(@"C:\SiscomSoft\Facturas\Errors\" + nameFile + ".log.txt");
+            //        errors.WriteLine(respuesta.MensajeError);
+            //        errors.Close();
+            //    }
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
         }
 
         public static void Guardar(Factura nFactura)

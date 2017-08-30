@@ -510,9 +510,9 @@ namespace SiscomSoft_Desktop.Views
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
 
         private void FrmAdministrador_Load(object sender, EventArgs e)
-        { 
-
-
+        {
+            cargarCombos();
+            CargarTablas();
             cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
@@ -894,7 +894,7 @@ namespace SiscomSoft_Desktop.Views
             Producto nProducto = ManejoProducto.getById(PKPRODUCTO);
             Categoria nCategoria = ManejoCategoria.getById(nProducto.categoria_id);
             PKCATEGORIA = nCategoria.idCategoria;
-            txtUpdateClavProd.Text = nProducto.iClaveProd.ToString();
+            txtUpdateClavProd.Text = nProducto.sClaveProd;
             txtUpdateMarcProd.Text = nProducto.sMarca;
         
             txtUpdateCostoProd.Text = nProducto.dCosto.ToString();
@@ -1815,7 +1815,7 @@ namespace SiscomSoft_Desktop.Views
                 //ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
 
                 Producto nProducto = new Producto();
-                nProducto.iClaveProd = Convert.ToInt32(txtClaveaddprod.Text.ToString());
+                nProducto.sClaveProd = txtClaveaddprod.Text;
                 nProducto.sMarca = txtMarcaaddProd.Text;
          
                 nProducto.dCosto = Convert.ToDecimal(txtCostoAddProd.Text);
@@ -2167,7 +2167,7 @@ namespace SiscomSoft_Desktop.Views
 
                 Producto nProducto = new Producto();
                 nProducto.idProducto = PKPRODUCTO;
-                nProducto.iClaveProd = Convert.ToInt32(txtUpdateClavProd.Text);
+                nProducto.sClaveProd = txtUpdateClavProd.Text;
                 nProducto.sDescripcion = txtUpdateDesProd.Text;
                 nProducto.sMarca = txtUpdateMarcProd.Text;
                 nProducto.dCosto = Convert.ToDecimal(txtUpdateCostoProd.Text);
