@@ -180,6 +180,10 @@ namespace SiscomSoft_Desktop.Views
         private void txtPin_TextChanged(object sender, EventArgs e)
         {
             lblError.Visible = false;
+            if (txtPin.TextLength>3)
+            {
+                btnLogin_Click(sender, e);
+            }
         }
         #endregion
     }
