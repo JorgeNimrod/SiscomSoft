@@ -14,7 +14,7 @@ using System.ComponentModel;
 
 namespace SiscomSoft.Controller
 {
-    public class ManejoSelloCFDIv33
+    public class ManejoSelloCFDI33
     {
         [DllImport("crypt32.dll", SetLastError = true)]
         public static extern IntPtr CertCreateSelfSignCertificate(

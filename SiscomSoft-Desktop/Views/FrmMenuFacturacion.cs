@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
@@ -15,16 +11,20 @@ using System.Xml.Xsl;
 using System.Xml.Serialization;
 using SiscomSoft.Models;
 using SiscomSoft.Controller;
-using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
-using System.Net;
+using System.Xml.Linq;
+using System.Xml.Schema;
 
 namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmMenuFacturacion : Form
     {
         #region VARIABLES
-        string strSello = string.Empty;
+        int pkCliente = 0;
+        string Sello = string.Empty;
+        string NameFile = string.Empty;
+        string NameFileXML = string.Empty;
+        string NameFilePDF = string.Empty;
         Boolean dolar = false;
         decimal DESCUENTO = 0;
         decimal DESCUENTOEXTRA = 0;
@@ -54,11 +54,37 @@ namespace SiscomSoft_Desktop.Views
         decimal TOTALRISR10;
         #endregion
 
+        #region MAIN
         public FrmMenuFacturacion()
         {
             InitializeComponent();
             this.dgvProductos.AutoGenerateColumns = false;
         }
+        
+        private void FrmMenuFacturacion_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+            cargarSucursales();
+            txtFolio.Text = ManejoFacturacion.Folio();
+            cmbFormaDePago.SelectedIndex = 0;
+            cmbMetodoDePago.SelectedIndex = 0;
+            cmbMoneda.SelectedIndex = 0;
+            cmbTipoDeComprobante.SelectedIndex = 0;
+            cmbUsoCFDI.SelectedIndex = 0;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+        }
+
+        private void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmMenuMain v = new FrmMenuMain();
+            v.ShowDialog();
+        }
+        #endregion
 
         #region FUNCTION
         public void cargarSucursales()
@@ -102,21 +128,22 @@ namespace SiscomSoft_Desktop.Views
 
         public void cargarDetalleFactura(int pk)
         {
-            Producto nProducto = ManejoProducto.getById(pk);
-            if (nProducto != null)
+            Producto mProducto = ManejoProducto.getById(pk);
+            Catalogo mCatalogo = ManejoCatalogo.getById(mProducto.catalogo_id);
+            if (mProducto != null)
             {
                 DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
-                row.Cells[0].Value = nProducto.idProducto;
-                row.Cells[1].Value = nProducto.iClaveProd;
-                row.Cells[2].Value = nProducto.sDescripcion;
-                row.Cells[3].Value = nProducto.sMarca;
-                row.Cells[4].Value = nProducto.catalogo_id;
-                row.Cells[5].Value = nProducto.dCosto;
+                row.Cells[0].Value = mProducto.idProducto;
+                row.Cells[1].Value = mProducto.sClaveProd;
+                row.Cells[2].Value = mProducto.sDescripcion;
+                row.Cells[3].Value = mProducto.sMarca;
+                row.Cells[4].Value = mCatalogo.sUDM;
+                row.Cells[5].Value = mProducto.dCosto;
                 row.Cells[6].Value = 1;
 
                 decimal Total = 0;
                 decimal Subtotal = 0;
-                decimal PreUnitario = nProducto.dCosto;
+                decimal PreUnitario = mProducto.dCosto;
                 decimal TTasaImpuestoIVA16 = 0;
                 decimal TTasaImpuestoIVA11 = 0;
                 decimal TTasaImpuestoIVA4 = 0;
@@ -134,75 +161,77 @@ namespace SiscomSoft_Desktop.Views
                 decimal TasaDescuentoExtra = 0;
                 decimal Cantidad = Convert.ToDecimal(row.Cells[6].Value);
                 #region Impuestos
-                List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.idProducto));
+                List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(mProducto.idProducto));
                 foreach (ImpuestoProducto rImpuesto in mImpuesto)
                 {
+                    var impuesto = ManejoImpuesto.getById(rImpuesto.impuesto_id);
                     #region TRASLADO
-                    if (rImpuesto.impuesto_id.sTipoImpuesto == "TRASLADO")
+                    if (impuesto.sTipoImpuesto == "TRASLADO")
                     {
                         // IVA
-                        if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                        if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                         {
-                            TTasaImpuestoIVA16 += rImpuesto.impuesto_id.dTasaImpuesto;
+                            TTasaImpuestoIVA16 += impuesto.dTasaImpuesto;
                         }
-                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(11.00))
+                        else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
                         {
-                            TTasaImpuestoIVA11 += rImpuesto.impuesto_id.dTasaImpuesto;
+                            TTasaImpuestoIVA11 += impuesto.dTasaImpuesto;
                         }
-                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                        else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
                         {
-                            TTasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                            TTasaImpuestoIVA4 += impuesto.dTasaImpuesto;
                         }
                         //IEPS
-                        else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(53.00))
+                        else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
                         {
-                            TTasaImpuestoIEPS53 += rImpuesto.impuesto_id.dTasaImpuesto;
+                            TTasaImpuestoIEPS53 += impuesto.dTasaImpuesto;
                         }
-                        else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(30.00))
+                        else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(30.00))
                         {
-                            TTasaImpuestoIEPS30 += rImpuesto.impuesto_id.dTasaImpuesto;
+                            TTasaImpuestoIEPS30 += impuesto.dTasaImpuesto;
                         }
-                        else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(26.50))
+                        else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(26.50))
                         {
-                            TTasaImpuestoIEPS26 += rImpuesto.impuesto_id.dTasaImpuesto;
+                            TTasaImpuestoIEPS26 += impuesto.dTasaImpuesto;
                         }
                     }
                     #endregion
                     #region RETENIDO
-                    if (rImpuesto.impuesto_id.sTipoImpuesto == "RETENIDO")
+                    if (impuesto.sTipoImpuesto == "RETENIDO")
                     {
                         // IVA
-                        if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                        if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                         {
-                            RTasaImpuestoIVA16 += rImpuesto.impuesto_id.dTasaImpuesto;
+                            RTasaImpuestoIVA16 += impuesto.dTasaImpuesto;
                         }
-                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(10.67))
+                        else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(10.67))
                         {
-                            RTasaImpuestoIVA1067 += rImpuesto.impuesto_id.dTasaImpuesto;
+                            RTasaImpuestoIVA1067 += impuesto.dTasaImpuesto;
                         }
-                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(7.33))
+                        else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(7.33))
                         {
-                            RTasaImpuestoIVA733 += rImpuesto.impuesto_id.dTasaImpuesto;
+                            RTasaImpuestoIVA733 += impuesto.dTasaImpuesto;
                         }
-                        else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                        else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
                         {
-                            RTasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                            RTasaImpuestoIVA4 += impuesto.dTasaImpuesto;
                         }
                         //ISR
-                        else if (rImpuesto.impuesto_id.sImpuesto == "ISR" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(10.00))
+                        else if (impuesto.sImpuesto == "ISR" && impuesto.dTasaImpuesto == Convert.ToDecimal(10.00))
                         {
-                            RTasaImpuestoISR10 += rImpuesto.impuesto_id.dTasaImpuesto;
+                            RTasaImpuestoISR10 += impuesto.dTasaImpuesto;
                         }
                     }
                     #endregion
                 }
                 #endregion
                 #region Descuentos
-                List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(nProducto.idProducto));
+                List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(mProducto.idProducto));
                 foreach (DescuentoProducto rDescuento in mDescuento)
                 {
-                    TasaDescuento = rDescuento.descuento_id.dTasaDesc;
-                    TasaDescuentoExtra = rDescuento.descuento_id.dTasaDescEx;
+                    var descuento = ManejoDescuento.getById(rDescuento.descuento_id);
+                    TasaDescuento = descuento.dTasaDesc;
+                    TasaDescuentoExtra = descuento.dTasaDescEx;
                 }
                 #endregion
 
@@ -285,7 +314,7 @@ namespace SiscomSoft_Desktop.Views
 
                 row.Cells[7].Value = Importe.ToString("N");
                 row.Cells[21].Value = ImporteWithoutExtras.ToString("N");
-                row.Cells[22].Value = nProducto.catalogo_id;
+                row.Cells[22].Value = mCatalogo.sClaveUnidad;
                 row.Height = 30;
                 dgvProductos.Rows.Add(row);
 
@@ -297,8 +326,9 @@ namespace SiscomSoft_Desktop.Views
 
                 if (dolar != false)
                 {
+                    Sucursal mSucursal = ManejoSucursal.getById(FrmMenuMain.uHelper.usuario.sucursal_id);
                     decimal TotalDolar = 0;
-                    decimal TipoCambio = Convert.ToDecimal(FrmMenu.uHelper.usuario.sucursal_id.sTipoCambio);
+                    decimal TipoCambio = Convert.ToDecimal(mSucursal.sTipoCambio);
                     TotalDolar = (Total * 1) / TipoCambio;
                     lblTotalDolar.Text = TotalDolar.ToString("N");
                 }
@@ -322,6 +352,7 @@ namespace SiscomSoft_Desktop.Views
         public void cargarCliente(int pk)
         {
             Cliente nCliente = ManejoCliente.getById(pk);
+            pkCliente = nCliente.idCliente;
             this.txtRFC.Text = nCliente.sRfc;
             this.txtNombre.Text = nCliente.sNombre;
             this.txtDireccion.Text = nCliente.sCalle;
@@ -330,11 +361,29 @@ namespace SiscomSoft_Desktop.Views
             this.txtCondicionesDePago.Text = nCliente.sConPago;
         }
 
-        public void GenerarFacturaIngreso()
+        public void GenerarFactura()
         {
+            #region VARIABLES
+        NameFileXML = "ComprobanteSinTimbrar.xml";
+            string MESPATH = @"C:\SiscomSoft\Facturas\XML\" + DateTime.Now.ToString("MMMM") + "," + DateTime.Now.Year;
             Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue));
             Comprobante cfdi = new Comprobante();
-            X509Certificate2 m_cer = new X509Certificate2(nSucursal.certificado_id.sRutaArch + @"\" + nSucursal.certificado_id.sArchCer);
+            Certificado mCertificado = ManejoCertificado.getById(nSucursal.certificado_id);
+            Preferencia mPreferencia = ManejoPreferencia.getById(nSucursal.preferencia_id);
+            Empresa mEmpresa = ManejoEmpresa.getById(nSucursal.empresa_id);
+            X509Certificate2 m_cer = new X509Certificate2(mCertificado.sRutaArch + @"\" + mCertificado.sArchCer);
+            if (File.Exists(MESPATH + @"\" + NameFileXML))
+            {
+                File.Delete(MESPATH + @"\" + NameFileXML);
+                NameFileXML = NameFileXML = txtRFC.Text + "_" + mPreferencia.sNumSerie + "_" + DateTime.Now.Day + "_" + 
+                              DateTime.Now.Month + "_" + DateTime.Now.Year + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + 
+                              DateTime.Now.Second + ".xml";
+            }
+            if (!Directory.Exists(MESPATH))
+            {
+                Directory.CreateDirectory(MESPATH);
+            }
+            #endregion
 
             #region RELACIONADOS
             //cfdi.CfdiRelacionados = new ComprobanteCfdiRelacionados();
@@ -356,12 +405,12 @@ namespace SiscomSoft_Desktop.Views
 
             #region DATOS GENERALES
             cfdi.Version = "3.3";
-            cfdi.Serie = nSucursal.preferencia_id.sNumSerie;
+            cfdi.Serie = mPreferencia.sNumSerie;
             cfdi.Folio = txtFolio.Text;
             cfdi.Fecha = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss");
 
             #region SELLO
-            cfdi.Sello = strSello;
+            cfdi.Sello = Sello;
             #endregion
 
             #region FORMA DE PAGO 
@@ -497,7 +546,7 @@ namespace SiscomSoft_Desktop.Views
             if (cmbMoneda.SelectedIndex == 0)
             {
                 cfdi.Moneda = c_Moneda.MXN;
-                cfdi.TipoCambio = Convert.ToDecimal("1.00");
+                cfdi.TipoCambio = 1;
                 cfdi.TipoCambioSpecified = true;
             }
             else if (cmbMoneda.SelectedIndex == 1)
@@ -551,96 +600,96 @@ namespace SiscomSoft_Desktop.Views
             cfdi.LugarExpedicion = nSucursal.iCodPostal.ToString();
             #endregion
 
-            //cfdi.Confirmacion = nSucursal.sNoCertifi;
+            //cfdi.Confirmacion = "ECVH1";
             #endregion
 
             #region DATOS EMISOR
             cfdi.Emisor = new ComprobanteEmisor();
-            cfdi.Emisor.Rfc = FrmMenu.uHelper.usuario.sRfc;
-            cfdi.Emisor.Nombre = FrmMenu.uHelper.usuario.sNombre;
+            cfdi.Emisor.Rfc = FrmMenuMain.uHelper.usuario.sRfc;
+            cfdi.Emisor.Nombre = FrmMenuMain.uHelper.usuario.sNombre;
 
             #region REGIMEN FISCAL
-            if (nSucursal.empresa_id.sRegFiscal == 1.ToString())
+            if (mEmpresa.sRegFiscal == 1.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item601;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 2.ToString())
+            else if (mEmpresa.sRegFiscal == 2.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item603;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 3.ToString())
+            else if (mEmpresa.sRegFiscal == 3.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item605;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 4.ToString())
+            else if (mEmpresa.sRegFiscal == 4.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item606;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 5.ToString())
+            else if (mEmpresa.sRegFiscal == 5.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item608;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 6.ToString())
+            else if (mEmpresa.sRegFiscal == 6.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item609;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 7.ToString())
+            else if (mEmpresa.sRegFiscal == 7.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item610;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 8.ToString())
+            else if (mEmpresa.sRegFiscal == 8.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item611;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 9.ToString())
+            else if (mEmpresa.sRegFiscal == 9.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item612;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 10.ToString())
+            else if (mEmpresa.sRegFiscal == 10.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item614;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 11.ToString())
+            else if (mEmpresa.sRegFiscal == 11.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item616;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 12.ToString())
+            else if (mEmpresa.sRegFiscal == 12.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item620;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 13.ToString())
+            else if (mEmpresa.sRegFiscal == 13.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item621;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 14.ToString())
+            else if (mEmpresa.sRegFiscal == 14.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item622;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 15.ToString())
+            else if (mEmpresa.sRegFiscal == 15.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item623;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 16.ToString())
+            else if (mEmpresa.sRegFiscal == 16.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item624;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 17.ToString())
+            else if (mEmpresa.sRegFiscal == 17.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item628;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 18.ToString())
+            else if (mEmpresa.sRegFiscal == 18.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item607;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 19.ToString())
+            else if (mEmpresa.sRegFiscal == 19.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item629;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 20.ToString())
+            else if (mEmpresa.sRegFiscal == 20.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item630;
             }
-            else if (nSucursal.empresa_id.sRegFiscal == 21.ToString())
+            else if (mEmpresa.sRegFiscal == 21.ToString())
             {
                 cfdi.Emisor.RegimenFiscal = c_RegimenFiscal.Item615;
             }
@@ -747,7 +796,7 @@ namespace SiscomSoft_Desktop.Views
             #endregion
 
             #region Conceptos
-            cfdi.Conceptos = new ComprobanteConcepto[this.dgvProductos.Rows.Count - 1];
+            cfdi.Conceptos = new ComprobanteConcepto[dgvProductos.Rows.Count - 1];
             int c = 0;
             int it = 0;
             int ir = 0;
@@ -774,17 +823,18 @@ namespace SiscomSoft_Desktop.Views
                         cfdi.Conceptos[c].Impuestos.Traslados = new ComprobanteConceptoImpuestosTraslado[mImpuesto.Count];
                         foreach (ImpuestoProducto rImpuesto in mImpuesto)
                         {
+                            var impuesto = ManejoImpuesto.getById(rImpuesto.impuesto_id);
                             #region TRASLADO
-                            if (rImpuesto.impuesto_id.sTipoImpuesto == "TRASLADO")
+                            if (impuesto.sTipoImpuesto == "TRASLADO")
                             {
                                 // IVA
-                                if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                                if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                                 {
                                     cfdi.Conceptos[c].Impuestos.Traslados[it] = new ComprobanteConceptoImpuestosTraslado();
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Base = Convert.ToDecimal(row.Cells[21].Value);
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Impuesto = c_Impuesto.Item002;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TipoFactor = c_TipoFactor.Tasa;
-                                    decimal tasa = rImpuesto.impuesto_id.dTasaImpuesto / 100;
+                                    decimal tasa = impuesto.dTasaImpuesto / 100;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuota = tasa;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuotaSpecified = true;
                                     decimal valorUnitario = Convert.ToDecimal(row.Cells[5].Value);
@@ -794,13 +844,13 @@ namespace SiscomSoft_Desktop.Views
                                     TOTALTIVA16 += importe;
                                     totalTraslado += 1;
                                 }
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(11.00))
+                                else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
                                 {
                                     cfdi.Conceptos[c].Impuestos.Traslados[it] = new ComprobanteConceptoImpuestosTraslado();
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Base = Convert.ToDecimal(row.Cells[21].Value);
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Impuesto = c_Impuesto.Item002;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TipoFactor = c_TipoFactor.Tasa;
-                                    decimal tasa = rImpuesto.impuesto_id.dTasaImpuesto / 100;
+                                    decimal tasa = impuesto.dTasaImpuesto / 100;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuota = tasa;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuotaSpecified = true;
                                     decimal valorUnitario = Convert.ToDecimal(row.Cells[5].Value);
@@ -810,13 +860,13 @@ namespace SiscomSoft_Desktop.Views
                                     TOTALTIVA11 += importe;
                                     totalTraslado += 1;
                                 }
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                                else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
                                 {
                                     cfdi.Conceptos[c].Impuestos.Traslados[it] = new ComprobanteConceptoImpuestosTraslado();
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Base = Convert.ToDecimal(row.Cells[21].Value);
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Impuesto = c_Impuesto.Item002;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TipoFactor = c_TipoFactor.Tasa;
-                                    decimal tasa = rImpuesto.impuesto_id.dTasaImpuesto / 100;
+                                    decimal tasa = impuesto.dTasaImpuesto / 100;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuota = tasa;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuotaSpecified = true;
                                     decimal valorUnitario = Convert.ToDecimal(row.Cells[5].Value);
@@ -827,13 +877,13 @@ namespace SiscomSoft_Desktop.Views
                                     totalTraslado += 1;
                                 }
                                 //IEPS
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(53.00))
+                                else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
                                 {
                                     cfdi.Conceptos[c].Impuestos.Traslados[it] = new ComprobanteConceptoImpuestosTraslado();
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Base = Convert.ToDecimal(row.Cells[21].Value);
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Impuesto = c_Impuesto.Item003;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TipoFactor = c_TipoFactor.Tasa;
-                                    decimal tasa = rImpuesto.impuesto_id.dTasaImpuesto / 100;
+                                    decimal tasa = impuesto.dTasaImpuesto / 100;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuota = tasa;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuotaSpecified = true;
                                     decimal valorUnitario = Convert.ToDecimal(row.Cells[5].Value);
@@ -843,13 +893,13 @@ namespace SiscomSoft_Desktop.Views
                                     TOTALTIEPS53 += importe;
                                     totalTraslado += 1;
                                 }
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(30.00))
+                                else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(30.00))
                                 {
                                     cfdi.Conceptos[c].Impuestos.Traslados[it] = new ComprobanteConceptoImpuestosTraslado();
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Base = Convert.ToDecimal(row.Cells[21].Value);
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Impuesto = c_Impuesto.Item003;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TipoFactor = c_TipoFactor.Tasa;
-                                    decimal tasa = rImpuesto.impuesto_id.dTasaImpuesto / 100;
+                                    decimal tasa = impuesto.dTasaImpuesto / 100;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuota = tasa;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuotaSpecified = true;
                                     decimal valorUnitario = Convert.ToDecimal(row.Cells[5].Value);
@@ -859,13 +909,13 @@ namespace SiscomSoft_Desktop.Views
                                     TOTALTIEPS30 += importe;
                                     totalTraslado += 1;
                                 }
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(26.50))
+                                else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(26.50))
                                 {
                                     cfdi.Conceptos[c].Impuestos.Traslados[it] = new ComprobanteConceptoImpuestosTraslado();
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Base = Convert.ToDecimal(row.Cells[21].Value);
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].Impuesto = c_Impuesto.Item003;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TipoFactor = c_TipoFactor.Tasa;
-                                    decimal tasa = rImpuesto.impuesto_id.dTasaImpuesto / 100;
+                                    decimal tasa = impuesto.dTasaImpuesto / 100;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuota = tasa;
                                     cfdi.Conceptos[c].Impuestos.Traslados[it].TasaOCuotaSpecified = true;
                                     decimal valorUnitario = Convert.ToDecimal(row.Cells[5].Value);
@@ -882,17 +932,18 @@ namespace SiscomSoft_Desktop.Views
                         cfdi.Conceptos[c].Impuestos.Retenciones = new ComprobanteConceptoImpuestosRetencion[mImpuesto.Count];
                         foreach (ImpuestoProducto rImpuesto in mImpuesto)
                         {
+                            var impuesto = ManejoImpuesto.getById(rImpuesto.impuesto_id);
                             #region RETENIDO
-                            if (rImpuesto.impuesto_id.sTipoImpuesto == "RETENIDO")
+                            if (impuesto.sTipoImpuesto == "RETENIDO")
                             {
                                 // IVA
-                                if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                                if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                                 {
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir] = new ComprobanteConceptoImpuestosRetencion();
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].Base = Convert.ToDecimal(row.Cells[21].Value);
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].Impuesto = c_Impuesto.Item002;
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].TipoFactor = c_TipoFactor.Tasa;
-                                    decimal tasa = rImpuesto.impuesto_id.dTasaImpuesto / 100;
+                                    decimal tasa = impuesto.dTasaImpuesto / 100;
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].TasaOCuota = tasa;
                                     decimal valorUnitario = Convert.ToDecimal(row.Cells[5].Value);
                                     decimal importe = valorUnitario * tasa;
@@ -900,13 +951,13 @@ namespace SiscomSoft_Desktop.Views
                                     TOTALRIVA16 += importe;
                                     totalRetenido += 1;
                                 }
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(10.67))
+                                else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(10.67))
                                 {
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir] = new ComprobanteConceptoImpuestosRetencion();
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].Base = Convert.ToDecimal(row.Cells[21].Value);
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].Impuesto = c_Impuesto.Item002;
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].TipoFactor = c_TipoFactor.Tasa;
-                                    decimal tasa = rImpuesto.impuesto_id.dTasaImpuesto / 100;
+                                    decimal tasa = impuesto.dTasaImpuesto / 100;
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].TasaOCuota = tasa;
                                     decimal valorUnitario = Convert.ToDecimal(row.Cells[5].Value);
                                     decimal importe = valorUnitario * tasa;
@@ -914,13 +965,13 @@ namespace SiscomSoft_Desktop.Views
                                     TOTALRIVA1067 += importe;
                                     totalRetenido += 1;
                                 }
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(7.33))
+                                else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(7.33))
                                 {
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir] = new ComprobanteConceptoImpuestosRetencion();
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].Base = Convert.ToDecimal(row.Cells[21].Value);
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].Impuesto = c_Impuesto.Item002;
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].TipoFactor = c_TipoFactor.Tasa;
-                                    decimal tasa = rImpuesto.impuesto_id.dTasaImpuesto / 100;
+                                    decimal tasa = impuesto.dTasaImpuesto / 100;
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].TasaOCuota = tasa;
                                     decimal valorUnitario = Convert.ToDecimal(row.Cells[5].Value);
                                     decimal importe = valorUnitario * tasa;
@@ -928,13 +979,13 @@ namespace SiscomSoft_Desktop.Views
                                     TOTALRIVA733 += importe;
                                     totalRetenido += 1;
                                 }
-                                else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                                else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
                                 {
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir] = new ComprobanteConceptoImpuestosRetencion();
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].Base = Convert.ToDecimal(row.Cells[21].Value);
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].Impuesto = c_Impuesto.Item002;
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].TipoFactor = c_TipoFactor.Tasa;
-                                    decimal tasa = rImpuesto.impuesto_id.dTasaImpuesto / 100;
+                                    decimal tasa = impuesto.dTasaImpuesto / 100;
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].TasaOCuota = tasa;
                                     decimal valorUnitario = Convert.ToDecimal(row.Cells[5].Value);
                                     decimal importe = valorUnitario * tasa;
@@ -943,13 +994,13 @@ namespace SiscomSoft_Desktop.Views
                                     totalRetenido += 1;
                                 }
                                 //ISR
-                                else if (rImpuesto.impuesto_id.sImpuesto == "ISR" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(10.00))
+                                else if (impuesto.sImpuesto == "ISR" && impuesto.dTasaImpuesto == Convert.ToDecimal(10.00))
                                 {
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir] = new ComprobanteConceptoImpuestosRetencion();
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].Base = Convert.ToDecimal(row.Cells[21].Value);
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].Impuesto = c_Impuesto.Item001;
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].TipoFactor = c_TipoFactor.Tasa;
-                                    decimal tasa = rImpuesto.impuesto_id.dTasaImpuesto / 100;
+                                    decimal tasa = impuesto.dTasaImpuesto / 100;
                                     cfdi.Conceptos[c].Impuestos.Retenciones[ir].TasaOCuota = tasa;
                                     decimal valorUnitario = Convert.ToDecimal(row.Cells[5].Value);
                                     decimal importe = valorUnitario * tasa;
@@ -969,73 +1020,167 @@ namespace SiscomSoft_Desktop.Views
             #endregion
 
             #region IMPUESTOS TOTALES
-            cfdi.Impuestos = new ComprobanteImpuestos();
-            cfdi.Impuestos.TotalImpuestosTrasladados = TIVA16 + TIVA11 + TIVA4 + TIEPS53 + TIEPS30 + TIEPS26;
-            cfdi.Impuestos.TotalImpuestosTrasladadosSpecified = true;
-            cfdi.Impuestos.TotalImpuestosRetenidos = RIVA16 + RIVA1067 + RIVA733 + RIVA4 + RISR10;
-            cfdi.Impuestos.TotalImpuestosRetenidosSpecified = true;
+            //cfdi.Impuestos = new ComprobanteImpuestos();
+            //cfdi.Impuestos.TotalImpuestosTrasladados = TIVA16 + TIVA11 + TIVA4 + TIEPS53 + TIEPS30 + TIEPS26;
+            //cfdi.Impuestos.TotalImpuestosTrasladadosSpecified = true;
+            //cfdi.Impuestos.TotalImpuestosRetenidos = RIVA16 + RIVA1067 + RIVA733 + RIVA4 + RISR10;
+            //cfdi.Impuestos.TotalImpuestosRetenidosSpecified = true;
             #endregion
 
             #region Complemento
             cfdi.Complemento = new ComprobanteComplemento[1];
             #endregion
 
-            #region Creas los namespaces requeridos
+            #region NAMESPACE XML
             XmlSerializerNamespaces xmlNameSpace = new XmlSerializerNamespaces();
             xmlNameSpace.Add("cfdi", "http://www.sat.gob.mx/cfd/3");
-            xmlNameSpace.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance"); 
-            xmlNameSpace.Add("schemaLocation", "http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd");
+            xmlNameSpace.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance");
             #endregion
 
-            #region Creas una instancia de XMLSerializer con el tipo de dato Comprobante
+            #region GUARDAR XML
             XmlSerializer xmlSerialize = new XmlSerializer(typeof(Comprobante));
-            #endregion
-
-            #region Creas una instancia de XmlTextWriter donde se va a guardar el resultado de la serialización
-            XmlTextWriter xmlTextWriter = new XmlTextWriter(@"C:\SiscomSoft\Facturas\XML\comprobanteSinTimbrar.xml", Encoding.UTF8);
+            XmlTextWriter xmlTextWriter = new XmlTextWriter(MESPATH + @"\" + NameFileXML, Encoding.UTF8);
             xmlTextWriter.Formatting = Formatting.Indented;
-
-            // Y serializas…
             xmlSerialize.Serialize(xmlTextWriter, cfdi, xmlNameSpace);
-
             xmlTextWriter.Close();
             #endregion
         }
 
-        public void CrearSello()
+        public void CrearSelloFinkok(string NameFileXML)
         {
             Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue));
-            /* Creacion de la cadena original*/
-            StreamReader reader = new StreamReader(@"C:\SiscomSoft\Facturas\XML\comprobanteSinTimbrar.xml");
-            XPathDocument myXPathDoc = new XPathDocument(reader);
+            Certificado mCertificado = ManejoCertificado.getById(nSucursal.certificado_id);
+            X509Certificate2 m_cer = new X509Certificate2(mCertificado.sRutaArch + @"\" + mCertificado.sArchCer);
+            string rutaXSLT = @"http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt";
+            string MESPATH = @"C:\SiscomSoft\Facturas\XML\" + DateTime.Now.ToString("MMMM") + "," + DateTime.Now.Year;
+            string rutaXML = MESPATH + @"\" + NameFileXML; 
+            String pass = mCertificado.sContrasena; //Contraseña de la llave privada
+            String llave = mCertificado.sRutaArch + @"\" + mCertificado.sArchkey; //Archivo de la llave privada
+            byte[] llave2 = File.ReadAllBytes(llave); // Convertimos el archivo anterior a byte
+            byte[] bytesFirmados;
 
-            //Cargando el XSLT
-            XslCompiledTransform myXslTrans = new XslCompiledTransform();
-            myXslTrans.Load(@"C:\SiscomSoft\Facturas\CadenaOriginalv3.3.xslt");
-
+            // Cargar XML
+            XPathDocument xml = new XPathDocument(rutaXML);
+            // Cargar XSLT
+            XslCompiledTransform transformador = new XslCompiledTransform();
+            transformador.Load(rutaXSLT);
+            // Procesamiento
             StringWriter str = new StringWriter();
-            XmlTextWriter myWriter = new XmlTextWriter(str);
-
-            //Aplicando transformacion
-            myXslTrans.Transform(myXPathDoc, null, myWriter);
-
+            XmlTextWriter cad = new XmlTextWriter(str);
+            transformador.Transform(rutaXML, cad);
             //Resultado
-            string cadenaOriginal = str.ToString();
+            string result = str.ToString();
+            
+            if (m_cer.PublicKey.Key.KeySize == 2048)
+            {
+                #region SHA-256
+                //1) Desencriptar la llave privada, el primer parámetro es la contraseña de llave privada y el segundo es la llave privada en formato binario.
+                Org.BouncyCastle.Crypto.AsymmetricKeyParameter asp = Org.BouncyCastle.Security.PrivateKeyFactory.DecryptKey(pass.ToCharArray(), llave2);
 
-            /* Creacion del sello */
-            string strPathLlave = nSucursal.certificado_id.sRutaArch + @"\" + nSucursal.certificado_id.sArchkey;
-            string strLlavePwd = nSucursal.certificado_id.sContrasena;
-            string strCadenaOriginal = cadenaOriginal; // Aquí ya haber generado la cadena original 
+                //2) Convertir a parámetros de RSA
+                Org.BouncyCastle.Crypto.Parameters.RsaKeyParameters key = (Org.BouncyCastle.Crypto.Parameters.RsaKeyParameters)asp;
 
-            System.Security.SecureString passwordSeguro = new System.Security.SecureString();
-            passwordSeguro.Clear();
-            foreach (char c in strLlavePwd.ToCharArray())
-                passwordSeguro.AppendChar(c);
-            byte[] llavePrivadaBytes = System.IO.File.ReadAllBytes(strPathLlave);
-            RSACryptoServiceProvider rsa = opensslkey.DecodeEncryptedPrivateKeyInfo(llavePrivadaBytes, passwordSeguro);
-            SHA1CryptoServiceProvider hasher = new SHA1CryptoServiceProvider();
-            byte[] bytesFirmados = rsa.SignData(System.Text.Encoding.UTF8.GetBytes(strCadenaOriginal), hasher);
-            strSello = Convert.ToBase64String(bytesFirmados);  // Y aquí está el sello
+                //3) Crear el firmador con SHA256
+                Org.BouncyCastle.Crypto.ISigner sig = Org.BouncyCastle.Security.SignerUtilities.GetSigner("SHA-256withRSA");
+
+                //4) Inicializar el firmador con la llave privada
+                sig.Init(true, key);
+
+                // 5) Pasar la cadena original a formato binario
+                byte[] bytes = Encoding.UTF8.GetBytes(result);
+
+                // 6) Encriptar
+                sig.BlockUpdate(bytes, 0, bytes.Length);
+                bytesFirmados = sig.GenerateSignature();
+
+                // 7) Finalmente obtenemos el sello
+                Sello = Convert.ToBase64String(bytesFirmados);
+                #endregion
+            }
+            else if (m_cer.PublicKey.Key.KeySize == 2048)
+            {
+                #region SHA-1
+                //1) Desencriptar la llave privada, el primer parámetro es la contraseña de llave privada y el segundo es la llave privada en formato binario.
+                Org.BouncyCastle.Crypto.AsymmetricKeyParameter asp = Org.BouncyCastle.Security.PrivateKeyFactory.DecryptKey(pass.ToCharArray(), llave2);
+
+                //2) Convertir a parámetros de RSA
+                Org.BouncyCastle.Crypto.Parameters.RsaKeyParameters key = (Org.BouncyCastle.Crypto.Parameters.RsaKeyParameters)asp;
+
+                //3) Crear el firmador con SHA1
+                Org.BouncyCastle.Crypto.ISigner sig = Org.BouncyCastle.Security.SignerUtilities.GetSigner("SHA1withRSA");
+
+                //4) Inicializar el firmador con la llave privada
+                sig.Init(true, key);
+
+                // 5) Pasar la cadena original a formato binario
+                byte[] bytes = Encoding.UTF8.GetBytes(result);
+
+                // 6) Encriptar
+                sig.BlockUpdate(bytes, 0, bytes.Length);
+                bytesFirmados = sig.GenerateSignature();
+
+                // 7) Finalmente obtenemos el sello
+                Sello = Convert.ToBase64String(bytesFirmados);
+                #endregion
+            }
+        }
+
+        public void GuardarFactura()
+        {
+            Factura nFactura = new Factura();
+            DetalleFactura nDetalleFactura = new DetalleFactura();
+            nFactura.sFolio = txtFolio.Text;
+            nFactura.dtFecha = DateTime.Now;
+            nFactura.usuario_id = pkCliente;
+            nFactura.sUsoCfdi = cmbUsoCFDI.Text;
+            nFactura.sMoneda = cmbMoneda.Text;
+            nFactura.sFormaPago = cmbFormaDePago.Text;
+            nFactura.sMetodoPago = cmbMetodoDePago.Text;
+            nFactura.sTipoCompro = cmbTipoDeComprobante.Text;
+            nFactura.sucursal_id = Convert.ToInt32(cmbSucursal.SelectedValue);
+            nFactura.usuario_id = FrmMenuMain.uHelper.usuario.idUsuario;
+            ManejoFacturacion.Guardar(nFactura);
+
+            foreach (DataGridViewRow row in dgvProductos.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    nDetalleFactura.producto_id = Convert.ToInt32(row.Cells[0].Value);
+                    nDetalleFactura.sClave = row.Cells[1].Value.ToString();
+                    nDetalleFactura.sDescripcion = row.Cells[2].Value.ToString();
+                    nDetalleFactura.dPreUnitario = Convert.ToDecimal(row.Cells[5].Value);
+                    nDetalleFactura.iCantidad = Convert.ToInt32(row.Cells[6].Value);
+                    nDetalleFactura.factura_id = nFactura.idFactura;
+                    ManejoDetalleFactura.Guardar(nDetalleFactura);
+                }
+            }
+        }
+
+        public void Clear()
+        {
+            txtCondicionesDePago.Clear();
+            txtDireccion.Clear();
+            txtFolio.Clear();
+            txtNombre.Clear();
+            txtRFC.Clear();
+            txtTelefono.Clear();
+            txtFolio.Text = ManejoFacturacion.Folio();
+            dgvProductos.Rows.Clear();
+            btnBorrar.Visible = false;
+            pkCliente = 0;
+            lblSubTotal.Text = "0";
+            lblTotal.Text = "0";
+            TIVA16 = 0;
+            TIVA11 = 0;
+            TIVA4 = 0;
+            TIEPS53 = 0;
+            TIEPS30 = 0;
+            TIEPS26 = 0;
+            RIVA16 = 0;
+            RIVA1067 = 0;
+            RIVA733 = 0;
+            RIVA4 = 0;
+            RISR10 = 0;
         }
         #endregion
 
@@ -1083,30 +1228,6 @@ namespace SiscomSoft_Desktop.Views
 
         #endregion
 
-        private void FrmMenuFacturacion_Load(object sender, EventArgs e)
-        {
-            timer1.Start();
-            cargarSucursales();
-            txtFolio.Text = ManejoFacturacion.Folio();
-            cmbFormaDePago.SelectedIndex = 0;
-            cmbMetodoDePago.SelectedIndex = 0;
-            cmbMoneda.SelectedIndex = 0;
-            cmbTipoDeComprobante.SelectedIndex = 0;
-            cmbUsoCFDI.SelectedIndex = 0;
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
-        }
-
-        private void btnMenuPrincipal_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmMenu v = new FrmMenu();
-            v.ShowDialog();
-        }
-
         #region CREATE BILL
         private void cmbSucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1130,9 +1251,10 @@ namespace SiscomSoft_Desktop.Views
                 }
 
                 decimal TotalDolar = 0;
-                if (FrmMenu.uHelper.usuario.sucursal_id.sTipoCambio != null)
+                Sucursal mSucursal = ManejoSucursal.getById(FrmMenuMain.uHelper.usuario.sucursal_id);
+                if (mSucursal.sTipoCambio != null)
                 {
-                    decimal TipoCambio = Convert.ToDecimal(FrmMenu.uHelper.usuario.sucursal_id.sTipoCambio);
+                    decimal TipoCambio = Convert.ToDecimal(mSucursal.sTipoCambio);
                     TotalDolar = (total * 1) / TipoCambio;
                     lbltotaldolares.Visible = true;
                     lblTotalDolar.Visible = true;
@@ -1197,61 +1319,62 @@ namespace SiscomSoft_Desktop.Views
                                     List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.idProducto));
                                     foreach (ImpuestoProducto rImpuesto in mImpuesto)
                                     {
+                                        var impuesto = ManejoImpuesto.getById(rImpuesto.impuesto_id);
                                         #region TRASLADO
-                                        if (rImpuesto.impuesto_id.sTipoImpuesto == "TRASLADO")
+                                        if (impuesto.sTipoImpuesto == "TRASLADO")
                                         {
                                             // IVA
-                                            if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                                            if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                                             {
-                                                TTasaImpuestoIVA16 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                                TTasaImpuestoIVA16 += impuesto.dTasaImpuesto;
                                             }
-                                            else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(11.00))
+                                            else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(11.00))
                                             {
-                                                TTasaImpuestoIVA11 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                                TTasaImpuestoIVA11 += impuesto.dTasaImpuesto;
                                             }
-                                            else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                                            else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
                                             {
-                                                TTasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                                TTasaImpuestoIVA4 += impuesto.dTasaImpuesto;
                                             }
                                             //IEPS
-                                            else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(53.00))
+                                            else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
                                             {
-                                                TTasaImpuestoIEPS53 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                                TTasaImpuestoIEPS53 += impuesto.dTasaImpuesto;
                                             }
-                                            else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(30.00))
+                                            else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(30.00))
                                             {
-                                                TTasaImpuestoIEPS30 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                                TTasaImpuestoIEPS30 += impuesto.dTasaImpuesto;
                                             }
-                                            else if (rImpuesto.impuesto_id.sImpuesto == "IEPS" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(26.50))
+                                            else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(26.50))
                                             {
-                                                TTasaImpuestoIEPS26 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                                TTasaImpuestoIEPS26 += impuesto.dTasaImpuesto;
                                             }
                                         }
                                         #endregion
                                         #region RETENIDO
-                                        if (rImpuesto.impuesto_id.sTipoImpuesto == "RETENIDO")
+                                        if (impuesto.sTipoImpuesto == "RETENIDO")
                                         {
                                             // IVA
-                                            if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(16.00))
+                                            if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                                             {
-                                                RTasaImpuestoIVA16 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                                RTasaImpuestoIVA16 += impuesto.dTasaImpuesto;
                                             }
-                                            else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(10.67))
+                                            else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(10.67))
                                             {
-                                                RTasaImpuestoIVA1067 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                                RTasaImpuestoIVA1067 += impuesto.dTasaImpuesto;
                                             }
-                                            else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(7.33))
+                                            else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(7.33))
                                             {
-                                                RTasaImpuestoIVA733 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                                RTasaImpuestoIVA733 += impuesto.dTasaImpuesto;
                                             }
-                                            else if (rImpuesto.impuesto_id.sImpuesto == "IVA" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(4.00))
+                                            else if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(4.00))
                                             {
-                                                RTasaImpuestoIVA4 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                                RTasaImpuestoIVA4 += impuesto.dTasaImpuesto;
                                             }
                                             //ISR
-                                            else if (rImpuesto.impuesto_id.sImpuesto == "ISR" && rImpuesto.impuesto_id.dTasaImpuesto == Convert.ToDecimal(10.00))
+                                            else if (impuesto.sImpuesto == "ISR" && impuesto.dTasaImpuesto == Convert.ToDecimal(10.00))
                                             {
-                                                RTasaImpuestoISR10 += rImpuesto.impuesto_id.dTasaImpuesto;
+                                                RTasaImpuestoISR10 += impuesto.dTasaImpuesto;
                                             }
                                         }
                                         #endregion
@@ -1261,8 +1384,9 @@ namespace SiscomSoft_Desktop.Views
                                     List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(nProducto.idProducto));
                                     foreach (DescuentoProducto rDescuento in mDescuento)
                                     {
-                                        TasaDescuento = rDescuento.descuento_id.dTasaDesc;
-                                        TasaDescuentoExtra = rDescuento.descuento_id.dTasaDescEx;
+                                        var descuento = ManejoDescuento.getById(rDescuento.descuento_id);
+                                        TasaDescuento = descuento.dTasaDesc;
+                                        TasaDescuentoExtra = descuento.dTasaDescEx;
                                     }
                                     #endregion
 
@@ -1354,8 +1478,9 @@ namespace SiscomSoft_Desktop.Views
 
                                     if (dolar != false)
                                     {
+                                        Sucursal mSucursal = ManejoSucursal.getById(FrmMenuMain.uHelper.usuario.sucursal_id);
                                         decimal TotalDolar = 0;
-                                        decimal TipoCambio = Convert.ToDecimal(FrmMenu.uHelper.usuario.sucursal_id.sTipoCambio);
+                                        decimal TipoCambio = Convert.ToDecimal(mSucursal.sTipoCambio);
                                         TotalDolar = (Total * 1) / TipoCambio;
                                         lblTotalDolar.Text = TotalDolar.ToString("N");
                                     }
@@ -1483,13 +1608,46 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            crearCarpetaRaiz();
-            GenerarFacturaIngreso();
-            CrearSello();
-            GenerarFacturaIngreso();
-            string xmltext = File.ReadAllText(@"C:\SiscomSoft\Facturas\XML\comprobanteSinTimbrar.xml");
-            ManejoFacturacion.timbrado(xmltext);
-            MessageBox.Show("Exito");
+            if (txtRFC.Text=="")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtRFC, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtRFC, "Campo necesario");
+                this.txtRFC.Focus();
+            }
+            else if (txtNombre.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtNombre, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtNombre, "Campo necesario");
+                this.txtNombre.Focus();
+            }
+            else if (txtDireccion.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtDireccion, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtDireccion, "Campo necesario");
+                this.txtDireccion.Focus();
+            }
+            else if (txtTelefono.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtTelefono, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtTelefono, "Campo necesario");
+                this.txtTelefono.Focus();
+            }
+            else if (txtCondicionesDePago.Text == "")
+            {
+                this.ErrorProvider.SetIconAlignment(this.txtCondicionesDePago, ErrorIconAlignment.MiddleRight);
+                this.ErrorProvider.SetError(this.txtCondicionesDePago, "Campo necesario");
+                this.txtCondicionesDePago.Focus();
+            }
+            else
+            {
+                crearCarpetaRaiz();
+                GenerarFactura();
+                CrearSelloFinkok(NameFileXML);
+                GenerarFactura();
+                ManejoFacturacion.timbrado(NameFileXML);
+                GuardarFactura();
+                Clear();
+            }
         }
 
         private void tbnEnviarCorreo_Click(object sender, EventArgs e)

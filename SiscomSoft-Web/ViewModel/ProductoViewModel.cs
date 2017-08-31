@@ -44,7 +44,7 @@ namespace SiscomSoft_Web.ViewModel
             Producto dato = BuscarporID(Datos.txtpkProducto);
 
             dato.idProducto = Datos.txtpkProducto;
-            dato.iClaveProd = Datos.txtClaveProd;
+           // dato.sClaveProd = Datos.txtClaveProd;
             dato.sDescripcion = Datos.txtDescripcion;
             dato.sMarca = Datos.txtMarca;
             dato.dCosto = Datos.txtCosto;
@@ -92,7 +92,7 @@ namespace SiscomSoft_Web.ViewModel
         {
             Producto dato = new Producto();
             dato.idProducto = Datos.txtpkProducto;
-            dato.iClaveProd = Datos.txtClaveProd;
+           // dato.iClaveProd = Datos.txtClaveProd;
             dato.sDescripcion = Datos.txtDescripcion;
             dato.sMarca = Datos.txtMarca;
             dato.dCosto = Datos.txtCosto;

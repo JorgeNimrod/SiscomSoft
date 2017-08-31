@@ -15,7 +15,6 @@ namespace SiscomSoft.Models
         [Key]
         public int idUsuario { get; set; }
 
-        //rfc unico por empresa
         public string sRfc { get; set; }
         
         [Required(ErrorMessage = "Este campo es necesario")]
@@ -40,9 +39,9 @@ namespace SiscomSoft.Models
         public string sComentario { get; set; }
 
         // llave foranea de rol
-        public virtual Rol rol_id { get; set; }
+        public int rol_id { get; set; }
 
-        public virtual Sucursal sucursal_id { get; set; }
+        public int sucursal_id { get; set; }
 
         public Boolean bStatus { get; set; }
 

@@ -1,31 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using SiscomSoft.Comun;
 using SiscomSoft.Controller;
 using SiscomSoft.Models;
-using System.Globalization;
 using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
 using System.IO;
+using Org.BouncyCastle.X509;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.OpenSsl;
 using System.Security.Cryptography.X509Certificates;
 
 namespace SiscomSoft_Desktop.Views
 {
-
-    public partial class FrmAdministrador : Form
+    public partial class FrmMenuAdministrador : Form
     {
-
-
-
-
-
+        #region VARIABLES
         decimal precioventa = 0;
         decimal ImpuestoDgrAdd = 0;
         Boolean flagRol = false;
@@ -69,7 +62,11 @@ namespace SiscomSoft_Desktop.Views
         public static int PKPREFERENCIA;
         public static int PKDESCUENTO;
 
-        public FrmAdministrador()
+        public String ImagenString { get; set; }
+        public Bitmap ImagenBitmap { get; set; }
+        #endregion
+
+        public FrmMenuAdministrador()
         {
           //  autocompletado();
             InitializeComponent();
@@ -88,12 +85,51 @@ namespace SiscomSoft_Desktop.Views
             this.dgrDatosDescuento.AutoGenerateColumns = false;
             this.dgrAddDescProd.AutoGenerateColumns = false;
             this.dgrAddImpProd.AutoGenerateColumns = false;
-            CargarTablas();
-            cargarCombos();
-
         }
-        public String ImagenString { get; set; }
-        public Bitmap ImagenBitmap { get; set; }
+
+        #region FUNCIONES
+        public void crearkeyPem(string rutaKey, string nameFilKey)
+        {
+            string nameFilePem = string.Empty;
+            string CERTIFICADOS = @"C:\SiscomSoft\certificados pem\";
+            string pass = "1nT36R4c!0N";
+            string passCSDoFiel = txtAddContraseña.Text;
+
+            nameFilePem = nameFilKey + ".pem";
+
+            if (File.Exists(CERTIFICADOS + nameFilePem))
+            {
+                File.Delete(CERTIFICADOS + nameFilePem);
+            }
+            Byte[] dataKey = File.ReadAllBytes(rutaKey + @"\" + nameFilKey);
+            AsymmetricKeyParameter asp = Org.BouncyCastle.Security.PrivateKeyFactory.DecryptKey(passCSDoFiel.ToCharArray(), dataKey);
+            //Org.BouncyCastle.Security.PrivateKeyFactory.DecryptKey(passCSDoFiel.ToCharArray(), dataKey);
+            MemoryStream ms = new MemoryStream();
+            TextWriter writer = new StreamWriter(ms);
+            TextWriter stWrite = new System.IO.StreamWriter(CERTIFICADOS + nameFilePem);
+            Org.BouncyCastle.OpenSsl.PemWriter pmw = new Org.BouncyCastle.OpenSsl.PemWriter(stWrite);
+            pmw.WriteObject(asp, "DESEDE", pass.ToCharArray(), new Org.BouncyCastle.Security.SecureRandom());
+            stWrite.Close();
+        } 
+       
+        public void crearCerPem(string rutaCer, string nameFileCer)
+        {
+            string CERTIFICADOS = @"C:\SiscomSoft\certificados pem\";
+            string nameFilePem = string.Empty;
+            nameFilePem = nameFileCer + ".pem";
+            if (File.Exists(CERTIFICADOS + nameFilePem))
+            {
+                File.Delete(CERTIFICADOS + nameFilePem);
+            }
+
+            Stream sr = File.OpenRead(rutaCer + @"\" + nameFileCer);
+            X509CertificateParser cp = new X509CertificateParser();
+            Object cert = cp.ReadCertificate(sr);
+            TextWriter tw = new StreamWriter(CERTIFICADOS + nameFilePem);
+            PemWriter pw = new PemWriter(tw);
+            pw.WriteObject(cert);
+            tw.Close();
+        }
 
         public void CargarTablas()
         {
@@ -248,7 +284,7 @@ namespace SiscomSoft_Desktop.Views
             cbxCatalogoAddProd.ValueMember = "idCatalogo";
             cbxCatalogoAddProd.DataSource = ManejoCatalogo.getAll();
 
-            cbxAddProdCategoria.DisplayMember = "sNombre";
+            cbxAddProdCategoria.DisplayMember = "sNomCat";
             cbxAddProdCategoria.ValueMember = "idCategoria";
             cbxAddProdCategoria.DataSource = ManejoCategoria.getAll(true);
             
@@ -272,52 +308,64 @@ namespace SiscomSoft_Desktop.Views
         {
             this.dgvDatosEmpresa.DataSource = ManejoEmpresa.Buscar(txtBuscarEmpresa.Text, ckbStatusEmpresa.Checked);
         }
+
         public void cargarUMD()
         {
             this.dgrDatosUMD.DataSource = ManejoCatalogo.Buscar(txtBuscarUMD.Text, ckbStatusUMD.Checked);
         }
+
         public void cargarImpuestosDescuentosForProducts()
         {
             this.dgrAddDescProd.DataSource = ManejoDescuento.getAll();
             this.dgrAddImpProd.DataSource = ManejoImpuesto.getAll(true);
             this.dgrUpdateDesc.DataSource = ManejoDescuento.getAll();
             this.dgrUpdateImp.DataSource = ManejoImpuesto.getAll(true);
-
         }
-
-      
-
-
+        
         public void cargarRoles()
         {
             this.dgvDatosRol.DataSource = ManejoRol.Buscar(txtBuscarRol.Text, ckbStatusRol.Checked);
         }
+
         public void cargarUsuarios()
         {
             this.dgvDatosUsuario.DataSource = ManejoUsuario.Buscar(txtBuscarUsuario.Text, ckbStatusUsuario.Checked);
         }
+
         public void cargarCategorias()
         {
             this.dgvDatosCategoria.DataSource = ManejoCategoria.Buscar(txtBuscarCategoria.Text, ckbStatusCategoria.Checked);
         }
+
         public void cargarImpuestos()
         {
             this.dgvDatosImpuesto.DataSource = ManejoImpuesto.Buscar(txtBuscarImpuesto.Text, ckbStatusImpuesto.Checked);
         }
+
         public void cargarPrecios()
         {
             this.dgvDatosPrecio.DataSource = ManejoPrecio.getAll();
         }
+
         public void cargarDescuentos()
         {
             this.dgrDatosDescuento.DataSource = ManejoDescuento.getAll();
         }
+
         public void cargarProductos()
         {
           
+
+            
+           
+            
+
+          //    Producto nProducto = new Producto();
             this.dgvDatosProducto.DataSource = ManejoProducto.Buscar(txtBuscarProducto.Text, ckbStatusProducto.Checked);
-                 
+                   
+    //  dgvDatosProducto.CurrentRow.Cells[8] = ToolImagen.ByteArrayToImage(sFoto);
         }
+
         public void cargarClientes()
         {
             this.dgvDatosCliente.DataSource = ManejoCliente.Buscar(txtBuscarCliente.Text, cbxSearchStatusCli.SelectedIndex + 1);
@@ -327,7 +375,7 @@ namespace SiscomSoft_Desktop.Views
         {
             dgvDatosSucursal.DataSource = ManejoSucursal.Buscar(txtBuscarSucursal.Text, cmbStatusSucursal.SelectedIndex + 1);
         }
-
+        #endregion
 
         private void btnUser_Click(object sender, EventArgs e)
         {
@@ -424,6 +472,7 @@ namespace SiscomSoft_Desktop.Views
             btnListaDescuentos.BackColor = Color.White;
             btnListaDescuentos.ForeColor = Color.Black;
         }
+
         public static bool ValidarCurp(string curp)
         {
             string expresion = "^.*(?=.{18})(?=.*[0-9])(?=.*[A-ZÑ]).*$";
@@ -459,10 +508,11 @@ namespace SiscomSoft_Desktop.Views
             }
         }
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
+
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
-
-            this.autocompletado();
+            cargarCombos();
+            CargarTablas();
             cbxSearchStatusCli.SelectedIndex = 0;
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             tbcGeneral.TabPages.Remove(tbpUsuario);
@@ -499,7 +549,6 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpAddDescuento);
             tbcGeneral.TabPages.Remove(tbpUpdateDescuento);
             cmbStatusSucursal.SelectedIndex = 0;
-            CargarTablas();
         }
 
         private void btnRollist_Click(object sender, EventArgs e)
@@ -845,7 +894,7 @@ namespace SiscomSoft_Desktop.Views
             Producto nProducto = ManejoProducto.getById(PKPRODUCTO);
             Categoria nCategoria = ManejoCategoria.getById(nProducto.categoria_id);
             PKCATEGORIA = nCategoria.idCategoria;
-            txtUpdateClavProd.Text = nProducto.iClaveProd.ToString();
+            txtUpdateClavProd.Text = nProducto.sClaveProd;
             txtUpdateMarcProd.Text = nProducto.sMarca;
         
             txtUpdateCostoProd.Text = nProducto.dCosto.ToString();
@@ -878,7 +927,7 @@ namespace SiscomSoft_Desktop.Views
         public void ActualizarCategoria()
         {
             Categoria nCategoria = ManejoCategoria.getById(PKCATEGORIA);
-            txtActualizarNomCat.Text = nCategoria.sNombre;
+            txtActualizarNomCat.Text = nCategoria.sNomCat;
             txtActualizarSubCat.Text = nCategoria.sNomSubCat;
         }
         public void ActualizarUMD()
@@ -1087,7 +1136,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 Categoria nCategoria = new Categoria();
 
-                nCategoria.sNombre = txtNombreCategoria.Text;
+                nCategoria.sNomCat = txtNombreCategoria.Text;
                 nCategoria.sNomSubCat = txtSubcategoria.Text;
 
                 ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
@@ -1147,7 +1196,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 Categoria nCategoria = new Categoria();
                 nCategoria.idCategoria = PKCATEGORIA;
-                nCategoria.sNombre = txtActualizarNomCat.Text;
+                nCategoria.sNomCat = txtActualizarNomCat.Text;
                 nCategoria.sNomSubCat = txtActualizarSubCat.Text;
 
                 ManejoCategoria.Modificar(nCategoria);
@@ -1766,7 +1815,7 @@ namespace SiscomSoft_Desktop.Views
                 //ManejoCategoria.RegistrarNuevaCategoria(nCategoria);
 
                 Producto nProducto = new Producto();
-                nProducto.iClaveProd = Convert.ToInt32(txtClaveaddprod.Text.ToString());
+                nProducto.sClaveProd = txtClaveaddprod.Text;
                 nProducto.sMarca = txtMarcaaddProd.Text;
          
                 nProducto.dCosto = Convert.ToDecimal(txtCostoAddProd.Text);
@@ -2118,7 +2167,7 @@ namespace SiscomSoft_Desktop.Views
 
                 Producto nProducto = new Producto();
                 nProducto.idProducto = PKPRODUCTO;
-                nProducto.iClaveProd = Convert.ToInt32(txtUpdateClavProd.Text);
+                nProducto.sClaveProd = txtUpdateClavProd.Text;
                 nProducto.sDescripcion = txtUpdateDesProd.Text;
                 nProducto.sMarca = txtUpdateMarcProd.Text;
                 nProducto.dCosto = Convert.ToDecimal(txtUpdateCostoProd.Text);
@@ -2497,7 +2546,7 @@ namespace SiscomSoft_Desktop.Views
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            FrmMenu v = new FrmMenu();
+            FrmMenuMain v = new FrmMenuMain();
             v.Show();
         }
 
@@ -4190,8 +4239,33 @@ namespace SiscomSoft_Desktop.Views
         private void ActualizarSucursales()
         {
             Sucursal nSucursal = ManejoSucursal.getById(PKSUCURSAL);
-            Preferencia nPreferencia = ManejoPreferencia.getById(nSucursal.preferencia_id.idPreferencia);
-            Certificado nCertificado = ManejoCertificado.getById(nSucursal.certificado_id.idCertificado);
+            if (nSucursal.preferencia_id != null)
+            {
+                Preferencia nPreferencia = ManejoPreferencia.getById(nSucursal.preferencia_id);
+                txtUpdateNoSerie.Text = nPreferencia.sNumSerie;
+                ckbUpdateForImpreso.Checked = nPreferencia.bForImpreso;
+                ckbUpdateEnvFactura.Checked = nPreferencia.bEnvFactura;
+                if (nPreferencia.sLogotipo!=null)
+                {
+                    pcbUpdateLogoSucursal.Image = ToolImagen.Base64StringToBitmap(nPreferencia.sLogotipo);
+                }
+
+                PKPREFERENCIA = nSucursal.preferencia_id;
+            }
+            if (nSucursal.certificado_id != null)
+            {
+                Certificado nCertificado = ManejoCertificado.getById(nSucursal.certificado_id);
+                txtUpdateFolderCertificados.Text = nCertificado.sRutaArch;
+                txtUpdateCertificado.Text = nCertificado.sArchCer;
+                txtUpdateKey.Text = nCertificado.sArchkey;
+                txtUpdateContrasena.Text = nCertificado.sContrasena;
+                txtUpdateNoCertificado.Text = nCertificado.sNoCertifi;
+                txtUpdateValidoDe.Text = nCertificado.sValidoDe;
+                txtUpdateValidoHasta.Text = nCertificado.sValidoHasta;
+
+                PKCERTIFICADO = nSucursal.certificado_id;
+            }
+
             txtUpdateNombre.Text = nSucursal.sNombre;
             txtUpdatePais.Text = nSucursal.sPais;
             txtUpdateEstado.Text = nSucursal.sEstado;
@@ -4201,24 +4275,11 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateLocalidad.Text = nSucursal.sLocalidad;
             txtUpdateNoInterior.Text = nSucursal.iNumInterior.ToString();
             txtUpdateNoExterior.Text = nSucursal.iNumExterior.ToString();
-            txtUpdateNoSerie.Text = nPreferencia.sNumSerie;
-            ckbUpdateForImpreso.Checked = nPreferencia.bForImpreso;
-            ckbUpdateEnvFactura.Checked = nPreferencia.bEnvFactura;
-            pcbUpdateLogoSucursal.Image = ToolImagen.Base64StringToBitmap(nPreferencia.sLogotipo);
+            
             txtCodigoPostal.Text = nSucursal.iCodPostal.ToString();
-            cmbUpdateEmpresa.SelectedItem = nSucursal.empresa_id.idEmpresa;
-
-            txtUpdateFolderCertificados.Text = nCertificado.sRutaArch;
-            txtUpdateCertificado.Text = nCertificado.sArchCer;
-            txtUpdateKey.Text = nCertificado.sArchkey;
-            txtUpdateContrasena.Text = nCertificado.sContrasena;
-            txtUpdateNoCertificado.Text = nCertificado.sNoCertifi;
-            txtUpdateValidoDe.Text = nCertificado.sValidoDe;
-            txtUpdateValidoHasta.Text = nCertificado.sValidoHasta;
-
-            PKPREFERENCIA = nSucursal.preferencia_id.idPreferencia;
-            PKCERTIFICADO = nSucursal.certificado_id.idCertificado;
-            PKEMPRESA = nSucursal.empresa_id.idEmpresa;
+            cmbUpdateEmpresa.SelectedItem = nSucursal.empresa_id;
+            
+            PKEMPRESA = nSucursal.empresa_id;
         }
 
         private void btnBorrarSucursal_Click(object sender, EventArgs e)
@@ -4337,15 +4398,26 @@ namespace SiscomSoft_Desktop.Views
                 nPreferencia.bForImpreso = ckbAddForImpreso.Checked;
                 nPreferencia.bEnvFactura = ckbAddEnvFactura.Checked;
 
-                //Certificado
                 Certificado nCertificado = new Certificado();
-                nCertificado.sRutaArch = txtAddFolcerCertificados.Text;
-                nCertificado.sArchCer = txtAddCertificado.Text;
-                nCertificado.sContrasena = txtAddContraseña.Text;
-                nCertificado.sArchkey = txtAddKey.Text;
-                nCertificado.sNoCertifi = txtAddNoCertficado.Text;
-                nCertificado.sValidoDe = txtAddValidoDe.Text;
-                nCertificado.sValidoHasta = txtAddValidoHasta.Text;
+                if (txtAddContraseña.Text != null)
+                {
+                    //Certificado
+                    nCertificado.sRutaArch = txtAddFolcerCertificados.Text;
+                    nCertificado.sArchCer = txtAddCertificado.Text;
+                    nCertificado.sContrasena = txtAddContraseña.Text;
+                    nCertificado.sArchkey = txtAddKey.Text;
+                    nCertificado.sNoCertifi = txtAddNoCertficado.Text;
+                    nCertificado.sValidoDe = txtAddValidoDe.Text;
+                    nCertificado.sValidoHasta = txtAddValidoHasta.Text;
+                    
+                    string CERTIFICADO = @"C:\SiscomSoft\Certificados pem";
+                    if (!Directory.Exists(CERTIFICADO))
+                    {
+                        Directory.CreateDirectory(CERTIFICADO);
+                    }
+                    crearCerPem(txtAddFolcerCertificados.Text, txtAddCertificado.Text);
+                    crearkeyPem(txtAddFolcerCertificados.Text, txtAddKey.Text);
+                }
 
                 //Sucursales
                 Sucursal nSucursal = new Sucursal();
@@ -4531,29 +4603,29 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnAddExaminarCertificado_Click_1(object sender, EventArgs e)
         {
-            string rutaArchivoCer = string.Empty;
+            string nameFileCer = string.Empty;
             //Asi se busca un archivo
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Archivos .cer|*.cer;";
             ofd.Title = "Seleccione un certificado";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                @rutaArchivoCer = ofd.SafeFileName;
-
-                X509Certificate2 m_cer = new X509Certificate2(ofd.FileName);
-
-                if (m_cer != null)
+                X509Certificate2 myCer = new X509Certificate2(ofd.FileName);
+                if (myCer != null)
                 {
-                    txtAddNoCertficado.Text = Encoding.Default.GetString(m_cer.GetSerialNumber());
-                    //txtEmpresa.Text = m_cer.SubjectName.Name;
-                    //txtEmisor.Text = m_cer.IssuerName.Name;
-                    txtAddValidoDe.Text = m_cer.GetEffectiveDateString();
-                    txtAddValidoHasta.Text = m_cer.GetExpirationDateString();
+                    txtAddNoCertficado.Text = Encoding.Default.GetString(myCer.GetSerialNumber());
+                    txtAddValidoDe.Text = myCer.GetEffectiveDateString();
+                    txtAddValidoHasta.Text = myCer.GetExpirationDateString();
                 }
+                else
+                {
+                    MessageBox.Show("No se tuvo acceso a la informacion del certificado.");
+                }
+                nameFileCer = ofd.SafeFileName;
             }
-
-            txtAddCertificado.Text = rutaArchivoCer;
-        }
+            
+            txtAddCertificado.Text = nameFileCer;
+    }
 
         private void txtAddFolcerCertificados_TextChanged(object sender, EventArgs e)
         {
@@ -4623,17 +4695,16 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnAddExaminarKey_Click_1(object sender, EventArgs e)
         {
-            string rutaArchivoKey = string.Empty;
-            //Asi se busca un archivo
+            string nameFileKey = string.Empty;
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Archivos .key|*.key;";
             ofd.Title = "Seleccione un archivo";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                rutaArchivoKey = ofd.SafeFileName;
+                nameFileKey = ofd.SafeFileName;
             }
 
-            txtAddKey.Text = rutaArchivoKey;
+            txtAddKey.Text = nameFileKey;
         }
 
         private void btnUpdateExaminarFolderCertificados_Click(object sender, EventArgs e)

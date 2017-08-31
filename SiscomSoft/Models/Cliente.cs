@@ -68,12 +68,6 @@ namespace SiscomSoft.Models
 
         public string sLogo { get; set; }
 
-        public virtual ICollection<Factura> Facturas { get; set; }
-
-        public virtual ICollection<Venta> Ventas { get; set; }
-
-        public virtual ICollection<Almacen> Almacen { get; set; }
-
         public Cliente()
         {
             this.iCodPostal = 0;

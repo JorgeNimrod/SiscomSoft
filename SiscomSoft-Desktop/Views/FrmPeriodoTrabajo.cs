@@ -33,7 +33,7 @@ namespace SiscomSoft_Desktop.Views
         private void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
             Close();
-            FrmMenu v = new FrmMenu();
+            FrmMenuMain v = new FrmMenuMain();
             v.ShowDialog();
         }
 
@@ -53,10 +53,10 @@ namespace SiscomSoft_Desktop.Views
 
         private void btnIniciarPeriodo_Click(object sender, EventArgs e)
         {
-            Periodo mPeriodo = ManejoPeriodo.getByUser(FrmMenu.uHelper.usuario.idUsuario);
+            Periodo mPeriodo = ManejoPeriodo.getByUser(FrmMenuMain.uHelper.usuario.idUsuario);
             if (mPeriodo!=null)
             {
-                MessageBox.Show("Ya hay un periodo iniciado para este usuario: " + FrmMenu.uHelper.usuario.sUsuario + ".");
+                MessageBox.Show("Ya hay un periodo iniciado para este usuario: " + FrmMenuMain.uHelper.usuario.sUsuario + ".");
                 mPeriodo = null;
             }
             else
@@ -74,10 +74,10 @@ namespace SiscomSoft_Desktop.Views
                 Periodo mPeriodo = ManejoPeriodo.getById(Convert.ToInt32(dgvPeriodos.CurrentRow.Cells[0].Value));
                 if (mPeriodo.dtFinal == dt)
                 {
-                    if (FrmMenu.uHelper.usuario.idUsuario == mPeriodo.usuario_id.idUsuario)
+                    if (FrmMenuMain.uHelper.usuario.idUsuario == mPeriodo.usuario_id)
                     {
                         mPeriodo.dtFinal = DateTime.Now;
-                        ManejoPeriodo.Modificar(mPeriodo, FrmMenu.uHelper.usuario);
+                        ManejoPeriodo.Modificar(mPeriodo, FrmMenuMain.uHelper.usuario);
                         cargarPeriodos();
                     }
                     else

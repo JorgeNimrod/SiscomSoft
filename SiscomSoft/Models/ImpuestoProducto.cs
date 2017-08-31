@@ -15,9 +15,9 @@ namespace SiscomSoft.Models
         [Key]
         public int idDetalleProducto { get; set; }
 
-        public virtual Impuesto impuesto_id { get; set; }
+        public int impuesto_id { get; set; }
 
-        public virtual Producto producto_id { get; set; }
+        public int producto_id { get; set; }
 
         public Boolean bStatus { get; set; }
 

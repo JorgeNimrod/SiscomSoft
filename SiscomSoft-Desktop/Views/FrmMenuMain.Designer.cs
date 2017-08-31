@@ -1,6 +1,6 @@
 ﻿namespace SiscomSoft_Desktop.Views
 {
-    partial class FrmMenu
+    partial class FrmMenuMain
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuMain));
             this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnMenuPeriodo = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.button1.BackColor = System.Drawing.Color.DarkCyan;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Location = new System.Drawing.Point(12, 271);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(440, 215);
@@ -62,22 +62,22 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button3
+            // btnMenuPeriodo
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkCyan;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(12, 50);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(440, 215);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Periodos";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnMenuPeriodo.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnMenuPeriodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuPeriodo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnMenuPeriodo.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuPeriodo.Image")));
+            this.btnMenuPeriodo.Location = new System.Drawing.Point(12, 50);
+            this.btnMenuPeriodo.Name = "btnMenuPeriodo";
+            this.btnMenuPeriodo.Size = new System.Drawing.Size(440, 215);
+            this.btnMenuPeriodo.TabIndex = 1;
+            this.btnMenuPeriodo.Text = "Periodos";
+            this.btnMenuPeriodo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMenuPeriodo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMenuPeriodo.UseVisualStyleBackColor = false;
+            this.btnMenuPeriodo.Click += new System.EventHandler(this.btnMenuPeriodo_Click);
             // 
             // lblNombre
             // 
@@ -101,7 +101,6 @@
             this.lblFecha.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblFecha.Size = new System.Drawing.Size(439, 18);
             this.lblFecha.TabIndex = 26;
-            this.lblFecha.Text = "Lunes, 29 de mayo del 2017 12:00 a.m.";
             // 
             // label3
             // 
@@ -131,7 +130,7 @@
             this.btnMenuFacturacion.BackColor = System.Drawing.Color.DarkCyan;
             this.btnMenuFacturacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuFacturacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuFacturacion.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMenuFacturacion.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnMenuFacturacion.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuFacturacion.Image")));
             this.btnMenuFacturacion.Location = new System.Drawing.Point(904, 50);
             this.btnMenuFacturacion.Name = "btnMenuFacturacion";
@@ -148,7 +147,7 @@
             this.btnMenuVentas.BackColor = System.Drawing.Color.DarkCyan;
             this.btnMenuVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuVentas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMenuVentas.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnMenuVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuVentas.Image")));
             this.btnMenuVentas.Location = new System.Drawing.Point(458, 50);
             this.btnMenuVentas.Name = "btnMenuVentas";
@@ -165,7 +164,7 @@
             this.btnMenuInventario.BackColor = System.Drawing.Color.DarkCyan;
             this.btnMenuInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuInventario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMenuInventario.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnMenuInventario.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_developer_board_white_36dp_2x;
             this.btnMenuInventario.Location = new System.Drawing.Point(458, 271);
             this.btnMenuInventario.Name = "btnMenuInventario";
@@ -182,7 +181,7 @@
             this.button8.BackColor = System.Drawing.Color.DarkCyan;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button8.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button8.Location = new System.Drawing.Point(904, 271);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(440, 215);
@@ -197,7 +196,7 @@
             this.btnMenuAdmin.BackColor = System.Drawing.Color.DarkCyan;
             this.btnMenuAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuAdmin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMenuAdmin.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnMenuAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuAdmin.Image")));
             this.btnMenuAdmin.Location = new System.Drawing.Point(458, 492);
             this.btnMenuAdmin.Name = "btnMenuAdmin";
@@ -214,7 +213,7 @@
             this.btnLogOut.BackColor = System.Drawing.Color.DarkCyan;
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnLogOut.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
             this.btnLogOut.Location = new System.Drawing.Point(904, 492);
             this.btnLogOut.Name = "btnLogOut";
@@ -231,7 +230,7 @@
             this.btnMenuReportes.BackColor = System.Drawing.Color.DarkCyan;
             this.btnMenuReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuReportes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMenuReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnMenuReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuReportes.Image")));
             this.btnMenuReportes.Location = new System.Drawing.Point(12, 492);
             this.btnMenuReportes.Name = "btnMenuReportes";
@@ -261,7 +260,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnMenuFacturacion);
             this.Controls.Add(this.btnMenuVentas);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnMenuPeriodo);
             this.Controls.Add(this.btnMenuInventario);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button8);
@@ -291,7 +290,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnMenuInventario;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnMenuPeriodo;
         private System.Windows.Forms.Button btnMenuVentas;
         private System.Windows.Forms.Button btnMenuFacturacion;
         private System.Windows.Forms.PictureBox pictureBox1;

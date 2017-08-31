@@ -65,7 +65,7 @@ namespace SiscomSoft_Web.ViewModel
             dato.sTipoPago = Datos.txtTipoPago;
             dato.sNumCuenta = Datos.txtNumCuenta;
             dato.sConPago = Datos.txtConPago;
-            dato.sTipoCliente = Datos.txtTipoCliente;
+            //dato.iTipoCliente = Datos.txtTipoCliente;
             dato.iStatus = Datos.txtiStatus;
             dato.sLogo = Datos.txtLogo;
             try

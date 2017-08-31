@@ -17,7 +17,6 @@ namespace SiscomSoft.Models
 
         public string sNombre { get; set; }
 
-        // Estado de la sucursal(Abierta, Cerrada, etc)
         public int iStatus { get; set; }
 
         public string sNoCertifi { get; set; }
@@ -42,21 +41,13 @@ namespace SiscomSoft.Models
 
         public string sMoneda { get; set; }
 
-        // tipo de cambio del dolar
         public string sTipoCambio { get; set; }
 
-        // llave foranea de Empresa
-        public virtual Empresa empresa_id { get; set; }
+        public int empresa_id { get; set; }
 
-        // llave foranea de preferencias
-        public virtual Preferencia preferencia_id { get; set; }
+        public int preferencia_id { get; set; }
 
-        // llave foranea de certificado
-        public virtual Certificado certificado_id { get; set; }
-
-        public virtual ICollection<Usuario> Usuarios { get; set; }
-
-        public virtual ICollection<Factura> Facturas { get; set; }
+        public int certificado_id { get; set; }
 
         public Sucursal()
         {

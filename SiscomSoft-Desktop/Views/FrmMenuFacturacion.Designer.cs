@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuFacturacion));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
@@ -140,6 +140,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnMenuPrincipal = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.pnlCreditNotes.SuspendLayout();
@@ -149,6 +150,7 @@
             this.groupBox1.SuspendLayout();
             this.gbDetalleFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -553,6 +555,7 @@
             "PUE",
             "PPD",
             "PIP"});
+            this.cmbFormaDePago.BackColor = System.Drawing.Color.White;
             this.cmbFormaDePago.DisplayMember = "PUE";
             this.cmbFormaDePago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFormaDePago.DropDownWidth = 250;
@@ -603,13 +606,12 @@
             "PIP"});
             this.cmbMetodoDePago.DisplayMember = "PUE";
             this.cmbMetodoDePago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMetodoDePago.DropDownWidth = 154;
+            this.cmbMetodoDePago.DropDownWidth = 270;
             this.cmbMetodoDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMetodoDePago.FormattingEnabled = true;
             this.cmbMetodoDePago.Items.AddRange(new object[] {
-            "PUE",
-            "PPD",
-            "PIP"});
+            "PAGO EN UNA SOLA EXHIBICION",
+            "PAGO EN PARCIALIDADES O DIFERIDO"});
             this.cmbMetodoDePago.Location = new System.Drawing.Point(612, 100);
             this.cmbMetodoDePago.Name = "cmbMetodoDePago";
             this.cmbMetodoDePago.Size = new System.Drawing.Size(154, 24);
@@ -740,7 +742,7 @@
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Size = new System.Drawing.Size(130, 24);
             this.txtRFC.TabIndex = 1;
-            this.txtRFC.Text = "AAA010101AAA";
+            this.txtRFC.Text = "FEDL960422ML6";
             // 
             // txtNombre
             // 
@@ -750,7 +752,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(280, 24);
             this.txtNombre.TabIndex = 2;
-            this.txtNombre.Text = "Lopez Lopez Lorenso";
+            this.txtNombre.Text = "Luis Francisco Felix Dessens";
             // 
             // txtDireccion
             // 
@@ -834,8 +836,8 @@
             this.dgvProductos.AllowUserToDeleteRows = false;
             this.dgvProductos.AllowUserToResizeColumns = false;
             this.dgvProductos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvProductos.BackgroundColor = System.Drawing.Color.White;
             this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -868,11 +870,11 @@
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvProductos.RowTemplate.Height = 30;
             this.dgvProductos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -887,8 +889,8 @@
             // 
             // pkProductos
             // 
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.pkProductos.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.pkProductos.DefaultCellStyle = dataGridViewCellStyle11;
             this.pkProductos.HeaderText = "No.";
             this.pkProductos.Name = "pkProductos";
             this.pkProductos.Visible = false;
@@ -1409,6 +1411,10 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
+            // 
             // FrmMenuFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1443,6 +1449,7 @@
             this.gbDetalleFactura.ResumeLayout(false);
             this.gbDetalleFactura.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1534,6 +1541,7 @@
         private System.Windows.Forms.Button tbnEnviarCorreo;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

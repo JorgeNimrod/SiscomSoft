@@ -49,6 +49,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -70,6 +73,7 @@
     <Compile Include="Controller\Catalogos\TipoFactor.cs" />
     <Compile Include="Controller\Catalogos\TipoRelacion.cs" />
     <Compile Include="Controller\Catalogos\UsoCFDI.cs" />
+    <Compile Include="Controller\ManejoDetalleFactura.cs" />
     <Compile Include="Controller\ManejoCFDIv33.cs" />
     <Compile Include="Controller\ManejoDescuento.cs" />
     <Compile Include="Controller\ManejoDetalleInventario.cs" />
@@ -89,26 +93,18 @@
     <Compile Include="Controller\ManejoImpuestoProducto.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
     <Compile Include="Controller\ManejoPeriodo.cs" />
-    <Compile Include="Controller\ManejoSelloCFDIv33.cs" />
+    <Compile Include="Controller\ManejoSelloCFDI33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
-    <Compile Include="Migrations\201708181657037_RunThis.cs" />
-    <Compile Include="Migrations\201708181657037_RunThis.Designer.cs">
-      <DependentUpon>201708181657037_RunThis.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708181851131_tuf.cs" />
-    <Compile Include="Migrations\201708181851131_tuf.Designer.cs">
-      <DependentUpon>201708181851131_tuf.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708211810129_Desesperearion.cs" />
-    <Compile Include="Migrations\201708211810129_Desesperearion.Designer.cs">
-      <DependentUpon>201708211810129_Desesperearion.cs</DependentUpon>
+    <Compile Include="Migrations\201708292220560_INICIAL.cs" />
+    <Compile Include="Migrations\201708292220560_INICIAL.Designer.cs">
+      <DependentUpon>201708292220560_INICIAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Almacen.cs" />
     <Compile Include="Models\Descuento.cs" />
     <Compile Include="Models\DescuentoProducto.cs" />
     <Compile Include="Models\DetalleAlmacen.cs" />
-    <Compile Include="Models\DetalleFacturacion.cs" />
+    <Compile Include="Models\DetalleFactura.cs" />
     <Compile Include="Models\DetalleInventario.cs" />
     <Compile Include="Models\DetallePeriodo.cs" />
     <Compile Include="Models\Existencia.cs" />
@@ -145,24 +141,71 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ws\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ws\Application.wsdl" />
+    <None Include="Web References\ws\query_pendingResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ws\quick_stampResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ws\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ws\sign_stampResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ws\stampedResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ws\stampResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708181657037_RunThis.resx">
-      <DependentUpon>201708181657037_RunThis.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708292220560_INICIAL.resx">
+      <DependentUpon>201708292220560_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708181851131_tuf.resx">
-      <DependentUpon>201708181851131_tuf.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708211810129_Desesperearion.resx">
-      <DependentUpon>201708211810129_Desesperearion.cs</DependentUpon>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://demo-facturacion.finkok.com/servicios/soap/stamp.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ws\</RelPath>
+      <UpdateFromURL>http://demo-facturacion.finkok.com/servicios/soap/stamp.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SiscomSoft_ws_StampSOAP</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

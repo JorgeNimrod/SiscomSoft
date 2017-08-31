@@ -15,7 +15,7 @@ namespace SiscomSoft.Models
         [Key]
         public int idProducto { get; set; }
 
-        public int iClaveProd { get; set; }
+        public string sClaveProd { get; set; }
 
         public string sDescripcion { get; set; }
 
@@ -34,18 +34,6 @@ namespace SiscomSoft.Models
         public int catalogo_id { get; set; }
         
         public int precio_id { get; set; }
-
-        public virtual ICollection<ImpuestoProducto> ImpuestosProductos { get; set; }
-
-        public virtual ICollection<DetalleAlmacen> DetalleAlmacen { get; set; }
-
-        public virtual ICollection<DescuentoProducto> DescuentosProducto { get; set; }
-
-        public virtual ICollection<DetalleInventario> DetalleInventario { get; set; }
-
-        public virtual ICollection<DetalleFacturacion> DetalleFacturacion { get; set; }
-
-        public virtual ICollection<Existencia> Existencias { get; set; }
 
         public Producto()
         {

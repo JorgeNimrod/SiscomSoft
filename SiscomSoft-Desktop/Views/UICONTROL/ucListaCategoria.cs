@@ -27,7 +27,7 @@ namespace SiscomSoft_Desktop.Views.UICONTROL
 
         private void ucListaCategoria_Load(object sender, EventArgs e)
         {
-            btnCategorias.Text = nCategoria.sNombre;
+            btnCategorias.Text = nCategoria.sNomCat;
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)

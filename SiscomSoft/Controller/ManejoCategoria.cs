@@ -67,7 +67,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Categorias.Where(r => r.bStatus == Status && r.sNombre.Contains(valor)).ToList();
+                    return ctx.Categorias.Where(r => r.bStatus == Status && r.sNomCat.Contains(valor)).ToList();
                 }
             }
             catch (Exception)

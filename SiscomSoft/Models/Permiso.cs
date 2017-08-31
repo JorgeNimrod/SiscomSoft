@@ -23,8 +23,6 @@ namespace SiscomSoft.Models
 
         public Boolean bStatus { get; set; }
 
-        public virtual ICollection<PermisoNegadoRol> PermisosNegadosRol { get; set; }
-
         public Permiso()
         {
             this.bStatus = true;

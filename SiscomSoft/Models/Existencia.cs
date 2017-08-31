@@ -15,9 +15,9 @@ namespace SiscomSoft.Models
         [Key]
         public int idExistencia { get; set; }
 
-        public virtual Almacen almacen_id { get; set; }
+        public int almacen_id { get; set; }
 
-        public virtual Producto producto_id { get; set; }
+        public int producto_id { get; set; }
 
         public decimal dCantidad { get; set; }
 

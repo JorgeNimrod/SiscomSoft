@@ -51,9 +51,7 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.DescuentosProductos
-                        .Include("descuento_id")
-                        .Include("producto_id")
-                        .Where(r => r.bStatus == true && r.producto_id.idProducto == pkProducto)
+                        .Where(r => r.bStatus == true && r.producto_id == pkProducto)
                         .ToList();
                 }
             }
@@ -71,12 +69,8 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     DescuentoProducto mdesprod = new DescuentoProducto();
-                    Descuento mDesc = ManejoDescuento.getById(pkDescuento);
-                    Producto mProd = ManejoProducto.getById(pkProducto);
-                    mdesprod.descuento_id = mDesc;
-                    mdesprod.producto_id = mProd;
-                    ctx.Descuentos.Attach(mDesc);
-                    ctx.Productos.Attach(mProd);
+                    mdesprod.descuento_id = pkDescuento;
+                    mdesprod.producto_id = pkProducto;
                     ctx.DescuentosProductos.Add(mdesprod);
                     ctx.SaveChanges();
                 }

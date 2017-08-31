@@ -12,12 +12,15 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmDescuentoProducto : Form
     {
+        #region MAIN        
         public FrmDescuentoProducto()
         {
             InitializeComponent();
             FrmDetalleVentasOneToOne.DESCPROD = 0;
         }
+        #endregion
 
+        #region BOTONES
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             FrmDetalleVentasOneToOne.DESCPROD = 0;
@@ -39,7 +42,9 @@ namespace SiscomSoft_Desktop.Views
             }
 
         }
+        #endregion
 
+        #region EVENTOS
         private void txtTasaDescuento_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 8)
@@ -62,5 +67,6 @@ namespace SiscomSoft_Desktop.Views
             else
                 e.Handled = true;
         }
+        #endregion
     }
 }

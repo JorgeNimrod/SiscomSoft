@@ -45,7 +45,7 @@ namespace SiscomSoft_Web.ViewModel
             //se crean la funcion para buscar el alumno dependiendo de los datos
             Categoria dato = BuscarporID(Datos.txtpkCategoria);
 
-            dato.sNombre = Datos.txtNombre;
+            dato.sNomCat = Datos.txtNombre;
             dato.sNomSubCat = Datos.txtSubCategoria;
 
             try
@@ -87,7 +87,7 @@ namespace SiscomSoft_Web.ViewModel
         {
             Categoria dato = new Categoria();
 
-            dato.sNombre = Dato.txtNombre;
+            dato.sNomCat = Dato.txtNombre;
             dato.sNomSubCat = Dato.txtSubCategoria;
 
             try

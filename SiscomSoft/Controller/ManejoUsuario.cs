@@ -33,17 +33,14 @@ namespace SiscomSoft.Controller
             return uHelper;
         }
 
-        private static Usuario BuscarPorRFC(string empleado)
+        private static Usuario BuscarPorRFC(string sRFC)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Usuarios.Include("rol_id")
-                        .Include("rol_id.PermisosNegadosRol")
-                        .Include("rol_id.PermisosNegadosRol.permiso_id")
-                        .Include("sucursal_id")
-                        .Where(r => r.sRfc == empleado && r.bStatus == true).FirstOrDefault();
+                    return ctx.Usuarios
+                        .Where(r => r.sRfc == sRFC && r.bStatus == true).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -51,17 +48,14 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        private static Usuario BuscarPorPIN(string empleado)
+        private static Usuario BuscarPorPIN(string sPin)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Usuarios.Include("rol_id")
-                        .Include("rol_id.PermisosNegadosRol")
-                        .Include("rol_id.PermisosNegadosRol.permiso_id")
-                        .Include("sucursal_id")
-                         .Where(r => r.sPin == empleado && r.bStatus == true).FirstOrDefault();
+                    return ctx.Usuarios
+                         .Where(r => r.sPin == sPin && r.bStatus == true).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -72,15 +66,12 @@ namespace SiscomSoft.Controller
 
         public static void RegistrarNuevoUsuario(Usuario nUsuario, int pkRol)
         {
-            Rol rol = ManejoRol.getById(pkRol);
-          
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nUsuario.rol_id = rol;
+                    nUsuario.rol_id = pkRol;
                     ctx.Usuarios.Add(nUsuario);
-                    ctx.Roles.Attach(rol);
                     ctx.SaveChanges();
                 }
             }
@@ -97,7 +88,6 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Usuarios
-                        .Include("sucursal_id")
                         .Where(r => r.bStatus == true && r.idUsuario == pkUsuario).FirstOrDefault();
                 }
             }
@@ -133,7 +123,6 @@ namespace SiscomSoft.Controller
                 using (var ctx = new DataModel())
                 {
                     return ctx.Usuarios
-                        .Include("sucursal_id")
                         .Where(r => r.bStatus == Status && r.sRfc.Contains(valor)).ToList();
                 }
             }

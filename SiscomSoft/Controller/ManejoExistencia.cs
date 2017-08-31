@@ -26,18 +26,12 @@ namespace SiscomSoft.Controller
         }
         public static void RegistrarNuevaExistencia(Existencia nExistencia, int pkProducto, int pkAlmacen)
         {
-            Producto Producto = ManejoProducto.getById(pkProducto);
-            Almacen Almacen = ManejoAlmacen.getById(pkAlmacen);
-
-
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    nExistencia.producto_id = Producto;
-                    nExistencia.almacen_id = Almacen;
-                    ctx.Productos.Attach(Producto);
-                    ctx.Almacenes.Attach(Almacen);
+                    nExistencia.producto_id = pkProducto;
+                    nExistencia.almacen_id = pkAlmacen;
                     ctx.Existencias.Add(nExistencia);
                     ctx.SaveChanges();
                 }
@@ -54,7 +48,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Existencias.Where(r => r.producto_id.idProducto == pkExistencia).FirstOrDefault();
+                    return ctx.Existencias.Where(r => r.producto_id == pkExistencia).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -134,8 +128,8 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Existencias.Include("producto_id").Include("almacen_id").Where(r => r.producto_id.sDescripcion.Contains(Producto)).ToList();
-
+                    //.Where(r => r.producto_id.sDescripcion.Contains(Producto))
+                    return ctx.Existencias.ToList();
                 }
             }
             catch (Exception)
