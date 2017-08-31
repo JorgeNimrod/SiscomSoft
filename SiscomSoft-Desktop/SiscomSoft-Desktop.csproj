@@ -54,7 +54,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="BouncyCastle.Crypto">
-      <HintPath>..\..\DLLFinkok\BouncyCastle.Crypto.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
@@ -109,12 +109,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmMenuAdministrador.cs">
       <SubType>Form</SubType>
@@ -236,12 +230,6 @@
     <Compile Include="Views\FrmDescuento.Designer.cs">
       <DependentUpon>FrmDescuento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmDescuentosForProduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmDescuentosForProduct.Designer.cs">
-      <DependentUpon>FrmDescuentosForProduct.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmWareHouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,12 +248,6 @@
     <Compile Include="Views\UICONTROL\ucImagenProducto.Designer.cs">
       <DependentUpon>ucImagenProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UICONTROL\ucKeyboard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\UICONTROL\ucKeyboard.Designer.cs">
-      <DependentUpon>ucKeyboard.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\UICONTROL\ucListaCategoria.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -276,9 +258,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmMenuAdministrador.resx">
       <DependentUpon>FrmMenuAdministrador.cs</DependentUpon>
@@ -340,9 +319,6 @@
     <EmbeddedResource Include="Views\FrmDescuento.resx">
       <DependentUpon>FrmDescuento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmDescuentosForProduct.resx">
-      <DependentUpon>FrmDescuentosForProduct.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmWareHouse.resx">
       <DependentUpon>FrmWareHouse.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,9 +327,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UICONTROL\ucImagenProducto.resx">
       <DependentUpon>ucImagenProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\UICONTROL\ucKeyboard.resx">
-      <DependentUpon>ucKeyboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UICONTROL\ucListaCategoria.resx">
       <DependentUpon>ucListaCategoria.cs</DependentUpon>
