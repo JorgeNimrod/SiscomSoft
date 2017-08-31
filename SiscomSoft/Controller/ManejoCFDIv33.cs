@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Xml.Schema;
 using System.Xml.Serialization;
 
 /// <comentarios/>
@@ -385,8 +385,13 @@ public partial class Comprobante {
             this.confirmacionField = value;
         }
     }
+
+    [XmlAttribute(Namespace = XmlSchema.InstanceNamespace)]
+    public string schemaLocation = "http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd";
 }
 
+
+//sdfg
 /// <comentarios/>
 [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
 [System.SerializableAttribute()]

@@ -12,7 +12,8 @@ using System.Xml.Serialization;
 using SiscomSoft.Models;
 using SiscomSoft.Controller;
 using System.Security.Cryptography.X509Certificates;
-using System.Security.Cryptography;
+using System.Xml.Linq;
+using System.Xml.Schema;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -363,20 +364,24 @@ namespace SiscomSoft_Desktop.Views
         public void GenerarFactura()
         {
             #region VARIABLES
-            NameFileXML = "ComprobanteSinTimbrar.xml";
+        NameFileXML = "ComprobanteSinTimbrar.xml";
+            string MESPATH = @"C:\SiscomSoft\Facturas\XML\" + DateTime.Now.ToString("MMMM") + "," + DateTime.Now.Year;
             Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue));
             Comprobante cfdi = new Comprobante();
             Certificado mCertificado = ManejoCertificado.getById(nSucursal.certificado_id);
             Preferencia mPreferencia = ManejoPreferencia.getById(nSucursal.preferencia_id);
             Empresa mEmpresa = ManejoEmpresa.getById(nSucursal.empresa_id);
             X509Certificate2 m_cer = new X509Certificate2(mCertificado.sRutaArch + @"\" + mCertificado.sArchCer);
-            
-            if (File.Exists(@"C:\SiscomSoft\Facturas\XML\" + NameFileXML))
+            if (File.Exists(MESPATH + @"\" + NameFileXML))
             {
-                File.Delete(@"C:\SiscomSoft\Facturas\XML\" + NameFileXML);
-                NameFileXML = NameFileXML = txtRFC.Text + " " + mPreferencia.sNumSerie + " " + DateTime.Now.Day + " " + 
-                              DateTime.Now.Month + " " + DateTime.Now.Year + " " + DateTime.Now.Hour + " " + DateTime.Now.Minute + " " + 
+                File.Delete(MESPATH + @"\" + NameFileXML);
+                NameFileXML = NameFileXML = txtRFC.Text + "_" + mPreferencia.sNumSerie + "_" + DateTime.Now.Day + "_" + 
+                              DateTime.Now.Month + "_" + DateTime.Now.Year + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + 
                               DateTime.Now.Second + ".xml";
+            }
+            if (!Directory.Exists(MESPATH))
+            {
+                Directory.CreateDirectory(MESPATH);
             }
             #endregion
 
@@ -1015,11 +1020,11 @@ namespace SiscomSoft_Desktop.Views
             #endregion
 
             #region IMPUESTOS TOTALES
-            cfdi.Impuestos = new ComprobanteImpuestos();
-            cfdi.Impuestos.TotalImpuestosTrasladados = TIVA16 + TIVA11 + TIVA4 + TIEPS53 + TIEPS30 + TIEPS26;
-            cfdi.Impuestos.TotalImpuestosTrasladadosSpecified = true;
-            cfdi.Impuestos.TotalImpuestosRetenidos = RIVA16 + RIVA1067 + RIVA733 + RIVA4 + RISR10;
-            cfdi.Impuestos.TotalImpuestosRetenidosSpecified = true;
+            //cfdi.Impuestos = new ComprobanteImpuestos();
+            //cfdi.Impuestos.TotalImpuestosTrasladados = TIVA16 + TIVA11 + TIVA4 + TIEPS53 + TIEPS30 + TIEPS26;
+            //cfdi.Impuestos.TotalImpuestosTrasladadosSpecified = true;
+            //cfdi.Impuestos.TotalImpuestosRetenidos = RIVA16 + RIVA1067 + RIVA733 + RIVA4 + RISR10;
+            //cfdi.Impuestos.TotalImpuestosRetenidosSpecified = true;
             #endregion
 
             #region Complemento
@@ -1029,13 +1034,12 @@ namespace SiscomSoft_Desktop.Views
             #region NAMESPACE XML
             XmlSerializerNamespaces xmlNameSpace = new XmlSerializerNamespaces();
             xmlNameSpace.Add("cfdi", "http://www.sat.gob.mx/cfd/3");
-            xmlNameSpace.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance"); 
-            xmlNameSpace.Add("schemaLocation", "http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd");
+            xmlNameSpace.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance");
             #endregion
 
             #region GUARDAR XML
             XmlSerializer xmlSerialize = new XmlSerializer(typeof(Comprobante));
-            XmlTextWriter xmlTextWriter = new XmlTextWriter(@"C:\SiscomSoft\Facturas\XML\" + NameFileXML, Encoding.UTF8);
+            XmlTextWriter xmlTextWriter = new XmlTextWriter(MESPATH + @"\" + NameFileXML, Encoding.UTF8);
             xmlTextWriter.Formatting = Formatting.Indented;
             xmlSerialize.Serialize(xmlTextWriter, cfdi, xmlNameSpace);
             xmlTextWriter.Close();
@@ -1046,11 +1050,14 @@ namespace SiscomSoft_Desktop.Views
         {
             Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue));
             Certificado mCertificado = ManejoCertificado.getById(nSucursal.certificado_id);
+            X509Certificate2 m_cer = new X509Certificate2(mCertificado.sRutaArch + @"\" + mCertificado.sArchCer);
             string rutaXSLT = @"http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt";
-            string rutaXML = @"C:\SiscomSoft\Facturas\XML\" + NameFileXML; //
+            string MESPATH = @"C:\SiscomSoft\Facturas\XML\" + DateTime.Now.ToString("MMMM") + "," + DateTime.Now.Year;
+            string rutaXML = MESPATH + @"\" + NameFileXML; 
             String pass = mCertificado.sContrasena; //Contraseña de la llave privada
             String llave = mCertificado.sRutaArch + @"\" + mCertificado.sArchkey; //Archivo de la llave privada
             byte[] llave2 = File.ReadAllBytes(llave); // Convertimos el archivo anterior a byte
+            byte[] bytesFirmados;
 
             // Cargar XML
             XPathDocument xml = new XPathDocument(rutaXML);
@@ -1063,107 +1070,59 @@ namespace SiscomSoft_Desktop.Views
             transformador.Transform(rutaXML, cad);
             //Resultado
             string result = str.ToString();
+            
+            if (m_cer.PublicKey.Key.KeySize == 2048)
+            {
+                #region SHA-256
+                //1) Desencriptar la llave privada, el primer parámetro es la contraseña de llave privada y el segundo es la llave privada en formato binario.
+                Org.BouncyCastle.Crypto.AsymmetricKeyParameter asp = Org.BouncyCastle.Security.PrivateKeyFactory.DecryptKey(pass.ToCharArray(), llave2);
 
-            //1) Desencriptar la llave privada, el primer parámetro es la contraseña de llave privada y el segundo es la llave privada en formato binario.
-            Org.BouncyCastle.Crypto.AsymmetricKeyParameter asp = Org.BouncyCastle.Security.PrivateKeyFactory.DecryptKey(pass.ToCharArray(), llave2);
+                //2) Convertir a parámetros de RSA
+                Org.BouncyCastle.Crypto.Parameters.RsaKeyParameters key = (Org.BouncyCastle.Crypto.Parameters.RsaKeyParameters)asp;
 
-            //2) Convertir a parámetros de RSA
-            Org.BouncyCastle.Crypto.Parameters.RsaKeyParameters key = (Org.BouncyCastle.Crypto.Parameters.RsaKeyParameters)asp;
+                //3) Crear el firmador con SHA256
+                Org.BouncyCastle.Crypto.ISigner sig = Org.BouncyCastle.Security.SignerUtilities.GetSigner("SHA-256withRSA");
 
-            //3) Crear el firmador con SHA256
-            // Org.BouncyCastle.Crypto.ISigner sig = Org.BouncyCastle.Security.SignerUtilities.GetSigner("SHA-256withRSA");
+                //4) Inicializar el firmador con la llave privada
+                sig.Init(true, key);
 
-            //3) Crear el firmador con SHA1
-            Org.BouncyCastle.Crypto.ISigner sig = Org.BouncyCastle.Security.SignerUtilities.GetSigner("SHA1withRSA");
+                // 5) Pasar la cadena original a formato binario
+                byte[] bytes = Encoding.UTF8.GetBytes(result);
 
-            //4) Inicializar el firmador con la llave privada
-            sig.Init(true, key);
+                // 6) Encriptar
+                sig.BlockUpdate(bytes, 0, bytes.Length);
+                bytesFirmados = sig.GenerateSignature();
 
-            // 5) Pasar la cadena original a formato binario
-            byte[] bytes = Encoding.UTF8.GetBytes(result);
+                // 7) Finalmente obtenemos el sello
+                Sello = Convert.ToBase64String(bytesFirmados);
+                #endregion
+            }
+            else if (m_cer.PublicKey.Key.KeySize == 2048)
+            {
+                #region SHA-1
+                //1) Desencriptar la llave privada, el primer parámetro es la contraseña de llave privada y el segundo es la llave privada en formato binario.
+                Org.BouncyCastle.Crypto.AsymmetricKeyParameter asp = Org.BouncyCastle.Security.PrivateKeyFactory.DecryptKey(pass.ToCharArray(), llave2);
 
-            // 6) Encriptar
-            sig.BlockUpdate(bytes, 0, bytes.Length);
-            byte[] bytesFirmados = sig.GenerateSignature();
+                //2) Convertir a parámetros de RSA
+                Org.BouncyCastle.Crypto.Parameters.RsaKeyParameters key = (Org.BouncyCastle.Crypto.Parameters.RsaKeyParameters)asp;
 
-            // 7) Finalmente obtenemos el sello
-            Sello = Convert.ToBase64String(bytesFirmados);
-        }
+                //3) Crear el firmador con SHA1
+                Org.BouncyCastle.Crypto.ISigner sig = Org.BouncyCastle.Security.SignerUtilities.GetSigner("SHA1withRSA");
 
-        public void selloPrimero(string nameFileXML)
-        {
-            Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue));
-            Certificado mCertificado = ManejoCertificado.getById(nSucursal.certificado_id);
-            string rutaXSLT = @"http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt";
-            StreamReader reader = new StreamReader(@"C:\SiscomSoft\Facturas\XML\" + nameFileXML);
-            XPathDocument myXPathDoc = new XPathDocument(reader);
+                //4) Inicializar el firmador con la llave privada
+                sig.Init(true, key);
 
-            //Cargando el XSLT
-            XslCompiledTransform myXslTrans = new XslCompiledTransform();
-            myXslTrans.Load(rutaXSLT);
+                // 5) Pasar la cadena original a formato binario
+                byte[] bytes = Encoding.UTF8.GetBytes(result);
 
-            StringWriter str = new StringWriter();
-            XmlTextWriter myWriter = new XmlTextWriter(str);
+                // 6) Encriptar
+                sig.BlockUpdate(bytes, 0, bytes.Length);
+                bytesFirmados = sig.GenerateSignature();
 
-            //Aplicando transformacion
-            myXslTrans.Transform(myXPathDoc, null, myWriter);
-
-            //Resultado
-            string cadenaOriginal = str.ToString();
-
-            /* Creacion del sello */
-            string strPathLlave = mCertificado.sRutaArch + @"\" + mCertificado.sArchkey;
-            string strLlavePwd = mCertificado.sContrasena;
-
-            System.Security.SecureString passwordSeguro = new System.Security.SecureString();
-            passwordSeguro.Clear();
-            foreach (char c in strLlavePwd.ToCharArray())
-                passwordSeguro.AppendChar(c);
-            byte[] llavePrivadaBytes = System.IO.File.ReadAllBytes(strPathLlave);
-            RSACryptoServiceProvider rsa = opensslkey.DecodeEncryptedPrivateKeyInfo(llavePrivadaBytes, passwordSeguro);
-            SHA256CryptoServiceProvider hasher = new SHA256CryptoServiceProvider();
-            byte[] bytesFirmados = rsa.SignData(System.Text.Encoding.UTF8.GetBytes(cadenaOriginal), hasher);
-            Sello = Convert.ToBase64String(bytesFirmados);
-        }
-
-        public void selloSegundo(string nameFileXML)
-        {
-            Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue));
-            Certificado mCertificado = ManejoCertificado.getById(nSucursal.certificado_id);
-            string rutaXSLT = @"http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt";
-            string rutaXML = @"C:\SiscomSoft\Facturas\XML\" + NameFileXML; //
-            String pass = mCertificado.sContrasena; //Contraseña de la llave privada
-            String llave = mCertificado.sRutaArch + @"\" + mCertificado.sArchkey; //Archivo de la llave privada
-
-            // Cargar XML
-            XPathDocument xml = new XPathDocument(rutaXML);
-            // Cargar XSLT
-            XslCompiledTransform transformador = new XslCompiledTransform();
-            transformador.Load(rutaXSLT);
-            // Procesamiento
-            StringWriter str = new StringWriter();
-            XmlTextWriter cad = new XmlTextWriter(str);
-            transformador.Transform(rutaXML, cad);
-            //Resultado
-            string result = str.ToString();
-
-            SHA1Managed sha = new SHA1Managed();
-            UTF8Encoding encoding = new UTF8Encoding();
-            byte[] bytes = encoding.GetBytes(result);
-            byte[] digest = sha.ComputeHash(bytes);
-
-            System.Security.SecureString passwordSeguro = new System.Security.SecureString();
-            passwordSeguro.Clear();
-            foreach (char c in pass.ToCharArray())
-                passwordSeguro.AppendChar(c);
-            byte[] llavePrivadaBytes = System.IO.File.ReadAllBytes(llave);
-
-            RSACryptoServiceProvider RSA = opensslkey.DecodeEncryptedPrivateKeyInfo(llavePrivadaBytes, passwordSeguro);
-            RSAPKCS1SignatureFormatter RSAFormatter = new RSAPKCS1SignatureFormatter(RSA);
-            RSAFormatter.SetHashAlgorithm("SHA1");
-
-            byte[] SignedHashValue = RSAFormatter.CreateSignature(digest);
-            Sello = Convert.ToBase64String(SignedHashValue);
+                // 7) Finalmente obtenemos el sello
+                Sello = Convert.ToBase64String(bytesFirmados);
+                #endregion
+            }
         }
 
         public void GuardarFactura()
@@ -1683,7 +1642,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 crearCarpetaRaiz();
                 GenerarFactura();
-                selloSegundo(NameFileXML);
+                CrearSelloFinkok(NameFileXML);
                 GenerarFactura();
                 ManejoFacturacion.timbrado(NameFileXML);
                 GuardarFactura();

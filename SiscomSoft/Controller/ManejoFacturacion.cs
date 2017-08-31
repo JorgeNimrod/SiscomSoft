@@ -57,10 +57,12 @@ namespace SiscomSoft.Controller
                 stamp oStamp = new stamp();
                 stampResponse selloResponse = new stampResponse();
                 Incidencia incidencia = new Incidencia();
+                string MESPATH = @"C:\SiscomSoft\Facturas\XML\" + DateTime.Now.ToString("MMMM") + "," + DateTime.Now.Year;
+                string NameWithoutExtension = Path.GetFileNameWithoutExtension(MESPATH + @"\" + nameFile);
 
                 //Cargas tu archivo xml
                 XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.Load(@"C:\SiscomSoft\Facturas\XML\" + nameFile);
+                xmlDocument.Load(MESPATH + @"\" + nameFile);
 
                 //Conviertes el archivo en byte
                 byte[] byteXmlDocument = Encoding.UTF8.GetBytes(xmlDocument.OuterXml);
@@ -77,6 +79,17 @@ namespace SiscomSoft.Controller
                 //Recibes la respuesta de timbrado
                 selloResponse = selloSOAP.stamp(oStamp);
                 /* Consumir web service de timbrado */
+
+                if (selloResponse.stampResult.Incidencias!=null)
+                {
+                    StreamWriter error = new StreamWriter(@"C:\SiscomSoft\Facturas\Errors\ERROR_" + NameWithoutExtension + ".log.txt");
+                    error.WriteLine("CODIGO ERROR       " + "MENSAJE DE ERROR");
+                    for (int i = 0; i < selloResponse.stampResult.Incidencias.Count(); i++)
+                    {
+                        error.WriteLine(selloResponse.stampResult.Incidencias[i].CodigoError + "                " + selloResponse.stampResult.Incidencias[i].MensajeIncidencia);
+                    }
+                    error.Close();
+                }
                 
                 /* Generar SOAP Request de timbrado */
                 string SOAPDirectory = @"C:\SiscomSoft\SOAP";
