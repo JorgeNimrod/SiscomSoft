@@ -16,7 +16,7 @@ namespace SiscomSoft.Controller
     public class ManejoFacturacion
     {
         /// <summary>
-        /// Funcion que se encarga de buscar un usuario dandole un id
+        /// Funcion que se encarga de buscar una factura dandole un id
         /// </summary>
         /// <param name="idFactura">variable de tipo entera</param>
         /// <returns></returns>
@@ -163,7 +163,7 @@ namespace SiscomSoft.Controller
         }
 
         /// <summary>
-        /// Funcion que se encarga de gurdar la informacion de la factura en la tabla de facturas en la base de datos
+        /// Funcion que se encarga de gurdar una nueva factura en la base de datos 
         /// </summary>
         /// <param name="nFactura">variable de tipo modelo factura</param>
         public static void Guardar(Factura nFactura)

@@ -1,30 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using SiscomSoft.Models;
-using System.Data.Entity;
+
 
 
 namespace SiscomSoft.Controller
 {
   public class ManejoAlmacen
     {
-        //public static List<Almacen> getAll()
-        //{
-        //    try
-        //    {
-        //        using (var ctx = new DataModel())
-        //        {
-        //            return ctx.Almacenes.Where(r => r.bStatus == true).ToList();
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
+        /// <summary>
+        /// Funcion que se encarga de contar todos los registros de la tabla almacen y asignarlos como numero de folio
+        /// </summary>
+        /// <returns></returns>
         public static string Folio()
         {
             try
@@ -42,7 +31,7 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-
+        
         public static List<Almacen> Buscar(string valor, Boolean Status)
         {
             try
@@ -61,6 +50,12 @@ namespace SiscomSoft.Controller
                 throw; 
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo almacen en a base de datos
+        /// </summary>
+        /// <param name="nAlmacen"></param>
+        /// <param name="pkCliente"></param>
         public static void RegistrarNuevoAlmacen(Almacen nAlmacen, int pkCliente)
         {
             try
@@ -78,6 +73,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion que se encargada de obtener todos los datos de los almacenes registrados en la base de datos
+        /// </summary>
+        /// <returns></returns>
         public static List<Almacen> getAll()
         {
             try
@@ -92,14 +92,20 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static Almacen getById(int pkAlmacen)
+
+        /// <summary>
+        /// Funcion que se encarga de buscar un almacen dandole un id
+        /// </summary>
+        /// <param name="idAlmacen">variable de tipo entera</param>
+        /// <returns></returns>
+        public static Almacen getById(int idAlmacen)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
                     return ctx.Almacenes
-                        .Where(r => r.bStatus == true && r.idAlmacen == pkAlmacen).FirstOrDefault();
+                        .Where(r => r.bStatus == true && r.idAlmacen == idAlmacen).FirstOrDefault();
                 }
             }
             catch (Exception)

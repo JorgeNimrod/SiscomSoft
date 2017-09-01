@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using SiscomSoft.Models;
 using System.Data.Entity;
 
@@ -10,6 +9,9 @@ namespace SiscomSoft.Controller
 {
   public class ManejoDescuento
     {
+        /// <summary>
+        /// Funcion encargada de obtener todos los registros activos de la base de datos y retornar una lista de los mismos.
+        /// </summary>
         public static List<Descuento> getAll()
         {
             try
@@ -24,6 +26,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="nDescuento">variable de tipo modelo desccuento</param>
         public static void RegistrarNuevoDescuento(Descuento nDescuento)
         {
             try
@@ -40,6 +47,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de obtener un registro mediante una id
+        /// </summary>
+        /// <param name="pkDescuento"></param>
+        /// <returns></returns>
         public static Descuento getById(int pkDescuento)
         {
             try
@@ -55,6 +68,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de eliminar un registro de la base de datos mediante una id
+        /// </summary>
+        /// <param name="pkImpuesto"></param>
         public static void Eliminar(int pkImpuesto)
         {
             try
@@ -74,21 +92,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        //public static List<Descuento> Buscar(string valor, Boolean Status)
-        //{
-        //    try
-        //    {
-        //        using (var ctx = new DataModel())
-        //        {
-        //            return ctx.Descuentos.Where(r => r.bStatus == Status && r.s.Contains(valor)).ToList();
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
 
-        //        throw;
-        //    }
-        //}
+        /// <summary>
+        /// Funcion encargada de modificar un registro de la base de datos
+        /// </summary>
+        /// <param name="nDescuentos"></param>
         public static void Modificar(Descuento nDescuentos)
         {
             try
@@ -107,6 +115,11 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de obtener todos los registros dandole un statis(activo) de la base de datos y retornar una lista de los mismos.
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
         public static List<Descuento> getAll(Boolean status)
         {
             try
