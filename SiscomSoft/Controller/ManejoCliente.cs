@@ -11,6 +11,11 @@ namespace SiscomSoft.Controller
 {
  public class ManejoCliente
     {
+        /// <summary>
+        /// Funcion encargada de retornar una lista de colonias registradas en la base de datos mandandole un nombre
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <returns></returns>
         public static List<string> getColonias(string valor)
         {
             List<string> Colonias = new List<string>();
@@ -32,6 +37,11 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de retornar una lista de Municipios registradas en la base de datos mandandole un nombre
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <returns></returns>
         public static List<string> getMunicipios(string valor)
         {
             List<string> Municipios = new List<string>();
@@ -53,6 +63,11 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de retornar una lista de Estados registradas en la base de datos mandandole un nombre
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <returns></returns>
         public static List<string> getEstados(string valor)
         {
 
@@ -76,6 +91,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de retornar una lista de Paises registradas en la base de datos mandandole un nombre
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <returns></returns>
         public static List<string> getPaises(string valor)
         {
             List<string> Paises = new List<string>();
@@ -97,6 +118,36 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de retornar una lista de RFCs registrados en la base de datos
+        /// </summary>
+        /// <param name="sRfc">variable de tipo string</param>
+        /// <returns></returns>
+        public static List<string> Autocompletar(string sRfc)
+        {
+            List<string> clientes = new List<string>();
+            try
+            {
+                using (var ctx = new DataModel())
+                {
+                    var cliente = ctx.Clientes.Where(r => r.sRfc.Contains(sRfc)).GroupBy(r => r.sRfc).ToList();
+                    foreach (var item in cliente)
+                    {
+                        clientes.Add(item.Key.ToUpper());
+                    }
+                    return clientes;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="nCliente">variable de tipo modelo de cliente</param>
         public static void RegistrarNuevoCliente(Cliente nCliente)
         {
             try
@@ -113,13 +164,19 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static Cliente getById(int pkCliente)
+
+        /// <summary>
+        /// Funcion encargada de obtener un registro mediante una id
+        /// </summary>
+        /// <param name="idCliente">variable de tipo entera</param>
+        /// <returns></returns>
+        public static Cliente getById(int idCliente)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Clientes.Where(r => r.iStatus == 1 && r.idCliente == pkCliente).FirstOrDefault();
+                    return ctx.Clientes.Where(r => r.iStatus == 1 && r.idCliente == idCliente).FirstOrDefault();
                 }
             }
             catch (Exception)
@@ -128,13 +185,18 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static void Eliminar(int pkCliente)
+
+        /// <summary>
+        /// Funcion encargada de eliminar un registro de la base de datos mediante una id
+        /// </summary>
+        /// <param name="idCliente">variabe de tipo entera</param>
+        public static void Eliminar(int idCliente)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    Cliente nCliente = ManejoCliente.getById(pkCliente);
+                    Cliente nCliente = ManejoCliente.getById(idCliente);
                     nCliente.iStatus = 2;
 
                     ctx.Entry(nCliente).State = EntityState.Modified;
@@ -148,7 +210,13 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static List<Cliente> Buscar(string valor, int Status)
+        /// <summary>
+        /// Funcion encargada de obtener todo los registros dandole un nombre y un statis(activo) y retonar una lista con los mismos.
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <param name="Status">variable de tipo boolean</param>
+        /// <returns></returns>
+        public static List<Cliente> Buscar(string nombre, int Status)
         {
             try
             {
@@ -164,27 +232,10 @@ namespace SiscomSoft.Controller
             }
         }
 
-        public static List<string> Autocompletar(string valor)
-        {
-            List<string> clientes = new List<string>();
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    var cliente = ctx.Clientes.Where(r => r.sRfc.Contains(valor)).GroupBy(r => r.sRfc).ToList();
-                    foreach (var item in cliente)
-                    {
-                        clientes.Add(item.Key.ToUpper());
-                    }
-                    return clientes;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
+        /// <summary>
+        /// Funcion encargada de modificar un registro de la base de datos
+        /// </summary>
+        /// <param name="nCliente">variable de tipo modelo cliente</param>
         public static void Modificar(Cliente nCliente)
         {
             try
@@ -202,6 +253,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de obtener todos los registros dandole un statis(activo) de la base de datos y retornar una lista de los mismos.
+        /// </summary>
+        /// <param name="status">variable de tipo entera</param>
+        /// <returns></returns>
         public static List<Cliente> getAll(int status)
         {
             try
@@ -216,13 +273,18 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de retornar una lista de clientes de tipo proveedor y un status activo
+        /// </summary>
+        /// <returns></returns>
         public static List<Cliente> getForProveers()
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Clientes.Where(r => r.iTipoCliente==2 && r.iStatus ==1).ToList();
+                    return ctx.Clientes.Where(r => r.iTipoCliente == 2 && r.iStatus == 1).ToList();
                 }
             }
             catch (Exception)
@@ -230,16 +292,19 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static List<Cliente> BuscarPorRFC(String valor)
+
+        /// <summary>
+        /// Funcion encagada de buscar todos los clientes mandandole un RFC y retorna una lista.
+        /// </summary>
+        /// <param name="sRFC">variable de tipo string</param>
+        /// <returns></returns>
+        public static List<Cliente> BuscarPorRFC(string sRFC)
         {
             try
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Clientes
-                        .Where(r => r.sRfc.Contains(valor)
-                        && r.iStatus == 1)
-                        .ToList();
+                    return ctx.Clientes.Where(r => r.sRfc.Contains(sRFC) && r.iStatus == 1).ToList();
                 }
             }
             catch (Exception)

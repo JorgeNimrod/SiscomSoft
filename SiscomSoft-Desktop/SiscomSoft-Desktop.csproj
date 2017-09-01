@@ -212,12 +212,6 @@
     <Compile Include="Views\FrmMenuVentas.Designer.cs">
       <DependentUpon>FrmMenuVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmVenta.Designer.cs">
-      <DependentUpon>FrmVenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FrmAgregarDescuentoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,9 +303,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmMenuVentas.resx">
       <DependentUpon>FrmMenuVentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmVenta.resx">
-      <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmAgregarDescuentoProducto.resx">
       <DependentUpon>FrmAgregarDescuentoProducto.cs</DependentUpon>

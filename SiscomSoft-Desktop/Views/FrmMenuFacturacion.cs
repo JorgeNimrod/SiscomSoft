@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+// Librerias usadas
 using System.IO;
 using System.Xml;
 using System.Xml.XPath;
@@ -12,8 +13,6 @@ using System.Xml.Serialization;
 using SiscomSoft.Models;
 using SiscomSoft.Controller;
 using System.Security.Cryptography.X509Certificates;
-using System.Xml.Linq;
-using System.Xml.Schema;
 
 namespace SiscomSoft_Desktop.Views
 {
@@ -61,6 +60,14 @@ namespace SiscomSoft_Desktop.Views
             this.dgvProductos.AutoGenerateColumns = false;
         }
         
+        /// <summary>
+        /// Se inicializa el timer. 
+        /// se manda llamar la funcion cargarSucursales().
+        /// se carga el numero de folio mediante la funcion Folio() que se encuentra en la clase ManejoFacturacion.
+        /// se se les da el valor de 0 por defecto a los comboboxs.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmMenuFacturacion_Load(object sender, EventArgs e)
         {
             timer1.Start();
@@ -73,11 +80,21 @@ namespace SiscomSoft_Desktop.Views
             cmbUsoCFDI.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Con este timer se actualiza la hora que aparece en el lblFecha
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
         }
 
+        /// <summary>
+        /// Boton que utiliza para mandar llamar el menu principal y cierrar la ventana actual
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -87,6 +104,9 @@ namespace SiscomSoft_Desktop.Views
         #endregion
 
         #region FUNCTION
+        /// <summary>
+        /// Funcion encargada de llenar el combobox con las ids y los nombres de todas las sucursales activas que se encuentran en la base de datos.
+        /// </summary>
         public void cargarSucursales()
         {
             cmbSucursal.DataSource = ManejoSucursal.getAll(1);
@@ -94,7 +114,10 @@ namespace SiscomSoft_Desktop.Views
             cmbSucursal.ValueMember = "idSucursal";
         }
 
-        public void crearCarpetaRaiz()
+        /// <summary>
+        /// Funcion encargada de validar la existencia y la creacion de las carpetas necesarias para guardar los documentos relacionados con la facturación.
+        /// </summary>
+        public void CrearCarpetas()
         {
             try
             {
@@ -102,6 +125,7 @@ namespace SiscomSoft_Desktop.Views
                 string FACTURA = @"C:\SiscomSoft\Facturas";
                 string XML = @"C:\SiscomSoft\Facturas\XML";
                 string PDF = @"C:\SiscomSoft\Facturas\PDF";
+                string ERROR = @"C:\SiscomSoft\Facturas\Errors";
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
@@ -118,21 +142,69 @@ namespace SiscomSoft_Desktop.Views
                 {
                     Directory.CreateDirectory(PDF);
                 }
+                if (!Directory.Exists(ERROR)) 
+                {
+                    Directory.CreateDirectory(ERROR);
+                }
             }
             catch (Exception e)
             {
-                MessageBox.Show("La creacion de la carpeta fallo: " + e.ToString());
+                MessageBox.Show("Error: " + e.ToString());
                 throw;
             }
         }
 
-        public void cargarDetalleFactura(int pk)
+        /// <summary>
+        /// Funcion encargada de llenar el DataGridView con los productos seleccionados mediante la id de los mismos.
+        /// </summary>
+        /// <param name="id">variable tipo entera</param>
+        public void cargarDetalleFactura(int id)
         {
-            Producto mProducto = ManejoProducto.getById(pk);
-            Catalogo mCatalogo = ManejoCatalogo.getById(mProducto.catalogo_id);
-            if (mProducto != null)
+            #region VARIABLES
+            decimal Total = 0;
+            decimal Subtotal = 0;
+            decimal TotalDolar = 0;
+            decimal TipoCambio = 0;
+            decimal TTasaImpuestoIVA16 = 0;
+            decimal TTasaImpuestoIVA11 = 0;
+            decimal TTasaImpuestoIVA4 = 0;
+            decimal TTasaImpuestoIEPS53 = 0;
+            decimal TTasaImpuestoIEPS26 = 0;
+            decimal TTasaImpuestoIEPS30 = 0;
+            decimal RTasaImpuestoIVA16 = 0;
+            decimal RTasaImpuestoIVA1067 = 0;
+            decimal RTasaImpuestoIVA733 = 0;
+            decimal RTasaImpuestoIVA4 = 0;
+            decimal RTasaImpuestoISR10 = 0;
+            decimal TasaDescuento = 0;
+            decimal TasaDescuentoExtra = 0;
+            decimal Importe = 0;
+            decimal ImporteWithoutExtras = 0;
+            decimal ImporteWithTImpuestoIVA16 = 0;
+            decimal ImporteWithTImpuestoIVA11 = 0;
+            decimal ImporteWithTImpuestoIVA4 = 0;
+            decimal ImporteWithTImpuestosIEPS53 = 0;
+            decimal ImporteWithTImpuestosIEPS30 = 0;
+            decimal ImporteWithTImpuestosIEPS26 = 0;
+            decimal ImporteWithRImpuestoIVA16 = 0;
+            decimal ImporteWithRImpuestoIVA1067 = 0;
+            decimal ImporteWithRImpuestoIVA733 = 0;
+            decimal ImporteWithRImpuestosIVA4 = 0;
+            decimal ImporteWithRImpuestosISR10 = 0;
+            decimal PreUnitarioWithDescuento = 0;
+            decimal PriceForLot = 0;
+            decimal Descuento = 0;
+            decimal DescuentoExtra = 0;
+            decimal PrecioUnitario = 0;
+            decimal Cantidad = 0;
+            #endregion
+
+            Producto mProducto = ManejoProducto.getById(id); // Se busca el producto mediante la id y se guarda en un modelo tipo producto
+            Catalogo mCatalogo = ManejoCatalogo.getById(mProducto.catalogo_id); // Se busca el catalogo mediante la llave foranea y se guarda en un modelo de tipo catalogo
+            if (mProducto != null) // Se valida que el modelo no este vacio
             {
-                DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone();
+                DataGridViewRow row = (DataGridViewRow)dgvProductos.Rows[0].Clone(); // Se clona la primera fila del DataGridView 
+                // Se llenan las columnas de la fila clonada del DataGridView mediante los datos que se encuentran en el modelo producto
                 row.Cells[0].Value = mProducto.idProducto;
                 row.Cells[1].Value = mProducto.sClaveProd;
                 row.Cells[2].Value = mProducto.sDescripcion;
@@ -140,35 +212,21 @@ namespace SiscomSoft_Desktop.Views
                 row.Cells[4].Value = mCatalogo.sUDM;
                 row.Cells[5].Value = mProducto.dCosto;
                 row.Cells[6].Value = 1;
+                
+                PrecioUnitario = mProducto.dCosto; // Se le da el valor a la variabe PrecioUnitario segun los datos del modelo producto
+                Cantidad = Convert.ToDecimal(row.Cells[6].Value); // Se le da el valor a la variable Cantidad segun el dato que se encuentre en la columna 6 del DataGridView
 
-                decimal Total = 0;
-                decimal Subtotal = 0;
-                decimal PreUnitario = mProducto.dCosto;
-                decimal TTasaImpuestoIVA16 = 0;
-                decimal TTasaImpuestoIVA11 = 0;
-                decimal TTasaImpuestoIVA4 = 0;
-                decimal TTasaImpuestoIEPS53 = 0;
-                decimal TTasaImpuestoIEPS26 = 0;
-                decimal TTasaImpuestoIEPS30 = 0;
-
-                decimal RTasaImpuestoIVA16 = 0;
-                decimal RTasaImpuestoIVA1067 = 0;
-                decimal RTasaImpuestoIVA733 = 0;
-                decimal RTasaImpuestoIVA4 = 0;
-                decimal RTasaImpuestoISR10 = 0;
-
-                decimal TasaDescuento = 0;
-                decimal TasaDescuentoExtra = 0;
-                decimal Cantidad = Convert.ToDecimal(row.Cells[6].Value);
                 #region Impuestos
-                List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(mProducto.idProducto));
+                List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(mProducto.idProducto)); // Se buscan todos los impuestos que tiene el producto mediante la id del producto y se guardan en una ista
+                // Se leen los impuestos que tiene guardada la lista
                 foreach (ImpuestoProducto rImpuesto in mImpuesto)
                 {
-                    var impuesto = ManejoImpuesto.getById(rImpuesto.impuesto_id);
+                    var impuesto = ManejoImpuesto.getById(rImpuesto.impuesto_id); // Se busca el impuesto mediante el id que esta guardado en la lista
                     #region TRASLADO
+                    // Se valida que el tipo de impuesto sea "TRASLADO"
                     if (impuesto.sTipoImpuesto == "TRASLADO")
                     {
-                        // IVA
+                        // Se valida que el impuesto sea "IVA" y que la tasa de impuesto sea la requerida para poder guardar las cantidades en las variables
                         if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                         {
                             TTasaImpuestoIVA16 += impuesto.dTasaImpuesto;
@@ -181,7 +239,7 @@ namespace SiscomSoft_Desktop.Views
                         {
                             TTasaImpuestoIVA4 += impuesto.dTasaImpuesto;
                         }
-                        //IEPS
+                        // Se valida que el impuesto sea "IEPS" y que la tasa de impuesto sea la requerida para poder guardar las cantidades en las variables
                         else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
                         {
                             TTasaImpuestoIEPS53 += impuesto.dTasaImpuesto;
@@ -196,10 +254,12 @@ namespace SiscomSoft_Desktop.Views
                         }
                     }
                     #endregion
+
                     #region RETENIDO
+                    // Se valida que el tipo de impuesto sea "RETENIDO"
                     if (impuesto.sTipoImpuesto == "RETENIDO")
                     {
-                        // IVA
+                        // Se valida que el impuesto sea "IVA" y que la tasa de impuesto sea la requerida para poder guardar las cantidades en las variables
                         if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                         {
                             RTasaImpuestoIVA16 += impuesto.dTasaImpuesto;
@@ -216,7 +276,7 @@ namespace SiscomSoft_Desktop.Views
                         {
                             RTasaImpuestoIVA4 += impuesto.dTasaImpuesto;
                         }
-                        //ISR
+                        // Se valida que el impuesto sea "ISR" y que la tasa de impuesto sea la requerida para poder guardar las cantidades en las variables
                         else if (impuesto.sImpuesto == "ISR" && impuesto.dTasaImpuesto == Convert.ToDecimal(10.00))
                         {
                             RTasaImpuestoISR10 += impuesto.dTasaImpuesto;
@@ -225,114 +285,104 @@ namespace SiscomSoft_Desktop.Views
                     #endregion
                 }
                 #endregion
+
                 #region Descuentos
-                List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(mProducto.idProducto));
+                List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(mProducto.idProducto)); // Se buscan todos los descuentos que tiene el producto mediante la id del producto y se guardan en una ista
+                // Se leen los descuentos que tiene guardada la lista
                 foreach (DescuentoProducto rDescuento in mDescuento)
                 {
-                    var descuento = ManejoDescuento.getById(rDescuento.descuento_id);
-                    TasaDescuento = descuento.dTasaDesc;
-                    TasaDescuentoExtra = descuento.dTasaDescEx;
+                    var descuento = ManejoDescuento.getById(rDescuento.descuento_id); // Se busca el descuento mediante el id que esta guardado en la lista
+                    TasaDescuento = descuento.dTasaDesc; // Se le da el valor a la variabe TasaDescuento segun los datos del modelo DescuentoProducto
+                    TasaDescuentoExtra = descuento.dTasaDescEx; // Se le da el valor a la variabe TasaDescuentoExtra segun los datos del modelo DescuentoProducto
                 }
                 #endregion
 
-                decimal Importe = 0;
-                decimal ImporteWithoutExtras = 0;
-                decimal ImporteWithTImpuestoIVA16 = 0;
-                decimal ImporteWithTImpuestoIVA11 = 0;
-                decimal ImporteWithTImpuestoIVA4 = 0;
-                decimal ImporteWithTImpuestosIEPS53 = 0;
-                decimal ImporteWithTImpuestosIEPS30 = 0;
-                decimal ImporteWithTImpuestosIEPS26 = 0;
-
-                decimal ImporteWithRImpuestoIVA16 = 0;
-                decimal ImporteWithRImpuestoIVA1067 = 0;
-                decimal ImporteWithRImpuestoIVA733 = 0;
-                decimal ImporteWithRImpuestosIVA4 = 0;
-                decimal ImporteWithRImpuestosISR10 = 0;
-
-                decimal PreUnitarioWithDescuento = 0;
-                decimal PriceForLot = 0;
-                decimal Descuento = 0;
-                decimal DescuentoExtra = 0;
-
-                if (TasaDescuento != 0)
+                #region CALCULOS
+                // Se valida que la TasaDescuento no sea 0 para poder hacer el calculo correspondiente
+                if (TasaDescuento != 0) 
                 {
-                    Descuento = PreUnitario * (TasaDescuento / 100);
+                    Descuento = PrecioUnitario * (TasaDescuento / 100); // Se le da el valor a la variabe Descuento segun el resultado del calculo
                 }
-                if (TasaDescuentoExtra != 0)
+                // Se valida que la TasaDescuentoExtra no sea 0 para poder hacer el calculo correspondiente
+                if (TasaDescuentoExtra != 0) 
                 {
-                    DescuentoExtra = PreUnitario * (TasaDescuentoExtra / 100);
+                    DescuentoExtra = PrecioUnitario * (TasaDescuentoExtra / 100); // Se le da el valor a la variabe DescuentoExtra segun el resultado del calculo
                 }
 
-                ImporteWithoutExtras += Cantidad * PreUnitario;
-                PreUnitarioWithDescuento = PreUnitario - Descuento - DescuentoExtra;
-                PriceForLot = Cantidad * PreUnitarioWithDescuento;
+                ImporteWithoutExtras += Cantidad * PrecioUnitario; // Se le da el valor a la variabe ImporteWithoutExtras segun el resultado del calculo
+                PreUnitarioWithDescuento = PrecioUnitario - Descuento - DescuentoExtra; // Se le da el valor a la variabe PreUnitarioWithDescuento segun el resultado del calculo
+                PriceForLot = Cantidad * PreUnitarioWithDescuento; // Se le da el valor a la variabe PriceForLot segun el resultado del calculo
 
                 #region TRASLADO
-                ImporteWithTImpuestoIVA16 = PriceForLot * (TTasaImpuestoIVA16 / 100);
-                TIVA16 = ImporteWithTImpuestoIVA16;
-                row.Cells[8].Value = TIVA16;
-                ImporteWithTImpuestoIVA11 = PriceForLot * (TTasaImpuestoIVA11 / 100);
-                TIVA11 = ImporteWithTImpuestoIVA11;
-                row.Cells[9].Value = TIVA11;
-                ImporteWithTImpuestoIVA4 = PriceForLot * (TTasaImpuestoIVA4 / 100);
-                TIVA4 = ImporteWithTImpuestoIVA4;
-                row.Cells[10].Value = TIVA4;
-                ImporteWithTImpuestosIEPS53 = PriceForLot * (TTasaImpuestoIEPS53 / 100);
-                TIEPS53 = ImporteWithTImpuestosIEPS53;
-                row.Cells[11].Value = TIEPS53;
-                ImporteWithTImpuestosIEPS30 = PriceForLot * (TTasaImpuestoIEPS30 / 100);
-                TIEPS30 = ImporteWithTImpuestosIEPS30;
-                row.Cells[12].Value = TIEPS30;
-                ImporteWithTImpuestosIEPS26 = PriceForLot * (TTasaImpuestoIEPS26 / 100);
-                TIEPS26 = ImporteWithTImpuestosIEPS26;
-                row.Cells[13].Value = TIEPS26;
+                ImporteWithTImpuestoIVA16 = PriceForLot * (TTasaImpuestoIVA16 / 100); // Se le da el valor a la variabe ImporteWithTImpuestoIVA16 segun el resultado del calculo
+                TIVA16 = ImporteWithTImpuestoIVA16; // Se le da el valor a la variabe global TIVA16 segun el valor de la variable ImporteWithTImpuestoIVA16
+                row.Cells[8].Value = TIVA16; // Se le da el valor de la variable gloval TIVA16 a la columna 8 de la fila clonada del DataGridView
+                ImporteWithTImpuestoIVA11 = PriceForLot * (TTasaImpuestoIVA11 / 100); // Se le da el valor a la variabe ImporteWithTImpuestoIVA11 segun el resultado del calculo
+                TIVA11 = ImporteWithTImpuestoIVA11; // Se le da el valor a la variabe global TIVA11 segun el valor de la variable ImporteWithTImpuestoIVA11
+                row.Cells[9].Value = TIVA11; // Se le da el valor de la variable gloval TIVA11 a la columna 9 de la fila clonada del DataGridView
+                ImporteWithTImpuestoIVA4 = PriceForLot * (TTasaImpuestoIVA4 / 100); // Se le da el valor a la variabe ImporteWithTImpuestoIVA4 segun el resultado del calculo
+                TIVA4 = ImporteWithTImpuestoIVA4; // Se le da el valor a la variabe global TIVA4 segun el valor de la variable ImporteWithTImpuestoIVA
+                row.Cells[10].Value = TIVA4; // Se le da el valor de la variable gloval TIVA4 a la columna 10 de la fila clonada del DataGridView
+                ImporteWithTImpuestosIEPS53 = PriceForLot * (TTasaImpuestoIEPS53 / 100); // Se le da el valor a la variabe ImporteWithTImpuestosIEPS53 segun el resultado del calculo
+                TIEPS53 = ImporteWithTImpuestosIEPS53; // Se le da el valor a la variabe global TIEPS53 segun el valor de la variable ImporteWithTImpuestoIEPS53
+                row.Cells[11].Value = TIEPS53; // Se le da el valor de la variable gloval TEPS53 a la columna 11 de la fila clonada del DataGridView
+                ImporteWithTImpuestosIEPS30 = PriceForLot * (TTasaImpuestoIEPS30 / 100); // Se le da el valor a la variabe ImporteWithTImpuestosIEPS30 segun el resultado del calculo
+                TIEPS30 = ImporteWithTImpuestosIEPS30; // Se le da el valor a la variabe global TIEPS30 segun el valor de la variable ImporteWithTImpuestoIEPS30
+                row.Cells[12].Value = TIEPS30; // Se le da el valor de la variable gloval TEPS30 a la columna 12 de la fila clonada del DataGridView
+                ImporteWithTImpuestosIEPS26 = PriceForLot * (TTasaImpuestoIEPS26 / 100); // Se le da el valor a la variabe ImporteWithTImpuestosIEPS26 segun el resultado del calculo
+                TIEPS26 = ImporteWithTImpuestosIEPS26; // Se le da el valor a la variabe global TIEPS26 segun el valor de la variable ImporteWithTImpuestoIEPS26
+                row.Cells[13].Value = TIEPS26; // Se le da el valor de la variable gloval TEPS26 a la columna 13 de la fila clonada del DataGridView
                 #endregion
+
                 #region RETENIDO
-                ImporteWithRImpuestoIVA16 = PriceForLot * (RTasaImpuestoIVA16 / 100);
-                RIVA16 = ImporteWithRImpuestoIVA16;
-                row.Cells[14].Value = RIVA16;
-                ImporteWithRImpuestoIVA1067 = PriceForLot * (RTasaImpuestoIVA1067 / 100);
-                RIVA1067 = ImporteWithRImpuestoIVA1067;
-                row.Cells[15].Value = RIVA1067;
-                ImporteWithRImpuestoIVA733 = PriceForLot * (RTasaImpuestoIVA733 / 100);
-                RIVA733 = ImporteWithRImpuestoIVA733;
-                row.Cells[16].Value = RIVA733;
-                ImporteWithRImpuestosIVA4 = PriceForLot * (RTasaImpuestoIVA4 / 100);
-                RIVA4 = ImporteWithRImpuestosIVA4;
-                row.Cells[17].Value = RIVA4;
-                ImporteWithRImpuestosISR10 = PriceForLot * (RTasaImpuestoISR10 / 100);
-                RISR10 = ImporteWithRImpuestosISR10;
-                row.Cells[18].Value = RISR10;
+                ImporteWithRImpuestoIVA16 = PriceForLot * (RTasaImpuestoIVA16 / 100); // Se le da el valor a la variabe ImporteWithRImpuestoIVA16 segun el resultado del calculo
+                RIVA16 = ImporteWithRImpuestoIVA16; // Se le da el valor a la variabe global RIVA16 segun el valor de la variable ImporteWithRImpuestoIVA16
+                row.Cells[14].Value = RIVA16; // Se le da el valor de la variable gloval RIVA16 a la columna 14 de la fila clonada del DataGridView
+                ImporteWithRImpuestoIVA1067 = PriceForLot * (RTasaImpuestoIVA1067 / 100); // Se le da el valor a la variabe ImporteWithRImpuestoIVA1067 segun el resultado del calculo
+                RIVA1067 = ImporteWithRImpuestoIVA1067; // Se le da el valor a la variabe global RIVA1067 segun el valor de la variable ImporteWithRImpuestoIVA1067
+                row.Cells[15].Value = RIVA1067; // Se le da el valor de la variable gloval RIVA1067 a la columna 14 de la fila clonada del DataGridView
+                ImporteWithRImpuestoIVA733 = PriceForLot * (RTasaImpuestoIVA733 / 100); // Se le da el valor a la variabe ImporteWithRImpuestoIVA733 segun el resultado del calculo
+                RIVA733 = ImporteWithRImpuestoIVA733; // Se le da el valor a la variabe global RIVA1067 segun el valor de la variable ImporteWithRImpuestoIVA1067
+                row.Cells[16].Value = RIVA733; // Se le da el valor de la variable gloval RIVA1067 a la columna 14 de la fila clonada del DataGridView
+                ImporteWithRImpuestosIVA4 = PriceForLot * (RTasaImpuestoIVA4 / 100); // Se le da el valor a la variabe ImporteWithRImpuestosIVA4 segun el resultado del calculo
+                RIVA4 = ImporteWithRImpuestosIVA4; // Se le da el valor a la variabe global RIVA4 segun el valor de la variable ImporteWithRImpuestosIVA4
+                row.Cells[17].Value = RIVA4; // Se le da el valor de la variable gloval RIVA4 a la columna 14 de la fila clonada del DataGridView
+                ImporteWithRImpuestosISR10 = PriceForLot * (RTasaImpuestoISR10 / 100); // Se le da el valor a la variabe ImporteWithRImpuestosISR10 segun el resultado del calculo
+                RISR10 = ImporteWithRImpuestosISR10; // Se le da el valor a la variabe global RISR10 segun el valor de la variable ImporteWithRImpuestosISR10
+                row.Cells[18].Value = RISR10; // Se le da el valor de la variable gloval RISR10 a la columna 14 de la fila clonada del DataGridView
                 #endregion
 
                 Importe = PriceForLot + ImporteWithTImpuestoIVA16 + ImporteWithTImpuestoIVA11 +
                     ImporteWithTImpuestoIVA4 + ImporteWithTImpuestosIEPS53 + ImporteWithTImpuestosIEPS30 +
-                    ImporteWithTImpuestosIEPS26;
+                    ImporteWithTImpuestosIEPS26; // Se le da el valor a la variabe Importe segun el resultado del calculo
 
                 //TODO: SACAR EL RETENIDO DEL IMPORTE
+                #endregion
 
+                // Se llenan las columnas de la fila clonada del DataGridView mediante las variables usadas en las cuentas
                 row.Cells[7].Value = Importe.ToString("N");
                 row.Cells[21].Value = ImporteWithoutExtras.ToString("N");
                 row.Cells[22].Value = mCatalogo.sClaveUnidad;
-                row.Height = 30;
-                dgvProductos.Rows.Add(row);
+                row.Height = 30; // Se le asigna una altura predeterminada a las filas clonadas
+                dgvProductos.Rows.Add(row); // Se agrega la fila clonada al DataGridView
 
+                // Se recorren las filas del DataGridView
                 foreach (DataGridViewRow rItem in dgvProductos.Rows)
                 {
-                    Total += Convert.ToDecimal(rItem.Cells[7].Value);
-                    Subtotal += Convert.ToDecimal(rItem.Cells[21].Value);
+                    Total += Convert.ToDecimal(rItem.Cells[7].Value); // Se acomula el valor de la variabe global Total segun se recorre la columna 7 del DataGridView
+                    Subtotal += Convert.ToDecimal(rItem.Cells[21].Value); // Se acomula el valor de la variabe global Subtotal segun se recorre la columna 21 del DataGridView
                 }
 
+                // Se valida que el valor de la variable global dolar sea true para sacar el total en dolares
                 if (dolar != false)
                 {
-                    Sucursal mSucursal = ManejoSucursal.getById(FrmMenuMain.uHelper.usuario.sucursal_id);
-                    decimal TotalDolar = 0;
-                    decimal TipoCambio = Convert.ToDecimal(mSucursal.sTipoCambio);
-                    TotalDolar = (Total * 1) / TipoCambio;
-                    lblTotalDolar.Text = TotalDolar.ToString("N");
+                    Sucursal mSucursal = ManejoSucursal.getById(FrmMenuMain.uHelper.usuario.sucursal_id);  // se busca la sucursal mediante la llave foranea que tiene el usuario logeado y se guarda en un modelo de tipo sucursal
+                    TipoCambio = Convert.ToDecimal(mSucursal.sTipoCambio); // Se le da el valor a la variabe TipoCambio segun los datos del modelo sucursal
+                    TotalDolar = (Total * 1) / TipoCambio; // Se le da el valor a la variabe TotalDolar segun el resultado del calculo
+                    lblTotalDolar.Text = TotalDolar.ToString("N"); // Se le da el valor al lblTotalDolar segun el valor de la variable TotalDolar
                 }
 
+                // Se asignan valores a los respectivos labels 
                 lblSubTotal.Text = Subtotal.ToString("N");
                 lblTotal.Text = Total.ToString("N");
                 lblIVA16.Text = TIVA16.ToString("N");
@@ -349,10 +399,15 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-        public void cargarCliente(int pk)
+        /// <summary>
+        /// Funcion encargada de llenar los textbox con el cliente selecciondo mediante la id del mismo.
+        /// </summary>
+        /// <param name="id">variable de tipo entera</param>
+        public void cargarCliente(int id)
         {
-            Cliente nCliente = ManejoCliente.getById(pk);
-            pkCliente = nCliente.idCliente;
+            Cliente nCliente = ManejoCliente.getById(id); // Se busca el cliente mediante la id y se guarda en un modelo tipo cliente
+            // se asigna a los textbox los valores segun los datos del modelo cliente
+            pkCliente = nCliente.idCliente; 
             this.txtRFC.Text = nCliente.sRfc;
             this.txtNombre.Text = nCliente.sNombre;
             this.txtDireccion.Text = nCliente.sCalle;
@@ -361,6 +416,9 @@ namespace SiscomSoft_Desktop.Views
             this.txtCondicionesDePago.Text = nCliente.sConPago;
         }
 
+        /// <summary>
+        /// Funcion encargada de crear el archivo xml con los datos necesarios para la facturacion.
+        /// </summary>
         public void GenerarFactura()
         {
             #region VARIABLES
@@ -1031,8 +1089,8 @@ namespace SiscomSoft_Desktop.Views
             cfdi.Complemento = new ComprobanteComplemento[1];
             #endregion
 
-            #region NAMESPACE XML
-            XmlSerializerNamespaces xmlNameSpace = new XmlSerializerNamespaces();
+            #region NAMESPACES 
+            XmlSerializerNamespaces xmlNameSpace = new XmlSerializerNamespaces(); 
             xmlNameSpace.Add("cfdi", "http://www.sat.gob.mx/cfd/3");
             xmlNameSpace.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance");
             #endregion
@@ -1046,18 +1104,22 @@ namespace SiscomSoft_Desktop.Views
             #endregion
         }
 
+        /// <summary>
+        /// Funcion encargada de crear la cadena original y el sello necesarios para el archivo xml.
+        /// </summary>
+        /// <param name="NameFileXML">variable tipo string, utilizada para establecer el nombre del archivo xml actual.</param>
         public void CrearSelloFinkok(string NameFileXML)
         {
-            Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue));
-            Certificado mCertificado = ManejoCertificado.getById(nSucursal.certificado_id);
-            X509Certificate2 m_cer = new X509Certificate2(mCertificado.sRutaArch + @"\" + mCertificado.sArchCer);
-            string rutaXSLT = @"http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt";
-            string MESPATH = @"C:\SiscomSoft\Facturas\XML\" + DateTime.Now.ToString("MMMM") + "," + DateTime.Now.Year;
-            string rutaXML = MESPATH + @"\" + NameFileXML; 
+            Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue)); // Se busca la sucursal seleccionada mediante la id de la misma y se guarda en un modelo tipo sucursal.
+            Certificado mCertificado = ManejoCertificado.getById(nSucursal.certificado_id); // Se busca el certificado mediante la llave foranea de la sucursal seleccionada y se guarda en un modelo de tipo certificado.
+            X509Certificate2 m_cer = new X509Certificate2(mCertificado.sRutaArch + @"\" + mCertificado.sArchCer); // Se lee el certificado asignado a la sucursal mediante su ruta y nombre.
+            string rutaXSLT = @"http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt"; // Se asigna el valor a la variable rutaXSLT con el link de la cadena original.
+            string MESPATH = @"C:\SiscomSoft\Facturas\XML\" + DateTime.Now.ToString("MMMM") + "," + DateTime.Now.Year; // Se asigna el valor a la variable MESPATH con la ruta de la carpeta del mes en donde se guardo el archivo xml
+            string rutaXML = MESPATH + @"\" + NameFileXML; // Se asigna el valor a la variable rutaXML con la ruta completa del archivo xml
             String pass = mCertificado.sContrasena; //Contraseña de la llave privada
             String llave = mCertificado.sRutaArch + @"\" + mCertificado.sArchkey; //Archivo de la llave privada
             byte[] llave2 = File.ReadAllBytes(llave); // Convertimos el archivo anterior a byte
-            byte[] bytesFirmados;
+            byte[] bytesFirmados; 
 
             // Cargar XML
             XPathDocument xml = new XPathDocument(rutaXML);
@@ -1071,6 +1133,7 @@ namespace SiscomSoft_Desktop.Views
             //Resultado
             string result = str.ToString();
             
+            // Se valida el tamaño del certificado asignado a la empresa.
             if (m_cer.PublicKey.Key.KeySize == 2048)
             {
                 #region SHA-256
@@ -1125,10 +1188,14 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de guardar todos los datos del archivo xml en la tabla factura y detallefactura de la base de datos.
+        /// </summary>
         public void GuardarFactura()
         {
             Factura nFactura = new Factura();
             DetalleFactura nDetalleFactura = new DetalleFactura();
+            // Se le da valor a los parametros del metodo de tipo factura.
             nFactura.sFolio = txtFolio.Text;
             nFactura.dtFecha = DateTime.Now;
             nFactura.usuario_id = pkCliente;
@@ -1139,23 +1206,28 @@ namespace SiscomSoft_Desktop.Views
             nFactura.sTipoCompro = cmbTipoDeComprobante.Text;
             nFactura.sucursal_id = Convert.ToInt32(cmbSucursal.SelectedValue);
             nFactura.usuario_id = FrmMenuMain.uHelper.usuario.idUsuario;
-            ManejoFacturacion.Guardar(nFactura);
+            ManejoFacturacion.Guardar(nFactura); // Se llama a la funcion guardar que esta en ManejoFacturacion y se le pasa una variable de tipo factura.
 
+            // Se recorren las filas del DataGridView
             foreach (DataGridViewRow row in dgvProductos.Rows)
             {
-                if (!row.IsNewRow)
+                if (!row.IsNewRow) // Se valida que la fila no sea para nuevos registros.
                 {
+                    // Se le da valor a los parametros del modelo de tipo detalleventas.
                     nDetalleFactura.producto_id = Convert.ToInt32(row.Cells[0].Value);
                     nDetalleFactura.sClave = row.Cells[1].Value.ToString();
                     nDetalleFactura.sDescripcion = row.Cells[2].Value.ToString();
                     nDetalleFactura.dPreUnitario = Convert.ToDecimal(row.Cells[5].Value);
                     nDetalleFactura.iCantidad = Convert.ToInt32(row.Cells[6].Value);
                     nDetalleFactura.factura_id = nFactura.idFactura;
-                    ManejoDetalleFactura.Guardar(nDetalleFactura);
+                    ManejoDetalleFactura.Guardar(nDetalleFactura); // Se llama a la funcion Guardar que esta en ManejoDetalleFactura y se le pasa una variable de tipo detallefactura.
                 }
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de limpiar los controles de la vista y obtener un nuevo folio.
+        /// </summary>
         public void Clear()
         {
             txtCondicionesDePago.Clear();
@@ -1234,32 +1306,38 @@ namespace SiscomSoft_Desktop.Views
 
         }
 
+        /// <summary>
+        /// En este vento se escoje la moneda y el tipo de cambio.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbMoneda_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbMoneda.SelectedIndex == 0)
+            if (cmbMoneda.SelectedIndex == 0) // Se valida si el valor del cmbMoneda es 0 para asignar el tipo de cambio en pesos.
             {
                 lbltotaldolares.Visible = false;
                 lblTotalDolar.Visible = false;
                 dolar = false;
             }
-            else if (cmbMoneda.SelectedIndex == 1)
+            else if (cmbMoneda.SelectedIndex == 1) // Se valida si el valor del cmbMoneda es 1 para asignar el tipo de cambio en dolares.
             {
                 decimal total = 0;
-                foreach (DataGridViewRow row in dgvProductos.Rows)
-                {
-                    total += Convert.ToDecimal(row.Cells[7].Value);
-                }
-
                 decimal TotalDolar = 0;
-                Sucursal mSucursal = ManejoSucursal.getById(FrmMenuMain.uHelper.usuario.sucursal_id);
-                if (mSucursal.sTipoCambio != null)
+                Sucursal mSucursal = ManejoSucursal.getById(FrmMenuMain.uHelper.usuario.sucursal_id); // se busca la sucursal mediante la llave foranea que tiene el usuario logeado y se guarda en un modelo de tipo sucursal
+
+                if (mSucursal.sTipoCambio != null) // Se valida que el tipo de cambio este vacion en el 
                 {
-                    decimal TipoCambio = Convert.ToDecimal(mSucursal.sTipoCambio);
-                    TotalDolar = (total * 1) / TipoCambio;
-                    lbltotaldolares.Visible = true;
-                    lblTotalDolar.Visible = true;
-                    lblTotalDolar.Text = TotalDolar.ToString("N");
-                    dolar = true;
+                    foreach (DataGridViewRow row in dgvProductos.Rows) // Se recorren las filas del DataGridView
+                    {
+                        total += Convert.ToDecimal(row.Cells[7].Value); // Se acomula el valor de la variabe local Total segun se recorre la columna 7 del DataGridView
+                    }
+                    
+                    decimal TipoCambio = Convert.ToDecimal(mSucursal.sTipoCambio); // Se le da el valor a la variabe TipoCambio segun los datos del modelo sucursal
+                    TotalDolar = (total * 1) / TipoCambio; // Se le da el valor a la variabe TotalDolar segun el resultado del calculo
+                    lbltotaldolares.Visible = true; // Se cambia la propiedad visible del lbltotaldolares para que se muestre en la vista
+                    lblTotalDolar.Visible = true; // Se cambia la propiedad visible del lblTotalDolar para que se muestre en la vista
+                    lblTotalDolar.Text = TotalDolar.ToString("N"); // Se le da el valor al lblTotalDolar segun el valor de la variable TotalDolar
+                    dolar = true; // Se cambia el valor de la variable global dolar a falso
                 }
                 else
                 {
@@ -1268,62 +1346,98 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
+        /// <summary>
+        /// Boton que utiliza para mandar llamar la vista de buscar cliente y seleccinar un cliente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             FrmBuscarCiente v = new FrmBuscarCiente(this);
             v.ShowDialog();
         }
 
+        /// <summary>
+        /// Boton que utiliza para mandar llamar la vista de buscar productos y seleccinar un producto.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBuscarProductos_Click(object sender, EventArgs e)
         {
             FrmBuscarProductos v = new FrmBuscarProductos(this);
             v.ShowDialog();
         }
 
+        /// <summary>
+        /// Este evento se utilizo para recalcular el importe de los productos segun la cantidad.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            string a = dgvProductos.Columns[e.ColumnIndex].Name;
-            if (a == "Cantidad")
+            string columna = dgvProductos.Columns[e.ColumnIndex].Name; // Se asigna el nombre de la columna que se modifico a la variable columna.
+            if (columna == "Cantidad") // Se valida que la variable columna sea "Cantidad"
             {
-                if (dgvProductos.CurrentRow != null)
+                if (dgvProductos.CurrentRow != null) // Se valida que haya una fila seleccionada en el DataGridView
                 {
-                    if (!dgvProductos.CurrentRow.IsNewRow)
+                    if (!dgvProductos.CurrentRow.IsNewRow) // Se valida que la fila seleccinada no sea para ingresar valores nuevos
                     {
-                        decimal Cantidad = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[6].Value);
-                        if (Cantidad != 0)
+                        decimal Cantidad = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[6].Value); // Se le da valor a la variable Cantidad con el valor que se encuentra en la columna 6 del DataGridView
+                        if (Cantidad != 0) // Se valida que el valor de la variable Cantidad no sea 0
                         {
-                            if (dgvProductos.CurrentRow.Cells[0].Value != null)
+                            if (dgvProductos.CurrentRow.Cells[0].Value != null) // Se valida que el valor de la columna 0 del DataGridView no este vacio, sino la fila seleccionada sera removida
                             {
-                                Producto nProducto = ManejoProducto.getById(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value));
-                                if (nProducto != null)
+                                Producto nProducto = ManejoProducto.getById(Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value)); // Se busca el producto segun el valor que tenga la columna 0 del DataGridView
                                 {
+                                    #region VARIABLES
                                     decimal Subtotal = 0;
                                     decimal Total = 0;
-                                    decimal PreUnitario = nProducto.dCosto;
+                                    decimal TipoCambio = 0;
+                                    decimal TotalDolar = 0;
+                                    decimal PrecioUnitario = nProducto.dCosto;
                                     decimal TTasaImpuestoIVA16 = 0;
                                     decimal TTasaImpuestoIVA11 = 0;
                                     decimal TTasaImpuestoIVA4 = 0;
                                     decimal TTasaImpuestoIEPS53 = 0;
                                     decimal TTasaImpuestoIEPS26 = 0;
                                     decimal TTasaImpuestoIEPS30 = 0;
-
                                     decimal RTasaImpuestoIVA16 = 0;
                                     decimal RTasaImpuestoIVA1067 = 0;
                                     decimal RTasaImpuestoIVA733 = 0;
                                     decimal RTasaImpuestoIVA4 = 0;
                                     decimal RTasaImpuestoISR10 = 0;
-
                                     decimal TasaDescuento = 0;
                                     decimal TasaDescuentoExtra = 0;
+                                    decimal Importe = 0;
+                                    decimal ImporteWithoutExtras = 0;
+                                    decimal ImporteWithTImpuestoIVA16 = 0;
+                                    decimal ImporteWithTImpuestoIVA11 = 0;
+                                    decimal ImporteWithTImpuestoIVA4 = 0;
+                                    decimal ImporteWithTImpuestosIEPS53 = 0;
+                                    decimal ImporteWithTImpuestosIEPS30 = 0;
+                                    decimal ImporteWithTImpuestosIEPS26 = 0;
+                                    decimal ImporteWithRImpuestoIVA16 = 0;
+                                    decimal ImporteWithRImpuestoIVA1067 = 0;
+                                    decimal ImporteWithRImpuestoIVA733 = 0;
+                                    decimal ImporteWithRImpuestosIVA4 = 0;
+                                    decimal ImporteWithRImpuestosISR10 = 0;
+                                    decimal PreUnitarioWithDescuento = 0;
+                                    decimal PriceForLot = 0;
+                                    decimal Descuento = 0;
+                                    decimal DescuentoExtra = 0;
+                                    #endregion
+
                                     #region Impuestos
-                                    List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.idProducto));
+                                    List<ImpuestoProducto> mImpuesto = ManejoImpuestoProducto.getById(Convert.ToInt32(nProducto.idProducto)); // Se buscan todos los impuestos que tiene el producto mediante la id del producto y se guardan en una ista
+                                    // Se leen los impuestos que tiene guardada la lista
                                     foreach (ImpuestoProducto rImpuesto in mImpuesto)
                                     {
-                                        var impuesto = ManejoImpuesto.getById(rImpuesto.impuesto_id);
+                                        var impuesto = ManejoImpuesto.getById(rImpuesto.impuesto_id); // Se busca el impuesto mediante el id que esta guardado en la lista
                                         #region TRASLADO
+                                        // Se valida que el tipo de impuesto sea "TRASLADO"
                                         if (impuesto.sTipoImpuesto == "TRASLADO")
                                         {
-                                            // IVA
+                                            // // Se valida que el impuesto sea "IVA" y que la tasa de impuesto sea la requerida para poder guardar las cantidades en las variables
                                             if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                                             {
                                                 TTasaImpuestoIVA16 += impuesto.dTasaImpuesto;
@@ -1336,7 +1450,7 @@ namespace SiscomSoft_Desktop.Views
                                             {
                                                 TTasaImpuestoIVA4 += impuesto.dTasaImpuesto;
                                             }
-                                            //IEPS
+                                            // Se valida que el impuesto sea "IEPS" y que la tasa de impuesto sea la requerida para poder guardar las cantidades en las variables
                                             else if (impuesto.sImpuesto == "IEPS" && impuesto.dTasaImpuesto == Convert.ToDecimal(53.00))
                                             {
                                                 TTasaImpuestoIEPS53 += impuesto.dTasaImpuesto;
@@ -1352,9 +1466,10 @@ namespace SiscomSoft_Desktop.Views
                                         }
                                         #endregion
                                         #region RETENIDO
+                                        // Se valida que el tipo de impuesto sea "RETENIDO"
                                         if (impuesto.sTipoImpuesto == "RETENIDO")
                                         {
-                                            // IVA
+                                            // Se valida que el impuesto sea "IVA" y que la tasa de impuesto sea la requerida para poder guardar las cantidades en las variables
                                             if (impuesto.sImpuesto == "IVA" && impuesto.dTasaImpuesto == Convert.ToDecimal(16.00))
                                             {
                                                 RTasaImpuestoIVA16 += impuesto.dTasaImpuesto;
@@ -1371,7 +1486,7 @@ namespace SiscomSoft_Desktop.Views
                                             {
                                                 RTasaImpuestoIVA4 += impuesto.dTasaImpuesto;
                                             }
-                                            //ISR
+                                            // Se valida que el impuesto sea "ISR" y que la tasa de impuesto sea la requerida para poder guardar las cantidades en las variables
                                             else if (impuesto.sImpuesto == "ISR" && impuesto.dTasaImpuesto == Convert.ToDecimal(10.00))
                                             {
                                                 RTasaImpuestoISR10 += impuesto.dTasaImpuesto;
@@ -1380,111 +1495,101 @@ namespace SiscomSoft_Desktop.Views
                                         #endregion
                                     }
                                     #endregion
+
                                     #region Descuentos
-                                    List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(nProducto.idProducto));
+                                    List<DescuentoProducto> mDescuento = ManejoDescuentoProducto.getById(Convert.ToInt32(nProducto.idProducto)); // Se buscan todos los descuentos que tiene el producto mediante la id del producto y se guardan en una ista
+                                    // Se leen los descuentos que tiene guardada la lista
                                     foreach (DescuentoProducto rDescuento in mDescuento)
                                     {
-                                        var descuento = ManejoDescuento.getById(rDescuento.descuento_id);
-                                        TasaDescuento = descuento.dTasaDesc;
-                                        TasaDescuentoExtra = descuento.dTasaDescEx;
+                                        var descuento = ManejoDescuento.getById(rDescuento.descuento_id); // Se busca el descuento mediante el id que esta guardado en la lista
+                                        TasaDescuento = descuento.dTasaDesc; // Se le da el valor a la variabe TasaDescuento segun los datos del modelo DescuentoProducto
+                                        TasaDescuentoExtra = descuento.dTasaDescEx; // Se le da el valor a la variabe TasaDescuentoExtra segun los datos del modelo DescuentoProducto
                                     }
                                     #endregion
 
-                                    decimal Importe = 0;
-                                    decimal ImporteWithoutExtras = 0;
-                                    decimal ImporteWithTImpuestoIVA16 = 0;
-                                    decimal ImporteWithTImpuestoIVA11 = 0;
-                                    decimal ImporteWithTImpuestoIVA4 = 0;
-                                    decimal ImporteWithTImpuestosIEPS53 = 0;
-                                    decimal ImporteWithTImpuestosIEPS30 = 0;
-                                    decimal ImporteWithTImpuestosIEPS26 = 0;
-
-                                    decimal ImporteWithRImpuestoIVA16 = 0;
-                                    decimal ImporteWithRImpuestoIVA1067 = 0;
-                                    decimal ImporteWithRImpuestoIVA733 = 0;
-                                    decimal ImporteWithRImpuestosIVA4 = 0;
-                                    decimal ImporteWithRImpuestosISR10 = 0;
-
-                                    decimal PreUnitarioWithDescuento = 0;
-                                    decimal PriceForLot = 0;
-                                    decimal Descuento = 0;
-                                    decimal DescuentoExtra = 0;
-
+                                    #region CALCULOS
+                                    // Se valida que la TasaDescuento no sea 0 para poder hacer el calculo correspondiente
                                     if (TasaDescuento != 0)
                                     {
-                                        Descuento = PreUnitario * (TasaDescuento / 100);
+                                        Descuento = PrecioUnitario * (TasaDescuento / 100);
                                     }
+                                    // Se valida que la TasaDescuentoExtra no sea 0 para poder hacer el calculo correspondiente
                                     if (TasaDescuentoExtra != 0)
                                     {
-                                        DescuentoExtra = PreUnitario * (TasaDescuentoExtra / 100);
+                                        DescuentoExtra = PrecioUnitario * (TasaDescuentoExtra / 100);
                                     }
 
-                                    ImporteWithoutExtras += Cantidad * PreUnitario;
-                                    PreUnitarioWithDescuento = PreUnitario - Descuento - DescuentoExtra;
-                                    PriceForLot = Cantidad * PreUnitarioWithDescuento;
+                                    ImporteWithoutExtras += Cantidad * PrecioUnitario; // Se le da el valor a la variabe ImporteWithoutExtras segun el resultado del calculo
+                                    PreUnitarioWithDescuento = PrecioUnitario - Descuento - DescuentoExtra; // Se le da el valor a la variabe PreUnitarioWithDescuento segun el resultado del calculo
+                                    PriceForLot = Cantidad * PreUnitarioWithDescuento; // Se le da el valor a la variabe PriceForLot segun el resultado del calculo
 
                                     #region TRASLADO
-                                    ImporteWithTImpuestoIVA16 = PriceForLot * (TTasaImpuestoIVA16 / 100);
-                                    TIVA16 = ImporteWithTImpuestoIVA16;
-                                    dgvProductos.CurrentRow.Cells[8].Value = TIVA16;
-                                    ImporteWithTImpuestoIVA11 = PriceForLot * (TTasaImpuestoIVA11 / 100);
-                                    TIVA11 = ImporteWithTImpuestoIVA11;
-                                    dgvProductos.CurrentRow.Cells[9].Value = TIVA11;
-                                    ImporteWithTImpuestoIVA4 = PriceForLot * (TTasaImpuestoIVA4 / 100);
-                                    TIVA4 = ImporteWithTImpuestoIVA4;
-                                    dgvProductos.CurrentRow.Cells[10].Value = TIVA4;
-                                    ImporteWithTImpuestosIEPS53 = PriceForLot * (TTasaImpuestoIEPS53 / 100);
-                                    TIEPS53 = ImporteWithTImpuestosIEPS53;
-                                    dgvProductos.CurrentRow.Cells[11].Value = TIEPS53;
-                                    ImporteWithTImpuestosIEPS30 = PriceForLot * (TTasaImpuestoIEPS30 / 100);
-                                    TIEPS30 = ImporteWithTImpuestosIEPS30;
-                                    dgvProductos.CurrentRow.Cells[12].Value = TIEPS30;
-                                    ImporteWithTImpuestosIEPS26 = PriceForLot * (TTasaImpuestoIEPS26 / 100);
-                                    TIEPS26 = ImporteWithTImpuestosIEPS26;
-                                    dgvProductos.CurrentRow.Cells[13].Value = TIEPS26;
+                                    ImporteWithTImpuestoIVA16 = PriceForLot * (TTasaImpuestoIVA16 / 100); // Se le da el valor a la variabe ImporteWithTImpuestoIVA16 segun el resultado del calculo
+                                    TIVA16 = ImporteWithTImpuestoIVA16; // Se le da el valor a la variabe global TIVA16 segun el valor de la variable ImporteWithTImpuestoIVA16
+                                    dgvProductos.CurrentRow.Cells[8].Value = TIVA16; // Se le da el valor de la variable gloval TIVA16 a la columna 8 de la fila clonada del DataGridView
+                                    ImporteWithTImpuestoIVA11 = PriceForLot * (TTasaImpuestoIVA11 / 100); // Se le da el valor a la variabe ImporteWithTImpuestoIVA11 segun el resultado del calculo
+                                    TIVA11 = ImporteWithTImpuestoIVA11; // Se le da el valor a la variabe global TIVA11 segun el valor de la variable ImporteWithTImpuestoIVA11
+                                    dgvProductos.CurrentRow.Cells[9].Value = TIVA11; // Se le da el valor de la variable gloval TIVA11 a la columna 9 de la fila clonada del DataGridView
+                                    ImporteWithTImpuestoIVA4 = PriceForLot * (TTasaImpuestoIVA4 / 100); // Se le da el valor a la variabe ImporteWithTImpuestoIVA4 segun el resultado del calculo
+                                    TIVA4 = ImporteWithTImpuestoIVA4; // Se le da el valor a la variabe global TIVA4 segun el valor de la variable ImporteWithTImpuestoIVA
+                                    dgvProductos.CurrentRow.Cells[10].Value = TIVA4; // Se le da el valor de la variable gloval TIVA4 a la columna 10 de la fila clonada del DataGridView
+                                    ImporteWithTImpuestosIEPS53 = PriceForLot * (TTasaImpuestoIEPS53 / 100); // Se le da el valor a la variabe ImporteWithTImpuestosIEPS53 segun el resultado del calculo
+                                    TIEPS53 = ImporteWithTImpuestosIEPS53; // Se le da el valor a la variabe global TIEPS53 segun el valor de la variable ImporteWithTImpuestoIEPS53
+                                    dgvProductos.CurrentRow.Cells[11].Value = TIEPS53; // Se le da el valor de la variable gloval TEPS53 a la columna 11 de la fila clonada del DataGridView
+                                    ImporteWithTImpuestosIEPS30 = PriceForLot * (TTasaImpuestoIEPS30 / 100); // Se le da el valor a la variabe ImporteWithTImpuestosIEPS30 segun el resultado del calculo
+                                    TIEPS30 = ImporteWithTImpuestosIEPS30; // Se le da el valor a la variabe global TIEPS30 segun el valor de la variable ImporteWithTImpuestoIEPS30
+                                    dgvProductos.CurrentRow.Cells[12].Value = TIEPS30; // Se le da el valor de la variable gloval TEPS30 a la columna 12 de la fila clonada del DataGridView
+                                    ImporteWithTImpuestosIEPS26 = PriceForLot * (TTasaImpuestoIEPS26 / 100); // Se le da el valor a la variabe ImporteWithTImpuestosIEPS26 segun el resultado del calculo
+                                    TIEPS26 = ImporteWithTImpuestosIEPS26; // Se le da el valor a la variabe global TIEPS26 segun el valor de la variable ImporteWithTImpuestoIEPS26
+                                    dgvProductos.CurrentRow.Cells[13].Value = TIEPS26; // Se le da el valor de la variable gloval TEPS26 a la columna 13 de la fila clonada del DataGridView
                                     #endregion
+
                                     #region RETENIDO
-                                    ImporteWithRImpuestoIVA16 = PriceForLot * (RTasaImpuestoIVA16 / 100);
-                                    RIVA16 = ImporteWithRImpuestoIVA16;
-                                    dgvProductos.CurrentRow.Cells[14].Value = RIVA16;
-                                    ImporteWithRImpuestoIVA1067 = PriceForLot * (RTasaImpuestoIVA1067 / 100);
-                                    RIVA1067 = ImporteWithRImpuestoIVA1067;
-                                    dgvProductos.CurrentRow.Cells[15].Value = RIVA1067;
-                                    ImporteWithRImpuestoIVA733 = PriceForLot * (RTasaImpuestoIVA733 / 100);
-                                    RIVA733 = ImporteWithRImpuestoIVA733;
-                                    dgvProductos.CurrentRow.Cells[16].Value = RIVA733;
-                                    ImporteWithRImpuestosIVA4 = PriceForLot * (RTasaImpuestoIVA4 / 100);
-                                    RIVA4 = ImporteWithRImpuestosIVA4;
-                                    dgvProductos.CurrentRow.Cells[17].Value = RIVA4;
-                                    ImporteWithRImpuestosISR10 = PriceForLot * (RTasaImpuestoISR10 / 100);
-                                    RISR10 = ImporteWithRImpuestosISR10;
-                                    dgvProductos.CurrentRow.Cells[18].Value = RISR10;
+                                    ImporteWithRImpuestoIVA16 = PriceForLot * (RTasaImpuestoIVA16 / 100); // Se le da el valor a la variabe ImporteWithRImpuestoIVA16 segun el resultado del calculo
+                                    RIVA16 = ImporteWithRImpuestoIVA16; // Se le da el valor a la variabe global RIVA16 segun el valor de la variable ImporteWithRImpuestoIVA16
+                                    dgvProductos.CurrentRow.Cells[14].Value = RIVA16; // Se le da el valor de la variable gloval RIVA16 a la columna 14 de la fila clonada del DataGridView
+                                    ImporteWithRImpuestoIVA1067 = PriceForLot * (RTasaImpuestoIVA1067 / 100); // Se le da el valor a la variabe ImporteWithRImpuestoIVA1067 segun el resultado del calculo
+                                    RIVA1067 = ImporteWithRImpuestoIVA1067; // Se le da el valor a la variabe global RIVA1067 segun el valor de la variable ImporteWithRImpuestoIVA1067
+                                    dgvProductos.CurrentRow.Cells[15].Value = RIVA1067; // Se le da el valor de la variable gloval RIVA1067 a la columna 14 de la fila clonada del DataGridView
+                                    ImporteWithRImpuestoIVA733 = PriceForLot * (RTasaImpuestoIVA733 / 100); // Se le da el valor a la variabe ImporteWithRImpuestoIVA733 segun el resultado del calculo
+                                    RIVA733 = ImporteWithRImpuestoIVA733; // Se le da el valor a la variabe global RIVA1067 segun el valor de la variable ImporteWithRImpuestoIVA1067
+                                    dgvProductos.CurrentRow.Cells[16].Value = RIVA733; // Se le da el valor de la variable gloval RIVA1067 a la columna 14 de la fila clonada del DataGridView
+                                    ImporteWithRImpuestosIVA4 = PriceForLot * (RTasaImpuestoIVA4 / 100); // Se le da el valor a la variabe ImporteWithRImpuestosIVA4 segun el resultado del calculo
+                                    RIVA4 = ImporteWithRImpuestosIVA4; // Se le da el valor a la variabe global RIVA4 segun el valor de la variable ImporteWithRImpuestosIVA4
+                                    dgvProductos.CurrentRow.Cells[17].Value = RIVA4; // Se le da el valor de la variable gloval RIVA4 a la columna 14 de la fila clonada del DataGridView
+                                    ImporteWithRImpuestosISR10 = PriceForLot * (RTasaImpuestoISR10 / 100); // Se le da el valor a la variabe ImporteWithRImpuestosISR10 segun el resultado del calculo
+                                    RISR10 = ImporteWithRImpuestosISR10; // Se le da el valor a la variabe global RISR10 segun el valor de la variable ImporteWithRImpuestosISR10
+                                    dgvProductos.CurrentRow.Cells[18].Value = RISR10; // Se le da el valor de la variable gloval RISR10 a la columna 14 de la fila clonada del DataGridView
                                     #endregion
 
                                     Importe = PriceForLot + ImporteWithTImpuestoIVA16 + ImporteWithTImpuestoIVA11 +
                                         ImporteWithTImpuestoIVA4 + ImporteWithTImpuestosIEPS53 + ImporteWithTImpuestosIEPS30 +
-                                        ImporteWithTImpuestosIEPS26;
+                                        ImporteWithTImpuestosIEPS26; // Se le da el valor a la variabe Importe segun el resultado del calculo
 
                                     //TODO: SACAR EL RETENIDO DEL IMPORTE
+                                    #endregion
 
+                                    // Se llenan las columnas de la fila clonada del DataGridView mediante las variables usadas en las cuentas
                                     dgvProductos.CurrentRow.Cells[7].Value = Importe.ToString("N");
                                     dgvProductos.CurrentRow.Cells[21].Value = ImporteWithoutExtras.ToString("N");
 
+                                    // Se recorren las filas del DataGridView
                                     foreach (DataGridViewRow rItem in dgvProductos.Rows)
                                     {
-                                        Total += Convert.ToDecimal(rItem.Cells[7].Value);
-                                        Subtotal += Convert.ToDecimal(rItem.Cells[21].Value);
+                                        Total += Convert.ToDecimal(rItem.Cells[7].Value); // Se acomula el valor de la variabe global Total segun se recorre la columna 7 del DataGridView
+                                        Subtotal += Convert.ToDecimal(rItem.Cells[21].Value); // Se acomula el valor de la variabe global Subtotal segun se recorre la columna 21 del DataGridView
                                     }
 
+                                    // Se valida que el valor de la variable global dolar sea true para sacar el total en dolares
                                     if (dolar != false)
                                     {
-                                        Sucursal mSucursal = ManejoSucursal.getById(FrmMenuMain.uHelper.usuario.sucursal_id);
-                                        decimal TotalDolar = 0;
-                                        decimal TipoCambio = Convert.ToDecimal(mSucursal.sTipoCambio);
-                                        TotalDolar = (Total * 1) / TipoCambio;
-                                        lblTotalDolar.Text = TotalDolar.ToString("N");
+                                        Sucursal mSucursal = ManejoSucursal.getById(FrmMenuMain.uHelper.usuario.sucursal_id);  // se busca la sucursal mediante la llave foranea que tiene el usuario logeado y se guarda en un modelo de tipo sucursal
+                                        TipoCambio = Convert.ToDecimal(mSucursal.sTipoCambio); // Se le da el valor a la variabe TipoCambio segun los datos del modelo sucursal
+                                        TotalDolar = (Total * 1) / TipoCambio; // Se le da el valor a la variabe TotalDolar segun el resultado del calculo
+                                        lblTotalDolar.Text = TotalDolar.ToString("N"); // Se le da el valor al lblTotalDolar segun el valor de la variable TotalDolar
                                     }
 
+                                    // Se asignan valores a los respectivos labels 
                                     lblSubTotal.Text = Subtotal.ToString("N");
                                     lblTotal.Text = Total.ToString("N");
                                     lblIVA16.Text = TIVA16.ToString("N");
@@ -1510,22 +1615,34 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
+        /// <summary>
+        /// Este evento se utilizo para saber cuando mostrar el boton de eliminar productos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
-            if (!dgvProductos.CurrentRow.IsNewRow)
+            if (!dgvProductos.CurrentRow.IsNewRow) // Se valida que la fila seleccionada no sea para ingresar registros nuevos
             {
-                btnBorrar.Visible = true;
+                btnBorrar.Visible = true; // Se cambia la propiedad visible del btnBorrar para que se muestre en la vista
             }
             else
             {
-                btnBorrar.Visible = false;
+                btnBorrar.Visible = false;  // Se cambia la propiedad visible del btnBorrar para que no se muestre en la vista
             }
         }
 
+        /// <summary>
+        /// Boton con el cual se elimina el producto seleccionado del DataGridView, asi como todos sus respectivos valores en las variables.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            if (dgvProductos.RowCount > 1)
+            if (dgvProductos.RowCount > 1) // Se valida que el DataGridView tenga mas de una fila
             {
+                #region VARIABLES
+                // Se le da valor a las diferentes variables mediante las columnas de la fila seleccionada
                 decimal PreUnitario = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[5].Value);
                 decimal DgvTIva16 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[8].Value);
                 decimal DgvTIva11 = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[9].Value);
@@ -1542,7 +1659,12 @@ namespace SiscomSoft_Desktop.Views
                 decimal dgvDescuentoExt = Convert.ToDecimal(dgvProductos.CurrentRow.Cells[20].Value);
                 decimal descuento = 0;
                 decimal descuentoExt = 0;
+                decimal subtotal = 0;
+                decimal total = 0;
+                #endregion
 
+                #region CALCULOS
+                // Se restan los valores de la fila seleccionada a las variables globales
                 TIVA16 -= DgvTIva16;
                 TIVA11 -= DgvTIva11;
                 TIVA4 -= DgvTIva4;
@@ -1556,42 +1678,45 @@ namespace SiscomSoft_Desktop.Views
                 RIVA4 -= DgvRIva4;
                 RISR10 -= DgvRIsr10;
 
+                // Se realiza el calculo para sacar el descuento en porentaje y restarselo a las variables globales
                 descuento = PreUnitario * (dgvDescuento / 100);
                 descuentoExt = PreUnitario * (dgvDescuentoExt / 100);
+                #endregion
 
+                // Se remueve la fila seleccionada del DataGridView
                 dgvProductos.Rows.RemoveAt(dgvProductos.CurrentRow.Index);
-
-                decimal subtotal = 0;
-                decimal total = 0;
+                
+                // Se recorren las filas del DataGridView
                 foreach (DataGridViewRow rItem in dgvProductos.Rows)
                 {
-                    total += Convert.ToDecimal(rItem.Cells[7].Value);
-                    subtotal += Convert.ToDecimal(rItem.Cells[21].Value);
+                    total += Convert.ToDecimal(rItem.Cells[7].Value); // Se acomula el valor de la variabe local total segun se recorre la columna 7 del DataGridView
+                    subtotal += Convert.ToDecimal(rItem.Cells[21].Value); // Se acomula el valor de la variabe local subtotal segun se recorre la columna 21 del DataGridView
                 }
 
-                if (total == 0)
+                if (total == 0) // Se valida que el total sea igual a 0
                 {
-                    lblTotal.Text = "0";
+                    lblTotal.Text = "0"; // Se asigna el valor de 0 a el lblTotal
                 }
                 else
                 {
-                    lblTotal.Text = total.ToString("N");
+                    lblTotal.Text = total.ToString("N"); // Se asigna el valor de la variable local total a el lblTotal
                 }
 
-                if (subtotal == 0)
+                if (subtotal == 0) // Se valida que el subtotal sea igua a 0
                 {
-                    lblSubTotal.Text = "0";
+                    lblSubTotal.Text = "0"; // Se asigna el valor de 0 a el lblSubTotal
                 }
                 else
                 {
-                    lblSubTotal.Text = subtotal.ToString("N");
+                    lblSubTotal.Text = subtotal.ToString("N"); // Se asigna el valor de la variable local subtotal a el lblSubTotal
                 }
 
-                if (dgvProductos.RowCount == 1)
-                {
-                    btnBorrar.Visible = false;
+                if (dgvProductos.RowCount == 1) // Se valida que las filas del DataGridView sea 1 para esconder el btnBorrar
+                { 
+                    btnBorrar.Visible = false; // Se cambia la propiedad visible del boton btnBorrar a false
                 }
 
+                // Se asignan valores a los respectivos labels 
                 lblIVA16.Text = TIVA16.ToString("N");
                 lblIVA11.Text = TIVA11.ToString("N");
                 lblIVA4.Text = TIVA4.ToString("N");
@@ -1606,33 +1731,38 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
+        /// <summary>
+        /// Boton con el cual se valida que los textbox correspondientes al clientes no esten vacios y poder ejecutar diferentes funciones
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            if (txtRFC.Text=="")
+        { 
+            if (txtRFC.Text == "") // Se valida que el txtRFC este vacio
             {
-                this.ErrorProvider.SetIconAlignment(this.txtRFC, ErrorIconAlignment.MiddleRight);
-                this.ErrorProvider.SetError(this.txtRFC, "Campo necesario");
-                this.txtRFC.Focus();
+                this.ErrorProvider.SetIconAlignment(this.txtRFC, ErrorIconAlignment.MiddleRight); // Se asigna el icono del error a el txtRFC
+                this.ErrorProvider.SetError(this.txtRFC, "Campo necesario"); // se asigna el mensaje de error a el txtRFC
+                this.txtRFC.Focus(); // Se asigna la propiedad focus al txtRFC
             }
-            else if (txtNombre.Text == "")
+            else if (txtNombre.Text == "") // Se valida que el txtNombre este vacio
             {
                 this.ErrorProvider.SetIconAlignment(this.txtNombre, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtNombre, "Campo necesario");
                 this.txtNombre.Focus();
             }
-            else if (txtDireccion.Text == "")
+            else if (txtDireccion.Text == "") // Se valida que el txtDireccion este vacio
             {
                 this.ErrorProvider.SetIconAlignment(this.txtDireccion, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtDireccion, "Campo necesario");
                 this.txtDireccion.Focus();
             }
-            else if (txtTelefono.Text == "")
+            else if (txtTelefono.Text == "") // Se valida que el txtTelefono este vacio
             {
                 this.ErrorProvider.SetIconAlignment(this.txtTelefono, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtTelefono, "Campo necesario");
                 this.txtTelefono.Focus();
             }
-            else if (txtCondicionesDePago.Text == "")
+            else if (txtCondicionesDePago.Text == "") // Se valida que el txtCondicionesDePago este vacio
             {
                 this.ErrorProvider.SetIconAlignment(this.txtCondicionesDePago, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtCondicionesDePago, "Campo necesario");
@@ -1640,13 +1770,13 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                crearCarpetaRaiz();
-                GenerarFactura();
-                CrearSelloFinkok(NameFileXML);
-                GenerarFactura();
-                ManejoFacturacion.timbrado(NameFileXML);
-                GuardarFactura();
-                Clear();
+                CrearCarpetas(); // Se manda llamar la funcion CrearCarpetas()
+                GenerarFactura(); // Se manda llamar la funcion GenerarFactura()
+                CrearSelloFinkok(NameFileXML); // Se manda llamar la funcion CrearSelloFinkok() y le mamda el nombre del archivo xml actual
+                GenerarFactura(); // Se manda llamar la funcion GenerarFactura()
+                ManejoFacturacion.timbrado(NameFileXML); // Se manda llamar la funcion timbrado() de la clase manejofacturacion y se le manda el nombre del archivo xml actual
+                GuardarFactura(); // Se manda llamar la funcion GuardarFactura()
+                Clear(); // Se manda llamar la funcion Clear()
             }
         }
 

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using SiscomSoft.Models;
 using System.Data.Entity;
@@ -11,6 +9,10 @@ namespace SiscomSoft.Controller
 {
     public class ManejoDescuentoProducto
     {
+        /// <summary>
+        /// Funcion encargada de modificar un registro de la base de datos
+        /// </summary>
+        /// <param name="nDesc"></param>
         public static void Modificar(DescuentoProducto nDesc)
         {
             try
@@ -28,7 +30,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static List<Descuento> ListarContenido()
+
+        /// <summary>
+        /// Funcion encargada de obtener todos los registros activos de la base de datos y retornar una lista de los mismos.
+        /// </summary>
+        /// <returns></returns>
+        public static List<Descuento> getAll()
         {
             try
             {
@@ -44,6 +51,11 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de obtener un registro mediante una id
+        /// </summary>
+        /// <param name="pkProducto"></param>
+        /// <returns></returns>
         public static List<DescuentoProducto> getById(int pkProducto)
         {
             try
@@ -62,6 +74,11 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="pkDescuento"></param>
+        /// <param name="pkProducto"></param>
         public static void registrarDescuentoProducto(int pkDescuento, int pkProducto)
         {
             try

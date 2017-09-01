@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Collections.Generic;
 
+//Librerias usadas
 using SiscomSoft.Models;
 using System.IO;
 using System.Xml;
@@ -14,6 +15,11 @@ namespace SiscomSoft.Controller
 {
     public class ManejoFacturacion
     {
+        /// <summary>
+        /// Funcion que se encarga de buscar una factura dandole un id
+        /// </summary>
+        /// <param name="idFactura">variable de tipo entera</param>
+        /// <returns></returns>
         public static Factura getById(int idFactura)
         {
             try
@@ -30,6 +36,10 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion que se encarga de contar todos los registros de la tabla factura y asignarlos como numero de folio
+        /// </summary>
+        /// <returns></returns>
         public static string Folio()
         {
             try
@@ -48,6 +58,10 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion que se encarga de realizar el timbrado de una facturacion dandole el nombre del archivo xml que se timbrara
+        /// </summary>
+        /// <param name="nameFile">variable de tipo string</param>
         public static void timbrado(string nameFile)
         {
             try
@@ -110,6 +124,10 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion que se encarga de realizar el timbrado de una facturacion dandole el nombre del archivo xml que se timbrara
+        /// </summary>
+        /// <param name="nameFileXML">variable de tipo string</param>
         public static void timbrar(string nameFileXML)
         {
             //try
@@ -144,6 +162,10 @@ namespace SiscomSoft.Controller
             //}
         }
 
+        /// <summary>
+        /// Funcion que se encarga de gurdar una nueva factura en la base de datos 
+        /// </summary>
+        /// <param name="nFactura">variable de tipo modelo factura</param>
         public static void Guardar(Factura nFactura)
         {
             try
