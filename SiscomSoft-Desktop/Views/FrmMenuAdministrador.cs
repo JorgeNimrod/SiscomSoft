@@ -68,7 +68,7 @@ namespace SiscomSoft_Desktop.Views
 
         public FrmMenuAdministrador()
         {
-          //  autocompletado();
+             autocompletado();
             InitializeComponent();
             this.dgrUpdateDesc.AutoGenerateColumns = false;
             this.dgrUpdateImp.AutoGenerateColumns = false;
@@ -377,6 +377,12 @@ namespace SiscomSoft_Desktop.Views
         }
         #endregion
 
+
+        /// <summary>
+        /// Boton que utiliza para mostrar el panel y la seccion de usuarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUser_Click(object sender, EventArgs e)
         {
             pnlEmpresas.Visible = false;
@@ -385,14 +391,23 @@ namespace SiscomSoft_Desktop.Views
             pnlUsuario.Visible = true;
         }
 
-        private void btnProductos_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Boton que utiliza para mostrar el panel y la seccion de productos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+       private void btnProductos_Click(object sender, EventArgs e)
         {
             pnlEmpresas.Visible = false;
             pnlUsuario.Visible = false;
             pnlCliente.Visible = false;
             pnlProducto.Visible = true;
         }
-
+        /// <summary>
+        /// Evento que se utiliza para cambiar de color los botones.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUserlist_MouseClick(object sender, MouseEventArgs e)
         {
             btnRollist.BackColor = Color.White;
@@ -400,7 +415,11 @@ namespace SiscomSoft_Desktop.Views
             btnUserlist.BackColor = Color.DarkCyan;
             btnUserlist.ForeColor = Color.White;
         }
-
+        /// <summary>
+        /// Evento que se utiliza para cambiar de color los botones.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRollist_MouseClick(object sender, MouseEventArgs e)
         {
             btnUserlist.BackColor = Color.White;
@@ -408,7 +427,11 @@ namespace SiscomSoft_Desktop.Views
             btnRollist.BackColor = Color.DarkCyan;
             btnRollist.ForeColor = Color.White;
         }
-
+        /// <summary>
+        /// Evento que se utiliza para cambiar de color los botones.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnProductolist_MouseClick(object sender, MouseEventArgs e)
         {
             btnCategorialist.BackColor = Color.White;
@@ -424,7 +447,11 @@ namespace SiscomSoft_Desktop.Views
             btnListaDescuentos.BackColor = Color.White;
             btnListaDescuentos.ForeColor = Color.Black;
         }
-
+        /// <summary>
+        /// Evento que se utiliza para cambiar de color los botones.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPreciolist_MouseClick(object sender, MouseEventArgs e)
         {
             btnCategorialist.BackColor = Color.White;
@@ -440,7 +467,11 @@ namespace SiscomSoft_Desktop.Views
             btnListaDescuentos.BackColor = Color.White;
             btnListaDescuentos.ForeColor = Color.Black;
         }
-
+        /// <summary>
+        /// Evento que se utiliza para cambiar de color los botones.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImpuestolist_MouseClick(object sender, MouseEventArgs e)
         {
             btnCategorialist.BackColor = Color.White;
@@ -457,6 +488,11 @@ namespace SiscomSoft_Desktop.Views
             btnListaDescuentos.ForeColor = Color.Black;
         }
 
+        /// <summary>
+        /// Evento que se utiliza para cambiar de color los botones.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCategorialist_MouseClick(object sender, MouseEventArgs e)
         {
             btnImpuestolist.BackColor = Color.White;
@@ -473,25 +509,7 @@ namespace SiscomSoft_Desktop.Views
             btnListaDescuentos.ForeColor = Color.Black;
         }
 
-        public static bool ValidarCurp(string curp)
-        {
-            string expresion = "^.*(?=.{18})(?=.*[0-9])(?=.*[A-ZÑ]).*$";
-            if (Regex.IsMatch(curp, expresion))
-            {
-                if (Regex.Replace(curp, expresion, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
+      
 
         private void btnUserlist_Click(object sender, EventArgs e)
         {
@@ -508,6 +526,17 @@ namespace SiscomSoft_Desktop.Views
             }
         }
         //TODO: hacer combo para cambiar status de todos los catalogos!!!!! :p
+
+
+
+        /// <summary>
+        /// se manda llamar la funcion cargarCombos().
+        /// se manda llamar la funcion CargarTablas().
+        /// se remueven los tbt.
+        /// se se les da el valor de 0 por defecto a los comboboxs.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
@@ -549,6 +578,7 @@ namespace SiscomSoft_Desktop.Views
             tbcGeneral.TabPages.Remove(tbpAddDescuento);
             tbcGeneral.TabPages.Remove(tbpUpdateDescuento);
             cmbStatusSucursal.SelectedIndex = 0;
+            
         }
 
         private void btnRollist_Click(object sender, EventArgs e)
@@ -657,7 +687,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Boton para eliminar los registros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBorrarRol_Click(object sender, EventArgs e)
         {
             if (dgvDatosRol.RowCount >= 1)
@@ -712,18 +746,30 @@ namespace SiscomSoft_Desktop.Views
                 cargarRoles();
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
                && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtComentario_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
@@ -806,25 +852,34 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
-
+        /// <summary>
+        /// Funcion que carga los datos del registro seleccionado a modificar.
+        /// </summary>
+     
         public void ActualizarRol()
         {
             Rol nRol = ManejoRol.getById(PKROL);
             txtUpdateNombre.Text = nRol.sNombre;
             txtUpdateComentario.Text = nRol.sComentario;
         }
+        /// <summary>
+        /// Funcion que carga los datos del registro seleccionado a modificar.
+        /// </summary>
         public void ActualizarDescuento()
         {
             Descuento nDescuento = ManejoDescuento.getById(PKDESCUENTO);
             txtUpdateDescEx.Text  = nDescuento.dTasaDescEx.ToString();
             txtUpdateTasaDesc.Text = nDescuento.dTasaDesc.ToString();
         }
+        /// <summary>
+        /// Funcion que carga los datos del registro seleccionado a modificar.
+        /// </summary>
         public void ActualizarCliente()
         {
             Cliente nCliente = ManejoCliente.getById(PKCLIENTE);
             txtRfcUpdateCli.Text = nCliente.sRfc;
             txtRazonUpdateCli.Text = nCliente.sRazonSocial;
-          //  cbxUpdatePersonaCli.Text = nCliente.iPersona.ToString();
+        
             txtCurpUpdateCli.Text = nCliente.sCurp;
             txtNombreUpdateCli.Text = nCliente.sNombre;
             txtPaisUpdateCli.Text = nCliente.sPais;
@@ -839,9 +894,7 @@ namespace SiscomSoft_Desktop.Views
             txtTelFijoUpdateCli.Text = nCliente.sTelFijo;
             txtTelMvlUpdateCli.Text = nCliente.sTelMovil;
             txtReferenciaUpdateCli.Text = nCliente.sReferencia;
-          //  cbxTipoCliUpdateCli.Text = nCliente.iTipoCliente;
-         //   cbxEstadoCliUpdateCli.Text = nCliente.iStatus.ToString();
-
+        
             if (nCliente.iPersona == 1)
             {
                 cbxUpdatePersonaCli.SelectedIndex = 0;
@@ -889,6 +942,9 @@ namespace SiscomSoft_Desktop.Views
 
 
         }
+        /// <summary>
+        /// Funcion que carga los datos del registro seleccionado a modificar.
+        /// </summary>
         public void ActualizarProducto()
         {
             Producto nProducto = ManejoProducto.getById(PKPRODUCTO);
@@ -917,6 +973,9 @@ namespace SiscomSoft_Desktop.Views
 
           
         }
+        /// <summary>
+        /// Funcion que carga los datos del registro seleccionado a modificar.
+        /// </summary>
         public void ActualizarPrecio()
         {
             Precio nPrecio = ManejoPrecio.getById(PKPRECIO);
@@ -924,12 +983,18 @@ namespace SiscomSoft_Desktop.Views
             txtupdateNamePrecio.Text = nPrecio.sNombre;
 
         }
+        /// <summary>
+        /// Funcion que carga los datos del registro seleccionado a modificar.
+        /// </summary>
         public void ActualizarCategoria()
         {
             Categoria nCategoria = ManejoCategoria.getById(PKCATEGORIA);
             txtActualizarNomCat.Text = nCategoria.sNomCat;
             txtActualizarSubCat.Text = nCategoria.sNomSubCat;
         }
+        /// <summary>
+        /// Funcion que carga los datos del registro seleccionado a modificar.
+        /// </summary>
         public void ActualizarUMD()
         {
           Catalogo  nCatalogo = ManejoCatalogo.getById(PKUMD);
@@ -939,6 +1004,9 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateAbrevUMD.Text = nCatalogo.sAbreviacion;
            
         }
+        /// <summary>
+        /// Funcion que carga los datos del registro seleccionado a modificar.
+        /// </summary>
         public void ActualizarUsuario()
         {
             Usuario nUsuario = ManejoUsuario.getById(PKUSUARIO);
@@ -952,6 +1020,9 @@ namespace SiscomSoft_Desktop.Views
             txtUpdateComment.Text = nUsuario.sComentario;
             txtUpdatePin.Text = nUsuario.sPin;
         }
+        /// <summary>
+        /// Funcion que carga los datos del registro seleccionado a modificar.
+        /// </summary>
         public void ActualizarImpuesto()
         {
             Impuesto nImpuesto = ManejoImpuesto.getById(PKIMPUESTO);
@@ -983,7 +1054,11 @@ namespace SiscomSoft_Desktop.Views
            
             txtActualiTasaImpu.Text = nImpuesto.dTasaImpuesto.ToString();
         }
-
+        /// <summary>
+        /// Evento para cambiar los colores de os botones.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdateRol_MouseClick(object sender, MouseEventArgs e)
         {
             btnUpdatePermisos.BackColor = Color.White;
@@ -991,7 +1066,11 @@ namespace SiscomSoft_Desktop.Views
             btnUpdateRol.BackColor = Color.Teal;
             btnUpdateRol.ForeColor = Color.White;
         }
-
+        /// <summary>
+        /// Evento para cambiar el color de los botones.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdatePermisos_MouseClick(object sender, MouseEventArgs e)
         {
             btnUpdateRol.BackColor = Color.White;
@@ -1014,7 +1093,11 @@ namespace SiscomSoft_Desktop.Views
         {
             lblRegistroUsuarios.Text = "Registros: " + dgvDatosUsuario.Rows.Count;
         }
-
+        /// <summary>
+        /// Boton para mostrar el catalogo de los usuarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegistrarUsuario_Click(object sender, EventArgs e)
         {
             if (flagAddUsuario == false)
@@ -1028,7 +1111,11 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.SelectedTab = tbpAddUsuario;
             }
         }
-
+        /// <summary>
+        /// Boton para mostrar la pestaña de actualziar usuarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnActualizarUsuario_Click(object sender, EventArgs e)
         {
             if (this.dgvDatosUsuario.RowCount >= 1)
@@ -1117,7 +1204,11 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardarCategoria_Click(object sender, EventArgs e)
         {
             if (this.txtNombreCategoria.Text == "")
@@ -1176,7 +1267,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnActualiCateg_Click(object sender, EventArgs e)
         {
             if (this.txtActualizarNomCat.Text == "")
@@ -1207,51 +1302,87 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreCategoria_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtSubcategoria_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreCategoria_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
               && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtSubcategoria_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
               && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualizarNomCat_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualizarSubCat_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualizarNomCat_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
               && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualizarSubCat_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
               && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Boton para eliminar registros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBorrarCategoria_Click(object sender, EventArgs e)
         {
             if (dgvDatosCategoria.RowCount >= 1)
@@ -1284,7 +1415,11 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardarImpuesto_Click(object sender, EventArgs e)
         {
             if (this.cbxTipoImpuestoAdd.Text == "")
@@ -1325,22 +1460,38 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTipoImpuesto_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtImpuesto_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTasaImpuesto_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validacion Solo Decimales.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTasaImpuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox dText = new TextBox();
@@ -1390,7 +1541,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento doble clic para abrir la pestaña de actualiar impuestos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvDatosImpuesto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgvDatosImpuesto.RowCount >= 1)
@@ -1404,7 +1559,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento de doble clic para abrir la pestaña de actualizar Categoria.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvDatosCategoria_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgvDatosCategoria.RowCount >= 1)
@@ -1418,7 +1577,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento de doble clic para abrir la pestaña deactualizar Roles.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvDatosRol_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgvDatosRol.RowCount >= 1)
@@ -1432,7 +1595,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnacatualiImpu_Click(object sender, EventArgs e)
         {
             if (this.cbxUpdateTipoImpuesto.Text == "Seleccione Una Opcion")
@@ -1468,22 +1635,38 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualiTipoImpues_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualiImpu_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>0
         private void txtActualiTasaImpu_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validacion Solo Decimales.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualiTasaImpu_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox dText = new TextBox();
@@ -1519,31 +1702,51 @@ namespace SiscomSoft_Desktop.Views
             else
                 e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualiImpu_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
              && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualiTipoImpues_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
              && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTipoImpuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
              && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtImpuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
              && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBorrarImpuesto_Click(object sender, EventArgs e)
         {
             if (dgvDatosImpuesto.RowCount >= 1)
@@ -1567,7 +1770,11 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegistrarUsu_Click(object sender, EventArgs e)
         {
             if (this.txtRFC.Text == "")
@@ -1665,7 +1872,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdateGuardar_Click(object sender, EventArgs e)
         {
             if (this.txtUpdateRFCUser.Text == "")
@@ -1735,7 +1946,11 @@ namespace SiscomSoft_Desktop.Views
                 cargarUsuarios();
             }
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegistrarProducto_Click(object sender, EventArgs e)
         {
             if (flagAddProducto == false)
@@ -1749,7 +1964,11 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.SelectedTab = tbpAddProducto;
             }
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddProducto_Click(object sender, EventArgs e)
         {
             if (this.txtClaveaddprod.Text == "")
@@ -1893,7 +2112,11 @@ namespace SiscomSoft_Desktop.Views
                 cargarProductos();
             }
         }
-
+        /// <summary>
+        /// Boton para buscar una imagen en los archivos de la computadora.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExaImgProdu_Click(object sender, EventArgs e)
         {
             try
@@ -1917,7 +2140,11 @@ namespace SiscomSoft_Desktop.Views
                 MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Boton para eliminar un registro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBorrarProducto_Click(object sender, EventArgs e)
         {
             if (dgvDatosProducto.RowCount >= 1)
@@ -1931,7 +2158,11 @@ namespace SiscomSoft_Desktop.Views
                 }
             }
         }
-
+        /// <summary>
+        /// Boton para mostrar la pestaña agregar precio.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegistrarPrecio_Click(object sender, EventArgs e)
         {
             if (flagAddPrecio == false)
@@ -1945,7 +2176,11 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.SelectedTab = tbpAddPrecio;
             }
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregarPrecio_Click(object sender, EventArgs e)
         {
             if (this.txtNombrePrecio.Text == "")
@@ -1980,7 +2215,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Boton para mostrar catalogo de precios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPrecio_Click(object sender, EventArgs e)
         {
             if (this.dgvDatosPrecio.RowCount >= 1)
@@ -1996,7 +2235,11 @@ namespace SiscomSoft_Desktop.Views
             }
 
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdatePrecio_Click(object sender, EventArgs e)
         {
             if (this.txtupdateNamePrecio.Text == "")
@@ -2025,7 +2268,11 @@ namespace SiscomSoft_Desktop.Views
                 cargarPrecios();
             }
         }
-
+        /// <summary>
+        /// Boton para eliminar registros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBorrarPrecio_Click(object sender, EventArgs e)
         {
             if (dgvDatosPrecio.RowCount >= 1)
@@ -2040,48 +2287,84 @@ namespace SiscomSoft_Desktop.Views
             }
 
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateRFCUser_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNameUser_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateContrasena_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateUser_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCorreo_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePhone_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateComment_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNameUser_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
               && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnActualizarProducto_Click(object sender, EventArgs e)
         {
             if (this.dgvDatosProducto.RowCount >= 1)
@@ -2094,7 +2377,11 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.SelectedTab = tbpUpdateProducto;
             }
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnActualizarProd_Click(object sender, EventArgs e)
         {
             if (this.txtUpdateClavProd.Text == "")
@@ -2115,13 +2402,7 @@ namespace SiscomSoft_Desktop.Views
                 this.ErrorProvider.SetError(this.txtUpdateCostoProd, "Campo necesario");
                 this.txtUpdateCostoProd.Focus();
             }
-            //else if (this.txtUpdateDescProd.Text == "")
-            //{
-            //    this.ErrorProvider.SetIconAlignment(this.txtUpdateDescProd, ErrorIconAlignment.MiddleRight);
-            //    this.ErrorProvider.SetError(this.txtUpdateDescProd, "Campo necesario");
-            //    this.txtDescuentoProd.Focus();
-            //}
-
+            
          
             else if (this.txtUpdatePVProd.Text == "")
             {
@@ -2130,25 +2411,14 @@ namespace SiscomSoft_Desktop.Views
                 this.txtUpdatePVProd.Focus();
             }
 
-            //else if (this.txtUpdateLineaProd.Text == "")
-            //{
-            //    this.ErrorProvider.SetIconAlignment(this.txtUpdateLineaProd, ErrorIconAlignment.MiddleRight);
-            //    this.ErrorProvider.SetError(this.txtUpdateLineaProd, "Campo necesario");
-            //    this.txtUpdateLineaProd.Focus();
-            //}
+          
             else if (this.txtUpdateDesProd.Text == "")
             {
                 this.ErrorProvider.SetIconAlignment(this.txtUpdateDesProd, ErrorIconAlignment.MiddleRight);
                 this.ErrorProvider.SetError(this.txtUpdateDesProd, "Campo necesario");
                 this.txtUpdateDesProd.Focus();
             }
-            //else if (this.txtUpdateSubProd.Text == "")
-            //{
-            //    this.ErrorProvider.SetIconAlignment(this.txtUpdateSubProd, ErrorIconAlignment.MiddleRight);
-            //    this.ErrorProvider.SetError(this.txtUpdateSubProd, "Campo necesario");
-            //    this.txtUpdateSubProd.Focus();
-            //}
-
+        
 
             else if (this.pcbUpdateImgProd == null)
             {
@@ -2158,12 +2428,7 @@ namespace SiscomSoft_Desktop.Views
             }
             else
             {
-                //Categoria nCategoria = new Categoria();
-                //nCategoria.pkCategoria = PKCATEGORIA;
-                //nCategoria.sNombre = txtUpdateLineaProd.Text;
-                //nCategoria.sNomSubCat = txtUpdateSubProd.Text;
-
-             /*   ManejoCategoria.Modificar(nCategoria)*/;
+             
 
                 Producto nProducto = new Producto();
                 nProducto.idProducto = PKPRODUCTO;
@@ -2195,7 +2460,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Boton para buscar una imagen en los archivos de la computadora.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdateExamProd_Click(object sender, EventArgs e)
         {
             try
@@ -2220,6 +2489,11 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
+        /// <summary>
+        /// Validadcion Solo Decimales.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCostoProd_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox dText = new TextBox();
@@ -2255,7 +2529,11 @@ namespace SiscomSoft_Desktop.Views
             else
                 e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Decimales.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCostoAddProd_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox dText = new TextBox();
@@ -2292,7 +2570,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
 
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -2312,7 +2594,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -2332,7 +2618,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDescuentoProd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -2352,7 +2642,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLoteAddProd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -2372,7 +2666,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateDescProd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -2392,7 +2690,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateLoteProd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -2412,7 +2714,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -2432,7 +2738,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -2452,41 +2762,74 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNombre_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateComentario_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreUsuario_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtRFC_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtContraseña_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCorreo_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
+
+        /// <summary>
+        /// Funcion para validar el Correo Electronico.
+        /// </summary>
+      
         public static bool ValidarEmail(string email)
         {
             string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
@@ -2511,7 +2854,11 @@ namespace SiscomSoft_Desktop.Views
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que valida que el correo electronico este en formato correcto.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCorreo_Leave(object sender, EventArgs e)
         {
 
@@ -2648,7 +2995,11 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.SelectedTab = tbpAddCliente;
             }
         }
-
+        /// <summary>
+        /// Boton para buscar una imagen en los archivos de la computadora.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExaminar_Click(object sender, EventArgs e)
         {
             try
@@ -2672,7 +3023,11 @@ namespace SiscomSoft_Desktop.Views
                 MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardarCliente_Click(object sender, EventArgs e)
         {
             if (this.txtRFCAddCli.Text == "")
@@ -2925,7 +3280,11 @@ namespace SiscomSoft_Desktop.Views
                 cargarClientes();
             }
         }
-
+        /// <summary>
+        /// Boton para buscar una imagen en los archivos de la computadora.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExaminarUpdateCli_Click(object sender, EventArgs e)
         {
             try
@@ -2949,7 +3308,11 @@ namespace SiscomSoft_Desktop.Views
                 MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAcualizarCli_Click(object sender, EventArgs e)
         {
             if (this.txtRfcUpdateCli.Text == "")
@@ -3189,25 +3552,41 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPaisUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
             && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtEstadoUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
             && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtMunicipioUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
             && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelMvlUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3241,32 +3620,56 @@ namespace SiscomSoft_Desktop.Views
                 }
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtRFCAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtRazonAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPersonaAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCurpAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPaisAddCli_TextChanged(object sender, EventArgs e)
         {
             
@@ -3274,202 +3677,362 @@ namespace SiscomSoft_Desktop.Views
 
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCodigoPosAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtEstadoAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLocalidadAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtMunicipioAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtColoniaAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCalleAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumExteAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNuminteAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelMvilAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelFijoAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtReferenciaAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del combo limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxTipoClienteAddCli_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del combo limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxEstadoCliAddCli_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumCuentaAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del combo limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxMetodoPagoAddCli_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCorreoAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCondicionesPagoAddCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtRfcUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtRazonUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPersonaUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCurpUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPaisUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCPUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtEstadoUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLocalidadUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtMunicipioUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtColoniaUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCalleUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumExteUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumInteUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelMvlUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelFijoUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtReferenciaUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxTipoCliUpdateCli_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxEstadoCliUpdateCli_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumCuentaUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del combo limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxMetodoPagoUpdateCli_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCorreoUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCondicionesUpdateCli_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
@@ -3489,7 +4052,11 @@ namespace SiscomSoft_Desktop.Views
                 txtCorreoUpdateCli.Focus();
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPersonaAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3509,7 +4076,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCodigoPosAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3529,7 +4100,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumExteAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3549,7 +4124,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNuminteAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3569,7 +4148,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelMvilAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3589,7 +4172,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumCuentaAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3609,7 +4196,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelFijoAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3650,19 +4241,31 @@ namespace SiscomSoft_Desktop.Views
         {
           
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
             && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtEstadoAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
             && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtMunicipioAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
@@ -3673,13 +4276,21 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
             && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCPUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3699,7 +4310,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPersonaUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3719,7 +4334,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumExteUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3739,7 +4358,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumInteUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3759,7 +4382,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelFijoUpdateCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -3784,13 +4411,21 @@ namespace SiscomSoft_Desktop.Views
         {
            
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPaisAddCli_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
             && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardarEmpresa_Click(object sender, EventArgs e)
         {
             if (this.txtAddNombreComercialEmpresa.Text == "")
@@ -4119,12 +4754,20 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.SelectedTab = tbpSucursal;
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtClaveaddprod_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtClaveaddprod_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -4144,27 +4787,47 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtMarcaaddProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCostoAddProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDescuentoProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLoteAddProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLineaAddProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
@@ -4305,7 +4968,11 @@ namespace SiscomSoft_Desktop.Views
         {
             cargarSucursal();
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardarSucursales_Click(object sender, EventArgs e)
         {
             if (this.txtAddNombreSucursal.Text == "")
@@ -4626,68 +5293,120 @@ namespace SiscomSoft_Desktop.Views
             
             txtAddCertificado.Text = nameFileCer;
     }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddFolcerCertificados_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCertificado_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddKey_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddContraseña_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNumSerieSucursal_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNombreSucursal_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddPaiSucursal_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddEstadoSucursal_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddMunicipioSucursal_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCalleSucursal_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
             
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddColoniaSucursal_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddLocalidadSucursal_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNumInteriorSucursal_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
@@ -4762,7 +5481,11 @@ namespace SiscomSoft_Desktop.Views
 
             txtUpdateKey.Text = rutaArchivoKey;
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNoSerie_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
@@ -4971,32 +5694,56 @@ namespace SiscomSoft_Desktop.Views
                 cargarSucursal();
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateFolderCertificados_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCertificado_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateKey_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateContraseñaCertificado_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox10_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
@@ -5006,32 +5753,56 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox11_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox15_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox12_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox16_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox17_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
@@ -5041,12 +5812,20 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtClaveaddprod_TextChanged_1(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtClaveaddprod_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5145,7 +5924,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCostoAddProd_TextChanged_1(object sender, EventArgs e)
         {
 
@@ -5153,42 +5936,74 @@ namespace SiscomSoft_Desktop.Views
             nepe();
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtMarcaaddProd_TextChanged_1(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDescuentoProd_TextChanged_1(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLoteAddProd_TextChanged_1(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDescripcionAddProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtSublineaAddProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLineaAddProd_TextChanged_1(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateClavProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateClavProd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5208,47 +6023,83 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateMarcProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateDescProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateLoteProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateLineaProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateDesProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateSubProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddPrecio_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePrecio_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNoInterior_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5268,7 +6119,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNoExterior_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5293,25 +6148,41 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateMunicipio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
            && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePais_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
            && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateEstado_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
            && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNumInteriorSucursal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5331,7 +6202,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddnumExteriorSucursal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5351,43 +6226,71 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddMunicipioSucursal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
           && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCalleSucursal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
           && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddPaiSucursal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
           && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddEstadoSucursal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
           && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateMunicipioEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
           && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateColoniaEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
           && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCorreoElectronicoEmpresa_Leave(object sender, EventArgs e)
         {
             if (ValidarEmail(txtAddCorreoElectronicoEmpresa.Text))
@@ -5402,7 +6305,11 @@ namespace SiscomSoft_Desktop.Views
                 txtAddCorreoElectronicoEmpresa.Focus();
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddTelefonoEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5422,7 +6329,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNumInteriorEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5442,7 +6353,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNumExteriorEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5462,7 +6377,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateTelefonoEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5482,7 +6401,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNumInteriorEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5502,7 +6425,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNumExteriorEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5522,7 +6449,11 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Evento que valida que el formato del correo electronico sea correcto.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCorreoEmpresa_Leave(object sender, EventArgs e)
         {
             if (ValidarEmail(txtUpdateCorreoEmpresa.Text))
@@ -5537,206 +6468,362 @@ namespace SiscomSoft_Desktop.Views
                 txtUpdateCorreoEmpresa.Focus();
             }
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddPaisEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
          && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddEstadoEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
          && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddMunicipioEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
          && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePaisEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
          && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateEstadoEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
          && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNombreComercialEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNombreContactoEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddRazonSocialEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddTelefonoEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCorreoElectronicoEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddPaisEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del combo limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbAddRegimenFiscalEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del combo limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddEstadoEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddMunicipioEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCalleEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear()
                 ;
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddColoniaEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddLocalidadEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNumInteriorEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNumExteriorEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNomComercialEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNombContactoEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateRazonSocialEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateTelefonoEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCorreoEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del combo limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbUpdateRegimenFiscalEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePaisEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateEstadoEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateMunicipioEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCalleEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateColoniaEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateLocalidadEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNumInteriorEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNumExteriorEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del combo limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbUpdateCodigoPostalEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
              && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
             && e.KeyChar != 8) e.Handled = true;
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del combo limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxRol_SelectedIndexChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
@@ -5748,26 +6835,17 @@ namespace SiscomSoft_Desktop.Views
             ErrorProvider.Clear();
         }
 
-        private void tbpAddProducto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvDatosCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tbpUpdateProducto_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void txtUpdatePin_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePin_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5792,7 +6870,11 @@ namespace SiscomSoft_Desktop.Views
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPin_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -5879,7 +6961,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             if (this.txtUpdateUMD.Text == "")
@@ -5915,7 +7001,11 @@ namespace SiscomSoft_Desktop.Views
         {
             cargarUMD();
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             if (this.txtCodigoUDM.Text == "")
@@ -5971,7 +7061,11 @@ namespace SiscomSoft_Desktop.Views
         {
             lblCantidadUMD.Text = "Registros: " + dgrDatosUMD.Rows.Count;
         }
-
+        /// <summary>
+        /// Boton para eliminar los registros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDeleteUMD_Click(object sender, EventArgs e)
         {
             if (dgrDatosUMD.RowCount >= 1)
@@ -5985,12 +7079,20 @@ namespace SiscomSoft_Desktop.Views
                 }
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddUMD_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateUMD_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
@@ -6025,7 +7127,11 @@ namespace SiscomSoft_Desktop.Views
             //        txtAddUMD.Text = "";
             //    }
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateUMD_MouseClick(object sender, MouseEventArgs e)
         {
           //  txtUpdateUMD.Text = FrmKeyboard.informacion;
@@ -6035,37 +7141,65 @@ namespace SiscomSoft_Desktop.Views
         {
           
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNoCertificado_MouseClick(object sender, MouseEventArgs e)
         {
           // txtUpdateNoCertificado.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateContraseñaCertificado_MouseClick(object sender, MouseEventArgs e)
         {
        //     txtUpdateContraseñaCertificado.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateValidoHasta_MouseClick(object sender, MouseEventArgs e)
         {
          //   txtUpdateValidoHasta.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateValidoDe_MouseClick(object sender, MouseEventArgs e)
         {
            // txtUpdateValidoDe.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNoSerie_MouseClick(object sender, MouseEventArgs e)
         {
         //    txtUpdateNoSerie.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNomSucursal_MouseClick(object sender, MouseEventArgs e)
         {
           //  txtUpdateNomSucursal.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePais_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdatePais.Text = FrmKeyboard.informacion;
@@ -6075,28 +7209,48 @@ namespace SiscomSoft_Desktop.Views
         {
             //txtUpdateEstado.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateMunicipio_MouseClick(object sender, MouseEventArgs e)
         {
             
             //txtUpdateMunicipio.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCalle_MouseClick(object sender, MouseEventArgs e)
         {
        //    txtUpdateCalle.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateColonia_MouseClick(object sender, MouseEventArgs e)
         {
          //   txtUpdateColonia.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateLocalidad_MouseClick(object sender, MouseEventArgs e)
         {
            //txtUpdateLocalidad.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNoInterior_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6106,12 +7260,20 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNoExterior_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateNoExterior.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Validadcion Solo Letras.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddUMD_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
@@ -6149,7 +7311,11 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
-
+        /// <summary>
+        /// Validacion Solo Decimales.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox dText = new TextBox();
@@ -6205,7 +7371,11 @@ namespace SiscomSoft_Desktop.Views
         {
 
         }
-
+        /// <summary>
+        /// Boton para cambiar los colores de los botones.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnListaDescuentos_MouseClick(object sender, MouseEventArgs e)
         {
             btnCategorialist.BackColor = Color.White;
@@ -6250,7 +7420,11 @@ namespace SiscomSoft_Desktop.Views
         {
             lblCatidadDescuento.Text = "Registros: " + dgrDatosDescuento.Rows.Count;
         }
-
+        /// <summary>
+        /// Boton para abrir pestaña de actulizar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click_1(object sender, EventArgs e)
         {
             if (this.dgrDatosDescuento.RowCount >= 1)
@@ -6263,7 +7437,11 @@ namespace SiscomSoft_Desktop.Views
                 tbcGeneral.SelectedTab = tbpUpdateDescuento;
             }
         }
-
+        /// <summary>
+        /// Boton para eliminar los registros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             if (dgrDatosDescuento.RowCount >= 1)
@@ -6277,7 +7455,11 @@ namespace SiscomSoft_Desktop.Views
                 }
             }
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button6_Click_1(object sender, EventArgs e)
         {
             if (this.txtTasaDescuento.Text == "")
@@ -6318,37 +7500,65 @@ namespace SiscomSoft_Desktop.Views
         {
            
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPrecioVenta_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePVProd_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTasaDescuento_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTasaDescuentoEx_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateTasaDesc_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateDescEx_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Boton para guardar los registros sin campos vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button7_Click(object sender, EventArgs e)
         {
             if (this.txtUpdateTasaDesc.Text == "")
@@ -6415,7 +7625,11 @@ namespace SiscomSoft_Desktop.Views
            
             
         }
-
+        /// <summary>
+        /// Validacion Solo Decimales.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTasaDescuento_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox dText = new TextBox();
@@ -6451,7 +7665,11 @@ namespace SiscomSoft_Desktop.Views
             else
                 e.Handled = true;
         }
-
+        /// <summary>
+        /// Validacion Solo Decimales.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTasaDescuentoEx_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox dText = new TextBox();
@@ -6487,7 +7705,11 @@ namespace SiscomSoft_Desktop.Views
             else
                 e.Handled = true;
         }
-
+        /// <summary>
+        /// Validacion Solo Decimales.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateTasaDesc_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox dText = new TextBox();
@@ -6523,7 +7745,11 @@ namespace SiscomSoft_Desktop.Views
             else
                 e.Handled = true;
         }
-
+        /// <summary>
+        /// Validacion Solo Decimales.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateDescEx_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox dText = new TextBox();
@@ -6559,7 +7785,11 @@ namespace SiscomSoft_Desktop.Views
             else
                 e.Handled = true;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateDescEx_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6569,19 +7799,31 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateTasaDesc_MouseClick(object sender, MouseEventArgs e)
         {
            
 
             //txtUpdateTasaDesc.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTasaDescuento_MouseClick(object sender, MouseEventArgs e)
         {
             //txtTasaDescuento.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTasaDescuentoEx_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6591,37 +7833,65 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNoCertificado_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateValidoDe_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateValidoHasta_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNoCertficado_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddValidoDe_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddValidoHasta_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNumSerieSucursal_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddNumSerieSucursal.Text = FrmKeyboard.informacion;
@@ -6631,82 +7901,142 @@ namespace SiscomSoft_Desktop.Views
         {
             //txtAddPaiSucursal.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNombreSucursal_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddNombreSucursal.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddMunicipioSucursal_MouseClick(object sender, MouseEventArgs e)
         {
            //txtAddMunicipioSucursal.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtBuscarImpuesto_MouseClick(object sender, MouseEventArgs e)
         {
            //txtBuscarImpuesto.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtBuscarCategoria_MouseClick(object sender, MouseEventArgs e)
         {
             //txtBuscarCategoria.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtBuscarUsuario_MouseClick(object sender, MouseEventArgs e)
         {
             //txtBuscarUsuario.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtBuscarRol_MouseClick(object sender, MouseEventArgs e)
         {
             //txtBuscarRol.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombre_MouseClick(object sender, MouseEventArgs e)
         {
             //txtNombre.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtComentario_MouseClick(object sender, MouseEventArgs e)
         {
             //txtComentario.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNombre_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateNombre.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateComentario_MouseClick(object sender, MouseEventArgs e)
         {
             //    txtUpdateComentario.Text = FrmKeyboard.informacion;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreCategoria_MouseClick(object sender, MouseEventArgs e)
         {
             //txtNombreCategoria.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtSubcategoria_MouseClick(object sender, MouseEventArgs e)
         {
            //txtSubcategoria.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualizarNomCat_MouseClick(object sender, MouseEventArgs e)
         {
             //txtActualizarNomCat.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualizarSubCat_MouseClick(object sender, MouseEventArgs e)
         {
             //txtActualizarSubCat.Text = FrmKeyboard.informacion;
         }
 
-       
 
-      
 
+
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTasaImpuesto_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6717,7 +8047,11 @@ namespace SiscomSoft_Desktop.Views
             //}
         }
 
-    
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtActualiTasaImpu_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6728,32 +8062,56 @@ namespace SiscomSoft_Desktop.Views
             //}
 
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtRFC_MouseClick(object sender, MouseEventArgs e)
         {
             //txtRFC.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreUsuario_MouseClick(object sender, MouseEventArgs e)
         {
             //txtNombreUsuario.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtContraseña_MouseClick(object sender, MouseEventArgs e)
         {
             //txtContraseña.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUsuario_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUsuario.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCorreo_MouseClick(object sender, MouseEventArgs e)
         {
             //txtCorreo.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelefono_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6763,7 +8121,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPin_MouseClick(object sender, MouseEventArgs e)
         {
             //txtPin.Text = FrmKeyboard.informacion;
@@ -6773,27 +8135,47 @@ namespace SiscomSoft_Desktop.Views
         {
           
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateRFCUser_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateRFCUser.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateContrasena_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateContrasena.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateUser_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateUser.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCorreo_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateCorreo.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePhone_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6803,17 +8185,29 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePin_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdatePin.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateComment_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateComment.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtClaveaddprod_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6823,7 +8217,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCostoAddProd_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6833,7 +8231,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLoteAddProd_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6843,7 +8245,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtMarcaaddProd_MouseClick(object sender, MouseEventArgs e)
         {
             //txtMarcaaddProd.Text = FrmKeyboard.informacion;
@@ -6853,7 +8259,11 @@ namespace SiscomSoft_Desktop.Views
         {
            //txtDescripcionAddProd.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPrecioVenta_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6863,7 +8273,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateClavProd_MouseClick(object sender, MouseEventArgs e)
         {
             //    if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6873,7 +8287,11 @@ namespace SiscomSoft_Desktop.Views
             //        FrmKeyboard.statusKeyboard = false;
             //    }
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCostoProd_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6883,7 +8301,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateLoteProd_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6893,17 +8315,29 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateMarcProd_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateMarcProd.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateDesProd_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateDesProd.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePVProd_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6913,7 +8347,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddPrecio_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6923,7 +8361,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePrecio_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6932,28 +8374,49 @@ namespace SiscomSoft_Desktop.Views
             //    txtUpdatePrecio.Text = FrmKeyboard.informacion;
             //    FrmKeyboard.statusKeyboard = false;
             //}
-        }
+        }  
+        /// <summary>
+           /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+           /// </summary>
+           /// <param name="sender"></param>
+           /// <param name="e"></param>
 
         private void txtBuscarEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtBuscarEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNombreComercialEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddNombreComercialEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNombreContactoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddNombreContactoEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddRazonSocialEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddRazonSocialEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddTelefonoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -6963,42 +8426,74 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCorreoElectronicoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddCorreoElectronicoEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddPaisEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddPaisEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddEstadoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddEstadoEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddMunicipioEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddMunicipioEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCalleEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddCalleEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddColoniaEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddColoniaEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddLocalidadEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtAddLocalidadEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNumInteriorEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7008,7 +8503,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNumExteriorEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7018,7 +8517,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCodigoPostalEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -7038,12 +8541,20 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCodigoPostalEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCPEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7053,7 +8564,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCPEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -7073,22 +8588,38 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCPEmpresa_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateColoniaEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateColoniaEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateLocalidadEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateLocalidadEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNumInteriorEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7098,22 +8629,38 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateCalleEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateCalleEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateMunicipioEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateMunicipioEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdatePaisEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdatePaisEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateEstadoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateEstadoEmpresa.Text = FrmKeyboard.informacion;
@@ -7123,7 +8670,11 @@ namespace SiscomSoft_Desktop.Views
         {
             //txtUpdateCorreoEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateTelefonoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7133,22 +8684,38 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateRazonSocialEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateRazonSocialEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNombContactoEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateNombContactoEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNomComercialEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //txtUpdateNomComercialEmpresa.Text = FrmKeyboard.informacion;
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtBuscarCliente_MouseClick(object sender, MouseEventArgs e)
         {
             //txtBuscarCliente.Text = FrmKeyboard.informacion;
@@ -7172,7 +8739,11 @@ namespace SiscomSoft_Desktop.Views
                 }
             }
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtComentUsua_MouseClick(object sender, MouseEventArgs e)
         {
             //txtComentUsua.Text = FrmKeyboard.informacion;
@@ -7199,7 +8770,11 @@ namespace SiscomSoft_Desktop.Views
                 txtCurpUpdateCli.Clear();
             }
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCodigoPSucu_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7211,6 +8786,11 @@ namespace SiscomSoft_Desktop.Views
 
         }
 
+        /// <summary>
+        /// Validadcion Solo Numeros.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCodigoPSucu_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -7230,17 +8810,29 @@ namespace SiscomSoft_Desktop.Views
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddnumExteriorSucursal_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento que al cambiar el texto del textbox limpia el ErrorProvider.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCodigoPSucu_TextChanged(object sender, EventArgs e)
         {
             ErrorProvider.Clear();
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddnumExteriorSucursal_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7251,7 +8843,11 @@ namespace SiscomSoft_Desktop.Views
             //}
 
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddNumInteriorSucursal_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7261,7 +8857,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCPUpdateCli_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7271,7 +8871,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelMvlUpdateCli_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7281,7 +8885,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumInteUpdateCli_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7291,7 +8899,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumExteUpdateCli_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7301,7 +8913,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelFijoUpdateCli_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7311,7 +8927,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumCuentaUpdateCli_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7321,7 +8941,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCodigoPosAddCli_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7331,7 +8955,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumExteAddCli_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7341,7 +8969,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNuminteAddCli_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7351,7 +8983,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelMvilAddCli_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7361,7 +8997,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelFijoAddCli_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7371,7 +9011,11 @@ namespace SiscomSoft_Desktop.Views
             //    FrmKeyboard.statusKeyboard = false;
             //}
         }
-
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUpdateNumExteriorEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7382,6 +9026,11 @@ namespace SiscomSoft_Desktop.Views
             //}
         }
 
+        /// <summary>
+        /// Evento para pasar la variable de la forma Keyboard a un textboxt de MenuAdministrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAddCodigoPostalEmpresa_MouseClick(object sender, MouseEventArgs e)
         {
             //if (FrmKeyboard.statusKeyboard == true && FrmKeyboard.FlagNumbers == true)
@@ -7396,7 +9045,11 @@ namespace SiscomSoft_Desktop.Views
         {
             nepe();
         }
-
+        /// <summary>
+        /// Evento de doble clic para abrir la pestaña de actualizar productos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvDatosProducto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgvDatosProducto.RowCount >= 1)
@@ -7424,7 +9077,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento de doble clic para abrir la pestaña de actualizar Usuarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvDatosUsuario_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgvDatosUsuario.RowCount >= 1)
@@ -7438,7 +9095,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento de doble clic para abrir la pestaña de actualizar Empresas.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvDatosEmpresa_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgvDatosEmpresa.RowCount >= 1)
@@ -7452,7 +9113,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento de doble clic para abrir la pestaña de actualizar Clientes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvDatosCliente_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgvDatosCliente.RowCount >= 1)
@@ -7466,7 +9131,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento de doble clic para abrir la pestaña de actualizar Sucursales.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvDatosSucursal_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgvDatosSucursal.RowCount >= 1)
@@ -7480,7 +9149,11 @@ namespace SiscomSoft_Desktop.Views
 
             }
         }
-
+        /// <summary>
+        /// Evento de doble clic para abrir la pestaña de actualizar Unidades de medida.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgrDatosUMD_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgrDatosUMD.RowCount >= 1)
@@ -7495,6 +9168,11 @@ namespace SiscomSoft_Desktop.Views
             }
         }
 
+        /// <summary>
+        /// Evento de doble clic para abrir la pestaña de actualizar descuento.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgrDatosDescuento_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgrDatosDescuento.RowCount >= 1)
@@ -7519,6 +9197,11 @@ namespace SiscomSoft_Desktop.Views
 
         }
 
+        /// <summary>
+        /// Combobox que se utiliza al seleccionar diferente persona (ocultar curp y nombre).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxAddPersonaCli_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxAddPersonaCli.SelectedIndex == 0)

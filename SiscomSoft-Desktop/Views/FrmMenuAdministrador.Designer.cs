@@ -3009,7 +3009,7 @@
             this.tbpAddProducto.TabIndex = 14;
             this.tbpAddProducto.Text = "Registrar Producto";
             this.tbpAddProducto.UseVisualStyleBackColor = true;
-            this.tbpAddProducto.Click += new System.EventHandler(this.tbpAddProducto_Click);
+    
             // 
             // cbxAddProdCategoria
             // 
@@ -3374,7 +3374,7 @@
             this.tbpUpdateProducto.TabIndex = 15;
             this.tbpUpdateProducto.Text = "Actualizar Producto";
             this.tbpUpdateProducto.UseVisualStyleBackColor = true;
-            this.tbpUpdateProducto.Click += new System.EventHandler(this.tbpUpdateProducto_Click);
+        
             // 
             // cbxUpdateCategoriaProd
             // 
@@ -4878,7 +4878,7 @@
             this.dgvDatosCliente.Size = new System.Drawing.Size(955, 473);
             this.dgvDatosCliente.TabIndex = 37;
             this.dgvDatosCliente.DataSourceChanged += new System.EventHandler(this.dgvDatosCliente_DataSourceChanged);
-            this.dgvDatosCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCliente_CellContentClick);
+         
             this.dgvDatosCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCliente_CellDoubleClick_1);
             // 
             // pkClientes
