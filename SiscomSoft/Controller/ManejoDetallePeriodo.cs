@@ -10,6 +10,10 @@ namespace SiscomSoft.Controller
 {
     public class ManejoDetallePeriodo
     {
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="nDetallePeriodo"></param>
         public static void Guardar(DetallePeriodo nDetallePeriodo)
         {
             try

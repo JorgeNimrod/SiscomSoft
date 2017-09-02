@@ -93,7 +93,6 @@
     <Compile Include="Controller\ManejoImpuestoProducto.cs" />
     <Compile Include="Controller\ManejoEmpresa.cs" />
     <Compile Include="Controller\ManejoPeriodo.cs" />
-    <Compile Include="Controller\ManejoSelloCFDI33.cs" />
     <Compile Include="Controller\ManejoVenta.cs" />
     <Compile Include="Migrations\201708292220560_INICIAL.cs" />
     <Compile Include="Migrations\201708292220560_INICIAL.Designer.cs">

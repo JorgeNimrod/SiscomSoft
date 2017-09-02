@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using SiscomSoft.Models;
 using System.Data.Entity;
+using System.Linq;
 
 namespace SiscomSoft.Controller
 {

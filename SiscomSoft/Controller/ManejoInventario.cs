@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using SiscomSoft.Models;
 using System.Data.Entity;
 
@@ -10,6 +9,12 @@ namespace SiscomSoft.Controller
 {
    public class ManejoInventario
     {
+        /// <summary>
+        /// Funcion encargada de buscar todos los registros de la base de datos dandole un nombre y status(activo)
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <param name="Status">variable de tipo boolean</param>
+        /// <returns>retorna una ilsta de tipo Inventario</returns>
         public static List<Inventario> Buscar(string valor, Boolean Status)
         {
             try
@@ -25,6 +30,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de obtener un registro mediante la id del usuario logeado
+        /// </summary>
+        /// <param name="pkUsuario">variable de tipo entera</param>
+        /// <returns></returns>
         public static Inventario getByUser(int pkUsuario)
         {
             try
@@ -43,6 +54,10 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="nInventario"></param>
         public static void RegistrarNuevoInventario(Inventario nInventario)
         {
             try
@@ -60,23 +75,10 @@ namespace SiscomSoft.Controller
             }
         }
 
-        /*public static Inventario getProductoByInventario(int pk)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    return ctx.Inventarios.Include("fkProducto")
-                        .Where(r => r.fkProducto.pkProducto == pk).FirstOrDefault();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }*/
-
+        /// <summary>
+        /// Funcion encargada de modificar un registro de la base de datos
+        /// </summary>
+        /// <param name="nInventario"></param>
         public static void Modificar(Inventario nInventario)
         {
             try
@@ -94,6 +96,10 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de contar todos los registros de la tabla Inventario y asignarlo como folio
+        /// </summary>
+        /// <returns></returns>
         public static string Folio()
         {
             try
@@ -111,6 +117,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de obtener un registro mediante un id
+        /// </summary>
+        /// <param name="pkInventario">variable de tipo entera</param>
+        /// <returns></returns>
         public static Inventario getById(int pkInventario)
         {
             try

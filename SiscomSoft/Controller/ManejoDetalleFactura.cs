@@ -10,6 +10,10 @@ namespace SiscomSoft.Controller
 {
     public class ManejoDetalleFactura
     {
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="nDetalleFactura"></param>
         public static void Guardar(DetalleFactura nDetalleFactura)
         {
             try

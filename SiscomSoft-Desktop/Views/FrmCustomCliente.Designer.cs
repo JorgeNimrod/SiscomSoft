@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCustomCliente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblFecha = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -160,10 +160,6 @@
             this.btnNuevoCliente = new System.Windows.Forms.Button();
             this.btnEditarCliente = new System.Windows.Forms.Button();
             this.dgvAllClientes = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionarCliente = new System.Windows.Forms.Button();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.k = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colonia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -171,6 +167,11 @@
             this.interior = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iNumExterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telMovil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSeleccionarCliente = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlNewCliente.SuspendLayout();
             this.gpbSaveCliente.SuspendLayout();
@@ -1017,7 +1018,6 @@
             this.txtUpdatePais.Name = "txtUpdatePais";
             this.txtUpdatePais.Size = new System.Drawing.Size(168, 24);
             this.txtUpdatePais.TabIndex = 215;
-            this.txtUpdatePais.Text = "REPUBLICA CHEKA";
             // 
             // cmbUpdateStatus
             // 
@@ -1068,7 +1068,6 @@
             this.txtUpdateCorreo.Name = "txtUpdateCorreo";
             this.txtUpdateCorreo.Size = new System.Drawing.Size(244, 24);
             this.txtUpdateCorreo.TabIndex = 231;
-            this.txtUpdateCorreo.Text = "luis.fede23@hotmail.com";
             // 
             // label95
             // 
@@ -1189,7 +1188,6 @@
             this.txtUpdateTelMovil.Name = "txtUpdateTelMovil";
             this.txtUpdateTelMovil.Size = new System.Drawing.Size(116, 24);
             this.txtUpdateTelMovil.TabIndex = 224;
-            this.txtUpdateTelMovil.Text = "6621568798";
             this.txtUpdateTelMovil.TextChanged += new System.EventHandler(this.txtUpdateTelMovil_TextChanged);
             // 
             // label101
@@ -1207,7 +1205,6 @@
             this.txtUpdateTelFijo.Name = "txtUpdateTelFijo";
             this.txtUpdateTelFijo.Size = new System.Drawing.Size(91, 24);
             this.txtUpdateTelFijo.TabIndex = 225;
-            this.txtUpdateTelFijo.Text = "2326598";
             // 
             // label102
             // 
@@ -1274,7 +1271,6 @@
             this.txtUpdateColonia.Name = "txtUpdateColonia";
             this.txtUpdateColonia.Size = new System.Drawing.Size(197, 24);
             this.txtUpdateColonia.TabIndex = 219;
-            this.txtUpdateColonia.Text = "REAL DEL CATORCE";
             this.txtUpdateColonia.TextChanged += new System.EventHandler(this.txtUpdateColonia_TextChanged);
             // 
             // label106
@@ -1308,7 +1304,6 @@
             this.txtUpdateMunicipio.Name = "txtUpdateMunicipio";
             this.txtUpdateMunicipio.Size = new System.Drawing.Size(155, 24);
             this.txtUpdateMunicipio.TabIndex = 218;
-            this.txtUpdateMunicipio.Text = "HERMOSILLO";
             // 
             // label108
             // 
@@ -1325,7 +1320,6 @@
             this.txtUpdateEstado.Name = "txtUpdateEstado";
             this.txtUpdateEstado.Size = new System.Drawing.Size(161, 24);
             this.txtUpdateEstado.TabIndex = 217;
-            this.txtUpdateEstado.Text = "AGUASCALIENTES";
             // 
             // label109
             // 
@@ -1342,7 +1336,6 @@
             this.txtUpdateCP.Name = "txtUpdateCP";
             this.txtUpdateCP.Size = new System.Drawing.Size(111, 24);
             this.txtUpdateCP.TabIndex = 216;
-            this.txtUpdateCP.Text = "83220";
             // 
             // label110
             // 
@@ -1368,7 +1361,6 @@
             this.txtUpdateNombre.Name = "txtUpdateNombre";
             this.txtUpdateNombre.Size = new System.Drawing.Size(308, 24);
             this.txtUpdateNombre.TabIndex = 214;
-            this.txtUpdateNombre.Text = "LUIS FRANCISCO FELIX DESSENS";
             this.txtUpdateNombre.TextChanged += new System.EventHandler(this.txtUpdateNombre_TextChanged);
             // 
             // label112
@@ -1386,7 +1378,6 @@
             this.txtUpdateCURP.Name = "txtUpdateCURP";
             this.txtUpdateCURP.Size = new System.Drawing.Size(173, 24);
             this.txtUpdateCURP.TabIndex = 213;
-            this.txtUpdateCURP.Text = "LKA210201HSR00";
             // 
             // label113
             // 
@@ -1435,7 +1426,6 @@
             this.txtUpdateRFC.Name = "txtUpdateRFC";
             this.txtUpdateRFC.Size = new System.Drawing.Size(182, 24);
             this.txtUpdateRFC.TabIndex = 210;
-            this.txtUpdateRFC.Text = "LKA2102014X3";
             // 
             // label116
             // 
@@ -1563,25 +1553,25 @@
             this.interior,
             this.iNumExterior,
             this.telMovil});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAllClientes.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAllClientes.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAllClientes.GridColor = System.Drawing.Color.DarkGray;
             this.dgvAllClientes.Location = new System.Drawing.Point(0, 44);
             this.dgvAllClientes.Name = "dgvAllClientes";
             this.dgvAllClientes.ReadOnly = true;
             this.dgvAllClientes.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvAllClientes.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvAllClientes.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvAllClientes.RowTemplate.Height = 50;
             this.dgvAllClientes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvAllClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1591,44 +1581,6 @@
             this.dgvAllClientes.ShowRowErrors = false;
             this.dgvAllClientes.Size = new System.Drawing.Size(1206, 595);
             this.dgvAllClientes.TabIndex = 20;
-            // 
-            // btnSeleccionarCliente
-            // 
-            this.btnSeleccionarCliente.BackColor = System.Drawing.Color.White;
-            this.btnSeleccionarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeleccionarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionarCliente.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSeleccionarCliente.Location = new System.Drawing.Point(1215, 0);
-            this.btnSeleccionarCliente.Name = "btnSeleccionarCliente";
-            this.btnSeleccionarCliente.Size = new System.Drawing.Size(131, 84);
-            this.btnSeleccionarCliente.TabIndex = 19;
-            this.btnSeleccionarCliente.Text = "Seleccionar Cliente";
-            this.btnSeleccionarCliente.UseVisualStyleBackColor = false;
-            this.btnSeleccionarCliente.Click += new System.EventHandler(this.btnSeleccionarCliente_Click);
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(142, 0);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(1064, 38);
-            this.txtBuscar.TabIndex = 1;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "BUSCAR:";
-            // 
-            // ErrorProvider
-            // 
-            this.ErrorProvider.ContainerControl = this;
             // 
             // k
             // 
@@ -1685,6 +1637,50 @@
             this.telMovil.Name = "telMovil";
             this.telMovil.ReadOnly = true;
             this.telMovil.Width = 200;
+            // 
+            // btnSeleccionarCliente
+            // 
+            this.btnSeleccionarCliente.BackColor = System.Drawing.Color.White;
+            this.btnSeleccionarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionarCliente.ForeColor = System.Drawing.Color.DimGray;
+            this.btnSeleccionarCliente.Location = new System.Drawing.Point(1215, 0);
+            this.btnSeleccionarCliente.Name = "btnSeleccionarCliente";
+            this.btnSeleccionarCliente.Size = new System.Drawing.Size(131, 84);
+            this.btnSeleccionarCliente.TabIndex = 19;
+            this.btnSeleccionarCliente.Text = "Seleccionar Cliente";
+            this.btnSeleccionarCliente.UseVisualStyleBackColor = false;
+            this.btnSeleccionarCliente.Click += new System.EventHandler(this.btnSeleccionarCliente_Click);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(142, 0);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(1064, 38);
+            this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "BUSCAR:";
+            // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmCustomCliente
             // 
@@ -1869,5 +1865,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn interior;
         private System.Windows.Forms.DataGridViewTextBoxColumn iNumExterior;
         private System.Windows.Forms.DataGridViewTextBoxColumn telMovil;
+        private System.Windows.Forms.Timer timer1;
     }
 }

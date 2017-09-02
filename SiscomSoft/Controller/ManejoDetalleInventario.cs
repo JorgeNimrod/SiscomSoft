@@ -1,15 +1,17 @@
 ﻿using SiscomSoft.Models;
 using System;
-using System.Collections.Generic;
+
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SiscomSoft.Controller
 {
   public  class ManejoDetalleInventario
     {
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="nDetalleInventario"></param>
         public static void RegistrarNuevoDetalleInventario(DetalleInventario nDetalleInventario)
         {
             try
@@ -26,6 +28,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de obtener un registro mediante una id
+        /// </summary>
+        /// <param name="pkDetalle"></param>
+        /// <returns></returns>
         public static DetalleInventario getById(int pkDetalle)
         {
             try
@@ -41,6 +49,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de eliminar un registro de la base de datos mediante una id
+        /// </summary>
+        /// <param name="pkDetalle"></param>
         public static void Eliminar(int pkDetalle)
         {
             try
@@ -61,6 +74,10 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de modificar un registro de la base de datos
+        /// </summary>
+        /// <param name="nDetalle"></param>
         public static void Modificar(DetalleInventario nDetalle)
         {
             try

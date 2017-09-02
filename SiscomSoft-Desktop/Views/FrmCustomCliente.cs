@@ -17,51 +17,32 @@ namespace SiscomSoft_Desktop.Views
 {
     public partial class FrmCustomCliente : Form
     {
+        #region VARIABLES
         public static int PKCLIENTE;
         public String ImagenString { get; set; }
         public Bitmap ImagenBitmap { get; set; }
         public Boolean SaveOrCreate = false;
-        public FrmCustomCliente()
-        {
-            InitializeComponent();
-            dgvAllClientes.AutoGenerateColumns = false;
-        }
+        #endregion
 
-        private void FrmCustomCliente_Load(object sender, EventArgs e)
-        {
-            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
-            cargarClientes();
-        }
-
+        #region FUNCIONES
+        /// <summary>
+        /// Funcion encargada de cargar los clientes en el dgvAllClientes 
+        /// </summary>
         private void cargarClientes()
         {
             dgvAllClientes.DataSource = ManejoCliente.Buscar(txtBuscar.Text, 1);
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            cargarClientes();
-        }
-
-        #region ALL CLIENTES
-        private void btnSeleccionarCliente_Click(object sender, EventArgs e)
-        {
-            if (dgvAllClientes.RowCount >= 1)
-            {
-                Cliente nCliente = ManejoCliente.getById(Convert.ToInt32(dgvAllClientes.CurrentRow.Cells[0].Value));
-                FrmDetalleVentasOneToOne.mCliente = nCliente;
-                FrmDetalleVentasOneToOne v = new FrmDetalleVentasOneToOne();
-                this.Close();
-                v.ShowDialog();
-            }
-        }
-
+        /// <summary>
+        /// Funcion encargada de asignar los valores la variable local nCliente a los controles correspondientes
+        /// </summary>
         private void ActualizarCliente()
         {
-            Cliente nCliente = ManejoCliente.getById(PKCLIENTE);
+            Cliente nCliente = ManejoCliente.getById(PKCLIENTE); // Se llama a la funcion getById de ManejoCliente, se le da la variable statica PKCLIENTE y el resultado se le asigna a nCliente
+            // Se valida que las propiedades de la variable nCliente no esten vacias
             if (nCliente.sRfc != null)
             {
-                txtUpdateRFC.Text = nCliente.sRfc;
+                txtUpdateRFC.Text = nCliente.sRfc; // Se asigna el valor de sRfc a txtUpdateRFC
             }
             if (nCliente.sRazonSocial != null)
             {
@@ -124,7 +105,8 @@ namespace SiscomSoft_Desktop.Views
                 txtUpdateNumCuenta.Text = nCliente.sNumCuenta;
             }
 
-            #region status
+            #region status 
+            // Se valida el iStatus y se incializa el cmbUpdateStatus segun la validacion
             if (nCliente.iStatus == 1)
             {
                 cmbUpdateStatus.SelectedIndex = 0;
@@ -146,6 +128,7 @@ namespace SiscomSoft_Desktop.Views
             if (nCliente.sTipoPago != null)
             {
                 #region tipo pago
+                // Se valida el sTipoPago y se incializa el cmbUpdateTipoPago segun la validacion
                 if (nCliente.sTipoPago == "1")
                 {
                     cmbUpdateTipoPago.SelectedIndex = 0;
@@ -245,29 +228,63 @@ namespace SiscomSoft_Desktop.Views
                 pcbUpdateFoto.Image = ToolImagen.Base64StringToBitmap(nCliente.sLogo);
             }
         }
+        #endregion
 
+        #region MAIN
+        public FrmCustomCliente()
+        {
+            InitializeComponent();
+            dgvAllClientes.AutoGenerateColumns = false;
+        }
+
+        private void FrmCustomCliente_Load(object sender, EventArgs e)
+        {
+            timer1.Start(); // Se inicialisa el timer1
+            cargarClientes(); // Se llama a la funcion cargarClientes()
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            cargarClientes(); // Se llama a la funcion cargarClientes() cada vez que se cambie el texto del txtBuscar
+        }
+        #endregion
+        
+        #region ALL CLIENTES
+        private void btnSeleccionarCliente_Click(object sender, EventArgs e)
+        {
+            if (dgvAllClientes.RowCount >= 1) // Se valida que la candidad de filas en el dgvAllClientes sea igual a 1 o mayor
+            {
+                Cliente nCliente = ManejoCliente.getById(Convert.ToInt32(dgvAllClientes.CurrentRow.Cells[0].Value)); // Se llama a la funcion getById de ManejoCliente dandole el valor de la columna 0 del dgvAllClientes y el resultado se asigna a la variable nCliente
+                FrmDetalleVentasOneToOne.mCliente = nCliente; // Se asigna nCliente a la variable statica mCliente
+                FrmDetalleVentasOneToOne v = new FrmDetalleVentasOneToOne(); // Se instancia la ventana FrmDetalleVentasOneToOne
+                this.Close(); // Se cierra la ventana actual
+                v.ShowDialog(); // Se abre la ventana FrmDetalleVentasOneToOne
+            }
+        }
+        
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
-            pnlAllClientes.Visible = false;
-            pnlEditCliente.Visible = false;
-            gbCreateAccount.Visible = false;
-            pnlNewCliente.Visible = true;
-            gpbSaveCliente.Visible = true;
-            txtAddNombre.Focus();
+            pnlAllClientes.Visible = false; // Se cambia la propiedad visible del pnlAllClientes a false para no ser mostrado en la vista
+            pnlEditCliente.Visible = false; // Se cambia la propiedad visible del pnlEditCliente a false para no ser mostrado en la vista
+            gbCreateAccount.Visible = false; // Se cambia la propiedad visible del gbCreateAccount a false para no ser mostrado en la vista
+            pnlNewCliente.Visible = true; // Se cambia la propiedad visible del pnlNewCliente a false para no ser mostrado en la vista
+            gpbSaveCliente.Visible = true; // Se cambia la propiedad visible del gpbSaveCliente a false para no ser mostrado en la vista
+            txtAddNombre.Focus(); // Se inicia la propiedad focus del txtAddNombre
         }
 
         private void btnCancelarCustomClient_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmDetalleVentasOneToOne v = new Views.FrmDetalleVentasOneToOne();
-            v.ShowDialog();
+            this.Close(); // Se cierra la ventana actual  
+            FrmDetalleVentasOneToOne v = new Views.FrmDetalleVentasOneToOne(); // Se instancia la ventana FrmDetalleVentasOneToOne
+            v.ShowDialog(); // Se abre la ventana FrmDetalleVentasOneToOne
         }
 
         private void btnEditarCliente_Click(object sender, EventArgs e)
         {
-            if (dgvAllClientes.RowCount >= 1)
+            if (dgvAllClientes.RowCount >= 1) // Se valida que las filas de el dgvAllClientes sea 1 o mayor
             {
-                PKCLIENTE = Convert.ToInt32(dgvAllClientes.CurrentRow.Cells[0].Value);
+                PKCLIENTE = Convert.ToInt32(dgvAllClientes.CurrentRow.Cells[0].Value); // Se le asigna el valor de la columna 0 combertida a entero, a la variable statica PKCLIENTE
+                // Se borra el texto de todos los textBox
                 txtUpdateRFC.Clear();
                 txtUpdateRazonSocial.Clear();
                 txtUpdatePersona.Clear();
@@ -300,38 +317,39 @@ namespace SiscomSoft_Desktop.Views
         #region NEW CLIENTE
         private void txtNomCliente_TextChanged(object sender, EventArgs e)
         {
-            ErrorProvider.Clear();
+            ErrorProvider.Clear(); // Se borran los valores asignados a ErrorProvider cuando el texto cambia
         }
 
         private void txtColonia_TextChanged(object sender, EventArgs e)
         {
-            ErrorProvider.Clear();
+            ErrorProvider.Clear(); // Se borran los valores asignados a ErrorProvider cuando el texto cambia
         }
 
         private void txtCalle_TextChanged(object sender, EventArgs e)
         {
-            ErrorProvider.Clear();
+            ErrorProvider.Clear(); // Se borran los valores asignados a ErrorProvider cuando el texto cambia
         }
 
         private void txtNoExterior_TextChanged(object sender, EventArgs e)
         {
-            ErrorProvider.Clear();
+            ErrorProvider.Clear(); // Se borran los valores asignados a ErrorProvider cuando el texto cambia
         }
 
         private void txtNoInterior_TextChanged(object sender, EventArgs e)
         {
-            ErrorProvider.Clear();
+            ErrorProvider.Clear(); // Se borran los valores asignados a ErrorProvider cuando el texto cambia
         }
 
         private void txtTelMovil_TextChanged(object sender, EventArgs e)
         {
-            ErrorProvider.Clear();
+            ErrorProvider.Clear(); // Se borran los valores asignados a ErrorProvider cuando el texto cambia
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (SaveOrCreate != true)
+            if (SaveOrCreate != true) // Se valida que la variable SaveOrCrete no sea false
             {
+                // Se valida que los textBox esten vacios
                 if (this.txtAddNombre.Text == "")
                 {
                     this.ErrorProvider.SetIconAlignment(this.txtAddNombre, ErrorIconAlignment.MiddleRight);
@@ -364,6 +382,7 @@ namespace SiscomSoft_Desktop.Views
                 }
                 else
                 {
+                    
                     Cliente nCliente = new Cliente();
                     nCliente.sNombre = txtAddNombre.Text;
                     nCliente.sColonia = txtAddColonia.Text;
@@ -1181,5 +1200,9 @@ namespace SiscomSoft_Desktop.Views
         }
         #endregion
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+        }
     }
 }

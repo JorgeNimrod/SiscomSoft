@@ -43,7 +43,8 @@ namespace SiscomSoft_Desktop.Views
         }
         private void CargarExistencias()
         {
-            List<Existencia> lsExistencia = ManejoExistencia.BuscarProducto(txtBuscarDetalle.Text);
+            //ManejoExistencia.BuscarProducto(txtBuscarDetalle.Text);
+            List<Existencia> lsExistencia = null;
 
             if (lsExistencia != null)
             {

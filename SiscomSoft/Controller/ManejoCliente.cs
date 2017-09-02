@@ -222,7 +222,7 @@ namespace SiscomSoft.Controller
             {
                 using (var ctx = new DataModel())
                 {
-                    return ctx.Clientes.Where(r => r.iStatus == Status && r.sNombre.Contains(valor)).ToList();
+                    return ctx.Clientes.Where(r => r.iStatus == Status && r.sNombre.Contains(nombre)).ToList();
                 }
             }
             catch (Exception)

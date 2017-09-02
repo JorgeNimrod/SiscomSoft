@@ -11,6 +11,10 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoPreferencia
     {
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="nPreferencia">variable de tipo modelo Preferencia</param>
         public static void RegistrarNuevaPreferencia(Preferencia nPreferencia)
         {
             try
@@ -27,6 +31,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de obtener un registro mediante una id
+        /// </summary>
+        /// <param name="pkPreferencia">variable de tipo entera</param>
+        /// <returns></returns>
         public static Preferencia getById(int pkPreferencia)
         {
             try
@@ -42,6 +52,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de eliminar un registro de la base de datos mediante una id
+        /// </summary>
+        /// <param name="pkPreferencia">variable de tipo entera</param>
         public static void Eliminar(int pkPreferencia)
         {
             try
@@ -61,6 +76,13 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de buscar todos los registro de la tabla preferencia dandole un numero de serie y un status(activo)
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <param name="Status">variable de tipo boolean</param>
+        /// <returns></returns>
         public static List<Preferencia> Buscar(string valor, Boolean Status)
         {
             try
@@ -76,6 +98,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de modificar un registro de la base de datos
+        /// </summary>
+        /// <param name="nPreferencia">variable de tipo modelo Preferencia</param>
         public static void Modificar(Preferencia nPreferencia)
         {
             try
@@ -93,6 +120,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de obtener todos los registros dandole un statis(activo) de la base de datos y retornar una lista de los mismos.
+        /// </summary>
+        /// <param name="status">variable de tipo boolean</param>
+        /// <returns></returns>
         public static List<Preferencia> getAll(Boolean status)
         {
             try

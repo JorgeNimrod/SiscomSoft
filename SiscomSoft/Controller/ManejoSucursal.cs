@@ -11,6 +11,11 @@ namespace SiscomSoft.Controller
 {
    public class ManejoSucursal
     {
+        /// <summary>
+        /// Funcion encargada de retornar una lista de colonias registradas en la base de datos mandandole un nombre
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <returns>retorna una lista de tipo string</returns>
         public static List<string> getColonias(string valor)
         {
             List<string> Colonias = new List<string>();
@@ -32,6 +37,11 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de retornar una lista de Municipios registradas en la base de datos mandandole un nombre
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <returns>retorna una lista de tipo string</returns>
         public static List<string> getMunicipios(string valor)
         {
             List<string> Municipios = new List<string>();
@@ -53,6 +63,11 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de retornar una lista de Estados registradas en la base de datos mandandole un nombre
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <returns>retorna una lista de tipo string</returns>
         public static List<string> getEstados(string valor)
         {
 
@@ -76,6 +91,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de retornar una lista de Paises registradas en la base de datos mandandole un nombre
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <returns>retorna una lista de tipo string</returns>
         public static List<string> getPaises(string valor)
         {
             List<string> Paises = new List<string>();
@@ -97,6 +118,13 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="nSucursal">variable de tipo modelo Sucursal</param>
+        /// <param name="nEmpresa">variable de tipo modelo Empresa</param>
+        /// <param name="nPreferencia">variable de tipo modelo Preferencia</param>
+        /// <param name="nCertificado">variable de tipo modelo CErtificado</param>
         public static void RegistrarNuevaSucursal(Sucursal nSucursal, Empresa nEmpresa, Preferencia nPreferencia, Certificado nCertificado)
         {
             try
@@ -117,6 +145,11 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de obtener un registro mediante una id
+        /// </summary>
+        /// <param name="pkSucursal">variable de tipo entera</param>
+        /// <returns></returns>
         public static Sucursal getById(int pkSucursal)
         {
             try
@@ -134,6 +167,10 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de eliminar un registro de la base de datos mediante una id
+        /// </summary>
+        /// <param name="pkSucursal"></param>
         public static void Eliminar(int pkSucursal)
         {
             try
@@ -154,6 +191,12 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de obtener todo los registros dandole un nombre y un statis(activo) y retonar una lista con los mismos.
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <param name="Status">variable de tipo boolean</param>
+        /// <returns></returns>
         public static List<Sucursal> Buscar(string valor, int Status)
         {
             try
@@ -170,6 +213,11 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de modificar un registro de la base de datos
+        /// </summary>
+        /// <param name="nSucursal">varible de tipo modelo Sucursal</param>
+        /// <param name="nEmpresa">variable de tipo modelo Empresa</param>
         public static void Modificar(Sucursal nSucursal, Empresa nEmpresa)
         {
             try
@@ -188,6 +236,11 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de obtener todos los registros dandole un statis(activo) de la base de datos y retornar una lista de los mismos.
+        /// </summary>
+        /// <param name="status">variable de tipo boolean</param>
+        /// <returns>retorna una lista de tipo modelo Sucursal</returns>
         public static List<Sucursal> getAll(int status)
         {
             try

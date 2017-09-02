@@ -24,7 +24,8 @@ namespace SiscomSoft_Desktop.Views
         string NameFile = string.Empty;
         string NameFileXML = string.Empty;
         string NameFilePDF = string.Empty;
-        Boolean dolar = false;
+        string FechaFactura = string.Empty;
+        Boolean Dolar = false;
         decimal DESCUENTO = 0;
         decimal DESCUENTOEXTRA = 0;
         decimal TIVA16 = 0;
@@ -374,7 +375,7 @@ namespace SiscomSoft_Desktop.Views
                 }
 
                 // Se valida que el valor de la variable global dolar sea true para sacar el total en dolares
-                if (dolar != false)
+                if (Dolar != false)
                 {
                     Sucursal mSucursal = ManejoSucursal.getById(FrmMenuMain.uHelper.usuario.sucursal_id);  // se busca la sucursal mediante la llave foranea que tiene el usuario logeado y se guarda en un modelo de tipo sucursal
                     TipoCambio = Convert.ToDecimal(mSucursal.sTipoCambio); // Se le da el valor a la variabe TipoCambio segun los datos del modelo sucursal
@@ -419,23 +420,28 @@ namespace SiscomSoft_Desktop.Views
         /// <summary>
         /// Funcion encargada de crear el archivo xml con los datos necesarios para la facturacion.
         /// </summary>
+        /// 
         public void GenerarFactura()
         {
             #region VARIABLES
-        NameFileXML = "ComprobanteSinTimbrar.xml";
+            NameFileXML = "ComprobanteSinTimbrar.xml";
             string MESPATH = @"C:\SiscomSoft\Facturas\XML\" + DateTime.Now.ToString("MMMM") + "," + DateTime.Now.Year;
             Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue));
             Comprobante cfdi = new Comprobante();
             Certificado mCertificado = ManejoCertificado.getById(nSucursal.certificado_id);
             Preferencia mPreferencia = ManejoPreferencia.getById(nSucursal.preferencia_id);
             Empresa mEmpresa = ManejoEmpresa.getById(nSucursal.empresa_id);
-            X509Certificate2 m_cer = new X509Certificate2(mCertificado.sRutaArch + @"\" + mCertificado.sArchCer);
+            X509Certificate2 myCer = new X509Certificate2(mCertificado.sRutaArch + @"\" + mCertificado.sArchCer);
             if (File.Exists(MESPATH + @"\" + NameFileXML))
             {
                 File.Delete(MESPATH + @"\" + NameFileXML);
                 NameFileXML = NameFileXML = txtRFC.Text + "_" + mPreferencia.sNumSerie + "_" + DateTime.Now.Day + "_" + 
                               DateTime.Now.Month + "_" + DateTime.Now.Year + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + 
                               DateTime.Now.Second + ".xml";
+            }
+            if (NameFileXML == "ComprobanteSinTimbrar.xml")
+            {
+                FechaFactura = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss");
             }
             if (!Directory.Exists(MESPATH))
             {
@@ -465,7 +471,7 @@ namespace SiscomSoft_Desktop.Views
             cfdi.Version = "3.3";
             cfdi.Serie = mPreferencia.sNumSerie;
             cfdi.Folio = txtFolio.Text;
-            cfdi.Fecha = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss");
+            cfdi.Fecha = FechaFactura;
 
             #region SELLO
             cfdi.Sello = Sello;
@@ -572,11 +578,11 @@ namespace SiscomSoft_Desktop.Views
                 cfdi.FormaPago = c_FormaPago.Item99;
                 cfdi.FormaPagoSpecified = true;
             }
-            #endregion 
+            #endregion
 
             #region CERTIFICADO
-            cfdi.NoCertificado = nSucursal.sNoCertifi;
-            cfdi.Certificado = Convert.ToBase64String(m_cer.GetRawCertData());
+            cfdi.NoCertificado = Encoding.Default.GetString(myCer.GetSerialNumber());
+            cfdi.Certificado = Convert.ToBase64String(myCer.RawData);
 
             #endregion
 
@@ -596,8 +602,11 @@ namespace SiscomSoft_Desktop.Views
                 descuentoex += Convert.ToDecimal(rDesc.Cells[20].Value);
             }
             TotalDescuento = descuento + descuentoex;
-            cfdi.Descuento = TotalDescuento;
-            cfdi.DescuentoSpecified = true;
+            if (TotalDescuento > 0)
+            {
+                cfdi.Descuento = TotalDescuento;
+                cfdi.DescuentoSpecified = true;
+            }
             #endregion
 
             #region MONEDA Y TIPO DE CAMBIO
@@ -1113,7 +1122,7 @@ namespace SiscomSoft_Desktop.Views
             Sucursal nSucursal = ManejoSucursal.getById(Convert.ToInt32(cmbSucursal.SelectedValue)); // Se busca la sucursal seleccionada mediante la id de la misma y se guarda en un modelo tipo sucursal.
             Certificado mCertificado = ManejoCertificado.getById(nSucursal.certificado_id); // Se busca el certificado mediante la llave foranea de la sucursal seleccionada y se guarda en un modelo de tipo certificado.
             X509Certificate2 m_cer = new X509Certificate2(mCertificado.sRutaArch + @"\" + mCertificado.sArchCer); // Se lee el certificado asignado a la sucursal mediante su ruta y nombre.
-            string rutaXSLT = @"http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt"; // Se asigna el valor a la variable rutaXSLT con el link de la cadena original.
+            string rutaXSLT = @"C:\SiscomSoft\cadenaoriginal_3_3.xslt"; // Se asigna el valor a la variable rutaXSLT con la ruta completa del archivo xslt de la cadena original.
             string MESPATH = @"C:\SiscomSoft\Facturas\XML\" + DateTime.Now.ToString("MMMM") + "," + DateTime.Now.Year; // Se asigna el valor a la variable MESPATH con la ruta de la carpeta del mes en donde se guardo el archivo xml
             string rutaXML = MESPATH + @"\" + NameFileXML; // Se asigna el valor a la variable rutaXML con la ruta completa del archivo xml
             String pass = mCertificado.sContrasena; //Contraseña de la llave privada
@@ -1317,7 +1326,7 @@ namespace SiscomSoft_Desktop.Views
             {
                 lbltotaldolares.Visible = false;
                 lblTotalDolar.Visible = false;
-                dolar = false;
+                Dolar = false;
             }
             else if (cmbMoneda.SelectedIndex == 1) // Se valida si el valor del cmbMoneda es 1 para asignar el tipo de cambio en dolares.
             {
@@ -1337,7 +1346,7 @@ namespace SiscomSoft_Desktop.Views
                     lbltotaldolares.Visible = true; // Se cambia la propiedad visible del lbltotaldolares para que se muestre en la vista
                     lblTotalDolar.Visible = true; // Se cambia la propiedad visible del lblTotalDolar para que se muestre en la vista
                     lblTotalDolar.Text = TotalDolar.ToString("N"); // Se le da el valor al lblTotalDolar segun el valor de la variable TotalDolar
-                    dolar = true; // Se cambia el valor de la variable global dolar a falso
+                    Dolar = true; // Se cambia el valor de la variable global dolar a falso
                 }
                 else
                 {
@@ -1581,7 +1590,7 @@ namespace SiscomSoft_Desktop.Views
                                     }
 
                                     // Se valida que el valor de la variable global dolar sea true para sacar el total en dolares
-                                    if (dolar != false)
+                                    if (Dolar != false)
                                     {
                                         Sucursal mSucursal = ManejoSucursal.getById(FrmMenuMain.uHelper.usuario.sucursal_id);  // se busca la sucursal mediante la llave foranea que tiene el usuario logeado y se guarda en un modelo de tipo sucursal
                                         TipoCambio = Convert.ToDecimal(mSucursal.sTipoCambio); // Se le da el valor a la variabe TipoCambio segun los datos del modelo sucursal

@@ -11,6 +11,11 @@ namespace SiscomSoft.Controller
 {
   public  class ManejoProducto
     {
+        /// <summary>
+        /// Funcion encargada de obtener todos los registros de la tabla producto dandole un nombre 
+        /// </summary>
+        /// <param name="valor">variabe de tipo string</param>
+        /// <returns>retorna una lista de tipo string</returns>
         public static List<string> getProductosRegistrados(string valor)
         {
             List<string> productos = new List<string>();
@@ -32,7 +37,11 @@ namespace SiscomSoft.Controller
             }
         }
 
-
+        /// <summary>
+        /// Funcion encargada de obtener todos los registros de la tabla productos dandole una id
+        /// </summary>
+        /// <param name="pkProducto">variable de tipo entera</param>
+        /// <returns>retorna una lista de tipo Productos</returns>
         public static List<Producto> getByIDList(int pkProducto)
         {
             try
@@ -49,6 +58,13 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="nProducto">variable de tipo modelo producto</param>
+        /// <param name="pkPrecio">variable de tipo entera</param>
+        /// <param name="pkCategoria">>variable de tipo entera</param>
+        /// <param name="pkCatalogo">>variable de tipo entera</param>
         public static void RegistrarNuevoProducto(Producto nProducto,int pkPrecio, int pkCategoria,int pkCatalogo)
         {
             try
@@ -68,6 +84,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de obtener un registro mediante una id
+        /// </summary>
+        /// <param name="pkProducto">variable de tipo entera</param>
+        /// <returns></returns>
         public static Producto getById(int pkProducto)
         {
             try
@@ -85,6 +107,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de eliminar un registro de la base de datos mediante una id
+        /// </summary>
+        /// <param name="pkProducto"></param>
         public static void Eliminar(int pkProducto)
         {
             try
@@ -104,6 +131,13 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+        
+        /// <summary>
+        /// Funcion encargada de buscar todos los registros de la tabla Productos dandole una nobre y un status(activo)
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <param name="Status">variable de tipo boolean</param>
+        /// <returns>retorna una lista de tipo Producto</returns>
         public static List<Producto> Buscar(string valor, Boolean Status)
         {
             try
@@ -121,7 +155,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-
+        
+        /// <summary>
+        /// Funcion encargada de buscar un producto dandole un nombre 
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <returns></returns>
         public static Producto Buscar(string valor)
         {
             try
@@ -140,6 +179,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de modificar un registro de la base de datos
+        /// </summary>
+        /// <param name="nProducto">variable de tipo modelo producto</param>
         public static void Modificar(Producto nProducto)
         {
             try
@@ -157,21 +201,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-        public static Impuesto getById2(int pkImpuesto)
-        {
-            try
-            {
-                using (var ctx = new DataModel())
-                {
-                    return ctx.Impuestos.Where(r => r.bStatus == true && r.idImpuesto == pkImpuesto).FirstOrDefault();
-                }
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
-        }
+        /// <summary>
+        /// Funcion encargada de obtener todos los registros dandole un statis(activo) de la base de datos y retornar una lista de los mismos.
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
         public static List<Producto> getAll(Boolean status)
         {
             try
@@ -187,6 +222,12 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de obtener todos los productos por su categoria dandole un nombre y una llave foranea de categoria
+        /// </summary>
+        /// <param name="valor">variable de tipo string</param>
+        /// <param name="pkCategoria">variable de tipo entera</param>
+        /// <returns>retorna una lista de productos por categoria</returns>
         public static List<Producto> BuscarProductoCategoria(string valor, int pkCategoria)
         {
             try
@@ -203,6 +244,5 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-
     }
 }

@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using SiscomSoft.Models;
 using System.Data.Entity;
-using SiscomSoft.Controller.Helpers;
-using SiscomSoft.Comun;
 
 namespace SiscomSoft.Controller
 {
    public class ManejoPrecio
     {
+        /// <summary>
+        /// Funcion encargada de obtener todos los registros activos de la base de datos y retornar una lista de los mismos.
+        /// </summary>
+        /// <returns></returns>
         public static List<Precio> getAll()
         {
             try
@@ -26,6 +27,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de obtener un registro mediante una id
+        /// </summary>
+        /// <param name="pkPrecio">variable de tipo entera</param>
+        /// <returns></returns>
         public static Precio getById(int pkPrecio)
         {
             try
@@ -41,6 +48,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="nPrecio">variable de tipo modelo Precio</param>
         public static void RegistrarNuevoPrecio(Precio nPrecio)
         {
             try
@@ -57,6 +69,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de eliminar un registro de la base de datos mediante una id
+        /// </summary>
+        /// <param name="pkPrecio">variable de tipo entera</param>
         public static void Eliminar(int pkPrecio)
         {
             try
@@ -76,7 +93,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
-       
+
+        /// <summary>
+        /// Funcion encargada de modificar un registro de la base de datos
+        /// </summary>
+        /// <param name="nPrecio">variable de tipo modelo Precio</param>
         public static void Modificar(Precio nPrecio)
         {
             try
@@ -94,6 +115,12 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de buscar todos los registros en la tabla precio dandole un porcentaje
+        /// </summary>
+        /// <param name="pkPrecio">variable de tipo entera</param>
+        /// <returns></returns>
         public static List<Precio> BuscarporPrecio(int pkPrecio)
         {
             try

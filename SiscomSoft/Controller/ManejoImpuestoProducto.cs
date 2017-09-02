@@ -11,6 +11,11 @@ namespace SiscomSoft.Controller
 {
     public class ManejoImpuestoProducto
     {
+        /// <summary>
+        /// Funcion encargada de obtener un registro mediante una id
+        /// </summary>
+        /// <param name="pkProducto">variable de tipo entera</param>
+        /// <returns></returns>
         public static List<ImpuestoProducto> getById(int pkProducto)
         {
             try
@@ -29,6 +34,11 @@ namespace SiscomSoft.Controller
             }
         }
 
+        /// <summary>
+        /// Funcion encargada de guardar un nuevo registro en la base de datos
+        /// </summary>
+        /// <param name="pkImpuesto">variable de tipo entera</param>
+        /// <param name="pkProducto">variable de tipo entera</param>
         public static void registrarImpuestoProducto(int pkImpuesto, int pkProducto)
         {
             try
@@ -48,6 +58,11 @@ namespace SiscomSoft.Controller
                 throw;
             }
         }
+
+        /// <summary>
+        /// Funcion encargada de modificar un registro de la base de datos
+        /// </summary>
+        /// <param name="nImp">variable de tipo modelo ImpuestoProducto</param>
         public static void Modificar(ImpuestoProducto nImp)
         {
             try
