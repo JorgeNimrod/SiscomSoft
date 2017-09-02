@@ -213,7 +213,7 @@ namespace SiscomSoft.Controller
         /// <summary>
         /// Funcion encargada de obtener todo los registros dandole un nombre y un statis(activo) y retonar una lista con los mismos.
         /// </summary>
-        /// <param name="valor">variable de tipo string</param>
+        /// <param name="nombre">variable de tipo string</param>
         /// <param name="Status">variable de tipo boolean</param>
         /// <returns></returns>
         public static List<Cliente> Buscar(string nombre, int Status)

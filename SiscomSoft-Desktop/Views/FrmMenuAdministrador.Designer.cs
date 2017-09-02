@@ -53,12 +53,6 @@
             this.btnActualizarProducto = new System.Windows.Forms.Button();
             this.btnBorrarProducto = new System.Windows.Forms.Button();
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
-            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dPreVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRegistroProducto = new System.Windows.Forms.Label();
             this.ckbStatusProducto = new System.Windows.Forms.CheckBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
@@ -92,9 +86,6 @@
             this.lblRegistroCat = new System.Windows.Forms.Label();
             this.ckbStatusCategoria = new System.Windows.Forms.CheckBox();
             this.dgvDatosCategoria = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarCategoria = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tbpUsuario = new System.Windows.Forms.TabPage();
@@ -702,6 +693,15 @@
             this.btnTeclado = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label43 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pkProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iClaveProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dPreVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlPrincipal.SuspendLayout();
             this.pnlProducto.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
@@ -1185,51 +1185,6 @@
             this.dgvDatosProducto.DataSourceChanged += new System.EventHandler(this.dgvDatosProducto_DataSourceChanged);
             this.dgvDatosProducto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosProducto_CellDoubleClick);
             // 
-            // pkProductos
-            // 
-            this.pkProductos.DataPropertyName = "idProducto";
-            this.pkProductos.HeaderText = "Producto";
-            this.pkProductos.Name = "pkProductos";
-            this.pkProductos.ReadOnly = true;
-            // 
-            // iClaveProd
-            // 
-            this.iClaveProd.DataPropertyName = "iClaveProd";
-            this.iClaveProd.HeaderText = "Clave";
-            this.iClaveProd.Name = "iClaveProd";
-            this.iClaveProd.ReadOnly = true;
-            this.iClaveProd.Width = 150;
-            // 
-            // sDescripcion
-            // 
-            this.sDescripcion.DataPropertyName = "sDescripcion";
-            this.sDescripcion.HeaderText = "Descripcion";
-            this.sDescripcion.Name = "sDescripcion";
-            this.sDescripcion.ReadOnly = true;
-            this.sDescripcion.Width = 200;
-            // 
-            // sMarca
-            // 
-            this.sMarca.DataPropertyName = "sMarca";
-            this.sMarca.HeaderText = "Marca";
-            this.sMarca.Name = "sMarca";
-            this.sMarca.ReadOnly = true;
-            this.sMarca.Width = 150;
-            // 
-            // dCosto
-            // 
-            this.dCosto.DataPropertyName = "dCosto";
-            this.dCosto.HeaderText = "Costo";
-            this.dCosto.Name = "dCosto";
-            this.dCosto.ReadOnly = true;
-            // 
-            // dPreVenta
-            // 
-            this.dPreVenta.DataPropertyName = "dPreVenta";
-            this.dPreVenta.HeaderText = "Precio de Venta";
-            this.dPreVenta.Name = "dPreVenta";
-            this.dPreVenta.ReadOnly = true;
-            // 
             // lblRegistroProducto
             // 
             this.lblRegistroProducto.AutoSize = true;
@@ -1621,30 +1576,6 @@
             this.dgvDatosCategoria.TabIndex = 67;
             this.dgvDatosCategoria.DataSourceChanged += new System.EventHandler(this.dgvDatosCategoria_DataSourceChanged);
             this.dgvDatosCategoria.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCategoria_CellDoubleClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "idCategoria";
-            this.id.HeaderText = "No";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 150;
-            // 
-            // Categoria
-            // 
-            this.Categoria.DataPropertyName = "sNombre";
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 220;
-            // 
-            // SubCategoria
-            // 
-            this.SubCategoria.DataPropertyName = "sNomSubCat";
-            this.SubCategoria.HeaderText = "SubCategoria";
-            this.SubCategoria.Name = "SubCategoria";
-            this.SubCategoria.ReadOnly = true;
-            this.SubCategoria.Width = 220;
             // 
             // txtBuscarCategoria
             // 
@@ -2733,7 +2664,7 @@
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombreUsuario.Location = new System.Drawing.Point(333, 49);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
@@ -2966,7 +2897,7 @@
             // 
             // txtUpdateNameUser
             // 
-            this.txtUpdateNameUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtUpdateNameUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUpdateNameUser.Location = new System.Drawing.Point(332, 49);
             this.txtUpdateNameUser.Name = "txtUpdateNameUser";
@@ -3078,7 +3009,7 @@
             this.tbpAddProducto.TabIndex = 14;
             this.tbpAddProducto.Text = "Registrar Producto";
             this.tbpAddProducto.UseVisualStyleBackColor = true;
-            this.tbpAddProducto.Click += new System.EventHandler(this.tbpAddProducto_Click);
+    
             // 
             // cbxAddProdCategoria
             // 
@@ -3443,7 +3374,7 @@
             this.tbpUpdateProducto.TabIndex = 15;
             this.tbpUpdateProducto.Text = "Actualizar Producto";
             this.tbpUpdateProducto.UseVisualStyleBackColor = true;
-            this.tbpUpdateProducto.Click += new System.EventHandler(this.tbpUpdateProducto_Click);
+        
             // 
             // cbxUpdateCategoriaProd
             // 
@@ -3919,7 +3850,7 @@
             this.btnActualizarEmpresa.BackColor = System.Drawing.Color.DarkCyan;
             this.btnActualizarEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarEmpresa.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_update_white_24dp_2x;
-            this.btnActualizarEmpresa.Location = new System.Drawing.Point(1030, 118);
+            this.btnActualizarEmpresa.Location = new System.Drawing.Point(1030, 199);
             this.btnActualizarEmpresa.Name = "btnActualizarEmpresa";
             this.btnActualizarEmpresa.Size = new System.Drawing.Size(100, 75);
             this.btnActualizarEmpresa.TabIndex = 24;
@@ -3931,7 +3862,7 @@
             this.btnBorrarEmpresa.BackColor = System.Drawing.Color.DarkCyan;
             this.btnBorrarEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrarEmpresa.Image = global::SiscomSoft_Desktop.Properties.Resources.ic_delete_forever_white_24dp_2x;
-            this.btnBorrarEmpresa.Location = new System.Drawing.Point(1030, 201);
+            this.btnBorrarEmpresa.Location = new System.Drawing.Point(1030, 118);
             this.btnBorrarEmpresa.Name = "btnBorrarEmpresa";
             this.btnBorrarEmpresa.Size = new System.Drawing.Size(100, 75);
             this.btnBorrarEmpresa.TabIndex = 25;
@@ -4947,7 +4878,7 @@
             this.dgvDatosCliente.Size = new System.Drawing.Size(955, 473);
             this.dgvDatosCliente.TabIndex = 37;
             this.dgvDatosCliente.DataSourceChanged += new System.EventHandler(this.dgvDatosCliente_DataSourceChanged);
-            this.dgvDatosCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCliente_CellContentClick);
+         
             this.dgvDatosCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosCliente_CellDoubleClick_1);
             // 
             // pkClientes
@@ -8439,7 +8370,76 @@
     "________________________________________________________________________________" +
     "____";
             // 
-            // FrmAdministrador
+            // id
+            // 
+            this.id.DataPropertyName = "idCategoria";
+            this.id.HeaderText = "No";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 150;
+            // 
+            // Categoria
+            // 
+            this.Categoria.DataPropertyName = "sNomCat";
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 220;
+            // 
+            // SubCategoria
+            // 
+            this.SubCategoria.DataPropertyName = "sNomSubCat";
+            this.SubCategoria.HeaderText = "SubCategoria";
+            this.SubCategoria.Name = "SubCategoria";
+            this.SubCategoria.ReadOnly = true;
+            this.SubCategoria.Width = 220;
+            // 
+            // pkProductos
+            // 
+            this.pkProductos.DataPropertyName = "idProducto";
+            this.pkProductos.HeaderText = "Producto";
+            this.pkProductos.Name = "pkProductos";
+            this.pkProductos.ReadOnly = true;
+            // 
+            // iClaveProd
+            // 
+            this.iClaveProd.DataPropertyName = "sClaveProd";
+            this.iClaveProd.HeaderText = "Clave";
+            this.iClaveProd.Name = "iClaveProd";
+            this.iClaveProd.ReadOnly = true;
+            this.iClaveProd.Width = 150;
+            // 
+            // sDescripcion
+            // 
+            this.sDescripcion.DataPropertyName = "sDescripcion";
+            this.sDescripcion.HeaderText = "Descripcion";
+            this.sDescripcion.Name = "sDescripcion";
+            this.sDescripcion.ReadOnly = true;
+            this.sDescripcion.Width = 200;
+            // 
+            // sMarca
+            // 
+            this.sMarca.DataPropertyName = "sMarca";
+            this.sMarca.HeaderText = "Marca";
+            this.sMarca.Name = "sMarca";
+            this.sMarca.ReadOnly = true;
+            this.sMarca.Width = 150;
+            // 
+            // dCosto
+            // 
+            this.dCosto.DataPropertyName = "dCosto";
+            this.dCosto.HeaderText = "Costo";
+            this.dCosto.Name = "dCosto";
+            this.dCosto.ReadOnly = true;
+            // 
+            // dPreVenta
+            // 
+            this.dPreVenta.DataPropertyName = "dPreVenta";
+            this.dPreVenta.HeaderText = "Precio de Venta";
+            this.dPreVenta.Name = "dPreVenta";
+            this.dPreVenta.ReadOnly = true;
+            // 
+            // FrmMenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -8460,7 +8460,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "FrmAdministrador";
+            this.Name = "FrmMenuAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmAdministrador_Load);
@@ -9205,9 +9205,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn PimaryKey;
         private System.Windows.Forms.DataGridViewTextBoxColumn sTipoImpuestos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Impuesto;
@@ -9237,12 +9234,6 @@
         private System.Windows.Forms.TextBox txtAddCodigoPSucu;
         private System.Windows.Forms.TextBox txtCodigoPostal;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dPreVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkPrecios;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn iPrePorcen;
@@ -9267,5 +9258,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn abr;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iClaveProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dPreVenta;
     }
 }
